@@ -2,11 +2,10 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
-{
+public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1 {
 
     public int anInt1566;
-    public boolean aBooleanArray1567[];
+    public boolean[] aBooleanArray1567;
     public int anInt1568;
     public boolean aBoolean1569;
     public int anInt1570;
@@ -51,11 +50,11 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
     public int anInt1609;
     public int pulseCycle;
     public int anInt1611;
-    public int anIntArray1612[];
-    public int anIntArray1613[];
-    public int anIntArray1614[];
-    public int anIntArray1615[];
-    public int anIntArray1616[];
+    public int[] anIntArray1612;
+    public int[] anIntArray1613;
+    public int[] anIntArray1614;
+    public int[] anIntArray1615;
+    public int[] anIntArray1616;
     public int anInt1617;
     public int anInt1618;
     public int anInt1619;
@@ -63,196 +62,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
     public int anInt1621;
     public int anInt1622;
 
-    public void method290(byte byte0)
-    {
-        try
-        {
-            anInt1591 = 0;
-            anInt1619 = 0;
-            if(byte0 != 5)
-            {
-                aBoolean1608 = !aBoolean1608;
-                return;
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("61562, " + byte0 + ", " + runtimeexception.toString());
-            throw new RuntimeException();
-        }
-    }
-
-    public boolean method291(boolean flag)
-    {
-        try
-        {
-            if(!flag)
-            {
-                aBoolean1574 = !aBoolean1574;
-            }
-            return false;
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
-    }
-
-    public void method292(int i, int j, boolean flag)
-    {
-        try
-        {
-            int k = anIntArray1615[0];
-            int l = anIntArray1616[0];
-            if(i == 0)
-            {
-                k--;
-                l++;
-            }
-            if(i == 1)
-            {
-                l++;
-            }
-            if(i == 2)
-            {
-                k++;
-                l++;
-            }
-            if(i == 3)
-            {
-                k--;
-            }
-            if(i == 4)
-            {
-                k++;
-            }
-            if(i == 5)
-            {
-                k--;
-                l--;
-            }
-            if(i == 6)
-            {
-                l--;
-            }
-            if(i == 7)
-            {
-                k++;
-                l--;
-            }
-            if(anInt1597 != -1 && Class50.aClass50Array800[anInt1597].anInt813 == 1)
-            {
-                anInt1597 = -1;
-            }
-            if(anInt1591 < 9)
-            {
-                anInt1591++;
-            }
-            for(int i1 = anInt1591; i1 > 0; i1--)
-            {
-                anIntArray1615[i1] = anIntArray1615[i1 - 1];
-                anIntArray1616[i1] = anIntArray1616[i1 - 1];
-                aBooleanArray1567[i1] = aBooleanArray1567[i1 - 1];
-            }
-            if(j <= 0)
-            {
-                return;
-            } else
-            {
-                anIntArray1615[0] = k;
-                anIntArray1616[0] = l;
-                aBooleanArray1567[0] = flag;
-                return;
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
-    }
-
-    public void method293(int i, boolean flag, int j, int k)
-    {
-        try
-        {
-            for(int l = 0; l < 4; l++)
-            {
-                if(anIntArray1614[l] <= j)
-                {
-                    anIntArray1612[l] = i;
-                    anIntArray1613[l] = k;
-                    anIntArray1614[l] = j + 70;
-                    return;
-                }
-            }
-            if(!flag)
-            {
-                return;
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
-            throw new RuntimeException();
-        }
-    }
-
-    public void method294(boolean flag, int i, int j, byte byte0)
-    {
-        try
-        {
-            if(anInt1597 != -1 && Class50.aClass50Array800[anInt1597].anInt813 == 1)
-            {
-                anInt1597 = -1;
-            }
-            if(!flag)
-            {
-                int k = i - anIntArray1615[0];
-                int l = j - anIntArray1616[0];
-                if(k >= -8 && k <= 8 && l >= -8 && l <= 8)
-                {
-                    if(anInt1591 < 9)
-                    {
-                        anInt1591++;
-                    }
-                    for(int i1 = anInt1591; i1 > 0; i1--)
-                    {
-                        anIntArray1615[i1] = anIntArray1615[i1 - 1];
-                        anIntArray1616[i1] = anIntArray1616[i1 - 1];
-                        aBooleanArray1567[i1] = aBooleanArray1567[i1 - 1];
-                    }
-                    anIntArray1615[0] = i;
-                    anIntArray1616[0] = j;
-                    aBooleanArray1567[0] = false;
-                    return;
-                }
-            }
-            anInt1591 = 0;
-            anInt1619 = 0;
-            anInt1568 = 0;
-            anIntArray1615[0] = i;
-            if(byte0 != 103)
-            {
-                return;
-            } else
-            {
-                anIntArray1616[0] = j;
-                anInt1587 = anIntArray1615[0] * 128 + anInt1611 * 64;
-                anInt1588 = anIntArray1616[0] * 128 + anInt1611 * 64;
-                return;
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
-    }
-
-    public Class13_Sub1_Sub1_Sub6()
-    {
+    public Class13_Sub1_Sub1_Sub6() {
         aBooleanArray1567 = new boolean[10];
         aBoolean1569 = false;
         anInt1570 = -1;
@@ -278,5 +88,148 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         anIntArray1616 = new int[10];
         anInt1618 = 32;
         anInt1620 = -1;
+    }
+
+    public void method290(byte byte0) {
+        try {
+            anInt1591 = 0;
+            anInt1619 = 0;
+            if (byte0 != 5) {
+                aBoolean1608 = !aBoolean1608;
+                return;
+            }
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("61562, " + byte0 + ", " + runtimeexception.toString());
+            throw new RuntimeException();
+        }
+    }
+
+    public boolean method291(boolean flag) {
+        try {
+            if (!flag) {
+                aBoolean1574 = !aBoolean1574;
+            }
+            return false;
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
+        }
+        throw new RuntimeException();
+    }
+
+    public void method292(int i, int j, boolean flag) {
+        try {
+            int k = anIntArray1615[0];
+            int l = anIntArray1616[0];
+            if (i == 0) {
+                k--;
+                l++;
+            }
+            if (i == 1) {
+                l++;
+            }
+            if (i == 2) {
+                k++;
+                l++;
+            }
+            if (i == 3) {
+                k--;
+            }
+            if (i == 4) {
+                k++;
+            }
+            if (i == 5) {
+                k--;
+                l--;
+            }
+            if (i == 6) {
+                l--;
+            }
+            if (i == 7) {
+                k++;
+                l--;
+            }
+            if (anInt1597 != -1 && Class50.aClass50Array800[anInt1597].anInt813 == 1) {
+                anInt1597 = -1;
+            }
+            if (anInt1591 < 9) {
+                anInt1591++;
+            }
+            for (int i1 = anInt1591; i1 > 0; i1--) {
+                anIntArray1615[i1] = anIntArray1615[i1 - 1];
+                anIntArray1616[i1] = anIntArray1616[i1 - 1];
+                aBooleanArray1567[i1] = aBooleanArray1567[i1 - 1];
+            }
+            if (j <= 0) {
+                return;
+            } else {
+                anIntArray1615[0] = k;
+                anIntArray1616[0] = l;
+                aBooleanArray1567[0] = flag;
+                return;
+            }
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception);
+        }
+        throw new RuntimeException();
+    }
+
+    public void method293(int i, boolean flag, int j, int k) {
+        try {
+            for (int l = 0; l < 4; l++) {
+                if (anIntArray1614[l] <= j) {
+                    anIntArray1612[l] = i;
+                    anIntArray1613[l] = k;
+                    anIntArray1614[l] = j + 70;
+                    return;
+                }
+            }
+            if (!flag) {
+                return;
+            }
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception);
+            throw new RuntimeException();
+        }
+    }
+
+    public void method294(boolean flag, int i, int j, byte byte0) {
+        try {
+            if (anInt1597 != -1 && Class50.aClass50Array800[anInt1597].anInt813 == 1) {
+                anInt1597 = -1;
+            }
+            if (!flag) {
+                int k = i - anIntArray1615[0];
+                int l = j - anIntArray1616[0];
+                if (k >= -8 && k <= 8 && l >= -8 && l <= 8) {
+                    if (anInt1591 < 9) {
+                        anInt1591++;
+                    }
+                    for (int i1 = anInt1591; i1 > 0; i1--) {
+                        anIntArray1615[i1] = anIntArray1615[i1 - 1];
+                        anIntArray1616[i1] = anIntArray1616[i1 - 1];
+                        aBooleanArray1567[i1] = aBooleanArray1567[i1 - 1];
+                    }
+                    anIntArray1615[0] = i;
+                    anIntArray1616[0] = j;
+                    aBooleanArray1567[0] = false;
+                    return;
+                }
+            }
+            anInt1591 = 0;
+            anInt1619 = 0;
+            anInt1568 = 0;
+            anIntArray1615[0] = i;
+            if (byte0 != 103) {
+                return;
+            } else {
+                anIntArray1616[0] = j;
+                anInt1587 = anIntArray1615[0] * 128 + anInt1611 * 64;
+                anInt1588 = anIntArray1616[0] * 128 + anInt1611 * 64;
+                return;
+            }
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception);
+        }
+        throw new RuntimeException();
     }
 }

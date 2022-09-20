@@ -5,13 +5,13 @@ import com.jagex.sign.Signlink;
 public class ISAACCipher {
 
     public int anInt145;
-    public int anIntArray146[];
-    public int anIntArray147[];
+    public int[] anIntArray146;
+    public int[] anIntArray147;
     public int anInt148;
     public int anInt149;
     public int anInt150;
 
-    public ISAACCipher(int i, int ai[]) {
+    public ISAACCipher(int i, int[] ai) {
         try {
             anIntArray147 = new int[256];
             anIntArray146 = new int[256];
@@ -25,7 +25,7 @@ public class ISAACCipher {
                 return;
             }
         } catch (RuntimeException runtimeException) {
-            Signlink.reportError("86621, " + i + ", " + ai + ", " + runtimeException.toString());
+            Signlink.reportError("86621, " + i + ", " + ai + ", " + runtimeException);
         }
         throw new RuntimeException();
     }

@@ -1,7 +1,6 @@
 package com.jagex;
 
-public class Class18
-{
+public class Class18 {
 
     public int anInt327;
     public int anInt328;
@@ -12,7 +11,6 @@ public class Class18
     public int anInt333;
     public byte aByte334;
 
-    public Class18()
-    {
+    public Class18() {
     }
 }

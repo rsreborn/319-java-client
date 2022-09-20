@@ -1,7 +1,6 @@
 package com.jagex;
 
-public class Class30
-{
+public class Class30 {
 
     public int anInt473;
     public int anInt474;
@@ -11,8 +10,7 @@ public class Class30
     public boolean aBoolean478;
     public int anInt479;
 
-    public Class30(int i, int j, int k, int l, int i1, int j1, boolean flag)
-    {
+    public Class30(int i, int j, int k, int l, int i1, int j1, boolean flag) {
         aBoolean478 = true;
         anInt473 = i;
         anInt474 = j;

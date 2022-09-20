@@ -1,8 +1,8 @@
 package com.jagex;
 
-public class Class5
-{
+public class Class5 {
 
+    public static int[] anIntArray105;
     public int anInt72 = 4096;
     public int anInt73 = 16;
     public int anInt74 = 258;
@@ -12,12 +12,12 @@ public class Class5
     public int anInt78 = 50;
     public int anInt79 = 4;
     public int anInt80 = 18002;
-    public byte aByteArray81[];
+    public byte[] aByteArray81;
     public int anInt82;
     public int anInt83;
     public int anInt84;
     public int anInt85;
-    public byte aByteArray86[];
+    public byte[] aByteArray86;
     public int anInt87;
     public int anInt88;
     public int anInt89;
@@ -32,28 +32,26 @@ public class Class5
     public int anInt98;
     public int anInt99;
     public int anInt100;
-    public int anIntArray101[];
+    public int[] anIntArray101;
     public int anInt102;
-    public int anIntArray103[];
-    public int anIntArray104[];
-    public static int anIntArray105[];
+    public int[] anIntArray103;
+    public int[] anIntArray104;
     public int anInt106;
-    public boolean aBooleanArray107[];
-    public boolean aBooleanArray108[];
-    public byte aByteArray109[];
-    public byte aByteArray110[];
-    public int anIntArray111[];
-    public byte aByteArray112[];
-    public byte aByteArray113[];
-    public byte aByteArrayArray114[][];
-    public int anIntArrayArray115[][];
-    public int anIntArrayArray116[][];
-    public int anIntArrayArray117[][];
-    public int anIntArray118[];
+    public boolean[] aBooleanArray107;
+    public boolean[] aBooleanArray108;
+    public byte[] aByteArray109;
+    public byte[] aByteArray110;
+    public int[] anIntArray111;
+    public byte[] aByteArray112;
+    public byte[] aByteArray113;
+    public byte[][] aByteArrayArray114;
+    public int[][] anIntArrayArray115;
+    public int[][] anIntArrayArray116;
+    public int[][] anIntArrayArray117;
+    public int[] anIntArray118;
     public int anInt119;
 
-    public Class5()
-    {
+    public Class5() {
         anInt72 = 4096;
         anInt73 = 16;
         anInt74 = 258;

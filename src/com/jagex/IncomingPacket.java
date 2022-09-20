@@ -18,7 +18,7 @@ public enum IncomingPacket {
 
     TEMPORARY_ENDING_PACKET(500);
 
-    private int packetId;
+    private final int packetId;
 
     IncomingPacket(int packetId) {
         this.packetId = packetId;

@@ -2,12 +2,12 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class6
-{
+public class Class6 {
 
+    public static int anInt131;
     public int anInt120;
-    public int anIntArray121[];
-    public int anIntArray122[];
+    public int[] anIntArray121;
+    public int[] anIntArray122;
     public int anInt123;
     public int anInt124;
     public int anInt125;
@@ -16,67 +16,52 @@ public class Class6
     public int anInt128;
     public int anInt129;
     public int anInt130;
-    public static int anInt131;
 
-    public void method181(Class13_Sub1_Sub2 class13_sub1_sub2, int i)
-    {
-        try
-        {
-            if(i != 26421)
-            {
+    public Class6() {
+    }
+
+    public void method181(Buffer buffer, int i) {
+        try {
+            if (i != 26421) {
                 throw new NullPointerException();
-            } else
-            {
-                anInt125 = class13_sub1_sub2.readUnsignedByte();
-                anInt123 = class13_sub1_sub2.readInt();
-                anInt124 = class13_sub1_sub2.readInt();
-                method182(class13_sub1_sub2, false);
+            } else {
+                anInt125 = buffer.readUnsignedByte();
+                anInt123 = buffer.readInt();
+                anInt124 = buffer.readInt();
+                method182(buffer, false);
                 return;
             }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("94648, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("94648, " + buffer + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method182(Class13_Sub1_Sub2 class13_sub1_sub2, boolean flag)
-    {
-        try
-        {
-            anInt120 = class13_sub1_sub2.readUnsignedByte();
+    public void method182(Buffer buffer, boolean flag) {
+        try {
+            anInt120 = buffer.readUnsignedByte();
             anIntArray121 = new int[anInt120];
-            if(flag)
-            {
+            if (flag) {
                 return;
             }
             anIntArray122 = new int[anInt120];
-            for(int i = 0; i < anInt120; i++)
-            {
-                anIntArray121[i] = class13_sub1_sub2.readUnsignedShort();
-                anIntArray122[i] = class13_sub1_sub2.readUnsignedShort();
+            for (int i = 0; i < anInt120; i++) {
+                anIntArray121[i] = buffer.readUnsignedShort();
+                anIntArray122[i] = buffer.readUnsignedShort();
             }
             return;
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("33098, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("33098, " + buffer + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method183(byte byte0)
-    {
-        try
-        {
-            if(byte0 == 6)
-            {
+    public void method183(byte byte0) {
+        try {
+            if (byte0 == 6) {
                 byte0 = 0;
-            } else
-            {
-                for(int i = 1; i > 0; i++)
-                {
+            } else {
+                for (int i = 1; i > 0; i++) {
                 }
             }
             anInt126 = 0;
@@ -85,28 +70,21 @@ public class Class6
             anInt129 = 0;
             anInt130 = 0;
             return;
-        }
-        catch(RuntimeException runtimeexception)
-        {
+        } catch (RuntimeException runtimeexception) {
             Signlink.reportError("74317, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
-    public int method184(int i, int j)
-    {
-        try
-        {
-            if(anInt130 >= anInt126)
-            {
+    public int method184(int i, int j) {
+        try {
+            if (anInt130 >= anInt126) {
                 anInt129 = anIntArray122[anInt127++] << 15;
-                if(anInt127 >= anInt120)
-                {
+                if (anInt127 >= anInt120) {
                     anInt127 = anInt120 - 1;
                 }
-                anInt126 = (int)(((double)anIntArray121[anInt127] / 65536D) * (double)i);
-                if(anInt126 > anInt130)
-                {
+                anInt126 = (int) (((double) anIntArray121[anInt127] / 65536D) * (double) i);
+                if (anInt126 > anInt130) {
                     anInt128 = ((anIntArray122[anInt127] << 15) - anInt129) / (anInt126 - anInt130);
                 }
             }
@@ -114,15 +92,9 @@ public class Class6
             j = 11 / j;
             anInt130++;
             return anInt129 - anInt128 >> 15;
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            Signlink.reportError("54424, " + i + ", " + j + ", " + runtimeexception.toString());
+        } catch (RuntimeException runtimeexception) {
+            Signlink.reportError("54424, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
-    }
-
-    public Class6()
-    {
     }
 }

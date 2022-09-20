@@ -1,12 +1,11 @@
 package com.jagex;
 
-public class Class19
-{
+public class Class19 {
 
-    public boolean aBoolean335;
     public static int anInt336 = 60;
-    public static Class19 aClass19Array337[];
+    public static Class19[] aClass19Array337;
     public static int anInt338 = -1;
+    public boolean aBoolean335;
     public int anInt339;
     public boolean aBoolean340;
     public boolean aBoolean341;
@@ -16,8 +15,7 @@ public class Class19
     public boolean aBoolean345;
     public boolean aBoolean346;
 
-    public Class19()
-    {
+    public Class19() {
         aBoolean335 = true;
         anInt339 = 1;
         aBoolean340 = true;

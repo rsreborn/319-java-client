@@ -1,9 +1,8 @@
 package com.jagex;
 
-public class Class23
-{
+public class Class23 {
 
-    public byte aByteArray379[];
+    public byte[] aByteArray379;
     public int anInt380;
     public int anInt381;
     public int anInt382;
@@ -21,7 +20,6 @@ public class Class23
     public int anInt394;
     public int anInt395;
 
-    public Class23()
-    {
+    public Class23() {
     }
 }

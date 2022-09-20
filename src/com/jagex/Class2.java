@@ -1,13 +1,10 @@
 package com.jagex;
 
-public class Class2
-{
+public class Class2 {
 
-    public void method150(int i)
-    {
+    public Class2() {
     }
 
-    public Class2()
-    {
+    public void method150(int i) {
     }
 }
