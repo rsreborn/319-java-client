@@ -343,7 +343,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         return payload[position++] & 0xff;
     }
 
-    public byte method312()
+    public byte readByte()
     {
         return payload[position++];
     }

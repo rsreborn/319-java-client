@@ -286,11 +286,11 @@ label0:
                     } else
                     if(l == 29)
                     {
-                        aByte280 = class13_sub1_sub2.method312();
+                        aByte280 = class13_sub1_sub2.readByte();
                     } else
                     if(l == 39)
                     {
-                        aByte265 = class13_sub1_sub2.method312();
+                        aByte265 = class13_sub1_sub2.readByte();
                     } else
                     if(l >= 30 && l < 39)
                     {

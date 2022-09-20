@@ -49,7 +49,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
     public int anInt1607;
     public boolean aBoolean1608;
     public int anInt1609;
-    public int anInt1610;
+    public int pulseCycle;
     public int anInt1611;
     public int anIntArray1612[];
     public int anIntArray1613[];

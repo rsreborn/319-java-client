@@ -14,6 +14,7 @@ public enum IncomingPacket {
     SHOW_SIDEBAR_AND_WIDGET(229),
 
     PLAYER_UPDATING(76),
+    NPC_UPDATING(249),
 
     TEMPORARY_ENDING_PACKET(500);
 

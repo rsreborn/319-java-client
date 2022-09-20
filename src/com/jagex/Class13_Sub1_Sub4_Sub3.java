@@ -54,7 +54,7 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4
         {
             for(int k1 = 0; k1 < j1; k1++)
             {
-                aByteArray1667[k1] = class13_sub1_sub2.method312();
+                aByteArray1667[k1] = class13_sub1_sub2.readByte();
             }
             return;
         }
@@ -64,7 +64,7 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4
             {
                 for(int i2 = 0; i2 < anInt1670; i2++)
                 {
-                    aByteArray1667[l1 + i2 * anInt1669] = class13_sub1_sub2.method312();
+                    aByteArray1667[l1 + i2 * anInt1669] = class13_sub1_sub2.readByte();
                 }
             }
         }

@@ -286,7 +286,7 @@ public class Class47
                 } else
                 if(j == 12)
                 {
-                    aByte768 = class13_sub1_sub2.method312();
+                    aByte768 = class13_sub1_sub2.readByte();
                 } else
                 if(j == 13)
                 {
@@ -369,11 +369,11 @@ public class Class47
                 } else
                 if(j == 100)
                 {
-                    anInt776 = class13_sub1_sub2.method312();
+                    anInt776 = class13_sub1_sub2.readByte();
                 } else
                 if(j == 101)
                 {
-                    anInt755 = class13_sub1_sub2.method312() * 5;
+                    anInt755 = class13_sub1_sub2.readByte() * 5;
                 } else
                 if(j == 102)
                 {

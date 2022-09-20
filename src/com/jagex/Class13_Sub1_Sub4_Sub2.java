@@ -63,7 +63,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
                 {
                     for(int i2 = 0; i2 < l1; i2++)
                     {
-                        aByteArrayArray1653[l][i2] = class13_sub1_sub2.method312();
+                        aByteArrayArray1653[l][i2] = class13_sub1_sub2.readByte();
                     }
                 } else
                 if(k1 == 1)
@@ -72,7 +72,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
                     {
                         for(int l2 = 0; l2 < j1; l2++)
                         {
-                            aByteArrayArray1653[l][j2 + l2 * i1] = class13_sub1_sub2.method312();
+                            aByteArrayArray1653[l][j2 + l2 * i1] = class13_sub1_sub2.readByte();
                         }
                     }
                 }

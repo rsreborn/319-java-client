@@ -30,7 +30,7 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1
             int j = -1;
             if(aClass50_1470 != null)
             {
-                int k = Game.anInt1096 - anInt1471;
+                int k = Game.pulseCycle - anInt1471;
                 if(k > 100 && aClass50_1470.anInt805 > 0)
                 {
                     k = 100;
@@ -51,7 +51,7 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1
                     aClass50_1470 = null;
                     break;
                 }
-                anInt1471 = Game.anInt1096 - k;
+                anInt1471 = Game.pulseCycle - k;
                 if(aClass50_1470 != null)
                 {
                     j = aClass50_1470.anIntArray802[anInt1463];
@@ -136,7 +136,7 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1
             {
                 aClass50_1470 = Class50.aClass50Array800[i1];
                 anInt1463 = 0;
-                anInt1471 = Game.anInt1096;
+                anInt1471 = Game.pulseCycle;
                 if(flag && aClass50_1470.anInt805 != -1)
                 {
                     anInt1463 = (int)(Math.random() * (double)aClass50_1470.anInt801);

@@ -331,11 +331,11 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
             }
             if(aClass13_Sub1_Sub1_Sub4_1714 != null)
             {
-                if(Game.anInt1096 >= anInt1707)
+                if(Game.pulseCycle >= anInt1707)
                 {
                     aClass13_Sub1_Sub1_Sub4_1714 = null;
                 }
-                if(Game.anInt1096 >= anInt1706 && Game.anInt1096 < anInt1707)
+                if(Game.pulseCycle >= anInt1706 && Game.pulseCycle < anInt1707)
                 {
                     Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aClass13_Sub1_Sub1_Sub4_1714;
                     class13_sub1_sub1_sub4_1.method278(anInt1713 - super.anInt1588, -991, anInt1712 - anInt1699, anInt1711 - super.anInt1587);

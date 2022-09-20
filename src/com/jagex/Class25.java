@@ -1125,7 +1125,7 @@ public class Class25
 			}
 			if (i_201_ <= 49) {
 			    aByteArrayArrayArray423[i_199_][i_196_][i_198_]
-				= class13_sub1_sub2.method312();
+				= class13_sub1_sub2.readByte();
 			    aByteArrayArrayArray435[i_199_][i_196_][i_198_]
 				= (byte) ((i_201_ - 2) / 4);
 			    aByteArrayArrayArray431[i_199_][i_196_][i_198_]

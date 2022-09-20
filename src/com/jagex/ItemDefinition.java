@@ -583,7 +583,7 @@ public class ItemDefinition
                 if(k == 23)
                 {
                     anInt647 = class13_sub1_sub2.readUnsignedShort();
-                    aByte632 = class13_sub1_sub2.method312();
+                    aByte632 = class13_sub1_sub2.readByte();
                 } else
                 if(k == 24)
                 {
@@ -592,7 +592,7 @@ public class ItemDefinition
                 if(k == 25)
                 {
                     anInt654 = class13_sub1_sub2.readUnsignedShort();
-                    aByte630 = class13_sub1_sub2.method312();
+                    aByte630 = class13_sub1_sub2.readByte();
                 } else
                 if(k == 26)
                 {
@@ -689,11 +689,11 @@ public class ItemDefinition
                 } else
                 if(k == 113)
                 {
-                    anInt625 = class13_sub1_sub2.method312();
+                    anInt625 = class13_sub1_sub2.readByte();
                 } else
                 if(k == 114)
                 {
-                    anInt629 = class13_sub1_sub2.method312() * 5;
+                    anInt629 = class13_sub1_sub2.readByte() * 5;
                 } else
                 if(k == 115)
                 {
