@@ -19,7 +19,7 @@ public class Game extends Applet_Sub1
     public int anInt822;
     public int anInt823;
     public int anInt824;
-    public int anInt825;
+    public int hasMembershipAndIsOnFreeToPlayWorld;
     public boolean aBoolean826;
     public String aString827;
     public long aLong828;
@@ -130,7 +130,7 @@ public class Game extends Applet_Sub1
     public int anIntArray915[];
     public static int anInt916;
     public int anInt917;
-    public int anInt918;
+    public int daysSinceLastLogin;
     public int anInt919;
     public int anInt920;
     public int anInt921;
@@ -168,7 +168,7 @@ public class Game extends Applet_Sub1
     public static boolean aBoolean953 = true;
     public static boolean aBoolean954;
     public int anInt955;
-    public int anInt956;
+    public int unreadMessagesCount;
     public static int anInt957;
     public static int anInt958;
     public int anIntArray959[];
@@ -214,7 +214,7 @@ public class Game extends Applet_Sub1
     public int anInt999;
     public int anIntArray1000[];
     public Class46 aClass46_1001;
-    public int anInt1002;
+    public int lastLoginAddress;
     public String aStringArray1003[];
     public int anInt1004;
     public int anInt1005;
@@ -310,7 +310,7 @@ public class Game extends Applet_Sub1
     public Class13_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1092;
     public int anInt1093;
     public int anInt1094;
-    public int anInt1095;
+    public int daysSinceRecoveryQuestionsUpdated;
     public static int anInt1096;
     public int anIntArrayArray1097[][];
     public int anInt1098;
@@ -378,7 +378,7 @@ public class Game extends Applet_Sub1
     public String aString1160;
     public int anInt1161;
     public int anInt1162;
-    public Class9 aClass9_1163;
+    public ISAACCipher aISAACCipher_1163;
     public byte aByteArrayArrayArray1164[][][];
     public int anInt1165;
     public int anInt1166;
@@ -814,7 +814,7 @@ public class Game extends Applet_Sub1
         {
             if(i < 5 || i > 5)
             {
-                anInt1052 = aClass9_1163.method190();
+                anInt1052 = aISAACCipher_1163.method190();
             }
             if(anInt1094 != 0)
             {
@@ -1356,9 +1356,9 @@ public class Game extends Applet_Sub1
                     aClass13_Sub1_Sub1_Sub6_Sub1Array898[l] = null;
                 }
             }
-            if(class13_sub1_sub2.anInt1399 != j)
+            if(class13_sub1_sub2.position != j)
             {
-                signlink.reportError("Error packet size mismatch in getplayer pos:" + class13_sub1_sub2.anInt1399 + " psize:" + j);
+                signlink.reportError("Error packet size mismatch in getplayer pos:" + class13_sub1_sub2.position + " psize:" + j);
                 throw new RuntimeException("eek");
             }
             for(int i1 = 0; i1 < anInt899; i1++)
@@ -1384,7 +1384,7 @@ public class Game extends Applet_Sub1
         {
             if(byte0 != 66)
             {
-                anInt917 = aClass9_1163.method190();
+                anInt917 = aISAACCipher_1163.method190();
             }
             if(i < 0)
             {
@@ -2539,11 +2539,11 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == -1)
                 {
-                    aClass46_1001.method579(buffer.aByteArray1398, 0, 1);
-                    opcode = buffer.aByteArray1398[0] & 0xff;
-                    if(aClass9_1163 != null)
+                    aClass46_1001.method579(buffer.payload, 0, 1);
+                    opcode = buffer.payload[0] & 0xff;
+                    if(aISAACCipher_1163 != null)
                     {
-                        opcode = opcode - aClass9_1163.method190() & 0xff;
+                        opcode = opcode - aISAACCipher_1163.method190() & 0xff;
                     }
                     packetSize = Class33.PACKET_SIZES[opcode];
                     available--;
@@ -2552,8 +2552,8 @@ public class Game extends Applet_Sub1
                 {
                     if(available > 0)
                     {
-                        aClass46_1001.method579(buffer.aByteArray1398, 0, 1);
-                        packetSize = buffer.aByteArray1398[0] & 0xff;
+                        aClass46_1001.method579(buffer.payload, 0, 1);
+                        packetSize = buffer.payload[0] & 0xff;
                         available--;
                     } else
                     {
@@ -2564,8 +2564,8 @@ public class Game extends Applet_Sub1
                 {
                     if(available > 1)
                     {
-                        aClass46_1001.method579(buffer.aByteArray1398, 0, 2);
-                        buffer.anInt1399 = 0;
+                        aClass46_1001.method579(buffer.payload, 0, 2);
+                        buffer.position = 0;
                         packetSize = buffer.readUnsignedShort();
                         available -= 2;
                     } else
@@ -2577,8 +2577,8 @@ public class Game extends Applet_Sub1
                 {
                     return false;
                 }
-                buffer.anInt1399 = 0;
-                aClass46_1001.method579(buffer.aByteArray1398, 0, packetSize);
+                buffer.position = 0;
+                aClass46_1001.method579(buffer.payload, 0, packetSize);
                 anInt854 = 0;
                 anInt890 = anInt889;
                 anInt889 = anInt888;
@@ -2616,7 +2616,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 252)
                 {
-                    int l = buffer.method340();
+                    int l = buffer.readUnsignedLittleEndianShortA();
                     Widget.aWidgetArray533[l].modelType = 3;
                     if(aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716 == null)
                     {
@@ -2633,14 +2633,14 @@ public class Game extends Applet_Sub1
                     anInt1098 = packetSize / 8;
                     for(int i1 = 0; i1 < anInt1098; i1++)
                     {
-                        aLongArray990[i1] = buffer.method317(0);
+                        aLongArray990[i1] = buffer.readLong(0);
                     }
                     opcode = -1;
                     return true;
                 }
                 if(IncomingPacket.ADD_CHATBOX_MESSAGE.equals(opcode))
                 {
-                    String s = buffer.method318();
+                    String s = buffer.readString();
                     if(s.endsWith(":tradereq:"))
                     {
                         String s3 = s.substring(0, s.indexOf(":"));
@@ -2707,8 +2707,8 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 232)
                 {
-                    int j1 = buffer.method348(anInt919);
-                    int i10 = buffer.method340();
+                    int j1 = buffer.readMiddleEndianInt2(anInt919);
+                    int i10 = buffer.readUnsignedLittleEndianShortA();
                     anIntArray970[i10] = j1;
                     if(anIntArray1149[i10] != j1)
                     {
@@ -2725,7 +2725,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 127)
                 {
-                    String s1 = buffer.method318();
+                    String s1 = buffer.readString();
                     int j10 = buffer.readUnsignedShort();
                     Widget.aWidgetArray533[j10].aString548 = s1;
                     if(Widget.aWidgetArray533[j10].anInt573 == anIntArray1018[anInt864])
@@ -2749,7 +2749,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 2)
                 {
-                    int l1 = buffer.method338((byte)-52);
+                    int l1 = buffer.readUnsignedLittleEndianShort();
                     if(l1 == 65535)
                     {
                         l1 = -1;
@@ -2780,7 +2780,7 @@ public class Game extends Applet_Sub1
                 }
                 if(IncomingPacket.CLOSE_ALL_WIDGETS.equals(opcode))
                 {
-                    int j2 = buffer.method340();
+                    int j2 = buffer.readUnsignedLittleEndianShortA();
                     method79(j2, anInt1119);
                     if(anInt874 != -1)
                     {
@@ -2891,7 +2891,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 62)
                 {
-                    int k3 = buffer.method340();
+                    int k3 = buffer.readUnsignedLittleEndianShortA();
                     int k11 = buffer.method339(true);
                     Widget widget_3 = Widget.aWidgetArray533[k11];
                     if(widget_3 != null && widget_3.anInt570 == 0)
@@ -2933,8 +2933,8 @@ public class Game extends Applet_Sub1
                 if(IncomingPacket.SET_WIDGET_ITEM_MODEL.equals(opcode))
                 {
                     int i4 = buffer.method339(true);
-                    int i12 = buffer.method338((byte)-52);
-                    int i17 = buffer.method338((byte)-52);
+                    int i12 = buffer.readUnsignedLittleEndianShort();
+                    int i17 = buffer.readUnsignedLittleEndianShort();
                     if(i4 == 65535)
                     {
                         Widget.aWidgetArray533[i17].modelType = 0;
@@ -2954,7 +2954,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 157)
                 {
-                    int j4 = buffer.method338((byte)-52);
+                    int j4 = buffer.readUnsignedLittleEndianShort();
                     int j12 = buffer.method339(true);
                     Widget.aWidgetArray533[j12].modelType = 2;
                     Widget.aWidgetArray533[j12].anInt542 = j4;
@@ -2981,10 +2981,10 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 219)
                 {
-                    int l4 = buffer.method340();
-                    int k12 = buffer.method338((byte)-52);
-                    int j17 = buffer.method340();
-                    int i21 = buffer.method340();
+                    int l4 = buffer.readUnsignedLittleEndianShortA();
+                    int k12 = buffer.readUnsignedLittleEndianShort();
+                    int j17 = buffer.readUnsignedLittleEndianShortA();
+                    int i21 = buffer.readUnsignedLittleEndianShortA();
                     Widget.aWidgetArray533[k12].anInt535 = i21;
                     Widget.aWidgetArray533[k12].anInt536 = l4;
                     Widget.aWidgetArray533[k12].anInt534 = j17;
@@ -3017,7 +3017,7 @@ public class Game extends Applet_Sub1
                 if(opcode == 211)
                 {
                     aBoolean1148 = true;
-                    int i5 = buffer.method348(anInt919);
+                    int i5 = buffer.readMiddleEndianInt2(anInt919);
                     int l12 = buffer.readUnsignedByteA(856);
                     int k17 = buffer.readUnsignedByteC(19179);
                     anIntArray1045[k17] = i5;
@@ -3074,7 +3074,7 @@ public class Game extends Applet_Sub1
                 if(opcode == 59)
                 {
                     byte byte0 = buffer.method334((byte)-78);
-                    int i13 = buffer.method340();
+                    int i13 = buffer.readUnsignedLittleEndianShortA();
                     anIntArray970[i13] = byte0;
                     if(anIntArray1149[i13] != byte0)
                     {
@@ -3102,7 +3102,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 253)
                 {
-                    int k5 = buffer.method340();
+                    int k5 = buffer.readUnsignedLittleEndianShortA();
                     method79(k5, anInt1119);
                     if(anInt1016 != -1)
                     {
@@ -3131,19 +3131,19 @@ public class Game extends Applet_Sub1
                     opcode = -1;
                     return true;
                 }
-                if(opcode == 178)
+                if(IncomingPacket.SHOW_WELCOME_SCREEN.equals(opcode))
                 {
-                    anInt918 = buffer.readUnsignedShort();
-                    anInt1002 = buffer.method348(anInt919);
-                    anInt825 = buffer.readUnsignedByteA(856);
-                    anInt1095 = buffer.readUnsignedByteA(856);
-                    anInt956 = buffer.method340();
-                    if(anInt1002 != 0 && anInt1217 == -1)
+                    daysSinceLastLogin = buffer.readUnsignedShort();
+                    lastLoginAddress = buffer.readMiddleEndianInt2(anInt919);
+                    hasMembershipAndIsOnFreeToPlayWorld = buffer.readUnsignedByteA(856);
+                    daysSinceRecoveryQuestionsUpdated = buffer.readUnsignedByteA(856);
+                    unreadMessagesCount = buffer.readUnsignedLittleEndianShortA();
+                    if(lastLoginAddress != 0 && anInt1217 == -1)
                     {
-                        signlink.dnslookup(Class24.method449(anInt1002, false));
+                        signlink.dnslookup(Class24.method449(lastLoginAddress, false));
                         method140(6);
                         char c = '\u028A';
-                        if(anInt1095 != 201 || anInt825 == 1)
+                        if(daysSinceRecoveryQuestionsUpdated != 201 || hasMembershipAndIsOnFreeToPlayWorld == 1)
                         {
                             c = '\u028F';
                         }
@@ -3206,7 +3206,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 213)
                 {
-                    long l6 = buffer.method317(0);
+                    long l6 = buffer.readLong(0);
                     int k18 = buffer.readUnsignedByte();
                     String s7 = Class24.method450(Class24.method447(l6, 0), 0);
                     for(int i24 = 0; i24 < anInt1054; i24++)
@@ -3297,14 +3297,14 @@ public class Game extends Applet_Sub1
                     aBoolean1148 = true;
                     int k6 = buffer.readUnsignedShort();
                     Widget widget_2 = Widget.aWidgetArray533[k6];
-                    while(buffer.anInt1399 < packetSize)
+                    while(buffer.position < packetSize)
                     {
                         int l18 = buffer.method325();
                         int l21 = buffer.readUnsignedShort();
                         int j24 = buffer.readUnsignedByte();
                         if(j24 == 255)
                         {
-                            j24 = buffer.method316();
+                            j24 = buffer.readInt();
                         }
                         if(l18 >= 0 && l18 < widget_2.anIntArray576.length)
                         {
@@ -3354,17 +3354,17 @@ public class Game extends Applet_Sub1
                 }
                 if(IncomingPacket.UPDATE_ACTIVE_MAP_REGION.equals(opcode) || IncomingPacket.CONSTRUCT_MAP_REGION.equals(opcode))
                 {
-                    int j7 = anInt984;
-                    int j14 = anInt985;
+                    int regionX = anInt984;
+                    int regionY = anInt985;
                     if(IncomingPacket.UPDATE_ACTIVE_MAP_REGION.equals(opcode))
                     {
-                        j7 = buffer.readUnsignedShort();
-                        j14 = buffer.method338((byte)-52);
+                        regionX = buffer.readUnsignedShort();
+                        regionY = buffer.readUnsignedLittleEndianShort();
                         aBoolean971 = false;
                     }
                     if(IncomingPacket.CONSTRUCT_MAP_REGION.equals(opcode))
                     {
-                        j7 = buffer.method338((byte)-52);
+                        regionX = buffer.readUnsignedLittleEndianShort();
                         buffer.method321(-761);
                         for(int j19 = 0; j19 < 4; j19++)
                         {
@@ -3384,16 +3384,16 @@ public class Game extends Applet_Sub1
                             }
                         }
                         buffer.method323(3);
-                        j14 = buffer.method338((byte)-52);
+                        regionY = buffer.readUnsignedLittleEndianShort();
                         aBoolean971 = true;
                     }
-                    if(anInt984 == j7 && anInt985 == j14 && anInt1254 == 2)
+                    if(anInt984 == regionX && anInt985 == regionY && anInt1254 == 2)
                     {
                         opcode = -1;
                         return true;
                     }
-                    anInt984 = j7;
-                    anInt985 = j14;
+                    anInt984 = regionX;
+                    anInt985 = regionY;
                     anInt1083 = (anInt984 - 6) * 8;
                     anInt1084 = (anInt985 - 6) * 8;
                     aBoolean1051 = false;
@@ -3600,7 +3600,7 @@ public class Game extends Applet_Sub1
                 {
                     int k7 = buffer.method332(aByte1172);
                     int k14 = buffer.readUnsignedByte();
-                    String s6 = buffer.method318();
+                    String s6 = buffer.readString();
                     if(k14 >= 1 && k14 <= 5)
                     {
                         if(s6.equalsIgnoreCase("null"))
@@ -3615,8 +3615,8 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 20)
                 {
-                    int l7 = buffer.method340();
-                    int l14 = buffer.method338((byte)-52);
+                    int l7 = buffer.readUnsignedLittleEndianShortA();
+                    int l14 = buffer.readUnsignedLittleEndianShort();
                     if(anInt1016 != -1)
                     {
                         anInt1016 = -1;
@@ -3706,7 +3706,7 @@ public class Game extends Applet_Sub1
                 if(opcode == 128)
                 {
                     int l8 = buffer.readUnsignedShort();
-                    int j15 = buffer.method338((byte)-52);
+                    int j15 = buffer.readUnsignedLittleEndianShort();
                     int j20 = l8 >> 10 & 0x1f;
                     int i23 = l8 >> 5 & 0x1f;
                     int i26 = l8 & 0x1f;
@@ -3778,7 +3778,7 @@ public class Game extends Applet_Sub1
                 {
                     anInt1231 = buffer.readUnsignedByte();
                     anInt1232 = buffer.readUnsignedByteA(856);
-                    while(buffer.anInt1399 < packetSize)
+                    while(buffer.position < packetSize)
                     {
                         int j9 = buffer.readUnsignedByte();
                         method34(6, buffer, j9);
@@ -3788,8 +3788,8 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 187)
                 {
-                    long l9 = buffer.method317(0);
-                    int k20 = buffer.method316();
+                    long l9 = buffer.readLong(0);
+                    int k20 = buffer.readInt();
                     int j23 = buffer.readUnsignedByte();
                     boolean flag4 = false;
                     for(int k28 = 0; k28 < 100; k28++)
@@ -3856,7 +3856,7 @@ public class Game extends Applet_Sub1
                 String s2 = "T2 - " + opcode + "," + anInt889 + "," + anInt890 + " - " + packetSize + "," + (anInt1083 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0]) + "," + (anInt1084 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0]) + " - ";
                 for(int k15 = 0; k15 < packetSize && k15 < 50; k15++)
                 {
-                    s2 = s2 + buffer.aByteArray1398[k15] + ",";
+                    s2 = s2 + buffer.payload[k15] + ",";
                 }
                 signlink.reportError(s2);
                 method66(anInt1268);
@@ -4365,7 +4365,7 @@ public class Game extends Applet_Sub1
                 int i1 = class13_sub1_sub2.method332(aByte1172);
                 int l3 = anInt1231 + (i1 >> 4 & 7);
                 int k6 = anInt1232 + (i1 & 7);
-                int j9 = class13_sub1_sub2.method340();
+                int j9 = class13_sub1_sub2.readUnsignedLittleEndianShortA();
                 int k11 = class13_sub1_sub2.readUnsignedByteA(856);
                 int i14 = k11 >> 2;
                 int i16 = k11 & 3;
@@ -4426,7 +4426,7 @@ public class Game extends Applet_Sub1
             if(j == 248)
             {
                 int j1 = class13_sub1_sub2.method339(true);
-                int i4 = class13_sub1_sub2.method338((byte)-52);
+                int i4 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 int l6 = class13_sub1_sub2.readUnsignedByteA(856);
                 int k9 = anInt1231 + (l6 >> 4 & 7);
                 int l11 = anInt1232 + (l6 & 7);
@@ -4466,12 +4466,12 @@ public class Game extends Applet_Sub1
                 int k4 = anInt1231 + (l1 >> 4 & 7);
                 int j7 = anInt1232 + (l1 & 7);
                 byte byte0 = class13_sub1_sub2.method333(7270);
-                int j12 = class13_sub1_sub2.method338((byte)-52);
+                int j12 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 byte byte1 = class13_sub1_sub2.method312();
-                int k16 = class13_sub1_sub2.method338((byte)-52);
+                int k16 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 byte byte2 = class13_sub1_sub2.method333(7270);
                 int k18 = class13_sub1_sub2.method339(true);
-                int j19 = class13_sub1_sub2.method338((byte)-52);
+                int j19 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 int i20 = class13_sub1_sub2.method332(aByte1172);
                 int l20 = i20 >> 2;
                 int j21 = i20 & 3;
@@ -4594,7 +4594,7 @@ public class Game extends Applet_Sub1
                 int k5 = class13_sub1_sub2.readUnsignedByteA(856);
                 int j8 = anInt1231 + (k5 >> 4 & 7);
                 int l10 = anInt1232 + (k5 & 7);
-                int j13 = class13_sub1_sub2.method340();
+                int j13 = class13_sub1_sub2.readUnsignedLittleEndianShortA();
                 if(j8 >= 0 && l10 >= 0 && j8 < 104 && l10 < 104)
                 {
                     Class13_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_1 = new Class13_Sub1_Sub1_Sub5();
@@ -4753,7 +4753,7 @@ public class Game extends Applet_Sub1
                 byte0 = 0;
             } else
             {
-                anInt992 = aClass9_1163.method190();
+                anInt992 = aISAACCipher_1163.method190();
             }
             Class13_Sub1_Sub4.method361(i1 + 1, j1, anInt906, l + 16 + k1, -38103);
             Class13_Sub1_Sub4.method359((byte)-40, anInt906, i1, l + 16 + k1, 16);
@@ -4940,13 +4940,13 @@ public class Game extends Applet_Sub1
                 {
                     DataInputStream datainputstream = method141("crc" + (int)(Math.random() * 99999999D) + "-" + 319);
                     Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, new byte[40]);
-                    datainputstream.readFully(class13_sub1_sub2.aByteArray1398, 0, 40);
+                    datainputstream.readFully(class13_sub1_sub2.payload, 0, 40);
                     datainputstream.close();
                     for(int i1 = 0; i1 < 9; i1++)
                     {
-                        anIntArray1277[i1] = class13_sub1_sub2.method316();
+                        anIntArray1277[i1] = class13_sub1_sub2.readInt();
                     }
-                    int j1 = class13_sub1_sub2.method316();
+                    int j1 = class13_sub1_sub2.readInt();
                     int k1 = 1234;
                     for(int l1 = 0; l1 < 9; l1++)
                     {
@@ -5860,11 +5860,11 @@ public class Game extends Applet_Sub1
                     {
                         aClass13_Sub1_Sub2_928.method300(328, 250);
                         aClass13_Sub1_Sub2_928.method301(0);
-                        int k2 = aClass13_Sub1_Sub2_928.anInt1399;
+                        int k2 = aClass13_Sub1_Sub2_928.position;
                         int k3 = 0;
                         for(int k4 = 0; k4 < aClass48_865.anInt791; k4++)
                         {
-                            if(k2 - aClass13_Sub1_Sub2_928.anInt1399 >= 240)
+                            if(k2 - aClass13_Sub1_Sub2_928.position >= 240)
                             {
                                 break;
                             }
@@ -5924,7 +5924,7 @@ public class Game extends Applet_Sub1
                                 }
                             }
                         }
-                        aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - k2);
+                        aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - k2);
                         if(k3 >= aClass48_865.anInt791)
                         {
                             aClass48_865.anInt791 = 0;
@@ -6131,7 +6131,7 @@ public class Game extends Applet_Sub1
                 anInt957 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 205);
                 aClass13_Sub1_Sub2_928.method301(0);
-                int j = aClass13_Sub1_Sub2_928.anInt1399;
+                int j = aClass13_Sub1_Sub2_928.position;
                 if((int)(Math.random() * 2D) == 0)
                 {
                     aClass13_Sub1_Sub2_928.method302(53936);
@@ -6148,7 +6148,7 @@ public class Game extends Applet_Sub1
                 aClass13_Sub1_Sub2_928.method302(1505);
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
-                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - j);
+                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - j);
             }
             if(Class10.anInt196 != -1)
             {
@@ -6197,7 +6197,7 @@ public class Game extends Applet_Sub1
                 anInt1144 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 177);
                 aClass13_Sub1_Sub2_928.method301(0);
-                int l1 = aClass13_Sub1_Sub2_928.anInt1399;
+                int l1 = aClass13_Sub1_Sub2_928.position;
                 aClass13_Sub1_Sub2_928.method302(53207);
                 aClass13_Sub1_Sub2_928.method302(43454);
                 if((int)(Math.random() * 2D) == 0)
@@ -6214,7 +6214,7 @@ public class Game extends Applet_Sub1
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
                 aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
                 aClass13_Sub1_Sub2_928.method301(255);
-                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - l1);
+                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - l1);
             }
             super.anInt21++;
             if(super.anInt21 > 4500)
@@ -6306,10 +6306,10 @@ public class Game extends Applet_Sub1
             }
             try
             {
-                if(aClass46_1001 != null && aClass13_Sub1_Sub2_928.anInt1399 > 0)
+                if(aClass46_1001 != null && aClass13_Sub1_Sub2_928.position > 0)
                 {
-                    aClass46_1001.method580(aClass13_Sub1_Sub2_928.aByteArray1398, 0, aClass13_Sub1_Sub2_928.anInt1399, (byte)9);
-                    aClass13_Sub1_Sub2_928.anInt1399 = 0;
+                    aClass46_1001.method580(aClass13_Sub1_Sub2_928.payload, 0, aClass13_Sub1_Sub2_928.position, (byte)9);
+                    aClass13_Sub1_Sub2_928.position = 0;
                     anInt855 = 0;
                     return;
                 }
@@ -6412,7 +6412,7 @@ public class Game extends Applet_Sub1
         {
             if(byte0 != 1)
             {
-                anInt919 = aClass9_1163.method190();
+                anInt919 = aISAACCipher_1163.method190();
             }
             int i = widget.anInt577;
             if(anInt1055 == 2)
@@ -6856,7 +6856,7 @@ public class Game extends Applet_Sub1
         {
             if(i <= 0)
             {
-                anInt818 = aClass9_1163.method190();
+                anInt818 = aISAACCipher_1163.method190();
             }
             if(signlink.mainapp != null)
             {
@@ -6983,10 +6983,10 @@ public class Game extends Applet_Sub1
             aClass46_1001 = new Class46(method135(43594 + anInt952), 681, this);
             long l = Class24.method446(username);
             int i = (int)(l >> 16 & 31L);
-            aClass13_Sub1_Sub2_928.anInt1399 = 0;
+            aClass13_Sub1_Sub2_928.position = 0;
             aClass13_Sub1_Sub2_928.method301(14);
             aClass13_Sub1_Sub2_928.method301(i);
-            aClass46_1001.method580(aClass13_Sub1_Sub2_928.aByteArray1398, 0, 2, (byte)9);
+            aClass46_1001.method580(aClass13_Sub1_Sub2_928.payload, 0, 2, (byte)9);
             for(int j = 0; j < 8; j++)
             {
                 aClass46_1001.method577();
@@ -6995,15 +6995,15 @@ public class Game extends Applet_Sub1
             int i1 = k;
             if(k == 0)
             {
-                aClass46_1001.method579(buffer.aByteArray1398, 0, 8);
-                buffer.anInt1399 = 0;
-                aLong828 = buffer.method317(0);
+                aClass46_1001.method579(buffer.payload, 0, 8);
+                buffer.position = 0;
+                aLong828 = buffer.readLong(0);
                 int ai[] = new int[4];
                 ai[0] = (int)(Math.random() * 99999999D);
                 ai[1] = (int)(Math.random() * 99999999D);
                 ai[2] = (int)(aLong828 >> 32);
                 ai[3] = (int)aLong828;
-                aClass13_Sub1_Sub2_928.anInt1399 = 0;
+                aClass13_Sub1_Sub2_928.position = 0;
                 aClass13_Sub1_Sub2_928.method301(10);
                 aClass13_Sub1_Sub2_928.method305(ai[0]);
                 aClass13_Sub1_Sub2_928.method305(ai[1]);
@@ -7013,7 +7013,7 @@ public class Game extends Applet_Sub1
                 aClass13_Sub1_Sub2_928.method308(username);
                 aClass13_Sub1_Sub2_928.method308(password);
                 aClass13_Sub1_Sub2_928.method326(rsaModulus, rsaKey, true);
-                aClass13_Sub1_Sub2_1100.anInt1399 = 0;
+                aClass13_Sub1_Sub2_1100.position = 0;
                 if(flag)
                 {
                     aClass13_Sub1_Sub2_1100.method301(18);
@@ -7021,7 +7021,7 @@ public class Game extends Applet_Sub1
                 {
                     aClass13_Sub1_Sub2_1100.method301(16);
                 }
-                aClass13_Sub1_Sub2_1100.method301(aClass13_Sub1_Sub2_928.anInt1399 + 36 + 1 + 1 + 2);
+                aClass13_Sub1_Sub2_1100.method301(aClass13_Sub1_Sub2_928.position + 36 + 1 + 1 + 2);
                 aClass13_Sub1_Sub2_1100.method301(255);
                 aClass13_Sub1_Sub2_1100.method302(319);
                 aClass13_Sub1_Sub2_1100.method301(aBoolean954 ? 1 : 0);
@@ -7029,14 +7029,14 @@ public class Game extends Applet_Sub1
                 {
                     aClass13_Sub1_Sub2_1100.method305(anIntArray1277[l1]);
                 }
-                aClass13_Sub1_Sub2_1100.method309(aClass13_Sub1_Sub2_928.anInt1399, 0, anInt1052, aClass13_Sub1_Sub2_928.aByteArray1398);
-                aClass13_Sub1_Sub2_928.aClass9_1403 = new Class9(0, ai);
+                aClass13_Sub1_Sub2_1100.method309(aClass13_Sub1_Sub2_928.position, 0, anInt1052, aClass13_Sub1_Sub2_928.payload);
+                aClass13_Sub1_Sub2_928.aISAACCipher_1403 = new ISAACCipher(0, ai);
                 for(int j2 = 0; j2 < 4; j2++)
                 {
                     ai[j2] += 50;
                 }
-                aClass9_1163 = new Class9(0, ai);
-                aClass46_1001.method580(aClass13_Sub1_Sub2_1100.aByteArray1398, 0, aClass13_Sub1_Sub2_1100.anInt1399, (byte)9);
+                aISAACCipher_1163 = new ISAACCipher(0, ai);
+                aClass46_1001.method580(aClass13_Sub1_Sub2_1100.payload, 0, aClass13_Sub1_Sub2_1100.position, (byte)9);
                 k = aClass46_1001.method577();
             }
             if(k == 1)
@@ -7061,8 +7061,8 @@ public class Game extends Applet_Sub1
                 super.aBoolean20 = true;
                 aBoolean1080 = true;
                 aBoolean851 = true;
-                aClass13_Sub1_Sub2_928.anInt1399 = 0;
-                buffer.anInt1399 = 0;
+                aClass13_Sub1_Sub2_928.position = 0;
+                buffer.position = 0;
                 opcode = -1;
                 anInt888 = -1;
                 anInt889 = -1;
@@ -7232,8 +7232,8 @@ public class Game extends Applet_Sub1
             if(k == 15)
             {
                 aBoolean851 = true;
-                aClass13_Sub1_Sub2_928.anInt1399 = 0;
-                buffer.anInt1399 = 0;
+                aClass13_Sub1_Sub2_928.position = 0;
+                buffer.position = 0;
                 opcode = -1;
                 anInt888 = -1;
                 anInt889 = -1;
@@ -7857,7 +7857,7 @@ public class Game extends Applet_Sub1
                 anInt916 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 108);
                 aClass13_Sub1_Sub2_928.method301(0);
-                int j3 = aClass13_Sub1_Sub2_928.anInt1399;
+                int j3 = aClass13_Sub1_Sub2_928.position;
                 if((int)(Math.random() * 2D) == 0)
                 {
                     aClass13_Sub1_Sub2_928.method301(233);
@@ -7883,7 +7883,7 @@ public class Game extends Applet_Sub1
                 aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
                 aClass13_Sub1_Sub2_928.method301(20);
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
-                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - j3);
+                aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - j3);
                 return;
             }
         }
@@ -8637,7 +8637,7 @@ public class Game extends Applet_Sub1
                 byte0 = 0;
             } else
             {
-                anInt1203 = aClass9_1163.method190();
+                anInt1203 = aISAACCipher_1163.method190();
             }
             int i = method80(anInt1166, 781, anInt1006, anInt1004);
             if(i - anInt1005 < 800 && (aByteArrayArrayArray1164[anInt1166][anInt1004 >> 7][anInt1006 >> 7] & 4) != 0)
@@ -9437,7 +9437,7 @@ public class Game extends Applet_Sub1
                 }
                 if((i1 & 2) != 0)
                 {
-                    class13_sub1_sub1_sub6_sub2.aString1586 = class13_sub1_sub2.method318();
+                    class13_sub1_sub1_sub6_sub2.aString1586 = class13_sub1_sub2.readString();
                     class13_sub1_sub1_sub6_sub2.anInt1603 = 100;
                 }
                 if((i1 & 8) != 0)
@@ -9459,7 +9459,7 @@ public class Game extends Applet_Sub1
                 }
                 if((i1 & 0x10) != 0)
                 {
-                    class13_sub1_sub1_sub6_sub2.anInt1602 = class13_sub1_sub2.method340();
+                    class13_sub1_sub1_sub6_sub2.anInt1602 = class13_sub1_sub2.readUnsignedLittleEndianShortA();
                     if(((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub2)).anInt1602 == 65535)
                     {
                         class13_sub1_sub1_sub6_sub2.anInt1602 = -1;
@@ -9467,7 +9467,7 @@ public class Game extends Applet_Sub1
                 }
                 if((i1 & 0x80) != 0)
                 {
-                    class13_sub1_sub1_sub6_sub2.anInt1582 = class13_sub1_sub2.method338((byte)-52);
+                    class13_sub1_sub1_sub6_sub2.anInt1582 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                     class13_sub1_sub1_sub6_sub2.anInt1583 = class13_sub1_sub2.method339(true);
                 }
             }
@@ -10318,7 +10318,7 @@ public class Game extends Applet_Sub1
             System.gc();
             if(flag)
             {
-                anInt1173 = aClass9_1163.method190();
+                anInt1173 = aISAACCipher_1163.method190();
             }
             Class13_Sub1_Sub4_Sub1.method367((byte)71, 20);
             aClass2_Sub1_873.method166(anInt1150);
@@ -10403,7 +10403,7 @@ public class Game extends Applet_Sub1
             anInt931 = 0;
             if(flag)
             {
-                anInt1014 = aClass9_1163.method190();
+                anInt1014 = aISAACCipher_1163.method190();
             }
             return true;
         }
@@ -11183,9 +11183,9 @@ public class Game extends Applet_Sub1
                     aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k] = null;
                 }
             }
-            if(class13_sub1_sub2.anInt1399 != i)
+            if(class13_sub1_sub2.position != i)
             {
-                signlink.reportError(username + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.anInt1399 + " psize:" + i);
+                signlink.reportError(username + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.position + " psize:" + i);
                 throw new RuntimeException("eek");
             }
             for(int l = 0; l < anInt1284; l++)
@@ -11637,19 +11637,19 @@ public class Game extends Applet_Sub1
             }
             if(j == 650 || j == 655)
             {
-                if(anInt1002 != 0)
+                if(lastLoginAddress != 0)
                 {
                     String s;
-                    if(anInt918 == 0)
+                    if(daysSinceLastLogin == 0)
                     {
                         s = "earlier today";
                     } else
-                    if(anInt918 == 1)
+                    if(daysSinceLastLogin == 1)
                     {
                         s = "yesterday";
                     } else
                     {
-                        s = anInt918 + " days ago";
+                        s = daysSinceLastLogin + " days ago";
                     }
                     widget.aString548 = "You last logged in " + s + " from: " + signlink.dns;
                 } else
@@ -11659,27 +11659,27 @@ public class Game extends Applet_Sub1
             }
             if(j == 651)
             {
-                if(anInt956 == 0)
+                if(unreadMessagesCount == 0)
                 {
                     widget.aString548 = "0 unread messages";
                     widget.anInt550 = 0xffff00;
                 }
-                if(anInt956 == 1)
+                if(unreadMessagesCount == 1)
                 {
                     widget.aString548 = "1 unread message";
                     widget.anInt550 = 65280;
                 }
-                if(anInt956 > 1)
+                if(unreadMessagesCount > 1)
                 {
-                    widget.aString548 = anInt956 + " unread messages";
+                    widget.aString548 = unreadMessagesCount + " unread messages";
                     widget.anInt550 = 65280;
                 }
             }
             if(j == 652)
             {
-                if(anInt1095 == 201)
+                if(daysSinceRecoveryQuestionsUpdated == 201)
                 {
-                    if(anInt825 == 1)
+                    if(hasMembershipAndIsOnFreeToPlayWorld == 1)
                     {
                         widget.aString548 = "@yel@This is a non-members world: @whi@Since you are a member we";
                     } else
@@ -11687,31 +11687,31 @@ public class Game extends Applet_Sub1
                         widget.aString548 = "";
                     }
                 } else
-                if(anInt1095 == 200)
+                if(daysSinceRecoveryQuestionsUpdated == 200)
                 {
                     widget.aString548 = "You have not yet set any password recovery questions.";
                 } else
                 {
                     String s1;
-                    if(anInt1095 == 0)
+                    if(daysSinceRecoveryQuestionsUpdated == 0)
                     {
                         s1 = "Earlier today";
                     } else
-                    if(anInt1095 == 1)
+                    if(daysSinceRecoveryQuestionsUpdated == 1)
                     {
                         s1 = "Yesterday";
                     } else
                     {
-                        s1 = anInt1095 + " days ago";
+                        s1 = daysSinceRecoveryQuestionsUpdated + " days ago";
                     }
                     widget.aString548 = s1 + " you changed your recovery questions";
                 }
             }
             if(j == 653)
             {
-                if(anInt1095 == 201)
+                if(daysSinceRecoveryQuestionsUpdated == 201)
                 {
-                    if(anInt825 == 1)
+                    if(hasMembershipAndIsOnFreeToPlayWorld == 1)
                     {
                         widget.aString548 = "@whi@recommend you use a members world instead. You may use";
                     } else
@@ -11719,7 +11719,7 @@ public class Game extends Applet_Sub1
                         widget.aString548 = "";
                     }
                 } else
-                if(anInt1095 == 200)
+                if(daysSinceRecoveryQuestionsUpdated == 200)
                 {
                     widget.aString548 = "We strongly recommend you do so now to secure your account.";
                 } else
@@ -11729,9 +11729,9 @@ public class Game extends Applet_Sub1
             }
             if(j == 654)
             {
-                if(anInt1095 == 201)
+                if(daysSinceRecoveryQuestionsUpdated == 201)
                 {
-                    if(anInt825 == 1)
+                    if(hasMembershipAndIsOnFreeToPlayWorld == 1)
                     {
                         widget.aString548 = "@whi@this world but member benefits are unavailable whilst here.";
                         return;
@@ -11741,7 +11741,7 @@ public class Game extends Applet_Sub1
                         return;
                     }
                 }
-                if(anInt1095 == 200)
+                if(daysSinceRecoveryQuestionsUpdated == 200)
                 {
                     widget.aString548 = "Do this from the 'account management' area on our front webpage";
                     return;
@@ -11832,11 +11832,11 @@ public class Game extends Applet_Sub1
                         } else
                         {
                             Class13_Sub1_Sub2 class13_sub1_sub2 = Class27.method476((byte)-97, anIntArray1278[k], anIntArray1207[k]);
-                            if(System.currentTimeMillis() + (long)(class13_sub1_sub2.anInt1399 / 22) > aLong819 + (long)(anInt1115 / 22))
+                            if(System.currentTimeMillis() + (long)(class13_sub1_sub2.position / 22) > aLong819 + (long)(anInt1115 / 22))
                             {
-                                anInt1115 = class13_sub1_sub2.anInt1399;
+                                anInt1115 = class13_sub1_sub2.position;
                                 aLong819 = System.currentTimeMillis();
-                                if(method43((byte)35, class13_sub1_sub2.anInt1399, class13_sub1_sub2.aByteArray1398))
+                                if(method43((byte)35, class13_sub1_sub2.position, class13_sub1_sub2.payload))
                                 {
                                     anInt1261 = anIntArray1278[k];
                                     anInt904 = anIntArray1207[k];
@@ -12065,10 +12065,10 @@ public class Game extends Applet_Sub1
                         {
                             aClass13_Sub1_Sub2_928.method300(328, 235);
                             aClass13_Sub1_Sub2_928.method301(0);
-                            int j = aClass13_Sub1_Sub2_928.anInt1399;
+                            int j = aClass13_Sub1_Sub2_928.position;
                             aClass13_Sub1_Sub2_928.method307(aLong1033, 20652);
                             Class45.method574(aClass13_Sub1_Sub2_928, -45468, aString1218);
-                            aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - j);
+                            aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - j);
                             aString1218 = Class45.method575(false, aString1218);
                             aString1218 = Class41.method541(false, aString1218);
                             method70(6, aString1218, Class24.method450(Class24.method447(aLong1033, 0), 0), (byte)117);
@@ -12299,13 +12299,13 @@ public class Game extends Applet_Sub1
                             }
                             aClass13_Sub1_Sub2_928.method300(328, 141);
                             aClass13_Sub1_Sub2_928.method301(0);
-                            int i3 = aClass13_Sub1_Sub2_928.anInt1399;
-                            aClass13_Sub1_Sub2_1282.anInt1399 = 0;
+                            int i3 = aClass13_Sub1_Sub2_928.position;
+                            aClass13_Sub1_Sub2_1282.position = 0;
                             Class45.method574(aClass13_Sub1_Sub2_1282, -45468, aString1280);
-                            aClass13_Sub1_Sub2_928.method349(aClass13_Sub1_Sub2_1282.aByteArray1398, 0, true, aClass13_Sub1_Sub2_1282.anInt1399);
+                            aClass13_Sub1_Sub2_928.method349(aClass13_Sub1_Sub2_1282.payload, 0, true, aClass13_Sub1_Sub2_1282.position);
                             aClass13_Sub1_Sub2_928.method328(anInt1203, k2);
                             aClass13_Sub1_Sub2_928.method301(i2);
-                            aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.anInt1399 - i3);
+                            aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - i3);
                             aString1280 = Class45.method575(false, aString1280);
                             aString1280 = Class41.method541(false, aString1280);
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1586 = aString1280;
@@ -14420,7 +14420,7 @@ public class Game extends Applet_Sub1
                     byte abyte1[] = new byte[6];
                     datainputstream.readFully(abyte1, 0, 6);
                     Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, abyte1);
-                    class13_sub1_sub2.anInt1399 = 3;
+                    class13_sub1_sub2.position = 3;
                     int j2 = class13_sub1_sub2.method315() + 6;
                     int k2 = 6;
                     abyte0 = new byte[j2];
@@ -15415,7 +15415,7 @@ public class Game extends Applet_Sub1
             }
             if((mask & 0x400) != 0)
             {
-                class13_sub1_sub1_sub6_sub1.anInt1592 = class13_sub1_sub2.method338((byte)-52);
+                class13_sub1_sub1_sub6_sub1.anInt1592 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 int i1 = class13_sub1_sub2.method347(anInt917);
                 class13_sub1_sub1_sub6_sub1.anInt1596 = i1 >> 16;
                 class13_sub1_sub1_sub6_sub1.anInt1595 = anInt1096 + (i1 & 0xffff);
@@ -15442,14 +15442,14 @@ public class Game extends Applet_Sub1
             if((mask & 1) != 0)
             {
                 class13_sub1_sub1_sub6_sub1.anInt1582 = class13_sub1_sub2.method339(true);
-                class13_sub1_sub1_sub6_sub1.anInt1583 = class13_sub1_sub2.method340();
+                class13_sub1_sub1_sub6_sub1.anInt1583 = class13_sub1_sub2.readUnsignedLittleEndianShortA();
             }
             if((mask & 0x80) != 0)
             {
                 int k1 = class13_sub1_sub2.readUnsignedShort();
                 int k2 = class13_sub1_sub2.readUnsignedByte();
                 int j3 = class13_sub1_sub2.method332(aByte1172);
-                int l3 = class13_sub1_sub2.anInt1399;
+                int l3 = class13_sub1_sub2.position;
                 if(class13_sub1_sub1_sub6_sub1.aString1689 != null && class13_sub1_sub1_sub6_sub1.aBoolean1701)
                 {
                     long l4 = Class24.method446(class13_sub1_sub1_sub6_sub1.aString1689);
@@ -15470,9 +15470,9 @@ public class Game extends Applet_Sub1
                     {
                         try
                         {
-                            aClass13_Sub1_Sub2_1282.anInt1399 = 0;
-                            class13_sub1_sub2.method320(aClass13_Sub1_Sub2_1282.aByteArray1398, j3, 0, 0);
-                            aClass13_Sub1_Sub2_1282.anInt1399 = 0;
+                            aClass13_Sub1_Sub2_1282.position = 0;
+                            class13_sub1_sub2.method320(aClass13_Sub1_Sub2_1282.payload, j3, 0, 0);
+                            aClass13_Sub1_Sub2_1282.position = 0;
                             String s = Class45.method573(aClass13_Sub1_Sub2_1282, 0, j3);
                             s = Class41.method541(false, s);
                             class13_sub1_sub1_sub6_sub1.aString1586 = s;
@@ -15497,7 +15497,7 @@ public class Game extends Applet_Sub1
                         }
                     }
                 }
-                class13_sub1_sub2.anInt1399 = l3 + j3;
+                class13_sub1_sub2.position = l3 + j3;
             }
             if((mask & 0x20) != 0)
             {
@@ -15510,7 +15510,7 @@ public class Game extends Applet_Sub1
             }
             if((mask & 4) != 0)
             {
-                int i2 = class13_sub1_sub2.method338((byte)-52);
+                int i2 = class13_sub1_sub2.readUnsignedLittleEndianShort();
                 if(i2 == 65535)
                 {
                     i2 = -1;
@@ -15543,7 +15543,7 @@ public class Game extends Applet_Sub1
             }
             if((mask & 0x10) != 0)
             {
-                class13_sub1_sub1_sub6_sub1.aString1586 = class13_sub1_sub2.method318();
+                class13_sub1_sub1_sub6_sub1.aString1586 = class13_sub1_sub2.readString();
                 if(((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub1)).aString1586.charAt(0) == '~')
                 {
                     class13_sub1_sub1_sub6_sub1.aString1586 = ((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub1)).aString1586.substring(1);
@@ -15559,7 +15559,7 @@ public class Game extends Applet_Sub1
             }
             if((mask & 8) != 0)
             {
-                class13_sub1_sub1_sub6_sub1.anInt1602 = class13_sub1_sub2.method340();
+                class13_sub1_sub1_sub6_sub1.anInt1602 = class13_sub1_sub2.readUnsignedLittleEndianShortA();
                 if(((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub1)).anInt1602 == 65535)
                 {
                     class13_sub1_sub1_sub6_sub1.anInt1602 = -1;

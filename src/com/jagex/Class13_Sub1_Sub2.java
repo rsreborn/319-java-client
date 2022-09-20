@@ -25,17 +25,17 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     public boolean aBoolean1395;
     public boolean aBoolean1396;
     public int anInt1397;
-    public byte aByteArray1398[];
-    public int anInt1399;
+    public byte payload[];
+    public int position;
     public int anInt1400;
     public static int anIntArray1401[];
-    public static int anIntArray1402[] = {
+    public static int BIT_MASKS[] = {
         0, 1, 3, 7, 15, 31, 63, 127, 255, 511,
         1023, 2047, 4095, 8191, 16383, 32767, 65535, 0x1ffff, 0x3ffff, 0x7ffff,
         0xfffff, 0x1fffff, 0x3fffff, 0x7fffff, 0xffffff, 0x1ffffff, 0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff,
         0x3fffffff, 0x7fffffff, -1
     };
-    public Class9 aClass9_1403;
+    public ISAACCipher aISAACCipher_1403;
     public static int anInt1404;
     public static int anInt1405;
     public static int anInt1406;
@@ -77,7 +77,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 }
                 if(class13_sub1_sub2_2 != null)
                 {
-                    class13_sub1_sub2_2.anInt1399 = 0;
+                    class13_sub1_sub2_2.position = 0;
                     Class13_Sub1_Sub2 class13_sub1_sub2 = class13_sub1_sub2_2;
                     return class13_sub1_sub2;
                 }
@@ -87,17 +87,17 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 throw new NullPointerException();
             }
-            class13_sub1_sub2_1.anInt1399 = 0;
+            class13_sub1_sub2_1.position = 0;
             if(j == 0)
             {
-                class13_sub1_sub2_1.aByteArray1398 = new byte[100];
+                class13_sub1_sub2_1.payload = new byte[100];
             } else
             if(j == 1)
             {
-                class13_sub1_sub2_1.aByteArray1398 = new byte[5000];
+                class13_sub1_sub2_1.payload = new byte[5000];
             } else
             {
-                class13_sub1_sub2_1.aByteArray1398 = new byte[30000];
+                class13_sub1_sub2_1.payload = new byte[30000];
             }
             return class13_sub1_sub2_1;
         }
@@ -168,8 +168,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 throw new NullPointerException();
             }
-            aByteArray1398 = abyte0;
-            anInt1399 = 0;
+            payload = abyte0;
+            position = 0;
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -183,7 +183,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399++] = (byte)(j + aClass9_1403.method190());
+            payload[position++] = (byte)(j + aISAACCipher_1403.method190());
             if(i <= 0)
             {
                 aBoolean1394 = !aBoolean1394;
@@ -199,13 +199,13 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public void method301(int i)
     {
-        aByteArray1398[anInt1399++] = (byte)i;
+        payload[position++] = (byte)i;
     }
 
     public void method302(int i)
     {
-        aByteArray1398[anInt1399++] = (byte)(i >> 8);
-        aByteArray1398[anInt1399++] = (byte)i;
+        payload[position++] = (byte)(i >> 8);
+        payload[position++] = (byte)i;
     }
 
     public void method303(boolean flag, int i)
@@ -216,8 +216,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 anInt1397 = -50;
             }
-            aByteArray1398[anInt1399++] = (byte)i;
-            aByteArray1398[anInt1399++] = (byte)(i >> 8);
+            payload[position++] = (byte)i;
+            payload[position++] = (byte)(i >> 8);
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -229,17 +229,17 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public void method304(int i)
     {
-        aByteArray1398[anInt1399++] = (byte)(i >> 16);
-        aByteArray1398[anInt1399++] = (byte)(i >> 8);
-        aByteArray1398[anInt1399++] = (byte)i;
+        payload[position++] = (byte)(i >> 16);
+        payload[position++] = (byte)(i >> 8);
+        payload[position++] = (byte)i;
     }
 
     public void method305(int i)
     {
-        aByteArray1398[anInt1399++] = (byte)(i >> 24);
-        aByteArray1398[anInt1399++] = (byte)(i >> 16);
-        aByteArray1398[anInt1399++] = (byte)(i >> 8);
-        aByteArray1398[anInt1399++] = (byte)i;
+        payload[position++] = (byte)(i >> 24);
+        payload[position++] = (byte)(i >> 16);
+        payload[position++] = (byte)(i >> 8);
+        payload[position++] = (byte)i;
     }
 
     public void method306(int i, int j)
@@ -251,10 +251,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 return;
             } else
             {
-                aByteArray1398[anInt1399++] = (byte)i;
-                aByteArray1398[anInt1399++] = (byte)(i >> 8);
-                aByteArray1398[anInt1399++] = (byte)(i >> 16);
-                aByteArray1398[anInt1399++] = (byte)(i >> 24);
+                payload[position++] = (byte)i;
+                payload[position++] = (byte)(i >> 8);
+                payload[position++] = (byte)(i >> 16);
+                payload[position++] = (byte)(i >> 24);
                 return;
             }
         }
@@ -269,19 +269,19 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399++] = (byte)(int)(l >> 56);
+            payload[position++] = (byte)(int)(l >> 56);
             if(i != 20652)
             {
                 return;
             } else
             {
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 48);
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 40);
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 32);
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 24);
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 16);
-                aByteArray1398[anInt1399++] = (byte)(int)(l >> 8);
-                aByteArray1398[anInt1399++] = (byte)(int)l;
+                payload[position++] = (byte)(int)(l >> 48);
+                payload[position++] = (byte)(int)(l >> 40);
+                payload[position++] = (byte)(int)(l >> 32);
+                payload[position++] = (byte)(int)(l >> 24);
+                payload[position++] = (byte)(int)(l >> 16);
+                payload[position++] = (byte)(int)(l >> 8);
+                payload[position++] = (byte)(int)l;
                 return;
             }
         }
@@ -294,9 +294,9 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public void method308(String s)
     {
-        s.getBytes(0, s.length(), aByteArray1398, anInt1399);
-        anInt1399 += s.length();
-        aByteArray1398[anInt1399++] = 10;
+        s.getBytes(0, s.length(), payload, position);
+        position += s.length();
+        payload[position++] = 10;
     }
 
     public void method309(int i, int j, int k, byte abyte0[])
@@ -309,7 +309,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             }
             for(int l = j; l < j + i; l++)
             {
-                aByteArray1398[anInt1399++] = abyte0[l];
+                payload[position++] = abyte0[l];
             }
             return;
         }
@@ -324,7 +324,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399 - j - 1] = (byte)j;
+            payload[position - j - 1] = (byte)j;
             if(i != 5469)
             {
                 anInt1379 = 29;
@@ -340,24 +340,24 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public int readUnsignedByte()
     {
-        return aByteArray1398[anInt1399++] & 0xff;
+        return payload[position++] & 0xff;
     }
 
     public byte method312()
     {
-        return aByteArray1398[anInt1399++];
+        return payload[position++];
     }
 
     public int readUnsignedShort()
     {
-        anInt1399 += 2;
-        return ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] & 0xff);
+        position += 2;
+        return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
     public int method314()
     {
-        anInt1399 += 2;
-        int i = ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] & 0xff);
+        position += 2;
+        int i = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
         if(i > 32767)
         {
             i -= 0x10000;
@@ -367,58 +367,44 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public int method315()
     {
-        anInt1399 += 3;
-        return ((aByteArray1398[anInt1399 - 3] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] & 0xff);
+        position += 3;
+        return ((payload[position - 3] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
-    public int method316()
+    public int readInt()
     {
-        anInt1399 += 4;
-        return ((aByteArray1398[anInt1399 - 4] & 0xff) << 24) + ((aByteArray1398[anInt1399 - 3] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] & 0xff);
+        position += 4;
+        return ((payload[position - 4] & 0xff) << 24) + ((payload[position - 3] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
-    public long method317(int i)
+    public long readLong(int i)
     {
-        try
-        {
-            if(i != 0)
-            {
-                throw new NullPointerException();
-            } else
-            {
-                long l = (long)method316() & 0xffffffffL;
-                long l1 = (long)method316() & 0xffffffffL;
-                return (l << 32) + l1;
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            signlink.reportError("14095, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+        long msi = (long) readInt() & 0xffffffffL;
+        long lsi = (long) readInt() & 0xffffffffL;
+        return (msi << 32) + lsi;
     }
 
-    public String method318()
+    public String readString()
     {
-        int i = anInt1399;
-        while(aByteArray1398[anInt1399++] != 10) ;
-        return new String(aByteArray1398, i, anInt1399 - i - 1);
+        int start = position;
+        while(payload[position++] != 10);
+        return new String(payload, start, position - start - 1);
     }
 
     public byte[] method319(boolean flag)
     {
         try
         {
-            int i = anInt1399;
+            int i = position;
             if(!flag)
             {
                 anInt1397 = -199;
             }
-            while(aByteArray1398[anInt1399++] != 10) ;
-            byte abyte0[] = new byte[anInt1399 - i - 1];
-            for(int j = i; j < anInt1399 - 1; j++)
+            while(payload[position++] != 10) ;
+            byte abyte0[] = new byte[position - i - 1];
+            for(int j = i; j < position - 1; j++)
             {
-                abyte0[j - i] = aByteArray1398[j];
+                abyte0[j - i] = payload[j];
             }
             return abyte0;
         }
@@ -441,7 +427,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             }
             for(int i1 = j; i1 < j + i; i1++)
             {
-                abyte0[i1] = aByteArray1398[anInt1399++];
+                abyte0[i1] = payload[position++];
             }
             return;
         }
@@ -460,7 +446,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 aBoolean1382 = !aBoolean1382;
             }
-            anInt1400 = anInt1399 * 8;
+            anInt1400 = position * 8;
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -481,15 +467,15 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             anInt1400 += i;
             for(; i > l; l = 8)
             {
-                i1 += (aByteArray1398[k++] & anIntArray1402[l]) << i - l;
+                i1 += (payload[k++] & BIT_MASKS[l]) << i - l;
                 i -= l;
             }
             if(i == l)
             {
-                i1 += aByteArray1398[k] & anIntArray1402[l];
+                i1 += payload[k] & BIT_MASKS[l];
             } else
             {
-                i1 += aByteArray1398[k] >> l - i & anIntArray1402[i];
+                i1 += payload[k] >> l - i & BIT_MASKS[i];
             }
             return i1;
         }
@@ -508,7 +494,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 anInt1381 = 11;
             }
-            anInt1399 = (anInt1400 + 7) / 8;
+            position = (anInt1400 + 7) / 8;
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -520,7 +506,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public int method324()
     {
-        int i = aByteArray1398[anInt1399] & 0xff;
+        int i = payload[position] & 0xff;
         if(i < 128)
         {
             return readUnsignedByte() - 64;
@@ -532,7 +518,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
 
     public int method325()
     {
-        int i = aByteArray1398[anInt1399] & 0xff;
+        int i = payload[position] & 0xff;
         if(i < 128)
         {
             return readUnsignedByte();
@@ -546,8 +532,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            int i = anInt1399;
-            anInt1399 = 0;
+            int i = position;
+            position = 0;
             byte abyte0[] = new byte[i];
             method320(abyte0, i, 0, 0);
             BigInteger biginteger2 = new BigInteger(abyte0);
@@ -559,7 +545,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 }
             }
             byte abyte1[] = biginteger3.toByteArray();
-            anInt1399 = 0;
+            position = 0;
             method301(abyte1.length);
             method309(abyte1.length, 0, anInt1379, abyte1);
             return;
@@ -575,7 +561,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399++] = (byte)(j + 128);
+            payload[position++] = (byte)(j + 128);
             i = 59 / i;
             return;
         }
@@ -594,7 +580,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 aBoolean1382 = !aBoolean1382;
             }
-            aByteArray1398[anInt1399++] = (byte)(-j);
+            payload[position++] = (byte)(-j);
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -614,7 +600,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 {
                 }
             }
-            aByteArray1398[anInt1399++] = (byte)(128 - i);
+            payload[position++] = (byte)(128 - i);
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -632,7 +618,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 aBoolean1396 = !aBoolean1396;
             }
-            return aByteArray1398[anInt1399++] - 128 & 0xff;
+            return payload[position++] - 128 & 0xff;
         }
         catch(RuntimeException runtimeexception)
         {
@@ -650,7 +636,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 return anInt1387;
             } else
             {
-                return -aByteArray1398[anInt1399++] & 0xff;
+                return -payload[position++] & 0xff;
             }
         }
         catch(RuntimeException runtimeexception)
@@ -671,7 +657,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 aBoolean1395 = !aBoolean1395;
             }
-            return 128 - aByteArray1398[anInt1399++] & 0xff;
+            return 128 - payload[position++] & 0xff;
         }
         catch(RuntimeException runtimeexception)
         {
@@ -688,7 +674,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 anInt1387 = -148;
             }
-            return (byte)(aByteArray1398[anInt1399++] - 128);
+            return (byte)(payload[position++] - 128);
         }
         catch(RuntimeException runtimeexception)
         {
@@ -707,7 +693,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 {
                 }
             }
-            return (byte)(-aByteArray1398[anInt1399++]);
+            return (byte)(-payload[position++]);
         }
         catch(RuntimeException runtimeexception)
         {
@@ -720,13 +706,13 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399++] = (byte)j;
+            payload[position++] = (byte)j;
             if(i < 0 || i > 0)
             {
                 return;
             } else
             {
-                aByteArray1398[anInt1399++] = (byte)(j >> 8);
+                payload[position++] = (byte)(j >> 8);
                 return;
             }
         }
@@ -746,8 +732,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 return;
             } else
             {
-                aByteArray1398[anInt1399++] = (byte)(i >> 8);
-                aByteArray1398[anInt1399++] = (byte)(i + 128);
+                payload[position++] = (byte)(i >> 8);
+                payload[position++] = (byte)(i + 128);
                 return;
             }
         }
@@ -766,8 +752,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 anInt1388 = -75;
             }
-            aByteArray1398[anInt1399++] = (byte)(j + 128);
-            aByteArray1398[anInt1399++] = (byte)(j >> 8);
+            payload[position++] = (byte)(j + 128);
+            payload[position++] = (byte)(j >> 8);
             return;
         }
         catch(RuntimeException runtimeexception)
@@ -777,37 +763,22 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method338(byte byte0)
-    {
-        try
-        {
-            if(byte0 != -52)
-            {
-                for(int i = 1; i > 0; i++)
-                {
-                }
-            }
-            anInt1399 += 2;
-            return ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] & 0xff);
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            signlink.reportError("67538, " + byte0 + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public int readUnsignedLittleEndianShort()
+    {       position += 2;
+            return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
     }
 
     public int method339(boolean flag)
     {
         try
         {
-            anInt1399 += 2;
+            position += 2;
             if(!flag)
             {
                 return 2;
             } else
             {
-                return ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] - 128 & 0xff);
+                return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
             }
         }
         catch(RuntimeException runtimeexception)
@@ -817,10 +788,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method340()
+    public int readUnsignedLittleEndianShortA()
     {
-        anInt1399 += 2;
-        return ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] - 128 & 0xff);
+        position += 2;
+        return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
     }
 
     public int method341(int i)
@@ -831,8 +802,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 return anInt1387;
             }
-            anInt1399 += 2;
-            int j = ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] & 0xff);
+            position += 2;
+            int j = ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
             if(j > 32767)
             {
                 j -= 0x10000;
@@ -854,8 +825,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 anInt1386 = 37;
             }
-            anInt1399 += 2;
-            int j = ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] - 128 & 0xff);
+            position += 2;
+            int j = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
             if(j > 32767)
             {
                 j -= 0x10000;
@@ -873,12 +844,12 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            anInt1399 += 2;
+            position += 2;
             if(!flag)
             {
                 aBoolean1394 = !aBoolean1394;
             }
-            int i = ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] - 128 & 0xff);
+            int i = ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
             if(i > 32767)
             {
                 i -= 0x10000;
@@ -896,13 +867,13 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            anInt1399 += 3;
+            position += 3;
             if(i != 5)
             {
                 return 1;
             } else
             {
-                return ((aByteArray1398[anInt1399 - 1] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 3] & 0xff);
+                return ((payload[position - 1] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 3] & 0xff);
             }
         }
         catch(RuntimeException runtimeexception)
@@ -916,10 +887,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
     {
         try
         {
-            aByteArray1398[anInt1399++] = (byte)i;
-            aByteArray1398[anInt1399++] = (byte)(i >> 8);
-            aByteArray1398[anInt1399++] = (byte)(i >> 16);
-            aByteArray1398[anInt1399++] = (byte)(i >> 24);
+            payload[position++] = (byte)i;
+            payload[position++] = (byte)(i >> 8);
+            payload[position++] = (byte)(i >> 16);
+            payload[position++] = (byte)(i >> 24);
             j = 70 / j;
             return;
         }
@@ -941,8 +912,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             {
                 return anInt1379;
             }
-            anInt1399 += 4;
-            return ((aByteArray1398[anInt1399 - 1] & 0xff) << 24) + ((aByteArray1398[anInt1399 - 2] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 3] & 0xff) << 8) + (aByteArray1398[anInt1399 - 4] & 0xff);
+            position += 4;
+            return ((payload[position - 1] & 0xff) << 24) + ((payload[position - 2] & 0xff) << 16) + ((payload[position - 3] & 0xff) << 8) + (payload[position - 4] & 0xff);
         }
         catch(RuntimeException runtimeexception)
         {
@@ -961,8 +932,8 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
                 {
                 }
             }
-            anInt1399 += 4;
-            return ((aByteArray1398[anInt1399 - 2] & 0xff) << 24) + ((aByteArray1398[anInt1399 - 1] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 4] & 0xff) << 8) + (aByteArray1398[anInt1399 - 3] & 0xff);
+            position += 4;
+            return ((payload[position - 2] & 0xff) << 24) + ((payload[position - 1] & 0xff) << 16) + ((payload[position - 4] & 0xff) << 8) + (payload[position - 3] & 0xff);
         }
         catch(RuntimeException runtimeexception)
         {
@@ -971,24 +942,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method348(int i)
+    public int readMiddleEndianInt2(int i)
     {
-        try
-        {
-            anInt1399 += 4;
-            if(i != 12258)
-            {
-                return anInt1379;
-            } else
-            {
-                return ((aByteArray1398[anInt1399 - 3] & 0xff) << 24) + ((aByteArray1398[anInt1399 - 4] & 0xff) << 16) + ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] & 0xff);
-            }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            signlink.reportError("27882, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+        position += 4;
+        return ((payload[position - 3] & 0xff) << 24) + ((payload[position - 4] & 0xff) << 16) + ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
     }
 
     public void method349(byte abyte0[], int i, boolean flag, int j)
@@ -1001,7 +958,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             }
             for(int k = (i + j) - 1; k >= i; k--)
             {
-                aByteArray1398[anInt1399++] = (byte)(abyte0[k] + 128);
+                payload[position++] = (byte)(abyte0[k] + 128);
             }
             return;
         }
@@ -1022,7 +979,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             }
             for(int k = j; k < j + i; k++)
             {
-                abyte0[k] = (byte)(aByteArray1398[anInt1399++] - 128);
+                abyte0[k] = (byte)(payload[position++] - 128);
             }
             return;
         }

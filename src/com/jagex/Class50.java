@@ -167,7 +167,7 @@ public class Class50
                 } else
                 if(j == 12)
                 {
-                    anInt815 = class13_sub1_sub2.method316();
+                    anInt815 = class13_sub1_sub2.readInt();
                 } else
                 {
                     System.out.println("Error unrecognised seq config code: " + j);

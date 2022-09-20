@@ -140,7 +140,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1
                 return;
             }
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2.anInt1399 = abyte0.length - 18;
+            class13_sub1_sub2.position = abyte0.length - 18;
             Class23 class23_1 = aClass23Array1531[i] = new Class23();
             class23_1.aByteArray379 = abyte0;
             class23_1.anInt380 = class13_sub1_sub2.readUnsignedShort();
@@ -357,15 +357,15 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1
             }
             anIntArray1510 = new int[anInt1500];
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class23.aByteArray379);
-            class13_sub1_sub2.anInt1399 = class23.anInt383;
+            class13_sub1_sub2.position = class23.anInt383;
             Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class23.aByteArray379);
-            class13_sub1_sub2_1.anInt1399 = class23.anInt384;
+            class13_sub1_sub2_1.position = class23.anInt384;
             Class13_Sub1_Sub2 class13_sub1_sub2_2 = new Class13_Sub1_Sub2(-351, class23.aByteArray379);
-            class13_sub1_sub2_2.anInt1399 = class23.anInt385;
+            class13_sub1_sub2_2.position = class23.anInt385;
             Class13_Sub1_Sub2 class13_sub1_sub2_3 = new Class13_Sub1_Sub2(-351, class23.aByteArray379);
-            class13_sub1_sub2_3.anInt1399 = class23.anInt386;
+            class13_sub1_sub2_3.position = class23.anInt386;
             Class13_Sub1_Sub2 class13_sub1_sub2_4 = new Class13_Sub1_Sub2(-351, class23.aByteArray379);
-            class13_sub1_sub2_4.anInt1399 = class23.anInt387;
+            class13_sub1_sub2_4.position = class23.anInt387;
             int j = 0;
             int k = 0;
             int l = 0;
@@ -398,11 +398,11 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1
                     anIntArray1525[i1] = class13_sub1_sub2_4.readUnsignedByte();
                 }
             }
-            class13_sub1_sub2.anInt1399 = class23.anInt390;
-            class13_sub1_sub2_1.anInt1399 = class23.anInt391;
-            class13_sub1_sub2_2.anInt1399 = class23.anInt392;
-            class13_sub1_sub2_3.anInt1399 = class23.anInt393;
-            class13_sub1_sub2_4.anInt1399 = class23.anInt394;
+            class13_sub1_sub2.position = class23.anInt390;
+            class13_sub1_sub2_1.position = class23.anInt391;
+            class13_sub1_sub2_2.position = class23.anInt392;
+            class13_sub1_sub2_3.position = class23.anInt393;
+            class13_sub1_sub2_4.position = class23.anInt394;
             for(int k1 = 0; k1 < anInt1500; k1++)
             {
                 anIntArray1510[k1] = class13_sub1_sub2.readUnsignedShort();
@@ -423,8 +423,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1
                     anIntArray1526[k1] = class13_sub1_sub2_4.readUnsignedByte();
                 }
             }
-            class13_sub1_sub2.anInt1399 = class23.anInt388;
-            class13_sub1_sub2_1.anInt1399 = class23.anInt389;
+            class13_sub1_sub2.position = class23.anInt388;
+            class13_sub1_sub2_1.position = class23.anInt389;
             if(byte0 != 34)
             {
                 throw new NullPointerException();
@@ -480,7 +480,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1
                     anIntArray1503[k3] = i3;
                 }
             }
-            class13_sub1_sub2.anInt1399 = class23.anInt395;
+            class13_sub1_sub2.position = class23.anInt395;
             for(int i4 = 0; i4 < anInt1512; i4++)
             {
                 anIntArray1513[i4] = class13_sub1_sub2.readUnsignedShort();

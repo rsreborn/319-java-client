@@ -39,7 +39,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149(s + ".dat", null));
             Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class1.method149("index.dat", null));
             byte byte0 = -1;
-            class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.readUnsignedShort() + 4;
+            class13_sub1_sub2_1.position = class13_sub1_sub2.readUnsignedShort() + 4;
             int k = class13_sub1_sub2_1.readUnsignedByte();
             if(i != anInt1649)
             {
@@ -47,7 +47,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
             }
             if(k > 0)
             {
-                class13_sub1_sub2_1.anInt1399 += 3 * (k - 1);
+                class13_sub1_sub2_1.position += 3 * (k - 1);
             }
             for(int l = 0; l < 256; l++)
             {

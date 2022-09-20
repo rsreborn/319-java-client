@@ -155,10 +155,10 @@ public class Class45
     {
         try
         {
-            aClass13_Sub1_Sub2_730.anInt1399 = 0;
+            aClass13_Sub1_Sub2_730.position = 0;
             method574(aClass13_Sub1_Sub2_730, -45468, s);
-            int i = aClass13_Sub1_Sub2_730.anInt1399;
-            aClass13_Sub1_Sub2_730.anInt1399 = 0;
+            int i = aClass13_Sub1_Sub2_730.position;
+            aClass13_Sub1_Sub2_730.position = 0;
             String s1 = method573(aClass13_Sub1_Sub2_730, 0, i);
             if(flag)
             {

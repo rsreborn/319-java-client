@@ -132,7 +132,7 @@ public class Class14
         }
         anInt245 = (anInt245 + 1) % 20;
         Class14 class14 = aClass14Array278[anInt245];
-        aClass13_Sub1_Sub2_267.anInt1399 = anIntArray287[i];
+        aClass13_Sub1_Sub2_267.position = anIntArray287[i];
         class14.anInt268 = i;
         class14.method417();
         class14.method420(aClass13_Sub1_Sub2_267, 26421);
@@ -205,13 +205,13 @@ label0:
                                 }
                             } else
                             {
-                                class13_sub1_sub2.anInt1399 += i1 * 3;
+                                class13_sub1_sub2.position += i1 * 3;
                             }
                         }
                     } else
                     if(l == 2)
                     {
-                        aString275 = class13_sub1_sub2.method318();
+                        aString275 = class13_sub1_sub2.readString();
                     } else
                     if(l == 3)
                     {
@@ -232,7 +232,7 @@ label0:
                                 }
                             } else
                             {
-                                class13_sub1_sub2.anInt1399 += j1 * 2;
+                                class13_sub1_sub2.position += j1 * 2;
                             }
                         }
                     } else
@@ -298,7 +298,7 @@ label0:
                         {
                             aStringArray261 = new String[5];
                         }
-                        aStringArray261[l - 30] = class13_sub1_sub2.method318();
+                        aStringArray261[l - 30] = class13_sub1_sub2.readString();
                         if(aStringArray261[l - 30].equalsIgnoreCase("hidden"))
                         {
                             aStringArray261[l - 30] = null;

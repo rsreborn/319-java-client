@@ -246,7 +246,7 @@ public class Class47
         }
         anInt780 = (anInt780 + 1) % 20;
         Class47 class47 = aClass47Array757[anInt780] = new Class47();
-        aClass13_Sub1_Sub2_758.anInt1399 = anIntArray761[i];
+        aClass13_Sub1_Sub2_758.position = anIntArray761[i];
         class47.aLong770 = i;
         class47.method586(aClass13_Sub1_Sub2_758, 26421);
         return class47;
@@ -278,7 +278,7 @@ public class Class47
                 } else
                 if(j == 2)
                 {
-                    aString765 = class13_sub1_sub2.method318();
+                    aString765 = class13_sub1_sub2.readString();
                 } else
                 if(j == 3)
                 {
@@ -309,7 +309,7 @@ public class Class47
                     {
                         aStringArray747 = new String[5];
                     }
-                    aStringArray747[j - 30] = class13_sub1_sub2.method318();
+                    aStringArray747[j - 30] = class13_sub1_sub2.readString();
                     if(aStringArray747[j - 30].equalsIgnoreCase("hidden"))
                     {
                         aStringArray747[j - 30] = null;

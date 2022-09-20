@@ -56,14 +56,14 @@ public class Class1
             anIntArray45 = new int[anInt43];
             anIntArray46 = new int[anInt43];
             anIntArray47 = new int[anInt43];
-            int l = class13_sub1_sub2.anInt1399 + anInt43 * 10;
+            int l = class13_sub1_sub2.position + anInt43 * 10;
             if(i != 44570)
             {
                 return;
             }
             for(int i1 = 0; i1 < anInt43; i1++)
             {
-                anIntArray44[i1] = class13_sub1_sub2.method316();
+                anIntArray44[i1] = class13_sub1_sub2.readInt();
                 anIntArray45[i1] = class13_sub1_sub2.method315();
                 anIntArray46[i1] = class13_sub1_sub2.method315();
                 anIntArray47[i1] = l;

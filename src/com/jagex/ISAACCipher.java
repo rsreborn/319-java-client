@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.signlink;
 
-public class Class9 {
+public class ISAACCipher {
 
     public int anInt145;
     public int anIntArray146[];
@@ -11,7 +11,7 @@ public class Class9 {
     public int anInt149;
     public int anInt150;
 
-    public Class9(int i, int ai[]) {
+    public ISAACCipher(int i, int ai[]) {
         try {
             anIntArray147 = new int[256];
             anIntArray146 = new int[256];

@@ -43,7 +43,7 @@ public class Class26
             {
                 aBoolean436 = !aBoolean436;
             }
-            if(class13_sub1_sub2.anInt1399 != class13_sub1_sub2.aByteArray1398.length)
+            if(class13_sub1_sub2.position != class13_sub1_sub2.payload.length)
             {
                 System.out.println("varbit load mismatch");
                 return;
@@ -79,7 +79,7 @@ public class Class26
                 } else
                 if(k == 10)
                 {
-                    aString440 = class13_sub1_sub2.method318();
+                    aString440 = class13_sub1_sub2.readString();
                 } else
                 if(k == 2)
                 {
@@ -87,11 +87,11 @@ public class Class26
                 } else
                 if(k == 3)
                 {
-                    anInt445 = class13_sub1_sub2.method316();
+                    anInt445 = class13_sub1_sub2.readInt();
                 } else
                 if(k == 4)
                 {
-                    anInt446 = class13_sub1_sub2.method316();
+                    anInt446 = class13_sub1_sub2.readInt();
                 } else
                 {
                     System.out.println("Error unrecognised config code: " + k);

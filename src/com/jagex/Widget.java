@@ -221,7 +221,7 @@ public class Widget
             }
             int j = class13_sub1_sub2.readUnsignedShort();
             aWidgetArray533 = new Widget[j];
-            while(class13_sub1_sub2.anInt1399 < class13_sub1_sub2.aByteArray1398.length)
+            while(class13_sub1_sub2.position < class13_sub1_sub2.payload.length)
             {
                 int k = class13_sub1_sub2.readUnsignedShort();
                 if(k == 65535)
@@ -311,7 +311,7 @@ public class Widget
                         {
                             widget.anIntArray580[j2] = class13_sub1_sub2.method314();
                             widget.anIntArray560[j2] = class13_sub1_sub2.method314();
-                            String s1 = class13_sub1_sub2.method318();
+                            String s1 = class13_sub1_sub2.readString();
                             if(class1_1 != null && s1.length() > 0)
                             {
                                 int i5 = s1.lastIndexOf(",");
@@ -322,7 +322,7 @@ public class Widget
                     widget.aStringArray547 = new String[5];
                     for(int l3 = 0; l3 < 5; l3++)
                     {
-                        widget.aStringArray547[l3] = class13_sub1_sub2.method318();
+                        widget.aStringArray547[l3] = class13_sub1_sub2.readString();
                         if(widget.aStringArray547[l3].length() == 0)
                         {
                             widget.aStringArray547[l3] = null;
@@ -345,28 +345,28 @@ public class Widget
                 }
                 if(widget.anInt570 == 4)
                 {
-                    widget.aString548 = class13_sub1_sub2.method318();
-                    widget.aString589 = class13_sub1_sub2.method318();
+                    widget.aString548 = class13_sub1_sub2.readString();
+                    widget.aString589 = class13_sub1_sub2.readString();
                 }
                 if(widget.anInt570 == 1 || widget.anInt570 == 3 || widget.anInt570 == 4)
                 {
-                    widget.anInt550 = class13_sub1_sub2.method316();
+                    widget.anInt550 = class13_sub1_sub2.readInt();
                 }
                 if(widget.anInt570 == 3 || widget.anInt570 == 4)
                 {
-                    widget.anInt544 = class13_sub1_sub2.method316();
-                    widget.anInt596 = class13_sub1_sub2.method316();
-                    widget.anInt566 = class13_sub1_sub2.method316();
+                    widget.anInt544 = class13_sub1_sub2.readInt();
+                    widget.anInt596 = class13_sub1_sub2.readInt();
+                    widget.anInt566 = class13_sub1_sub2.readInt();
                 }
                 if(widget.anInt570 == 5)
                 {
-                    String s = class13_sub1_sub2.method318();
+                    String s = class13_sub1_sub2.readString();
                     if(class1_1 != null && s.length() > 0)
                     {
                         int i4 = s.lastIndexOf(",");
                         widget.aClass13_Sub1_Sub4_Sub4_569 = method500(Integer.parseInt(s.substring(i4 + 1)), false, class1_1, s.substring(0, i4));
                     }
-                    s = class13_sub1_sub2.method318();
+                    s = class13_sub1_sub2.readString();
                     if(class1_1 != null && s.length() > 0)
                     {
                         int j4 = s.lastIndexOf(",");
@@ -418,14 +418,14 @@ public class Widget
                         widget.aClass13_Sub1_Sub4_Sub2_583 = aclass13_sub1_sub4_sub2[l2];
                     }
                     widget.aBoolean559 = class13_sub1_sub2.readUnsignedByte() == 1;
-                    widget.anInt550 = class13_sub1_sub2.method316();
+                    widget.anInt550 = class13_sub1_sub2.readInt();
                     widget.anInt599 = class13_sub1_sub2.method314();
                     widget.anInt554 = class13_sub1_sub2.method314();
                     widget.aBoolean585 = class13_sub1_sub2.readUnsignedByte() == 1;
                     widget.aStringArray547 = new String[5];
                     for(int k4 = 0; k4 < 5; k4++)
                     {
-                        widget.aStringArray547[k4] = class13_sub1_sub2.method318();
+                        widget.aStringArray547[k4] = class13_sub1_sub2.readString();
                         if(widget.aStringArray547[k4].length() == 0)
                         {
                             widget.aStringArray547[k4] = null;
@@ -434,13 +434,13 @@ public class Widget
                 }
                 if(widget.anInt597 == 2 || widget.anInt570 == 2)
                 {
-                    widget.aString563 = class13_sub1_sub2.method318();
-                    widget.aString553 = class13_sub1_sub2.method318();
+                    widget.aString563 = class13_sub1_sub2.readString();
+                    widget.aString553 = class13_sub1_sub2.readString();
                     widget.anInt558 = class13_sub1_sub2.readUnsignedShort();
                 }
                 if(widget.anInt597 == 1 || widget.anInt597 == 4 || widget.anInt597 == 5 || widget.anInt597 == 6)
                 {
-                    widget.aString564 = class13_sub1_sub2.method318();
+                    widget.aString564 = class13_sub1_sub2.readString();
                     if(widget.aString564.length() == 0)
                     {
                         if(widget.anInt597 == 1)

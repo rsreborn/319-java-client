@@ -84,7 +84,7 @@ public class Class32
                 } else
                 if(j == 6)
                 {
-                    aString490 = class13_sub1_sub2.method318();
+                    aString490 = class13_sub1_sub2.readString();
                 } else
                 if(j == 7)
                 {

@@ -49,7 +49,7 @@ public class Class22
                 }
                 aClass22Array365[i].method445(i, 40848, class13_sub1_sub2);
             }
-            if(class13_sub1_sub2.anInt1399 != class13_sub1_sub2.aByteArray1398.length)
+            if(class13_sub1_sub2.position != class13_sub1_sub2.payload.length)
             {
                 System.out.println("varptype load mismatch");
                 return;
@@ -104,7 +104,7 @@ public class Class22
                 } else
                 if(k == 7)
                 {
-                    anInt375 = class13_sub1_sub2.method316();
+                    anInt375 = class13_sub1_sub2.readInt();
                 } else
                 if(k == 8)
                 {
@@ -113,7 +113,7 @@ public class Class22
                 } else
                 if(k == 10)
                 {
-                    aString368 = class13_sub1_sub2.method318();
+                    aString368 = class13_sub1_sub2.readString();
                 } else
                 if(k == 11)
                 {
@@ -121,7 +121,7 @@ public class Class22
                 } else
                 if(k == 12)
                 {
-                    anInt378 = class13_sub1_sub2.method316();
+                    anInt378 = class13_sub1_sub2.readInt();
                 } else
                 if(k == 13)
                 {

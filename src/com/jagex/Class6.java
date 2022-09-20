@@ -28,8 +28,8 @@ public class Class6
             } else
             {
                 anInt125 = class13_sub1_sub2.readUnsignedByte();
-                anInt123 = class13_sub1_sub2.method316();
-                anInt124 = class13_sub1_sub2.method316();
+                anInt123 = class13_sub1_sub2.readInt();
+                anInt124 = class13_sub1_sub2.readInt();
                 method182(class13_sub1_sub2, false);
                 return;
             }

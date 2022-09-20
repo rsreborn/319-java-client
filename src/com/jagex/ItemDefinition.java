@@ -301,7 +301,7 @@ public class ItemDefinition
         }
         anInt645 = (anInt645 + 1) % 10;
         ItemDefinition itemDefinition = aItemDefinitionArray620[anInt645];
-        aClass13_Sub1_Sub2_665.anInt1399 = anIntArray655[i];
+        aClass13_Sub1_Sub2_665.position = anIntArray655[i];
         itemDefinition.anInt633 = i;
         itemDefinition.method514();
         itemDefinition.method510(aClass13_Sub1_Sub2_665, 26421);
@@ -530,7 +530,7 @@ public class ItemDefinition
                 } else
                 if(k == 2)
                 {
-                    aString649 = class13_sub1_sub2.method318();
+                    aString649 = class13_sub1_sub2.readString();
                 } else
                 if(k == 3)
                 {
@@ -574,7 +574,7 @@ public class ItemDefinition
                 } else
                 if(k == 12)
                 {
-                    anInt637 = class13_sub1_sub2.method316();
+                    anInt637 = class13_sub1_sub2.readInt();
                 } else
                 if(k == 16)
                 {
@@ -604,7 +604,7 @@ public class ItemDefinition
                     {
                         aStringArray643 = new String[5];
                     }
-                    aStringArray643[k - 30] = class13_sub1_sub2.method318();
+                    aStringArray643[k - 30] = class13_sub1_sub2.readString();
                     if(aStringArray643[k - 30].equalsIgnoreCase("hidden"))
                     {
                         aStringArray643[k - 30] = null;
@@ -616,7 +616,7 @@ public class ItemDefinition
                     {
                         aStringArray639 = new String[5];
                     }
-                    aStringArray639[k - 35] = class13_sub1_sub2.method318();
+                    aStringArray639[k - 35] = class13_sub1_sub2.readString();
                 } else
                 if(k == 40)
                 {

@@ -394,7 +394,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
     {
         try
         {
-            class13_sub1_sub2.anInt1399 = 0;
+            class13_sub1_sub2.position = 0;
             anInt1687 = class13_sub1_sub2.readUnsignedByte();
             anInt1715 = class13_sub1_sub2.readUnsignedByte();
             aClass47_1716 = null;
@@ -467,7 +467,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
             {
                 super.anInt1607 = -1;
             }
-            aString1689 = Class24.method450(Class24.method447(class13_sub1_sub2.method317(0), 0), 0);
+            aString1689 = Class24.method450(Class24.method447(class13_sub1_sub2.readLong(0), 0), 0);
             if(i != 0)
             {
                 aBoolean1704 = !aBoolean1704;

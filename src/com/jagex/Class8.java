@@ -30,30 +30,30 @@ public class Class8
         try
         {
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2.anInt1399 = abyte0.length - 8;
+            class13_sub1_sub2.position = abyte0.length - 8;
             int j = class13_sub1_sub2.readUnsignedShort();
             int k = class13_sub1_sub2.readUnsignedShort();
             int l = class13_sub1_sub2.readUnsignedShort();
             int i1 = class13_sub1_sub2.readUnsignedShort();
             int j1 = 0;
             Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2_1.anInt1399 = j1;
+            class13_sub1_sub2_1.position = j1;
             j1 += j + 2;
             Class13_Sub1_Sub2 class13_sub1_sub2_2 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2_2.anInt1399 = j1;
+            class13_sub1_sub2_2.position = j1;
             j1 += k;
             Class13_Sub1_Sub2 class13_sub1_sub2_3 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2_3.anInt1399 = j1;
+            class13_sub1_sub2_3.position = j1;
             j1 += l;
             Class13_Sub1_Sub2 class13_sub1_sub2_4 = new Class13_Sub1_Sub2(-351, abyte0);
-            class13_sub1_sub2_4.anInt1399 = j1;
+            class13_sub1_sub2_4.position = j1;
             j1 += i1;
             Class13_Sub1_Sub2 class13_sub1_sub2_5;
             for(class13_sub1_sub2_5 = new Class13_Sub1_Sub2(-351, abyte0); i >= 0;)
             {
                 return;
             }
-            class13_sub1_sub2_5.anInt1399 = j1;
+            class13_sub1_sub2_5.position = j1;
             Class35 class35 = new Class35(class13_sub1_sub2_5, false);
             int k1 = class13_sub1_sub2_1.readUnsignedShort();
             int ai[] = new int[500];

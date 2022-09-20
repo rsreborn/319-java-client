@@ -307,7 +307,7 @@ public class Class17
             int j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
-                class13_sub1_sub2.anInt1399--;
+                class13_sub1_sub2.position--;
                 aClass6_304 = new Class6();
                 aClass6_304.method181(class13_sub1_sub2, 26421);
                 aClass6_305 = new Class6();
@@ -316,7 +316,7 @@ public class Class17
             j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
-                class13_sub1_sub2.anInt1399--;
+                class13_sub1_sub2.position--;
                 aClass6_306 = new Class6();
                 aClass6_306.method181(class13_sub1_sub2, 26421);
                 aClass6_307 = new Class6();
@@ -325,7 +325,7 @@ public class Class17
             j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
-                class13_sub1_sub2.anInt1399--;
+                class13_sub1_sub2.position--;
                 aClass6_308 = new Class6();
                 aClass6_308.method181(class13_sub1_sub2, 26421);
                 aClass6_309 = new Class6();

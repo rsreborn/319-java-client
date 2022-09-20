@@ -647,7 +647,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		= new Class13_Sub1_Sub2(-351, is);
 	    anIntArrayArray1323[i] = new int[i_39_];
 	    for (int i_40_ = 0; i_40_ < i_39_; i_40_++)
-		anIntArrayArray1323[i][i_40_] = class13_sub1_sub2.method316();
+		anIntArrayArray1323[i][i_40_] = class13_sub1_sub2.readInt();
 	}
 	byte[] is = class1.method149("model_index", null);
 	int i = anIntArrayArray1306[0].length;

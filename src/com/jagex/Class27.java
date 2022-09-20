@@ -97,7 +97,7 @@ public class Class27
                 int k = class13_sub1_sub2.readUnsignedByte();
                 if(k != 0)
                 {
-                    class13_sub1_sub2.anInt1399--;
+                    class13_sub1_sub2.position--;
                     aClass17Array453[j] = new Class17();
                     aClass17Array453[j].method438(class13_sub1_sub2, 26421);
                 }
@@ -167,7 +167,7 @@ public class Class27
         try
         {
             int k = method480(i);
-            aClass13_Sub1_Sub2_452.anInt1399 = 0;
+            aClass13_Sub1_Sub2_452.position = 0;
             aClass13_Sub1_Sub2_452.method305(0x52494646);
             aClass13_Sub1_Sub2_452.method306(36 + k, anInt447);
             aClass13_Sub1_Sub2_452.method305(0x57415645);
@@ -187,7 +187,7 @@ public class Class27
             aClass13_Sub1_Sub2_452.method303(true, 8);
             aClass13_Sub1_Sub2_452.method305(0x64617461);
             aClass13_Sub1_Sub2_452.method306(k, anInt447);
-            aClass13_Sub1_Sub2_452.anInt1399 += k;
+            aClass13_Sub1_Sub2_452.position += k;
             return aClass13_Sub1_Sub2_452;
         }
         catch(RuntimeException runtimeexception)

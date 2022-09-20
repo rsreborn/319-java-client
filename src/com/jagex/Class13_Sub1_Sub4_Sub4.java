@@ -73,7 +73,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4
         aBoolean1679 = false;
         Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149(s + ".dat", null));
         Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class1.method149("index.dat", null));
-        class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.readUnsignedShort();
+        class13_sub1_sub2_1.position = class13_sub1_sub2.readUnsignedShort();
         anInt1685 = class13_sub1_sub2_1.readUnsignedShort();
         anInt1686 = class13_sub1_sub2_1.readUnsignedShort();
         int j = class13_sub1_sub2_1.readUnsignedByte();
@@ -88,9 +88,9 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4
         }
         for(int l = 0; l < i; l++)
         {
-            class13_sub1_sub2_1.anInt1399 += 2;
-            class13_sub1_sub2.anInt1399 += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
-            class13_sub1_sub2_1.anInt1399++;
+            class13_sub1_sub2_1.position += 2;
+            class13_sub1_sub2.position += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
+            class13_sub1_sub2_1.position++;
         }
         anInt1683 = class13_sub1_sub2_1.readUnsignedByte();
         anInt1684 = class13_sub1_sub2_1.readUnsignedByte();

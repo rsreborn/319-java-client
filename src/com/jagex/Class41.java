@@ -51,7 +51,7 @@ public class Class41
             {
                 aBoolean707 = !aBoolean707;
             }
-            int i = class13_sub1_sub2.method316();
+            int i = class13_sub1_sub2.readInt();
             aCharArrayArray712 = new char[i][];
             anIntArray713 = new int[i];
             for(int j = 0; j < i; j++)
@@ -77,7 +77,7 @@ public class Class41
     {
         try
         {
-            int i = class13_sub1_sub2.method316();
+            int i = class13_sub1_sub2.readInt();
             if(byte0 == 5)
             {
                 byte0 = 0;
@@ -101,7 +101,7 @@ public class Class41
     {
         try
         {
-            int j = class13_sub1_sub2.method316();
+            int j = class13_sub1_sub2.readInt();
             aCharArrayArray711 = new char[j][];
             method538(true, class13_sub1_sub2, aCharArrayArray711);
             if(i != 9)
@@ -128,7 +128,7 @@ public class Class41
             {
                 return;
             }
-            anIntArray708 = new int[class13_sub1_sub2.method316()];
+            anIntArray708 = new int[class13_sub1_sub2.readInt()];
             for(int i = 0; i < anIntArray708.length; i++)
             {
                 anIntArray708[i] = class13_sub1_sub2.readUnsignedShort();
