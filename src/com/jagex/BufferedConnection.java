@@ -10,9 +10,6 @@ import java.util.Arrays;
 
 public class BufferedConnection implements Runnable {
 
-    public int anInt732;
-    public boolean aBoolean733;
-    public boolean aBoolean734;
     public InputStream inputStream;
     public OutputStream outputStream;
     public Socket socket;
@@ -25,9 +22,6 @@ public class BufferedConnection implements Runnable {
     public boolean ioError;
 
     public BufferedConnection(Socket socket, int i, GameShell gameShell) throws IOException {
-        anInt732 = -168;
-        aBoolean733 = false;
-        aBoolean734 = true;
         closed = false;
         writing = false;
         ioError = false;
@@ -99,7 +93,7 @@ public class BufferedConnection implements Runnable {
         }
     }
 
-    public void write(byte[] bytes, int offset, int length, byte byte0)
+    public void write(byte[] bytes, int offset, int length)
             throws IOException {
         try {
             if (closed) {
@@ -126,11 +120,8 @@ public class BufferedConnection implements Runnable {
                 }
                 notify();
             }
-            if (byte0 != 9) {
-                anInt732 = 101;
-            }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("59331, " + Arrays.toString(bytes) + ", " + offset + ", " + length + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("59331, " + Arrays.toString(bytes) + ", " + offset + ", " + length + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

@@ -6308,7 +6308,7 @@ public class Game extends GameShell
             {
                 if(gameConnection != null && aClass13_Sub1_Sub2_928.position > 0)
                 {
-                    gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, aClass13_Sub1_Sub2_928.position, (byte)9);
+                    gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, aClass13_Sub1_Sub2_928.position);
                     aClass13_Sub1_Sub2_928.position = 0;
                     anInt855 = 0;
                     return;
@@ -6986,7 +6986,7 @@ public class Game extends GameShell
             aClass13_Sub1_Sub2_928.position = 0;
             aClass13_Sub1_Sub2_928.writeByte(14);
             aClass13_Sub1_Sub2_928.writeByte(i);
-            gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, 2, (byte)9);
+            gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, 2);
             for(int j = 0; j < 8; j++)
             {
                 gameConnection.read();
@@ -7040,7 +7040,7 @@ public class Game extends GameShell
                     seed[j2] += 50;
                 }
                 aISAACCipher_1163 = new ISAACCipher(0, seed);
-                gameConnection.write(aClass13_Sub1_Sub2_1100.payload, 0, aClass13_Sub1_Sub2_1100.position, (byte)9);
+                gameConnection.write(aClass13_Sub1_Sub2_1100.payload, 0, aClass13_Sub1_Sub2_1100.position);
                 responseCode = gameConnection.read();
             }
             if(responseCode == 1)
