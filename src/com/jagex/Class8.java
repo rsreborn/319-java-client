@@ -87,17 +87,17 @@ public class Class8 {
                             c = '\200';
                         }
                         if ((j3 & 1) != 0) {
-                            ai1[l2] = buffer_3.method324();
+                            ai1[l2] = buffer_3.readSmart();
                         } else {
                             ai1[l2] = c;
                         }
                         if ((j3 & 2) != 0) {
-                            ai2[l2] = buffer_3.method324();
+                            ai2[l2] = buffer_3.readSmart();
                         } else {
                             ai2[l2] = c;
                         }
                         if ((j3 & 4) != 0) {
-                            ai3[l2] = buffer_3.method324();
+                            ai3[l2] = buffer_3.readSmart();
                         } else {
                             ai3[l2] = c;
                         }

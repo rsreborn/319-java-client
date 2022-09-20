@@ -279,16 +279,16 @@ public class Class17 {
                 aClass6_309.method181(buffer, 26421);
             }
             for (int k = 0; k < 10; k++) {
-                int l = buffer.method325();
+                int l = buffer.readUnsignedSmart();
                 if (l == 0) {
                     break;
                 }
                 anIntArray310[k] = l;
-                anIntArray311[k] = buffer.method324();
-                anIntArray312[k] = buffer.method325();
+                anIntArray311[k] = buffer.readSmart();
+                anIntArray312[k] = buffer.readUnsignedSmart();
             }
-            anInt313 = buffer.method325();
-            anInt314 = buffer.method325();
+            anInt313 = buffer.readUnsignedSmart();
+            anInt314 = buffer.readUnsignedSmart();
             if (i != 26421) {
                 throw new NullPointerException();
             } else {

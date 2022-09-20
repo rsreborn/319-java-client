@@ -160,15 +160,15 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 int j1 = buffer.readUnsignedByte();
                 int l1 = 0;
                 if ((j1 & 1) != 0) {
-                    l1 = class13_sub1_sub2_1.method324();
+                    l1 = class13_sub1_sub2_1.readSmart();
                 }
                 int j2 = 0;
                 if ((j1 & 2) != 0) {
-                    j2 = buffer_2.method324();
+                    j2 = buffer_2.readSmart();
                 }
                 int l2 = 0;
                 if ((j1 & 4) != 0) {
-                    l2 = buffer_3.method324();
+                    l2 = buffer_3.readSmart();
                 }
                 anIntArray1497[i1] = j + l1;
                 anIntArray1498[i1] = k + j2;
@@ -212,11 +212,11 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             for (int k3 = 0; k3 < anInt1500; k3++) {
                 int l3 = class13_sub1_sub2_1.readUnsignedByte();
                 if (l3 == 1) {
-                    i2 = buffer.method324() + j3;
+                    i2 = buffer.readSmart() + j3;
                     j3 = i2;
-                    k2 = buffer.method324() + j3;
+                    k2 = buffer.readSmart() + j3;
                     j3 = k2;
-                    i3 = buffer.method324() + j3;
+                    i3 = buffer.readSmart() + j3;
                     j3 = i3;
                     anIntArray1501[k3] = i2;
                     anIntArray1502[k3] = k2;
@@ -225,7 +225,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 if (l3 == 2) {
                     i2 = i2;
                     k2 = i3;
-                    i3 = buffer.method324() + j3;
+                    i3 = buffer.readSmart() + j3;
                     j3 = i3;
                     anIntArray1501[k3] = i2;
                     anIntArray1502[k3] = k2;
@@ -234,7 +234,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 if (l3 == 3) {
                     i2 = i3;
                     k2 = k2;
-                    i3 = buffer.method324() + j3;
+                    i3 = buffer.readSmart() + j3;
                     j3 = i3;
                     anIntArray1501[k3] = i2;
                     anIntArray1502[k3] = k2;
@@ -244,7 +244,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     int j4 = i2;
                     i2 = k2;
                     k2 = j4;
-                    i3 = buffer.method324() + j3;
+                    i3 = buffer.readSmart() + j3;
                     j3 = i3;
                     anIntArray1501[k3] = i2;
                     anIntArray1502[k3] = k2;

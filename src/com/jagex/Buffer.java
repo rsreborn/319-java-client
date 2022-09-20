@@ -66,8 +66,8 @@ public class Buffer extends Class13_Sub1 {
     public int anInt1397;
     public byte[] payload;
     public int position;
-    public int anInt1400;
-    public ISAACCipher aISAACCipher_1403;
+    public int bitPosition;
+    public ISAACCipher isaacCipher;
 
     public Buffer(boolean flag) {
         anInt1379 = 36;
@@ -150,110 +150,72 @@ public class Buffer extends Class13_Sub1 {
                     return buffer;
                 }
             }
-            Buffer class13_sub1_sub2_1 = new Buffer(true);
+            Buffer buffer = new Buffer(true);
             if (i <= 0) {
                 throw new NullPointerException();
             }
-            class13_sub1_sub2_1.position = 0;
+            buffer.position = 0;
             if (j == 0) {
-                class13_sub1_sub2_1.payload = new byte[100];
+                buffer.payload = new byte[100];
             } else if (j == 1) {
-                class13_sub1_sub2_1.payload = new byte[5000];
+                buffer.payload = new byte[5000];
             } else {
-                class13_sub1_sub2_1.payload = new byte[30000];
+                buffer.payload = new byte[30000];
             }
-            return class13_sub1_sub2_1;
+            return buffer;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("52304, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method300(int i, int j) {
-        try {
-            payload[position++] = (byte) (j + aISAACCipher_1403.method190());
-            if (i <= 0) {
-                aBoolean1394 = !aBoolean1394;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("2451, " + i + ", " + j + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
+    public void method300(int opcode) {
+        payload[position++] = (byte) (opcode + isaacCipher.method190());
     }
 
-    public void writeByte(int i) {
-        payload[position++] = (byte) i;
+    public void writeByte(int value) {
+        payload[position++] = (byte) value;
     }
 
-    public void method302(int i) {
-        payload[position++] = (byte) (i >> 8);
-        payload[position++] = (byte) i;
+    public void writeShort(int value) {
+        payload[position++] = (byte) (value >> 8);
+        payload[position++] = (byte) value;
     }
 
-    public void method303(boolean flag, int i) {
-        try {
-            if (!flag) {
-                anInt1397 = -50;
-            }
-            payload[position++] = (byte) i;
-            payload[position++] = (byte) (i >> 8);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("46351, " + flag + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeLittleEndianShort(int value) {
+        payload[position++] = (byte) value;
+        payload[position++] = (byte) (value >> 8);
     }
 
-    public void method304(int i) {
-        payload[position++] = (byte) (i >> 16);
-        payload[position++] = (byte) (i >> 8);
-        payload[position++] = (byte) i;
+    public void writeTriByte(int value) {
+        payload[position++] = (byte) (value >> 16);
+        payload[position++] = (byte) (value >> 8);
+        payload[position++] = (byte) value;
     }
 
-    public void writeInt(int i) {
-        payload[position++] = (byte) (i >> 24);
-        payload[position++] = (byte) (i >> 16);
-        payload[position++] = (byte) (i >> 8);
-        payload[position++] = (byte) i;
+    public void writeInt(int value) {
+        payload[position++] = (byte) (value >> 24);
+        payload[position++] = (byte) (value >> 16);
+        payload[position++] = (byte) (value >> 8);
+        payload[position++] = (byte) value;
     }
 
-    public void method306(int i, int j) {
-        try {
-            if (j < 1 || j > 1) {
-                return;
-            } else {
-                payload[position++] = (byte) i;
-                payload[position++] = (byte) (i >> 8);
-                payload[position++] = (byte) (i >> 16);
-                payload[position++] = (byte) (i >> 24);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("64059, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeLittleEndianInt(int value) {
+            payload[position++] = (byte) value;
+            payload[position++] = (byte) (value >> 8);
+            payload[position++] = (byte) (value >> 16);
+            payload[position++] = (byte) (value >> 24);
     }
 
-    public void method307(long l, int i) {
-        try {
-            payload[position++] = (byte) (int) (l >> 56);
-            if (i != 20652) {
-                return;
-            } else {
-                payload[position++] = (byte) (int) (l >> 48);
-                payload[position++] = (byte) (int) (l >> 40);
-                payload[position++] = (byte) (int) (l >> 32);
-                payload[position++] = (byte) (int) (l >> 24);
-                payload[position++] = (byte) (int) (l >> 16);
-                payload[position++] = (byte) (int) (l >> 8);
-                payload[position++] = (byte) (int) l;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("14300, " + l + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeLong(long value) {
+        payload[position++] = (byte) (int) (value >> 56);
+        payload[position++] = (byte) (int) (value >> 48);
+        payload[position++] = (byte) (int) (value >> 40);
+        payload[position++] = (byte) (int) (value >> 32);
+        payload[position++] = (byte) (int) (value >> 24);
+        payload[position++] = (byte) (int) (value >> 16);
+        payload[position++] = (byte) (int) (value >> 8);
+        payload[position++] = (byte) (int) value;
     }
 
     public void writeString(String s) {
@@ -303,7 +265,7 @@ public class Buffer extends Class13_Sub1 {
         return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
-    public int method314() {
+    public int readShort() {
         position += 2;
         int i = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
         if (i > 32767) {
@@ -312,7 +274,7 @@ public class Buffer extends Class13_Sub1 {
         return i;
     }
 
-    public int method315() {
+    public int readTriByte() {
         position += 3;
         return ((payload[position - 3] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
@@ -368,26 +330,17 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public void method321(int i) {
-        try {
-            if (i >= 0) {
-                aBoolean1382 = !aBoolean1382;
-            }
-            anInt1400 = position * 8;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("11263, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public void initBitAccess() {
+        bitPosition = position * 8;
     }
 
     public int readBits(int i, int j) {
         try {
-            int k = anInt1400 >> 3;
-            int l = 8 - (anInt1400 & 7);
+            int k = bitPosition >> 3;
+            int l = 8 - (bitPosition & 7);
             int i1 = 0;
             j = 98 / j;
-            anInt1400 += i;
+            bitPosition += i;
             for (; i > l; l = 8) {
                 i1 += (payload[k++] & BIT_MASKS[l]) << i - l;
                 i -= l;
@@ -404,58 +357,40 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public void method323(int i) {
-        try {
-            if (i < 3 || i > 3) {
-                anInt1381 = 11;
-            }
-            position = (anInt1400 + 7) / 8;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("42282, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public void finishBitAccess(int i) {
+        position = (bitPosition + 7) / 8;
     }
 
-    public int method324() {
-        int i = payload[position] & 0xff;
-        if (i < 128) {
+    public int readSmart() {
+        int peek = payload[position] & 0xff;
+        if (peek < 128) {
             return readUnsignedByte() - 64;
         } else {
             return readUnsignedShort() - 49152;
         }
     }
 
-    public int method325() {
-        int i = payload[position] & 0xff;
-        if (i < 128) {
+    public int readUnsignedSmart() {
+        int peek = payload[position] & 0xff;
+        if (peek < 128) {
             return readUnsignedByte();
         } else {
             return readUnsignedShort() - 32768;
         }
     }
 
-    public void method326(BigInteger modulus, BigInteger key, boolean flag) {
-        try {
+    public void encrypt(BigInteger key, BigInteger modulus) {
             int i = position;
             position = 0;
             byte[] abyte0 = new byte[i];
             method320(abyte0, i, 0, 0);
             BigInteger biginteger2 = new BigInteger(abyte0);
             BigInteger biginteger3 = biginteger2.modPow(key, modulus);
-            if (!flag) {
-                for (int j = 1; j > 0; j++) {
-                }
-            }
+
             byte[] abyte1 = biginteger3.toByteArray();
             position = 0;
             writeByte(abyte1.length);
             method309(abyte1.length, 0, anInt1379, abyte1);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("25524, " + modulus + ", " + key + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method327(int i, int j) {

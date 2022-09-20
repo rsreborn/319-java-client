@@ -128,22 +128,22 @@ public class Class27 {
             int k = method480(i);
             aBuffer_452.position = 0;
             aBuffer_452.writeInt(0x52494646);
-            aBuffer_452.method306(36 + k, anInt447);
+            aBuffer_452.writeLittleEndianInt(36 + k);
             aBuffer_452.writeInt(0x57415645);
             aBuffer_452.writeInt(0x666d7420);
-            aBuffer_452.method306(16, anInt447);
-            aBuffer_452.method303(true, 1);
-            aBuffer_452.method303(true, 1);
-            aBuffer_452.method306(22050, anInt447);
-            aBuffer_452.method306(22050, anInt447);
-            aBuffer_452.method303(true, 1);
+            aBuffer_452.writeLittleEndianInt(16);
+            aBuffer_452.writeLittleEndianShort(1);
+            aBuffer_452.writeLittleEndianShort(1);
+            aBuffer_452.writeLittleEndianInt(22050);
+            aBuffer_452.writeLittleEndianInt(22050);
+            aBuffer_452.writeLittleEndianShort(1);
             if (j != 0) {
                 for (int l = 1; l > 0; l++) {
                 }
             }
-            aBuffer_452.method303(true, 8);
+            aBuffer_452.writeLittleEndianShort(8);
             aBuffer_452.writeInt(0x64617461);
-            aBuffer_452.method306(k, anInt447);
+            aBuffer_452.writeLittleEndianInt(k);
             aBuffer_452.position += k;
             return aBuffer_452;
         } catch (RuntimeException runtimeexception) {

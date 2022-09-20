@@ -284,11 +284,11 @@ public class Class14 {
                     } else if (l == 69) {
                         anInt285 = buffer.readUnsignedByte();
                     } else if (l == 70) {
-                        anInt247 = buffer.method314();
+                        anInt247 = buffer.readShort();
                     } else if (l == 71) {
-                        anInt277 = buffer.method314();
+                        anInt277 = buffer.readShort();
                     } else if (l == 72) {
-                        anInt288 = buffer.method314();
+                        anInt288 = buffer.readShort();
                     } else if (l == 73) {
                         aBoolean264 = true;
                     } else if (l == 74) {

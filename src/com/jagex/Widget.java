@@ -174,8 +174,8 @@ public class Widget {
                     widget.anIntArray557 = new int[i2];
                     for (int j3 = 0; j3 < i2; j3++) {
                         widget.anIntArray549[j3] = buffer.readUnsignedShort();
-                        widget.anIntArray591[j3] = buffer.method314();
-                        widget.anIntArray557[j3] = buffer.method314();
+                        widget.anIntArray591[j3] = buffer.readShort();
+                        widget.anIntArray557[j3] = buffer.readShort();
                     }
                 }
                 if (widget.anInt570 == 1) {
@@ -197,8 +197,8 @@ public class Widget {
                     for (int j2 = 0; j2 < 20; j2++) {
                         int k3 = buffer.readUnsignedByte();
                         if (k3 == 1) {
-                            widget.anIntArray580[j2] = buffer.method314();
-                            widget.anIntArray560[j2] = buffer.method314();
+                            widget.anIntArray580[j2] = buffer.readShort();
+                            widget.anIntArray560[j2] = buffer.readShort();
                             String s1 = buffer.readString();
                             if (class1_1 != null && s1.length() > 0) {
                                 int i5 = s1.lastIndexOf(",");
@@ -286,8 +286,8 @@ public class Widget {
                     }
                     widget.aBoolean559 = buffer.readUnsignedByte() == 1;
                     widget.anInt550 = buffer.readInt();
-                    widget.anInt599 = buffer.method314();
-                    widget.anInt554 = buffer.method314();
+                    widget.anInt599 = buffer.readShort();
+                    widget.anInt554 = buffer.readShort();
                     widget.aBoolean585 = buffer.readUnsignedByte() == 1;
                     widget.aStringArray547 = new String[5];
                     for (int k4 = 0; k4 < 5; k4++) {

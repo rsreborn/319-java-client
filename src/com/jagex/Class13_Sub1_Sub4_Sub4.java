@@ -72,7 +72,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         int j = class13_sub1_sub2_1.readUnsignedByte();
         int[] ai = new int[j];
         for (int k = 0; k < j - 1; k++) {
-            ai[k + 1] = class13_sub1_sub2_1.method315();
+            ai[k + 1] = class13_sub1_sub2_1.readTriByte();
             if (ai[k + 1] == 0) {
                 ai[k + 1] = 1;
             }

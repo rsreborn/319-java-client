@@ -30,8 +30,8 @@ public class Class1 {
     public void method148(byte[] abyte0, int i) {
         try {
             Buffer buffer = new Buffer(-351, abyte0);
-            int j = buffer.method315();
-            int k = buffer.method315();
+            int j = buffer.readTriByte();
+            int k = buffer.readTriByte();
             if (k != j) {
                 byte[] abyte1 = new byte[j];
                 Class16.method427(abyte1, j, abyte0, k, 6);
@@ -53,8 +53,8 @@ public class Class1 {
             }
             for (int i1 = 0; i1 < anInt43; i1++) {
                 anIntArray44[i1] = buffer.readInt();
-                anIntArray45[i1] = buffer.method315();
-                anIntArray46[i1] = buffer.method315();
+                anIntArray45[i1] = buffer.readTriByte();
+                anIntArray46[i1] = buffer.readTriByte();
                 anIntArray47[i1] = l;
                 l += anIntArray46[i1];
             }

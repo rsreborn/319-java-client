@@ -422,7 +422,7 @@ public class Class25 {
             if (i != 0)
                 throw new NullPointerException();
             for (; ; ) {
-                int i_239_ = buffer.method325();
+                int i_239_ = buffer.readUnsignedSmart();
                 if (i_239_ == 0)
                     break;
                 i_238_ += i_239_;
@@ -430,12 +430,12 @@ public class Class25 {
                 boolean bool_241_ = false;
                 for (; ; ) {
                     if (bool_241_) {
-                        int i_242_ = buffer.method325();
+                        int i_242_ = buffer.readUnsignedSmart();
                         if (i_242_ == 0)
                             break;
                         buffer.readUnsignedByte();
                     } else {
-                        int i_243_ = buffer.method325();
+                        int i_243_ = buffer.readUnsignedSmart();
                         if (i_243_ == 0)
                             break;
                         i_240_ += i_243_ - 1;
@@ -493,14 +493,14 @@ public class Class25 {
                 anInt420 = -409;
             int i_258_ = -1;
             for (; ; ) {
-                int i_259_ = buffer.method325();
+                int i_259_ = buffer.readUnsignedSmart();
                 if (i_259_ == 0)
                     break;
                 i_258_ += i_259_;
                 Class14 class14 = Class14.method418(i_258_);
                 class14.method423(2402, class2_sub1);
                 for (; ; ) {
-                    int i_260_ = buffer.method325();
+                    int i_260_ = buffer.readUnsignedSmart();
                     if (i_260_ == 0)
                         break;
                     buffer.readUnsignedByte();
@@ -546,13 +546,13 @@ public class Class25 {
                 aBoolean419 = !aBoolean419;
             int i_7_ = -1;
             for (; ; ) {
-                int i_8_ = buffer.method325();
+                int i_8_ = buffer.readUnsignedSmart();
                 if (i_8_ == 0)
                     break;
                 i_7_ += i_8_;
                 int i_9_ = 0;
                 for (; ; ) {
-                    int i_10_ = buffer.method325();
+                    int i_10_ = buffer.readUnsignedSmart();
                     if (i_10_ == 0)
                         break;
                     i_9_ += i_10_ - 1;
@@ -661,13 +661,13 @@ public class Class25 {
             }
             int i_70_ = -1;
             for (; ; ) {
-                int i_71_ = buffer.method325();
+                int i_71_ = buffer.readUnsignedSmart();
                 if (i_71_ == 0)
                     break;
                 i_70_ += i_71_;
                 int i_72_ = 0;
                 for (; ; ) {
-                    int i_73_ = buffer.method325();
+                    int i_73_ = buffer.readUnsignedSmart();
                     if (i_73_ == 0)
                         break;
                     i_72_ += i_73_ - 1;
