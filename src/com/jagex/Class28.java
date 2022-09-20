@@ -1,7 +1,7 @@
 package com.jagex;
 
 import java.io.*;
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class28
 {
@@ -28,7 +28,7 @@ public class Class28
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15737, " + i + ", " + j + ", " + k + ", " + randomaccessfile + ", " + randomaccessfile1 + ", " + runtimeexception.toString());
+            Signlink.reportError("15737, " + i + ", " + j + ", " + k + ", " + randomaccessfile + ", " + randomaccessfile1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -114,7 +114,7 @@ public class Class28
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("99939, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("99939, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -136,7 +136,7 @@ public class Class28
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("16765, " + abyte0 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("16765, " + abyte0 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -265,7 +265,7 @@ public class Class28
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("90224, " + i + ", " + flag + ", " + j + ", " + k + ", " + abyte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("90224, " + i + ", " + flag + ", " + j + ", " + k + ", " + abyte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -296,7 +296,7 @@ public class Class28
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("945, " + i + ", " + randomaccessfile + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("945, " + i + ", " + randomaccessfile + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

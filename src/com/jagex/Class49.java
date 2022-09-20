@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class49
 {
@@ -32,7 +32,7 @@ public class Class49
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("39702, " + i + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("39702, " + i + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -77,7 +77,7 @@ public class Class49
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("10056, " + l + ", " + class13 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("10056, " + l + ", " + class13 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

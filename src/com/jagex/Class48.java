@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class48
     implements Runnable
@@ -29,7 +29,7 @@ public class Class48
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("50244, " + byte0 + ", " + game1 + ", " + runtimeexception.toString());
+            Signlink.reportError("50244, " + byte0 + ", " + game1 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -42,8 +42,8 @@ public class Class48
             {
                 if(anInt791 < 500)
                 {
-                    anIntArray788[anInt791] = ((Applet_Sub1) (aGame789)).anInt23;
-                    anIntArray790[anInt791] = ((Applet_Sub1) (aGame789)).anInt24;
+                    anIntArray788[anInt791] = ((GameShell) (aGame789)).anInt23;
+                    anIntArray790[anInt791] = ((GameShell) (aGame789)).anInt24;
                     anInt791++;
                 }
             }

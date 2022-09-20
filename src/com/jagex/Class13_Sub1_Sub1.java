@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub1 extends Class13_Sub1
 {
@@ -33,7 +33,7 @@ public class Class13_Sub1_Sub1 extends Class13_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("32294, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("32294, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

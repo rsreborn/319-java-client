@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
 {
@@ -48,7 +48,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("70043, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("70043, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -209,7 +209,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("70765, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("70765, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -282,7 +282,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66077, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("66077, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -385,7 +385,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("37920, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("37920, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -411,7 +411,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                 anIntArray1703[j] = (k << 8) + i1;
                 if(j == 0 && anIntArray1703[0] == 65535)
                 {
-                    aClass47_1716 = Class47.method585(class13_sub1_sub2.readUnsignedShort());
+                    aClass47_1716 = Class47.getDefinition(class13_sub1_sub2.readUnsignedShort());
                     break;
                 }
                 if(anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ItemDefinition.anInt669)
@@ -503,7 +503,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("22638, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("22638, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class ISAACCipher {
 
@@ -25,7 +25,7 @@ public class ISAACCipher {
                 return;
             }
         } catch (RuntimeException runtimeException) {
-            signlink.reportError("86621, " + i + ", " + ai + ", " + runtimeException.toString());
+            Signlink.reportError("86621, " + i + ", " + ai + ", " + runtimeException.toString());
         }
         throw new RuntimeException();
     }

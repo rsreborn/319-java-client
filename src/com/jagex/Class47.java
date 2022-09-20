@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class47
 {
@@ -130,7 +130,7 @@ public class Class47
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("29112, " + i + ", " + j + ", " + flag + ", " + ai + ", " + runtimeexception.toString());
+            Signlink.reportError("29112, " + i + ", " + j + ", " + flag + ", " + ai + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -191,7 +191,7 @@ public class Class47
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("50384, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("50384, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -225,17 +225,17 @@ public class Class47
                 return null;
             } else
             {
-                return method585(anIntArray751[i]);
+                return getDefinition(anIntArray751[i]);
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("99223, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("99223, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
-    public static Class47 method585(int i)
+    public static Class47 getDefinition(int i)
     {
         for(int j = 0; j < 20; j++)
         {
@@ -414,7 +414,7 @@ public class Class47
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("711, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("711, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -454,7 +454,7 @@ public class Class47
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("41198, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("41198, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

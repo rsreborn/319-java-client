@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub1_Sub3 extends Class13_Sub1_Sub1
 {
@@ -62,7 +62,7 @@ public class Class13_Sub1_Sub1_Sub3 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("11505, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("11505, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -90,7 +90,7 @@ public class Class13_Sub1_Sub1_Sub3 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("86520, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("86520, " + byte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -120,7 +120,7 @@ public class Class13_Sub1_Sub1_Sub3 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("34394, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + j1 + ", " + k1 + ", " + runtimeexception.toString());
+            Signlink.reportError("34394, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + j1 + ", " + k1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

@@ -6,9 +6,9 @@ import java.io.*;
 import java.math.BigInteger;
 import java.net.*;
 import java.util.zip.CRC32;
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
-public class Game extends Applet_Sub1
+public class Game extends GameShell
 {
 
     public int anIntArrayArray817[][];
@@ -22,7 +22,7 @@ public class Game extends Applet_Sub1
     public int hasMembershipAndIsOnFreeToPlayWorld;
     public boolean aBoolean826;
     public String aString827;
-    public long aLong828;
+    public long serverSeed;
     public static int anIntArrayArray829[][] = {
         {
             6798, 107, 10283, 16, 4797, 7744, 5799, 4634, 33697, 22433,
@@ -213,7 +213,7 @@ public class Game extends Applet_Sub1
     public static int anInt998;
     public int anInt999;
     public int anIntArray1000[];
-    public Class46 aClass46_1001;
+    public BufferedConnection gameConnection;
     public int lastLoginAddress;
     public String aStringArray1003[];
     public int anInt1004;
@@ -706,7 +706,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("73486, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + runtimeexception.toString());
+            Signlink.reportError("73486, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -724,7 +724,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("27317, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reportError("27317, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -777,7 +777,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("1902, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("1902, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -803,7 +803,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66940, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("66940, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -840,17 +840,17 @@ public class Game extends Applet_Sub1
                     boolean flag = method46(true, 0, -220, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0], ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0], 0, 1, 0, 0, j2, i2, 0);
                     if(flag)
                     {
-                        aClass13_Sub1_Sub2_928.method301(j);
-                        aClass13_Sub1_Sub2_928.method301(k);
+                        aClass13_Sub1_Sub2_928.writeByte(j);
+                        aClass13_Sub1_Sub2_928.writeByte(k);
                         aClass13_Sub1_Sub2_928.method302(anInt922);
-                        aClass13_Sub1_Sub2_928.method301(57);
-                        aClass13_Sub1_Sub2_928.method301(anInt1205);
-                        aClass13_Sub1_Sub2_928.method301(anInt1035);
-                        aClass13_Sub1_Sub2_928.method301(89);
+                        aClass13_Sub1_Sub2_928.writeByte(57);
+                        aClass13_Sub1_Sub2_928.writeByte(anInt1205);
+                        aClass13_Sub1_Sub2_928.writeByte(anInt1035);
+                        aClass13_Sub1_Sub2_928.writeByte(89);
                         aClass13_Sub1_Sub2_928.method302(((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1587);
                         aClass13_Sub1_Sub2_928.method302(((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1588);
-                        aClass13_Sub1_Sub2_928.method301(anInt1081);
-                        aClass13_Sub1_Sub2_928.method301(63);
+                        aClass13_Sub1_Sub2_928.writeByte(anInt1081);
+                        aClass13_Sub1_Sub2_928.writeByte(63);
                         return;
                     }
                 }
@@ -858,7 +858,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("35611, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("35611, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -881,7 +881,7 @@ public class Game extends Applet_Sub1
             anInt1094 = 0;
             packetSize += i;
             anInt1221 = 0;
-            Class46 class46 = aClass46_1001;
+            BufferedConnection bufferedConnection = gameConnection;
             aBoolean851 = false;
             anInt995 = 0;
             method56(username, password, true);
@@ -891,7 +891,7 @@ public class Game extends Applet_Sub1
             }
             try
             {
-                class46.method576();
+                bufferedConnection.close();
                 return;
             }
             catch(Exception _ex)
@@ -901,7 +901,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("81057, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("81057, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -991,7 +991,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("22199, " + flag + ", " + flag1 + ", " + runtimeexception.toString());
+            Signlink.reportError("22199, " + flag + ", " + flag1 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -1028,7 +1028,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("86168, " + l + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("86168, " + l + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -1052,7 +1052,7 @@ public class Game extends Applet_Sub1
                 int j = method23(-20);
                 if(j != 0 && System.currentTimeMillis() - aLong1243 > 0x57e40L)
                 {
-                    signlink.reportError(username + " glcfb " + aLong828 + "," + j + "," + aBoolean954 + "," + aClass28Array1264[0] + "," + aClass2_Sub1_873.method167() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
+                    Signlink.reportError(username + " glcfb " + serverSeed + "," + j + "," + aBoolean954 + "," + aClass28Array1264[0] + "," + aClass2_Sub1_873.method167() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
                     aLong1243 = System.currentTimeMillis();
                 }
             }
@@ -1065,7 +1065,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("19892, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("19892, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -1123,16 +1123,16 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("53916, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("53916, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
     public String getParameter(String s)
     {
-        if(signlink.mainapp != null)
+        if(Signlink.mainapp != null)
         {
-            return signlink.mainapp.getParameter(s);
+            return Signlink.mainapp.getParameter(s);
         } else
         {
             return super.getParameter(s);
@@ -1243,7 +1243,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("49080, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("49080, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -1263,7 +1263,7 @@ public class Game extends Applet_Sub1
             }
             if(flag)
             {
-                aClass13_Sub1_Sub2_928.method301(98);
+                aClass13_Sub1_Sub2_928.writeByte(98);
             }
             for(int k = 0; k < 100; k++)
             {
@@ -1329,7 +1329,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68159, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("68159, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -1358,14 +1358,14 @@ public class Game extends Applet_Sub1
             }
             if(class13_sub1_sub2.position != size)
             {
-                signlink.reportError("Error packet size mismatch in getplayer pos:" + class13_sub1_sub2.position + " psize:" + size);
+                Signlink.reportError("Error packet size mismatch in getplayer pos:" + class13_sub1_sub2.position + " psize:" + size);
                 throw new RuntimeException("eek");
             }
             for(int i1 = 0; i1 < anInt899; i1++)
             {
                 if(players[playerList[i1]] == null)
                 {
-                    signlink.reportError(username + " null entry in pl list - pos:" + i1 + " size:" + anInt899);
+                    Signlink.reportError(username + " null entry in pl list - pos:" + i1 + " size:" + anInt899);
                     throw new RuntimeException("eek");
                 }
             }
@@ -1373,7 +1373,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("27490, " + class13_sub1_sub2 + ", " + i + ", " + size + ", " + runtimeexception.toString());
+            Signlink.reportError("27490, " + class13_sub1_sub2 + ", " + i + ", " + size + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -1713,7 +1713,7 @@ public class Game extends Applet_Sub1
                 if(anInt942 >= 114)
                 {
                     aClass13_Sub1_Sub2_928.method300(328, 186);
-                    aClass13_Sub1_Sub2_928.method301(175);
+                    aClass13_Sub1_Sub2_928.writeByte(175);
                     anInt942 = 0;
                 }
                 method92(i1, false, j, k);
@@ -2348,7 +2348,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("43037, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("43037, " + byte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -2442,7 +2442,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68914, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("68914, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -2469,7 +2469,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("80775, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("80775, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -2502,16 +2502,16 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("42419, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("42419, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
     public AppletContext getAppletContext()
     {
-        if(signlink.mainapp != null)
+        if(Signlink.mainapp != null)
         {
-            return signlink.mainapp.getAppletContext();
+            return Signlink.mainapp.getAppletContext();
         } else
         {
             return super.getAppletContext();
@@ -2526,20 +2526,20 @@ public class Game extends Applet_Sub1
             {
                 anInt1052 = 143;
             }
-            if(aClass46_1001 == null)
+            if(gameConnection == null)
             {
                 return false;
             }
             try
             {
-                int available = aClass46_1001.method578();
+                int available = gameConnection.getAvailable();
                 if(available == 0)
                 {
                     return false;
                 }
                 if(opcode == -1)
                 {
-                    aClass46_1001.method579(buffer.payload, 0, 1);
+                    gameConnection.read(buffer.payload, 0, 1);
                     opcode = buffer.payload[0] & 0xff;
                     if(aISAACCipher_1163 != null)
                     {
@@ -2552,7 +2552,7 @@ public class Game extends Applet_Sub1
                 {
                     if(available > 0)
                     {
-                        aClass46_1001.method579(buffer.payload, 0, 1);
+                        gameConnection.read(buffer.payload, 0, 1);
                         packetSize = buffer.payload[0] & 0xff;
                         available--;
                     } else
@@ -2564,7 +2564,7 @@ public class Game extends Applet_Sub1
                 {
                     if(available > 1)
                     {
-                        aClass46_1001.method579(buffer.payload, 0, 2);
+                        gameConnection.read(buffer.payload, 0, 2);
                         buffer.position = 0;
                         packetSize = buffer.readUnsignedShort();
                         available -= 2;
@@ -2578,7 +2578,7 @@ public class Game extends Applet_Sub1
                     return false;
                 }
                 buffer.position = 0;
-                aClass46_1001.method579(buffer.payload, 0, packetSize);
+                gameConnection.read(buffer.payload, 0, packetSize);
                 anInt854 = 0;
                 anInt890 = anInt889;
                 anInt889 = anInt888;
@@ -3140,7 +3140,7 @@ public class Game extends Applet_Sub1
                     unreadMessagesCount = buffer.readUnsignedLittleEndianShortA();
                     if(lastLoginAddress != 0 && anInt1217 == -1)
                     {
-                        signlink.dnslookup(Class24.method449(lastLoginAddress, false));
+                        Signlink.dnslookup(Class24.method449(lastLoginAddress, false));
                         method140(6);
                         char c = '\u028A';
                         if(daysSinceRecoveryQuestionsUpdated != 201 || hasMembershipAndIsOnFreeToPlayWorld == 1)
@@ -3372,10 +3372,10 @@ public class Game extends Applet_Sub1
                             {
                                 for(int l24 = 0; l24 < 13; l24++)
                                 {
-                                    int j27 = buffer.method322(1, 195);
+                                    int j27 = buffer.readBits(1, 195);
                                     if(j27 == 1)
                                     {
-                                        anIntArrayArrayArray1226[j19][j22][l24] = buffer.method322(26, 195);
+                                        anIntArrayArrayArray1226[j19][j22][l24] = buffer.readBits(26, 195);
                                     } else
                                     {
                                         anIntArrayArrayArray1226[j19][j22][l24] = -1;
@@ -3838,13 +3838,13 @@ public class Game extends Applet_Sub1
                         }
                         catch(Exception exception1)
                         {
-                            signlink.reportError("cde1");
+                            Signlink.reportError("cde1");
                         }
                     }
                     opcode = -1;
                     return true;
                 }
-                signlink.reportError("T1 - " + opcode + "," + packetSize + " - " + anInt889 + "," + anInt890);
+                Signlink.reportError("T1 - " + opcode + "," + packetSize + " - " + anInt889 + "," + anInt890);
                 method66(anInt1268);
             }
             catch(IOException _ex)
@@ -3858,14 +3858,14 @@ public class Game extends Applet_Sub1
                 {
                     s2 = s2 + buffer.payload[k15] + ",";
                 }
-                signlink.reportError(s2);
+                Signlink.reportError(s2);
                 method66(anInt1268);
             }
             return true;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("40192, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("40192, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4107,7 +4107,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("92808, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("92808, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -4178,7 +4178,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("34955, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("34955, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4316,7 +4316,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("41339, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("41339, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4656,7 +4656,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("98116, " + i + ", " + class13_sub1_sub2 + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("98116, " + i + ", " + class13_sub1_sub2 + ", " + j + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -4728,7 +4728,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("97460, " + byte0 + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("97460, " + byte0 + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4766,7 +4766,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("99804, " + byte0 + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
+            Signlink.reportError("99804, " + byte0 + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4916,7 +4916,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("94863, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("94863, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -4972,7 +4972,7 @@ public class Game extends Applet_Sub1
                 {
                     s = "logic problem";
                     anIntArray1277[8] = 0;
-                    if(!signlink.reporterror)
+                    if(!Signlink.reporterror)
                     {
                         return;
                     }
@@ -5010,7 +5010,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("73766, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("73766, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5019,8 +5019,8 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            signlink.midifade = 0;
-            signlink.midi = "stop";
+            Signlink.midifade = 0;
+            Signlink.midi = "stop";
             if(i <= 0)
             {
                 for(int j = 1; j > 0; j++)
@@ -5031,7 +5031,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("21966, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("21966, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -5072,8 +5072,8 @@ public class Game extends Applet_Sub1
                 System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
                 return;
             }
-            signlink.storeid = Integer.parseInt(args[4]);
-            signlink.startpriv(InetAddress.getLocalHost());
+            Signlink.storeid = Integer.parseInt(args[4]);
+            Signlink.startpriv(InetAddress.getLocalHost());
             Game game1 = new Game();
             game1.method1(503, (byte)-55, 765);
             game1.loadRSAKeys();
@@ -5112,7 +5112,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("7125, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("7125, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5151,7 +5151,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("6092, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("6092, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5166,7 +5166,7 @@ public class Game extends Applet_Sub1
             }
             while(class13_sub1_sub2.anInt1400 + 21 < i * 8)
             {
-                int k = class13_sub1_sub2.method322(14, 195);
+                int k = class13_sub1_sub2.readBits(14, 195);
                 if(k == 16383)
                 {
                     break;
@@ -5178,19 +5178,19 @@ public class Game extends Applet_Sub1
                 Class13_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k];
                 anIntArray1285[anInt1284++] = k;
                 class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
-                int l = class13_sub1_sub2.method322(5, 195);
-                if(l > 15)
+                int yPosition = class13_sub1_sub2.readBits(5, 195);
+                if(yPosition > 15)
                 {
-                    l -= 32;
+                    yPosition -= 32;
                 }
-                int i1 = class13_sub1_sub2.method322(1, 195);
-                int j1 = class13_sub1_sub2.method322(5, 195);
-                if(j1 > 15)
+                int i1 = class13_sub1_sub2.readBits(1, 195);
+                int xPosition = class13_sub1_sub2.readBits(5, 195);
+                if(xPosition > 15)
                 {
-                    j1 -= 32;
+                    xPosition -= 32;
                 }
-                class13_sub1_sub1_sub6_sub2.aClass47_1717 = Class47.method585(class13_sub1_sub2.method322(12, 195));
-                int k1 = class13_sub1_sub2.method322(1, 195);
+                class13_sub1_sub1_sub6_sub2.aClass47_1717 = Class47.getDefinition(class13_sub1_sub2.readBits(12, 195));
+                int k1 = class13_sub1_sub2.readBits(1, 195);
                 if(k1 == 1)
                 {
                     anIntArray902[anInt901++] = k;
@@ -5202,14 +5202,14 @@ public class Game extends Applet_Sub1
                 class13_sub1_sub1_sub6_sub2.anInt1572 = class13_sub1_sub1_sub6_sub2.aClass47_1717.anInt773;
                 class13_sub1_sub1_sub6_sub2.anInt1573 = class13_sub1_sub1_sub6_sub2.aClass47_1717.anInt786;
                 class13_sub1_sub1_sub6_sub2.anInt1584 = class13_sub1_sub1_sub6_sub2.aClass47_1717.anInt748;
-                class13_sub1_sub1_sub6_sub2.method294(i1 == 1, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0] + j1, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0] + l, (byte)103);
+                class13_sub1_sub1_sub6_sub2.method294(i1 == 1, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0] + xPosition, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0] + yPosition, (byte)103);
             }
             class13_sub1_sub2.method323(3);
             return;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("78080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            Signlink.reportError("78080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5227,12 +5227,12 @@ public class Game extends Applet_Sub1
                 return true;
             } else
             {
-                return signlink.wavesave(abyte0, i);
+                return Signlink.wavesave(abyte0, i);
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("72990, " + byte0 + ", " + i + ", " + abyte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("72990, " + byte0 + ", " + i + ", " + abyte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5381,7 +5381,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("85574, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("85574, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5439,7 +5439,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("39619, " + i + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reportError("39619, " + i + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5448,18 +5448,18 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            signlink.reporterror = false;
+            Signlink.reporterror = false;
             try
             {
-                if(aClass46_1001 != null)
+                if(gameConnection != null)
                 {
-                    aClass46_1001.method576();
+                    gameConnection.close();
                 }
             }
             catch(Exception _ex)
             {
             }
-            aClass46_1001 = null;
+            gameConnection = null;
             method39(anInt1173);
             if(aClass48_865 != null)
             {
@@ -5591,7 +5591,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("90276, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("90276, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5616,7 +5616,7 @@ public class Game extends Applet_Sub1
             anIntArrayArray1097[l][k] = 99;
             if(j >= 0)
             {
-                aClass13_Sub1_Sub2_928.method301(32);
+                aClass13_Sub1_Sub2_928.writeByte(32);
             }
             anIntArrayArray817[l][k] = 0;
             int l3 = 0;
@@ -5795,17 +5795,17 @@ public class Game extends Applet_Sub1
                 if(j1 == 0)
                 {
                     aClass13_Sub1_Sub2_928.method300(328, 155);
-                    aClass13_Sub1_Sub2_928.method301(k4 + k4 + 3);
+                    aClass13_Sub1_Sub2_928.writeByte(k4 + k4 + 3);
                 }
                 if(j1 == 1)
                 {
                     aClass13_Sub1_Sub2_928.method300(328, 178);
-                    aClass13_Sub1_Sub2_928.method301(k4 + k4 + 3 + 14);
+                    aClass13_Sub1_Sub2_928.writeByte(k4 + k4 + 3 + 14);
                 }
                 if(j1 == 2)
                 {
                     aClass13_Sub1_Sub2_928.method300(328, 191);
-                    aClass13_Sub1_Sub2_928.method301(k4 + k4 + 3);
+                    aClass13_Sub1_Sub2_928.writeByte(k4 + k4 + 3);
                 }
                 aClass13_Sub1_Sub2_928.method329(super.anIntArray33[5] != 1 ? 0 : 1, 0);
                 aClass13_Sub1_Sub2_928.method337(anInt1014, j6 + anInt1083);
@@ -5824,7 +5824,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66113, " + flag + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", " + runtimeexception.toString());
+            Signlink.reportError("66113, " + flag + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -5859,7 +5859,7 @@ public class Game extends Applet_Sub1
                     if(super.anInt29 != 0 || aClass48_865.anInt791 >= 40)
                     {
                         aClass13_Sub1_Sub2_928.method300(328, 250);
-                        aClass13_Sub1_Sub2_928.method301(0);
+                        aClass13_Sub1_Sub2_928.writeByte(0);
                         int k2 = aClass13_Sub1_Sub2_928.position;
                         int k3 = 0;
                         for(int k4 = 0; k4 < aClass48_865.anInt791; k4++)
@@ -5919,7 +5919,7 @@ public class Game extends Applet_Sub1
                                     anInt927 = 0;
                                 } else
                                 {
-                                    aClass13_Sub1_Sub2_928.method305(0xc0000000 + (anInt927 << 19) + j6);
+                                    aClass13_Sub1_Sub2_928.writeInt(0xc0000000 + (anInt927 << 19) + j6);
                                     anInt927 = 0;
                                 }
                             }
@@ -5999,13 +5999,13 @@ public class Game extends Applet_Sub1
             {
                 aBoolean1080 = true;
                 aClass13_Sub1_Sub2_928.method300(328, 223);
-                aClass13_Sub1_Sub2_928.method301(1);
+                aClass13_Sub1_Sub2_928.writeByte(1);
             }
             if(!super.aBoolean20 && aBoolean1080)
             {
                 aBoolean1080 = false;
                 aClass13_Sub1_Sub2_928.method300(328, 223);
-                aClass13_Sub1_Sub2_928.method301(0);
+                aClass13_Sub1_Sub2_928.writeByte(0);
             }
             method22(925);
             method112((byte)0);
@@ -6130,7 +6130,7 @@ public class Game extends Applet_Sub1
             {
                 anInt957 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 205);
-                aClass13_Sub1_Sub2_928.method301(0);
+                aClass13_Sub1_Sub2_928.writeByte(0);
                 int j = aClass13_Sub1_Sub2_928.position;
                 if((int)(Math.random() * 2D) == 0)
                 {
@@ -6138,12 +6138,12 @@ public class Game extends Applet_Sub1
                 }
                 if((int)(Math.random() * 2D) == 0)
                 {
-                    aClass13_Sub1_Sub2_928.method301(139);
+                    aClass13_Sub1_Sub2_928.writeByte(139);
                 }
                 aClass13_Sub1_Sub2_928.method302(17372);
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
                 aClass13_Sub1_Sub2_928.method302(48349);
                 aClass13_Sub1_Sub2_928.method302(1505);
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
@@ -6196,24 +6196,24 @@ public class Game extends Applet_Sub1
             {
                 anInt1144 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 177);
-                aClass13_Sub1_Sub2_928.method301(0);
+                aClass13_Sub1_Sub2_928.writeByte(0);
                 int l1 = aClass13_Sub1_Sub2_928.position;
                 aClass13_Sub1_Sub2_928.method302(53207);
                 aClass13_Sub1_Sub2_928.method302(43454);
                 if((int)(Math.random() * 2D) == 0)
                 {
-                    aClass13_Sub1_Sub2_928.method301(226);
+                    aClass13_Sub1_Sub2_928.writeByte(226);
                 }
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
                 if((int)(Math.random() * 2D) == 0)
                 {
                     aClass13_Sub1_Sub2_928.method302(39106);
                 }
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
-                aClass13_Sub1_Sub2_928.method301(197);
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte(197);
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
-                aClass13_Sub1_Sub2_928.method301(255);
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte(255);
                 aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - l1);
             }
             super.anInt21++;
@@ -6306,9 +6306,9 @@ public class Game extends Applet_Sub1
             }
             try
             {
-                if(aClass46_1001 != null && aClass13_Sub1_Sub2_928.position > 0)
+                if(gameConnection != null && aClass13_Sub1_Sub2_928.position > 0)
                 {
-                    aClass46_1001.method580(aClass13_Sub1_Sub2_928.payload, 0, aClass13_Sub1_Sub2_928.position, (byte)9);
+                    gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, aClass13_Sub1_Sub2_928.position, (byte)9);
                     aClass13_Sub1_Sub2_928.position = 0;
                     anInt855 = 0;
                     return;
@@ -6327,7 +6327,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("16669, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("16669, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -6401,7 +6401,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("84806, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("84806, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6510,14 +6510,14 @@ public class Game extends Applet_Sub1
             if(i == 326)
             {
                 aClass13_Sub1_Sub2_928.method300(328, 24);
-                aClass13_Sub1_Sub2_928.method301(aBoolean1068 ? 0 : 1);
+                aClass13_Sub1_Sub2_928.writeByte(aBoolean1068 ? 0 : 1);
                 for(int l = 0; l < 7; l++)
                 {
-                    aClass13_Sub1_Sub2_928.method301(anIntArray1011[l]);
+                    aClass13_Sub1_Sub2_928.writeByte(anIntArray1011[l]);
                 }
                 for(int k1 = 0; k1 < 5; k1++)
                 {
-                    aClass13_Sub1_Sub2_928.method301(anIntArray1190[k1]);
+                    aClass13_Sub1_Sub2_928.writeByte(anIntArray1190[k1]);
                 }
                 return true;
             }
@@ -6532,15 +6532,15 @@ public class Game extends Applet_Sub1
                 {
                     aClass13_Sub1_Sub2_928.method300(328, 31);
                     aClass13_Sub1_Sub2_928.method307(Class24.method446(aString1230), 20652);
-                    aClass13_Sub1_Sub2_928.method301(i - 601);
-                    aClass13_Sub1_Sub2_928.method301(aBoolean1034 ? 1 : 0);
+                    aClass13_Sub1_Sub2_928.writeByte(i - 601);
+                    aClass13_Sub1_Sub2_928.writeByte(aBoolean1034 ? 1 : 0);
                 }
             }
             return false;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("26595, " + byte0 + ", " + widget + ", " + runtimeexception.toString());
+            Signlink.reportError("26595, " + byte0 + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6646,7 +6646,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("53438, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("53438, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6719,7 +6719,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("21089, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("21089, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -6813,7 +6813,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("12819, " + flag + ", " + s + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("12819, " + flag + ", " + s + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -6836,16 +6836,16 @@ public class Game extends Applet_Sub1
             System.out.println("draw-cycle:" + anInt1202);
             System.out.println("ptype:" + opcode);
             System.out.println("psize:" + packetSize);
-            if(aClass46_1001 != null)
+            if(gameConnection != null)
             {
-                aClass46_1001.method581(-900);
+                gameConnection.printDebug();
             }
             super.aBoolean12 = true;
             return;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68164, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("68164, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6858,9 +6858,9 @@ public class Game extends Applet_Sub1
             {
                 anInt818 = aISAACCipher_1163.method190();
             }
-            if(signlink.mainapp != null)
+            if(Signlink.mainapp != null)
             {
-                return signlink.mainapp;
+                return Signlink.mainapp;
             }
             if(super.aFrame_Sub1_18 != null)
             {
@@ -6872,7 +6872,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("95210, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("95210, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6881,8 +6881,8 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            signlink.midifade = flag ? 1 : 0;
-            signlink.midisave(abyte0, abyte0.length);
+            Signlink.midifade = flag ? 1 : 0;
+            Signlink.midisave(abyte0, abyte0.length);
             if(i != 22075)
             {
                 aClass12ArrayArrayArray969 = null;
@@ -6891,16 +6891,16 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("71230, " + abyte0 + ", " + flag + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("71230, " + abyte0 + ", " + flag + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
 
     public URL getCodeBase()
     {
-        if(signlink.mainapp != null)
+        if(Signlink.mainapp != null)
         {
-            return signlink.mainapp.getCodeBase();
+            return Signlink.mainapp.getCodeBase();
         }
         try
         {
@@ -6964,14 +6964,14 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("70914, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("70914, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
     public void method56(String username, String password, boolean flag)
     {
-        signlink.errorname = username;
+        Signlink.errorname = username;
         try
         {
             if(!flag)
@@ -6980,66 +6980,70 @@ public class Game extends Applet_Sub1
                 aString1175 = "Connecting to server...";
                 method20(true, true);
             }
-            aClass46_1001 = new Class46(method135(43594 + anInt952), 681, this);
+            gameConnection = new BufferedConnection(method135(43594 + anInt952), 681, this);
             long l = Class24.method446(username);
             int i = (int)(l >> 16 & 31L);
             aClass13_Sub1_Sub2_928.position = 0;
-            aClass13_Sub1_Sub2_928.method301(14);
-            aClass13_Sub1_Sub2_928.method301(i);
-            aClass46_1001.method580(aClass13_Sub1_Sub2_928.payload, 0, 2, (byte)9);
+            aClass13_Sub1_Sub2_928.writeByte(14);
+            aClass13_Sub1_Sub2_928.writeByte(i);
+            gameConnection.write(aClass13_Sub1_Sub2_928.payload, 0, 2, (byte)9);
             for(int j = 0; j < 8; j++)
             {
-                aClass46_1001.method577();
+                gameConnection.read();
             }
-            int k = aClass46_1001.method577();
-            int i1 = k;
-            if(k == 0)
+            int responseCode = gameConnection.read();
+            int initialResponseCode = responseCode;
+            if(responseCode == 0)
             {
-                aClass46_1001.method579(buffer.payload, 0, 8);
+                gameConnection.read(buffer.payload, 0, 8);
+
                 buffer.position = 0;
-                aLong828 = buffer.readLong(0);
-                int ai[] = new int[4];
-                ai[0] = (int)(Math.random() * 99999999D);
-                ai[1] = (int)(Math.random() * 99999999D);
-                ai[2] = (int)(aLong828 >> 32);
-                ai[3] = (int)aLong828;
+                serverSeed = buffer.readLong(0);
+                int seed[] = new int[4];
+
+                seed[0] = (int)(Math.random() * 99999999D);
+                seed[1] = (int)(Math.random() * 99999999D);
+                seed[2] = (int)(serverSeed >> 32);
+                seed[3] = (int) serverSeed;
+
                 aClass13_Sub1_Sub2_928.position = 0;
-                aClass13_Sub1_Sub2_928.method301(10);
-                aClass13_Sub1_Sub2_928.method305(ai[0]);
-                aClass13_Sub1_Sub2_928.method305(ai[1]);
-                aClass13_Sub1_Sub2_928.method305(ai[2]);
-                aClass13_Sub1_Sub2_928.method305(ai[3]);
-                aClass13_Sub1_Sub2_928.method305(signlink.uid);
-                aClass13_Sub1_Sub2_928.method308(username);
-                aClass13_Sub1_Sub2_928.method308(password);
+
+                aClass13_Sub1_Sub2_928.writeByte(10);
+                aClass13_Sub1_Sub2_928.writeInt(seed[0]);
+                aClass13_Sub1_Sub2_928.writeInt(seed[1]);
+                aClass13_Sub1_Sub2_928.writeInt(seed[2]);
+                aClass13_Sub1_Sub2_928.writeInt(seed[3]);
+                aClass13_Sub1_Sub2_928.writeInt(Signlink.uid);
+                aClass13_Sub1_Sub2_928.writeString(username);
+                aClass13_Sub1_Sub2_928.writeString(password);
                 aClass13_Sub1_Sub2_928.method326(rsaModulus, rsaKey, true);
                 aClass13_Sub1_Sub2_1100.position = 0;
                 if(flag)
                 {
-                    aClass13_Sub1_Sub2_1100.method301(18);
+                    aClass13_Sub1_Sub2_1100.writeByte(18);
                 } else
                 {
-                    aClass13_Sub1_Sub2_1100.method301(16);
+                    aClass13_Sub1_Sub2_1100.writeByte(16);
                 }
-                aClass13_Sub1_Sub2_1100.method301(aClass13_Sub1_Sub2_928.position + 36 + 1 + 1 + 2);
-                aClass13_Sub1_Sub2_1100.method301(255);
+                aClass13_Sub1_Sub2_1100.writeByte(aClass13_Sub1_Sub2_928.position + 36 + 1 + 1 + 2);
+                aClass13_Sub1_Sub2_1100.writeByte(255);
                 aClass13_Sub1_Sub2_1100.method302(319);
-                aClass13_Sub1_Sub2_1100.method301(aBoolean954 ? 1 : 0);
+                aClass13_Sub1_Sub2_1100.writeByte(aBoolean954 ? 1 : 0);
                 for(int l1 = 0; l1 < 9; l1++)
                 {
-                    aClass13_Sub1_Sub2_1100.method305(anIntArray1277[l1]);
+                    aClass13_Sub1_Sub2_1100.writeInt(anIntArray1277[l1]);
                 }
                 aClass13_Sub1_Sub2_1100.method309(aClass13_Sub1_Sub2_928.position, 0, anInt1052, aClass13_Sub1_Sub2_928.payload);
-                aClass13_Sub1_Sub2_928.aISAACCipher_1403 = new ISAACCipher(0, ai);
+                aClass13_Sub1_Sub2_928.aISAACCipher_1403 = new ISAACCipher(0, seed);
                 for(int j2 = 0; j2 < 4; j2++)
                 {
-                    ai[j2] += 50;
+                    seed[j2] += 50;
                 }
-                aISAACCipher_1163 = new ISAACCipher(0, ai);
-                aClass46_1001.method580(aClass13_Sub1_Sub2_1100.payload, 0, aClass13_Sub1_Sub2_1100.position, (byte)9);
-                k = aClass46_1001.method577();
+                aISAACCipher_1163 = new ISAACCipher(0, seed);
+                gameConnection.write(aClass13_Sub1_Sub2_1100.payload, 0, aClass13_Sub1_Sub2_1100.position, (byte)9);
+                responseCode = gameConnection.read();
             }
-            if(k == 1)
+            if(responseCode == 1)
             {
                 try
                 {
@@ -7051,10 +7055,10 @@ public class Game extends Applet_Sub1
                 method56(username, password, flag);
                 return;
             }
-            if(k == 2)
+            if(responseCode == 2)
             {
-                anInt1037 = aClass46_1001.method577();
-                aBoolean860 = aClass46_1001.method577() == 1;
+                anInt1037 = gameConnection.read();
+                aBoolean860 = gameConnection.read() == 1;
                 aLong1122 = 0L;
                 anInt927 = 0;
                 aClass48_865.anInt791 = 0;
@@ -7157,79 +7161,79 @@ public class Game extends Applet_Sub1
                 method90(-251);
                 return;
             }
-            if(k == 3)
+            if(responseCode == 3)
             {
                 aString1174 = "";
                 aString1175 = "Invalid username or password.";
                 return;
             }
-            if(k == 4)
+            if(responseCode == 4)
             {
                 aString1174 = "Your account has been disabled.";
                 aString1175 = "Please check your message-centre for details.";
                 return;
             }
-            if(k == 5)
+            if(responseCode == 5)
             {
                 aString1174 = "Your account is already logged in.";
                 aString1175 = "Try again in 60 secs...";
                 return;
             }
-            if(k == 6)
+            if(responseCode == 6)
             {
                 aString1174 = "RuneScape has been updated!";
                 aString1175 = "Please reload this page.";
                 return;
             }
-            if(k == 7)
+            if(responseCode == 7)
             {
                 aString1174 = "This world is full.";
                 aString1175 = "Please use a different world.";
                 return;
             }
-            if(k == 8)
+            if(responseCode == 8)
             {
                 aString1174 = "Unable to connect.";
                 aString1175 = "Login server offline.";
                 return;
             }
-            if(k == 9)
+            if(responseCode == 9)
             {
                 aString1174 = "Login limit exceeded.";
                 aString1175 = "Too many connections from your address.";
                 return;
             }
-            if(k == 10)
+            if(responseCode == 10)
             {
                 aString1174 = "Unable to connect.";
                 aString1175 = "Bad session id.";
                 return;
             }
-            if(k == 11)
+            if(responseCode == 11)
             {
                 aString1175 = "Login server rejected session.";
                 aString1175 = "Please try again.";
                 return;
             }
-            if(k == 12)
+            if(responseCode == 12)
             {
                 aString1174 = "You need a members account to login to this world.";
                 aString1175 = "Please subscribe, or use a different world.";
                 return;
             }
-            if(k == 13)
+            if(responseCode == 13)
             {
                 aString1174 = "Could not complete login.";
                 aString1175 = "Please try using a different world.";
                 return;
             }
-            if(k == 14)
+            if(responseCode == 14)
             {
                 aString1174 = "The server is being updated.";
                 aString1175 = "Please wait 1 minute and try again.";
                 return;
             }
-            if(k == 15)
+            if(responseCode == 15)
             {
                 aBoolean851 = true;
                 aClass13_Sub1_Sub2_928.position = 0;
@@ -7246,27 +7250,27 @@ public class Game extends Applet_Sub1
                 aLong1243 = System.currentTimeMillis();
                 return;
             }
-            if(k == 16)
+            if(responseCode == 16)
             {
                 aString1174 = "Login attempts exceeded.";
                 aString1175 = "Please wait 1 minute and try again.";
                 return;
             }
-            if(k == 17)
+            if(responseCode == 17)
             {
                 aString1174 = "You are standing in a members-only area.";
                 aString1175 = "To play on this world move to a free area first";
                 return;
             }
-            if(k == 20)
+            if(responseCode == 20)
             {
                 aString1174 = "Invalid loginserver requested";
                 aString1175 = "Please try using a different world.";
                 return;
             }
-            if(k == 21)
+            if(responseCode == 21)
             {
-                int k1 = aClass46_1001.method577();
+                int k1 = gameConnection.read();
                 for(k1 += 3; k1 >= 0; k1--)
                 {
                     aString1174 = "You have only just left another world";
@@ -7283,9 +7287,9 @@ public class Game extends Applet_Sub1
                 method56(username, password, flag);
                 return;
             }
-            if(k == -1)
+            if(responseCode == -1)
             {
-                if(i1 == 0)
+                if(initialResponseCode == 0)
                 {
                     if(anInt995 < 2)
                     {
@@ -7313,7 +7317,7 @@ public class Game extends Applet_Sub1
                 }
             } else
             {
-                System.out.println("response:" + k);
+                System.out.println("response:" + responseCode);
                 aString1174 = "Unexpected server response";
                 aString1175 = "Please try using a different world.";
                 return;
@@ -7425,7 +7429,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("28800, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("28800, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -7457,7 +7461,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("53115, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("53115, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -7466,17 +7470,17 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            signlink.midivol = j;
+            Signlink.midivol = j;
             packetSize += i;
             if(flag)
             {
-                signlink.midi = "voladjust";
+                Signlink.midi = "voladjust";
                 return;
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("12395, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("12395, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -7529,7 +7533,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("95982, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("95982, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -7712,7 +7716,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68585, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("68585, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -7750,7 +7754,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("96378, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("96378, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -7856,11 +7860,11 @@ public class Game extends Applet_Sub1
             {
                 anInt916 = 0;
                 aClass13_Sub1_Sub2_928.method300(328, 108);
-                aClass13_Sub1_Sub2_928.method301(0);
+                aClass13_Sub1_Sub2_928.writeByte(0);
                 int j3 = aClass13_Sub1_Sub2_928.position;
                 if((int)(Math.random() * 2D) == 0)
                 {
-                    aClass13_Sub1_Sub2_928.method301(233);
+                    aClass13_Sub1_Sub2_928.writeByte(233);
                 }
                 if((int)(Math.random() * 2D) == 0)
                 {
@@ -7868,20 +7872,20 @@ public class Game extends Applet_Sub1
                 }
                 if((int)(Math.random() * 2D) == 0)
                 {
-                    aClass13_Sub1_Sub2_928.method301(170);
+                    aClass13_Sub1_Sub2_928.writeByte(170);
                 }
                 if((int)(Math.random() * 2D) == 0)
                 {
                     aClass13_Sub1_Sub2_928.method302(4922);
                 }
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
                 if((int)(Math.random() * 2D) == 0)
                 {
-                    aClass13_Sub1_Sub2_928.method301(109);
+                    aClass13_Sub1_Sub2_928.writeByte(109);
                 }
                 aClass13_Sub1_Sub2_928.method302(62857);
-                aClass13_Sub1_Sub2_928.method301((int)(Math.random() * 256D));
-                aClass13_Sub1_Sub2_928.method301(20);
+                aClass13_Sub1_Sub2_928.writeByte((int)(Math.random() * 256D));
+                aClass13_Sub1_Sub2_928.writeByte(20);
                 aClass13_Sub1_Sub2_928.method302((int)(Math.random() * 65536D));
                 aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - j3);
                 return;
@@ -7889,7 +7893,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("20726, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("20726, " + i + ", " + j + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -7900,9 +7904,9 @@ public class Game extends Applet_Sub1
         {
             i = 10;
         }
-        if(signlink.mainapp != null)
+        if(Signlink.mainapp != null)
         {
-            signlink.startthread(runnable, i);
+            Signlink.startthread(runnable, i);
             return;
         } else
         {
@@ -7917,7 +7921,7 @@ public class Game extends Applet_Sub1
         {
             if(!flag)
             {
-                aClass13_Sub1_Sub2_928.method301(125);
+                aClass13_Sub1_Sub2_928.writeByte(125);
             }
             int j = Class22.aClass22Array365[i].anInt373;
             if(j == 0)
@@ -8035,7 +8039,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("71532, " + flag + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("71532, " + flag + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -8046,7 +8050,7 @@ public class Game extends Applet_Sub1
         {
             if(i <= 0)
             {
-                aClass13_Sub1_Sub2_928.method301(175);
+                aClass13_Sub1_Sub2_928.writeByte(175);
             }
             Class14.aClass3_248.method174();
             Class14.aClass3_249.method174();
@@ -8059,7 +8063,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("19773, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("19773, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8070,15 +8074,15 @@ public class Game extends Applet_Sub1
         {
             try
             {
-                if(aClass46_1001 != null)
+                if(gameConnection != null)
                 {
-                    aClass46_1001.method576();
+                    gameConnection.close();
                 }
             }
             catch(Exception _ex)
             {
             }
-            aClass46_1001 = null;
+            gameConnection = null;
             aBoolean851 = false;
             anInt1220 = 0;
             username = "";
@@ -8102,7 +8106,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("43646, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("43646, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8505,7 +8509,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("61542, " + widget + ", " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reportError("61542, " + widget + ", " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8623,7 +8627,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15975, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("15975, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8650,7 +8654,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("2857, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("2857, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8661,7 +8665,7 @@ public class Game extends Applet_Sub1
         {
             if(byte0 != 117)
             {
-                aClass13_Sub1_Sub2_928.method301(126);
+                aClass13_Sub1_Sub2_928.writeByte(126);
             }
             if(i == 0 && anInt1276 != -1)
             {
@@ -8685,7 +8689,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("31742, " + i + ", " + s + ", " + s1 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("31742, " + i + ", " + s + ", " + s1 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8710,7 +8714,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("46078, " + s + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("46078, " + s + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8828,7 +8832,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("41963, " + class13_sub1_sub1_sub6_sub1 + ", " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("41963, " + class13_sub1_sub1_sub6_sub1 + ", " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -8873,7 +8877,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("53071, " + i + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("53071, " + i + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -8905,7 +8909,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("90563, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("90563, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -8963,7 +8967,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("39064, " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("39064, " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9257,7 +9261,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("69094, " + i + ", " + widget + ", " + j + ", " + flag + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
+            Signlink.reportError("69094, " + i + ", " + widget + ", " + j + ", " + flag + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9308,7 +9312,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("75970, " + i + ", " + widget + ", " + runtimeexception.toString());
+            Signlink.reportError("75970, " + i + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9355,7 +9359,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("59449, " + l + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("59449, " + l + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9375,7 +9379,7 @@ public class Game extends Applet_Sub1
                 int i1 = class13_sub1_sub2.readUnsignedByte();
                 if((i1 & 1) != 0)
                 {
-                    class13_sub1_sub1_sub6_sub2.aClass47_1717 = Class47.method585(class13_sub1_sub2.method339(true));
+                    class13_sub1_sub1_sub6_sub2.aClass47_1717 = Class47.getDefinition(class13_sub1_sub2.method339(true));
                     class13_sub1_sub1_sub6_sub2.anInt1611 = class13_sub1_sub1_sub6_sub2.aClass47_1717.aByte768;
                     class13_sub1_sub1_sub6_sub2.anInt1618 = class13_sub1_sub1_sub6_sub2.aClass47_1717.anInt760;
                     class13_sub1_sub1_sub6_sub2.anInt1570 = class13_sub1_sub1_sub6_sub2.aClass47_1717.anInt778;
@@ -9475,7 +9479,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("77192, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("77192, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9507,7 +9511,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("47289, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("47289, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9539,7 +9543,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("32751, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reportError("32751, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9567,7 +9571,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("59849, " + class13_sub1_sub2 + ", " + i + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("59849, " + class13_sub1_sub2 + ", " + i + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -9749,7 +9753,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("69252, " + i + ", " + flag + ", " + widget + ", " + runtimeexception.toString());
+            Signlink.reportError("69252, " + i + ", " + flag + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9856,13 +9860,13 @@ public class Game extends Applet_Sub1
             }
             catch(Exception _ex)
             {
-                signlink.reportError("glfc_ex " + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1587 + "," + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1588 + "," + anInt1020 + "," + anInt1021 + "," + anInt984 + "," + anInt985 + "," + anInt1083 + "," + anInt1084);
+                Signlink.reportError("glfc_ex " + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1587 + "," + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1588 + "," + anInt1020 + "," + anInt1021 + "," + anInt984 + "," + anInt985 + "," + anInt1083 + "," + anInt1084);
                 throw new RuntimeException("eek");
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("1836, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("1836, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -9918,7 +9922,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("32846, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + runtimeexception.toString());
+            Signlink.reportError("32846, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9942,7 +9946,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("91380, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("91380, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9979,7 +9983,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("65826, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("65826, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -10011,7 +10015,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("56729, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("56729, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -10067,7 +10071,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("22285, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("22285, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10085,7 +10089,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("22953, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("22953, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10127,7 +10131,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68348, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("68348, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10301,9 +10305,9 @@ public class Game extends Applet_Sub1
             if(super.aFrame_Sub1_18 != null)
             {
                 aClass13_Sub1_Sub2_928.method300(328, 226);
-                aClass13_Sub1_Sub2_928.method305(0x3f008edd);
+                aClass13_Sub1_Sub2_928.writeInt(0x3f008edd);
             }
-            if(aBoolean954 && signlink.cache_dat != null)
+            if(aBoolean954 && Signlink.cache_dat != null)
             {
                 int j = aClass2_Sub1_873.method163(-29, 0);
                 for(int i1 = 0; i1 < j; i1++)
@@ -10356,7 +10360,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("38100, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("38100, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10409,7 +10413,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("53221, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("53221, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10435,7 +10439,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("61613, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("61613, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -10741,7 +10745,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("76328, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("76328, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -10762,9 +10766,9 @@ public class Game extends Applet_Sub1
                     aBoolean1137 = true;
                     aBoolean1169 = true;
                     aClass13_Sub1_Sub2_928.method300(328, 104);
-                    aClass13_Sub1_Sub2_928.method301(anInt1159);
-                    aClass13_Sub1_Sub2_928.method301(anInt1129);
-                    aClass13_Sub1_Sub2_928.method301(anInt1290);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1159);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1129);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1290);
                 }
                 if(super.anInt30 >= 135 && super.anInt30 <= 235 && super.anInt31 >= 467 && super.anInt31 <= 499)
                 {
@@ -10772,9 +10776,9 @@ public class Game extends Applet_Sub1
                     aBoolean1137 = true;
                     aBoolean1169 = true;
                     aClass13_Sub1_Sub2_928.method300(328, 104);
-                    aClass13_Sub1_Sub2_928.method301(anInt1159);
-                    aClass13_Sub1_Sub2_928.method301(anInt1129);
-                    aClass13_Sub1_Sub2_928.method301(anInt1290);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1159);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1129);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1290);
                 }
                 if(super.anInt30 >= 273 && super.anInt30 <= 373 && super.anInt31 >= 467 && super.anInt31 <= 499)
                 {
@@ -10782,9 +10786,9 @@ public class Game extends Applet_Sub1
                     aBoolean1137 = true;
                     aBoolean1169 = true;
                     aClass13_Sub1_Sub2_928.method300(328, 104);
-                    aClass13_Sub1_Sub2_928.method301(anInt1159);
-                    aClass13_Sub1_Sub2_928.method301(anInt1129);
-                    aClass13_Sub1_Sub2_928.method301(anInt1290);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1159);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1129);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt1290);
                 }
                 if(super.anInt30 >= 412 && super.anInt30 <= 512 && super.anInt31 >= 467 && super.anInt31 <= 499)
                 {
@@ -10812,7 +10816,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("35365, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("35365, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -10837,7 +10841,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("65449, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("65449, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10848,7 +10852,7 @@ public class Game extends Applet_Sub1
         {
             while(i >= 0)
             {
-                aClass13_Sub1_Sub2_928.method301(238);
+                aClass13_Sub1_Sub2_928.writeByte(238);
             }
             char c = '\u0100';
             if(anInt1176 > 0)
@@ -10958,7 +10962,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15285, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("15285, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11026,7 +11030,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("82383, " + flag + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("82383, " + flag + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -11076,7 +11080,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("76080, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("76080, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11156,7 +11160,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("23360, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("23360, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11185,14 +11189,14 @@ public class Game extends Applet_Sub1
             }
             if(class13_sub1_sub2.position != i)
             {
-                signlink.reportError(username + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.position + " psize:" + i);
+                Signlink.reportError(username + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.position + " psize:" + i);
                 throw new RuntimeException("eek");
             }
             for(int l = 0; l < anInt1284; l++)
             {
                 if(aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[l]] == null)
                 {
-                    signlink.reportError(username + " null entry in npc list - pos:" + l + " size:" + anInt1284);
+                    Signlink.reportError(username + " null entry in npc list - pos:" + l + " size:" + anInt1284);
                     throw new RuntimeException("eek");
                 }
             }
@@ -11200,7 +11204,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("38167, " + i + ", " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("38167, " + i + ", " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11296,7 +11300,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("17134, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + runtimeexception.toString());
+            Signlink.reportError("17134, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -11354,7 +11358,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("64903, " + class13_sub1_sub4_sub3 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("64903, " + class13_sub1_sub4_sub3 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -11364,9 +11368,9 @@ public class Game extends Applet_Sub1
         try
         {
             i = 73 / i;
-            if(signlink.mainapp != null)
+            if(Signlink.mainapp != null)
             {
-                return signlink.mainapp.getDocumentBase().getHost().toLowerCase();
+                return Signlink.mainapp.getDocumentBase().getHost().toLowerCase();
             }
             if(super.aFrame_Sub1_18 != null)
             {
@@ -11378,7 +11382,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("3292, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("3292, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11651,7 +11655,7 @@ public class Game extends Applet_Sub1
                     {
                         s = daysSinceLastLogin + " days ago";
                     }
-                    widget.aString548 = "You last logged in " + s + " from: " + signlink.dns;
+                    widget.aString548 = "You last logged in " + s + " from: " + Signlink.dns;
                 } else
                 {
                     widget.aString548 = "";
@@ -11754,7 +11758,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("3335, " + i + ", " + widget + ", " + runtimeexception.toString());
+            Signlink.reportError("3335, " + i + ", " + widget + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -11778,7 +11782,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("30709, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("30709, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11801,7 +11805,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("54428, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("54428, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -11887,7 +11891,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("14656, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("14656, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -11998,7 +12002,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("74466, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("74466, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -12010,7 +12014,7 @@ public class Game extends Applet_Sub1
             anInt1260++;
             if(flag)
             {
-                aClass13_Sub1_Sub2_928.method301(16);
+                aClass13_Sub1_Sub2_928.writeByte(16);
             }
             if(anInt1260 > 79)
             {
@@ -12064,7 +12068,7 @@ public class Game extends Applet_Sub1
                         if(anInt943 == 3 && aString1218.length() > 0)
                         {
                             aClass13_Sub1_Sub2_928.method300(328, 235);
-                            aClass13_Sub1_Sub2_928.method301(0);
+                            aClass13_Sub1_Sub2_928.writeByte(0);
                             int j = aClass13_Sub1_Sub2_928.position;
                             aClass13_Sub1_Sub2_928.method307(aLong1033, 20652);
                             Class45.method574(aClass13_Sub1_Sub2_928, -45468, aString1218);
@@ -12077,9 +12081,9 @@ public class Game extends Applet_Sub1
                                 anInt1129 = 1;
                                 aBoolean1137 = true;
                                 aClass13_Sub1_Sub2_928.method300(328, 104);
-                                aClass13_Sub1_Sub2_928.method301(anInt1159);
-                                aClass13_Sub1_Sub2_928.method301(anInt1129);
-                                aClass13_Sub1_Sub2_928.method301(anInt1290);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1159);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1129);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1290);
                             }
                         }
                         if(anInt943 == 4 && anInt1098 < 100)
@@ -12119,7 +12123,7 @@ public class Game extends Applet_Sub1
                             {
                             }
                             aClass13_Sub1_Sub2_928.method300(328, 171);
-                            aClass13_Sub1_Sub2_928.method305(k);
+                            aClass13_Sub1_Sub2_928.writeInt(k);
                         }
                         anInt1141 = 0;
                         aBoolean1169 = true;
@@ -12204,8 +12208,8 @@ public class Game extends Applet_Sub1
                         if(aString1280.startsWith("::"))
                         {
                             aClass13_Sub1_Sub2_928.method300(328, 192);
-                            aClass13_Sub1_Sub2_928.method301(aString1280.length() - 1);
-                            aClass13_Sub1_Sub2_928.method308(aString1280.substring(2));
+                            aClass13_Sub1_Sub2_928.writeByte(aString1280.length() - 1);
+                            aClass13_Sub1_Sub2_928.writeString(aString1280.substring(2));
                         } else
                         {
                             String s = aString1280.toLowerCase();
@@ -12298,13 +12302,13 @@ public class Game extends Applet_Sub1
                                 aString1280 = aString1280.substring(6);
                             }
                             aClass13_Sub1_Sub2_928.method300(328, 141);
-                            aClass13_Sub1_Sub2_928.method301(0);
+                            aClass13_Sub1_Sub2_928.writeByte(0);
                             int i3 = aClass13_Sub1_Sub2_928.position;
                             aClass13_Sub1_Sub2_1282.position = 0;
                             Class45.method574(aClass13_Sub1_Sub2_1282, -45468, aString1280);
                             aClass13_Sub1_Sub2_928.method349(aClass13_Sub1_Sub2_1282.payload, 0, true, aClass13_Sub1_Sub2_1282.position);
                             aClass13_Sub1_Sub2_928.method328(anInt1203, k2);
-                            aClass13_Sub1_Sub2_928.method301(i2);
+                            aClass13_Sub1_Sub2_928.writeByte(i2);
                             aClass13_Sub1_Sub2_928.method310(5469, aClass13_Sub1_Sub2_928.position - i3);
                             aString1280 = Class45.method575(false, aString1280);
                             aString1280 = Class41.method541(false, aString1280);
@@ -12328,9 +12332,9 @@ public class Game extends Applet_Sub1
                                 anInt1159 = 3;
                                 aBoolean1137 = true;
                                 aClass13_Sub1_Sub2_928.method300(328, 104);
-                                aClass13_Sub1_Sub2_928.method301(anInt1159);
-                                aClass13_Sub1_Sub2_928.method301(anInt1129);
-                                aClass13_Sub1_Sub2_928.method301(anInt1290);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1159);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1129);
+                                aClass13_Sub1_Sub2_928.writeByte(anInt1290);
                             }
                         }
                         aString1280 = "";
@@ -12342,7 +12346,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("4969, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("4969, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12402,7 +12406,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("51706, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + widget + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
+            Signlink.reportError("51706, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + widget + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12456,7 +12460,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("76702, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("76702, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -12465,13 +12469,13 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            signlink.wavevol = i;
+            Signlink.wavevol = i;
             j = 31 / j;
             return;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("69963, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("69963, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12571,7 +12575,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("34496, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("34496, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12608,7 +12612,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("48595, " + class13_sub1_sub4_sub4 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("48595, " + class13_sub1_sub4_sub4 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12644,7 +12648,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66984, " + class13_sub1_sub4_sub4 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("66984, " + class13_sub1_sub4_sub4 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12655,7 +12659,7 @@ public class Game extends Applet_Sub1
         {
             while(class13_sub1_sub2.anInt1400 + 10 < i * 8)
             {
-                int k = class13_sub1_sub2.method322(11, 195);
+                int k = class13_sub1_sub2.readBits(11, 195);
                 if(k == 2047)
                 {
                     break;
@@ -12671,22 +12675,22 @@ public class Game extends Applet_Sub1
                 playerList[anInt899++] = k;
                 Class13_Sub1_Sub1_Sub6_Sub1 class13_sub1_sub1_sub6_sub1 = players[k];
                 class13_sub1_sub1_sub6_sub1.pulseCycle = pulseCycle;
-                int l = class13_sub1_sub2.method322(1, 195);
+                int l = class13_sub1_sub2.readBits(1, 195);
                 if(l == 1)
                 {
                     anIntArray902[anInt901++] = k;
                 }
-                int i1 = class13_sub1_sub2.method322(5, 195);
+                int i1 = class13_sub1_sub2.readBits(5, 195);
                 if(i1 > 15)
                 {
                     i1 -= 32;
                 }
-                int j1 = class13_sub1_sub2.method322(5, 195);
+                int j1 = class13_sub1_sub2.readBits(5, 195);
                 if(j1 > 15)
                 {
                     j1 -= 32;
                 }
-                int k1 = class13_sub1_sub2.method322(1, 195);
+                int k1 = class13_sub1_sub2.readBits(1, 195);
                 class13_sub1_sub1_sub6_sub1.method294(k1 == 1, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0] + j1, ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0] + i1, (byte)103);
             }
             class13_sub1_sub2.method323(3);
@@ -12698,7 +12702,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("51952, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("51952, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -12712,12 +12716,12 @@ public class Game extends Applet_Sub1
                 throw new NullPointerException();
             } else
             {
-                return signlink.wavereplay();
+                return Signlink.wavereplay();
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("44526, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("44526, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12771,7 +12775,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15785, " + widget + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("15785, " + widget + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12781,7 +12785,7 @@ public class Game extends Applet_Sub1
         try
         {
             class13_sub1_sub2.method321(-761);
-            int j = class13_sub1_sub2.method322(1, 195);
+            int j = class13_sub1_sub2.readBits(1, 195);
             if(!flag)
             {
                 anInt1056 = 408;
@@ -12790,7 +12794,7 @@ public class Game extends Applet_Sub1
             {
                 return;
             }
-            int k = class13_sub1_sub2.method322(2, 195);
+            int k = class13_sub1_sub2.readBits(2, 195);
             if(k == 0)
             {
                 anIntArray902[anInt901++] = anInt897;
@@ -12798,9 +12802,9 @@ public class Game extends Applet_Sub1
             }
             if(k == 1)
             {
-                int l = class13_sub1_sub2.method322(3, 195);
+                int l = class13_sub1_sub2.readBits(3, 195);
                 aClass13_Sub1_Sub1_Sub6_Sub1_997.method292(l, 125, false);
-                int k1 = class13_sub1_sub2.method322(1, 195);
+                int k1 = class13_sub1_sub2.readBits(1, 195);
                 if(k1 == 1)
                 {
                     anIntArray902[anInt901++] = anInt897;
@@ -12809,11 +12813,11 @@ public class Game extends Applet_Sub1
             }
             if(k == 2)
             {
-                int i1 = class13_sub1_sub2.method322(3, 195);
+                int i1 = class13_sub1_sub2.readBits(3, 195);
                 aClass13_Sub1_Sub1_Sub6_Sub1_997.method292(i1, 125, true);
-                int l1 = class13_sub1_sub2.method322(3, 195);
+                int l1 = class13_sub1_sub2.readBits(3, 195);
                 aClass13_Sub1_Sub1_Sub6_Sub1_997.method292(l1, 125, true);
-                int j2 = class13_sub1_sub2.method322(1, 195);
+                int j2 = class13_sub1_sub2.readBits(1, 195);
                 if(j2 == 1)
                 {
                     anIntArray902[anInt901++] = anInt897;
@@ -12822,11 +12826,11 @@ public class Game extends Applet_Sub1
             }
             if(k == 3)
             {
-                int j1 = class13_sub1_sub2.method322(7, 195);
-                anInt1166 = class13_sub1_sub2.method322(2, 195);
-                int i2 = class13_sub1_sub2.method322(7, 195);
-                int k2 = class13_sub1_sub2.method322(1, 195);
-                int l2 = class13_sub1_sub2.method322(1, 195);
+                int j1 = class13_sub1_sub2.readBits(7, 195);
+                anInt1166 = class13_sub1_sub2.readBits(2, 195);
+                int i2 = class13_sub1_sub2.readBits(7, 195);
+                int k2 = class13_sub1_sub2.readBits(1, 195);
+                int l2 = class13_sub1_sub2.readBits(1, 195);
                 if(l2 == 1)
                 {
                     anIntArray902[anInt901++] = anInt897;
@@ -12837,7 +12841,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("31237, " + i + ", " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("31237, " + i + ", " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -12888,7 +12892,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("39823, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("39823, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13003,7 +13007,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("85671, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("85671, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13041,7 +13045,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("57862, " + i + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reportError("57862, " + i + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13052,7 +13056,7 @@ public class Game extends Applet_Sub1
         {
             if(byte0 != -56)
             {
-                aClass13_Sub1_Sub2_928.method301(253);
+                aClass13_Sub1_Sub2_928.writeByte(253);
             }
             int i = 0;
             int j = -1;
@@ -13088,7 +13092,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("50149, " + class13_sub3 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("50149, " + class13_sub3 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13117,7 +13121,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("75537, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("75537, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13164,7 +13168,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("30033, " + class13_sub1_sub1_sub6 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("30033, " + class13_sub1_sub1_sub6 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13205,7 +13209,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("27701, " + class13_sub1_sub1_sub6 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("27701, " + class13_sub1_sub1_sub6 + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13251,7 +13255,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("46733, " + class13_sub1_sub1_sub6 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("46733, " + class13_sub1_sub1_sub6 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13422,7 +13426,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("54560, " + class13_sub1_sub1_sub6 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("54560, " + class13_sub1_sub1_sub6 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13512,7 +13516,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("25438, " + i + ", " + class13_sub1_sub1_sub6 + ", " + runtimeexception.toString());
+            Signlink.reportError("25438, " + i + ", " + class13_sub1_sub1_sub6 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13593,7 +13597,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("83855, " + class13_sub1_sub1_sub6 + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("83855, " + class13_sub1_sub1_sub6 + ", " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -13719,7 +13723,7 @@ public class Game extends Applet_Sub1
                 {
                     anInt1087 = -1;
                     aClass13_Sub1_Sub2_928.method300(328, 69);
-                    aClass13_Sub1_Sub2_928.method301(anInt864);
+                    aClass13_Sub1_Sub2_928.writeByte(anInt864);
                 }
                 aBoolean1286 = false;
                 aClass31_1188.method490(false);
@@ -13913,7 +13917,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("24138, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("24138, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -14055,7 +14059,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("11684, " + i + ", " + j + ", " + k + ", " + l + ", " + class47 + ", " + runtimeexception.toString());
+            Signlink.reportError("11684, " + i + ", " + j + ", " + k + ", " + l + ", " + class47 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14083,7 +14087,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("5715, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("5715, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14091,9 +14095,9 @@ public class Game extends Applet_Sub1
     public Socket method135(int i)
         throws IOException
     {
-        if(signlink.mainapp != null)
+        if(Signlink.mainapp != null)
         {
-            return signlink.opensocket(i);
+            return Signlink.opensocket(i);
         } else
         {
             return new Socket(InetAddress.getByName(getCodeBase().getHost()), i);
@@ -14104,10 +14108,10 @@ public class Game extends Applet_Sub1
     {
         try
         {
-            int k = class13_sub1_sub2.method322(8, 195);
+            int k = class13_sub1_sub2.readBits(8, 195);
             if(j < 1 || j > 1)
             {
-                aClass13_Sub1_Sub2_928.method301(229);
+                aClass13_Sub1_Sub2_928.writeByte(229);
             }
             if(k < anInt899)
             {
@@ -14118,7 +14122,7 @@ public class Game extends Applet_Sub1
             }
             if(k > anInt899)
             {
-                signlink.reportError(username + " Too many players");
+                Signlink.reportError(username + " Too many players");
                 throw new RuntimeException("eek");
             }
             anInt899 = 0;
@@ -14126,14 +14130,14 @@ public class Game extends Applet_Sub1
             {
                 int j1 = playerList[i1];
                 Class13_Sub1_Sub1_Sub6_Sub1 class13_sub1_sub1_sub6_sub1 = players[j1];
-                int k1 = class13_sub1_sub2.method322(1, 195);
+                int k1 = class13_sub1_sub2.readBits(1, 195);
                 if(k1 == 0)
                 {
                     playerList[anInt899++] = j1;
                     class13_sub1_sub1_sub6_sub1.pulseCycle = pulseCycle;
                 } else
                 {
-                    int movementType = class13_sub1_sub2.method322(2, 195);
+                    int movementType = class13_sub1_sub2.readBits(2, 195);
                     if(movementType == 0)
                     {
                         playerList[anInt899++] = j1;
@@ -14144,9 +14148,9 @@ public class Game extends Applet_Sub1
                     {
                         playerList[anInt899++] = j1;
                         class13_sub1_sub1_sub6_sub1.pulseCycle = pulseCycle;
-                        int i2 = class13_sub1_sub2.method322(3, 195);
+                        int i2 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub1.method292(i2, 125, false);
-                        int k2 = class13_sub1_sub2.method322(1, 195);
+                        int k2 = class13_sub1_sub2.readBits(1, 195);
                         if(k2 == 1)
                         {
                             anIntArray902[anInt901++] = j1;
@@ -14156,11 +14160,11 @@ public class Game extends Applet_Sub1
                     {
                         playerList[anInt899++] = j1;
                         class13_sub1_sub1_sub6_sub1.pulseCycle = pulseCycle;
-                        int j2 = class13_sub1_sub2.method322(3, 195);
+                        int j2 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub1.method292(j2, 125, true);
-                        int l2 = class13_sub1_sub2.method322(3, 195);
+                        int l2 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub1.method292(l2, 125, true);
-                        int i3 = class13_sub1_sub2.method322(1, 195);
+                        int i3 = class13_sub1_sub2.readBits(1, 195);
                         if(i3 == 1)
                         {
                             anIntArray902[anInt901++] = j1;
@@ -14176,7 +14180,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("94480, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("94480, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14228,7 +14232,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("45450, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("45450, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14367,7 +14371,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("92049, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("92049, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -14486,7 +14490,7 @@ public class Game extends Applet_Sub1
                 {
                     s2 = "Null error";
                     abyte0 = null;
-                    if(!signlink.reporterror)
+                    if(!Signlink.reporterror)
                     {
                         return null;
                     }
@@ -14495,7 +14499,7 @@ public class Game extends Applet_Sub1
                 {
                     s2 = "Bounds error";
                     abyte0 = null;
-                    if(!signlink.reporterror)
+                    if(!Signlink.reporterror)
                     {
                         return null;
                     }
@@ -14504,7 +14508,7 @@ public class Game extends Applet_Sub1
                 {
                     s2 = "Unexpected error";
                     abyte0 = null;
-                    if(!signlink.reporterror)
+                    if(!Signlink.reporterror)
                     {
                         return null;
                     }
@@ -14542,7 +14546,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("88470, " + i + ", " + s + ", " + j + ", " + k + ", " + l + ", " + s1 + ", " + runtimeexception.toString());
+            Signlink.reportError("88470, " + i + ", " + s + ", " + j + ", " + k + ", " + l + ", " + s1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14574,7 +14578,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("82683, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("82683, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -14584,9 +14588,9 @@ public class Game extends Applet_Sub1
     {
         if(!aBoolean1069)
         {
-            if(signlink.mainapp != null)
+            if(Signlink.mainapp != null)
             {
-                return signlink.openurl(s);
+                return Signlink.openurl(s);
             } else
             {
                 return new DataInputStream((new URL(getCodeBase(), s)).openStream());
@@ -14614,7 +14618,7 @@ public class Game extends Applet_Sub1
     public void method6()
     {
         method13(false, "Starting up", 20);
-        if(signlink.sunjava)
+        if(Signlink.sunjava)
         {
             super.anInt9 = 5;
         }
@@ -14663,11 +14667,11 @@ public class Game extends Applet_Sub1
             aBoolean842 = true;
             return;
         }
-        if(signlink.cache_dat != null)
+        if(Signlink.cache_dat != null)
         {
             for(int i = 0; i < 5; i++)
             {
-                aClass28Array1264[i] = new Class28(475, 0x7a120, i + 1, signlink.cache_dat, signlink.cache_idx[i]);
+                aClass28Array1264[i] = new Class28(475, 0x7a120, i + 1, Signlink.cache_dat, Signlink.cache_idx[i]);
             }
         }
         try
@@ -15103,7 +15107,7 @@ public class Game extends Applet_Sub1
         }
         catch(Exception exception)
         {
-            signlink.reportError("loaderror " + aString827 + " " + anInt1053);
+            Signlink.reportError("loaderror " + aString827 + " " + anInt1053);
         }
         aBoolean1234 = true;
     }
@@ -15117,7 +15121,7 @@ public class Game extends Applet_Sub1
             {
                 anInt1268 = 240;
             }
-            int j = class13_sub1_sub2.method322(8, 195);
+            int j = class13_sub1_sub2.readBits(8, 195);
             if(j < anInt1284)
             {
                 for(int k = j; k < anInt1284; k++)
@@ -15127,7 +15131,7 @@ public class Game extends Applet_Sub1
             }
             if(j > anInt1284)
             {
-                signlink.reportError(username + " Too many npcs");
+                Signlink.reportError(username + " Too many npcs");
                 throw new RuntimeException("eek");
             }
             anInt1284 = 0;
@@ -15135,14 +15139,14 @@ public class Game extends Applet_Sub1
             {
                 int i1 = anIntArray1285[l];
                 Class13_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[i1];
-                int j1 = class13_sub1_sub2.method322(1, 195);
+                int j1 = class13_sub1_sub2.readBits(1, 195);
                 if(j1 == 0)
                 {
                     anIntArray1285[anInt1284++] = i1;
                     class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
                 } else
                 {
-                    int k1 = class13_sub1_sub2.method322(2, 195);
+                    int k1 = class13_sub1_sub2.readBits(2, 195);
                     if(k1 == 0)
                     {
                         anIntArray1285[anInt1284++] = i1;
@@ -15153,9 +15157,9 @@ public class Game extends Applet_Sub1
                     {
                         anIntArray1285[anInt1284++] = i1;
                         class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
-                        int l1 = class13_sub1_sub2.method322(3, 195);
+                        int l1 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub2.method292(l1, 125, false);
-                        int j2 = class13_sub1_sub2.method322(1, 195);
+                        int j2 = class13_sub1_sub2.readBits(1, 195);
                         if(j2 == 1)
                         {
                             anIntArray902[anInt901++] = i1;
@@ -15165,11 +15169,11 @@ public class Game extends Applet_Sub1
                     {
                         anIntArray1285[anInt1284++] = i1;
                         class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
-                        int i2 = class13_sub1_sub2.method322(3, 195);
+                        int i2 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub2.method292(i2, 125, true);
-                        int k2 = class13_sub1_sub2.method322(3, 195);
+                        int k2 = class13_sub1_sub2.readBits(3, 195);
                         class13_sub1_sub1_sub6_sub2.method292(k2, 125, true);
-                        int l2 = class13_sub1_sub2.method322(1, 195);
+                        int l2 = class13_sub1_sub2.readBits(1, 195);
                         if(l2 == 1)
                         {
                             anIntArray902[anInt901++] = i1;
@@ -15185,7 +15189,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("90340, " + byte0 + ", " + i + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            Signlink.reportError("90340, " + byte0 + ", " + i + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -15203,7 +15207,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("51398, " + class13_sub1_sub1_sub6 + ", " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("51398, " + class13_sub1_sub1_sub6 + ", " + i + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -15253,7 +15257,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("96839, " + i + ", " + j + ", " + k + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("96839, " + i + ", " + j + ", " + k + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -15343,7 +15347,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("85551, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("85551, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -15383,7 +15387,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66452, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
+            Signlink.reportError("66452, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -15493,7 +15497,7 @@ public class Game extends Applet_Sub1
                         }
                         catch(Exception exception)
                         {
-                            signlink.reportError("cde2");
+                            Signlink.reportError("cde2");
                         }
                     }
                 }
@@ -15569,7 +15573,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("55924, " + class13_sub1_sub1_sub6_sub1 + ", " + i + ", " + class13_sub1_sub2 + ", " + mask + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("55924, " + class13_sub1_sub1_sub6_sub1 + ", " + i + ", " + class13_sub1_sub2 + ", " + mask + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

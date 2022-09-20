@@ -1,20 +1,20 @@
 package com.jagex;
 
 import java.awt.*;
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Frame_Sub1 extends Frame
 {
 
     public boolean aBoolean38;
-    public Applet_Sub1 anApplet_Sub1_39;
+    public GameShell gameShelll;
 
-    public Frame_Sub1(Applet_Sub1 applet_sub1, int i, int j, int k)
+    public Frame_Sub1(GameShell gameShell, int i, int j, int k)
     {
         aBoolean38 = false;
         try
         {
-            anApplet_Sub1_39 = applet_sub1;
+            gameShelll = gameShell;
             setTitle("Jagex");
             setResizable(false);
             show();
@@ -28,7 +28,7 @@ public class Frame_Sub1 extends Frame
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("11982, " + applet_sub1 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("11982, " + gameShell + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -42,11 +42,11 @@ public class Frame_Sub1 extends Frame
 
     public void update(Graphics g)
     {
-        anApplet_Sub1_39.update(g);
+        gameShelll.update(g);
     }
 
     public void paint(Graphics g)
     {
-        anApplet_Sub1_39.paint(g);
+        gameShelll.paint(g);
     }
 }

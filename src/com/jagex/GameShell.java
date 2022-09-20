@@ -4,9 +4,9 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
-public class Applet_Sub1 extends Applet
+public class GameShell extends Applet
     implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener
 {
 
@@ -66,7 +66,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("2743, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("2743, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -90,7 +90,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("6643, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("6643, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -248,7 +248,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("85361, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("85361, " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -268,7 +268,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("97612, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("97612, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -549,7 +549,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("34606, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("34606, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -615,7 +615,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("27521, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("27521, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -629,7 +629,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("26813, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("26813, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -646,7 +646,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("3226, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("3226, " + flag + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -663,7 +663,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("78649, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("78649, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -686,7 +686,7 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("89921, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("89921, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -750,12 +750,12 @@ public class Applet_Sub1 extends Applet
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("79251, " + flag + ", " + s + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("79251, " + flag + ", " + s + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
-    public Applet_Sub1()
+    public GameShell()
     {
         aByte1 = -55;
         aByte2 = -19;

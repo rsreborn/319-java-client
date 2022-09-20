@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class2_Sub1 extends Class2 implements Runnable
 {
@@ -92,7 +92,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("54544, " + i + ", "
+	    Signlink.reportError("54544, " + i + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -136,7 +136,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("31218, " + i + ", "
+	    Signlink.reportError("31218, " + i + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -153,7 +153,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		return true;
 	    return false;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("17836, " + i + ", " + i_0_ + ", "
+	    Signlink.reportError("17836, " + i + ", " + i_0_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -165,7 +165,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		anInt1292 = 490;
 	    return aByteArray1302[i] & 0xff;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("55143, " + bool + ", " + i + ", "
+	    Signlink.reportError("55143, " + bool + ", " + i + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -181,7 +181,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		throw new NullPointerException();
 	    return false;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("72770, " + i + ", " + i_2_ + ", "
+	    Signlink.reportError("72770, " + i + ", " + i_2_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -229,7 +229,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("49822, " + i + ", " + i_5_ + ", " + i_6_
+	    Signlink.reportError("49822, " + i + ", " + i_5_ + ", " + i_6_
 				 + ", " + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -241,7 +241,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		return 0;
 	    return anIntArray1303.length;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("53573, " + i + ", "
+	    Signlink.reportError("53573, " + i + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -294,7 +294,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		anInt1333++;
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("65491, " + i + ", " + class13_sub1_sub3
+	    Signlink.reportError("65491, " + i + ", " + class13_sub1_sub3
 				 + ", " + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -317,7 +317,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 	    }
 	    return -1;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("42843, " + i + ", " + i_9_ + ", " + i_10_
+	    Signlink.reportError("42843, " + i + ", " + i_9_ + ", " + i_10_
 				 + ", " + i_11_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -349,7 +349,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("96532, " + i + ", " + i_15_ + ", " + i_16_
+	    Signlink.reportError("96532, " + i + ", " + i_15_ + ", " + i_16_
 				 + ", " + bool + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -362,7 +362,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		aBoolean1324 = !aBoolean1324;
 	    return anIntArrayArray1306[i_18_].length;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("11092, " + i + ", " + i_18_ + ", "
+	    Signlink.reportError("11092, " + i + ", " + i_18_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -441,7 +441,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		    anInt1307--;
 		}
 	    } catch (RuntimeException runtimeexception) {
-		signlink.reportError("5568, " + i + ", "
+		Signlink.reportError("5568, " + i + ", "
 				     + runtimeexception.toString());
 		throw new RuntimeException();
 	    }
@@ -488,7 +488,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 			    if (aClass13_Sub1_Sub3_1296 != null) {
 				anInt1325 = 0;
 				if (i_27_ == 0) {
-				    signlink.reportError("Rej: " + i_25_ + ","
+				    Signlink.reportError("Rej: " + i_25_ + ","
 							 + i_26_);
 				    aClass13_Sub1_Sub3_1296.aByteArray1412
 					= null;
@@ -571,7 +571,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 		break;
 	    } catch (RuntimeException runtimeexception) {
-		signlink.reportError("41756, " + i + ", "
+		Signlink.reportError("41756, " + i + ", "
 				     + runtimeexception.toString());
 		throw new RuntimeException();
 	    }
@@ -585,7 +585,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 	    }
 	    i = 78 / i;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("83594, " + i + ", "
+	    Signlink.reportError("83594, " + i + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -614,7 +614,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		return false;
 	    return true;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("84545, " + i + ", " + is + ", " + i_31_
+	    Signlink.reportError("84545, " + i + ", " + is + ", " + i_31_
 				 + ", " + i_32_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -779,7 +779,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (Exception exception) {
-	    signlink.reportError("od_ex " + exception.getMessage());
+	    Signlink.reportError("od_ex " + exception.getMessage());
 	}
     }
     
@@ -795,7 +795,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("9908, " + i + ", " + bool + ", "
+	    Signlink.reportError("9908, " + i + ", " + bool + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
 	}

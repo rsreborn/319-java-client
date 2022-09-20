@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class22
 {
@@ -57,7 +57,7 @@ public class Class22
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("22263, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("22263, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -134,7 +134,7 @@ public class Class22
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("88500, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            Signlink.reportError("88500, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

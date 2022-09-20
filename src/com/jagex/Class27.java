@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class27
 {
@@ -29,7 +29,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("30937, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("30937, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -59,7 +59,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66826, " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("66826, " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -83,7 +83,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("38598, " + byte0 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("38598, " + byte0 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -112,7 +112,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("73125, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("73125, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -157,7 +157,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("23085, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("23085, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -168,10 +168,10 @@ public class Class27
         {
             int k = method480(i);
             aClass13_Sub1_Sub2_452.position = 0;
-            aClass13_Sub1_Sub2_452.method305(0x52494646);
+            aClass13_Sub1_Sub2_452.writeInt(0x52494646);
             aClass13_Sub1_Sub2_452.method306(36 + k, anInt447);
-            aClass13_Sub1_Sub2_452.method305(0x57415645);
-            aClass13_Sub1_Sub2_452.method305(0x666d7420);
+            aClass13_Sub1_Sub2_452.writeInt(0x57415645);
+            aClass13_Sub1_Sub2_452.writeInt(0x666d7420);
             aClass13_Sub1_Sub2_452.method306(16, anInt447);
             aClass13_Sub1_Sub2_452.method303(true, 1);
             aClass13_Sub1_Sub2_452.method303(true, 1);
@@ -185,14 +185,14 @@ public class Class27
                 }
             }
             aClass13_Sub1_Sub2_452.method303(true, 8);
-            aClass13_Sub1_Sub2_452.method305(0x64617461);
+            aClass13_Sub1_Sub2_452.writeInt(0x64617461);
             aClass13_Sub1_Sub2_452.method306(k, anInt447);
             aClass13_Sub1_Sub2_452.position += k;
             return aClass13_Sub1_Sub2_452;
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("2801, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("2801, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

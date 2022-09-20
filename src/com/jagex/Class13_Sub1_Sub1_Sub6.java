@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
 {
@@ -77,7 +77,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("61562, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("61562, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -94,7 +94,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -168,7 +168,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -194,7 +194,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -246,7 +246,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

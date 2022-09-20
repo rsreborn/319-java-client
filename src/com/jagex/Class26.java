@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class26
 {
@@ -51,7 +51,7 @@ public class Class26
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("40928, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("40928, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -100,7 +100,7 @@ public class Class26
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("41080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            Signlink.reportError("41080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

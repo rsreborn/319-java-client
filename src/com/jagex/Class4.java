@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class4
 {
@@ -45,7 +45,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("48764, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("48764, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -101,7 +101,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("56659, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("56659, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -130,7 +130,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("99392, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("99392, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -174,7 +174,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("75971, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("75971, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -199,7 +199,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("66451, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("66451, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -234,7 +234,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("97100, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("97100, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

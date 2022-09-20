@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class21
 {
@@ -25,7 +25,7 @@ public class Class21
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("71610, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("71610, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -92,7 +92,7 @@ public class Class21
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("87633, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("87633, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

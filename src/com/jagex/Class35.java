@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class35
 {
@@ -39,7 +39,7 @@ public class Class35
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("6800, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("6800, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

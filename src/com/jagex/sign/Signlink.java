@@ -4,7 +4,7 @@ import java.applet.Applet;
 import java.io.*;
 import java.net.*;
 
-public class signlink
+public class Signlink
     implements Runnable
 {
 
@@ -61,7 +61,7 @@ public class signlink
         savereq = null;
         urlreq = null;
         socketip = inetaddress;
-        Thread thread = new Thread(new signlink());
+        Thread thread = new Thread(new Signlink());
         thread.setDaemon(true);
         thread.start();
         while(!active)
@@ -383,7 +383,7 @@ public class signlink
         }
     }
 
-    public signlink()
+    public Signlink()
     {
     }
 

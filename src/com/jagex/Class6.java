@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class6
 {
@@ -36,7 +36,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("94648, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("94648, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -61,7 +61,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("33098, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("33098, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -88,7 +88,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("74317, " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("74317, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -117,7 +117,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("54424, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("54424, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

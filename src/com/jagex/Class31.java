@@ -3,7 +3,7 @@ package com.jagex;
 import java.awt.*;
 import java.awt.image.*;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class31
     implements ImageProducer, ImageObserver
@@ -44,7 +44,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("13339, " + flag + ", " + i + ", " + component + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("13339, " + flag + ", " + i + ", " + component + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -64,7 +64,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("97839, " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("97839, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -82,7 +82,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("63280, " + g + ", " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("63280, " + g + ", " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

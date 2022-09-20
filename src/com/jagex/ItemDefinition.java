@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class ItemDefinition
 {
@@ -239,7 +239,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("28803, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("28803, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -285,7 +285,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("36006, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("36006, " + byte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -352,7 +352,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("39858, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("39858, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -417,7 +417,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("95666, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("95666, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -458,7 +458,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15365, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("15365, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -703,7 +703,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("349, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("349, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -727,7 +727,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("59319, " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("59319, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -771,7 +771,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("32538, " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            Signlink.reportError("32538, " + i + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -815,7 +815,7 @@ public class ItemDefinition
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("1360, " + i + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("1360, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

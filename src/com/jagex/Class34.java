@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class34
 {
@@ -380,7 +380,7 @@ public class Class34
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("44954, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", " + l2 + ", " + i3 + ", " + j3 + ", " + k3 + ", " + l3 + ", " + i4 + ", " + j4 + ", " + flag + ", " + k4 + ", " + runtimeexception.toString());
+            Signlink.reportError("44954, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", " + l2 + ", " + i3 + ", " + j3 + ", " + k3 + ", " + l3 + ", " + i4 + ", " + j4 + ", " + flag + ", " + k4 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

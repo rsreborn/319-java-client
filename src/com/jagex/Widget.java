@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Widget
 {
@@ -86,7 +86,7 @@ public class Widget
         }
         if(i == 2)
         {
-            class13_sub1_sub1_sub4 = Class47.method585(j).method583(524);
+            class13_sub1_sub1_sub4 = Class47.getDefinition(j).method583(524);
         }
         if(i == 3)
         {
@@ -124,7 +124,7 @@ public class Widget
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("49636, " + i + ", " + class13_sub1_sub1_sub4 + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            Signlink.reportError("49636, " + i + ", " + class13_sub1_sub1_sub4 + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -171,7 +171,7 @@ public class Widget
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("85215, " + i + ", " + j + ", " + flag + ", " + flag1 + ", " + runtimeexception.toString());
+            Signlink.reportError("85215, " + i + ", " + j + ", " + flag + ", " + flag1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -203,7 +203,7 @@ public class Widget
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("88345, " + i + ", " + flag + ", " + class1 + ", " + s + ", " + runtimeexception.toString());
+            Signlink.reportError("88345, " + i + ", " + flag + ", " + class1 + ", " + s + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -467,7 +467,7 @@ public class Widget
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("68183, " + class1 + ", " + flag + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception.toString());
+            Signlink.reportError("68183, " + class1 + ", " + flag + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -493,7 +493,7 @@ public class Widget
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("23341, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
+            Signlink.reportError("23341, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

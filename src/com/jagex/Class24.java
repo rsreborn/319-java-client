@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class24
 {
@@ -71,7 +71,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("50315, " + l + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("50315, " + l + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -95,7 +95,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("34643, " + byte0 + ", " + s + ", " + runtimeexception.toString());
+            Signlink.reportError("34643, " + byte0 + ", " + s + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -114,7 +114,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("46986, " + i + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("46986, " + i + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -153,7 +153,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("67660, " + s + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reportError("67660, " + s + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -175,7 +175,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("57272, " + s + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reportError("57272, " + s + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

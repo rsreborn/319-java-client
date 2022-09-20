@@ -1,7 +1,7 @@
 package com.jagex;/* com.jagex.Class25 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-import com.jagex.sign.signlink;
+import com.jagex.sign.Signlink;
 
 public class Class25
 {
@@ -107,7 +107,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("35204, " + i + ", " + class39s + ", " + i_1_
+	    Signlink.reportError("35204, " + i + ", " + class39s + ", " + i_1_
 				 + ", " + i_2_ + ", " + class10 + ", " + i_3_
 				 + ", " + bool + ", " + i_4_ + ", " + i_5_
 				 + ", " + i_6_ + ", " + is + ", "
@@ -410,7 +410,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("3566, " + i + ", " + i_20_ + ", " + class39
+	    Signlink.reportError("3566, " + i + ", " + i_20_ + ", " + class39
 				 + ", " + i_21_ + ", " + i_22_ + ", " + i_23_
 				 + ", " + i_24_ + ", " + i_25_ + ", " + class10
 				 + ", " + i_26_ + ", " + is + ", "
@@ -458,7 +458,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("56873, " + i + ", " + i_44_ + ", " + i_45_
+	    Signlink.reportError("56873, " + i + ", " + i_44_ + ", " + i_45_
 				 + ", " + i_46_ + ", " + is + ", " + class39s
 				 + ", " + i_47_ + ", " + i_48_ + ", " + i_49_
 				 + ", " + i_50_ + ", "
@@ -525,7 +525,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("95150, " + bool + ", " + is + ", " + class39s
+	    Signlink.reportError("95150, " + bool + ", " + is + ", " + class39s
 				 + ", " + i + ", " + class10 + ", " + i_68_
 				 + ", " + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1033,7 +1033,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("80819, " + class10 + ", " + i + ", "
+	    Signlink.reportError("80819, " + class10 + ", " + i + ", "
 				 + class39s + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1071,7 +1071,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("75042, " + i + ", " + i_185_ + ", " + i_186_
+	    Signlink.reportError("75042, " + i + ", " + i_185_ + ", " + i_186_
 				 + ", " + i_187_ + ", " + i_188_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1152,7 +1152,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("40984, " + i + ", " + i_195_ + ", " + i_196_
+	    Signlink.reportError("40984, " + i + ", " + i_195_ + ", " + i_196_
 				 + ", " + class13_sub1_sub2 + ", " + i_197_
 				 + ", " + i_198_ + ", " + i_199_ + ", "
 				 + i_200_ + ", "
@@ -1192,7 +1192,7 @@ public class Class25
 	    anIntArray405 = new int[anInt428];
 	    anIntArray406 = new int[anInt428];
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("47143, " + is + ", " + i + ", " + i_207_
+	    Signlink.reportError("47143, " + is + ", " + i + ", " + i_207_
 				 + ", " + i_208_ + ", " + is_209_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1680,7 +1680,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("41913, " + i + ", " + i_210_ + ", " + i_211_
+	    Signlink.reportError("41913, " + i + ", " + i_210_ + ", " + i_211_
 				 + ", " + i_212_ + ", " + i_213_ + ", "
 				 + i_214_ + ", " + class39 + ", " + class10
 				 + ", " + i_215_ + ", "
@@ -1735,7 +1735,7 @@ public class Class25
 	    }
 	    return bool;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("97753, " + i + ", " + i_236_ + ", " + i_237_
+	    Signlink.reportError("97753, " + i + ", " + i_236_ + ", " + i_237_
 				 + ", " + is + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1768,7 +1768,7 @@ public class Class25
 		return i - 1;
 	    return i;
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("54450, " + i + ", " + i_252_ + ", " + i_253_
+	    Signlink.reportError("54450, " + i + ", " + i_252_ + ", " + i_253_
 				 + ", " + i_254_ + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1789,7 +1789,7 @@ public class Class25
 		i_256_ = 4;
 	    return class14.method425(i_256_, 3);
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("89504, " + i + ", " + i_255_ + ", " + i_256_
+	    Signlink.reportError("89504, " + i + ", " + i_255_ + ", " + i_256_
 				 + ", " + runtimeexception.toString());
 	    throw new RuntimeException();
 	}
@@ -1816,7 +1816,7 @@ public class Class25
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {
-	    signlink.reportError("41445, " + class2_sub1 + ", " + i + ", "
+	    Signlink.reportError("41445, " + class2_sub1 + ", " + i + ", "
 				 + class13_sub1_sub2 + ", "
 				 + runtimeexception.toString());
 	    throw new RuntimeException();
@@ -1872,7 +1872,7 @@ public class Class25
 		    break;
 		aBoolean434 = !aBoolean434;
 	    } catch (RuntimeException runtimeexception) {
-		signlink.reportError("89157, " + is + ", " + i + ", " + i_262_
+		Signlink.reportError("89157, " + is + ", " + i + ", " + i_262_
 				     + ", " + i_263_ + ", " + i_264_ + ", "
 				     + i_265_ + ", " + class39s + ", "
 				     + runtimeexception.toString());
