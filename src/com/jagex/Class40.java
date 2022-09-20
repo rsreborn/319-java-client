@@ -48,7 +48,7 @@ public class Class40
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("95120, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("95120, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -115,7 +115,7 @@ public class Class40
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("15841, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("15841, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

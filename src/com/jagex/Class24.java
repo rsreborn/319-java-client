@@ -71,7 +71,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("50315, " + l + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("50315, " + l + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -95,7 +95,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("34643, " + byte0 + ", " + s + ", " + runtimeexception.toString());
+            signlink.reportError("34643, " + byte0 + ", " + s + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -114,7 +114,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("46986, " + i + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("46986, " + i + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -153,7 +153,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("67660, " + s + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("67660, " + s + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -175,7 +175,7 @@ public class Class24
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("57272, " + s + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("57272, " + s + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

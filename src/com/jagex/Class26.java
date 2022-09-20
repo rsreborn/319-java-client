@@ -51,7 +51,7 @@ public class Class26
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("40928, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("40928, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -100,7 +100,7 @@ public class Class26
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("41080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            signlink.reportError("41080, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

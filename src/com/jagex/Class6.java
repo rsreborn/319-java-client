@@ -36,7 +36,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("94648, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("94648, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -61,7 +61,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("33098, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("33098, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -88,7 +88,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("74317, " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("74317, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -117,7 +117,7 @@ public class Class6
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("54424, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("54424, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

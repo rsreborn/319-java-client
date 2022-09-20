@@ -29,7 +29,7 @@ public class Class48
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("50244, " + byte0 + ", " + game1 + ", " + runtimeexception.toString());
+            signlink.reportError("50244, " + byte0 + ", " + game1 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

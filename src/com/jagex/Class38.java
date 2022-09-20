@@ -239,7 +239,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("28803, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("28803, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -285,7 +285,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("36006, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("36006, " + byte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -352,7 +352,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("39858, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("39858, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -417,7 +417,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("95666, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("95666, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -458,7 +458,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("15365, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("15365, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -703,7 +703,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("349, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("349, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -727,7 +727,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("59319, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("59319, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -771,7 +771,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("32538, " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("32538, " + i + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -815,7 +815,7 @@ public class Class38
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("1360, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("1360, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

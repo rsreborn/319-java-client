@@ -45,7 +45,7 @@ public class Class32
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("75176, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("75176, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -107,7 +107,7 @@ public class Class32
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("47725, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("47725, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -233,7 +233,7 @@ public class Class32
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("92653, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("92653, " + byte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

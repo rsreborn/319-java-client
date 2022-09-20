@@ -44,7 +44,7 @@ public class Class46
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("55650, " + socket + ", " + i + ", " + applet_sub1 + ", " + runtimeexception.toString());
+            signlink.reportError("55650, " + socket + ", " + i + ", " + applet_sub1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -166,7 +166,7 @@ public class Class46
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("59331, " + abyte0 + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("59331, " + abyte0 + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -253,7 +253,7 @@ public class Class46
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("93333, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("93333, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

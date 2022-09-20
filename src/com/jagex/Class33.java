@@ -31,7 +31,8 @@ public class Class33
         212, 207, 233, 93, 64, 26, 239, 73, 154, 20,
         32, 14, 186, 53, 226, 229, 0
     };
-    public static int anIntArray502[] = {
+
+    public static int PACKET_SIZES[] = {
         0, 0, 2, 0, 6, 0, 0, 0, 0, 0,
         0, 6, 3, 1, 0, 1, 0, 0, 0, 0,
         4, 0, 0, 0, 0, 0, 0, 0, 0, 0,

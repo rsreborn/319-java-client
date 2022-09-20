@@ -29,7 +29,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("30937, " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("30937, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -59,7 +59,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("66826, " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("66826, " + class13_sub1_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -83,7 +83,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("38598, " + byte0 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("38598, " + byte0 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -112,7 +112,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("73125, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("73125, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -157,7 +157,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("23085, " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("23085, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -192,7 +192,7 @@ public class Class27
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("2801, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("2801, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

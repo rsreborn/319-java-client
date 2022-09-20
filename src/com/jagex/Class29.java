@@ -31,7 +31,7 @@ public class Class29
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("17456, " + f + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            signlink.reportError("17456, " + f + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -49,7 +49,7 @@ public class Class29
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("14901, " + f + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("14901, " + f + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -70,7 +70,7 @@ public class Class29
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("64420, " + i + ", " + f + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            signlink.reportError("64420, " + i + ", " + f + ", " + j + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -126,7 +126,7 @@ public class Class29
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("12887, " + i + ", " + j + ", " + f + ", " + runtimeexception.toString());
+            signlink.reportError("12887, " + i + ", " + j + ", " + f + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -183,7 +183,7 @@ public class Class29
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("23814, " + class6 + ", " + i + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            signlink.reportError("23814, " + class6 + ", " + i + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

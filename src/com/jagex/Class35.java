@@ -39,7 +39,7 @@ public class Class35
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("6800, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("6800, " + class13_sub1_sub2 + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

@@ -22,7 +22,7 @@ public class Class13_Sub1_Sub1_Sub5 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("47430, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("47430, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

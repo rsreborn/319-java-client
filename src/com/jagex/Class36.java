@@ -124,7 +124,7 @@ public class Class36
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("49636, " + i + ", " + class13_sub1_sub1_sub4 + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            signlink.reportError("49636, " + i + ", " + class13_sub1_sub1_sub4 + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -171,7 +171,7 @@ public class Class36
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("85215, " + i + ", " + j + ", " + flag + ", " + flag1 + ", " + runtimeexception.toString());
+            signlink.reportError("85215, " + i + ", " + j + ", " + flag + ", " + flag1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -203,7 +203,7 @@ public class Class36
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("88345, " + i + ", " + flag + ", " + class1 + ", " + s + ", " + runtimeexception.toString());
+            signlink.reportError("88345, " + i + ", " + flag + ", " + class1 + ", " + s + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -467,7 +467,7 @@ public class Class36
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("68183, " + class1 + ", " + flag + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception.toString());
+            signlink.reportError("68183, " + class1 + ", " + flag + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -493,7 +493,7 @@ public class Class36
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("23341, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("23341, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

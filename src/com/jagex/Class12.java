@@ -29,7 +29,7 @@ public class Class12
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("7078, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("7078, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -68,7 +68,7 @@ public class Class12
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("95816, " + class13 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("95816, " + class13 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -121,7 +121,7 @@ public class Class12
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("65433, " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("65433, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -147,7 +147,7 @@ public class Class12
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("82557, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("82557, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -173,7 +173,7 @@ public class Class12
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("64503, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("64503, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

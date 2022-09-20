@@ -28,7 +28,7 @@ public class Frame_Sub1 extends Frame
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("11982, " + applet_sub1 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            signlink.reportError("11982, " + applet_sub1 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

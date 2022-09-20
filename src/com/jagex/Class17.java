@@ -291,7 +291,7 @@ public class Class17
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("77704, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            signlink.reportError("77704, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -359,7 +359,7 @@ public class Class17
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("20739, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("20739, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

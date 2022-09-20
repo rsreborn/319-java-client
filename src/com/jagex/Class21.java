@@ -25,7 +25,7 @@ public class Class21
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("71610, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("71610, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -92,7 +92,7 @@ public class Class21
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("87633, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("87633, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

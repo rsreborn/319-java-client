@@ -80,7 +80,7 @@ public class Class45
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("46851, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("46851, " + class13_sub1_sub2 + ", " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -146,7 +146,7 @@ public class Class45
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("18403, " + class13_sub1_sub2 + ", " + i + ", " + s + ", " + runtimeexception.toString());
+            signlink.reportError("18403, " + class13_sub1_sub2 + ", " + i + ", " + s + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -170,7 +170,7 @@ public class Class45
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("57390, " + flag + ", " + s + ", " + runtimeexception.toString());
+            signlink.reportError("57390, " + flag + ", " + s + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

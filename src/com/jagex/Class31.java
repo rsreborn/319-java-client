@@ -44,7 +44,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("13339, " + flag + ", " + i + ", " + component + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("13339, " + flag + ", " + i + ", " + component + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -64,7 +64,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("97839, " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("97839, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -82,7 +82,7 @@ public class Class31
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("63280, " + g + ", " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("63280, " + g + ", " + i + ", " + flag + ", " + j + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

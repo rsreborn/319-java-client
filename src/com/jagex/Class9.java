@@ -2,8 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.signlink;
 
-public class Class9
-{
+public class Class9 {
 
     public int anInt145;
     public int anIntArray146[];
@@ -12,62 +11,44 @@ public class Class9
     public int anInt149;
     public int anInt150;
 
-    public Class9(int i, int ai[])
-    {
-        try
-        {
+    public Class9(int i, int ai[]) {
+        try {
             anIntArray147 = new int[256];
             anIntArray146 = new int[256];
-            for(int j = 0; j < ai.length; j++)
-            {
+            for (int j = 0; j < ai.length; j++) {
                 anIntArray146[j] = ai[j];
             }
-            if(i != 0)
-            {
+            if (i != 0) {
                 throw new NullPointerException();
-            } else
-            {
+            } else {
                 method192();
                 return;
             }
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            signlink.reporterror("86621, " + i + ", " + ai + ", " + runtimeexception.toString());
+        } catch (RuntimeException runtimeException) {
+            signlink.reportError("86621, " + i + ", " + ai + ", " + runtimeException.toString());
         }
         throw new RuntimeException();
     }
 
-    public int method190()
-    {
-        if(anInt145-- == 0)
-        {
+    public int method190() {
+        if (anInt145-- == 0) {
             method191();
             anInt145 = 255;
         }
         return anIntArray146[anInt145];
     }
 
-    public void method191()
-    {
+    public void method191() {
         anInt149 += ++anInt150;
-        for(int i = 0; i < 256; i++)
-        {
+        for (int i = 0; i < 256; i++) {
             int j = anIntArray147[i];
-            if((i & 3) == 0)
-            {
+            if ((i & 3) == 0) {
                 anInt148 ^= anInt148 << 13;
-            } else
-            if((i & 3) == 1)
-            {
+            } else if ((i & 3) == 1) {
                 anInt148 ^= anInt148 >>> 6;
-            } else
-            if((i & 3) == 2)
-            {
+            } else if ((i & 3) == 2) {
                 anInt148 ^= anInt148 << 2;
-            } else
-            if((i & 3) == 3)
-            {
+            } else if ((i & 3) == 3) {
                 anInt148 ^= anInt148 >>> 16;
             }
             anInt148 += anIntArray147[i + 128 & 0xff];
@@ -77,8 +58,7 @@ public class Class9
         }
     }
 
-    public void method192()
-    {
+    public void method192() {
         int i1;
         int j1;
         int k1;
@@ -87,8 +67,7 @@ public class Class9
         int j2;
         int k2;
         int l = i1 = j1 = k1 = l1 = i2 = j2 = k2 = 0x9e3779b9;
-        for(int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             l ^= i1 << 11;
             k1 += l;
             i1 += j1;
@@ -114,8 +93,7 @@ public class Class9
             j1 += k2;
             l += i1;
         }
-        for(int j = 0; j < 256; j += 8)
-        {
+        for (int j = 0; j < 256; j += 8) {
             l += anIntArray146[j];
             i1 += anIntArray146[j + 1];
             j1 += anIntArray146[j + 2];
@@ -157,8 +135,7 @@ public class Class9
             anIntArray147[j + 6] = j2;
             anIntArray147[j + 7] = k2;
         }
-        for(int k = 0; k < 256; k += 8)
-        {
+        for (int k = 0; k < 256; k += 8) {
             l += anIntArray147[k];
             i1 += anIntArray147[k + 1];
             j1 += anIntArray147[k + 2];

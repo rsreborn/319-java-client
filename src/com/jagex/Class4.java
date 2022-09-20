@@ -45,7 +45,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("48764, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("48764, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -101,7 +101,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("56659, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("56659, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -130,7 +130,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("99392, " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("99392, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -174,7 +174,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("75971, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("75971, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -199,7 +199,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("66451, " + i + ", " + runtimeexception.toString());
+            signlink.reportError("66451, " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -234,7 +234,7 @@ public class Class4
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("97100, " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("97100, " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

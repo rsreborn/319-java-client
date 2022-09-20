@@ -57,7 +57,7 @@ public class Class22
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("22263, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("22263, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -134,7 +134,7 @@ public class Class22
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("88500, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
+            signlink.reportError("88500, " + i + ", " + j + ", " + class13_sub1_sub2 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

@@ -32,7 +32,7 @@ public class Class49
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("39702, " + i + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("39702, " + i + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -77,7 +77,7 @@ public class Class49
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("10056, " + l + ", " + class13 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("10056, " + l + ", " + class13 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

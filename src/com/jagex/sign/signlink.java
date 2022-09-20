@@ -355,7 +355,7 @@ public class signlink
         }
     }
 
-    public static void reporterror(String s)
+    public static void reportError(String s)
     {
         if(!reporterror)
         {

@@ -38,7 +38,7 @@ public class Class3
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("35599, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("35599, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -86,7 +86,7 @@ public class Class3
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("71111, " + class13_sub1 + ", " + l + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("71111, " + class13_sub1 + ", " + l + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

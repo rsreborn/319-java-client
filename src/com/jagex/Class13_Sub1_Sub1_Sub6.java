@@ -77,7 +77,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("61562, " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("61562, " + byte0 + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -94,7 +94,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("59087, " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -168,7 +168,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("13598, " + i + ", " + j + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -194,7 +194,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -246,7 +246,7 @@ public class Class13_Sub1_Sub1_Sub6 extends Class13_Sub1_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }

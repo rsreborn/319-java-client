@@ -52,7 +52,7 @@ public class Class50
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("59847, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("59847, " + class1 + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -82,7 +82,7 @@ public class Class50
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("57090, " + i + ", " + j + ", " + runtimeexception.toString());
+            signlink.reportError("57090, " + i + ", " + j + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -208,7 +208,7 @@ public class Class50
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("43214, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("43214, " + class13_sub1_sub2 + ", " + i + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

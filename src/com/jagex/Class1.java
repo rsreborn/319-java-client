@@ -27,7 +27,7 @@ public class Class1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("30653, " + abyte0 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("30653, " + abyte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -73,7 +73,7 @@ public class Class1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reporterror("21233, " + abyte0 + ", " + i + ", " + runtimeexception.toString());
+            signlink.reportError("21233, " + abyte0 + ", " + i + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
