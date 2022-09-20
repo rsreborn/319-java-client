@@ -62,7 +62,7 @@ public class Game extends Applet_Sub1
     public int anIntArray850[];
     public boolean aBoolean851;
     public int anInt852;
-    public int anInt853;
+    public int opcode;
     public int anInt854;
     public int anInt855;
     public int anInt856;
@@ -1134,7 +1134,7 @@ public class Game extends Applet_Sub1
         {
             if(j <= 0)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             int l = 0;
             for(int i1 = 0; i1 < 100; i1++)
@@ -1323,7 +1323,7 @@ public class Game extends Applet_Sub1
         }
     }
 
-    public void method26(Class13_Sub1_Sub2 class13_sub1_sub2, int i, int j)
+    public void synchronizePlayers(Class13_Sub1_Sub2 class13_sub1_sub2, int i, int j)
     {
         try
         {
@@ -2526,15 +2526,15 @@ public class Game extends Applet_Sub1
                 {
                     return false;
                 }
-                if(anInt853 == -1)
+                if(opcode == -1)
                 {
                     aClass46_1001.method579(aClass13_Sub1_Sub2_1242.aByteArray1398, 0, 1);
-                    anInt853 = aClass13_Sub1_Sub2_1242.aByteArray1398[0] & 0xff;
+                    opcode = aClass13_Sub1_Sub2_1242.aByteArray1398[0] & 0xff;
                     if(aClass9_1163 != null)
                     {
-                        anInt853 = anInt853 - aClass9_1163.method190() & 0xff;
+                        opcode = opcode - aClass9_1163.method190() & 0xff;
                     }
-                    anInt852 = Class33.anIntArray502[anInt853];
+                    anInt852 = Class33.anIntArray502[opcode];
                     j--;
                 }
                 if(anInt852 == -1)
@@ -2571,8 +2571,8 @@ public class Game extends Applet_Sub1
                 anInt854 = 0;
                 anInt890 = anInt889;
                 anInt889 = anInt888;
-                anInt888 = anInt853;
-                if(anInt853 == 229)
+                anInt888 = opcode;
+                if(opcode == 229)
                 {
                     int k = aClass13_Sub1_Sub2_1242.method313();
                     int k9 = aClass13_Sub1_Sub2_1242.method330(856);
@@ -2583,10 +2583,10 @@ public class Game extends Applet_Sub1
                     anIntArray1018[k9] = k;
                     aBoolean1148 = true;
                     aBoolean1286 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 4)
+                if(opcode == 4)
                 {
                     aBoolean848 = true;
                     anInt833 = aClass13_Sub1_Sub2_1242.method311();
@@ -2600,10 +2600,10 @@ public class Game extends Applet_Sub1
                         anInt1006 = anInt834 * 128 + 64;
                         anInt1005 = method80(anInt1166, 781, anInt1006, anInt1004) - anInt835;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 252)
+                if(opcode == 252)
                 {
                     int l = aClass13_Sub1_Sub2_1242.method340(-233);
                     Class36.aClass36Array533[l].anInt541 = 3;
@@ -2614,20 +2614,20 @@ public class Game extends Applet_Sub1
                     {
                         Class36.aClass36Array533[l].anInt542 = (int)(0x12345678L + aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716.aLong770);
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 31)
+                if(opcode == 31)
                 {
                     anInt1098 = anInt852 / 8;
                     for(int i1 = 0; i1 < anInt1098; i1++)
                     {
                         aLongArray990[i1] = aClass13_Sub1_Sub2_1242.method317(0);
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 50)
+                if(opcode == 50)
                 {
                     String s = aClass13_Sub1_Sub2_1242.method318();
                     if(s.endsWith(":tradereq:"))
@@ -2691,10 +2691,10 @@ public class Game extends Applet_Sub1
                     {
                         method70(0, s, "", (byte)117);
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 232)
+                if(opcode == 232)
                 {
                     int j1 = aClass13_Sub1_Sub2_1242.method348(anInt919);
                     int i10 = aClass13_Sub1_Sub2_1242.method340(-233);
@@ -2709,10 +2709,10 @@ public class Game extends Applet_Sub1
                             aBoolean1169 = true;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 127)
+                if(opcode == 127)
                 {
                     String s1 = aClass13_Sub1_Sub2_1242.method318();
                     int j10 = aClass13_Sub1_Sub2_1242.method313();
@@ -2721,10 +2721,10 @@ public class Game extends Applet_Sub1
                     {
                         aBoolean1148 = true;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 133)
+                if(opcode == 133)
                 {
                     int k1 = aClass13_Sub1_Sub2_1242.method313();
                     Class36 class36 = Class36.aClass36Array533[k1];
@@ -2733,10 +2733,10 @@ public class Game extends Applet_Sub1
                         class36.anIntArray576[i16] = -1;
                         class36.anIntArray576[i16] = 0;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 2)
+                if(opcode == 2)
                 {
                     int l1 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
                     if(l1 == 65535)
@@ -2750,10 +2750,10 @@ public class Game extends Applet_Sub1
                         aClass2_Sub1_873.method156(2, anInt1012);
                     }
                     anInt1229 = l1;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 220)
+                if(opcode == 220)
                 {
                     int i2 = aClass13_Sub1_Sub2_1242.method313();
                     int k10 = aClass13_Sub1_Sub2_1242.method344(5);
@@ -2764,10 +2764,10 @@ public class Game extends Applet_Sub1
                         aClass2_Sub1_873.method156(2, anInt1012);
                         anInt1157 = k10;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 188)
+                if(opcode == 188)
                 {
                     int j2 = aClass13_Sub1_Sub2_1242.method340(-233);
                     method79(j2, anInt1119);
@@ -2789,20 +2789,20 @@ public class Game extends Applet_Sub1
                     }
                     anInt1217 = j2;
                     aBoolean1048 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 227)
+                if(opcode == 227)
                 {
                     if(anInt864 == 12)
                     {
                         aBoolean1148 = true;
                     }
                     anInt1192 = aClass13_Sub1_Sub2_1242.method311();
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 54)
+                if(opcode == 54)
                 {
                     for(int k2 = 0; k2 < aClass13_Sub1_Sub1_Sub6_Sub1Array898.length; k2++)
                     {
@@ -2818,16 +2818,16 @@ public class Game extends Applet_Sub1
                             aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l10].anInt1597 = -1;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 247 || anInt853 == 106 || anInt853 == 218 || anInt853 == 248 || anInt853 == 36 || anInt853 == 209 || anInt853 == 12 || anInt853 == 251 || anInt853 == 109 || anInt853 == 96 || anInt853 == 152)
+                if(opcode == 247 || opcode == 106 || opcode == 218 || opcode == 248 || opcode == 36 || opcode == 209 || opcode == 12 || opcode == 251 || opcode == 109 || opcode == 96 || opcode == 152)
                 {
-                    method34(6, aClass13_Sub1_Sub2_1242, anInt853);
-                    anInt853 = -1;
+                    method34(6, aClass13_Sub1_Sub2_1242, opcode);
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 44)
+                if(opcode == 44)
                 {
                     int l2 = aClass13_Sub1_Sub2_1242.method311();
                     int i11 = aClass13_Sub1_Sub2_1242.method311();
@@ -2838,47 +2838,47 @@ public class Game extends Applet_Sub1
                     anIntArray1224[l2] = j16;
                     anIntArray1116[l2] = l20;
                     anIntArray849[l2] = 0;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 76)
+                if(opcode == 76)
                 {
-                    method26(aClass13_Sub1_Sub2_1242, 9, anInt852);
+                    synchronizePlayers(aClass13_Sub1_Sub2_1242, 9, anInt852);
                     aBoolean1259 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 78)
+                if(opcode == 78)
                 {
                     anInt1055 = aClass13_Sub1_Sub2_1242.method311();
                     aBoolean1148 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 147)
+                if(opcode == 147)
                 {
                     int i3 = aClass13_Sub1_Sub2_1242.method313();
                     boolean flag = aClass13_Sub1_Sub2_1242.method311() == 1;
                     Class36.aClass36Array533[i3].aBoolean561 = flag;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 13)
+                if(opcode == 13)
                 {
                     anInt887 = aClass13_Sub1_Sub2_1242.method311();
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 136)
+                if(opcode == 136)
                 {
                     int j3 = aClass13_Sub1_Sub2_1242.method313();
                     int j11 = aClass13_Sub1_Sub2_1242.method313();
                     Class36.aClass36Array533[j11].anInt541 = 1;
                     Class36.aClass36Array533[j11].anInt542 = j3;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 62)
+                if(opcode == 62)
                 {
                     int k3 = aClass13_Sub1_Sub2_1242.method340(-233);
                     int k11 = aClass13_Sub1_Sub2_1242.method339(true);
@@ -2895,10 +2895,10 @@ public class Game extends Applet_Sub1
                         }
                         class36_3.anInt595 = k3;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 64)
+                if(opcode == 64)
                 {
                     int l3 = aClass13_Sub1_Sub2_1242.method313();
                     int l11 = aClass13_Sub1_Sub2_1242.method311();
@@ -2910,16 +2910,16 @@ public class Game extends Applet_Sub1
                         anIntArray948[anInt1057] = k16 + Class27.anIntArray450[l3];
                         anInt1057++;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 103)
+                if(opcode == 103)
                 {
                     anInt1269 = aClass13_Sub1_Sub2_1242.method313() * 30;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 172)
+                if(opcode == 172)
                 {
                     int i4 = aClass13_Sub1_Sub2_1242.method339(true);
                     int i12 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
@@ -2927,7 +2927,7 @@ public class Game extends Applet_Sub1
                     if(i4 == 65535)
                     {
                         Class36.aClass36Array533[i17].anInt541 = 0;
-                        anInt853 = -1;
+                        opcode = -1;
                         return true;
                     } else
                     {
@@ -2937,38 +2937,38 @@ public class Game extends Applet_Sub1
                         Class36.aClass36Array533[i17].anInt535 = class38.anInt670;
                         Class36.aClass36Array533[i17].anInt536 = class38.anInt663;
                         Class36.aClass36Array533[i17].anInt534 = (class38.anInt618 * 100) / i12;
-                        anInt853 = -1;
+                        opcode = -1;
                         return true;
                     }
                 }
-                if(anInt853 == 157)
+                if(opcode == 157)
                 {
                     int j4 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
                     int j12 = aClass13_Sub1_Sub2_1242.method339(true);
                     Class36.aClass36Array533[j12].anInt541 = 2;
                     Class36.aClass36Array533[j12].anInt542 = j4;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 246)
+                if(opcode == 246)
                 {
                     int k4 = aClass13_Sub1_Sub2_1242.method342(-89);
                     anInt1276 = k4;
                     aBoolean1169 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 87)
+                if(opcode == 87)
                 {
                     anInt1159 = aClass13_Sub1_Sub2_1242.method311();
                     anInt1129 = aClass13_Sub1_Sub2_1242.method311();
                     anInt1290 = aClass13_Sub1_Sub2_1242.method311();
                     aBoolean1137 = true;
                     aBoolean1169 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 219)
+                if(opcode == 219)
                 {
                     int l4 = aClass13_Sub1_Sub2_1242.method340(-233);
                     int k12 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
@@ -2977,10 +2977,10 @@ public class Game extends Applet_Sub1
                     Class36.aClass36Array533[k12].anInt535 = i21;
                     Class36.aClass36Array533[k12].anInt536 = l4;
                     Class36.aClass36Array533[k12].anInt534 = j17;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 168)
+                if(opcode == 168)
                 {
                     anInt1087 = aClass13_Sub1_Sub2_1242.method311();
                     if(anInt1087 == anInt864)
@@ -2994,16 +2994,16 @@ public class Game extends Applet_Sub1
                         }
                         aBoolean1148 = true;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 179)
+                if(opcode == 179)
                 {
                     anInt1094 = aClass13_Sub1_Sub2_1242.method311();
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 211)
+                if(opcode == 211)
                 {
                     aBoolean1148 = true;
                     int i5 = aClass13_Sub1_Sub2_1242.method348(anInt919);
@@ -3019,10 +3019,10 @@ public class Game extends Applet_Sub1
                             anIntArray983[k17] = j21 + 2;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 143)
+                if(opcode == 143)
                 {
                     if(anInt874 != -1)
                     {
@@ -3042,25 +3042,25 @@ public class Game extends Applet_Sub1
                     }
                     anInt1217 = -1;
                     aBoolean1048 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 105)
+                if(opcode == 105)
                 {
                     anInt1231 = aClass13_Sub1_Sub2_1242.method311();
                     anInt1232 = aClass13_Sub1_Sub2_1242.method331(19179);
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 15)
+                if(opcode == 15)
                 {
                     anInt864 = aClass13_Sub1_Sub2_1242.method331(19179);
                     aBoolean1148 = true;
                     aBoolean1286 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 59)
+                if(opcode == 59)
                 {
                     byte byte0 = aClass13_Sub1_Sub2_1242.method334((byte)-78);
                     int i13 = aClass13_Sub1_Sub2_1242.method340(-233);
@@ -3075,10 +3075,10 @@ public class Game extends Applet_Sub1
                             aBoolean1169 = true;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 191)
+                if(opcode == 191)
                 {
                     int j5 = aClass13_Sub1_Sub2_1242.method342(-89);
                     if(j5 >= 0)
@@ -3086,10 +3086,10 @@ public class Game extends Applet_Sub1
                         method79(j5, anInt1119);
                     }
                     anInt1143 = j5;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 253)
+                if(opcode == 253)
                 {
                     int k5 = aClass13_Sub1_Sub2_1242.method340(-233);
                     method79(k5, anInt1119);
@@ -3108,19 +3108,19 @@ public class Game extends Applet_Sub1
                     aBoolean1286 = true;
                     anInt1217 = -1;
                     aBoolean1048 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 104)
+                if(opcode == 104)
                 {
                     aBoolean1017 = false;
                     anInt1141 = 1;
                     aString964 = "";
                     aBoolean1169 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 178)
+                if(opcode == 178)
                 {
                     anInt918 = aClass13_Sub1_Sub2_1242.method313();
                     anInt1002 = aClass13_Sub1_Sub2_1242.method348(anInt919);
@@ -3148,10 +3148,10 @@ public class Game extends Applet_Sub1
                             break;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 92)
+                if(opcode == 92)
                 {
                     int l5 = aClass13_Sub1_Sub2_1242.method313();
                     int k13 = aClass13_Sub1_Sub2_1242.method341(-26);
@@ -3159,10 +3159,10 @@ public class Game extends Applet_Sub1
                     Class36 class36_5 = Class36.aClass36Array533[l5];
                     class36_5.anInt537 = k13;
                     class36_5.anInt590 = i18;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 221)
+                if(opcode == 221)
                 {
                     aBoolean1148 = true;
                     int i6 = aClass13_Sub1_Sub2_1242.method313();
@@ -3183,17 +3183,17 @@ public class Game extends Applet_Sub1
                         class36_1.anIntArray576[l23] = 0;
                         class36_1.anIntArray579[l23] = 0;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 55)
+                if(opcode == 55)
                 {
                     anInt988 = aClass13_Sub1_Sub2_1242.method311();
                     anInt950 = aClass13_Sub1_Sub2_1242.method313();
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 213)
+                if(opcode == 213)
                 {
                     long l6 = aClass13_Sub1_Sub2_1242.method317(0);
                     int k18 = aClass13_Sub1_Sub2_1242.method311();
@@ -3249,10 +3249,10 @@ public class Game extends Applet_Sub1
                             }
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 95)
+                if(opcode == 95)
                 {
                     int j6 = aClass13_Sub1_Sub2_1242.method339(true);
                     int l13 = aClass13_Sub1_Sub2_1242.method314();
@@ -3263,25 +3263,25 @@ public class Game extends Applet_Sub1
                         class36_4.anInt568 = 0;
                         class36_4.anInt540 = 0;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 249)
+                if(opcode == 249)
                 {
                     method101(anInt852, aClass13_Sub1_Sub2_1242, (byte)-48);
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 240)
+                if(opcode == 240)
                 {
                     aBoolean1017 = false;
                     anInt1141 = 2;
                     aString964 = "";
                     aBoolean1169 = true;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 102)
+                if(opcode == 102)
                 {
                     aBoolean1148 = true;
                     int k6 = aClass13_Sub1_Sub2_1242.method313();
@@ -3301,16 +3301,16 @@ public class Game extends Applet_Sub1
                             class36_2.anIntArray579[l18] = j24;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 49)
+                if(opcode == 49)
                 {
                     method66(anInt1268);
-                    anInt853 = -1;
+                    opcode = -1;
                     return false;
                 }
-                if(anInt853 == 70)
+                if(opcode == 70)
                 {
                     aBoolean848 = true;
                     anInt1038 = aClass13_Sub1_Sub2_1242.method311();
@@ -3338,20 +3338,20 @@ public class Game extends Applet_Sub1
                             anInt1007 = 383;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 228 || anInt853 == 52)
+                if(opcode == 228 || opcode == 52)
                 {
                     int j7 = anInt984;
                     int j14 = anInt985;
-                    if(anInt853 == 228)
+                    if(opcode == 228)
                     {
                         j7 = aClass13_Sub1_Sub2_1242.method313();
                         j14 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
                         aBoolean971 = false;
                     }
-                    if(anInt853 == 52)
+                    if(opcode == 52)
                     {
                         j7 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
                         aClass13_Sub1_Sub2_1242.method321(-761);
@@ -3378,7 +3378,7 @@ public class Game extends Applet_Sub1
                     }
                     if(anInt984 == j7 && anInt985 == j14 && anInt1254 == 2)
                     {
-                        anInt853 = -1;
+                        opcode = -1;
                         return true;
                     }
                     anInt984 = j7;
@@ -3400,7 +3400,7 @@ public class Game extends Applet_Sub1
                     aClass13_Sub1_Sub4_Sub2_892.method381(257, 0, 6, 151, "Loading - please wait.");
                     aClass13_Sub1_Sub4_Sub2_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
                     aClass31_1213.method491(super.aGraphics15, 4, false, 4);
-                    if(anInt853 == 228)
+                    if(opcode == 228)
                     {
                         int k19 = 0;
                         for(int k22 = (anInt984 - 6) / 8; k22 <= (anInt984 + 6) / 8; k22++)
@@ -3443,7 +3443,7 @@ public class Game extends Applet_Sub1
                             }
                         }
                     }
-                    if(anInt853 == 52)
+                    if(opcode == 52)
                     {
                         int l19 = 0;
                         int ai[] = new int[676];
@@ -3582,10 +3582,10 @@ public class Game extends Applet_Sub1
                         anInt1222 -= l22;
                     }
                     aBoolean848 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 137)
+                if(opcode == 137)
                 {
                     int k7 = aClass13_Sub1_Sub2_1242.method332(aByte1172);
                     int k14 = aClass13_Sub1_Sub2_1242.method311();
@@ -3599,10 +3599,10 @@ public class Game extends Applet_Sub1
                         aStringArray1031[k14 - 1] = s6;
                         aBooleanArray1032[k14 - 1] = k7 == 0;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 20)
+                if(opcode == 20)
                 {
                     int l7 = aClass13_Sub1_Sub2_1242.method340(-233);
                     int l14 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
@@ -3621,20 +3621,20 @@ public class Game extends Applet_Sub1
                     aBoolean1148 = true;
                     aBoolean1286 = true;
                     aBoolean1048 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 53)
+                if(opcode == 53)
                 {
                     aBoolean848 = false;
                     for(int i8 = 0; i8 < 5; i8++)
                     {
                         aBooleanArray1117[i8] = false;
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 126)
+                if(opcode == 126)
                 {
                     anInt1232 = aClass13_Sub1_Sub2_1242.method331(19179);
                     anInt1231 = aClass13_Sub1_Sub2_1242.method311();
@@ -3656,20 +3656,20 @@ public class Game extends Applet_Sub1
                             class13_sub3.anInt1371 = 0;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 132)
+                if(opcode == 132)
                 {
                     if(anInt864 == 12)
                     {
                         aBoolean1148 = true;
                     }
                     anInt1288 = aClass13_Sub1_Sub2_1242.method314();
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 200)
+                if(opcode == 200)
                 {
                     int k8 = aClass13_Sub1_Sub2_1242.method313();
                     method79(k8, anInt1119);
@@ -3683,16 +3683,16 @@ public class Game extends Applet_Sub1
                     aBoolean1169 = true;
                     anInt1217 = -1;
                     aBoolean1048 = false;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 174)
+                if(opcode == 174)
                 {
                     anInt1221 = 0;
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 128)
+                if(opcode == 128)
                 {
                     int l8 = aClass13_Sub1_Sub2_1242.method313();
                     int j15 = aClass13_Sub1_Sub2_1242.method338((byte)-52);
@@ -3700,10 +3700,10 @@ public class Game extends Applet_Sub1
                     int i23 = l8 >> 5 & 0x1f;
                     int i26 = l8 & 0x1f;
                     Class36.aClass36Array533[j15].anInt550 = (j20 << 19) + (i23 << 11) + (i26 << 3);
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 11)
+                if(opcode == 11)
                 {
                     anInt1227 = aClass13_Sub1_Sub2_1242.method311();
                     if(anInt1227 == 1)
@@ -3746,10 +3746,10 @@ public class Game extends Applet_Sub1
                     {
                         anInt999 = aClass13_Sub1_Sub2_1242.method313();
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 224)
+                if(opcode == 224)
                 {
                     for(int i9 = 0; i9 < anIntArray1149.length; i9++)
                     {
@@ -3760,10 +3760,10 @@ public class Game extends Applet_Sub1
                             aBoolean1148 = true;
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 235)
+                if(opcode == 235)
                 {
                     anInt1231 = aClass13_Sub1_Sub2_1242.method311();
                     anInt1232 = aClass13_Sub1_Sub2_1242.method330(856);
@@ -3772,10 +3772,10 @@ public class Game extends Applet_Sub1
                         int j9 = aClass13_Sub1_Sub2_1242.method311();
                         method34(6, aClass13_Sub1_Sub2_1242, j9);
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                if(anInt853 == 187)
+                if(opcode == 187)
                 {
                     long l9 = aClass13_Sub1_Sub2_1242.method317(0);
                     int k20 = aClass13_Sub1_Sub2_1242.method316();
@@ -3830,10 +3830,10 @@ public class Game extends Applet_Sub1
                             signlink.reporterror("cde1");
                         }
                     }
-                    anInt853 = -1;
+                    opcode = -1;
                     return true;
                 }
-                signlink.reporterror("T1 - " + anInt853 + "," + anInt852 + " - " + anInt889 + "," + anInt890);
+                signlink.reporterror("T1 - " + opcode + "," + anInt852 + " - " + anInt889 + "," + anInt890);
                 method66(anInt1268);
             }
             catch(IOException _ex)
@@ -3842,7 +3842,7 @@ public class Game extends Applet_Sub1
             }
             catch(Exception exception)
             {
-                String s2 = "T2 - " + anInt853 + "," + anInt889 + "," + anInt890 + " - " + anInt852 + "," + (anInt1083 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0]) + "," + (anInt1084 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0]) + " - ";
+                String s2 = "T2 - " + opcode + "," + anInt889 + "," + anInt890 + " - " + anInt852 + "," + (anInt1083 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1615[0]) + "," + (anInt1084 + ((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anIntArray1616[0]) + " - ";
                 for(int k15 = 0; k15 < anInt852 && k15 < 50; k15++)
                 {
                     s2 = s2 + aClass13_Sub1_Sub2_1242.aByteArray1398[k15] + ",";
@@ -4771,7 +4771,7 @@ public class Game extends Applet_Sub1
             int j = super.anInt29;
             if(i >= 0)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             if(anInt973 == 1 && super.anInt30 >= 516 && super.anInt31 >= 160 && super.anInt30 <= 765 && super.anInt31 <= 205)
             {
@@ -6822,7 +6822,7 @@ public class Game extends Applet_Sub1
                 aClass12ArrayArrayArray969 = null;
             }
             System.out.println("draw-cycle:" + anInt1202);
-            System.out.println("ptype:" + anInt853);
+            System.out.println("ptype:" + opcode);
             System.out.println("psize:" + anInt852);
             if(aClass46_1001 != null)
             {
@@ -7051,7 +7051,7 @@ public class Game extends Applet_Sub1
                 aBoolean851 = true;
                 aClass13_Sub1_Sub2_928.anInt1399 = 0;
                 aClass13_Sub1_Sub2_1242.anInt1399 = 0;
-                anInt853 = -1;
+                opcode = -1;
                 anInt888 = -1;
                 anInt889 = -1;
                 anInt890 = -1;
@@ -7222,7 +7222,7 @@ public class Game extends Applet_Sub1
                 aBoolean851 = true;
                 aClass13_Sub1_Sub2_928.anInt1399 = 0;
                 aClass13_Sub1_Sub2_1242.anInt1399 = 0;
-                anInt853 = -1;
+                opcode = -1;
                 anInt888 = -1;
                 anInt889 = -1;
                 anInt890 = -1;
@@ -7320,7 +7320,7 @@ public class Game extends Applet_Sub1
         {
             if(i < 5 || i > 5)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             if(super.anInt29 == 1)
             {
@@ -7693,7 +7693,7 @@ public class Game extends Applet_Sub1
             aClass31_1213.method490(false);
             if(flag)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             Class13_Sub1_Sub4_Sub1.anIntArray1636 = anIntArray859;
             return;
@@ -8073,7 +8073,7 @@ public class Game extends Applet_Sub1
             aString1274 = "";
             if(i != anInt1287)
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             method65(509);
             aClass10_1198.method194(false);
@@ -8486,7 +8486,7 @@ public class Game extends Applet_Sub1
 
             if(l <= 0)
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             Class13_Sub1_Sub4.method353(k1, (byte)-12, l1, j1, i1);
             return;
@@ -8810,7 +8810,7 @@ public class Game extends Applet_Sub1
             }
             if(flag)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
                 return;
             }
         }
@@ -10739,7 +10739,7 @@ public class Game extends Applet_Sub1
         {
             if(flag)
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             if(super.anInt29 == 1)
             {
@@ -12577,7 +12577,7 @@ public class Game extends Applet_Sub1
             int k1 = Class13_Sub1_Sub1_Sub4.anIntArray1560[l];
             if(k <= 0)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             j1 = (j1 * 256) / (anInt1035 + 256);
             k1 = (k1 * 256) / (anInt1035 + 256);
@@ -12890,7 +12890,7 @@ public class Game extends Applet_Sub1
             int j = 0;
             if(i < 8 || i > 8)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             try
             {
@@ -13001,7 +13001,7 @@ public class Game extends Applet_Sub1
         {
             if(i != 1)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             if(l == 0L)
             {
@@ -13089,7 +13089,7 @@ public class Game extends Applet_Sub1
                 byte0 = 0;
             } else
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             for(int i = 0; i < anInt1284; i++)
             {
@@ -13250,7 +13250,7 @@ public class Game extends Applet_Sub1
             class13_sub1_sub1_sub6.anInt1620 = class13_sub1_sub1_sub6.anInt1584;
             if(byte0 != 8)
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             if(class13_sub1_sub1_sub6.anInt1591 == 0)
             {
@@ -13420,7 +13420,7 @@ public class Game extends Applet_Sub1
         {
             if(i < 6 || i > 6)
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             if(class13_sub1_sub1_sub6.anInt1618 == 0)
             {
@@ -14120,14 +14120,14 @@ public class Game extends Applet_Sub1
                     class13_sub1_sub1_sub6_sub1.anInt1610 = anInt1096;
                 } else
                 {
-                    int l1 = class13_sub1_sub2.method322(2, 195);
-                    if(l1 == 0)
+                    int movementType = class13_sub1_sub2.method322(2, 195);
+                    if(movementType == 0)
                     {
                         anIntArray900[anInt899++] = j1;
                         class13_sub1_sub1_sub6_sub1.anInt1610 = anInt1096;
                         anIntArray902[anInt901++] = j1;
                     } else
-                    if(l1 == 1)
+                    if(movementType == 1)
                     {
                         anIntArray900[anInt899++] = j1;
                         class13_sub1_sub1_sub6_sub1.anInt1610 = anInt1096;
@@ -14139,7 +14139,7 @@ public class Game extends Applet_Sub1
                             anIntArray902[anInt901++] = j1;
                         }
                     } else
-                    if(l1 == 2)
+                    if(movementType == 2)
                     {
                         anIntArray900[anInt899++] = j1;
                         class13_sub1_sub1_sub6_sub1.anInt1610 = anInt1096;
@@ -14153,7 +14153,7 @@ public class Game extends Applet_Sub1
                             anIntArray902[anInt901++] = j1;
                         }
                     } else
-                    if(l1 == 3)
+                    if(movementType == 3)
                     {
                         anIntArray1072[anInt1071++] = j1;
                     }
@@ -14286,7 +14286,7 @@ public class Game extends Applet_Sub1
             k = method80(anInt1166, 781, j, i) - anInt1040;
             if(byte0 != 6)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             int l = i - anInt1004;
             int i1 = k - anInt1005;
@@ -14555,7 +14555,7 @@ public class Game extends Applet_Sub1
             anInt1217 = -1;
             if(i < 6 || i > 6)
             {
-                anInt853 = aClass13_Sub1_Sub2_1242.method311();
+                opcode = aClass13_Sub1_Sub2_1242.method311();
             }
             return;
         }
@@ -15211,7 +15211,7 @@ public class Game extends Applet_Sub1
                 byte0 = 0;
             } else
             {
-                anInt853 = -1;
+                opcode = -1;
             }
             k -= anInt1004;
             l -= anInt1005;

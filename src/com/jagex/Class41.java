@@ -15,7 +15,7 @@ public class Class41
     public static boolean aBoolean705 = true;
     public static int anInt706;
     public static boolean aBoolean707 = true;
-    public static int anIntArray708[];
+    public static int[] anIntArray708;
     public static char aCharArrayArray709[][];
     public static byte aByteArrayArrayArray710[][][];
     public static char aCharArrayArray711[][];
