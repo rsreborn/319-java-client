@@ -1323,7 +1323,7 @@ public class Game extends Applet_Sub1
         }
     }
 
-    public void synchronizePlayers(Class13_Sub1_Sub2 class13_sub1_sub2, int i, int j)
+    public void updatePlayers(Class13_Sub1_Sub2 class13_sub1_sub2, int i, int j)
     {
         try
         {
@@ -2767,7 +2767,7 @@ public class Game extends Applet_Sub1
                     opcode = -1;
                     return true;
                 }
-                if(opcode == 188)
+                if(IncomingPacket.CLOSE_ALL_WIDGETS.equals(opcode))
                 {
                     int j2 = buffer.method340();
                     method79(j2, anInt1119);
@@ -2841,9 +2841,9 @@ public class Game extends Applet_Sub1
                     opcode = -1;
                     return true;
                 }
-                if(opcode == 76)
+                if(IncomingPacket.PLAYER_UPDATING.equals(opcode))
                 {
-                    synchronizePlayers(buffer, 9, packetSize);
+                    updatePlayers(buffer, 9, packetSize);
                     aBoolean1259 = false;
                     opcode = -1;
                     return true;

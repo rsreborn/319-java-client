@@ -7,6 +7,10 @@ public enum IncomingPacket {
 
     ADD_CHATBOX_MESSAGE(50),
 
+    CLOSE_ALL_WIDGETS(188),
+
+    PLAYER_UPDATING(76),
+
     TEMPORARY_ENDING_PACKET(500);
 
     private int packetId;
