@@ -2,12 +2,12 @@ package com.jagex;
 
 import com.jagex.sign.signlink;
 
-public class Class38
+public class ItemDefinition
 {
 
-    public int anInt618;
+    public int modelScale;
     public int anInt619;
-    public static Class38 aClass38Array620[];
+    public static ItemDefinition aItemDefinitionArray620[];
     public int anInt621;
     public byte aByteArray622[];
     public int anInt623;
@@ -76,8 +76,8 @@ public class Class38
                     return class13_sub1_sub4_sub4;
                 }
             }
-            Class38 class38 = method505(i);
-            if(class38.anIntArray636 == null)
+            ItemDefinition itemDefinition = method505(i);
+            if(itemDefinition.anIntArray636 == null)
             {
                 j = -1;
             }
@@ -86,25 +86,25 @@ public class Class38
                 int l = -1;
                 for(int i1 = 0; i1 < 10; i1++)
                 {
-                    if(j >= class38.anIntArray627[i1] && class38.anIntArray627[i1] != 0)
+                    if(j >= itemDefinition.anIntArray627[i1] && itemDefinition.anIntArray627[i1] != 0)
                     {
-                        l = class38.anIntArray636[i1];
+                        l = itemDefinition.anIntArray636[i1];
                     }
                 }
                 if(l != -1)
                 {
-                    class38 = method505(l);
+                    itemDefinition = method505(l);
                 }
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = class38.method509(1);
+            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = itemDefinition.method509(1);
             if(class13_sub1_sub1_sub4 == null)
             {
                 return null;
             }
             Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = null;
-            if(class38.anInt642 != -1)
+            if(itemDefinition.anInt642 != -1)
             {
-                class13_sub1_sub4_sub4_2 = method503(class38.anInt644, 10, -1, aBoolean638);
+                class13_sub1_sub4_sub4_2 = method503(itemDefinition.anInt644, 10, -1, aBoolean638);
                 if(class13_sub1_sub4_sub4_2 == null)
                 {
                     return null;
@@ -125,7 +125,7 @@ public class Class38
             Class13_Sub1_Sub4.method351(0, class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
             Class13_Sub1_Sub4.method356(false, 0, 0, 0, 32, 32);
             Class13_Sub1_Sub4_Sub1.method364(true);
-            int j3 = class38.anInt618;
+            int j3 = itemDefinition.modelScale;
             if(k == -1)
             {
                 j3 = (int)((double)j3 * 1.5D);
@@ -134,9 +134,9 @@ public class Class38
             {
                 j3 = (int)((double)j3 * 1.04D);
             }
-            int k3 = Class13_Sub1_Sub4_Sub1.anIntArray1634[class38.anInt670] * j3 >> 16;
-            int l3 = Class13_Sub1_Sub4_Sub1.anIntArray1635[class38.anInt670] * j3 >> 16;
-            class13_sub1_sub1_sub4.method285(0, class38.anInt663, class38.anInt666, class38.anInt670, class38.anInt656, k3 + ((Class13_Sub1_Sub1) (class13_sub1_sub1_sub4)).anInt1377 / 2 + class38.anInt628, l3 + class38.anInt628);
+            int k3 = Class13_Sub1_Sub4_Sub1.anIntArray1634[itemDefinition.anInt670] * j3 >> 16;
+            int l3 = Class13_Sub1_Sub4_Sub1.anIntArray1635[itemDefinition.anInt670] * j3 >> 16;
+            class13_sub1_sub1_sub4.method285(0, itemDefinition.anInt663, itemDefinition.anInt666, itemDefinition.anInt670, itemDefinition.anInt656, k3 + ((Class13_Sub1_Sub1) (class13_sub1_sub1_sub4)).anInt1377 / 2 + itemDefinition.anInt628, l3 + itemDefinition.anInt628);
             for(int l4 = 31; l4 >= 0; l4--)
             {
                 for(int i4 = 31; i4 >= 0; i4--)
@@ -203,7 +203,7 @@ public class Class38
                     }
                 }
             }
-            if(class38.anInt642 != -1)
+            if(itemDefinition.anInt642 != -1)
             {
                 int k5 = class13_sub1_sub4_sub4_2.anInt1685;
                 int l5 = class13_sub1_sub4_sub4_2.anInt1686;
@@ -227,7 +227,7 @@ public class Class38
             Class13_Sub1_Sub4_Sub1.anInt1631 = k1;
             Class13_Sub1_Sub4_Sub1.anIntArray1636 = ai;
             Class13_Sub1_Sub4_Sub1.aBoolean1628 = true;
-            if(class38.aBoolean662)
+            if(itemDefinition.aBoolean662)
             {
                 class13_sub1_sub4_sub4_1.anInt1685 = 33;
             } else
@@ -290,34 +290,34 @@ public class Class38
         throw new RuntimeException();
     }
 
-    public static Class38 method505(int i)
+    public static ItemDefinition method505(int i)
     {
         for(int j = 0; j < 10; j++)
         {
-            if(aClass38Array620[j].anInt633 == i)
+            if(aItemDefinitionArray620[j].anInt633 == i)
             {
-                return aClass38Array620[j];
+                return aItemDefinitionArray620[j];
             }
         }
         anInt645 = (anInt645 + 1) % 10;
-        Class38 class38 = aClass38Array620[anInt645];
+        ItemDefinition itemDefinition = aItemDefinitionArray620[anInt645];
         aClass13_Sub1_Sub2_665.anInt1399 = anIntArray655[i];
-        class38.anInt633 = i;
-        class38.method514();
-        class38.method510(aClass13_Sub1_Sub2_665, 26421);
-        if(class38.anInt642 != -1)
+        itemDefinition.anInt633 = i;
+        itemDefinition.method514();
+        itemDefinition.method510(aClass13_Sub1_Sub2_665, 26421);
+        if(itemDefinition.anInt642 != -1)
         {
-            class38.method508(143);
+            itemDefinition.method508(143);
         }
-        if(!aBoolean667 && class38.aBoolean650)
+        if(!aBoolean667 && itemDefinition.aBoolean650)
         {
-            class38.aString649 = "Members Object";
-            class38.aByteArray622 = "Login to a members' server to use this object.".getBytes();
-            class38.aStringArray643 = null;
-            class38.aStringArray639 = null;
-            class38.anInt641 = 0;
+            itemDefinition.aString649 = "Members Object";
+            itemDefinition.aByteArray622 = "Login to a members' server to use this object.".getBytes();
+            itemDefinition.aStringArray643 = null;
+            itemDefinition.aStringArray639 = null;
+            itemDefinition.anInt641 = 0;
         }
-        return class38;
+        return itemDefinition;
     }
 
     public boolean method506(int i, int j)
@@ -426,33 +426,33 @@ public class Class38
     {
         try
         {
-            Class38 class38 = method505(anInt642);
-            anInt668 = class38.anInt668;
-            anInt618 = class38.anInt618;
-            anInt670 = class38.anInt670;
-            anInt663 = class38.anInt663;
-            anInt666 = class38.anInt666;
-            anInt656 = class38.anInt656;
-            anInt628 = class38.anInt628;
-            anIntArray646 = class38.anIntArray646;
+            ItemDefinition itemDefinition = method505(anInt642);
+            anInt668 = itemDefinition.anInt668;
+            modelScale = itemDefinition.modelScale;
+            anInt670 = itemDefinition.anInt670;
+            anInt663 = itemDefinition.anInt663;
+            anInt666 = itemDefinition.anInt666;
+            anInt656 = itemDefinition.anInt656;
+            anInt628 = itemDefinition.anInt628;
+            anIntArray646 = itemDefinition.anIntArray646;
             if(i <= 0)
             {
                 for(int j = 1; j > 0; j++)
                 {
                 }
             }
-            anIntArray631 = class38.anIntArray631;
-            Class38 class38_1 = method505(anInt644);
-            aString649 = class38_1.aString649;
-            aBoolean650 = class38_1.aBoolean650;
-            anInt637 = class38_1.anInt637;
+            anIntArray631 = itemDefinition.anIntArray631;
+            ItemDefinition itemDefinition_1 = method505(anInt644);
+            aString649 = itemDefinition_1.aString649;
+            aBoolean650 = itemDefinition_1.aBoolean650;
+            anInt637 = itemDefinition_1.anInt637;
             String s = "a";
-            char c = class38_1.aString649.charAt(0);
+            char c = itemDefinition_1.aString649.charAt(0);
             if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
             {
                 s = "an";
             }
-            aByteArray622 = ("Swap this note at any bank for " + s + " " + class38_1.aString649 + ".").getBytes();
+            aByteArray622 = ("Swap this note at any bank for " + s + " " + itemDefinition_1.aString649 + ".").getBytes();
             aBoolean662 = true;
             return;
         }
@@ -538,7 +538,7 @@ public class Class38
                 } else
                 if(k == 4)
                 {
-                    anInt618 = class13_sub1_sub2.method313();
+                    modelScale = class13_sub1_sub2.method313();
                 } else
                 if(k == 5)
                 {
@@ -721,7 +721,7 @@ public class Class38
                 }
             }
             anIntArray655 = null;
-            aClass38Array620 = null;
+            aItemDefinitionArray620 = null;
             aClass13_Sub1_Sub2_665 = null;
             return;
         }
@@ -827,7 +827,7 @@ public class Class38
         aByteArray622 = null;
         anIntArray646 = null;
         anIntArray631 = null;
-        anInt618 = 2000;
+        modelScale = 2000;
         anInt670 = 0;
         anInt663 = 0;
         anInt666 = 0;
@@ -875,14 +875,14 @@ public class Class38
             anIntArray655[j] = i;
             i += class13_sub1_sub2.method313();
         }
-        aClass38Array620 = new Class38[10];
+        aItemDefinitionArray620 = new ItemDefinition[10];
         for(int k = 0; k < 10; k++)
         {
-            aClass38Array620[k] = new Class38();
+            aItemDefinitionArray620[k] = new ItemDefinition();
         }
     }
 
-    public Class38()
+    public ItemDefinition()
     {
         anInt619 = 4;
         anInt623 = -25124;

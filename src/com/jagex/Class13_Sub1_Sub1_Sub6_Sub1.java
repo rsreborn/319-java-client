@@ -122,7 +122,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                     {
                         flag = true;
                     }
-                    if(j2 >= 512 && !Class38.method505(j2 - 512).method504((byte)9, anInt1687))
+                    if(j2 >= 512 && !ItemDefinition.method505(j2 - 512).method504((byte)9, anInt1687))
                     {
                         flag = true;
                     }
@@ -164,7 +164,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                     }
                     if(l2 >= 512)
                     {
-                        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_4 = Class38.method505(l2 - 512).method507(4, anInt1687);
+                        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_4 = ItemDefinition.method505(l2 - 512).method507(4, anInt1687);
                         if(class13_sub1_sub1_sub4_4 != null)
                         {
                             aclass13_sub1_sub1_sub4[i2++] = class13_sub1_sub1_sub4_4;
@@ -234,7 +234,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                 {
                     flag = true;
                 }
-                if(k >= 512 && !Class38.method505(k - 512).method506(5, anInt1687))
+                if(k >= 512 && !ItemDefinition.method505(k - 512).method506(5, anInt1687))
                 {
                     flag = true;
                 }
@@ -258,7 +258,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                 }
                 if(j1 >= 512)
                 {
-                    Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = Class38.method505(j1 - 512).method512(anInt1687, (byte)-34);
+                    Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = ItemDefinition.method505(j1 - 512).method512(anInt1687, (byte)-34);
                     if(class13_sub1_sub1_sub4_2 != null)
                     {
                         aclass13_sub1_sub1_sub4[l++] = class13_sub1_sub1_sub4_2;
@@ -414,9 +414,9 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
                     aClass47_1716 = Class47.method585(class13_sub1_sub2.method313());
                     break;
                 }
-                if(anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < Class38.anInt669)
+                if(anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ItemDefinition.anInt669)
                 {
-                    int l1 = Class38.method505(anIntArray1703[j] - 512).anInt641;
+                    int l1 = ItemDefinition.method505(anIntArray1703[j] - 512).anInt641;
                     if(l1 != 0)
                     {
                         anInt1702 = l1;

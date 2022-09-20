@@ -8,6 +8,7 @@ public enum IncomingPacket {
     ADD_CHATBOX_MESSAGE(50),
 
     CLOSE_ALL_WIDGETS(188),
+    SET_WIDGET_ITEM_MODEL(172),
 
     PLAYER_UPDATING(76),
 

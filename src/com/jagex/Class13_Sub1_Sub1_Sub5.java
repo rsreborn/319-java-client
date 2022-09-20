@@ -17,8 +17,8 @@ public class Class13_Sub1_Sub1_Sub5 extends Class13_Sub1_Sub1
             {
                 aBoolean1565 = !aBoolean1565;
             }
-            Class38 class38 = Class38.method505(anInt1563);
-            return class38.method509(anInt1564);
+            ItemDefinition itemDefinition = ItemDefinition.method505(anInt1563);
+            return itemDefinition.method509(anInt1564);
         }
         catch(RuntimeException runtimeexception)
         {

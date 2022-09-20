@@ -2,10 +2,10 @@ package com.jagex;
 
 import com.jagex.sign.signlink;
 
-public class Class36
+public class Widget
 {
 
-    public static Class36 aClass36Array533[];
+    public static Widget aWidgetArray533[];
     public int anInt534;
     public int anInt535;
     public int anInt536;
@@ -13,7 +13,7 @@ public class Class36
     public boolean aBoolean538;
     public Class13_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4Array539[];
     public int anInt540;
-    public int anInt541;
+    public int modelType;
     public int anInt542;
     public int anInt543;
     public int anInt544;
@@ -94,7 +94,7 @@ public class Class36
         }
         if(i == 4)
         {
-            class13_sub1_sub1_sub4 = Class38.method505(j).method513(-453, 50);
+            class13_sub1_sub1_sub4 = ItemDefinition.method505(j).method513(-453, 50);
         }
         if(i == 5)
         {
@@ -143,7 +143,7 @@ public class Class36
                 class13_sub1_sub1_sub4 = method497(anInt587, anInt588);
             } else
             {
-                class13_sub1_sub1_sub4 = method497(anInt541, anInt542);
+                class13_sub1_sub1_sub4 = method497(modelType, anInt542);
             }
             if(class13_sub1_sub1_sub4 == null)
             {
@@ -220,7 +220,7 @@ public class Class36
                 aBoolean567 = !aBoolean567;
             }
             int j = class13_sub1_sub2.method313();
-            aClass36Array533 = new Class36[j];
+            aWidgetArray533 = new Widget[j];
             while(class13_sub1_sub2.anInt1399 < class13_sub1_sub2.aByteArray1398.length)
             {
                 int k = class13_sub1_sub2.method313();
@@ -229,235 +229,235 @@ public class Class36
                     i = class13_sub1_sub2.method313();
                     k = class13_sub1_sub2.method313();
                 }
-                Class36 class36 = aClass36Array533[k] = new Class36();
-                class36.anInt592 = k;
-                class36.anInt573 = i;
-                class36.anInt570 = class13_sub1_sub2.method311();
-                class36.anInt597 = class13_sub1_sub2.method311();
-                class36.anInt577 = class13_sub1_sub2.method313();
-                class36.anInt582 = class13_sub1_sub2.method313();
-                class36.anInt586 = class13_sub1_sub2.method313();
-                class36.aByte562 = (byte)class13_sub1_sub2.method311();
-                class36.anInt543 = class13_sub1_sub2.method311();
-                if(class36.anInt543 != 0)
+                Widget widget = aWidgetArray533[k] = new Widget();
+                widget.anInt592 = k;
+                widget.anInt573 = i;
+                widget.anInt570 = class13_sub1_sub2.method311();
+                widget.anInt597 = class13_sub1_sub2.method311();
+                widget.anInt577 = class13_sub1_sub2.method313();
+                widget.anInt582 = class13_sub1_sub2.method313();
+                widget.anInt586 = class13_sub1_sub2.method313();
+                widget.aByte562 = (byte)class13_sub1_sub2.method311();
+                widget.anInt543 = class13_sub1_sub2.method311();
+                if(widget.anInt543 != 0)
                 {
-                    class36.anInt543 = (class36.anInt543 - 1 << 8) + class13_sub1_sub2.method311();
+                    widget.anInt543 = (widget.anInt543 - 1 << 8) + class13_sub1_sub2.method311();
                 } else
                 {
-                    class36.anInt543 = -1;
+                    widget.anInt543 = -1;
                 }
                 int i1 = class13_sub1_sub2.method311();
                 if(i1 > 0)
                 {
-                    class36.anIntArray545 = new int[i1];
-                    class36.anIntArray556 = new int[i1];
+                    widget.anIntArray545 = new int[i1];
+                    widget.anIntArray556 = new int[i1];
                     for(int j1 = 0; j1 < i1; j1++)
                     {
-                        class36.anIntArray545[j1] = class13_sub1_sub2.method311();
-                        class36.anIntArray556[j1] = class13_sub1_sub2.method313();
+                        widget.anIntArray545[j1] = class13_sub1_sub2.method311();
+                        widget.anIntArray556[j1] = class13_sub1_sub2.method313();
                     }
                 }
                 int k1 = class13_sub1_sub2.method311();
                 if(k1 > 0)
                 {
-                    class36.anIntArrayArray581 = new int[k1][];
+                    widget.anIntArrayArray581 = new int[k1][];
                     for(int l1 = 0; l1 < k1; l1++)
                     {
                         int i3 = class13_sub1_sub2.method313();
-                        class36.anIntArrayArray581[l1] = new int[i3];
+                        widget.anIntArrayArray581[l1] = new int[i3];
                         for(int l4 = 0; l4 < i3; l4++)
                         {
-                            class36.anIntArrayArray581[l1][l4] = class13_sub1_sub2.method313();
+                            widget.anIntArrayArray581[l1][l4] = class13_sub1_sub2.method313();
                         }
                     }
                 }
-                if(class36.anInt570 == 0)
+                if(widget.anInt570 == 0)
                 {
-                    class36.anInt598 = class13_sub1_sub2.method313();
-                    class36.aBoolean561 = class13_sub1_sub2.method311() == 1;
+                    widget.anInt598 = class13_sub1_sub2.method313();
+                    widget.aBoolean561 = class13_sub1_sub2.method311() == 1;
                     int i2 = class13_sub1_sub2.method313();
-                    class36.anIntArray549 = new int[i2];
-                    class36.anIntArray591 = new int[i2];
-                    class36.anIntArray557 = new int[i2];
+                    widget.anIntArray549 = new int[i2];
+                    widget.anIntArray591 = new int[i2];
+                    widget.anIntArray557 = new int[i2];
                     for(int j3 = 0; j3 < i2; j3++)
                     {
-                        class36.anIntArray549[j3] = class13_sub1_sub2.method313();
-                        class36.anIntArray591[j3] = class13_sub1_sub2.method314();
-                        class36.anIntArray557[j3] = class13_sub1_sub2.method314();
+                        widget.anIntArray549[j3] = class13_sub1_sub2.method313();
+                        widget.anIntArray591[j3] = class13_sub1_sub2.method314();
+                        widget.anIntArray557[j3] = class13_sub1_sub2.method314();
                     }
                 }
-                if(class36.anInt570 == 1)
+                if(widget.anInt570 == 1)
                 {
-                    class36.anInt574 = class13_sub1_sub2.method313();
-                    class36.aBoolean594 = class13_sub1_sub2.method311() == 1;
+                    widget.anInt574 = class13_sub1_sub2.method313();
+                    widget.aBoolean594 = class13_sub1_sub2.method311() == 1;
                 }
-                if(class36.anInt570 == 2)
+                if(widget.anInt570 == 2)
                 {
-                    class36.anIntArray576 = new int[class36.anInt582 * class36.anInt586];
-                    class36.anIntArray579 = new int[class36.anInt582 * class36.anInt586];
-                    class36.aBoolean538 = class13_sub1_sub2.method311() == 1;
-                    class36.aBoolean585 = class13_sub1_sub2.method311() == 1;
-                    class36.aBoolean552 = class13_sub1_sub2.method311() == 1;
-                    class36.aBoolean578 = class13_sub1_sub2.method311() == 1;
-                    class36.anInt599 = class13_sub1_sub2.method311();
-                    class36.anInt554 = class13_sub1_sub2.method311();
-                    class36.anIntArray580 = new int[20];
-                    class36.anIntArray560 = new int[20];
-                    class36.aClass13_Sub1_Sub4_Sub4Array539 = new Class13_Sub1_Sub4_Sub4[20];
+                    widget.anIntArray576 = new int[widget.anInt582 * widget.anInt586];
+                    widget.anIntArray579 = new int[widget.anInt582 * widget.anInt586];
+                    widget.aBoolean538 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean585 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean552 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean578 = class13_sub1_sub2.method311() == 1;
+                    widget.anInt599 = class13_sub1_sub2.method311();
+                    widget.anInt554 = class13_sub1_sub2.method311();
+                    widget.anIntArray580 = new int[20];
+                    widget.anIntArray560 = new int[20];
+                    widget.aClass13_Sub1_Sub4_Sub4Array539 = new Class13_Sub1_Sub4_Sub4[20];
                     for(int j2 = 0; j2 < 20; j2++)
                     {
                         int k3 = class13_sub1_sub2.method311();
                         if(k3 == 1)
                         {
-                            class36.anIntArray580[j2] = class13_sub1_sub2.method314();
-                            class36.anIntArray560[j2] = class13_sub1_sub2.method314();
+                            widget.anIntArray580[j2] = class13_sub1_sub2.method314();
+                            widget.anIntArray560[j2] = class13_sub1_sub2.method314();
                             String s1 = class13_sub1_sub2.method318();
                             if(class1_1 != null && s1.length() > 0)
                             {
                                 int i5 = s1.lastIndexOf(",");
-                                class36.aClass13_Sub1_Sub4_Sub4Array539[j2] = method500(Integer.parseInt(s1.substring(i5 + 1)), false, class1_1, s1.substring(0, i5));
+                                widget.aClass13_Sub1_Sub4_Sub4Array539[j2] = method500(Integer.parseInt(s1.substring(i5 + 1)), false, class1_1, s1.substring(0, i5));
                             }
                         }
                     }
-                    class36.aStringArray547 = new String[5];
+                    widget.aStringArray547 = new String[5];
                     for(int l3 = 0; l3 < 5; l3++)
                     {
-                        class36.aStringArray547[l3] = class13_sub1_sub2.method318();
-                        if(class36.aStringArray547[l3].length() == 0)
+                        widget.aStringArray547[l3] = class13_sub1_sub2.method318();
+                        if(widget.aStringArray547[l3].length() == 0)
                         {
-                            class36.aStringArray547[l3] = null;
+                            widget.aStringArray547[l3] = null;
                         }
                     }
                 }
-                if(class36.anInt570 == 3)
+                if(widget.anInt570 == 3)
                 {
-                    class36.aBoolean555 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean555 = class13_sub1_sub2.method311() == 1;
                 }
-                if(class36.anInt570 == 4 || class36.anInt570 == 1)
+                if(widget.anInt570 == 4 || widget.anInt570 == 1)
                 {
-                    class36.aBoolean551 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean551 = class13_sub1_sub2.method311() == 1;
                     int k2 = class13_sub1_sub2.method311();
                     if(aclass13_sub1_sub4_sub2 != null)
                     {
-                        class36.aClass13_Sub1_Sub4_Sub2_583 = aclass13_sub1_sub4_sub2[k2];
+                        widget.aClass13_Sub1_Sub4_Sub2_583 = aclass13_sub1_sub4_sub2[k2];
                     }
-                    class36.aBoolean559 = class13_sub1_sub2.method311() == 1;
+                    widget.aBoolean559 = class13_sub1_sub2.method311() == 1;
                 }
-                if(class36.anInt570 == 4)
+                if(widget.anInt570 == 4)
                 {
-                    class36.aString548 = class13_sub1_sub2.method318();
-                    class36.aString589 = class13_sub1_sub2.method318();
+                    widget.aString548 = class13_sub1_sub2.method318();
+                    widget.aString589 = class13_sub1_sub2.method318();
                 }
-                if(class36.anInt570 == 1 || class36.anInt570 == 3 || class36.anInt570 == 4)
+                if(widget.anInt570 == 1 || widget.anInt570 == 3 || widget.anInt570 == 4)
                 {
-                    class36.anInt550 = class13_sub1_sub2.method316();
+                    widget.anInt550 = class13_sub1_sub2.method316();
                 }
-                if(class36.anInt570 == 3 || class36.anInt570 == 4)
+                if(widget.anInt570 == 3 || widget.anInt570 == 4)
                 {
-                    class36.anInt544 = class13_sub1_sub2.method316();
-                    class36.anInt596 = class13_sub1_sub2.method316();
-                    class36.anInt566 = class13_sub1_sub2.method316();
+                    widget.anInt544 = class13_sub1_sub2.method316();
+                    widget.anInt596 = class13_sub1_sub2.method316();
+                    widget.anInt566 = class13_sub1_sub2.method316();
                 }
-                if(class36.anInt570 == 5)
+                if(widget.anInt570 == 5)
                 {
                     String s = class13_sub1_sub2.method318();
                     if(class1_1 != null && s.length() > 0)
                     {
                         int i4 = s.lastIndexOf(",");
-                        class36.aClass13_Sub1_Sub4_Sub4_569 = method500(Integer.parseInt(s.substring(i4 + 1)), false, class1_1, s.substring(0, i4));
+                        widget.aClass13_Sub1_Sub4_Sub4_569 = method500(Integer.parseInt(s.substring(i4 + 1)), false, class1_1, s.substring(0, i4));
                     }
                     s = class13_sub1_sub2.method318();
                     if(class1_1 != null && s.length() > 0)
                     {
                         int j4 = s.lastIndexOf(",");
-                        class36.aClass13_Sub1_Sub4_Sub4_565 = method500(Integer.parseInt(s.substring(j4 + 1)), false, class1_1, s.substring(0, j4));
+                        widget.aClass13_Sub1_Sub4_Sub4_565 = method500(Integer.parseInt(s.substring(j4 + 1)), false, class1_1, s.substring(0, j4));
                     }
                 }
-                if(class36.anInt570 == 6)
+                if(widget.anInt570 == 6)
                 {
                     int l = class13_sub1_sub2.method311();
                     if(l != 0)
                     {
-                        class36.anInt541 = 1;
-                        class36.anInt542 = (l - 1 << 8) + class13_sub1_sub2.method311();
+                        widget.modelType = 1;
+                        widget.anInt542 = (l - 1 << 8) + class13_sub1_sub2.method311();
                     }
                     l = class13_sub1_sub2.method311();
                     if(l != 0)
                     {
-                        class36.anInt587 = 1;
-                        class36.anInt588 = (l - 1 << 8) + class13_sub1_sub2.method311();
+                        widget.anInt587 = 1;
+                        widget.anInt588 = (l - 1 << 8) + class13_sub1_sub2.method311();
                     }
                     l = class13_sub1_sub2.method311();
                     if(l != 0)
                     {
-                        class36.anInt571 = (l - 1 << 8) + class13_sub1_sub2.method311();
+                        widget.anInt571 = (l - 1 << 8) + class13_sub1_sub2.method311();
                     } else
                     {
-                        class36.anInt571 = -1;
+                        widget.anInt571 = -1;
                     }
                     l = class13_sub1_sub2.method311();
                     if(l != 0)
                     {
-                        class36.anInt572 = (l - 1 << 8) + class13_sub1_sub2.method311();
+                        widget.anInt572 = (l - 1 << 8) + class13_sub1_sub2.method311();
                     } else
                     {
-                        class36.anInt572 = -1;
+                        widget.anInt572 = -1;
                     }
-                    class36.anInt534 = class13_sub1_sub2.method313();
-                    class36.anInt535 = class13_sub1_sub2.method313();
-                    class36.anInt536 = class13_sub1_sub2.method313();
+                    widget.anInt534 = class13_sub1_sub2.method313();
+                    widget.anInt535 = class13_sub1_sub2.method313();
+                    widget.anInt536 = class13_sub1_sub2.method313();
                 }
-                if(class36.anInt570 == 7)
+                if(widget.anInt570 == 7)
                 {
-                    class36.anIntArray576 = new int[class36.anInt582 * class36.anInt586];
-                    class36.anIntArray579 = new int[class36.anInt582 * class36.anInt586];
-                    class36.aBoolean551 = class13_sub1_sub2.method311() == 1;
+                    widget.anIntArray576 = new int[widget.anInt582 * widget.anInt586];
+                    widget.anIntArray579 = new int[widget.anInt582 * widget.anInt586];
+                    widget.aBoolean551 = class13_sub1_sub2.method311() == 1;
                     int l2 = class13_sub1_sub2.method311();
                     if(aclass13_sub1_sub4_sub2 != null)
                     {
-                        class36.aClass13_Sub1_Sub4_Sub2_583 = aclass13_sub1_sub4_sub2[l2];
+                        widget.aClass13_Sub1_Sub4_Sub2_583 = aclass13_sub1_sub4_sub2[l2];
                     }
-                    class36.aBoolean559 = class13_sub1_sub2.method311() == 1;
-                    class36.anInt550 = class13_sub1_sub2.method316();
-                    class36.anInt599 = class13_sub1_sub2.method314();
-                    class36.anInt554 = class13_sub1_sub2.method314();
-                    class36.aBoolean585 = class13_sub1_sub2.method311() == 1;
-                    class36.aStringArray547 = new String[5];
+                    widget.aBoolean559 = class13_sub1_sub2.method311() == 1;
+                    widget.anInt550 = class13_sub1_sub2.method316();
+                    widget.anInt599 = class13_sub1_sub2.method314();
+                    widget.anInt554 = class13_sub1_sub2.method314();
+                    widget.aBoolean585 = class13_sub1_sub2.method311() == 1;
+                    widget.aStringArray547 = new String[5];
                     for(int k4 = 0; k4 < 5; k4++)
                     {
-                        class36.aStringArray547[k4] = class13_sub1_sub2.method318();
-                        if(class36.aStringArray547[k4].length() == 0)
+                        widget.aStringArray547[k4] = class13_sub1_sub2.method318();
+                        if(widget.aStringArray547[k4].length() == 0)
                         {
-                            class36.aStringArray547[k4] = null;
+                            widget.aStringArray547[k4] = null;
                         }
                     }
                 }
-                if(class36.anInt597 == 2 || class36.anInt570 == 2)
+                if(widget.anInt597 == 2 || widget.anInt570 == 2)
                 {
-                    class36.aString563 = class13_sub1_sub2.method318();
-                    class36.aString553 = class13_sub1_sub2.method318();
-                    class36.anInt558 = class13_sub1_sub2.method313();
+                    widget.aString563 = class13_sub1_sub2.method318();
+                    widget.aString553 = class13_sub1_sub2.method318();
+                    widget.anInt558 = class13_sub1_sub2.method313();
                 }
-                if(class36.anInt597 == 1 || class36.anInt597 == 4 || class36.anInt597 == 5 || class36.anInt597 == 6)
+                if(widget.anInt597 == 1 || widget.anInt597 == 4 || widget.anInt597 == 5 || widget.anInt597 == 6)
                 {
-                    class36.aString564 = class13_sub1_sub2.method318();
-                    if(class36.aString564.length() == 0)
+                    widget.aString564 = class13_sub1_sub2.method318();
+                    if(widget.aString564.length() == 0)
                     {
-                        if(class36.anInt597 == 1)
+                        if(widget.anInt597 == 1)
                         {
-                            class36.aString564 = "Ok";
+                            widget.aString564 = "Ok";
                         }
-                        if(class36.anInt597 == 4)
+                        if(widget.anInt597 == 4)
                         {
-                            class36.aString564 = "Select";
+                            widget.aString564 = "Select";
                         }
-                        if(class36.anInt597 == 5)
+                        if(widget.anInt597 == 5)
                         {
-                            class36.aString564 = "Select";
+                            widget.aString564 = "Select";
                         }
-                        if(class36.anInt597 == 6)
+                        if(widget.anInt597 == 6)
                         {
-                            class36.aString564 = "Continue";
+                            widget.aString564 = "Continue";
                         }
                     }
                 }
@@ -498,7 +498,7 @@ public class Class36
         throw new RuntimeException();
     }
 
-    public Class36()
+    public Widget()
     {
     }
 

@@ -265,7 +265,7 @@ public class Game extends Applet_Sub1
     public volatile boolean aBoolean1047;
     public boolean aBoolean1048;
     public Class13_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1049;
-    public Class36 aClass36_1050;
+    public Widget aWidget_1050;
     public boolean aBoolean1051;
     public int anInt1052;
     public int anInt1053;
@@ -1432,11 +1432,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1512,11 +1512,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1575,14 +1575,14 @@ public class Game extends Applet_Sub1
             }
             if(l == 1733)
             {
-                Class38 class38 = Class38.method505(i1);
+                ItemDefinition itemDefinition = ItemDefinition.method505(i1);
                 String s4;
-                if(class38.aByteArray622 != null)
+                if(itemDefinition.aByteArray622 != null)
                 {
-                    s4 = new String(class38.aByteArray622);
+                    s4 = new String(itemDefinition.aByteArray622);
                 } else
                 {
-                    s4 = "It's a " + class38.aString649 + ".";
+                    s4 = "It's a " + itemDefinition.aString649 + ".";
                 }
                 method70(0, s4, "", (byte)117);
             }
@@ -1596,11 +1596,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1667,11 +1667,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1687,11 +1687,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1740,11 +1740,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1769,26 +1769,26 @@ public class Game extends Applet_Sub1
                 anInt1026 = j;
                 anInt1027 = k;
                 anInt1028 = i1;
-                aString1029 = Class38.method505(i1).aString649;
+                aString1029 = ItemDefinition.method505(i1).aString649;
                 anInt973 = 0;
                 aBoolean1148 = true;
                 return;
             }
             if(l == 1870)
             {
-                Class38 class38_1 = Class38.method505(i1);
-                Class36 class36_4 = Class36.aClass36Array533[k];
+                ItemDefinition itemDefinition_1 = ItemDefinition.method505(i1);
+                Widget widget_4 = Widget.aWidgetArray533[k];
                 String s5;
-                if(class36_4 != null && class36_4.anIntArray579[j] >= 0x186a0)
+                if(widget_4 != null && widget_4.anIntArray579[j] >= 0x186a0)
                 {
-                    s5 = class36_4.anIntArray579[j] + " x " + class38_1.aString649;
+                    s5 = widget_4.anIntArray579[j] + " x " + itemDefinition_1.aString649;
                 } else
-                if(class38_1.aByteArray622 != null)
+                if(itemDefinition_1.aByteArray622 != null)
                 {
-                    s5 = new String(class38_1.aByteArray622);
+                    s5 = new String(itemDefinition_1.aByteArray622);
                 } else
                 {
-                    s5 = "It's a " + class38_1.aString649 + ".";
+                    s5 = "It's a " + itemDefinition_1.aString649 + ".";
                 }
                 method70(0, s5, "", (byte)117);
             }
@@ -1802,11 +1802,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -1839,13 +1839,13 @@ public class Game extends Applet_Sub1
             {
                 aClass13_Sub1_Sub2_928.method300(328, 189);
                 aClass13_Sub1_Sub2_928.method302(k);
-                Class36 class36 = Class36.aClass36Array533[k];
-                if(class36.anIntArrayArray581 != null && class36.anIntArrayArray581[0][0] == 5)
+                Widget widget = Widget.aWidgetArray533[k];
+                if(widget.anIntArrayArray581 != null && widget.anIntArrayArray581[0][0] == 5)
                 {
-                    int l1 = class36.anIntArrayArray581[0][1];
-                    if(anIntArray1149[l1] != class36.anIntArray556[0])
+                    int l1 = widget.anIntArrayArray581[0][1];
+                    if(anIntArray1149[l1] != widget.anIntArray556[0])
                     {
-                        anIntArray1149[l1] = class36.anIntArray556[0];
+                        anIntArray1149[l1] = widget.anIntArray556[0];
                         method64(true, l1);
                         aBoolean1148 = true;
                     }
@@ -1941,11 +1941,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -2003,23 +2003,23 @@ public class Game extends Applet_Sub1
             }
             if(l == 813)
             {
-                Class36 class36_1 = Class36.aClass36Array533[k];
+                Widget widget_1 = Widget.aWidgetArray533[k];
                 anInt973 = 1;
                 anInt974 = k;
-                anInt975 = class36_1.anInt558;
+                anInt975 = widget_1.anInt558;
                 anInt1025 = 0;
                 aBoolean1148 = true;
-                String s6 = class36_1.aString563;
+                String s6 = widget_1.aString563;
                 if(s6.indexOf(" ") != -1)
                 {
                     s6 = s6.substring(0, s6.indexOf(" "));
                 }
-                String s10 = class36_1.aString563;
+                String s10 = widget_1.aString563;
                 if(s10.indexOf(" ") != -1)
                 {
                     s10 = s10.substring(s10.indexOf(" ") + 1);
                 }
-                aString976 = s6 + " " + class36_1.aString553 + " " + s10;
+                aString976 = s6 + " " + widget_1.aString553 + " " + s10;
                 if(anInt975 == 16)
                 {
                     aBoolean1148 = true;
@@ -2049,13 +2049,13 @@ public class Game extends Applet_Sub1
                         method140(6);
                         aString1230 = s2.substring(j2 + 5).trim();
                         aBoolean1034 = false;
-                        for(int i3 = 0; i3 < Class36.aClass36Array533.length; i3++)
+                        for(int i3 = 0; i3 < Widget.aWidgetArray533.length; i3++)
                         {
-                            if(Class36.aClass36Array533[i3] == null || Class36.aClass36Array533[i3].anInt577 != 600)
+                            if(Widget.aWidgetArray533[i3] == null || Widget.aWidgetArray533[i3].anInt577 != 600)
                             {
                                 continue;
                             }
-                            anInt1165 = anInt1217 = Class36.aClass36Array533[i3].anInt573;
+                            anInt1165 = anInt1217 = Widget.aWidgetArray533[i3].anInt573;
                             break;
                         }
                     } else
@@ -2088,11 +2088,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -2148,11 +2148,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -2161,10 +2161,10 @@ public class Game extends Applet_Sub1
             {
                 aClass13_Sub1_Sub2_928.method300(328, 189);
                 aClass13_Sub1_Sub2_928.method302(k);
-                Class36 class36_2 = Class36.aClass36Array533[k];
-                if(class36_2.anIntArrayArray581 != null && class36_2.anIntArrayArray581[0][0] == 5)
+                Widget widget_2 = Widget.aWidgetArray533[k];
+                if(widget_2.anIntArrayArray581 != null && widget_2.anIntArrayArray581[0][0] == 5)
                 {
-                    int k2 = class36_2.anIntArrayArray581[0][1];
+                    int k2 = widget_2.anIntArrayArray581[0][1];
                     anIntArray1149[k2] = 1 - anIntArray1149[k2];
                     method64(true, k2);
                     aBoolean1148 = true;
@@ -2239,11 +2239,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -2289,11 +2289,11 @@ public class Game extends Applet_Sub1
             }
             if(l == 190)
             {
-                Class36 class36_3 = Class36.aClass36Array533[k];
+                Widget widget_3 = Widget.aWidgetArray533[k];
                 boolean flag7 = true;
-                if(class36_3.anInt577 > 0)
+                if(widget_3.anInt577 > 0)
                 {
-                    flag7 = method49((byte)1, class36_3);
+                    flag7 = method49((byte)1, widget_3);
                 }
                 if(flag7)
                 {
@@ -2321,11 +2321,11 @@ public class Game extends Applet_Sub1
                 anInt934 = k;
                 anInt935 = j;
                 anInt936 = 2;
-                if(Class36.aClass36Array533[k].anInt573 == anInt1217)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1217)
                 {
                     anInt936 = 1;
                 }
-                if(Class36.aClass36Array533[k].anInt573 == anInt1016)
+                if(Widget.aWidgetArray533[k].anInt573 == anInt1016)
                 {
                     anInt936 = 3;
                 }
@@ -2365,12 +2365,12 @@ public class Game extends Applet_Sub1
             if(anInt1143 != -1)
             {
                 method74(anInt1241, true, anInt1143);
-                method67(Class36.aClass36Array533[anInt1143], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anInt1143], 0, 0, 0, 988);
             }
             if(anInt1217 != -1)
             {
                 method74(anInt1241, true, anInt1217);
-                method67(Class36.aClass36Array533[anInt1217], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anInt1217], 0, 0, 0, 988);
             }
             method87((byte)9);
             if(flag)
@@ -2606,13 +2606,13 @@ public class Game extends Applet_Sub1
                 if(opcode == 252)
                 {
                     int l = buffer.method340();
-                    Class36.aClass36Array533[l].anInt541 = 3;
+                    Widget.aWidgetArray533[l].modelType = 3;
                     if(aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716 == null)
                     {
-                        Class36.aClass36Array533[l].anInt542 = (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1700[0] << 25) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1700[4] << 20) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[0] << 15) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[8] << 10) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[11] << 5) + aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[1];
+                        Widget.aWidgetArray533[l].anInt542 = (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1700[0] << 25) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1700[4] << 20) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[0] << 15) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[8] << 10) + (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[11] << 5) + aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1703[1];
                     } else
                     {
-                        Class36.aClass36Array533[l].anInt542 = (int)(0x12345678L + aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716.aLong770);
+                        Widget.aWidgetArray533[l].anInt542 = (int)(0x12345678L + aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716.aLong770);
                     }
                     opcode = -1;
                     return true;
@@ -2716,8 +2716,8 @@ public class Game extends Applet_Sub1
                 {
                     String s1 = buffer.method318();
                     int j10 = buffer.method313();
-                    Class36.aClass36Array533[j10].aString548 = s1;
-                    if(Class36.aClass36Array533[j10].anInt573 == anIntArray1018[anInt864])
+                    Widget.aWidgetArray533[j10].aString548 = s1;
+                    if(Widget.aWidgetArray533[j10].anInt573 == anIntArray1018[anInt864])
                     {
                         aBoolean1148 = true;
                     }
@@ -2727,11 +2727,11 @@ public class Game extends Applet_Sub1
                 if(opcode == 133)
                 {
                     int k1 = buffer.method313();
-                    Class36 class36 = Class36.aClass36Array533[k1];
-                    for(int i16 = 0; i16 < class36.anIntArray576.length; i16++)
+                    Widget widget = Widget.aWidgetArray533[k1];
+                    for(int i16 = 0; i16 < widget.anIntArray576.length; i16++)
                     {
-                        class36.anIntArray576[i16] = -1;
-                        class36.anIntArray576[i16] = 0;
+                        widget.anIntArray576[i16] = -1;
+                        widget.anIntArray576[i16] = 0;
                     }
                     opcode = -1;
                     return true;
@@ -2859,7 +2859,7 @@ public class Game extends Applet_Sub1
                 {
                     int i3 = buffer.method313();
                     boolean flag = buffer.method311() == 1;
-                    Class36.aClass36Array533[i3].aBoolean561 = flag;
+                    Widget.aWidgetArray533[i3].aBoolean561 = flag;
                     opcode = -1;
                     return true;
                 }
@@ -2873,8 +2873,8 @@ public class Game extends Applet_Sub1
                 {
                     int j3 = buffer.method313();
                     int j11 = buffer.method313();
-                    Class36.aClass36Array533[j11].anInt541 = 1;
-                    Class36.aClass36Array533[j11].anInt542 = j3;
+                    Widget.aWidgetArray533[j11].modelType = 1;
+                    Widget.aWidgetArray533[j11].anInt542 = j3;
                     opcode = -1;
                     return true;
                 }
@@ -2882,18 +2882,18 @@ public class Game extends Applet_Sub1
                 {
                     int k3 = buffer.method340();
                     int k11 = buffer.method339(true);
-                    Class36 class36_3 = Class36.aClass36Array533[k11];
-                    if(class36_3 != null && class36_3.anInt570 == 0)
+                    Widget widget_3 = Widget.aWidgetArray533[k11];
+                    if(widget_3 != null && widget_3.anInt570 == 0)
                     {
                         if(k3 < 0)
                         {
                             k3 = 0;
                         }
-                        if(k3 > class36_3.anInt598 - class36_3.anInt586)
+                        if(k3 > widget_3.anInt598 - widget_3.anInt586)
                         {
-                            k3 = class36_3.anInt598 - class36_3.anInt586;
+                            k3 = widget_3.anInt598 - widget_3.anInt586;
                         }
-                        class36_3.anInt595 = k3;
+                        widget_3.anInt595 = k3;
                     }
                     opcode = -1;
                     return true;
@@ -2919,24 +2919,24 @@ public class Game extends Applet_Sub1
                     opcode = -1;
                     return true;
                 }
-                if(opcode == 172)
+                if(IncomingPacket.SET_WIDGET_ITEM_MODEL.equals(opcode))
                 {
                     int i4 = buffer.method339(true);
                     int i12 = buffer.method338((byte)-52);
                     int i17 = buffer.method338((byte)-52);
                     if(i4 == 65535)
                     {
-                        Class36.aClass36Array533[i17].anInt541 = 0;
+                        Widget.aWidgetArray533[i17].modelType = 0;
                         opcode = -1;
                         return true;
                     } else
                     {
-                        Class38 class38 = Class38.method505(i4);
-                        Class36.aClass36Array533[i17].anInt541 = 4;
-                        Class36.aClass36Array533[i17].anInt542 = i4;
-                        Class36.aClass36Array533[i17].anInt535 = class38.anInt670;
-                        Class36.aClass36Array533[i17].anInt536 = class38.anInt663;
-                        Class36.aClass36Array533[i17].anInt534 = (class38.anInt618 * 100) / i12;
+                        ItemDefinition itemDefinition = ItemDefinition.method505(i4);
+                        Widget.aWidgetArray533[i17].modelType = 4;
+                        Widget.aWidgetArray533[i17].anInt542 = i4;
+                        Widget.aWidgetArray533[i17].anInt535 = itemDefinition.anInt670;
+                        Widget.aWidgetArray533[i17].anInt536 = itemDefinition.anInt663;
+                        Widget.aWidgetArray533[i17].anInt534 = (itemDefinition.modelScale * 100) / i12;
                         opcode = -1;
                         return true;
                     }
@@ -2945,8 +2945,8 @@ public class Game extends Applet_Sub1
                 {
                     int j4 = buffer.method338((byte)-52);
                     int j12 = buffer.method339(true);
-                    Class36.aClass36Array533[j12].anInt541 = 2;
-                    Class36.aClass36Array533[j12].anInt542 = j4;
+                    Widget.aWidgetArray533[j12].modelType = 2;
+                    Widget.aWidgetArray533[j12].anInt542 = j4;
                     opcode = -1;
                     return true;
                 }
@@ -2974,9 +2974,9 @@ public class Game extends Applet_Sub1
                     int k12 = buffer.method338((byte)-52);
                     int j17 = buffer.method340();
                     int i21 = buffer.method340();
-                    Class36.aClass36Array533[k12].anInt535 = i21;
-                    Class36.aClass36Array533[k12].anInt536 = l4;
-                    Class36.aClass36Array533[k12].anInt534 = j17;
+                    Widget.aWidgetArray533[k12].anInt535 = i21;
+                    Widget.aWidgetArray533[k12].anInt536 = l4;
+                    Widget.aWidgetArray533[k12].anInt534 = j17;
                     opcode = -1;
                     return true;
                 }
@@ -3138,13 +3138,13 @@ public class Game extends Applet_Sub1
                         }
                         aString1230 = "";
                         aBoolean1034 = false;
-                        for(int j13 = 0; j13 < Class36.aClass36Array533.length; j13++)
+                        for(int j13 = 0; j13 < Widget.aWidgetArray533.length; j13++)
                         {
-                            if(Class36.aClass36Array533[j13] == null || Class36.aClass36Array533[j13].anInt577 != c)
+                            if(Widget.aWidgetArray533[j13] == null || Widget.aWidgetArray533[j13].anInt577 != c)
                             {
                                 continue;
                             }
-                            anInt1217 = Class36.aClass36Array533[j13].anInt573;
+                            anInt1217 = Widget.aWidgetArray533[j13].anInt573;
                             break;
                         }
                     }
@@ -3156,9 +3156,9 @@ public class Game extends Applet_Sub1
                     int l5 = buffer.method313();
                     int k13 = buffer.method341(-26);
                     int i18 = buffer.method343(true);
-                    Class36 class36_5 = Class36.aClass36Array533[l5];
-                    class36_5.anInt537 = k13;
-                    class36_5.anInt590 = i18;
+                    Widget widget_5 = Widget.aWidgetArray533[l5];
+                    widget_5.anInt537 = k13;
+                    widget_5.anInt590 = i18;
                     opcode = -1;
                     return true;
                 }
@@ -3166,7 +3166,7 @@ public class Game extends Applet_Sub1
                 {
                     aBoolean1148 = true;
                     int i6 = buffer.method313();
-                    Class36 class36_1 = Class36.aClass36Array533[i6];
+                    Widget widget_1 = Widget.aWidgetArray533[i6];
                     int j18 = buffer.method313();
                     for(int k21 = 0; k21 < j18; k21++)
                     {
@@ -3175,13 +3175,13 @@ public class Game extends Applet_Sub1
                         {
                             k23 = buffer.method346((byte)1);
                         }
-                        class36_1.anIntArray576[k21] = buffer.method339(true);
-                        class36_1.anIntArray579[k21] = k23;
+                        widget_1.anIntArray576[k21] = buffer.method339(true);
+                        widget_1.anIntArray579[k21] = k23;
                     }
-                    for(int l23 = j18; l23 < class36_1.anIntArray576.length; l23++)
+                    for(int l23 = j18; l23 < widget_1.anIntArray576.length; l23++)
                     {
-                        class36_1.anIntArray576[l23] = 0;
-                        class36_1.anIntArray579[l23] = 0;
+                        widget_1.anIntArray576[l23] = 0;
+                        widget_1.anIntArray579[l23] = 0;
                     }
                     opcode = -1;
                     return true;
@@ -3256,12 +3256,12 @@ public class Game extends Applet_Sub1
                 {
                     int j6 = buffer.method339(true);
                     int l13 = buffer.method314();
-                    Class36 class36_4 = Class36.aClass36Array533[j6];
-                    class36_4.anInt571 = l13;
+                    Widget widget_4 = Widget.aWidgetArray533[j6];
+                    widget_4.anInt571 = l13;
                     if(l13 == -1)
                     {
-                        class36_4.anInt568 = 0;
-                        class36_4.anInt540 = 0;
+                        widget_4.anInt568 = 0;
+                        widget_4.anInt540 = 0;
                     }
                     opcode = -1;
                     return true;
@@ -3285,7 +3285,7 @@ public class Game extends Applet_Sub1
                 {
                     aBoolean1148 = true;
                     int k6 = buffer.method313();
-                    Class36 class36_2 = Class36.aClass36Array533[k6];
+                    Widget widget_2 = Widget.aWidgetArray533[k6];
                     while(buffer.anInt1399 < packetSize)
                     {
                         int l18 = buffer.method325();
@@ -3295,10 +3295,10 @@ public class Game extends Applet_Sub1
                         {
                             j24 = buffer.method316();
                         }
-                        if(l18 >= 0 && l18 < class36_2.anIntArray576.length)
+                        if(l18 >= 0 && l18 < widget_2.anIntArray576.length)
                         {
-                            class36_2.anIntArray576[l18] = l21;
-                            class36_2.anIntArray579[l18] = j24;
+                            widget_2.anIntArray576[l18] = l21;
+                            widget_2.anIntArray579[l18] = j24;
                         }
                     }
                     opcode = -1;
@@ -3699,7 +3699,7 @@ public class Game extends Applet_Sub1
                     int j20 = l8 >> 10 & 0x1f;
                     int i23 = l8 >> 5 & 0x1f;
                     int i26 = l8 & 0x1f;
-                    Class36.aClass36Array533[j15].anInt550 = (j20 << 19) + (i23 << 11) + (i26 << 3);
+                    Widget.aWidgetArray533[j15].anInt550 = (j20 << 19) + (i23 << 11) + (i26 << 3);
                     opcode = -1;
                     return true;
                 }
@@ -4014,10 +4014,10 @@ public class Game extends Applet_Sub1
                     {
                         for(Class13_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5 = (Class13_Sub1_Sub1_Sub5)class12.method249(true); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (Class13_Sub1_Sub1_Sub5)class12.method251(0))
                         {
-                            Class38 class38 = Class38.method505(class13_sub1_sub1_sub5.anInt1563);
+                            ItemDefinition itemDefinition = ItemDefinition.method505(class13_sub1_sub1_sub5.anInt1563);
                             if(anInt1025 == 1)
                             {
-                                aStringArray961[anInt1167] = "Use " + aString1029 + " with @lre@" + class38.aString649;
+                                aStringArray961[anInt1167] = "Use " + aString1029 + " with @lre@" + itemDefinition.aString649;
                                 anIntArray911[anInt1167] = 326;
                                 anIntArray912[anInt1167] = class13_sub1_sub1_sub5.anInt1563;
                                 anIntArray909[anInt1167] = l;
@@ -4028,7 +4028,7 @@ public class Game extends Applet_Sub1
                             {
                                 if((anInt975 & 1) == 1)
                                 {
-                                    aStringArray961[anInt1167] = aString976 + " @lre@" + class38.aString649;
+                                    aStringArray961[anInt1167] = aString976 + " @lre@" + itemDefinition.aString649;
                                     anIntArray911[anInt1167] = 559;
                                     anIntArray912[anInt1167] = class13_sub1_sub1_sub5.anInt1563;
                                     anIntArray909[anInt1167] = l;
@@ -4039,9 +4039,9 @@ public class Game extends Applet_Sub1
                             {
                                 for(int i3 = 4; i3 >= 0; i3--)
                                 {
-                                    if(class38.aStringArray643 != null && class38.aStringArray643[i3] != null)
+                                    if(itemDefinition.aStringArray643 != null && itemDefinition.aStringArray643[i3] != null)
                                     {
-                                        aStringArray961[anInt1167] = class38.aStringArray643[i3] + " @lre@" + class38.aString649;
+                                        aStringArray961[anInt1167] = itemDefinition.aStringArray643[i3] + " @lre@" + itemDefinition.aString649;
                                         if(i3 == 0)
                                         {
                                             anIntArray911[anInt1167] = 753;
@@ -4069,7 +4069,7 @@ public class Game extends Applet_Sub1
                                     } else
                                     if(i3 == 2)
                                     {
-                                        aStringArray961[anInt1167] = "Take @lre@" + class38.aString649;
+                                        aStringArray961[anInt1167] = "Take @lre@" + itemDefinition.aString649;
                                         anIntArray911[anInt1167] = 607;
                                         anIntArray912[anInt1167] = class13_sub1_sub1_sub5.anInt1563;
                                         anIntArray909[anInt1167] = l;
@@ -4077,7 +4077,7 @@ public class Game extends Applet_Sub1
                                         anInt1167++;
                                     }
                                 }
-                                aStringArray961[anInt1167] = "Examine @lre@" + class38.aString649;
+                                aStringArray961[anInt1167] = "Examine @lre@" + itemDefinition.aString649;
                                 anIntArray911[anInt1167] = 1733;
                                 anIntArray912[anInt1167] = class13_sub1_sub1_sub5.anInt1563;
                                 anIntArray909[anInt1167] = l;
@@ -4866,8 +4866,8 @@ public class Game extends Applet_Sub1
                     {
                         int l1 = anIntArray909[anInt1167 - 1];
                         int j2 = anIntArray910[anInt1167 - 1];
-                        Class36 class36 = Class36.aClass36Array533[j2];
-                        if(class36.aBoolean538 || class36.aBoolean578)
+                        Widget widget = Widget.aWidgetArray533[j2];
+                        if(widget.aBoolean538 || widget.aBoolean578)
                         {
                             aBoolean1070 = false;
                             anInt1183 = 0;
@@ -4876,11 +4876,11 @@ public class Game extends Applet_Sub1
                             anInt1060 = 2;
                             anInt1061 = super.anInt30;
                             anInt1062 = super.anInt31;
-                            if(Class36.aClass36Array533[j2].anInt573 == anInt1217)
+                            if(Widget.aWidgetArray533[j2].anInt573 == anInt1217)
                             {
                                 anInt1060 = 1;
                             }
-                            if(Class36.aClass36Array533[j2].anInt573 == anInt1016)
+                            if(Widget.aWidgetArray533[j2].anInt573 == anInt1016)
                             {
                                 anInt1060 = 3;
                             }
@@ -5559,10 +5559,10 @@ public class Game extends Applet_Sub1
             method41(88);
             Class14.method416(47779);
             Class47.method588(47779);
-            Class38.method511(47779);
+            ItemDefinition.method511(47779);
             Class32.aClass32Array489 = null;
             Class4.aClass4Array65 = null;
-            Class36.aClass36Array533 = null;
+            Widget.aWidgetArray533 = null;
             Class19.aClass19Array337 = null;
             Class50.aClass50Array800 = null;
             Class40.aClass40Array685 = null;
@@ -6055,24 +6055,24 @@ public class Game extends Applet_Sub1
                         method114(false);
                         if(anInt981 == anInt1058 && anInt980 != anInt1059)
                         {
-                            Class36 class36 = Class36.aClass36Array533[anInt1058];
+                            Widget widget = Widget.aWidgetArray533[anInt1058];
                             int j1 = 0;
-                            if(anInt862 == 1 && class36.anInt577 == 206)
+                            if(anInt862 == 1 && widget.anInt577 == 206)
                             {
                                 j1 = 1;
                             }
-                            if(class36.anIntArray576[anInt980] <= 0)
+                            if(widget.anIntArray576[anInt980] <= 0)
                             {
                                 j1 = 0;
                             }
-                            if(class36.aBoolean578)
+                            if(widget.aBoolean578)
                             {
                                 int i3 = anInt1059;
                                 int i4 = anInt980;
-                                class36.anIntArray576[i4] = class36.anIntArray576[i3];
-                                class36.anIntArray579[i4] = class36.anIntArray579[i3];
-                                class36.anIntArray576[i3] = -1;
-                                class36.anIntArray579[i3] = 0;
+                                widget.anIntArray576[i4] = widget.anIntArray576[i3];
+                                widget.anIntArray579[i4] = widget.anIntArray579[i3];
+                                widget.anIntArray576[i3] = -1;
+                                widget.anIntArray579[i3] = 0;
                             } else
                             if(j1 == 1)
                             {
@@ -6081,18 +6081,18 @@ public class Game extends Applet_Sub1
                                 {
                                     if(j3 > j4)
                                     {
-                                        class36.method502(j3, (byte)0, j3 - 1);
+                                        widget.method502(j3, (byte)0, j3 - 1);
                                         j3--;
                                     } else
                                     if(j3 < j4)
                                     {
-                                        class36.method502(j3, (byte)0, j3 + 1);
+                                        widget.method502(j3, (byte)0, j3 + 1);
                                         j3++;
                                     }
                                 }
                             } else
                             {
-                                class36.method502(anInt1059, (byte)0, anInt980);
+                                widget.method502(anInt1059, (byte)0, anInt980);
                             }
                             aClass13_Sub1_Sub2_928.method300(328, 13);
                             aClass13_Sub1_Sub2_928.method302(anInt1059);
@@ -6394,7 +6394,7 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public boolean method49(byte byte0, Class36 class36)
+    public boolean method49(byte byte0, Widget widget)
     {
         try
         {
@@ -6402,7 +6402,7 @@ public class Game extends Applet_Sub1
             {
                 anInt919 = aClass9_1163.method190();
             }
-            int i = class36.anInt577;
+            int i = widget.anInt577;
             if(anInt1055 == 2)
             {
                 if(i == 201)
@@ -6528,7 +6528,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("26595, " + byte0 + ", " + class36 + ", " + runtimeexception.toString());
+            signlink.reportError("26595, " + byte0 + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -6724,9 +6724,9 @@ public class Game extends Applet_Sub1
         Object obj = null;
         for(Class13_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5 = (Class13_Sub1_Sub1_Sub5)class12.method248(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (Class13_Sub1_Sub1_Sub5)class12.method250(-475))
         {
-            Class38 class38 = Class38.method505(class13_sub1_sub1_sub5.anInt1563);
-            int l = class38.anInt637;
-            if(class38.aBoolean662)
+            ItemDefinition itemDefinition = ItemDefinition.method505(class13_sub1_sub1_sub5.anInt1563);
+            int l = itemDefinition.anInt637;
+            if(itemDefinition.aBoolean662)
             {
                 l *= class13_sub1_sub1_sub5.anInt1564 + 1;
             }
@@ -7551,11 +7551,11 @@ public class Game extends Applet_Sub1
             } else
             if(anInt1016 != -1)
             {
-                method67(Class36.aClass36Array533[anInt1016], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anInt1016], 0, 0, 0, 988);
             } else
             if(anInt1276 != -1)
             {
-                method67(Class36.aClass36Array533[anInt1276], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anInt1276], 0, 0, 0, 988);
             } else
             {
                 Class13_Sub1_Sub4_Sub2 class13_sub1_sub4_sub2 = aClass13_Sub1_Sub4_Sub2_892;
@@ -7714,11 +7714,11 @@ public class Game extends Applet_Sub1
             aClass13_Sub1_Sub4_Sub3_1208.method401(0, (byte)83, 0);
             if(anInt874 != -1)
             {
-                method67(Class36.aClass36Array533[anInt874], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anInt874], 0, 0, 0, 988);
             } else
             if(anIntArray1018[anInt864] != -1)
             {
-                method67(Class36.aClass36Array533[anIntArray1018[anInt864]], 0, 0, 0, 988);
+                method67(Widget.aWidgetArray533[anIntArray1018[anInt864]], 0, 0, 0, 988);
             }
             if(aBoolean989 && anInt820 == 1)
             {
@@ -7931,7 +7931,7 @@ public class Game extends Applet_Sub1
                 {
                     Class13_Sub1_Sub4_Sub1.method372(0.59999999999999998D, (byte)7);
                 }
-                Class38.aClass3_661.method174();
+                ItemDefinition.aClass3_661.method174();
                 aBoolean1216 = true;
             }
             if(j == 3)
@@ -8039,8 +8039,8 @@ public class Game extends Applet_Sub1
             Class14.aClass3_248.method174();
             Class14.aClass3_249.method174();
             Class47.aClass3_759.method174();
-            Class38.aClass3_660.method174();
-            Class38.aClass3_661.method174();
+            ItemDefinition.aClass3_660.method174();
+            ItemDefinition.aClass3_661.method174();
             Class13_Sub1_Sub1_Sub6_Sub1.aClass3_1696.method174();
             Class40.aClass3_697.method174();
             return;
@@ -8095,15 +8095,15 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public void method67(Class36 class36, int i, int j, int k, int l)
+    public void method67(Widget widget, int i, int j, int k, int l)
     {
         try
         {
-            if(class36.anInt570 != 0 || class36.anIntArray549 == null)
+            if(widget.anInt570 != 0 || widget.anIntArray549 == null)
             {
                 return;
             }
-            if(class36.aBoolean561 && anInt861 != class36.anInt592 && anInt1118 != class36.anInt592 && anInt907 != class36.anInt592)
+            if(widget.aBoolean561 && anInt861 != widget.anInt592 && anInt1118 != widget.anInt592 && anInt907 != widget.anInt592)
             {
                 return;
             }
@@ -8111,67 +8111,67 @@ public class Game extends Applet_Sub1
             int j1 = Class13_Sub1_Sub4.anInt1426;
             int k1 = Class13_Sub1_Sub4.anInt1429;
             int l1 = Class13_Sub1_Sub4.anInt1427;
-            Class13_Sub1_Sub4.method353(j + class36.anInt582, (byte)-12, i + class36.anInt586, i, j);
-            int i2 = class36.anIntArray549.length;
+            Class13_Sub1_Sub4.method353(j + widget.anInt582, (byte)-12, i + widget.anInt586, i, j);
+            int i2 = widget.anIntArray549.length;
             for(int j2 = 0; j2 < i2; j2++)
             {
-                int k2 = class36.anIntArray591[j2] + j;
-                int l2 = (class36.anIntArray557[j2] + i) - k;
-                Class36 class36_1 = Class36.aClass36Array533[class36.anIntArray549[j2]];
-                k2 += class36_1.anInt537;
-                l2 += class36_1.anInt590;
-                if(class36_1.anInt577 > 0)
+                int k2 = widget.anIntArray591[j2] + j;
+                int l2 = (widget.anIntArray557[j2] + i) - k;
+                Widget widget_1 = Widget.aWidgetArray533[widget.anIntArray549[j2]];
+                k2 += widget_1.anInt537;
+                l2 += widget_1.anInt590;
+                if(widget_1.anInt577 > 0)
                 {
-                    method105(0, class36_1);
+                    method105(0, widget_1);
                 }
-                if(class36_1.anInt570 == 0)
+                if(widget_1.anInt570 == 0)
                 {
-                    if(class36_1.anInt595 > class36_1.anInt598 - class36_1.anInt586)
+                    if(widget_1.anInt595 > widget_1.anInt598 - widget_1.anInt586)
                     {
-                        class36_1.anInt595 = class36_1.anInt598 - class36_1.anInt586;
+                        widget_1.anInt595 = widget_1.anInt598 - widget_1.anInt586;
                     }
-                    if(class36_1.anInt595 < 0)
+                    if(widget_1.anInt595 < 0)
                     {
-                        class36_1.anInt595 = 0;
+                        widget_1.anInt595 = 0;
                     }
-                    method67(class36_1, l2, k2, class36_1.anInt595, 988);
-                    if(class36_1.anInt598 > class36_1.anInt586)
+                    method67(widget_1, l2, k2, widget_1.anInt595, 988);
+                    if(widget_1.anInt598 > widget_1.anInt586)
                     {
-                        method36((byte)2, class36_1.anInt586, class36_1.anInt598, class36_1.anInt595, l2, k2 + class36_1.anInt582);
+                        method36((byte)2, widget_1.anInt586, widget_1.anInt598, widget_1.anInt595, l2, k2 + widget_1.anInt582);
                     }
                 } else
-                if(class36_1.anInt570 != 1)
+                if(widget_1.anInt570 != 1)
                 {
-                    if(class36_1.anInt570 == 2)
+                    if(widget_1.anInt570 == 2)
                     {
                         int i3 = 0;
-                        for(int l3 = 0; l3 < class36_1.anInt586; l3++)
+                        for(int l3 = 0; l3 < widget_1.anInt586; l3++)
                         {
-                            for(int l4 = 0; l4 < class36_1.anInt582; l4++)
+                            for(int l4 = 0; l4 < widget_1.anInt582; l4++)
                             {
-                                int k5 = k2 + l4 * (32 + class36_1.anInt599);
-                                int j6 = l2 + l3 * (32 + class36_1.anInt554);
+                                int k5 = k2 + l4 * (32 + widget_1.anInt599);
+                                int j6 = l2 + l3 * (32 + widget_1.anInt554);
                                 if(i3 < 20)
                                 {
-                                    k5 += class36_1.anIntArray580[i3];
-                                    j6 += class36_1.anIntArray560[i3];
+                                    k5 += widget_1.anIntArray580[i3];
+                                    j6 += widget_1.anIntArray560[i3];
                                 }
-                                if(class36_1.anIntArray576[i3] > 0)
+                                if(widget_1.anIntArray576[i3] > 0)
                                 {
                                     int k6 = 0;
                                     int j7 = 0;
-                                    int j9 = class36_1.anIntArray576[i3] - 1;
+                                    int j9 = widget_1.anIntArray576[i3] - 1;
                                     if(k5 > Class13_Sub1_Sub4.anInt1428 - 32 && k5 < Class13_Sub1_Sub4.anInt1429 && j6 > Class13_Sub1_Sub4.anInt1426 - 32 && j6 < Class13_Sub1_Sub4.anInt1427 || anInt1060 != 0 && anInt1059 == i3)
                                     {
                                         int l9 = 0;
-                                        if(anInt1025 == 1 && anInt1026 == i3 && anInt1027 == class36_1.anInt592)
+                                        if(anInt1025 == 1 && anInt1026 == i3 && anInt1027 == widget_1.anInt592)
                                         {
                                             l9 = 0xffffff;
                                         }
-                                        Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = Class38.method503(j9, class36_1.anIntArray579[i3], l9, aBoolean944);
+                                        Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = ItemDefinition.method503(j9, widget_1.anIntArray579[i3], l9, aBoolean944);
                                         if(class13_sub1_sub4_sub4_2 != null)
                                         {
-                                            if(anInt1060 != 0 && anInt1059 == i3 && anInt1058 == class36_1.anInt592)
+                                            if(anInt1060 != 0 && anInt1059 == i3 && anInt1058 == widget_1.anInt592)
                                             {
                                                 k6 = super.anInt23 - anInt1061;
                                                 j7 = super.anInt24 - anInt1062;
@@ -8189,54 +8189,54 @@ public class Game extends Applet_Sub1
                                                     j7 = 0;
                                                 }
                                                 class13_sub1_sub4_sub4_2.method410(k5 + k6, 8, 128, j6 + j7);
-                                                if(j6 + j7 < Class13_Sub1_Sub4.anInt1426 && class36.anInt595 > 0)
+                                                if(j6 + j7 < Class13_Sub1_Sub4.anInt1426 && widget.anInt595 > 0)
                                                 {
                                                     int i10 = (anInt1241 * (Class13_Sub1_Sub4.anInt1426 - j6 - j7)) / 3;
                                                     if(i10 > anInt1241 * 10)
                                                     {
                                                         i10 = anInt1241 * 10;
                                                     }
-                                                    if(i10 > class36.anInt595)
+                                                    if(i10 > widget.anInt595)
                                                     {
-                                                        i10 = class36.anInt595;
+                                                        i10 = widget.anInt595;
                                                     }
-                                                    class36.anInt595 -= i10;
+                                                    widget.anInt595 -= i10;
                                                     anInt1062 += i10;
                                                 }
-                                                if(j6 + j7 + 32 > Class13_Sub1_Sub4.anInt1427 && class36.anInt595 < class36.anInt598 - class36.anInt586)
+                                                if(j6 + j7 + 32 > Class13_Sub1_Sub4.anInt1427 && widget.anInt595 < widget.anInt598 - widget.anInt586)
                                                 {
                                                     int j10 = (anInt1241 * ((j6 + j7 + 32) - Class13_Sub1_Sub4.anInt1427)) / 3;
                                                     if(j10 > anInt1241 * 10)
                                                     {
                                                         j10 = anInt1241 * 10;
                                                     }
-                                                    if(j10 > class36.anInt598 - class36.anInt586 - class36.anInt595)
+                                                    if(j10 > widget.anInt598 - widget.anInt586 - widget.anInt595)
                                                     {
-                                                        j10 = class36.anInt598 - class36.anInt586 - class36.anInt595;
+                                                        j10 = widget.anInt598 - widget.anInt586 - widget.anInt595;
                                                     }
-                                                    class36.anInt595 += j10;
+                                                    widget.anInt595 += j10;
                                                     anInt1062 -= j10;
                                                 }
                                             } else
-                                            if(anInt936 != 0 && anInt935 == i3 && anInt934 == class36_1.anInt592)
+                                            if(anInt936 != 0 && anInt935 == i3 && anInt934 == widget_1.anInt592)
                                             {
                                                 class13_sub1_sub4_sub4_2.method410(k5, 8, 128, j6);
                                             } else
                                             {
                                                 class13_sub1_sub4_sub4_2.method408(j6, (byte)83, k5);
                                             }
-                                            if(class13_sub1_sub4_sub4_2.anInt1685 == 33 || class36_1.anIntArray579[i3] != 1)
+                                            if(class13_sub1_sub4_sub4_2.anInt1685 == 33 || widget_1.anIntArray579[i3] != 1)
                                             {
-                                                int k10 = class36_1.anIntArray579[i3];
+                                                int k10 = widget_1.anIntArray579[i3];
                                                 aClass13_Sub1_Sub4_Sub2_891.method385((byte)-96, method29(k10, anInt1204), 0, k5 + 1 + k6, j6 + 10 + j7);
                                                 aClass13_Sub1_Sub4_Sub2_891.method385((byte)-96, method29(k10, anInt1204), 0xffff00, k5 + k6, j6 + 9 + j7);
                                             }
                                         }
                                     }
                                 } else
-                                if(class36_1.aClass13_Sub1_Sub4_Sub4Array539 != null && i3 < 20)
+                                if(widget_1.aClass13_Sub1_Sub4_Sub4Array539 != null && i3 < 20)
                                 {
-                                    Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_1 = class36_1.aClass13_Sub1_Sub4_Sub4Array539[i3];
+                                    Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_1 = widget_1.aClass13_Sub1_Sub4_Sub4Array539[i3];
                                     if(class13_sub1_sub4_sub4_1 != null)
                                     {
                                         class13_sub1_sub4_sub4_1.method408(j6, (byte)83, k5);
@@ -8246,80 +8246,80 @@ public class Game extends Applet_Sub1
                             }
                         }
                     } else
-                    if(class36_1.anInt570 == 3)
+                    if(widget_1.anInt570 == 3)
                     {
                         boolean flag = false;
-                        if(anInt907 == class36_1.anInt592 || anInt1118 == class36_1.anInt592 || anInt861 == class36_1.anInt592)
+                        if(anInt907 == widget_1.anInt592 || anInt1118 == widget_1.anInt592 || anInt861 == widget_1.anInt592)
                         {
                             flag = true;
                         }
                         int j3;
-                        if(method76(-33151, class36_1))
+                        if(method76(-33151, widget_1))
                         {
-                            j3 = class36_1.anInt544;
-                            if(flag && class36_1.anInt566 != 0)
+                            j3 = widget_1.anInt544;
+                            if(flag && widget_1.anInt566 != 0)
                             {
-                                j3 = class36_1.anInt566;
+                                j3 = widget_1.anInt566;
                             }
                         } else
                         {
-                            j3 = class36_1.anInt550;
-                            if(flag && class36_1.anInt596 != 0)
+                            j3 = widget_1.anInt550;
+                            if(flag && widget_1.anInt596 != 0)
                             {
-                                j3 = class36_1.anInt596;
+                                j3 = widget_1.anInt596;
                             }
                         }
-                        if(class36_1.aByte562 == 0)
+                        if(widget_1.aByte562 == 0)
                         {
-                            if(class36_1.aBoolean555)
+                            if(widget_1.aBoolean555)
                             {
-                                Class13_Sub1_Sub4.method356(false, k2, l2, j3, class36_1.anInt582, class36_1.anInt586);
+                                Class13_Sub1_Sub4.method356(false, k2, l2, j3, widget_1.anInt582, widget_1.anInt586);
                             } else
                             {
-                                Class13_Sub1_Sub4.method357((byte)4, l2, k2, class36_1.anInt586, j3, class36_1.anInt582);
+                                Class13_Sub1_Sub4.method357((byte)4, l2, k2, widget_1.anInt586, j3, widget_1.anInt582);
                             }
                         } else
-                        if(class36_1.aBoolean555)
+                        if(widget_1.aBoolean555)
                         {
-                            Class13_Sub1_Sub4.method355(class36_1.anInt582, 0, l2, class36_1.anInt586, j3, k2, 256 - (class36_1.aByte562 & 0xff));
+                            Class13_Sub1_Sub4.method355(widget_1.anInt582, 0, l2, widget_1.anInt586, j3, k2, 256 - (widget_1.aByte562 & 0xff));
                         } else
                         {
-                            Class13_Sub1_Sub4.method358(class36_1.anInt582, k2, false, 256 - (class36_1.aByte562 & 0xff), j3, l2, class36_1.anInt586);
+                            Class13_Sub1_Sub4.method358(widget_1.anInt582, k2, false, 256 - (widget_1.aByte562 & 0xff), j3, l2, widget_1.anInt586);
                         }
                     } else
-                    if(class36_1.anInt570 == 4)
+                    if(widget_1.anInt570 == 4)
                     {
-                        Class13_Sub1_Sub4_Sub2 class13_sub1_sub4_sub2 = class36_1.aClass13_Sub1_Sub4_Sub2_583;
-                        String s = class36_1.aString548;
+                        Class13_Sub1_Sub4_Sub2 class13_sub1_sub4_sub2 = widget_1.aClass13_Sub1_Sub4_Sub2_583;
+                        String s = widget_1.aString548;
                         boolean flag1 = false;
-                        if(anInt907 == class36_1.anInt592 || anInt1118 == class36_1.anInt592 || anInt861 == class36_1.anInt592)
+                        if(anInt907 == widget_1.anInt592 || anInt1118 == widget_1.anInt592 || anInt861 == widget_1.anInt592)
                         {
                             flag1 = true;
                         }
                         int i4;
-                        if(method76(-33151, class36_1))
+                        if(method76(-33151, widget_1))
                         {
-                            i4 = class36_1.anInt544;
-                            if(flag1 && class36_1.anInt566 != 0)
+                            i4 = widget_1.anInt544;
+                            if(flag1 && widget_1.anInt566 != 0)
                             {
-                                i4 = class36_1.anInt566;
+                                i4 = widget_1.anInt566;
                             }
-                            if(class36_1.aString589.length() > 0)
+                            if(widget_1.aString589.length() > 0)
                             {
-                                s = class36_1.aString589;
+                                s = widget_1.aString589;
                             }
                         } else
                         {
-                            i4 = class36_1.anInt550;
-                            if(flag1 && class36_1.anInt596 != 0)
+                            i4 = widget_1.anInt550;
+                            if(flag1 && widget_1.anInt596 != 0)
                             {
-                                i4 = class36_1.anInt596;
+                                i4 = widget_1.anInt596;
                             }
                         }
-                        if(class36_1.anInt597 == 6 && aBoolean1048)
+                        if(widget_1.anInt597 == 6 && aBoolean1048)
                         {
                             s = "Please wait...";
-                            i4 = class36_1.anInt550;
+                            i4 = widget_1.anInt550;
                         }
                         if(Class13_Sub1_Sub4.anInt1424 == 479)
                         {
@@ -8343,7 +8343,7 @@ public class Game extends Applet_Sub1
                                     {
                                         break;
                                     }
-                                    s = s.substring(0, k7) + method107(method82(0, false, class36_1), 46358) + s.substring(k7 + 2);
+                                    s = s.substring(0, k7) + method107(method82(0, false, widget_1), 46358) + s.substring(k7 + 2);
                                 } while(true);
                                 do
                                 {
@@ -8352,7 +8352,7 @@ public class Game extends Applet_Sub1
                                     {
                                         break;
                                     }
-                                    s = s.substring(0, l7) + method107(method82(1, false, class36_1), 46358) + s.substring(l7 + 2);
+                                    s = s.substring(0, l7) + method107(method82(1, false, widget_1), 46358) + s.substring(l7 + 2);
                                 } while(true);
                                 do
                                 {
@@ -8361,7 +8361,7 @@ public class Game extends Applet_Sub1
                                     {
                                         break;
                                     }
-                                    s = s.substring(0, i8) + method107(method82(2, false, class36_1), 46358) + s.substring(i8 + 2);
+                                    s = s.substring(0, i8) + method107(method82(2, false, widget_1), 46358) + s.substring(i8 + 2);
                                 } while(true);
                                 do
                                 {
@@ -8370,7 +8370,7 @@ public class Game extends Applet_Sub1
                                     {
                                         break;
                                     }
-                                    s = s.substring(0, j8) + method107(method82(3, false, class36_1), 46358) + s.substring(j8 + 2);
+                                    s = s.substring(0, j8) + method107(method82(3, false, widget_1), 46358) + s.substring(j8 + 2);
                                 } while(true);
                                 do
                                 {
@@ -8379,7 +8379,7 @@ public class Game extends Applet_Sub1
                                     {
                                         break;
                                     }
-                                    s = s.substring(0, k8) + method107(method82(4, false, class36_1), 46358) + s.substring(k8 + 2);
+                                    s = s.substring(0, k8) + method107(method82(4, false, widget_1), 46358) + s.substring(k8 + 2);
                                 } while(true);
                             }
                             int l8 = s.indexOf("\\n");
@@ -8393,88 +8393,88 @@ public class Game extends Applet_Sub1
                                 s1 = s;
                                 s = "";
                             }
-                            if(class36_1.aBoolean551)
+                            if(widget_1.aBoolean551)
                             {
-                                class13_sub1_sub4_sub2.method382(k2 + class36_1.anInt582 / 2, class36_1.aBoolean559, s1, l6, i4, false);
+                                class13_sub1_sub4_sub2.method382(k2 + widget_1.anInt582 / 2, widget_1.aBoolean559, s1, l6, i4, false);
                             } else
                             {
-                                class13_sub1_sub4_sub2.method389(class36_1.aBoolean559, k2, (byte)8, l6, i4, s1);
+                                class13_sub1_sub4_sub2.method389(widget_1.aBoolean559, k2, (byte)8, l6, i4, s1);
                             }
                         }
 
                     } else
-                    if(class36_1.anInt570 == 5)
+                    if(widget_1.anInt570 == 5)
                     {
                         Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4;
-                        if(method76(-33151, class36_1))
+                        if(method76(-33151, widget_1))
                         {
-                            class13_sub1_sub4_sub4 = class36_1.aClass13_Sub1_Sub4_Sub4_565;
+                            class13_sub1_sub4_sub4 = widget_1.aClass13_Sub1_Sub4_Sub4_565;
                         } else
                         {
-                            class13_sub1_sub4_sub4 = class36_1.aClass13_Sub1_Sub4_Sub4_569;
+                            class13_sub1_sub4_sub4 = widget_1.aClass13_Sub1_Sub4_Sub4_569;
                         }
                         if(class13_sub1_sub4_sub4 != null)
                         {
                             class13_sub1_sub4_sub4.method408(l2, (byte)83, k2);
                         }
                     } else
-                    if(class36_1.anInt570 == 6)
+                    if(widget_1.anInt570 == 6)
                     {
                         int k3 = Class13_Sub1_Sub4_Sub1.anInt1630;
                         int j4 = Class13_Sub1_Sub4_Sub1.anInt1631;
-                        Class13_Sub1_Sub4_Sub1.anInt1630 = k2 + class36_1.anInt582 / 2;
-                        Class13_Sub1_Sub4_Sub1.anInt1631 = l2 + class36_1.anInt586 / 2;
-                        int i5 = Class13_Sub1_Sub4_Sub1.anIntArray1634[class36_1.anInt535] * class36_1.anInt534 >> 16;
-                        int l5 = Class13_Sub1_Sub4_Sub1.anIntArray1635[class36_1.anInt535] * class36_1.anInt534 >> 16;
-                        boolean flag2 = method76(-33151, class36_1);
+                        Class13_Sub1_Sub4_Sub1.anInt1630 = k2 + widget_1.anInt582 / 2;
+                        Class13_Sub1_Sub4_Sub1.anInt1631 = l2 + widget_1.anInt586 / 2;
+                        int i5 = Class13_Sub1_Sub4_Sub1.anIntArray1634[widget_1.anInt535] * widget_1.anInt534 >> 16;
+                        int l5 = Class13_Sub1_Sub4_Sub1.anIntArray1635[widget_1.anInt535] * widget_1.anInt534 >> 16;
+                        boolean flag2 = method76(-33151, widget_1);
                         int i7;
                         if(flag2)
                         {
-                            i7 = class36_1.anInt572;
+                            i7 = widget_1.anInt572;
                         } else
                         {
-                            i7 = class36_1.anInt571;
+                            i7 = widget_1.anInt571;
                         }
                         Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
                         if(i7 == -1)
                         {
-                            class13_sub1_sub1_sub4 = class36_1.method499(-1, -1, true, flag2);
+                            class13_sub1_sub1_sub4 = widget_1.method499(-1, -1, true, flag2);
                         } else
                         {
                             Class50 class50 = Class50.aClass50Array800[i7];
-                            class13_sub1_sub1_sub4 = class36_1.method499(class50.anIntArray803[class36_1.anInt568], class50.anIntArray802[class36_1.anInt568], true, flag2);
+                            class13_sub1_sub1_sub4 = widget_1.method499(class50.anIntArray803[widget_1.anInt568], class50.anIntArray802[widget_1.anInt568], true, flag2);
                         }
                         if(class13_sub1_sub1_sub4 != null)
                         {
-                            class13_sub1_sub1_sub4.method285(0, class36_1.anInt536, 0, class36_1.anInt535, 0, i5, l5);
+                            class13_sub1_sub1_sub4.method285(0, widget_1.anInt536, 0, widget_1.anInt535, 0, i5, l5);
                         }
                         Class13_Sub1_Sub4_Sub1.anInt1630 = k3;
                         Class13_Sub1_Sub4_Sub1.anInt1631 = j4;
                     } else
-                    if(class36_1.anInt570 == 7)
+                    if(widget_1.anInt570 == 7)
                     {
-                        Class13_Sub1_Sub4_Sub2 class13_sub1_sub4_sub2_1 = class36_1.aClass13_Sub1_Sub4_Sub2_583;
+                        Class13_Sub1_Sub4_Sub2 class13_sub1_sub4_sub2_1 = widget_1.aClass13_Sub1_Sub4_Sub2_583;
                         int k4 = 0;
-                        for(int j5 = 0; j5 < class36_1.anInt586; j5++)
+                        for(int j5 = 0; j5 < widget_1.anInt586; j5++)
                         {
-                            for(int i6 = 0; i6 < class36_1.anInt582; i6++)
+                            for(int i6 = 0; i6 < widget_1.anInt582; i6++)
                             {
-                                if(class36_1.anIntArray576[k4] > 0)
+                                if(widget_1.anIntArray576[k4] > 0)
                                 {
-                                    Class38 class38 = Class38.method505(class36_1.anIntArray576[k4] - 1);
-                                    String s2 = class38.aString649;
-                                    if(class38.aBoolean662 || class36_1.anIntArray579[k4] != 1)
+                                    ItemDefinition itemDefinition = ItemDefinition.method505(widget_1.anIntArray576[k4] - 1);
+                                    String s2 = itemDefinition.aString649;
+                                    if(itemDefinition.aBoolean662 || widget_1.anIntArray579[k4] != 1)
                                     {
-                                        s2 = s2 + " x" + method58(-218, class36_1.anIntArray579[k4]);
+                                        s2 = s2 + " x" + method58(-218, widget_1.anIntArray579[k4]);
                                     }
-                                    int i9 = k2 + i6 * (115 + class36_1.anInt599);
-                                    int k9 = l2 + j5 * (12 + class36_1.anInt554);
-                                    if(class36_1.aBoolean551)
+                                    int i9 = k2 + i6 * (115 + widget_1.anInt599);
+                                    int k9 = l2 + j5 * (12 + widget_1.anInt554);
+                                    if(widget_1.aBoolean551)
                                     {
-                                        class13_sub1_sub4_sub2_1.method382(i9 + class36_1.anInt582 / 2, class36_1.aBoolean559, s2, k9, class36_1.anInt550, false);
+                                        class13_sub1_sub4_sub2_1.method382(i9 + widget_1.anInt582 / 2, widget_1.aBoolean559, s2, k9, widget_1.anInt550, false);
                                     } else
                                     {
-                                        class13_sub1_sub4_sub2_1.method389(class36_1.aBoolean559, i9, (byte)8, k9, class36_1.anInt550, s2);
+                                        class13_sub1_sub4_sub2_1.method389(widget_1.aBoolean559, i9, (byte)8, k9, widget_1.anInt550, s2);
                                     }
                                 }
                                 k4++;
@@ -8493,7 +8493,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("61542, " + class36 + ", " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            signlink.reportError("61542, " + widget + ", " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -8903,42 +8903,42 @@ public class Game extends Applet_Sub1
         try
         {
             boolean flag1 = false;
-            Class36 class36 = Class36.aClass36Array533[j];
-            for(int k = 0; k < class36.anIntArray549.length; k++)
+            Widget widget = Widget.aWidgetArray533[j];
+            for(int k = 0; k < widget.anIntArray549.length; k++)
             {
-                if(class36.anIntArray549[k] == -1)
+                if(widget.anIntArray549[k] == -1)
                 {
                     break;
                 }
-                Class36 class36_1 = Class36.aClass36Array533[class36.anIntArray549[k]];
-                if(class36_1.anInt570 == 1)
+                Widget widget_1 = Widget.aWidgetArray533[widget.anIntArray549[k]];
+                if(widget_1.anInt570 == 1)
                 {
-                    flag1 |= method74(i, true, class36_1.anInt592);
+                    flag1 |= method74(i, true, widget_1.anInt592);
                 }
-                if(class36_1.anInt570 == 6 && (class36_1.anInt571 != -1 || class36_1.anInt572 != -1))
+                if(widget_1.anInt570 == 6 && (widget_1.anInt571 != -1 || widget_1.anInt572 != -1))
                 {
-                    boolean flag2 = method76(-33151, class36_1);
+                    boolean flag2 = method76(-33151, widget_1);
                     int l;
                     if(flag2)
                     {
-                        l = class36_1.anInt572;
+                        l = widget_1.anInt572;
                     } else
                     {
-                        l = class36_1.anInt571;
+                        l = widget_1.anInt571;
                     }
                     if(l != -1)
                     {
                         Class50 class50 = Class50.aClass50Array800[l];
-                        for(class36_1.anInt540 += i; class36_1.anInt540 > class50.method592(0, class36_1.anInt568);)
+                        for(widget_1.anInt540 += i; widget_1.anInt540 > class50.method592(0, widget_1.anInt568);)
                         {
-                            class36_1.anInt540 -= class50.method592(0, class36_1.anInt568) + 1;
-                            class36_1.anInt568++;
-                            if(class36_1.anInt568 >= class50.anInt801)
+                            widget_1.anInt540 -= class50.method592(0, widget_1.anInt568) + 1;
+                            widget_1.anInt568++;
+                            if(widget_1.anInt568 >= class50.anInt801)
                             {
-                                class36_1.anInt568 -= class50.anInt805;
-                                if(class36_1.anInt568 < 0 || class36_1.anInt568 >= class50.anInt801)
+                                widget_1.anInt568 -= class50.anInt805;
+                                if(widget_1.anInt568 < 0 || widget_1.anInt568 >= class50.anInt801)
                                 {
-                                    class36_1.anInt568 = 0;
+                                    widget_1.anInt568 = 0;
                                 }
                             }
                             flag1 = true;
@@ -8979,19 +8979,19 @@ public class Game extends Applet_Sub1
         method2(503, 765, anInt1074);
     }
 
-    public void method75(int i, Class36 class36, int j, boolean flag, int k, int l, int i1)
+    public void method75(int i, Widget widget, int j, boolean flag, int k, int l, int i1)
     {
         try
         {
-            if(class36.anInt570 != 0 || class36.anIntArray549 == null || class36.aBoolean561)
+            if(widget.anInt570 != 0 || widget.anIntArray549 == null || widget.aBoolean561)
             {
                 return;
             }
-            if(i < k || j < i1 || i > k + class36.anInt582 || j > i1 + class36.anInt586)
+            if(i < k || j < i1 || i > k + widget.anInt582 || j > i1 + widget.anInt586)
             {
                 return;
             }
-            int j1 = class36.anIntArray549.length;
+            int j1 = widget.anIntArray549.length;
             if(flag)
             {
                 for(int k1 = 1; k1 > 0; k1++)
@@ -9000,138 +9000,138 @@ public class Game extends Applet_Sub1
             }
             for(int l1 = 0; l1 < j1; l1++)
             {
-                int i2 = class36.anIntArray591[l1] + k;
-                int j2 = (class36.anIntArray557[l1] + i1) - l;
-                Class36 class36_1 = Class36.aClass36Array533[class36.anIntArray549[l1]];
-                i2 += class36_1.anInt537;
-                j2 += class36_1.anInt590;
-                if((class36_1.anInt543 >= 0 || class36_1.anInt596 != 0) && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                int i2 = widget.anIntArray591[l1] + k;
+                int j2 = (widget.anIntArray557[l1] + i1) - l;
+                Widget widget_1 = Widget.aWidgetArray533[widget.anIntArray549[l1]];
+                i2 += widget_1.anInt537;
+                j2 += widget_1.anInt590;
+                if((widget_1.anInt543 >= 0 || widget_1.anInt596 != 0) && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                 {
-                    if(class36_1.anInt543 >= 0)
+                    if(widget_1.anInt543 >= 0)
                     {
-                        anInt1270 = class36_1.anInt543;
+                        anInt1270 = widget_1.anInt543;
                     } else
                     {
-                        anInt1270 = class36_1.anInt592;
+                        anInt1270 = widget_1.anInt592;
                     }
                 }
-                if(class36_1.anInt570 == 0)
+                if(widget_1.anInt570 == 0)
                 {
-                    method75(i, class36_1, j, false, i2, class36_1.anInt595, j2);
-                    if(class36_1.anInt598 > class36_1.anInt586)
+                    method75(i, widget_1, j, false, i2, widget_1.anInt595, j2);
+                    if(widget_1.anInt598 > widget_1.anInt586)
                     {
-                        method111(i, i2 + class36_1.anInt582, class36_1.anInt598, j, class36_1.anInt586, (byte)4, class36_1, true, j2);
+                        method111(i, i2 + widget_1.anInt582, widget_1.anInt598, j, widget_1.anInt586, (byte)4, widget_1, true, j2);
                     }
                 } else
                 {
-                    if(class36_1.anInt597 == 1 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 1 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
                         boolean flag1 = false;
-                        if(class36_1.anInt577 != 0)
+                        if(widget_1.anInt577 != 0)
                         {
-                            flag1 = method119(class36_1, (byte)0);
+                            flag1 = method119(widget_1, (byte)0);
                         }
                         if(!flag1)
                         {
-                            aStringArray961[anInt1167] = class36_1.aString564;
+                            aStringArray961[anInt1167] = widget_1.aString564;
                             anIntArray911[anInt1167] = 190;
-                            anIntArray910[anInt1167] = class36_1.anInt592;
+                            anIntArray910[anInt1167] = widget_1.anInt592;
                             anInt1167++;
                         }
                     }
-                    if(class36_1.anInt597 == 2 && anInt973 == 0 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 2 && anInt973 == 0 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
-                        String s = class36_1.aString563;
+                        String s = widget_1.aString563;
                         if(s.indexOf(" ") != -1)
                         {
                             s = s.substring(0, s.indexOf(" "));
                         }
-                        aStringArray961[anInt1167] = s + " @gre@" + class36_1.aString553;
+                        aStringArray961[anInt1167] = s + " @gre@" + widget_1.aString553;
                         anIntArray911[anInt1167] = 813;
-                        anIntArray910[anInt1167] = class36_1.anInt592;
+                        anIntArray910[anInt1167] = widget_1.anInt592;
                         anInt1167++;
                     }
-                    if(class36_1.anInt597 == 3 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 3 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
                         aStringArray961[anInt1167] = "Close";
                         anIntArray911[anInt1167] = 324;
-                        anIntArray910[anInt1167] = class36_1.anInt592;
+                        anIntArray910[anInt1167] = widget_1.anInt592;
                         anInt1167++;
                     }
-                    if(class36_1.anInt597 == 4 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 4 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
-                        aStringArray961[anInt1167] = class36_1.aString564;
+                        aStringArray961[anInt1167] = widget_1.aString564;
                         anIntArray911[anInt1167] = 654;
-                        anIntArray910[anInt1167] = class36_1.anInt592;
+                        anIntArray910[anInt1167] = widget_1.anInt592;
                         anInt1167++;
                     }
-                    if(class36_1.anInt597 == 5 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 5 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
-                        aStringArray961[anInt1167] = class36_1.aString564;
+                        aStringArray961[anInt1167] = widget_1.aString564;
                         anIntArray911[anInt1167] = 682;
-                        anIntArray910[anInt1167] = class36_1.anInt592;
+                        anIntArray910[anInt1167] = widget_1.anInt592;
                         anInt1167++;
                     }
-                    if(class36_1.anInt597 == 6 && !aBoolean1048 && i >= i2 && j >= j2 && i < i2 + class36_1.anInt582 && j < j2 + class36_1.anInt586)
+                    if(widget_1.anInt597 == 6 && !aBoolean1048 && i >= i2 && j >= j2 && i < i2 + widget_1.anInt582 && j < j2 + widget_1.anInt586)
                     {
-                        aStringArray961[anInt1167] = class36_1.aString564;
+                        aStringArray961[anInt1167] = widget_1.aString564;
                         anIntArray911[anInt1167] = 755;
-                        anIntArray910[anInt1167] = class36_1.anInt592;
+                        anIntArray910[anInt1167] = widget_1.anInt592;
                         anInt1167++;
                     }
-                    if(class36_1.anInt570 == 2)
+                    if(widget_1.anInt570 == 2)
                     {
                         int k2 = 0;
-                        for(int l2 = 0; l2 < class36_1.anInt586; l2++)
+                        for(int l2 = 0; l2 < widget_1.anInt586; l2++)
                         {
-                            for(int i3 = 0; i3 < class36_1.anInt582; i3++)
+                            for(int i3 = 0; i3 < widget_1.anInt582; i3++)
                             {
-                                int j3 = i2 + i3 * (32 + class36_1.anInt599);
-                                int k3 = j2 + l2 * (32 + class36_1.anInt554);
+                                int j3 = i2 + i3 * (32 + widget_1.anInt599);
+                                int k3 = j2 + l2 * (32 + widget_1.anInt554);
                                 if(k2 < 20)
                                 {
-                                    j3 += class36_1.anIntArray580[k2];
-                                    k3 += class36_1.anIntArray560[k2];
+                                    j3 += widget_1.anIntArray580[k2];
+                                    k3 += widget_1.anIntArray560[k2];
                                 }
                                 if(i >= j3 && j >= k3 && i < j3 + 32 && j < k3 + 32)
                                 {
                                     anInt980 = k2;
-                                    anInt981 = class36_1.anInt592;
-                                    if(class36_1.anIntArray576[k2] > 0)
+                                    anInt981 = widget_1.anInt592;
+                                    if(widget_1.anIntArray576[k2] > 0)
                                     {
-                                        Class38 class38 = Class38.method505(class36_1.anIntArray576[k2] - 1);
-                                        if(anInt1025 == 1 && class36_1.aBoolean585)
+                                        ItemDefinition itemDefinition = ItemDefinition.method505(widget_1.anIntArray576[k2] - 1);
+                                        if(anInt1025 == 1 && widget_1.aBoolean585)
                                         {
-                                            if(class36_1.anInt592 != anInt1027 || k2 != anInt1026)
+                                            if(widget_1.anInt592 != anInt1027 || k2 != anInt1026)
                                             {
-                                                aStringArray961[anInt1167] = "Use " + aString1029 + " with @lre@" + class38.aString649;
+                                                aStringArray961[anInt1167] = "Use " + aString1029 + " with @lre@" + itemDefinition.aString649;
                                                 anIntArray911[anInt1167] = 894;
-                                                anIntArray912[anInt1167] = class38.anInt633;
+                                                anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                 anIntArray909[anInt1167] = k2;
-                                                anIntArray910[anInt1167] = class36_1.anInt592;
+                                                anIntArray910[anInt1167] = widget_1.anInt592;
                                                 anInt1167++;
                                             }
                                         } else
-                                        if(anInt973 == 1 && class36_1.aBoolean585)
+                                        if(anInt973 == 1 && widget_1.aBoolean585)
                                         {
                                             if((anInt975 & 0x10) == 16)
                                             {
-                                                aStringArray961[anInt1167] = aString976 + " @lre@" + class38.aString649;
+                                                aStringArray961[anInt1167] = aString976 + " @lre@" + itemDefinition.aString649;
                                                 anIntArray911[anInt1167] = 79;
-                                                anIntArray912[anInt1167] = class38.anInt633;
+                                                anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                 anIntArray909[anInt1167] = k2;
-                                                anIntArray910[anInt1167] = class36_1.anInt592;
+                                                anIntArray910[anInt1167] = widget_1.anInt592;
                                                 anInt1167++;
                                             }
                                         } else
                                         {
-                                            if(class36_1.aBoolean585)
+                                            if(widget_1.aBoolean585)
                                             {
                                                 for(int l3 = 4; l3 >= 3; l3--)
                                                 {
-                                                    if(class38.aStringArray639 != null && class38.aStringArray639[l3] != null)
+                                                    if(itemDefinition.aStringArray639 != null && itemDefinition.aStringArray639[l3] != null)
                                                     {
-                                                        aStringArray961[anInt1167] = class38.aStringArray639[l3] + " @lre@" + class38.aString649;
+                                                        aStringArray961[anInt1167] = itemDefinition.aStringArray639[l3] + " @lre@" + itemDefinition.aString649;
                                                         if(l3 == 3)
                                                         {
                                                             anIntArray911[anInt1167] = 333;
@@ -9140,38 +9140,38 @@ public class Game extends Applet_Sub1
                                                         {
                                                             anIntArray911[anInt1167] = 678;
                                                         }
-                                                        anIntArray912[anInt1167] = class38.anInt633;
+                                                        anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                         anIntArray909[anInt1167] = k2;
-                                                        anIntArray910[anInt1167] = class36_1.anInt592;
+                                                        anIntArray910[anInt1167] = widget_1.anInt592;
                                                         anInt1167++;
                                                     } else
                                                     if(l3 == 4)
                                                     {
-                                                        aStringArray961[anInt1167] = "Drop @lre@" + class38.aString649;
+                                                        aStringArray961[anInt1167] = "Drop @lre@" + itemDefinition.aString649;
                                                         anIntArray911[anInt1167] = 678;
-                                                        anIntArray912[anInt1167] = class38.anInt633;
+                                                        anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                         anIntArray909[anInt1167] = k2;
-                                                        anIntArray910[anInt1167] = class36_1.anInt592;
+                                                        anIntArray910[anInt1167] = widget_1.anInt592;
                                                         anInt1167++;
                                                     }
                                                 }
                                             }
-                                            if(class36_1.aBoolean552)
+                                            if(widget_1.aBoolean552)
                                             {
-                                                aStringArray961[anInt1167] = "Use @lre@" + class38.aString649;
+                                                aStringArray961[anInt1167] = "Use @lre@" + itemDefinition.aString649;
                                                 anIntArray911[anInt1167] = 195;
-                                                anIntArray912[anInt1167] = class38.anInt633;
+                                                anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                 anIntArray909[anInt1167] = k2;
-                                                anIntArray910[anInt1167] = class36_1.anInt592;
+                                                anIntArray910[anInt1167] = widget_1.anInt592;
                                                 anInt1167++;
                                             }
-                                            if(class36_1.aBoolean585 && class38.aStringArray639 != null)
+                                            if(widget_1.aBoolean585 && itemDefinition.aStringArray639 != null)
                                             {
                                                 for(int i4 = 2; i4 >= 0; i4--)
                                                 {
-                                                    if(class38.aStringArray639[i4] != null)
+                                                    if(itemDefinition.aStringArray639[i4] != null)
                                                     {
-                                                        aStringArray961[anInt1167] = class38.aStringArray639[i4] + " @lre@" + class38.aString649;
+                                                        aStringArray961[anInt1167] = itemDefinition.aStringArray639[i4] + " @lre@" + itemDefinition.aString649;
                                                         if(i4 == 0)
                                                         {
                                                             anIntArray911[anInt1167] = 707;
@@ -9184,20 +9184,20 @@ public class Game extends Applet_Sub1
                                                         {
                                                             anIntArray911[anInt1167] = 71;
                                                         }
-                                                        anIntArray912[anInt1167] = class38.anInt633;
+                                                        anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                         anIntArray909[anInt1167] = k2;
-                                                        anIntArray910[anInt1167] = class36_1.anInt592;
+                                                        anIntArray910[anInt1167] = widget_1.anInt592;
                                                         anInt1167++;
                                                     }
                                                 }
                                             }
-                                            if(class36_1.aStringArray547 != null)
+                                            if(widget_1.aStringArray547 != null)
                                             {
                                                 for(int j4 = 4; j4 >= 0; j4--)
                                                 {
-                                                    if(class36_1.aStringArray547[j4] != null)
+                                                    if(widget_1.aStringArray547[j4] != null)
                                                     {
-                                                        aStringArray961[anInt1167] = class36_1.aStringArray547[j4] + " @lre@" + class38.aString649;
+                                                        aStringArray961[anInt1167] = widget_1.aStringArray547[j4] + " @lre@" + itemDefinition.aString649;
                                                         if(j4 == 0)
                                                         {
                                                             anIntArray911[anInt1167] = 11;
@@ -9218,18 +9218,18 @@ public class Game extends Applet_Sub1
                                                         {
                                                             anIntArray911[anInt1167] = 31;
                                                         }
-                                                        anIntArray912[anInt1167] = class38.anInt633;
+                                                        anIntArray912[anInt1167] = itemDefinition.anInt633;
                                                         anIntArray909[anInt1167] = k2;
-                                                        anIntArray910[anInt1167] = class36_1.anInt592;
+                                                        anIntArray910[anInt1167] = widget_1.anInt592;
                                                         anInt1167++;
                                                     }
                                                 }
                                             }
-                                            aStringArray961[anInt1167] = "Examine @lre@" + class38.aString649;
+                                            aStringArray961[anInt1167] = "Examine @lre@" + itemDefinition.aString649;
                                             anIntArray911[anInt1167] = 1870;
-                                            anIntArray912[anInt1167] = class38.anInt633;
+                                            anIntArray912[anInt1167] = itemDefinition.anInt633;
                                             anIntArray909[anInt1167] = k2;
-                                            anIntArray910[anInt1167] = class36_1.anInt592;
+                                            anIntArray910[anInt1167] = widget_1.anInt592;
                                             anInt1167++;
                                         }
                                     }
@@ -9244,12 +9244,12 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("69094, " + i + ", " + class36 + ", " + j + ", " + flag + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
+            signlink.reportError("69094, " + i + ", " + widget + ", " + j + ", " + flag + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
 
-    public boolean method76(int i, Class36 class36)
+    public boolean method76(int i, Widget widget)
     {
         try
         {
@@ -9257,29 +9257,29 @@ public class Game extends Applet_Sub1
             {
                 aClass12ArrayArrayArray969 = null;
             }
-            if(class36.anIntArray545 == null)
+            if(widget.anIntArray545 == null)
             {
                 return false;
             }
-            for(int j = 0; j < class36.anIntArray545.length; j++)
+            for(int j = 0; j < widget.anIntArray545.length; j++)
             {
-                int k = method82(j, false, class36);
-                int l = class36.anIntArray556[j];
-                if(class36.anIntArray545[j] == 2)
+                int k = method82(j, false, widget);
+                int l = widget.anIntArray556[j];
+                if(widget.anIntArray545[j] == 2)
                 {
                     if(k >= l)
                     {
                         return false;
                     }
                 } else
-                if(class36.anIntArray545[j] == 3)
+                if(widget.anIntArray545[j] == 3)
                 {
                     if(k <= l)
                     {
                         return false;
                     }
                 } else
-                if(class36.anIntArray545[j] == 4)
+                if(widget.anIntArray545[j] == 4)
                 {
                     if(k == l)
                     {
@@ -9295,7 +9295,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("75970, " + i + ", " + class36 + ", " + runtimeexception.toString());
+            signlink.reportError("75970, " + i + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -9475,20 +9475,20 @@ public class Game extends Applet_Sub1
             {
                 return;
             }
-            Class36 class36 = Class36.aClass36Array533[i];
-            for(int k = 0; k < class36.anIntArray549.length; k++)
+            Widget widget = Widget.aWidgetArray533[i];
+            for(int k = 0; k < widget.anIntArray549.length; k++)
             {
-                if(class36.anIntArray549[k] == -1)
+                if(widget.anIntArray549[k] == -1)
                 {
                     break;
                 }
-                Class36 class36_1 = Class36.aClass36Array533[class36.anIntArray549[k]];
-                if(class36_1.anInt570 == 1)
+                Widget widget_1 = Widget.aWidgetArray533[widget.anIntArray549[k]];
+                if(widget_1.anInt570 == 1)
                 {
-                    method79(class36_1.anInt592, anInt1119);
+                    method79(widget_1.anInt592, anInt1119);
                 }
-                class36_1.anInt568 = 0;
-                class36_1.anInt540 = 0;
+                widget_1.anInt568 = 0;
+                widget_1.anInt540 = 0;
             }
             return;
         }
@@ -9559,7 +9559,7 @@ public class Game extends Applet_Sub1
         }
     }
 
-    public int method82(int i, boolean flag, Class36 class36)
+    public int method82(int i, boolean flag, Widget widget)
     {
         try
         {
@@ -9567,13 +9567,13 @@ public class Game extends Applet_Sub1
             {
                 aClass12ArrayArrayArray969 = null;
             }
-            if(class36.anIntArrayArray581 == null || i >= class36.anIntArrayArray581.length)
+            if(widget.anIntArrayArray581 == null || i >= widget.anIntArrayArray581.length)
             {
                 return -2;
             }
             try
             {
-                int ai[] = class36.anIntArrayArray581[i];
+                int ai[] = widget.anIntArrayArray581[i];
                 int j = 0;
                 int k = 0;
                 int l = 0;
@@ -9600,15 +9600,15 @@ public class Game extends Applet_Sub1
                     }
                     if(i1 == 4)
                     {
-                        Class36 class36_1 = Class36.aClass36Array533[ai[k++]];
+                        Widget widget_1 = Widget.aWidgetArray533[ai[k++]];
                         int j2 = ai[k++];
-                        if(j2 >= 0 && j2 < Class38.anInt669 && (!Class38.method505(j2).aBoolean650 || aBoolean953))
+                        if(j2 >= 0 && j2 < ItemDefinition.anInt669 && (!ItemDefinition.method505(j2).aBoolean650 || aBoolean953))
                         {
-                            for(int i3 = 0; i3 < class36_1.anIntArray576.length; i3++)
+                            for(int i3 = 0; i3 < widget_1.anIntArray576.length; i3++)
                             {
-                                if(class36_1.anIntArray576[i3] == j2 + 1)
+                                if(widget_1.anIntArray576[i3] == j2 + 1)
                                 {
-                                    j1 += class36_1.anIntArray579[i3];
+                                    j1 += widget_1.anIntArray579[i3];
                                 }
                             }
                         }
@@ -9641,13 +9641,13 @@ public class Game extends Applet_Sub1
                     }
                     if(i1 == 10)
                     {
-                        Class36 class36_2 = Class36.aClass36Array533[ai[k++]];
+                        Widget widget_2 = Widget.aWidgetArray533[ai[k++]];
                         int k2 = ai[k++] + 1;
-                        if(k2 >= 0 && k2 < Class38.anInt669 && (!Class38.method505(k2).aBoolean650 || aBoolean953))
+                        if(k2 >= 0 && k2 < ItemDefinition.anInt669 && (!ItemDefinition.method505(k2).aBoolean650 || aBoolean953))
                         {
-                            for(int j3 = 0; j3 < class36_2.anIntArray576.length; j3++)
+                            for(int j3 = 0; j3 < widget_2.anIntArray576.length; j3++)
                             {
-                                if(class36_2.anIntArray576[j3] != k2)
+                                if(widget_2.anIntArray576[j3] != k2)
                                 {
                                     continue;
                                 }
@@ -9736,7 +9736,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("69252, " + i + ", " + flag + ", " + class36 + ", " + runtimeexception.toString());
+            signlink.reportError("69252, " + i + ", " + flag + ", " + widget + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -10780,11 +10780,11 @@ public class Game extends Applet_Sub1
                         method140(6);
                         aString1230 = "";
                         aBoolean1034 = false;
-                        for(int i = 0; i < Class36.aClass36Array533.length; i++)
+                        for(int i = 0; i < Widget.aWidgetArray533.length; i++)
                         {
-                            if(Class36.aClass36Array533[i] != null && Class36.aClass36Array533[i].anInt577 == 600)
+                            if(Widget.aWidgetArray533[i] != null && Widget.aWidgetArray533[i].anInt577 == 600)
                             {
-                                anInt1165 = anInt1217 = Class36.aClass36Array533[i].anInt573;
+                                anInt1165 = anInt1217 = Widget.aWidgetArray533[i].anInt573;
                                 return;
                             }
                         }
@@ -11370,11 +11370,11 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public void method105(int i, Class36 class36)
+    public void method105(int i, Widget widget)
     {
         try
         {
-            int j = class36.anInt577;
+            int j = widget.anInt577;
             if(i != 0)
             {
                 method6();
@@ -11383,20 +11383,20 @@ public class Game extends Applet_Sub1
             {
                 if(j == 1 && anInt1055 == 0)
                 {
-                    class36.aString548 = "Loading friend list";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "Loading friend list";
+                    widget.anInt597 = 0;
                     return;
                 }
                 if(j == 1 && anInt1055 == 1)
                 {
-                    class36.aString548 = "Connecting to friendserver";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "Connecting to friendserver";
+                    widget.anInt597 = 0;
                     return;
                 }
                 if(j == 2 && anInt1055 != 2)
                 {
-                    class36.aString548 = "Please wait...";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "Please wait...";
+                    widget.anInt597 = 0;
                     return;
                 }
                 int k = anInt1054;
@@ -11413,13 +11413,13 @@ public class Game extends Applet_Sub1
                 }
                 if(j >= k)
                 {
-                    class36.aString548 = "";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "";
+                    widget.anInt597 = 0;
                     return;
                 } else
                 {
-                    class36.aString548 = aStringArray1003[j];
-                    class36.anInt597 = 1;
+                    widget.aString548 = aStringArray1003[j];
+                    widget.anInt597 = 1;
                     return;
                 }
             }
@@ -11439,22 +11439,22 @@ public class Game extends Applet_Sub1
                 }
                 if(j >= l)
                 {
-                    class36.aString548 = "";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "";
+                    widget.anInt597 = 0;
                     return;
                 }
                 if(anIntArray850[j] == 0)
                 {
-                    class36.aString548 = "@red@Offline";
+                    widget.aString548 = "@red@Offline";
                 } else
                 if(anIntArray850[j] == anInt951)
                 {
-                    class36.aString548 = "@gre@World-" + (anIntArray850[j] - 9);
+                    widget.aString548 = "@gre@World-" + (anIntArray850[j] - 9);
                 } else
                 {
-                    class36.aString548 = "@yel@World-" + (anIntArray850[j] - 9);
+                    widget.aString548 = "@yel@World-" + (anIntArray850[j] - 9);
                 }
-                class36.anInt597 = 1;
+                widget.anInt597 = 1;
                 return;
             }
             if(j == 203)
@@ -11464,10 +11464,10 @@ public class Game extends Applet_Sub1
                 {
                     i1 = 0;
                 }
-                class36.anInt598 = i1 * 15 + 20;
-                if(class36.anInt598 <= class36.anInt586)
+                widget.anInt598 = i1 * 15 + 20;
+                if(widget.anInt598 <= widget.anInt586)
                 {
-                    class36.anInt598 = class36.anInt586 + 1;
+                    widget.anInt598 = widget.anInt586 + 1;
                 }
                 return;
             }
@@ -11475,14 +11475,14 @@ public class Game extends Applet_Sub1
             {
                 if((j -= 401) == 0 && anInt1055 == 0)
                 {
-                    class36.aString548 = "Loading ignore list";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "Loading ignore list";
+                    widget.anInt597 = 0;
                     return;
                 }
                 if(j == 1 && anInt1055 == 0)
                 {
-                    class36.aString548 = "Please wait...";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "Please wait...";
+                    widget.anInt597 = 0;
                     return;
                 }
                 int j1 = anInt1098;
@@ -11492,29 +11492,29 @@ public class Game extends Applet_Sub1
                 }
                 if(j >= j1)
                 {
-                    class36.aString548 = "";
-                    class36.anInt597 = 0;
+                    widget.aString548 = "";
+                    widget.anInt597 = 0;
                     return;
                 } else
                 {
-                    class36.aString548 = Class24.method450(Class24.method447(aLongArray990[j], 0), 0);
-                    class36.anInt597 = 1;
+                    widget.aString548 = Class24.method450(Class24.method447(aLongArray990[j], 0), 0);
+                    widget.anInt597 = 1;
                     return;
                 }
             }
             if(j == 503)
             {
-                class36.anInt598 = anInt1098 * 15 + 20;
-                if(class36.anInt598 <= class36.anInt586)
+                widget.anInt598 = anInt1098 * 15 + 20;
+                if(widget.anInt598 <= widget.anInt586)
                 {
-                    class36.anInt598 = class36.anInt586 + 1;
+                    widget.anInt598 = widget.anInt586 + 1;
                 }
                 return;
             }
             if(j == 327)
             {
-                class36.anInt535 = 150;
-                class36.anInt536 = (int)(Math.sin((double)anInt1096 / 40D) * 256D) & 0x7ff;
+                widget.anInt535 = 150;
+                widget.anInt536 = (int)(Math.sin((double)anInt1096 / 40D) * 256D) & 0x7ff;
                 if(aBoolean1099)
                 {
                     for(int k1 = 0; k1 < 7; k1++)
@@ -11551,9 +11551,9 @@ public class Game extends Applet_Sub1
                     class13_sub1_sub1_sub4.method272(true);
                     class13_sub1_sub1_sub4.method273(Class50.aClass50Array800[((Class13_Sub1_Sub1_Sub6) (aClass13_Sub1_Sub1_Sub6_Sub1_997)).anInt1584].anIntArray802[0], false);
                     class13_sub1_sub1_sub4.method282(64, 850, -30, -50, -30, true);
-                    class36.anInt541 = 5;
-                    class36.anInt542 = 0;
-                    Class36.method498(5, class13_sub1_sub1_sub4, anInt1138, 0);
+                    widget.modelType = 5;
+                    widget.anInt542 = 0;
+                    Widget.method498(5, class13_sub1_sub1_sub4, anInt1138, 0);
                 }
                 return;
             }
@@ -11561,16 +11561,16 @@ public class Game extends Applet_Sub1
             {
                 if(aClass13_Sub1_Sub4_Sub4_1262 == null)
                 {
-                    aClass13_Sub1_Sub4_Sub4_1262 = class36.aClass13_Sub1_Sub4_Sub4_569;
-                    aClass13_Sub1_Sub4_Sub4_1263 = class36.aClass13_Sub1_Sub4_Sub4_565;
+                    aClass13_Sub1_Sub4_Sub4_1262 = widget.aClass13_Sub1_Sub4_Sub4_569;
+                    aClass13_Sub1_Sub4_Sub4_1263 = widget.aClass13_Sub1_Sub4_Sub4_565;
                 }
                 if(aBoolean1068)
                 {
-                    class36.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1263;
+                    widget.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1263;
                     return;
                 } else
                 {
-                    class36.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1262;
+                    widget.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1262;
                     return;
                 }
             }
@@ -11578,29 +11578,29 @@ public class Game extends Applet_Sub1
             {
                 if(aClass13_Sub1_Sub4_Sub4_1262 == null)
                 {
-                    aClass13_Sub1_Sub4_Sub4_1262 = class36.aClass13_Sub1_Sub4_Sub4_569;
-                    aClass13_Sub1_Sub4_Sub4_1263 = class36.aClass13_Sub1_Sub4_Sub4_565;
+                    aClass13_Sub1_Sub4_Sub4_1262 = widget.aClass13_Sub1_Sub4_Sub4_569;
+                    aClass13_Sub1_Sub4_Sub4_1263 = widget.aClass13_Sub1_Sub4_Sub4_565;
                 }
                 if(aBoolean1068)
                 {
-                    class36.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1262;
+                    widget.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1262;
                     return;
                 } else
                 {
-                    class36.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1263;
+                    widget.aClass13_Sub1_Sub4_Sub4_569 = aClass13_Sub1_Sub4_Sub4_1263;
                     return;
                 }
             }
             if(j == 600)
             {
-                class36.aString548 = aString1230;
+                widget.aString548 = aString1230;
                 if(anInt1096 % 20 < 10)
                 {
-                    class36.aString548 += "|";
+                    widget.aString548 += "|";
                     return;
                 } else
                 {
-                    class36.aString548 += " ";
+                    widget.aString548 += " ";
                     return;
                 }
             }
@@ -11610,16 +11610,16 @@ public class Game extends Applet_Sub1
                 {
                     if(aBoolean1034)
                     {
-                        class36.anInt550 = 0xff0000;
-                        class36.aString548 = "Moderator option: Mute player for 48 hours: <ON>";
+                        widget.anInt550 = 0xff0000;
+                        widget.aString548 = "Moderator option: Mute player for 48 hours: <ON>";
                     } else
                     {
-                        class36.anInt550 = 0xffffff;
-                        class36.aString548 = "Moderator option: Mute player for 48 hours: <OFF>";
+                        widget.anInt550 = 0xffffff;
+                        widget.aString548 = "Moderator option: Mute player for 48 hours: <OFF>";
                     }
                 } else
                 {
-                    class36.aString548 = "";
+                    widget.aString548 = "";
                 }
             }
             if(j == 650 || j == 655)
@@ -11638,28 +11638,28 @@ public class Game extends Applet_Sub1
                     {
                         s = anInt918 + " days ago";
                     }
-                    class36.aString548 = "You last logged in " + s + " from: " + signlink.dns;
+                    widget.aString548 = "You last logged in " + s + " from: " + signlink.dns;
                 } else
                 {
-                    class36.aString548 = "";
+                    widget.aString548 = "";
                 }
             }
             if(j == 651)
             {
                 if(anInt956 == 0)
                 {
-                    class36.aString548 = "0 unread messages";
-                    class36.anInt550 = 0xffff00;
+                    widget.aString548 = "0 unread messages";
+                    widget.anInt550 = 0xffff00;
                 }
                 if(anInt956 == 1)
                 {
-                    class36.aString548 = "1 unread message";
-                    class36.anInt550 = 65280;
+                    widget.aString548 = "1 unread message";
+                    widget.anInt550 = 65280;
                 }
                 if(anInt956 > 1)
                 {
-                    class36.aString548 = anInt956 + " unread messages";
-                    class36.anInt550 = 65280;
+                    widget.aString548 = anInt956 + " unread messages";
+                    widget.anInt550 = 65280;
                 }
             }
             if(j == 652)
@@ -11668,15 +11668,15 @@ public class Game extends Applet_Sub1
                 {
                     if(anInt825 == 1)
                     {
-                        class36.aString548 = "@yel@This is a non-members world: @whi@Since you are a member we";
+                        widget.aString548 = "@yel@This is a non-members world: @whi@Since you are a member we";
                     } else
                     {
-                        class36.aString548 = "";
+                        widget.aString548 = "";
                     }
                 } else
                 if(anInt1095 == 200)
                 {
-                    class36.aString548 = "You have not yet set any password recovery questions.";
+                    widget.aString548 = "You have not yet set any password recovery questions.";
                 } else
                 {
                     String s1;
@@ -11691,7 +11691,7 @@ public class Game extends Applet_Sub1
                     {
                         s1 = anInt1095 + " days ago";
                     }
-                    class36.aString548 = s1 + " you changed your recovery questions";
+                    widget.aString548 = s1 + " you changed your recovery questions";
                 }
             }
             if(j == 653)
@@ -11700,18 +11700,18 @@ public class Game extends Applet_Sub1
                 {
                     if(anInt825 == 1)
                     {
-                        class36.aString548 = "@whi@recommend you use a members world instead. You may use";
+                        widget.aString548 = "@whi@recommend you use a members world instead. You may use";
                     } else
                     {
-                        class36.aString548 = "";
+                        widget.aString548 = "";
                     }
                 } else
                 if(anInt1095 == 200)
                 {
-                    class36.aString548 = "We strongly recommend you do so now to secure your account.";
+                    widget.aString548 = "We strongly recommend you do so now to secure your account.";
                 } else
                 {
-                    class36.aString548 = "If you do not remember making this change then cancel it immediately";
+                    widget.aString548 = "If you do not remember making this change then cancel it immediately";
                 }
             }
             if(j == 654)
@@ -11720,28 +11720,28 @@ public class Game extends Applet_Sub1
                 {
                     if(anInt825 == 1)
                     {
-                        class36.aString548 = "@whi@this world but member benefits are unavailable whilst here.";
+                        widget.aString548 = "@whi@this world but member benefits are unavailable whilst here.";
                         return;
                     } else
                     {
-                        class36.aString548 = "";
+                        widget.aString548 = "";
                         return;
                     }
                 }
                 if(anInt1095 == 200)
                 {
-                    class36.aString548 = "Do this from the 'account management' area on our front webpage";
+                    widget.aString548 = "Do this from the 'account management' area on our front webpage";
                     return;
                 } else
                 {
-                    class36.aString548 = "Do this from the 'account management' area on our front webpage";
+                    widget.aString548 = "Do this from the 'account management' area on our front webpage";
                     return;
                 }
             }
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("3335, " + i + ", " + class36 + ", " + runtimeexception.toString());
+            signlink.reportError("3335, " + i + ", " + widget + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }
@@ -12334,7 +12334,7 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public void method111(int i, int j, int k, int l, int i1, byte byte0, Class36 class36,
+    public void method111(int i, int j, int k, int l, int i1, byte byte0, Widget widget,
             boolean flag, int j1)
     {
         try
@@ -12353,7 +12353,7 @@ public class Game extends Applet_Sub1
             }
             if(i >= j && i < j + 16 && l >= j1 && l < j1 + 16)
             {
-                class36.anInt595 -= anInt1067 * 4;
+                widget.anInt595 -= anInt1067 * 4;
                 if(flag)
                 {
                     aBoolean1148 = true;
@@ -12362,7 +12362,7 @@ public class Game extends Applet_Sub1
             } else
             if(i >= j && i < j + 16 && l >= (j1 + i1) - 16 && l < j1 + i1)
             {
-                class36.anInt595 += anInt1067 * 4;
+                widget.anInt595 += anInt1067 * 4;
                 if(flag)
                 {
                     aBoolean1148 = true;
@@ -12378,7 +12378,7 @@ public class Game extends Applet_Sub1
                 }
                 int l1 = l - j1 - 16 - k1 / 2;
                 int i2 = i1 - 32 - k1;
-                class36.anInt595 = ((k - i1) * l1) / i2;
+                widget.anInt595 = ((k - i1) * l1) / i2;
                 if(flag)
                 {
                     aBoolean1148 = true;
@@ -12389,7 +12389,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("51706, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + class36 + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
+            signlink.reportError("51706, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + byte0 + ", " + widget + ", " + flag + ", " + j1 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -12484,7 +12484,7 @@ public class Game extends Applet_Sub1
             {
                 if(anInt1217 != -1)
                 {
-                    method75(super.anInt23, Class36.aClass36Array533[anInt1217], super.anInt24, false, 4, 0, 4);
+                    method75(super.anInt23, Widget.aWidgetArray533[anInt1217], super.anInt24, false, 4, 0, 4);
                 } else
                 {
                     method31((byte)-83);
@@ -12499,11 +12499,11 @@ public class Game extends Applet_Sub1
             {
                 if(anInt874 != -1)
                 {
-                    method75(super.anInt23, Class36.aClass36Array533[anInt874], super.anInt24, false, 553, 0, 205);
+                    method75(super.anInt23, Widget.aWidgetArray533[anInt874], super.anInt24, false, 553, 0, 205);
                 } else
                 if(anIntArray1018[anInt864] != -1)
                 {
-                    method75(super.anInt23, Class36.aClass36Array533[anIntArray1018[anInt864]], super.anInt24, false, 553, 0, 205);
+                    method75(super.anInt23, Widget.aWidgetArray533[anIntArray1018[anInt864]], super.anInt24, false, 553, 0, 205);
                 }
             }
             if(anInt1270 != anInt1118)
@@ -12516,7 +12516,7 @@ public class Game extends Applet_Sub1
             {
                 if(anInt1016 != -1)
                 {
-                    method75(super.anInt23, Class36.aClass36Array533[anInt1016], super.anInt24, false, 17, 0, 357);
+                    method75(super.anInt23, Widget.aWidgetArray533[anInt1016], super.anInt24, false, 17, 0, 357);
                 } else
                 if(super.anInt24 < 434 && super.anInt23 < 426)
                 {
@@ -12709,7 +12709,7 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public boolean method119(Class36 class36, byte byte0)
+    public boolean method119(Widget widget, byte byte0)
     {
         try
         {
@@ -12719,7 +12719,7 @@ public class Game extends Applet_Sub1
                 {
                 }
             }
-            int j = class36.anInt577;
+            int j = widget.anInt577;
             if(j >= 1 && j <= 200 || j >= 701 && j <= 900)
             {
                 if(j >= 801)
@@ -12747,7 +12747,7 @@ public class Game extends Applet_Sub1
             }
             if(j >= 401 && j <= 500)
             {
-                aStringArray961[anInt1167] = "Remove @whi@" + class36.aString548;
+                aStringArray961[anInt1167] = "Remove @whi@" + widget.aString548;
                 anIntArray911[anInt1167] = 781;
                 anInt1167++;
                 return true;
@@ -12758,7 +12758,7 @@ public class Game extends Applet_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("15785, " + class36 + ", " + byte0 + ", " + runtimeexception.toString());
+            signlink.reportError("15785, " + widget + ", " + byte0 + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -13642,12 +13642,12 @@ public class Game extends Applet_Sub1
             }
             if(anInt1016 == -1)
             {
-                aClass36_1050.anInt595 = anInt886 - anInt1019 - 77;
+                aWidget_1050.anInt595 = anInt886 - anInt1019 - 77;
                 if(super.anInt23 > 448 && super.anInt23 < 560 && super.anInt24 > 332)
                 {
-                    method111(super.anInt23 - 17, 463, anInt886, super.anInt24 - 357, 77, (byte)4, aClass36_1050, false, 0);
+                    method111(super.anInt23 - 17, 463, anInt886, super.anInt24 - 357, 77, (byte)4, aWidget_1050, false, 0);
                 }
-                int j = anInt886 - 77 - aClass36_1050.anInt595;
+                int j = anInt886 - 77 - aWidget_1050.anInt595;
                 if(j < 0)
                 {
                     j = 0;
@@ -14997,13 +14997,13 @@ public class Game extends Applet_Sub1
             Class50.method591(class1, (byte)72);
             Class14.method426(class1);
             Class32.method493(class1, (byte)72);
-            Class38.method515(class1);
+            ItemDefinition.method515(class1);
             Class47.method587(class1);
             Class4.method175(class1, (byte)72);
             Class40.method528(class1, (byte)72);
             Class22.method444(class1, (byte)72);
             Class26.method473(class1, (byte)72);
-            Class38.aBoolean667 = aBoolean953;
+            ItemDefinition.aBoolean667 = aBoolean953;
             if(!aBoolean954)
             {
                 method13(false, "Unpacking sounds", 90);
@@ -15015,7 +15015,7 @@ public class Game extends Applet_Sub1
             Class13_Sub1_Sub4_Sub2 aclass13_sub1_sub4_sub2[] = {
                 aClass13_Sub1_Sub4_Sub2_891, aClass13_Sub1_Sub4_Sub2_892, aClass13_Sub1_Sub4_Sub2_893, aClass13_Sub1_Sub4_Sub2_894
             };
-            Class36.method501(class1_1, true, class1_2, aclass13_sub1_sub4_sub2);
+            Widget.method501(class1_1, true, class1_2, aclass13_sub1_sub4_sub2);
             method13(false, "Preparing game engine", 100);
             for(int j6 = 0; j6 < 33; j6++)
             {
@@ -15646,7 +15646,7 @@ public class Game extends Applet_Sub1
         aBoolean1046 = false;
         aBoolean1047 = false;
         aBoolean1048 = false;
-        aClass36_1050 = new Class36();
+        aWidget_1050 = new Widget();
         aBoolean1051 = false;
         anInt1052 = 36;
         aByte1063 = 2;
