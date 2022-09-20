@@ -817,24 +817,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method340(int i)
+    public int method340()
     {
-        try
-        {
-            anInt1399 += 2;
-            if(i >= 0)
-            {
-                for(int j = 1; j > 0; j++)
-                {
-                }
-            }
-            return ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] - 128 & 0xff);
-        }
-        catch(RuntimeException runtimeexception)
-        {
-            signlink.reportError("46926, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+        anInt1399 += 2;
+        return ((aByteArray1398[anInt1399 - 1] & 0xff) << 8) + (aByteArray1398[anInt1399 - 2] - 128 & 0xff);
     }
 
     public int method341(int i)

@@ -5,6 +5,8 @@ public enum IncomingPacket {
     UPDATE_ACTIVE_MAP_REGION(228),
     CONSTRUCT_MAP_REGION(52),
 
+    ADD_CHATBOX_MESSAGE(50),
+
     TEMPORARY_ENDING_PACKET(500);
 
     private int packetId;

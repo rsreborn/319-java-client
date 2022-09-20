@@ -2605,7 +2605,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 252)
                 {
-                    int l = buffer.method340(-233);
+                    int l = buffer.method340();
                     Class36.aClass36Array533[l].anInt541 = 3;
                     if(aClass13_Sub1_Sub1_Sub6_Sub1_997.aClass47_1716 == null)
                     {
@@ -2627,7 +2627,7 @@ public class Game extends Applet_Sub1
                     opcode = -1;
                     return true;
                 }
-                if(opcode == 50)
+                if(IncomingPacket.ADD_CHATBOX_MESSAGE.equals(opcode))
                 {
                     String s = buffer.method318();
                     if(s.endsWith(":tradereq:"))
@@ -2697,7 +2697,7 @@ public class Game extends Applet_Sub1
                 if(opcode == 232)
                 {
                     int j1 = buffer.method348(anInt919);
-                    int i10 = buffer.method340(-233);
+                    int i10 = buffer.method340();
                     anIntArray970[i10] = j1;
                     if(anIntArray1149[i10] != j1)
                     {
@@ -2769,7 +2769,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 188)
                 {
-                    int j2 = buffer.method340(-233);
+                    int j2 = buffer.method340();
                     method79(j2, anInt1119);
                     if(anInt874 != -1)
                     {
@@ -2880,7 +2880,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 62)
                 {
-                    int k3 = buffer.method340(-233);
+                    int k3 = buffer.method340();
                     int k11 = buffer.method339(true);
                     Class36 class36_3 = Class36.aClass36Array533[k11];
                     if(class36_3 != null && class36_3.anInt570 == 0)
@@ -2970,10 +2970,10 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 219)
                 {
-                    int l4 = buffer.method340(-233);
+                    int l4 = buffer.method340();
                     int k12 = buffer.method338((byte)-52);
-                    int j17 = buffer.method340(-233);
-                    int i21 = buffer.method340(-233);
+                    int j17 = buffer.method340();
+                    int i21 = buffer.method340();
                     Class36.aClass36Array533[k12].anInt535 = i21;
                     Class36.aClass36Array533[k12].anInt536 = l4;
                     Class36.aClass36Array533[k12].anInt534 = j17;
@@ -3063,7 +3063,7 @@ public class Game extends Applet_Sub1
                 if(opcode == 59)
                 {
                     byte byte0 = buffer.method334((byte)-78);
-                    int i13 = buffer.method340(-233);
+                    int i13 = buffer.method340();
                     anIntArray970[i13] = byte0;
                     if(anIntArray1149[i13] != byte0)
                     {
@@ -3091,7 +3091,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 253)
                 {
-                    int k5 = buffer.method340(-233);
+                    int k5 = buffer.method340();
                     method79(k5, anInt1119);
                     if(anInt1016 != -1)
                     {
@@ -3126,7 +3126,7 @@ public class Game extends Applet_Sub1
                     anInt1002 = buffer.method348(anInt919);
                     anInt825 = buffer.method330(856);
                     anInt1095 = buffer.method330(856);
-                    anInt956 = buffer.method340(-233);
+                    anInt956 = buffer.method340();
                     if(anInt1002 != 0 && anInt1217 == -1)
                     {
                         signlink.dnslookup(Class24.method449(anInt1002, false));
@@ -3604,7 +3604,7 @@ public class Game extends Applet_Sub1
                 }
                 if(opcode == 20)
                 {
-                    int l7 = buffer.method340(-233);
+                    int l7 = buffer.method340();
                     int l14 = buffer.method338((byte)-52);
                     if(anInt1016 != -1)
                     {
@@ -4354,7 +4354,7 @@ public class Game extends Applet_Sub1
                 int i1 = class13_sub1_sub2.method332(aByte1172);
                 int l3 = anInt1231 + (i1 >> 4 & 7);
                 int k6 = anInt1232 + (i1 & 7);
-                int j9 = class13_sub1_sub2.method340(-233);
+                int j9 = class13_sub1_sub2.method340();
                 int k11 = class13_sub1_sub2.method330(856);
                 int i14 = k11 >> 2;
                 int i16 = k11 & 3;
@@ -4583,7 +4583,7 @@ public class Game extends Applet_Sub1
                 int k5 = class13_sub1_sub2.method330(856);
                 int j8 = anInt1231 + (k5 >> 4 & 7);
                 int l10 = anInt1232 + (k5 & 7);
-                int j13 = class13_sub1_sub2.method340(-233);
+                int j13 = class13_sub1_sub2.method340();
                 if(j8 >= 0 && l10 >= 0 && j8 < 104 && l10 < 104)
                 {
                     Class13_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_1 = new Class13_Sub1_Sub1_Sub5();
@@ -9446,7 +9446,7 @@ public class Game extends Applet_Sub1
                 }
                 if((i1 & 0x10) != 0)
                 {
-                    class13_sub1_sub1_sub6_sub2.anInt1602 = class13_sub1_sub2.method340(-233);
+                    class13_sub1_sub1_sub6_sub2.anInt1602 = class13_sub1_sub2.method340();
                     if(((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub2)).anInt1602 == 65535)
                     {
                         class13_sub1_sub1_sub6_sub2.anInt1602 = -1;
@@ -15429,7 +15429,7 @@ public class Game extends Applet_Sub1
             if((j & 1) != 0)
             {
                 class13_sub1_sub1_sub6_sub1.anInt1582 = class13_sub1_sub2.method339(true);
-                class13_sub1_sub1_sub6_sub1.anInt1583 = class13_sub1_sub2.method340(-233);
+                class13_sub1_sub1_sub6_sub1.anInt1583 = class13_sub1_sub2.method340();
             }
             if((j & 0x80) != 0)
             {
@@ -15546,7 +15546,7 @@ public class Game extends Applet_Sub1
             }
             if((j & 8) != 0)
             {
-                class13_sub1_sub1_sub6_sub1.anInt1602 = class13_sub1_sub2.method340(-233);
+                class13_sub1_sub1_sub6_sub1.anInt1602 = class13_sub1_sub2.method340();
                 if(((Class13_Sub1_Sub1_Sub6) (class13_sub1_sub1_sub6_sub1)).anInt1602 == 65535)
                 {
                     class13_sub1_sub1_sub6_sub1.anInt1602 = -1;
