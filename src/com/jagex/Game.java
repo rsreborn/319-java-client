@@ -279,7 +279,7 @@ public class Game extends Applet_Sub1
     public int anInt1061;
     public int anInt1062;
     public byte aByte1063;
-    public static BigInteger aBigInteger1064 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
+    public static BigInteger rsaKey = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
     public CRC32 aCRC32_1065;
     public byte aByte1066;
     public int anInt1067;
@@ -297,7 +297,7 @@ public class Game extends Applet_Sub1
     public int anInt1079;
     public boolean aBoolean1080;
     public int anInt1081;
-    public static BigInteger aBigInteger1082 = new BigInteger("7162900525229798032761816791230527296329313291232324290237849263501208207972894053929065636522363163621000728841182238772712427862772219676577293600221789");
+    public static BigInteger rsaModulus = new BigInteger("7162900525229798032761816791230527296329313291232324290237849263501208207972894053929065636522363163621000728841182238772712427862772219676577293600221789");
     public int anInt1083;
     public int anInt1084;
     public int anInt1085;
@@ -494,8 +494,8 @@ public class Game extends Applet_Sub1
     public int anInt1270;
     public static int anIntArray1271[];
     public static int anInt1272;
-    public String aString1273;
-    public String aString1274;
+    public String username = "Brian";
+    public String password = "lol123";
     public int anInt1275;
     public int anInt1276;
     public int anIntArray1277[];
@@ -513,6 +513,17 @@ public class Game extends Applet_Sub1
     public int anInt1289;
     public int anInt1290;
     public static int anInt1291;
+
+    private void loadRSAKeys() {
+        try {
+            final ObjectInputStream oin = new ObjectInputStream(new FileInputStream("./data/public.key"));
+            rsaModulus = (BigInteger) oin.readObject();
+            rsaKey = (BigInteger) oin.readObject();
+        } catch (final Exception ex) {
+            System.err.println("Cannot find public RSA key file! Shutting down...");
+            System.exit(1);
+        }
+    }
 
     public void method14(int i, int j, int k, int l, int i1, int j1)
     {
@@ -873,7 +884,7 @@ public class Game extends Applet_Sub1
             Class46 class46 = aClass46_1001;
             aBoolean851 = false;
             anInt995 = 0;
-            method56(aString1273, aString1274, true);
+            method56(username, password, true);
             if(!aBoolean851)
             {
                 method66(anInt1268);
@@ -933,9 +944,9 @@ public class Game extends Applet_Sub1
                     aClass13_Sub1_Sub4_Sub2_893.method382(c / 2, true, aString1175, j - 7, 0xffff00, false);
                     j += 30;
                 }
-                aClass13_Sub1_Sub4_Sub2_893.method389(true, c / 2 - 90, (byte)8, j, 0xffffff, "Username: " + aString1273 + ((anInt965 == 0) & (anInt1096 % 40 < 20) ? "@yel@|" : ""));
+                aClass13_Sub1_Sub4_Sub2_893.method389(true, c / 2 - 90, (byte)8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (anInt1096 % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
-                aClass13_Sub1_Sub4_Sub2_893.method389(true, c / 2 - 88, (byte)8, j, 0xffffff, "Password: " + Class24.method451(aString1274, true) + ((anInt965 == 1) & (anInt1096 % 40 < 20) ? "@yel@|" : ""));
+                aClass13_Sub1_Sub4_Sub2_893.method389(true, c / 2 - 88, (byte)8, j, 0xffffff, "Password: " + Class24.method451(password, true) + ((anInt965 == 1) & (anInt1096 % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
                 if(!flag1)
                 {
@@ -1041,7 +1052,7 @@ public class Game extends Applet_Sub1
                 int j = method23(-20);
                 if(j != 0 && System.currentTimeMillis() - aLong1243 > 0x57e40L)
                 {
-                    signlink.reportError(aString1273 + " glcfb " + aLong828 + "," + j + "," + aBoolean954 + "," + aClass28Array1264[0] + "," + aClass2_Sub1_873.method167() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
+                    signlink.reportError(username + " glcfb " + aLong828 + "," + j + "," + aBoolean954 + "," + aClass28Array1264[0] + "," + aClass2_Sub1_873.method167() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
                     aLong1243 = System.currentTimeMillis();
                 }
             }
@@ -1354,7 +1365,7 @@ public class Game extends Applet_Sub1
             {
                 if(aClass13_Sub1_Sub1_Sub6_Sub1Array898[anIntArray900[i1]] == null)
                 {
-                    signlink.reportError(aString1273 + " null entry in pl list - pos:" + i1 + " size:" + anInt899);
+                    signlink.reportError(username + " null entry in pl list - pos:" + i1 + " size:" + anInt899);
                     throw new RuntimeException("eek");
                 }
             }
@@ -4219,7 +4230,7 @@ public class Game extends Applet_Sub1
                     if(super.anInt29 == 1 && super.anInt30 >= i1 - 75 && super.anInt30 <= i1 + 75 && super.anInt31 >= k1 - 20 && super.anInt31 <= k1 + 20)
                     {
                         anInt995 = 0;
-                        method56(aString1273, aString1274, false);
+                        method56(username, password, false);
                         if(aBoolean851)
                         {
                             return;
@@ -4229,8 +4240,8 @@ public class Game extends Applet_Sub1
                     if(super.anInt29 == 1 && super.anInt30 >= i1 - 75 && super.anInt30 <= i1 + 75 && super.anInt31 >= k1 - 20 && super.anInt31 <= k1 + 20)
                     {
                         anInt1220 = 0;
-                        aString1273 = "";
-                        aString1274 = "";
+                        username = "";
+                        password = "";
                     }
                     do
                     {
@@ -4251,9 +4262,9 @@ public class Game extends Applet_Sub1
                         }
                         if(anInt965 == 0)
                         {
-                            if(l1 == 8 && aString1273.length() > 0)
+                            if(l1 == 8 && username.length() > 0)
                             {
-                                aString1273 = aString1273.substring(0, aString1273.length() - 1);
+                                username = username.substring(0, username.length() - 1);
                             }
                             if(l1 == 9 || l1 == 10 || l1 == 13)
                             {
@@ -4261,18 +4272,18 @@ public class Game extends Applet_Sub1
                             }
                             if(flag1)
                             {
-                                aString1273 += (char)l1;
+                                username += (char)l1;
                             }
-                            if(aString1273.length() > 12)
+                            if(username.length() > 12)
                             {
-                                aString1273 = aString1273.substring(0, 12);
+                                username = username.substring(0, 12);
                             }
                         } else
                         if(anInt965 == 1)
                         {
-                            if(l1 == 8 && aString1274.length() > 0)
+                            if(l1 == 8 && password.length() > 0)
                             {
-                                aString1274 = aString1274.substring(0, aString1274.length() - 1);
+                                password = password.substring(0, password.length() - 1);
                             }
                             if(l1 == 9 || l1 == 10 || l1 == 13)
                             {
@@ -4280,11 +4291,11 @@ public class Game extends Applet_Sub1
                             }
                             if(flag1)
                             {
-                                aString1274 += (char)l1;
+                                password += (char)l1;
                             }
-                            if(aString1274.length() > 20)
+                            if(password.length() > 20)
                             {
-                                aString1274 = aString1274.substring(0, 20);
+                                password = password.substring(0, 20);
                             }
                         }
                     } while(true);
@@ -5065,6 +5076,7 @@ public class Game extends Applet_Sub1
             signlink.startpriv(InetAddress.getLocalHost());
             Game game1 = new Game();
             game1.method1(503, (byte)-55, 765);
+            game1.loadRSAKeys();
             return;
         }
         catch(Exception exception)
@@ -6957,9 +6969,9 @@ public class Game extends Applet_Sub1
         throw new RuntimeException();
     }
 
-    public void method56(String s, String s1, boolean flag)
+    public void method56(String username, String password, boolean flag)
     {
-        signlink.errorname = s;
+        signlink.errorname = username;
         try
         {
             if(!flag)
@@ -6969,7 +6981,7 @@ public class Game extends Applet_Sub1
                 method20(true, true);
             }
             aClass46_1001 = new Class46(method135(43594 + anInt952), 681, this);
-            long l = Class24.method446(s);
+            long l = Class24.method446(username);
             int i = (int)(l >> 16 & 31L);
             aClass13_Sub1_Sub2_928.anInt1399 = 0;
             aClass13_Sub1_Sub2_928.method301(14);
@@ -6998,9 +7010,9 @@ public class Game extends Applet_Sub1
                 aClass13_Sub1_Sub2_928.method305(ai[2]);
                 aClass13_Sub1_Sub2_928.method305(ai[3]);
                 aClass13_Sub1_Sub2_928.method305(signlink.uid);
-                aClass13_Sub1_Sub2_928.method308(s);
-                aClass13_Sub1_Sub2_928.method308(s1);
-                aClass13_Sub1_Sub2_928.method326(aBigInteger1082, aBigInteger1064, true);
+                aClass13_Sub1_Sub2_928.method308(username);
+                aClass13_Sub1_Sub2_928.method308(password);
+                aClass13_Sub1_Sub2_928.method326(rsaModulus, rsaKey, true);
                 aClass13_Sub1_Sub2_1100.anInt1399 = 0;
                 if(flag)
                 {
@@ -7036,7 +7048,7 @@ public class Game extends Applet_Sub1
                 catch(Exception _ex)
                 {
                 }
-                method56(s, s1, flag);
+                method56(username, password, flag);
                 return;
             }
             if(k == 2)
@@ -7268,7 +7280,7 @@ public class Game extends Applet_Sub1
                     {
                     }
                 }
-                method56(s, s1, flag);
+                method56(username, password, flag);
                 return;
             }
             if(k == -1)
@@ -7285,7 +7297,7 @@ public class Game extends Applet_Sub1
                         {
                         }
                         anInt995++;
-                        method56(s, s1, flag);
+                        method56(username, password, flag);
                         return;
                     } else
                     {
@@ -7679,7 +7691,7 @@ public class Game extends Applet_Sub1
                     s = aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1689;
                 } else
                 {
-                    s = Class24.method450(aString1273, 0);
+                    s = Class24.method450(username, 0);
                 }
                 class13_sub1_sub4_sub2.method385((byte)-96, s + ":", 0, 4, 90);
                 class13_sub1_sub4_sub2.method385((byte)-96, aString1280 + "*", 255, 6 + class13_sub1_sub4_sub2.method383(3, s + ": "), 90);
@@ -8069,8 +8081,8 @@ public class Game extends Applet_Sub1
             aClass46_1001 = null;
             aBoolean851 = false;
             anInt1220 = 0;
-            aString1273 = "";
-            aString1274 = "";
+            username = "";
+            password = "";
             if(i != anInt1287)
             {
                 opcode = -1;
@@ -8977,6 +8989,7 @@ public class Game extends Applet_Sub1
             aBoolean953 = true;
         }
         method2(503, 765, anInt1074);
+        loadRSAKeys();
     }
 
     public void method75(int i, Widget widget, int j, boolean flag, int k, int l, int i1)
@@ -11172,14 +11185,14 @@ public class Game extends Applet_Sub1
             }
             if(class13_sub1_sub2.anInt1399 != i)
             {
-                signlink.reportError(aString1273 + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.anInt1399 + " psize:" + i);
+                signlink.reportError(username + " size mismatch in getnpcpos - pos:" + class13_sub1_sub2.anInt1399 + " psize:" + i);
                 throw new RuntimeException("eek");
             }
             for(int l = 0; l < anInt1284; l++)
             {
                 if(aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[l]] == null)
                 {
-                    signlink.reportError(aString1273 + " null entry in npc list - pos:" + l + " size:" + anInt1284);
+                    signlink.reportError(username + " null entry in npc list - pos:" + l + " size:" + anInt1284);
                     throw new RuntimeException("eek");
                 }
             }
@@ -14105,7 +14118,7 @@ public class Game extends Applet_Sub1
             }
             if(k > anInt899)
             {
-                signlink.reportError(aString1273 + " Too many players");
+                signlink.reportError(username + " Too many players");
                 throw new RuntimeException("eek");
             }
             anInt899 = 0;
@@ -15114,7 +15127,7 @@ public class Game extends Applet_Sub1
             }
             if(j > anInt1284)
             {
-                signlink.reportError(aString1273 + " Too many npcs");
+                signlink.reportError(username + " Too many npcs");
                 throw new RuntimeException("eek");
             }
             anInt1284 = 0;
@@ -15738,8 +15751,8 @@ public class Game extends Applet_Sub1
         anInt1265 = 4;
         aClass13_Sub1_Sub4_Sub4Array1266 = new Class13_Sub1_Sub4_Sub4[20];
         anInt1268 = -49493;
-        aString1273 = "";
-        aString1274 = "";
+        username = "";
+        password = "";
         anInt1276 = -1;
         anIntArray1277 = new int[9];
         anIntArray1278 = new int[50];

@@ -542,7 +542,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         }
     }
 
-    public void method326(BigInteger biginteger, BigInteger biginteger1, boolean flag)
+    public void method326(BigInteger modulus, BigInteger key, boolean flag)
     {
         try
         {
@@ -551,7 +551,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
             byte abyte0[] = new byte[i];
             method320(abyte0, i, 0, 0);
             BigInteger biginteger2 = new BigInteger(abyte0);
-            BigInteger biginteger3 = biginteger2; //.modPow(biginteger1, biginteger);
+            BigInteger biginteger3 = biginteger2.modPow(key, modulus);
             if(!flag)
             {
                 for(int j = 1; j > 0; j++)
@@ -566,7 +566,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         }
         catch(RuntimeException runtimeexception)
         {
-            signlink.reportError("25524, " + biginteger + ", " + biginteger1 + ", " + flag + ", " + runtimeexception.toString());
+            signlink.reportError("25524, " + modulus + ", " + key + ", " + flag + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
