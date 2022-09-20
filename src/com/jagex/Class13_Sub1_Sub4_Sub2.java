@@ -39,8 +39,8 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149(s + ".dat", null));
             Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class1.method149("index.dat", null));
             byte byte0 = -1;
-            class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.method313() + 4;
-            int k = class13_sub1_sub2_1.method311();
+            class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.readUnsignedShort() + 4;
+            int k = class13_sub1_sub2_1.readUnsignedByte();
             if(i != anInt1649)
             {
                 throw new NullPointerException();
@@ -52,11 +52,11 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4
             for(int l = 0; l < 256; l++)
             {
                 int j = l;
-                anIntArray1656[l] = class13_sub1_sub2_1.method311();
-                anIntArray1657[l] = class13_sub1_sub2_1.method311();
-                int i1 = anIntArray1654[l] = class13_sub1_sub2_1.method313();
-                int j1 = anIntArray1655[l] = class13_sub1_sub2_1.method313();
-                int k1 = class13_sub1_sub2_1.method311();
+                anIntArray1656[l] = class13_sub1_sub2_1.readUnsignedByte();
+                anIntArray1657[l] = class13_sub1_sub2_1.readUnsignedByte();
+                int i1 = anIntArray1654[l] = class13_sub1_sub2_1.readUnsignedShort();
+                int j1 = anIntArray1655[l] = class13_sub1_sub2_1.readUnsignedShort();
+                int k1 = class13_sub1_sub2_1.readUnsignedByte();
                 int l1 = i1 * j1;
                 aByteArrayArray1653[l] = new byte[l1];
                 if(k1 == 0)

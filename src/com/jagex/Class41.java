@@ -56,11 +56,11 @@ public class Class41
             anIntArray713 = new int[i];
             for(int j = 0; j < i; j++)
             {
-                anIntArray713[j] = class13_sub1_sub2.method311();
-                char ac[] = new char[class13_sub1_sub2.method311()];
+                anIntArray713[j] = class13_sub1_sub2.readUnsignedByte();
+                char ac[] = new char[class13_sub1_sub2.readUnsignedByte()];
                 for(int k = 0; k < ac.length; k++)
                 {
-                    ac[k] = (char)class13_sub1_sub2.method311();
+                    ac[k] = (char)class13_sub1_sub2.readUnsignedByte();
                 }
                 aCharArrayArray712[j] = ac;
             }
@@ -131,7 +131,7 @@ public class Class41
             anIntArray708 = new int[class13_sub1_sub2.method316()];
             for(int i = 0; i < anIntArray708.length; i++)
             {
-                anIntArray708[i] = class13_sub1_sub2.method313();
+                anIntArray708[i] = class13_sub1_sub2.readUnsignedShort();
             }
             return;
         }
@@ -148,17 +148,17 @@ public class Class41
         {
             for(int j = 0; j < ac.length; j++)
             {
-                char ac1[] = new char[class13_sub1_sub2.method311()];
+                char ac1[] = new char[class13_sub1_sub2.readUnsignedByte()];
                 for(int k = 0; k < ac1.length; k++)
                 {
-                    ac1[k] = (char)class13_sub1_sub2.method311();
+                    ac1[k] = (char)class13_sub1_sub2.readUnsignedByte();
                 }
                 ac[j] = ac1;
-                byte abyte1[][] = new byte[class13_sub1_sub2.method311()][2];
+                byte abyte1[][] = new byte[class13_sub1_sub2.readUnsignedByte()][2];
                 for(int l = 0; l < abyte1.length; l++)
                 {
-                    abyte1[l][0] = (byte)class13_sub1_sub2.method311();
-                    abyte1[l][1] = (byte)class13_sub1_sub2.method311();
+                    abyte1[l][0] = (byte)class13_sub1_sub2.readUnsignedByte();
+                    abyte1[l][1] = (byte)class13_sub1_sub2.readUnsignedByte();
                 }
                 if(abyte1.length > 0)
                 {
@@ -188,10 +188,10 @@ public class Class41
             }
             for(int i = 0; i < ac.length; i++)
             {
-                char ac1[] = new char[class13_sub1_sub2.method311()];
+                char ac1[] = new char[class13_sub1_sub2.readUnsignedByte()];
                 for(int j = 0; j < ac1.length; j++)
                 {
-                    ac1[j] = (char)class13_sub1_sub2.method311();
+                    ac1[j] = (char)class13_sub1_sub2.readUnsignedByte();
                 }
                 ac[i] = ac1;
             }

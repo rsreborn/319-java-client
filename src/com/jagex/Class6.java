@@ -27,7 +27,7 @@ public class Class6
                 throw new NullPointerException();
             } else
             {
-                anInt125 = class13_sub1_sub2.method311();
+                anInt125 = class13_sub1_sub2.readUnsignedByte();
                 anInt123 = class13_sub1_sub2.method316();
                 anInt124 = class13_sub1_sub2.method316();
                 method182(class13_sub1_sub2, false);
@@ -45,7 +45,7 @@ public class Class6
     {
         try
         {
-            anInt120 = class13_sub1_sub2.method311();
+            anInt120 = class13_sub1_sub2.readUnsignedByte();
             anIntArray121 = new int[anInt120];
             if(flag)
             {
@@ -54,8 +54,8 @@ public class Class6
             anIntArray122 = new int[anInt120];
             for(int i = 0; i < anInt120; i++)
             {
-                anIntArray121[i] = class13_sub1_sub2.method313();
-                anIntArray122[i] = class13_sub1_sub2.method313();
+                anIntArray121[i] = class13_sub1_sub2.readUnsignedShort();
+                anIntArray122[i] = class13_sub1_sub2.readUnsignedShort();
             }
             return;
         }

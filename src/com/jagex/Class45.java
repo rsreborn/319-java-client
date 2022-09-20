@@ -26,7 +26,7 @@ public class Class45
             int l = -1;
             for(int i1 = 0; i1 < j; i1++)
             {
-                int j1 = class13_sub1_sub2.method311();
+                int j1 = class13_sub1_sub2.readUnsignedByte();
                 int k1 = j1 >> 4 & 0xf;
                 if(l == -1)
                 {

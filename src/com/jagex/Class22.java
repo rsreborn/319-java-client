@@ -28,7 +28,7 @@ public class Class22
         {
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149("varp.dat", null));
             anInt366 = 0;
-            anInt364 = class13_sub1_sub2.method313();
+            anInt364 = class13_sub1_sub2.readUnsignedShort();
             if(byte0 != 72)
             {
                 return;
@@ -72,18 +72,18 @@ public class Class22
             }
             do
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 if(k == 0)
                 {
                     return;
                 }
                 if(k == 1)
                 {
-                    anInt369 = class13_sub1_sub2.method311();
+                    anInt369 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(k == 2)
                 {
-                    anInt370 = class13_sub1_sub2.method311();
+                    anInt370 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(k == 3)
                 {
@@ -96,7 +96,7 @@ public class Class22
                 } else
                 if(k == 5)
                 {
-                    anInt373 = class13_sub1_sub2.method313();
+                    anInt373 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 6)
                 {

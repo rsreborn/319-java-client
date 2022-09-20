@@ -25,7 +25,7 @@ public class Class4
         try
         {
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149("idk.dat", null));
-            anInt64 = class13_sub1_sub2.method313();
+            anInt64 = class13_sub1_sub2.readUnsignedShort();
             if(aClass4Array65 == null)
             {
                 aClass4Array65 = new Class4[anInt64];
@@ -60,22 +60,22 @@ public class Class4
             }
             do
             {
-                int j = class13_sub1_sub2.method311();
+                int j = class13_sub1_sub2.readUnsignedByte();
                 if(j == 0)
                 {
                     return;
                 }
                 if(j == 1)
                 {
-                    anInt66 = class13_sub1_sub2.method311();
+                    anInt66 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(j == 2)
                 {
-                    int k = class13_sub1_sub2.method311();
+                    int k = class13_sub1_sub2.readUnsignedByte();
                     anIntArray67 = new int[k];
                     for(int l = 0; l < k; l++)
                     {
-                        anIntArray67[l] = class13_sub1_sub2.method313();
+                        anIntArray67[l] = class13_sub1_sub2.readUnsignedShort();
                     }
                 } else
                 if(j == 3)
@@ -84,15 +84,15 @@ public class Class4
                 } else
                 if(j >= 40 && j < 50)
                 {
-                    anIntArray68[j - 40] = class13_sub1_sub2.method313();
+                    anIntArray68[j - 40] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j >= 50 && j < 60)
                 {
-                    anIntArray69[j - 50] = class13_sub1_sub2.method313();
+                    anIntArray69[j - 50] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j >= 60 && j < 70)
                 {
-                    anIntArray70[j - 60] = class13_sub1_sub2.method313();
+                    anIntArray70[j - 60] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 {
                     System.out.println("Error unrecognised config code: " + j);

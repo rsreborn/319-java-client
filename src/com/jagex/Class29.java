@@ -135,7 +135,7 @@ public class Class29
     {
         try
         {
-            int j = class13_sub1_sub2.method311();
+            int j = class13_sub1_sub2.readUnsignedByte();
             anIntArray465[0] = j >> 4;
             anIntArray465[1] = j & 0xf;
             if(i != anInt464)
@@ -144,15 +144,15 @@ public class Class29
             }
             if(j != 0)
             {
-                anIntArray468[0] = class13_sub1_sub2.method313();
-                anIntArray468[1] = class13_sub1_sub2.method313();
-                int k = class13_sub1_sub2.method311();
+                anIntArray468[0] = class13_sub1_sub2.readUnsignedShort();
+                anIntArray468[1] = class13_sub1_sub2.readUnsignedShort();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 for(int l = 0; l < 2; l++)
                 {
                     for(int i1 = 0; i1 < anIntArray465[l]; i1++)
                     {
-                        anIntArrayArrayArray466[l][0][i1] = class13_sub1_sub2.method313();
-                        anIntArrayArrayArray467[l][0][i1] = class13_sub1_sub2.method313();
+                        anIntArrayArrayArray466[l][0][i1] = class13_sub1_sub2.readUnsignedShort();
+                        anIntArrayArrayArray467[l][0][i1] = class13_sub1_sub2.readUnsignedShort();
                     }
                 }
                 for(int j1 = 0; j1 < 2; j1++)
@@ -161,8 +161,8 @@ public class Class29
                     {
                         if((k & 1 << j1 * 4 << k1) != 0)
                         {
-                            anIntArrayArrayArray466[j1][1][k1] = class13_sub1_sub2.method313();
-                            anIntArrayArrayArray467[j1][1][k1] = class13_sub1_sub2.method313();
+                            anIntArrayArrayArray466[j1][1][k1] = class13_sub1_sub2.readUnsignedShort();
+                            anIntArrayArrayArray467[j1][1][k1] = class13_sub1_sub2.readUnsignedShort();
                         } else
                         {
                             anIntArrayArrayArray466[j1][1][k1] = anIntArrayArrayArray466[j1][0][k1];

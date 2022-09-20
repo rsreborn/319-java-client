@@ -74,7 +74,7 @@ public class Class25
 		    int i_11_ = i_9_ & 0x3f;
 		    int i_12_ = i_9_ >> 6 & 0x3f;
 		    int i_13_ = i_9_ >> 12;
-		    int i_14_ = class13_sub1_sub2.method311();
+		    int i_14_ = class13_sub1_sub2.readUnsignedByte();
 		    int i_15_ = i_14_ >> 2;
 		    int i_16_ = i_14_ & 0x3;
 		    if (i_13_ == i_3_ && i_12_ >= i && i_12_ < i + 8
@@ -506,7 +506,7 @@ public class Class25
 		    int i_74_ = i_72_ & 0x3f;
 		    int i_75_ = i_72_ >> 6 & 0x3f;
 		    int i_76_ = i_72_ >> 12;
-		    int i_77_ = class13_sub1_sub2.method311();
+		    int i_77_ = class13_sub1_sub2.readUnsignedByte();
 		    int i_78_ = i_77_ >> 2;
 		    int i_79_ = i_77_ & 0x3;
 		    int i_80_ = i_75_ + i_68_;
@@ -1094,7 +1094,7 @@ public class Class25
 		    && i_198_ < 104) {
 		    aByteArrayArrayArray418[i_199_][i_196_][i_198_] = (byte) 0;
 		    for (;;) {
-			int i_201_ = class13_sub1_sub2.method311();
+			int i_201_ = class13_sub1_sub2.readUnsignedByte();
 			if (i_201_ == 0) {
 			    if (i_199_ == 0)
 				anIntArrayArrayArray413[0][i_196_][i_198_]
@@ -1109,7 +1109,7 @@ public class Class25
 			    break;
 			}
 			if (i_201_ == 1) {
-			    int i_202_ = class13_sub1_sub2.method311();
+			    int i_202_ = class13_sub1_sub2.readUnsignedByte();
 			    if (i_202_ == 1)
 				i_202_ = 0;
 			    if (i_199_ == 0)
@@ -1139,15 +1139,15 @@ public class Class25
 		    }
 		} else {
 		    for (;;) {
-			int i_203_ = class13_sub1_sub2.method311();
+			int i_203_ = class13_sub1_sub2.readUnsignedByte();
 			if (i_203_ == 0)
 			    break;
 			if (i_203_ == 1) {
-			    class13_sub1_sub2.method311();
+			    class13_sub1_sub2.readUnsignedByte();
 			    break;
 			}
 			if (i_203_ <= 49)
-			    class13_sub1_sub2.method311();
+			    class13_sub1_sub2.readUnsignedByte();
 		    }
 		}
 	    }
@@ -1709,7 +1709,7 @@ public class Class25
 			int i_242_ = class13_sub1_sub2.method325();
 			if (i_242_ == 0)
 			    break;
-			class13_sub1_sub2.method311();
+			class13_sub1_sub2.readUnsignedByte();
 		    } else {
 			int i_243_ = class13_sub1_sub2.method325();
 			if (i_243_ == 0)
@@ -1717,7 +1717,7 @@ public class Class25
 			i_240_ += i_243_ - 1;
 			int i_244_ = i_240_ & 0x3f;
 			int i_245_ = i_240_ >> 6 & 0x3f;
-			int i_246_ = class13_sub1_sub2.method311() >> 2;
+			int i_246_ = class13_sub1_sub2.readUnsignedByte() >> 2;
 			int i_247_ = i_245_ + i_236_;
 			int i_248_ = i_244_ + i_237_;
 			if (i_247_ > 0 && i_248_ > 0 && i_247_ < 103
@@ -1812,7 +1812,7 @@ public class Class25
 		    int i_260_ = class13_sub1_sub2.method325();
 		    if (i_260_ == 0)
 			break;
-		    class13_sub1_sub2.method311();
+		    class13_sub1_sub2.readUnsignedByte();
 		}
 	    }
 	} catch (RuntimeException runtimeexception) {

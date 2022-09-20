@@ -28,7 +28,7 @@ public class Class32
                 return;
             }
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149("flo.dat", null));
-            anInt488 = class13_sub1_sub2.method313();
+            anInt488 = class13_sub1_sub2.readUnsignedShort();
             if(aClass32Array489 == null)
             {
                 aClass32Array489 = new Class32[anInt488];
@@ -60,7 +60,7 @@ public class Class32
             }
             do
             {
-                int j = class13_sub1_sub2.method311();
+                int j = class13_sub1_sub2.readUnsignedByte();
                 if(j == 0)
                 {
                     return;
@@ -72,7 +72,7 @@ public class Class32
                 } else
                 if(j == 2)
                 {
-                    anInt492 = class13_sub1_sub2.method311();
+                    anInt492 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(j == 3)
                 {

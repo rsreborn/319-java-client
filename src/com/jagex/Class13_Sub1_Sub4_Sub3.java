@@ -28,10 +28,10 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4
         anInt1666 = 809;
         Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149(s + ".dat", null));
         Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class1.method149("index.dat", null));
-        class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.method313();
-        anInt1673 = class13_sub1_sub2_1.method313();
-        anInt1674 = class13_sub1_sub2_1.method313();
-        int j = class13_sub1_sub2_1.method311();
+        class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.readUnsignedShort();
+        anInt1673 = class13_sub1_sub2_1.readUnsignedShort();
+        anInt1674 = class13_sub1_sub2_1.readUnsignedShort();
+        int j = class13_sub1_sub2_1.readUnsignedByte();
         anIntArray1668 = new int[j];
         for(int k = 0; k < j - 1; k++)
         {
@@ -40,14 +40,14 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4
         for(int l = 0; l < i; l++)
         {
             class13_sub1_sub2_1.anInt1399 += 2;
-            class13_sub1_sub2.anInt1399 += class13_sub1_sub2_1.method313() * class13_sub1_sub2_1.method313();
+            class13_sub1_sub2.anInt1399 += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
             class13_sub1_sub2_1.anInt1399++;
         }
-        anInt1671 = class13_sub1_sub2_1.method311();
-        anInt1672 = class13_sub1_sub2_1.method311();
-        anInt1669 = class13_sub1_sub2_1.method313();
-        anInt1670 = class13_sub1_sub2_1.method313();
-        int i1 = class13_sub1_sub2_1.method311();
+        anInt1671 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1672 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1669 = class13_sub1_sub2_1.readUnsignedShort();
+        anInt1670 = class13_sub1_sub2_1.readUnsignedShort();
+        int i1 = class13_sub1_sub2_1.readUnsignedByte();
         int j1 = anInt1669 * anInt1670;
         aByteArray1667 = new byte[j1];
         if(i1 == 0)

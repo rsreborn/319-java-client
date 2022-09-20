@@ -47,7 +47,7 @@ public class Class27
             Class17.method435();
             do
             {
-                int i = class13_sub1_sub2.method313();
+                int i = class13_sub1_sub2.readUnsignedShort();
                 if(i == 65535)
                 {
                     return;
@@ -94,7 +94,7 @@ public class Class27
         {
             for(int j = 0; j < 10; j++)
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 if(k != 0)
                 {
                     class13_sub1_sub2.anInt1399--;
@@ -106,8 +106,8 @@ public class Class27
             {
                 aBoolean448 = !aBoolean448;
             }
-            anInt454 = class13_sub1_sub2.method313();
-            anInt455 = class13_sub1_sub2.method313();
+            anInt454 = class13_sub1_sub2.readUnsignedShort();
+            anInt455 = class13_sub1_sub2.readUnsignedShort();
             return;
         }
         catch(RuntimeException runtimeexception)

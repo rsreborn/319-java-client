@@ -519,14 +519,14 @@ public class ItemDefinition
             }
             do
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 if(k == 0)
                 {
                     return;
                 }
                 if(k == 1)
                 {
-                    anInt668 = class13_sub1_sub2.method313();
+                    anInt668 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 2)
                 {
@@ -538,19 +538,19 @@ public class ItemDefinition
                 } else
                 if(k == 4)
                 {
-                    modelScale = class13_sub1_sub2.method313();
+                    modelScale = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 5)
                 {
-                    anInt670 = class13_sub1_sub2.method313();
+                    anInt670 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 6)
                 {
-                    anInt663 = class13_sub1_sub2.method313();
+                    anInt663 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 7)
                 {
-                    anInt656 = class13_sub1_sub2.method313();
+                    anInt656 = class13_sub1_sub2.readUnsignedShort();
                     if(anInt656 > 32767)
                     {
                         anInt656 -= 0x10000;
@@ -558,7 +558,7 @@ public class ItemDefinition
                 } else
                 if(k == 8)
                 {
-                    anInt628 = class13_sub1_sub2.method313();
+                    anInt628 = class13_sub1_sub2.readUnsignedShort();
                     if(anInt628 > 32767)
                     {
                         anInt628 -= 0x10000;
@@ -566,7 +566,7 @@ public class ItemDefinition
                 } else
                 if(k == 10)
                 {
-                    anInt634 = class13_sub1_sub2.method313();
+                    anInt634 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 11)
                 {
@@ -582,21 +582,21 @@ public class ItemDefinition
                 } else
                 if(k == 23)
                 {
-                    anInt647 = class13_sub1_sub2.method313();
+                    anInt647 = class13_sub1_sub2.readUnsignedShort();
                     aByte632 = class13_sub1_sub2.method312();
                 } else
                 if(k == 24)
                 {
-                    anInt664 = class13_sub1_sub2.method313();
+                    anInt664 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 25)
                 {
-                    anInt654 = class13_sub1_sub2.method313();
+                    anInt654 = class13_sub1_sub2.readUnsignedShort();
                     aByte630 = class13_sub1_sub2.method312();
                 } else
                 if(k == 26)
                 {
-                    anInt640 = class13_sub1_sub2.method313();
+                    anInt640 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k >= 30 && k < 35)
                 {
@@ -620,50 +620,50 @@ public class ItemDefinition
                 } else
                 if(k == 40)
                 {
-                    int l = class13_sub1_sub2.method311();
+                    int l = class13_sub1_sub2.readUnsignedByte();
                     anIntArray646 = new int[l];
                     anIntArray631 = new int[l];
                     for(int i1 = 0; i1 < l; i1++)
                     {
-                        anIntArray646[i1] = class13_sub1_sub2.method313();
-                        anIntArray631[i1] = class13_sub1_sub2.method313();
+                        anIntArray646[i1] = class13_sub1_sub2.readUnsignedShort();
+                        anIntArray631[i1] = class13_sub1_sub2.readUnsignedShort();
                     }
                 } else
                 if(k == 78)
                 {
-                    anInt659 = class13_sub1_sub2.method313();
+                    anInt659 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 79)
                 {
-                    anInt648 = class13_sub1_sub2.method313();
+                    anInt648 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 90)
                 {
-                    anInt624 = class13_sub1_sub2.method313();
+                    anInt624 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 91)
                 {
-                    anInt651 = class13_sub1_sub2.method313();
+                    anInt651 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 92)
                 {
-                    anInt653 = class13_sub1_sub2.method313();
+                    anInt653 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 93)
                 {
-                    anInt657 = class13_sub1_sub2.method313();
+                    anInt657 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 95)
                 {
-                    anInt666 = class13_sub1_sub2.method313();
+                    anInt666 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 97)
                 {
-                    anInt644 = class13_sub1_sub2.method313();
+                    anInt644 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 98)
                 {
-                    anInt642 = class13_sub1_sub2.method313();
+                    anInt642 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k >= 100 && k < 110)
                 {
@@ -672,20 +672,20 @@ public class ItemDefinition
                         anIntArray636 = new int[10];
                         anIntArray627 = new int[10];
                     }
-                    anIntArray636[k - 100] = class13_sub1_sub2.method313();
-                    anIntArray627[k - 100] = class13_sub1_sub2.method313();
+                    anIntArray636[k - 100] = class13_sub1_sub2.readUnsignedShort();
+                    anIntArray627[k - 100] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 110)
                 {
-                    anInt658 = class13_sub1_sub2.method313();
+                    anInt658 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 111)
                 {
-                    anInt635 = class13_sub1_sub2.method313();
+                    anInt635 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 112)
                 {
-                    anInt621 = class13_sub1_sub2.method313();
+                    anInt621 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(k == 113)
                 {
@@ -697,7 +697,7 @@ public class ItemDefinition
                 } else
                 if(k == 115)
                 {
-                    anInt641 = class13_sub1_sub2.method311();
+                    anInt641 = class13_sub1_sub2.readUnsignedByte();
                 }
             } while(true);
         }
@@ -867,13 +867,13 @@ public class ItemDefinition
     {
         aClass13_Sub1_Sub2_665 = new Class13_Sub1_Sub2(-351, class1.method149("obj.dat", null));
         Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149("obj.idx", null));
-        anInt669 = class13_sub1_sub2.method313();
+        anInt669 = class13_sub1_sub2.readUnsignedShort();
         anIntArray655 = new int[anInt669];
         int i = 2;
         for(int j = 0; j < anInt669; j++)
         {
             anIntArray655[j] = i;
-            i += class13_sub1_sub2.method313();
+            i += class13_sub1_sub2.readUnsignedShort();
         }
         aItemDefinitionArray620 = new ItemDefinition[10];
         for(int k = 0; k < 10; k++)

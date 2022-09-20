@@ -30,7 +30,7 @@ public class Class40
             {
                 anInt683 = -170;
             }
-            anInt684 = class13_sub1_sub2.method313();
+            anInt684 = class13_sub1_sub2.readUnsignedShort();
             if(aClass40Array685 == null)
             {
                 aClass40Array685 = new Class40[anInt684];
@@ -63,18 +63,18 @@ public class Class40
             }
             do
             {
-                int j = class13_sub1_sub2.method311();
+                int j = class13_sub1_sub2.readUnsignedByte();
                 if(j == 0)
                 {
                     return;
                 }
                 if(j == 1)
                 {
-                    anInt687 = class13_sub1_sub2.method313();
+                    anInt687 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j == 2)
                 {
-                    anInt688 = class13_sub1_sub2.method313();
+                    anInt688 = class13_sub1_sub2.readUnsignedShort();
                     if(Class50.aClass50Array800 != null)
                     {
                         aClass50_689 = Class50.aClass50Array800[anInt688];
@@ -82,31 +82,31 @@ public class Class40
                 } else
                 if(j == 4)
                 {
-                    anInt692 = class13_sub1_sub2.method313();
+                    anInt692 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j == 5)
                 {
-                    anInt693 = class13_sub1_sub2.method313();
+                    anInt693 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j == 6)
                 {
-                    anInt694 = class13_sub1_sub2.method313();
+                    anInt694 = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j == 7)
                 {
-                    anInt695 = class13_sub1_sub2.method311();
+                    anInt695 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(j == 8)
                 {
-                    anInt696 = class13_sub1_sub2.method311();
+                    anInt696 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(j >= 40 && j < 50)
                 {
-                    anIntArray690[j - 40] = class13_sub1_sub2.method313();
+                    anIntArray690[j - 40] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 if(j >= 50 && j < 60)
                 {
-                    anIntArray691[j - 50] = class13_sub1_sub2.method313();
+                    anIntArray691[j - 50] = class13_sub1_sub2.readUnsignedShort();
                 } else
                 {
                     System.out.println("Error unrecognised spotanim config code: " + j);

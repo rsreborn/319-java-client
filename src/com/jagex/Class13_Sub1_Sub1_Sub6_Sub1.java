@@ -395,23 +395,23 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
         try
         {
             class13_sub1_sub2.anInt1399 = 0;
-            anInt1687 = class13_sub1_sub2.method311();
-            anInt1715 = class13_sub1_sub2.method311();
+            anInt1687 = class13_sub1_sub2.readUnsignedByte();
+            anInt1715 = class13_sub1_sub2.readUnsignedByte();
             aClass47_1716 = null;
             anInt1702 = 0;
             for(int j = 0; j < 12; j++)
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 if(k == 0)
                 {
                     anIntArray1703[j] = 0;
                     continue;
                 }
-                int i1 = class13_sub1_sub2.method311();
+                int i1 = class13_sub1_sub2.readUnsignedByte();
                 anIntArray1703[j] = (k << 8) + i1;
                 if(j == 0 && anIntArray1703[0] == 65535)
                 {
-                    aClass47_1716 = Class47.method585(class13_sub1_sub2.method313());
+                    aClass47_1716 = Class47.method585(class13_sub1_sub2.readUnsignedShort());
                     break;
                 }
                 if(anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ItemDefinition.anInt669)
@@ -425,44 +425,44 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
             }
             for(int l = 0; l < 5; l++)
             {
-                int j1 = class13_sub1_sub2.method311();
+                int j1 = class13_sub1_sub2.readUnsignedByte();
                 if(j1 < 0 || j1 >= Game.anIntArrayArray829[l].length)
                 {
                     j1 = 0;
                 }
                 anIntArray1700[l] = j1;
             }
-            super.anInt1584 = class13_sub1_sub2.method313();
+            super.anInt1584 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1584 == 65535)
             {
                 super.anInt1584 = -1;
             }
-            super.anInt1585 = class13_sub1_sub2.method313();
+            super.anInt1585 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1585 == 65535)
             {
                 super.anInt1585 = -1;
             }
-            super.anInt1570 = class13_sub1_sub2.method313();
+            super.anInt1570 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1570 == 65535)
             {
                 super.anInt1570 = -1;
             }
-            super.anInt1571 = class13_sub1_sub2.method313();
+            super.anInt1571 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1571 == 65535)
             {
                 super.anInt1571 = -1;
             }
-            super.anInt1572 = class13_sub1_sub2.method313();
+            super.anInt1572 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1572 == 65535)
             {
                 super.anInt1572 = -1;
             }
-            super.anInt1573 = class13_sub1_sub2.method313();
+            super.anInt1573 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1573 == 65535)
             {
                 super.anInt1573 = -1;
             }
-            super.anInt1607 = class13_sub1_sub2.method313();
+            super.anInt1607 = class13_sub1_sub2.readUnsignedShort();
             if(super.anInt1607 == 65535)
             {
                 super.anInt1607 = -1;
@@ -472,8 +472,8 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6
             {
                 aBoolean1704 = !aBoolean1704;
             }
-            anInt1697 = class13_sub1_sub2.method311();
-            anInt1695 = class13_sub1_sub2.method313();
+            anInt1697 = class13_sub1_sub2.readUnsignedByte();
+            anInt1695 = class13_sub1_sub2.readUnsignedShort();
             aBoolean1701 = true;
             aLong1709 = 0L;
             for(int k1 = 0; k1 < 12; k1++)

@@ -15,7 +15,7 @@ public class Class35
         anInt529 = -22144;
         try
         {
-            anInt530 = class13_sub1_sub2.method311();
+            anInt530 = class13_sub1_sub2.readUnsignedByte();
             anIntArray531 = new int[anInt530];
             anIntArrayArray532 = new int[anInt530][];
             if(flag)
@@ -24,15 +24,15 @@ public class Class35
             }
             for(int i = 0; i < anInt530; i++)
             {
-                anIntArray531[i] = class13_sub1_sub2.method311();
+                anIntArray531[i] = class13_sub1_sub2.readUnsignedByte();
             }
             for(int j = 0; j < anInt530; j++)
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 anIntArrayArray532[j] = new int[k];
                 for(int l = 0; l < k; l++)
                 {
-                    anIntArrayArray532[j][l] = class13_sub1_sub2.method311();
+                    anIntArrayArray532[j][l] = class13_sub1_sub2.readUnsignedByte();
                 }
             }
             return;

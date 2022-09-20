@@ -73,10 +73,10 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4
         aBoolean1679 = false;
         Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149(s + ".dat", null));
         Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, class1.method149("index.dat", null));
-        class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.method313();
-        anInt1685 = class13_sub1_sub2_1.method313();
-        anInt1686 = class13_sub1_sub2_1.method313();
-        int j = class13_sub1_sub2_1.method311();
+        class13_sub1_sub2_1.anInt1399 = class13_sub1_sub2.readUnsignedShort();
+        anInt1685 = class13_sub1_sub2_1.readUnsignedShort();
+        anInt1686 = class13_sub1_sub2_1.readUnsignedShort();
+        int j = class13_sub1_sub2_1.readUnsignedByte();
         int ai[] = new int[j];
         for(int k = 0; k < j - 1; k++)
         {
@@ -89,21 +89,21 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4
         for(int l = 0; l < i; l++)
         {
             class13_sub1_sub2_1.anInt1399 += 2;
-            class13_sub1_sub2.anInt1399 += class13_sub1_sub2_1.method313() * class13_sub1_sub2_1.method313();
+            class13_sub1_sub2.anInt1399 += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
             class13_sub1_sub2_1.anInt1399++;
         }
-        anInt1683 = class13_sub1_sub2_1.method311();
-        anInt1684 = class13_sub1_sub2_1.method311();
-        anInt1681 = class13_sub1_sub2_1.method313();
-        anInt1682 = class13_sub1_sub2_1.method313();
-        int i1 = class13_sub1_sub2_1.method311();
+        anInt1683 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1684 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1681 = class13_sub1_sub2_1.readUnsignedShort();
+        anInt1682 = class13_sub1_sub2_1.readUnsignedShort();
+        int i1 = class13_sub1_sub2_1.readUnsignedByte();
         int j1 = anInt1681 * anInt1682;
         anIntArray1680 = new int[j1];
         if(i1 == 0)
         {
             for(int k1 = 0; k1 < j1; k1++)
             {
-                anIntArray1680[k1] = ai[class13_sub1_sub2.method311()];
+                anIntArray1680[k1] = ai[class13_sub1_sub2.readUnsignedByte()];
             }
             return;
         }
@@ -113,7 +113,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4
             {
                 for(int i2 = 0; i2 < anInt1682; i2++)
                 {
-                    anIntArray1680[l1 + i2 * anInt1681] = ai[class13_sub1_sub2.method311()];
+                    anIntArray1680[l1 + i2 * anInt1681] = ai[class13_sub1_sub2.readUnsignedByte()];
                 }
             }
         }

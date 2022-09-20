@@ -338,7 +338,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         }
     }
 
-    public int method311()
+    public int readUnsignedByte()
     {
         return aByteArray1398[anInt1399++] & 0xff;
     }
@@ -348,7 +348,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         return aByteArray1398[anInt1399++];
     }
 
-    public int method313()
+    public int readUnsignedShort()
     {
         anInt1399 += 2;
         return ((aByteArray1398[anInt1399 - 2] & 0xff) << 8) + (aByteArray1398[anInt1399 - 1] & 0xff);
@@ -523,10 +523,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         int i = aByteArray1398[anInt1399] & 0xff;
         if(i < 128)
         {
-            return method311() - 64;
+            return readUnsignedByte() - 64;
         } else
         {
-            return method313() - 49152;
+            return readUnsignedShort() - 49152;
         }
     }
 
@@ -535,10 +535,10 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         int i = aByteArray1398[anInt1399] & 0xff;
         if(i < 128)
         {
-            return method311();
+            return readUnsignedByte();
         } else
         {
-            return method313() - 32768;
+            return readUnsignedShort() - 32768;
         }
     }
 
@@ -624,7 +624,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method330(int i)
+    public int readUnsignedByteA(int i)
     {
         try
         {
@@ -641,7 +641,7 @@ public class Class13_Sub1_Sub2 extends Class13_Sub1
         throw new RuntimeException();
     }
 
-    public int method331(int i)
+    public int readUnsignedByteC(int i)
     {
         try
         {

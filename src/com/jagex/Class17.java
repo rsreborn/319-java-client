@@ -304,7 +304,7 @@ public class Class17
             aClass6_302.method181(class13_sub1_sub2, 26421);
             aClass6_303 = new Class6();
             aClass6_303.method181(class13_sub1_sub2, 26421);
-            int j = class13_sub1_sub2.method311();
+            int j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
                 class13_sub1_sub2.anInt1399--;
@@ -313,7 +313,7 @@ public class Class17
                 aClass6_305 = new Class6();
                 aClass6_305.method181(class13_sub1_sub2, 26421);
             }
-            j = class13_sub1_sub2.method311();
+            j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
                 class13_sub1_sub2.anInt1399--;
@@ -322,7 +322,7 @@ public class Class17
                 aClass6_307 = new Class6();
                 aClass6_307.method181(class13_sub1_sub2, 26421);
             }
-            j = class13_sub1_sub2.method311();
+            j = class13_sub1_sub2.readUnsignedByte();
             if(j != 0)
             {
                 class13_sub1_sub2.anInt1399--;
@@ -349,8 +349,8 @@ public class Class17
                 throw new NullPointerException();
             } else
             {
-                anInt317 = class13_sub1_sub2.method313();
-                anInt318 = class13_sub1_sub2.method313();
+                anInt317 = class13_sub1_sub2.readUnsignedShort();
+                anInt318 = class13_sub1_sub2.readUnsignedShort();
                 aClass29_315 = new Class29();
                 aClass6_316 = new Class6();
                 aClass29_315.method489(aClass6_316, 40848, class13_sub1_sub2);

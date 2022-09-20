@@ -31,10 +31,10 @@ public class Class8
         {
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, abyte0);
             class13_sub1_sub2.anInt1399 = abyte0.length - 8;
-            int j = class13_sub1_sub2.method313();
-            int k = class13_sub1_sub2.method313();
-            int l = class13_sub1_sub2.method313();
-            int i1 = class13_sub1_sub2.method313();
+            int j = class13_sub1_sub2.readUnsignedShort();
+            int k = class13_sub1_sub2.readUnsignedShort();
+            int l = class13_sub1_sub2.readUnsignedShort();
+            int i1 = class13_sub1_sub2.readUnsignedShort();
             int j1 = 0;
             Class13_Sub1_Sub2 class13_sub1_sub2_1 = new Class13_Sub1_Sub2(-351, abyte0);
             class13_sub1_sub2_1.anInt1399 = j1;
@@ -55,23 +55,23 @@ public class Class8
             }
             class13_sub1_sub2_5.anInt1399 = j1;
             Class35 class35 = new Class35(class13_sub1_sub2_5, false);
-            int k1 = class13_sub1_sub2_1.method313();
+            int k1 = class13_sub1_sub2_1.readUnsignedShort();
             int ai[] = new int[500];
             int ai1[] = new int[500];
             int ai2[] = new int[500];
             int ai3[] = new int[500];
             for(int l1 = 0; l1 < k1; l1++)
             {
-                int i2 = class13_sub1_sub2_1.method313();
+                int i2 = class13_sub1_sub2_1.readUnsignedShort();
                 Class8 class8 = aClass8Array136[i2] = new Class8();
-                class8.anInt137 = class13_sub1_sub2_4.method311();
+                class8.anInt137 = class13_sub1_sub2_4.readUnsignedByte();
                 class8.aClass35_138 = class35;
-                int j2 = class13_sub1_sub2_1.method311();
+                int j2 = class13_sub1_sub2_1.readUnsignedByte();
                 int k2 = -1;
                 int l2 = 0;
                 for(int i3 = 0; i3 < j2; i3++)
                 {
-                    int j3 = class13_sub1_sub2_2.method311();
+                    int j3 = class13_sub1_sub2_2.readUnsignedByte();
                     if(j3 > 0)
                     {
                         if(class35.anIntArray531[i3] != 0)

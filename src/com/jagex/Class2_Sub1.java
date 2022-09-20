@@ -636,7 +636,7 @@ public class Class2_Sub1 extends Class2 implements Runnable
 	    anIntArrayArray1306[i] = new int[i_36_];
 	    aByteArrayArray1297[i] = new byte[i_36_];
 	    for (int i_37_ = 0; i_37_ < i_36_; i_37_++)
-		anIntArrayArray1306[i][i_37_] = class13_sub1_sub2.method313();
+		anIntArrayArray1306[i][i_37_] = class13_sub1_sub2.readUnsignedShort();
 	}
 	String[] strings_38_
 	    = { "model_crc", "anim_crc", "midi_crc", "map_crc" };
@@ -666,23 +666,23 @@ public class Class2_Sub1 extends Class2 implements Runnable
 	anIntArray1317 = new int[i];
 	anIntArray1312 = new int[i];
 	for (int i_42_ = 0; i_42_ < i; i_42_++) {
-	    anIntArray1320[i_42_] = class13_sub1_sub2.method313();
-	    anIntArray1332[i_42_] = class13_sub1_sub2.method313();
-	    anIntArray1317[i_42_] = class13_sub1_sub2.method313();
-	    anIntArray1312[i_42_] = class13_sub1_sub2.method311();
+	    anIntArray1320[i_42_] = class13_sub1_sub2.readUnsignedShort();
+	    anIntArray1332[i_42_] = class13_sub1_sub2.readUnsignedShort();
+	    anIntArray1317[i_42_] = class13_sub1_sub2.readUnsignedShort();
+	    anIntArray1312[i_42_] = class13_sub1_sub2.readUnsignedByte();
 	}
 	is = class1.method149("anim_index", null);
 	class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, is);
 	i = is.length / 2;
 	anIntArray1303 = new int[i];
 	for (int i_43_ = 0; i_43_ < i; i_43_++)
-	    anIntArray1303[i_43_] = class13_sub1_sub2.method313();
+	    anIntArray1303[i_43_] = class13_sub1_sub2.readUnsignedShort();
 	is = class1.method149("midi_index", null);
 	class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, is);
 	i = is.length;
 	anIntArray1315 = new int[i];
 	for (int i_44_ = 0; i_44_ < i; i_44_++)
-	    anIntArray1315[i_44_] = class13_sub1_sub2.method311();
+	    anIntArray1315[i_44_] = class13_sub1_sub2.readUnsignedByte();
 	aGame1319 = var_game;
 	aBoolean1301 = true;
 	aGame1319.method12(this, 2);

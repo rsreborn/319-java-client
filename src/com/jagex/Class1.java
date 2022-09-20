@@ -51,7 +51,7 @@ public class Class1
                 aByteArray42 = abyte0;
                 aBoolean48 = false;
             }
-            anInt43 = class13_sub1_sub2.method313();
+            anInt43 = class13_sub1_sub2.readUnsignedShort();
             anIntArray44 = new int[anInt43];
             anIntArray45 = new int[anInt43];
             anIntArray46 = new int[anInt43];

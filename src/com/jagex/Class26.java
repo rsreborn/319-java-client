@@ -22,7 +22,7 @@ public class Class26
         try
         {
             Class13_Sub1_Sub2 class13_sub1_sub2 = new Class13_Sub1_Sub2(-351, class1.method149("varbit.dat", null));
-            anInt438 = class13_sub1_sub2.method313();
+            anInt438 = class13_sub1_sub2.readUnsignedShort();
             if(aClass26Array439 == null)
             {
                 aClass26Array439 = new Class26[anInt438];
@@ -66,16 +66,16 @@ public class Class26
             }
             do
             {
-                int k = class13_sub1_sub2.method311();
+                int k = class13_sub1_sub2.readUnsignedByte();
                 if(k == 0)
                 {
                     return;
                 }
                 if(k == 1)
                 {
-                    anInt441 = class13_sub1_sub2.method313();
-                    anInt442 = class13_sub1_sub2.method311();
-                    anInt443 = class13_sub1_sub2.method311();
+                    anInt441 = class13_sub1_sub2.readUnsignedShort();
+                    anInt442 = class13_sub1_sub2.readUnsignedByte();
+                    anInt443 = class13_sub1_sub2.readUnsignedByte();
                 } else
                 if(k == 10)
                 {
