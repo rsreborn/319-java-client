@@ -30,7 +30,7 @@ public class ISAACCipher {
         throw new RuntimeException();
     }
 
-    public int method190() {
+    public int nextInt() {
         if (anInt145-- == 0) {
             method191();
             anInt145 = 255;

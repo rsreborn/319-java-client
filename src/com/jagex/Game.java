@@ -1106,7 +1106,7 @@ public class Game extends GameShell {
     public void method18(int i) {
         try {
             if (i < 5 || i > 5) {
-                anInt1052 = isaacCipher.method190();
+                anInt1052 = isaacCipher.nextInt();
             }
             if (anInt1094 != 0) {
                 return;
@@ -1275,7 +1275,7 @@ public class Game extends GameShell {
                 for (int k = j; k < anInt1098; k++) {
                     aLongArray990[k] = aLongArray990[k + 1];
                 }
-                aBuffer_928.method300(64);
+                aBuffer_928.writeOpcode(64);
                 aBuffer_928.writeLong(l);
                 break;
             }
@@ -1353,7 +1353,7 @@ public class Game extends GameShell {
                 anInt1254 = 2;
                 Class25.anInt416 = anInt1166;
                 method91(aBoolean1237);
-                aBuffer_928.method300(25);
+                aBuffer_928.writeOpcode(25);
                 return 0;
             }
         } catch (RuntimeException runtimeexception) {
@@ -1560,7 +1560,7 @@ public class Game extends GameShell {
     public void method27(byte byte0, int i) {
         try {
             if (byte0 != 66) {
-                anInt917 = isaacCipher.method190();
+                anInt917 = isaacCipher.nextInt();
             }
             if (i < 0) {
                 return;
@@ -1585,25 +1585,25 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(98);
+                aBuffer_928.writeOpcode(98);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
                 aBuffer_928.writeShort(i1);
                 aBuffer_928.writeShort(k + anInt1084);
             }
             if (l == 47) {
                 method92(i1, false, j, k);
-                aBuffer_928.method300(211);
+                aBuffer_928.writeOpcode(211);
                 aBuffer_928.writeShort(k + anInt1084);
                 aBuffer_928.writeShort(i1 >> 14 & 0x7fff);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
             }
             if (l == 755 && !aBoolean1048) {
-                aBuffer_928.method300(46);
+                aBuffer_928.writeOpcode(46);
                 aBuffer_928.writeShort(k);
                 aBoolean1048 = true;
             }
             if (l == 707) {
-                aBuffer_928.method300(33);
+                aBuffer_928.writeOpcode(33);
                 aBuffer_928.writeShort(k);
                 aBuffer_928.method336(false, i1);
                 aBuffer_928.method335(0, j);
@@ -1627,7 +1627,7 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(184);
+                aBuffer_928.writeOpcode(184);
                 aBuffer_928.writeShort(j + anInt1083);
                 aBuffer_928.writeShort(anInt974);
                 aBuffer_928.method336(false, k + anInt1084);
@@ -1641,7 +1641,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(111);
+                    aBuffer_928.writeOpcode(111);
                     aBuffer_928.method337(anInt1014, i1);
                 }
             }
@@ -1654,7 +1654,7 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(132);
+                aBuffer_928.writeOpcode(132);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.writeShort(j + anInt1083);
                 aBuffer_928.writeShort(k + anInt1084);
@@ -1667,12 +1667,12 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(4);
+                    aBuffer_928.writeOpcode(4);
                     aBuffer_928.method336(false, i1);
                 }
             }
             if (l == 11) {
-                aBuffer_928.method300(6);
+                aBuffer_928.writeOpcode(6);
                 aBuffer_928.method335(0, j);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.writeShort(k);
@@ -1697,11 +1697,11 @@ public class Game extends GameShell {
                     anInt931 = 0;
                     anInt998++;
                     if (anInt998 >= 100) {
-                        aBuffer_928.method300(244);
+                        aBuffer_928.writeOpcode(244);
                         aBuffer_928.writeShort(11630);
                         anInt998 = 0;
                     }
-                    aBuffer_928.method300(70);
+                    aBuffer_928.writeOpcode(70);
                     aBuffer_928.method335(0, i1);
                 }
             }
@@ -1716,18 +1716,18 @@ public class Game extends GameShell {
                 anInt931 = 0;
                 anInt1142++;
                 if (anInt1142 >= 140) {
-                    aBuffer_928.method300(29);
+                    aBuffer_928.writeOpcode(29);
                     aBuffer_928.writeTriByte(0x720282);
                     anInt1142 = 0;
                 }
-                aBuffer_928.method300(183);
+                aBuffer_928.writeOpcode(183);
                 aBuffer_928.method336(false, k + anInt1084);
                 aBuffer_928.writeShort(i1);
                 aBuffer_928.method335(0, j + anInt1083);
             }
             if (l == 275) {
                 method92(i1, false, j, k);
-                aBuffer_928.method300(128);
+                aBuffer_928.writeOpcode(128);
                 aBuffer_928.method336(false, i1 >> 14 & 0x7fff);
                 aBuffer_928.method336(false, k + anInt1084);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
@@ -1743,7 +1743,7 @@ public class Game extends GameShell {
                 method70(0, s4, "", (byte) 117);
             }
             if (l == 13) {
-                aBuffer_928.method300(228);
+                aBuffer_928.writeOpcode(228);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.method335(0, j);
                 aBuffer_928.method335(0, k);
@@ -1767,7 +1767,7 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(149);
+                aBuffer_928.writeOpcode(149);
                 aBuffer_928.method337(anInt1014, k + anInt1084);
                 aBuffer_928.writeShort(j + anInt1083);
                 aBuffer_928.writeShort(i1);
@@ -1799,11 +1799,11 @@ public class Game extends GameShell {
             if (l == 71) {
                 anInt1156 += k;
                 if (anInt1156 >= 117) {
-                    aBuffer_928.method300(207);
+                    aBuffer_928.writeOpcode(207);
                     aBuffer_928.writeShort(43551);
                     anInt1156 = 0;
                 }
-                aBuffer_928.method300(83);
+                aBuffer_928.writeOpcode(83);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.writeShort(j);
                 aBuffer_928.method337(anInt1014, k);
@@ -1819,7 +1819,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 79) {
-                aBuffer_928.method300(47);
+                aBuffer_928.writeOpcode(47);
                 aBuffer_928.method335(0, j);
                 aBuffer_928.method337(anInt1014, i1);
                 aBuffer_928.writeShort(anInt974);
@@ -1838,12 +1838,12 @@ public class Game extends GameShell {
             if (l == 259) {
                 anInt942 += j;
                 if (anInt942 >= 114) {
-                    aBuffer_928.method300(186);
+                    aBuffer_928.writeOpcode(186);
                     aBuffer_928.writeByte(175);
                     anInt942 = 0;
                 }
                 method92(i1, false, j, k);
-                aBuffer_928.method300(17);
+                aBuffer_928.writeOpcode(17);
                 aBuffer_928.method337(anInt1014, i1 >> 14 & 0x7fff);
                 aBuffer_928.method336(false, k + anInt1084);
                 aBuffer_928.writeShort(j + anInt1083);
@@ -1857,7 +1857,7 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(18);
+                aBuffer_928.writeOpcode(18);
                 aBuffer_928.method337(anInt1014, anInt1027);
                 aBuffer_928.method335(0, j + anInt1083);
                 aBuffer_928.method337(anInt1014, anInt1028);
@@ -1866,7 +1866,7 @@ public class Game extends GameShell {
                 aBuffer_928.method337(anInt1014, anInt1026);
             }
             if (l == 650) {
-                aBuffer_928.method300(115);
+                aBuffer_928.writeOpcode(115);
                 aBuffer_928.method336(false, k);
                 aBuffer_928.method336(false, i1);
                 aBuffer_928.method337(anInt1014, j);
@@ -1889,7 +1889,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(103);
+                    aBuffer_928.writeOpcode(103);
                     aBuffer_928.method337(anInt1014, i1);
                 }
             }
@@ -1917,7 +1917,7 @@ public class Game extends GameShell {
                 method70(0, s5, "", (byte) 117);
             }
             if (l == 426) {
-                aBuffer_928.method300(123);
+                aBuffer_928.writeOpcode(123);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.method336(false, j);
                 aBuffer_928.method335(0, k);
@@ -1951,7 +1951,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 682) {
-                aBuffer_928.method300(189);
+                aBuffer_928.writeOpcode(189);
                 aBuffer_928.writeShort(k);
                 Widget widget = Widget.aWidgetArray533[k];
                 if (widget.anIntArrayArray581 != null && widget.anIntArrayArray581[0][0] == 5) {
@@ -1965,7 +1965,7 @@ public class Game extends GameShell {
             }
             if (l == 307) {
                 method92(i1, false, j, k);
-                aBuffer_928.method300(154);
+                aBuffer_928.writeOpcode(154);
                 aBuffer_928.method335(0, i1 >> 14 & 0x7fff);
                 aBuffer_928.method337(anInt1014, k + anInt1084);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
@@ -1978,7 +1978,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(156);
+                    aBuffer_928.writeOpcode(156);
                     aBuffer_928.method335(0, i1);
                 }
             }
@@ -1990,7 +1990,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(107);
+                    aBuffer_928.writeOpcode(107);
                     aBuffer_928.method337(anInt1014, anInt974);
                     aBuffer_928.writeShort(i1);
                 }
@@ -2003,7 +2003,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(55);
+                    aBuffer_928.writeOpcode(55);
                     aBuffer_928.writeShort(i1);
                     aBuffer_928.method337(anInt1014, anInt974);
                 }
@@ -2027,12 +2027,12 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(175);
+                    aBuffer_928.writeOpcode(175);
                     aBuffer_928.method337(anInt1014, i1);
                 }
             }
             if (l == 222) {
-                aBuffer_928.method300(114);
+                aBuffer_928.writeOpcode(114);
                 aBuffer_928.writeShort(j);
                 aBuffer_928.method336(false, k);
                 aBuffer_928.method336(false, i1);
@@ -2061,17 +2061,17 @@ public class Game extends GameShell {
                         }
                         method46(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_7.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_7.anIntArray1615[0], 0);
                         if (l == 270) {
-                            aBuffer_928.method300(134);
+                            aBuffer_928.writeOpcode(134);
                             aBuffer_928.method335(0, playerList[k3]);
                         }
                         if (l == 818) {
                             anInt998++;
                             if (anInt998 >= 100) {
-                                aBuffer_928.method300(244);
+                                aBuffer_928.writeOpcode(244);
                                 aBuffer_928.writeShort(11630);
                                 anInt998 = 0;
                             }
-                            aBuffer_928.method300(70);
+                            aBuffer_928.writeOpcode(70);
                             aBuffer_928.method335(0, playerList[k3]);
                         }
                         flag8 = true;
@@ -2083,7 +2083,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 456 && method92(i1, false, j, k)) {
-                aBuffer_928.method300(161);
+                aBuffer_928.writeOpcode(161);
                 aBuffer_928.writeShort(anInt974);
                 aBuffer_928.method337(anInt1014, i1 >> 14 & 0x7fff);
                 aBuffer_928.writeShort(j + anInt1083);
@@ -2113,7 +2113,7 @@ public class Game extends GameShell {
                 return;
             }
             if (l == 947 && method92(i1, false, j, k)) {
-                aBuffer_928.method300(125);
+                aBuffer_928.writeOpcode(125);
                 aBuffer_928.method337(anInt1014, anInt1028);
                 aBuffer_928.writeShort(k + anInt1084);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
@@ -2149,12 +2149,12 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(187);
+                    aBuffer_928.writeOpcode(187);
                     aBuffer_928.writeShort(i1);
                 }
             }
             if (l == 678) {
-                aBuffer_928.method300(169);
+                aBuffer_928.writeOpcode(169);
                 aBuffer_928.method337(anInt1014, k);
                 aBuffer_928.method337(anInt1014, i1);
                 aBuffer_928.writeShort(j);
@@ -2179,11 +2179,11 @@ public class Game extends GameShell {
                     anInt931 = 0;
                     anInt1077++;
                     if (anInt1077 >= 63) {
-                        aBuffer_928.method300(54);
+                        aBuffer_928.writeOpcode(54);
                         aBuffer_928.writeTriByte(0x91c665);
                         anInt1077 = 0;
                     }
-                    aBuffer_928.method300(229);
+                    aBuffer_928.writeOpcode(229);
                     aBuffer_928.method335(0, i1);
                 }
             }
@@ -2195,7 +2195,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(88);
+                    aBuffer_928.writeOpcode(88);
                     aBuffer_928.method336(false, i1);
                     aBuffer_928.method336(false, anInt1026);
                     aBuffer_928.method335(0, anInt1028);
@@ -2203,7 +2203,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 894) {
-                aBuffer_928.method300(188);
+                aBuffer_928.writeOpcode(188);
                 aBuffer_928.method336(false, k);
                 aBuffer_928.writeShort(anInt1026);
                 aBuffer_928.method337(anInt1014, j);
@@ -2222,7 +2222,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 654) {
-                aBuffer_928.method300(189);
+                aBuffer_928.writeOpcode(189);
                 aBuffer_928.writeShort(k);
                 Widget widget_2 = Widget.aWidgetArray533[k];
                 if (widget_2.anIntArrayArray581 != null && widget_2.anIntArrayArray581[0][0] == 5) {
@@ -2241,14 +2241,14 @@ public class Game extends GameShell {
                 anInt930 = super.anInt31;
                 anInt932 = 2;
                 anInt931 = 0;
-                aBuffer_928.method300(202);
+                aBuffer_928.writeOpcode(202);
                 aBuffer_928.method336(false, i1);
                 aBuffer_928.method337(anInt1014, j + anInt1083);
                 aBuffer_928.method336(false, k + anInt1084);
             }
             if (l == 1574) {
                 method92(i1, false, j, k);
-                aBuffer_928.method300(0);
+                aBuffer_928.writeOpcode(0);
                 aBuffer_928.method335(0, j + anInt1083);
                 aBuffer_928.writeShort(k + anInt1084);
                 aBuffer_928.writeShort(i1 >> 14 & 0x7fff);
@@ -2261,7 +2261,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(134);
+                    aBuffer_928.writeOpcode(134);
                     aBuffer_928.method335(0, i1);
                 }
             }
@@ -2273,7 +2273,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(212);
+                    aBuffer_928.writeOpcode(212);
                     aBuffer_928.method337(anInt1014, anInt1027);
                     aBuffer_928.method337(anInt1014, anInt1026);
                     aBuffer_928.writeShort(anInt1028);
@@ -2284,7 +2284,7 @@ public class Game extends GameShell {
                 method140(6);
             }
             if (l == 333) {
-                aBuffer_928.method300(136);
+                aBuffer_928.writeOpcode(136);
                 aBuffer_928.method335(0, k);
                 aBuffer_928.method335(0, i1);
                 aBuffer_928.method337(anInt1014, j);
@@ -2326,7 +2326,7 @@ public class Game extends GameShell {
                     anInt930 = super.anInt31;
                     anInt932 = 2;
                     anInt931 = 0;
-                    aBuffer_928.method300(49);
+                    aBuffer_928.writeOpcode(49);
                     aBuffer_928.writeShort(i1);
                 }
             }
@@ -2337,7 +2337,7 @@ public class Game extends GameShell {
                     flag7 = method49((byte) 1, widget_3);
                 }
                 if (flag7) {
-                    aBuffer_928.method300(189);
+                    aBuffer_928.writeOpcode(189);
                     aBuffer_928.writeShort(k);
                 }
             }
@@ -2349,7 +2349,7 @@ public class Game extends GameShell {
                 }
             }
             if (l == 31) {
-                aBuffer_928.method300(165);
+                aBuffer_928.writeOpcode(165);
                 aBuffer_928.method337(anInt1014, j);
                 aBuffer_928.writeShort(i1);
                 aBuffer_928.method337(anInt1014, k);
@@ -2382,7 +2382,7 @@ public class Game extends GameShell {
                 anInt986++;
                 if (anInt986 > 152) {
                     anInt986 = 0;
-                    aBuffer_928.method300(181);
+                    aBuffer_928.writeOpcode(181);
                     aBuffer_928.writeTriByte(0x565a19);
                 }
             }
@@ -2496,7 +2496,7 @@ public class Game extends GameShell {
                     gameConnection.read(buffer.payload, 0, 1);
                     opcode = buffer.payload[0] & 0xff;
                     if (isaacCipher != null) {
-                        opcode = opcode - isaacCipher.method190() & 0xff;
+                        opcode = opcode - isaacCipher.nextInt() & 0xff;
                     }
                     packetSize = Class33.PACKET_SIZES[opcode];
                     available--;
@@ -4298,7 +4298,7 @@ public class Game extends GameShell {
             if (byte0 == 2) {
                 byte0 = 0;
             } else {
-                anInt992 = isaacCipher.method190();
+                anInt992 = isaacCipher.nextInt();
             }
             Class13_Sub1_Sub4.method361(i1 + 1, j1, anInt906, l + 16 + k1, -38103);
             Class13_Sub1_Sub4.method359((byte) -40, anInt906, i1, l + 16 + k1, 16);
@@ -4780,7 +4780,7 @@ public class Game extends GameShell {
                 anIntArray850[anInt1054] = 0;
                 anInt1054++;
                 aBoolean1148 = true;
-                aBuffer_928.method300(112);
+                aBuffer_928.writeOpcode(112);
                 aBuffer_928.writeLong(l);
                 return;
             }
@@ -5092,15 +5092,15 @@ public class Game extends GameShell {
                 int j6 = anIntArray959[i4];
                 int l6 = anIntArray960[i4];
                 if (j1 == 0) {
-                    aBuffer_928.method300(155);
+                    aBuffer_928.writeOpcode(155);
                     aBuffer_928.writeByte(k4 + k4 + 3);
                 }
                 if (j1 == 1) {
-                    aBuffer_928.method300(178);
+                    aBuffer_928.writeOpcode(178);
                     aBuffer_928.writeByte(k4 + k4 + 3 + 14);
                 }
                 if (j1 == 2) {
-                    aBuffer_928.method300(191);
+                    aBuffer_928.writeOpcode(191);
                     aBuffer_928.writeByte(k4 + k4 + 3);
                 }
                 aBuffer_928.method329(super.anIntArray33[5] != 1 ? 0 : 1, 0);
@@ -5141,7 +5141,7 @@ public class Game extends GameShell {
             synchronized (aClass48_865.anObject787) {
                 if (aBoolean860) {
                     if (super.anInt29 != 0 || aClass48_865.anInt791 >= 40) {
-                        aBuffer_928.method300(250);
+                        aBuffer_928.writeOpcode(250);
                         aBuffer_928.writeByte(0);
                         int k2 = aBuffer_928.position;
                         int k3 = 0;
@@ -5230,7 +5230,7 @@ public class Game extends GameShell {
                     k5 = 1;
                 }
                 int i6 = (int) l;
-                aBuffer_928.method300(76);
+                aBuffer_928.writeOpcode(76);
                 aBuffer_928.method345((i6 << 20) + (k5 << 19) + l4, 266);
             }
             if (anInt1022 > 0) {
@@ -5242,18 +5242,18 @@ public class Game extends GameShell {
             if (aBoolean1023 && anInt1022 <= 0) {
                 anInt1022 = 20;
                 aBoolean1023 = false;
-                aBuffer_928.method300(79);
+                aBuffer_928.writeOpcode(79);
                 aBuffer_928.method337(anInt1014, anInt921);
                 aBuffer_928.writeShort(anInt922);
             }
             if (super.aBoolean20 && !aBoolean1080) {
                 aBoolean1080 = true;
-                aBuffer_928.method300(223);
+                aBuffer_928.writeOpcode(223);
                 aBuffer_928.writeByte(1);
             }
             if (!super.aBoolean20 && aBoolean1080) {
                 aBoolean1080 = false;
-                aBuffer_928.method300(223);
+                aBuffer_928.writeOpcode(223);
                 aBuffer_928.writeByte(0);
             }
             method22(925);
@@ -5331,7 +5331,7 @@ public class Game extends GameShell {
                             } else {
                                 widget.method502(anInt1059, (byte) 0, anInt980);
                             }
-                            aBuffer_928.method300(13);
+                            aBuffer_928.writeOpcode(13);
                             aBuffer_928.writeShort(anInt1059);
                             aBuffer_928.method336(false, anInt1058);
                             aBuffer_928.method328(anInt1203, j1);
@@ -5349,7 +5349,7 @@ public class Game extends GameShell {
             anInt957++;
             if (anInt957 > 1806) {
                 anInt957 = 0;
-                aBuffer_928.method300(205);
+                aBuffer_928.writeOpcode(205);
                 aBuffer_928.writeByte(0);
                 int j = aBuffer_928.position;
                 if ((int) (Math.random() * 2D) == 0) {
@@ -5405,7 +5405,7 @@ public class Game extends GameShell {
             anInt1144++;
             if (anInt1144 > 1077) {
                 anInt1144 = 0;
-                aBuffer_928.method300(177);
+                aBuffer_928.writeOpcode(177);
                 aBuffer_928.writeByte(0);
                 int l1 = aBuffer_928.position;
                 aBuffer_928.writeShort(53207);
@@ -5428,7 +5428,7 @@ public class Game extends GameShell {
             if (super.anInt21 > 4500) {
                 anInt856 = 250;
                 super.anInt21 -= 500;
-                aBuffer_928.method300(121);
+                aBuffer_928.writeOpcode(121);
             }
             anInt1197++;
             if (anInt1197 > 500) {
@@ -5490,7 +5490,7 @@ public class Game extends GameShell {
             }
             anInt855++;
             if (anInt855 > 50) {
-                aBuffer_928.method300(63);
+                aBuffer_928.writeOpcode(63);
             }
             try {
                 if (gameConnection != null && aBuffer_928.position > 0) {
@@ -5570,7 +5570,7 @@ public class Game extends GameShell {
     public boolean method49(byte byte0, Widget widget) {
         try {
             if (byte0 != 1) {
-                anInt919 = isaacCipher.method190();
+                anInt919 = isaacCipher.nextInt();
             }
             int i = widget.anInt577;
             if (anInt1055 == 2) {
@@ -5650,7 +5650,7 @@ public class Game extends GameShell {
                 method134(0);
             }
             if (i == 326) {
-                aBuffer_928.method300(24);
+                aBuffer_928.writeOpcode(24);
                 aBuffer_928.writeByte(aBoolean1068 ? 0 : 1);
                 for (int l = 0; l < 7; l++) {
                     aBuffer_928.writeByte(anIntArray1011[l]);
@@ -5666,7 +5666,7 @@ public class Game extends GameShell {
             if (i >= 601 && i <= 612) {
                 method140(6);
                 if (aString1230.length() > 0) {
-                    aBuffer_928.method300(31);
+                    aBuffer_928.writeOpcode(31);
                     aBuffer_928.writeLong(Class24.method446(aString1230));
                     aBuffer_928.writeByte(i - 601);
                     aBuffer_928.writeByte(aBoolean1034 ? 1 : 0);
@@ -5935,7 +5935,7 @@ public class Game extends GameShell {
     public Component method11(int i) {
         try {
             if (i <= 0) {
-                anInt818 = isaacCipher.method190();
+                anInt818 = isaacCipher.nextInt();
             }
             if (Signlink.mainapp != null) {
                 return Signlink.mainapp;
@@ -6711,7 +6711,7 @@ public class Game extends GameShell {
             anInt916++;
             if (anInt916 > 1069) {
                 anInt916 = 0;
-                aBuffer_928.method300(108);
+                aBuffer_928.writeOpcode(108);
                 aBuffer_928.writeByte(0);
                 int j3 = aBuffer_928.position;
                 if ((int) (Math.random() * 2D) == 0) {
@@ -7294,7 +7294,7 @@ public class Game extends GameShell {
             if (byte0 == 1) {
                 byte0 = 0;
             } else {
-                anInt1203 = isaacCipher.method190();
+                anInt1203 = isaacCipher.nextInt();
             }
             int i = method80(anInt1166, 781, anInt1006, anInt1004);
             if (i - anInt1005 < 800 && (aByteArrayArrayArray1164[anInt1166][anInt1004 >> 7][anInt1006 >> 7] & 4) != 0) {
@@ -7830,7 +7830,7 @@ public class Game extends GameShell {
             }
             aLongArray990[anInt1098++] = l;
             aBoolean1148 = true;
-            aBuffer_928.method300(232);
+            aBuffer_928.writeOpcode(232);
             aBuffer_928.writeLong(l);
             return;
         } catch (RuntimeException runtimeexception) {
@@ -8431,7 +8431,7 @@ public class Game extends GameShell {
                 }
                 Class25 class25 = new Class25(anIntArrayArrayArray1267, 104, 104, -75, aByteArrayArrayArray1164);
                 int k2 = aByteArrayArray1146.length;
-                aBuffer_928.method300(63);
+                aBuffer_928.writeOpcode(63);
                 if (!aBoolean971) {
                     for (int i3 = 0; i3 < k2; i3++) {
                         int i4 = (anIntArray937[i3] >> 8) * 64 - anInt1083;
@@ -8449,7 +8449,7 @@ public class Game extends GameShell {
                             class25.method459(l5, (byte) 46, 64, 64, k7);
                         }
                     }
-                    aBuffer_928.method300(63);
+                    aBuffer_928.writeOpcode(63);
                     for (int i6 = 0; i6 < k2; i6++) {
                         byte[] abyte1 = aByteArrayArray1179[i6];
                         if (abyte1 != null) {
@@ -8489,7 +8489,7 @@ public class Game extends GameShell {
                             }
                         }
                     }
-                    aBuffer_928.method300(63);
+                    aBuffer_928.writeOpcode(63);
                     for (int l6 = 0; l6 < 4; l6++) {
                         for (int j8 = 0; j8 < 13; j8++) {
                             for (int j9 = 0; j9 < 13; j9++) {
@@ -8512,10 +8512,10 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                aBuffer_928.method300(63);
+                aBuffer_928.writeOpcode(63);
                 class25.method458(aClass10_1198, (byte) 6, aClass39Array947);
                 aClass31_1213.method490(false);
-                aBuffer_928.method300(63);
+                aBuffer_928.writeOpcode(63);
                 int k3 = Class25.anInt426;
                 if (k3 > anInt1166) {
                     k3 = anInt1166;
@@ -8538,7 +8538,7 @@ public class Game extends GameShell {
             }
             Class14.aClass3_248.method174();
             if (super.aFrame_Sub1_18 != null) {
-                aBuffer_928.method300(226);
+                aBuffer_928.writeOpcode(226);
                 aBuffer_928.writeInt(0x3f008edd);
             }
             if (aBoolean954 && Signlink.cache_dat != null) {
@@ -8552,7 +8552,7 @@ public class Game extends GameShell {
             }
             System.gc();
             if (flag) {
-                anInt1173 = isaacCipher.method190();
+                anInt1173 = isaacCipher.nextInt();
             }
             Class13_Sub1_Sub4_Sub1.method367((byte) 71, 20);
             aClass2_Sub1_873.method166(anInt1150);
@@ -8620,7 +8620,7 @@ public class Game extends GameShell {
             anInt932 = 2;
             anInt931 = 0;
             if (flag) {
-                anInt1014 = isaacCipher.method190();
+                anInt1014 = isaacCipher.nextInt();
             }
             return true;
         } catch (RuntimeException runtimeexception) {
@@ -8887,7 +8887,7 @@ public class Game extends GameShell {
                     anInt1159 = (anInt1159 + 1) % 4;
                     aBoolean1137 = true;
                     aBoolean1169 = true;
-                    aBuffer_928.method300(104);
+                    aBuffer_928.writeOpcode(104);
                     aBuffer_928.writeByte(anInt1159);
                     aBuffer_928.writeByte(anInt1129);
                     aBuffer_928.writeByte(anInt1290);
@@ -8896,7 +8896,7 @@ public class Game extends GameShell {
                     anInt1129 = (anInt1129 + 1) % 3;
                     aBoolean1137 = true;
                     aBoolean1169 = true;
-                    aBuffer_928.method300(104);
+                    aBuffer_928.writeOpcode(104);
                     aBuffer_928.writeByte(anInt1159);
                     aBuffer_928.writeByte(anInt1129);
                     aBuffer_928.writeByte(anInt1290);
@@ -8905,7 +8905,7 @@ public class Game extends GameShell {
                     anInt1290 = (anInt1290 + 1) % 3;
                     aBoolean1137 = true;
                     aBoolean1169 = true;
-                    aBuffer_928.method300(104);
+                    aBuffer_928.writeOpcode(104);
                     aBuffer_928.writeByte(anInt1159);
                     aBuffer_928.writeByte(anInt1129);
                     aBuffer_928.writeByte(anInt1290);
@@ -9074,7 +9074,7 @@ public class Game extends GameShell {
                     anInt1153++;
                     if (anInt1153 > 88) {
                         anInt1153 = 0;
-                        aBuffer_928.method300(57);
+                        aBuffer_928.writeOpcode(57);
                     }
                 }
                 if (Class13_Sub1_Sub4_Sub1.anIntArray1644[34] >= i) {
@@ -9818,7 +9818,7 @@ public class Game extends GameShell {
             }
             if (anInt1260 > 79) {
                 anInt1260 = 0;
-                aBuffer_928.method300(247);
+                aBuffer_928.writeOpcode(247);
             }
             do {
                 int i = method5(true);
@@ -9853,7 +9853,7 @@ public class Game extends GameShell {
                             method123(1, l1);
                         }
                         if (anInt943 == 3 && aString1218.length() > 0) {
-                            aBuffer_928.method300(235);
+                            aBuffer_928.writeOpcode(235);
                             aBuffer_928.writeByte(0);
                             int j = aBuffer_928.position;
                             aBuffer_928.writeLong(aLong1033);
@@ -9865,7 +9865,7 @@ public class Game extends GameShell {
                             if (anInt1129 == 2) {
                                 anInt1129 = 1;
                                 aBoolean1137 = true;
-                                aBuffer_928.method300(104);
+                                aBuffer_928.writeOpcode(104);
                                 aBuffer_928.writeByte(anInt1159);
                                 aBuffer_928.writeByte(anInt1129);
                                 aBuffer_928.writeByte(anInt1290);
@@ -9896,7 +9896,7 @@ public class Game extends GameShell {
                                 k = Integer.parseInt(aString964);
                             } catch (Exception _ex) {
                             }
-                            aBuffer_928.method300(171);
+                            aBuffer_928.writeOpcode(171);
                             aBuffer_928.writeInt(k);
                         }
                         anInt1141 = 0;
@@ -9913,7 +9913,7 @@ public class Game extends GameShell {
                     }
                     if (i == 13 || i == 10) {
                         if (aString964.length() > 0) {
-                            aBuffer_928.method300(105);
+                            aBuffer_928.writeOpcode(105);
                             aBuffer_928.writeLong(Class24.method446(aString964));
                         }
                         anInt1141 = 0;
@@ -9958,7 +9958,7 @@ public class Game extends GameShell {
                             }
                         }
                         if (aString1280.startsWith("::")) {
-                            aBuffer_928.method300(192);
+                            aBuffer_928.writeOpcode(192);
                             aBuffer_928.writeByte(aString1280.length() - 1);
                             aBuffer_928.writeString(aString1280.substring(2));
                         } else {
@@ -10019,7 +10019,7 @@ public class Game extends GameShell {
                                 k2 = 5;
                                 aString1280 = aString1280.substring(6);
                             }
-                            aBuffer_928.method300(141);
+                            aBuffer_928.writeOpcode(141);
                             aBuffer_928.writeByte(0);
                             int i3 = aBuffer_928.position;
                             aBuffer_1282.position = 0;
@@ -10044,7 +10044,7 @@ public class Game extends GameShell {
                             if (anInt1159 == 2) {
                                 anInt1159 = 3;
                                 aBoolean1137 = true;
-                                aBuffer_928.method300(104);
+                                aBuffer_928.writeOpcode(104);
                                 aBuffer_928.writeByte(anInt1159);
                                 aBuffer_928.writeByte(anInt1129);
                                 aBuffer_928.writeByte(anInt1290);
@@ -10579,7 +10579,7 @@ public class Game extends GameShell {
                         anIntArray850[k] = anIntArray850[k + 1];
                         aLongArray993[k] = aLongArray993[k + 1];
                     }
-                    aBuffer_928.method300(77);
+                    aBuffer_928.writeOpcode(77);
                     aBuffer_928.writeLong(l);
                     return;
                 }
@@ -11097,7 +11097,7 @@ public class Game extends GameShell {
             if (aBoolean1286) {
                 if (anInt1087 != -1 && anInt1087 == anInt864) {
                     anInt1087 = -1;
-                    aBuffer_928.method300(69);
+                    aBuffer_928.writeOpcode(69);
                     aBuffer_928.writeByte(anInt864);
                 }
                 aBoolean1286 = false;
@@ -11497,7 +11497,7 @@ public class Game extends GameShell {
             anInt1151++;
             if (anInt1151 > 84) {
                 anInt1151 = 0;
-                aBuffer_928.method300(173);
+                aBuffer_928.writeOpcode(173);
             }
             i = anInt1038 * 128 + 64;
             j = anInt1039 * 128 + 64;
@@ -11693,7 +11693,7 @@ public class Game extends GameShell {
 
     public void method140(int i) {
         try {
-            aBuffer_928.method300(199);
+            aBuffer_928.writeOpcode(199);
             if (anInt874 != -1) {
                 anInt874 = -1;
                 aBoolean1148 = true;

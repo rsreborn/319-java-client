@@ -169,8 +169,8 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public void method300(int opcode) {
-        payload[position++] = (byte) (opcode + isaacCipher.method190());
+    public void writeOpcode(int opcode) {
+        payload[position++] = (byte) (opcode + isaacCipher.nextInt());
     }
 
     public void writeByte(int value) {
