@@ -207,7 +207,7 @@ public class Class14 {
                     } else if (l == 2) {
                         aString275 = buffer.readString();
                     } else if (l == 3) {
-                        aByteArray276 = buffer.method319(true);
+                        aByteArray276 = buffer.readStringBytes();
                     } else if (l == 5) {
                         int j1 = buffer.readUnsignedByte();
                         if (j1 > 0) {

@@ -456,7 +456,7 @@ public class ItemDefinition {
                 } else if (k == 2) {
                     aString649 = buffer.readString();
                 } else if (k == 3) {
-                    aByteArray622 = buffer.method319(true);
+                    aByteArray622 = buffer.readStringBytes();
                 } else if (k == 4) {
                     modelScale = buffer.readUnsignedShort();
                 } else if (k == 5) {

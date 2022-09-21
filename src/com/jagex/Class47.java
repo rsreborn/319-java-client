@@ -277,7 +277,7 @@ public class Class47 {
                 } else if (j == 2) {
                     aString765 = buffer.readString();
                 } else if (j == 3) {
-                    aByteArray754 = buffer.method319(true);
+                    aByteArray754 = buffer.readStringBytes();
                 } else if (j == 12) {
                     aByte768 = buffer.readByte();
                 } else if (j == 13) {

@@ -7,7 +7,7 @@ import java.math.BigInteger;
 public class Buffer extends Class13_Sub1 {
 
     public static int[] anIntArray1401;
-    public static int[] BIT_MASKS = {
+    public final int[] BIT_MASKS = {
             0, 1, 3, 7, 15, 31, 63, 127, 255, 511,
             1023, 2047, 4095, 8191, 16383, 32767, 65535, 0x1ffff, 0x3ffff, 0x7ffff,
             0xfffff, 0x1fffff, 0x3fffff, 0x7fffff, 0xffffff, 0x1ffffff, 0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff,
@@ -218,38 +218,20 @@ public class Buffer extends Class13_Sub1 {
         payload[position++] = (byte) (int) value;
     }
 
-    public void writeString(String s) {
-        s.getBytes(0, s.length(), payload, position);
-        position += s.length();
+    public void writeString(String string) {
+        string.getBytes(0, string.length(), payload, position);
+        position += string.length();
         payload[position++] = 10;
     }
 
-    public void method309(int i, int j, int k, byte[] abyte0) {
-        try {
-            if (k <= 0) {
-                return;
-            }
-            for (int l = j; l < j + i; l++) {
-                payload[position++] = abyte0[l];
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("88039, " + i + ", " + j + ", " + k + ", " + abyte0 + ", " + runtimeexception);
+    public void writeBytes(byte[] bytes, int offset, int length) {
+        for (int l = offset; l < offset + length; l++) {
+            payload[position++] = bytes[l];
         }
-        throw new RuntimeException();
     }
 
-    public void method310(int i, int j) {
-        try {
-            payload[position - j - 1] = (byte) j;
-            if (i != 5469) {
-                anInt1379 = 29;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("82372, " + i + ", " + j + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
+    public void writeSizeByte(int length) {
+        payload[position - length - 1] = (byte) length;
     }
 
     public int readUnsignedByte() {
@@ -296,38 +278,21 @@ public class Buffer extends Class13_Sub1 {
         return new String(payload, start, position - start - 1);
     }
 
-    public byte[] method319(boolean flag) {
-        try {
-            int i = position;
-            if (!flag) {
-                anInt1397 = -199;
-            }
-            while (payload[position++] != 10) ;
-            byte[] abyte0 = new byte[position - i - 1];
-            for (int j = i; j < position - 1; j++) {
-                abyte0[j - i] = payload[j];
-            }
-            return abyte0;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("95156, " + flag + ", " + runtimeexception);
+    public byte[] readStringBytes() {
+        int start = position;
+
+        while (payload[position++] != 10) ;
+        byte[] bytes = new byte[position - start - 1];
+        for (int i = start; i < position - 1; i++) {
+            bytes[i - start] = payload[i];
         }
-        throw new RuntimeException();
+        return bytes;
     }
 
-    public void method320(byte[] abyte0, int i, int j, int k) {
-        try {
-            if (k != 0) {
-                for (int l = 1; l > 0; l++) {
-                }
-            }
-            for (int i1 = j; i1 < j + i; i1++) {
-                abyte0[i1] = payload[position++];
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("53995, " + abyte0 + ", " + i + ", " + j + ", " + k + ", " + runtimeexception);
+    public void readBytes(byte[] bytes, int start, int length) {
+        for (int pos = start; pos < start + length; pos++) {
+            bytes[pos] = payload[position++];
         }
-        throw new RuntimeException();
     }
 
     public void initBitAccess() {
@@ -383,25 +348,18 @@ public class Buffer extends Class13_Sub1 {
             int i = position;
             position = 0;
             byte[] abyte0 = new byte[i];
-            method320(abyte0, i, 0, 0);
+            readBytes(abyte0, 0, i);
             BigInteger biginteger2 = new BigInteger(abyte0);
             BigInteger biginteger3 = biginteger2.modPow(key, modulus);
 
             byte[] abyte1 = biginteger3.toByteArray();
             position = 0;
             writeByte(abyte1.length);
-            method309(abyte1.length, 0, anInt1379, abyte1);
+            writeBytes(abyte1, 0, abyte1.length);
     }
 
-    public void method327(int i, int j) {
-        try {
-            payload[position++] = (byte) (j + 128);
-            i = 59 / i;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("2664, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeByteA(int value) {
+        payload[position++] = (byte) (value + 128);
     }
 
     public void method328(int i, int j) {
