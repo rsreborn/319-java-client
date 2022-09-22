@@ -434,19 +434,10 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public void method335(int i, int j) {
-        try {
-            payload[position++] = (byte) j;
-            if (i < 0 || i > 0) {
-                return;
-            } else {
-                payload[position++] = (byte) (j >> 8);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("53874, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeLEShort(int value) {
+        payload[position++] = (byte) value;
+        payload[position++] = (byte) (value >> 8);
+
     }
 
     public void writeShortA(int value) {
@@ -539,33 +530,16 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public void method345(int i, int j) {
-        try {
-            payload[position++] = (byte) i;
-            payload[position++] = (byte) (i >> 8);
-            payload[position++] = (byte) (i >> 16);
-            payload[position++] = (byte) (i >> 24);
-            j = 70 / j;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("94570, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void writeLEInt(int value) {
+        payload[position++] = (byte) value;
+        payload[position++] = (byte) (value >> 8);
+        payload[position++] = (byte) (value >> 16);
+        payload[position++] = (byte) (value >> 24);
     }
 
-    public int method346(byte byte0) {
-        try {
-            if (byte0 == 1) {
-                byte0 = 0;
-            } else {
-                return anInt1379;
-            }
-            position += 4;
-            return ((payload[position - 1] & 0xff) << 24) + ((payload[position - 2] & 0xff) << 16) + ((payload[position - 3] & 0xff) << 8) + (payload[position - 4] & 0xff);
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("39973, " + byte0 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public int readLEInt() {
+        position += 4;
+        return ((payload[position - 1] & 0xff) << 24) + ((payload[position - 2] & 0xff) << 16) + ((payload[position - 3] & 0xff) << 8) + (payload[position - 4] & 0xff);
     }
 
     public int method347(int i) {

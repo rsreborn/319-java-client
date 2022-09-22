@@ -38,7 +38,7 @@ public class GameShell extends Applet
     public int anInt26;
     public int anInt27;
     public long aLong28;
-    public int anInt29;
+    public int clickType;
     public int anInt30;
     public int anInt31;
     public long aLong32;
@@ -166,7 +166,7 @@ public class GameShell extends Applet
                 j1++;
             }
             for (; i1 < 256; i1 += j) {
-                anInt29 = anInt25;
+                clickType = anInt25;
                 anInt30 = anInt26;
                 anInt31 = anInt27;
                 aLong32 = aLong28;

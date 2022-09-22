@@ -16,7 +16,7 @@ public class ItemDefinition {
     public int modelScale;
     public int anInt619;
     public int anInt621;
-    public byte[] aByteArray622;
+    public byte[] examine;
     public int anInt623;
     public int anInt624;
     public int anInt625;
@@ -41,7 +41,7 @@ public class ItemDefinition {
     public int[] anIntArray646;
     public int anInt647;
     public int anInt648;
-    public String aString649;
+    public String itemName;
     public boolean aBoolean650;
     public int anInt651;
     public int anInt652;
@@ -218,8 +218,8 @@ public class ItemDefinition {
             itemDefinition.method508(143);
         }
         if (!aBoolean667 && itemDefinition.aBoolean650) {
-            itemDefinition.aString649 = "Members Object";
-            itemDefinition.aByteArray622 = "Login to a members' server to use this object.".getBytes();
+            itemDefinition.itemName = "Members Object";
+            itemDefinition.examine = "Login to a members' server to use this object.".getBytes();
             itemDefinition.aStringArray643 = null;
             itemDefinition.aStringArray639 = null;
             itemDefinition.anInt641 = 0;
@@ -389,15 +389,15 @@ public class ItemDefinition {
             }
             anIntArray631 = itemDefinition.anIntArray631;
             ItemDefinition itemDefinition_1 = method505(anInt644);
-            aString649 = itemDefinition_1.aString649;
+            itemName = itemDefinition_1.itemName;
             aBoolean650 = itemDefinition_1.aBoolean650;
             anInt637 = itemDefinition_1.anInt637;
             String s = "a";
-            char c = itemDefinition_1.aString649.charAt(0);
+            char c = itemDefinition_1.itemName.charAt(0);
             if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 s = "an";
             }
-            aByteArray622 = ("Swap this note at any bank for " + s + " " + itemDefinition_1.aString649 + ".").getBytes();
+            examine = ("Swap this note at any bank for " + s + " " + itemDefinition_1.itemName + ".").getBytes();
             aBoolean662 = true;
             return;
         } catch (RuntimeException runtimeexception) {
@@ -454,9 +454,9 @@ public class ItemDefinition {
                 if (k == 1) {
                     anInt668 = buffer.readUnsignedShort();
                 } else if (k == 2) {
-                    aString649 = buffer.readString();
+                    itemName = buffer.readString();
                 } else if (k == 3) {
-                    aByteArray622 = buffer.readStringBytes();
+                    examine = buffer.readStringBytes();
                 } else if (k == 4) {
                     modelScale = buffer.readUnsignedShort();
                 } else if (k == 5) {
@@ -625,8 +625,8 @@ public class ItemDefinition {
 
     public void method514() {
         anInt668 = 0;
-        aString649 = null;
-        aByteArray622 = null;
+        itemName = null;
+        examine = null;
         anIntArray646 = null;
         anIntArray631 = null;
         modelScale = 2000;

@@ -4,7 +4,7 @@ import com.jagex.sign.Signlink;
 
 public class Widget {
 
-    public static Widget[] aWidgetArray533;
+    public static Widget[] widgets;
     public static int anInt546;
     public static boolean aBoolean567 = true;
     public static Class3 aClass3_575 = new Class3(30, 31);
@@ -48,10 +48,10 @@ public class Widget {
     public int anInt572;
     public int anInt573;
     public int anInt574;
-    public int[] anIntArray576;
+    public int[] itemContainerItemIds;
     public int anInt577;
     public boolean aBoolean578;
-    public int[] anIntArray579;
+    public int[] itemContainerItemAmounts;
     public int[] anIntArray580;
     public int[][] anIntArrayArray581;
     public int anInt582;
@@ -123,14 +123,14 @@ public class Widget {
                 aBoolean567 = !aBoolean567;
             }
             int j = buffer.readUnsignedShort();
-            aWidgetArray533 = new Widget[j];
+            widgets = new Widget[j];
             while (buffer.position < buffer.payload.length) {
                 int k = buffer.readUnsignedShort();
                 if (k == 65535) {
                     i = buffer.readUnsignedShort();
                     k = buffer.readUnsignedShort();
                 }
-                Widget widget = aWidgetArray533[k] = new Widget();
+                Widget widget = widgets[k] = new Widget();
                 widget.anInt592 = k;
                 widget.anInt573 = i;
                 widget.anInt570 = buffer.readUnsignedByte();
@@ -183,8 +183,8 @@ public class Widget {
                     widget.aBoolean594 = buffer.readUnsignedByte() == 1;
                 }
                 if (widget.anInt570 == 2) {
-                    widget.anIntArray576 = new int[widget.anInt582 * widget.anInt586];
-                    widget.anIntArray579 = new int[widget.anInt582 * widget.anInt586];
+                    widget.itemContainerItemIds = new int[widget.anInt582 * widget.anInt586];
+                    widget.itemContainerItemAmounts = new int[widget.anInt582 * widget.anInt586];
                     widget.aBoolean538 = buffer.readUnsignedByte() == 1;
                     widget.aBoolean585 = buffer.readUnsignedByte() == 1;
                     widget.aBoolean552 = buffer.readUnsignedByte() == 1;
@@ -277,8 +277,8 @@ public class Widget {
                     widget.anInt536 = buffer.readUnsignedShort();
                 }
                 if (widget.anInt570 == 7) {
-                    widget.anIntArray576 = new int[widget.anInt582 * widget.anInt586];
-                    widget.anIntArray579 = new int[widget.anInt582 * widget.anInt586];
+                    widget.itemContainerItemIds = new int[widget.anInt582 * widget.anInt586];
+                    widget.itemContainerItemAmounts = new int[widget.anInt582 * widget.anInt586];
                     widget.aBoolean551 = buffer.readUnsignedByte() == 1;
                     int l2 = buffer.readUnsignedByte();
                     if (aclass13_sub1_sub4_sub2 != null) {
@@ -391,17 +391,17 @@ public class Widget {
 
     public void method502(int i, byte byte0, int j) {
         try {
-            int k = anIntArray576[i];
-            anIntArray576[i] = anIntArray576[j];
+            int k = itemContainerItemIds[i];
+            itemContainerItemIds[i] = itemContainerItemIds[j];
             if (byte0 == 0) {
                 byte0 = 0;
             } else {
                 return;
             }
-            anIntArray576[j] = k;
-            k = anIntArray579[i];
-            anIntArray579[i] = anIntArray579[j];
-            anIntArray579[j] = k;
+            itemContainerItemIds[j] = k;
+            k = itemContainerItemAmounts[i];
+            itemContainerItemAmounts[i] = itemContainerItemAmounts[j];
+            itemContainerItemAmounts[j] = k;
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("23341, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception);
