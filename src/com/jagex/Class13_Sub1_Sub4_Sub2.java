@@ -34,8 +34,8 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4 {
         aRandom1660 = new Random();
         aBoolean1661 = false;
         try {
-            Buffer buffer = new Buffer(-351, class1.method149(s + ".dat", null));
-            Buffer class13_sub1_sub2_1 = new Buffer(-351, class1.method149("index.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile(s + ".dat", null));
+            Buffer class13_sub1_sub2_1 = new Buffer(-351, class1.readFile("index.dat", null));
             byte byte0 = -1;
             class13_sub1_sub2_1.position = buffer.readUnsignedShort() + 4;
             int k = class13_sub1_sub2_1.readUnsignedByte();

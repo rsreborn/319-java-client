@@ -89,8 +89,8 @@ public class Class47 {
     }
 
     public static void method587(Class1 class1) {
-        aBuffer_758 = new Buffer(-351, class1.method149("npc.dat", null));
-        Buffer buffer = new Buffer(-351, class1.method149("npc.idx", null));
+        aBuffer_758 = new Buffer(-351, class1.readFile("npc.dat", null));
+        Buffer buffer = new Buffer(-351, class1.readFile("npc.idx", null));
         anInt775 = buffer.readUnsignedShort();
         anIntArray761 = new int[anInt775];
         int i = 2;

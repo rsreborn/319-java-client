@@ -26,10 +26,10 @@ public class Class41 {
     public static boolean aBoolean715;
 
     public static void method531(Class1 class1) {
-        Buffer buffer = new Buffer(-351, class1.method149("fragmentsenc.txt", null));
-        Buffer class13_sub1_sub2_1 = new Buffer(-351, class1.method149("badenc.txt", null));
-        Buffer buffer_2 = new Buffer(-351, class1.method149("domainenc.txt", null));
-        Buffer buffer_3 = new Buffer(-351, class1.method149("tldlist.txt", null));
+        Buffer buffer = new Buffer(-351, class1.readFile("fragmentsenc.txt", null));
+        Buffer class13_sub1_sub2_1 = new Buffer(-351, class1.readFile("badenc.txt", null));
+        Buffer buffer_2 = new Buffer(-351, class1.readFile("domainenc.txt", null));
+        Buffer buffer_3 = new Buffer(-351, class1.readFile("tldlist.txt", null));
         method532(buffer, class13_sub1_sub2_1, buffer_2, buffer_3);
     }
 

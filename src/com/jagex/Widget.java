@@ -14,7 +14,7 @@ public class Widget {
     public int anInt536;
     public int anInt537;
     public boolean aBoolean538;
-    public Class13_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array539;
+    public Class13_Sub1_Sub4_Sub4[] sprites;
     public int anInt540;
     public int modelType;
     public int anInt542;
@@ -23,7 +23,7 @@ public class Widget {
     public int[] anIntArray545;
     public String[] aStringArray547;
     public String aString548;
-    public int[] anIntArray549;
+    public int[] children;
     public int anInt550;
     public boolean aBoolean551;
     public boolean aBoolean552;
@@ -31,11 +31,11 @@ public class Widget {
     public int anInt554;
     public boolean aBoolean555;
     public int[] anIntArray556;
-    public int[] anIntArray557;
+    public int[] childY;
     public int anInt558;
     public boolean aBoolean559;
     public int[] anIntArray560;
-    public boolean aBoolean561;
+    public boolean hiddenUntilHovered;
     public byte aByte562;
     public String aString563;
     public String aString564;
@@ -43,10 +43,10 @@ public class Widget {
     public int anInt566;
     public int anInt568;
     public Class13_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_569;
-    public int anInt570;
+    public int type;
     public int anInt571;
     public int anInt572;
-    public int anInt573;
+    public int parentId;
     public int anInt574;
     public int[] itemContainerItemIds;
     public int anInt577;
@@ -54,22 +54,22 @@ public class Widget {
     public int[] itemContainerItemAmounts;
     public int[] anIntArray580;
     public int[][] anIntArrayArray581;
-    public int anInt582;
+    public int width;
     public Class13_Sub1_Sub4_Sub2 aClass13_Sub1_Sub4_Sub2_583;
     public boolean aBoolean585;
-    public int anInt586;
+    public int height;
     public int anInt587;
     public int anInt588;
     public String aString589;
     public int anInt590;
-    public int[] anIntArray591;
-    public int anInt592;
+    public int[] childX;
+    public int id;
     public int anInt593;
     public boolean aBoolean594;
     public int anInt595;
     public int anInt596;
     public int anInt597;
-    public int anInt598;
+    public int scrollLimit;
     public int anInt599;
 
     public Widget() {
@@ -114,30 +114,27 @@ public class Widget {
         throw new RuntimeException();
     }
 
-    public static void method501(Class1 class1, boolean flag, Class1 class1_1, Class13_Sub1_Sub4_Sub2[] aclass13_sub1_sub4_sub2) {
+    public static void method501(Class1 class1, Class1 class1_1, Class13_Sub1_Sub4_Sub2[] aclass13_sub1_sub4_sub2) {
         try {
             aClass3_584 = new Class3(50000, 31);
-            Buffer buffer = new Buffer(-351, class1.method149("data", null));
-            int i = -1;
-            if (!flag) {
-                aBoolean567 = !aBoolean567;
-            }
+            Buffer buffer = new Buffer(-351, class1.readFile("data", null));
+            int parentId = -1;
             int j = buffer.readUnsignedShort();
             widgets = new Widget[j];
             while (buffer.position < buffer.payload.length) {
-                int k = buffer.readUnsignedShort();
-                if (k == 65535) {
-                    i = buffer.readUnsignedShort();
-                    k = buffer.readUnsignedShort();
+                int widgetIndex = buffer.readUnsignedShort();
+                if (widgetIndex == 65535) {
+                    parentId = buffer.readUnsignedShort();
+                    widgetIndex = buffer.readUnsignedShort();
                 }
-                Widget widget = widgets[k] = new Widget();
-                widget.anInt592 = k;
-                widget.anInt573 = i;
-                widget.anInt570 = buffer.readUnsignedByte();
+                Widget widget = widgets[widgetIndex] = new Widget();
+                widget.id = widgetIndex;
+                widget.parentId = parentId;
+                widget.type = buffer.readUnsignedByte();
                 widget.anInt597 = buffer.readUnsignedByte();
                 widget.anInt577 = buffer.readUnsignedShort();
-                widget.anInt582 = buffer.readUnsignedShort();
-                widget.anInt586 = buffer.readUnsignedShort();
+                widget.width = buffer.readUnsignedShort();
+                widget.height = buffer.readUnsignedShort();
                 widget.aByte562 = (byte) buffer.readUnsignedByte();
                 widget.anInt543 = buffer.readUnsignedByte();
                 if (widget.anInt543 != 0) {
@@ -165,26 +162,26 @@ public class Widget {
                         }
                     }
                 }
-                if (widget.anInt570 == 0) {
-                    widget.anInt598 = buffer.readUnsignedShort();
-                    widget.aBoolean561 = buffer.readUnsignedByte() == 1;
-                    int i2 = buffer.readUnsignedShort();
-                    widget.anIntArray549 = new int[i2];
-                    widget.anIntArray591 = new int[i2];
-                    widget.anIntArray557 = new int[i2];
-                    for (int j3 = 0; j3 < i2; j3++) {
-                        widget.anIntArray549[j3] = buffer.readUnsignedShort();
-                        widget.anIntArray591[j3] = buffer.readShort();
-                        widget.anIntArray557[j3] = buffer.readShort();
+                if (widget.type == 0) {
+                    widget.scrollLimit = buffer.readUnsignedShort();
+                    widget.hiddenUntilHovered = buffer.readUnsignedByte() == 1;
+                    int childrenCount = buffer.readUnsignedShort();
+                    widget.children = new int[childrenCount];
+                    widget.childX = new int[childrenCount];
+                    widget.childY = new int[childrenCount];
+                    for (int child = 0; child < childrenCount; child++) {
+                        widget.children[child] = buffer.readUnsignedShort();
+                        widget.childX[child] = buffer.readShort();
+                        widget.childY[child] = buffer.readShort();
                     }
                 }
-                if (widget.anInt570 == 1) {
+                if (widget.type == 1) {
                     widget.anInt574 = buffer.readUnsignedShort();
                     widget.aBoolean594 = buffer.readUnsignedByte() == 1;
                 }
-                if (widget.anInt570 == 2) {
-                    widget.itemContainerItemIds = new int[widget.anInt582 * widget.anInt586];
-                    widget.itemContainerItemAmounts = new int[widget.anInt582 * widget.anInt586];
+                if (widget.type == 2) {
+                    widget.itemContainerItemIds = new int[widget.width * widget.height];
+                    widget.itemContainerItemAmounts = new int[widget.width * widget.height];
                     widget.aBoolean538 = buffer.readUnsignedByte() == 1;
                     widget.aBoolean585 = buffer.readUnsignedByte() == 1;
                     widget.aBoolean552 = buffer.readUnsignedByte() == 1;
@@ -193,16 +190,16 @@ public class Widget {
                     widget.anInt554 = buffer.readUnsignedByte();
                     widget.anIntArray580 = new int[20];
                     widget.anIntArray560 = new int[20];
-                    widget.aClass13_Sub1_Sub4_Sub4Array539 = new Class13_Sub1_Sub4_Sub4[20];
-                    for (int j2 = 0; j2 < 20; j2++) {
+                    widget.sprites = new Class13_Sub1_Sub4_Sub4[20];
+                    for (int index = 0; index < 20; index++) {
                         int k3 = buffer.readUnsignedByte();
                         if (k3 == 1) {
-                            widget.anIntArray580[j2] = buffer.readShort();
-                            widget.anIntArray560[j2] = buffer.readShort();
+                            widget.anIntArray580[index] = buffer.readShort();
+                            widget.anIntArray560[index] = buffer.readShort();
                             String s1 = buffer.readString();
                             if (class1_1 != null && s1.length() > 0) {
                                 int i5 = s1.lastIndexOf(",");
-                                widget.aClass13_Sub1_Sub4_Sub4Array539[j2] = method500(Integer.parseInt(s1.substring(i5 + 1)), false, class1_1, s1.substring(0, i5));
+                                widget.sprites[index] = method500(Integer.parseInt(s1.substring(i5 + 1)), false, class1_1, s1.substring(0, i5));
                             }
                         }
                     }
@@ -214,10 +211,10 @@ public class Widget {
                         }
                     }
                 }
-                if (widget.anInt570 == 3) {
+                if (widget.type == 3) {
                     widget.aBoolean555 = buffer.readUnsignedByte() == 1;
                 }
-                if (widget.anInt570 == 4 || widget.anInt570 == 1) {
+                if (widget.type == 4 || widget.type == 1) {
                     widget.aBoolean551 = buffer.readUnsignedByte() == 1;
                     int k2 = buffer.readUnsignedByte();
                     if (aclass13_sub1_sub4_sub2 != null) {
@@ -225,19 +222,19 @@ public class Widget {
                     }
                     widget.aBoolean559 = buffer.readUnsignedByte() == 1;
                 }
-                if (widget.anInt570 == 4) {
+                if (widget.type == 4) {
                     widget.aString548 = buffer.readString();
                     widget.aString589 = buffer.readString();
                 }
-                if (widget.anInt570 == 1 || widget.anInt570 == 3 || widget.anInt570 == 4) {
+                if (widget.type == 1 || widget.type == 3 || widget.type == 4) {
                     widget.anInt550 = buffer.readInt();
                 }
-                if (widget.anInt570 == 3 || widget.anInt570 == 4) {
+                if (widget.type == 3 || widget.type == 4) {
                     widget.anInt544 = buffer.readInt();
                     widget.anInt596 = buffer.readInt();
                     widget.anInt566 = buffer.readInt();
                 }
-                if (widget.anInt570 == 5) {
+                if (widget.type == 5) {
                     String s = buffer.readString();
                     if (class1_1 != null && s.length() > 0) {
                         int i4 = s.lastIndexOf(",");
@@ -249,7 +246,7 @@ public class Widget {
                         widget.aClass13_Sub1_Sub4_Sub4_565 = method500(Integer.parseInt(s.substring(j4 + 1)), false, class1_1, s.substring(0, j4));
                     }
                 }
-                if (widget.anInt570 == 6) {
+                if (widget.type == 6) {
                     int l = buffer.readUnsignedByte();
                     if (l != 0) {
                         widget.modelType = 1;
@@ -276,9 +273,9 @@ public class Widget {
                     widget.anInt535 = buffer.readUnsignedShort();
                     widget.anInt536 = buffer.readUnsignedShort();
                 }
-                if (widget.anInt570 == 7) {
-                    widget.itemContainerItemIds = new int[widget.anInt582 * widget.anInt586];
-                    widget.itemContainerItemAmounts = new int[widget.anInt582 * widget.anInt586];
+                if (widget.type == 7) {
+                    widget.itemContainerItemIds = new int[widget.width * widget.height];
+                    widget.itemContainerItemAmounts = new int[widget.width * widget.height];
                     widget.aBoolean551 = buffer.readUnsignedByte() == 1;
                     int l2 = buffer.readUnsignedByte();
                     if (aclass13_sub1_sub4_sub2 != null) {
@@ -297,7 +294,7 @@ public class Widget {
                         }
                     }
                 }
-                if (widget.anInt597 == 2 || widget.anInt570 == 2) {
+                if (widget.anInt597 == 2 || widget.type == 2) {
                     widget.aString563 = buffer.readString();
                     widget.aString553 = buffer.readString();
                     widget.anInt558 = buffer.readUnsignedShort();
@@ -323,7 +320,7 @@ public class Widget {
             aClass3_584 = null;
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("68183, " + class1 + ", " + flag + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception);
+            Signlink.reportError("68183, " + class1 + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

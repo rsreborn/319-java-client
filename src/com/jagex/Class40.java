@@ -30,7 +30,7 @@ public class Class40 {
 
     public static void method528(Class1 class1, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.method149("spotanim.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile("spotanim.dat", null));
             if (byte0 != 72) {
                 anInt683 = -170;
             }

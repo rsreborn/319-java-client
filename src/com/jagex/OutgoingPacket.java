@@ -20,6 +20,9 @@ public enum OutgoingPacket {
     BUTTON_CLICK(189),
 
     EQUIP_ITEM(123),
+    UNEQUIP_ITEM(6),
+
+    MOVE_ITEM(13),
 
 
 
@@ -31,6 +34,10 @@ public enum OutgoingPacket {
 
     OutgoingPacket(int packetId) {
         this.packetId = packetId;
+    }
+
+    public int getValue() {
+        return this.packetId;
     }
 
     public boolean equals(int opcode) {

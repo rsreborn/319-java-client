@@ -32,7 +32,7 @@ public class Class4 {
 
     public static void method175(Class1 class1, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.method149("idk.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile("idk.dat", null));
             anInt64 = buffer.readUnsignedShort();
             if (aClass4Array65 == null) {
                 aClass4Array65 = new Class4[anInt64];

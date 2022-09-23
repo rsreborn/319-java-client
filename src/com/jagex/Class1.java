@@ -65,7 +65,7 @@ public class Class1 {
         throw new RuntimeException();
     }
 
-    public byte[] method149(String s, byte[] abyte0) {
+    public byte[] readFile(String s, byte[] abyte0) {
         int i = 0;
         s = s.toUpperCase();
         for (int j = 0; j < s.length(); j++) {

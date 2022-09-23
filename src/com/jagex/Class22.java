@@ -32,7 +32,7 @@ public class Class22 {
 
     public static void method444(Class1 class1, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.method149("varp.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile("varp.dat", null));
             anInt366 = 0;
             anInt364 = buffer.readUnsignedShort();
             if (byte0 != 72) {

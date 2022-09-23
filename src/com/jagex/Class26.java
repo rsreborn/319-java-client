@@ -24,7 +24,7 @@ public class Class26 {
 
     public static void method473(Class1 class1, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.method149("varbit.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile("varbit.dat", null));
             anInt438 = buffer.readUnsignedShort();
             if (aClass26Array439 == null) {
                 aClass26Array439 = new Class26[anInt438];

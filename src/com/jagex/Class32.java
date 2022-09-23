@@ -29,7 +29,7 @@ public class Class32 {
             if (byte0 != 72) {
                 return;
             }
-            Buffer buffer = new Buffer(-351, class1.method149("flo.dat", null));
+            Buffer buffer = new Buffer(-351, class1.readFile("flo.dat", null));
             anInt488 = buffer.readUnsignedShort();
             if (aClass32Array489 == null) {
                 aClass32Array489 = new Class32[anInt488];

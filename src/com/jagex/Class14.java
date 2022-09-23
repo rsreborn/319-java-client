@@ -98,8 +98,8 @@ public class Class14 {
     }
 
     public static void method426(Class1 class1) {
-        aBuffer_267 = new Buffer(-351, class1.method149("loc.dat", null));
-        Buffer buffer = new Buffer(-351, class1.method149("loc.idx", null));
+        aBuffer_267 = new Buffer(-351, class1.readFile("loc.dat", null));
+        Buffer buffer = new Buffer(-351, class1.readFile("loc.idx", null));
         anInt252 = buffer.readUnsignedShort();
         anIntArray287 = new int[anInt252];
         int i = 2;

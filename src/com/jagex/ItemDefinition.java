@@ -246,8 +246,8 @@ public class ItemDefinition {
     }
 
     public static void method515(Class1 class1) {
-        aBuffer_665 = new Buffer(-351, class1.method149("obj.dat", null));
-        Buffer buffer = new Buffer(-351, class1.method149("obj.idx", null));
+        aBuffer_665 = new Buffer(-351, class1.readFile("obj.dat", null));
+        Buffer buffer = new Buffer(-351, class1.readFile("obj.idx", null));
         anInt669 = buffer.readUnsignedShort();
         anIntArray655 = new int[anInt669];
         int i = 2;
