@@ -4,7 +4,7 @@ import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6 {
 
-    public static Class3 aClass3_1696 = new Class3(260, 31);
+    public static Cache aCache_1696 = new Cache(260, 31);
     public int anInt1687;
     public boolean aBoolean1688;
     public String aString1689;
@@ -97,7 +97,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6 {
             } else if (super.anInt1620 >= 0) {
                 k = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aClass3_1696.method172(l);
+            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aCache_1696.method172(l);
             if (class13_sub1_sub1_sub4_1 == null) {
                 boolean flag = false;
                 for (int l1 = 0; l1 < 12; l1++) {
@@ -117,7 +117,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6 {
                 }
                 if (flag) {
                     if (aLong1710 != -1L) {
-                        class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aClass3_1696.method172(aLong1710);
+                        class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aCache_1696.method172(aLong1710);
                     }
                     if (class13_sub1_sub1_sub4_1 == null) {
                         return null;
@@ -159,7 +159,7 @@ public class Class13_Sub1_Sub1_Sub6_Sub1 extends Class13_Sub1_Sub1_Sub6 {
                 }
                 class13_sub1_sub1_sub4_1.method272(true);
                 class13_sub1_sub1_sub4_1.method282(64, 850, -30, -50, -30, true);
-                aClass3_1696.method173(class13_sub1_sub1_sub4_1, l, 9388);
+                aCache_1696.method173(class13_sub1_sub1_sub4_1, l, 9388);
                 aLong1710 = l;
             }
             if (aBoolean1688) {

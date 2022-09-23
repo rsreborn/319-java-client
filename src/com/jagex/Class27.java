@@ -34,7 +34,7 @@ public class Class27 {
                 return;
             }
             aByteArray451 = new byte[0x6baa8];
-            aBuffer_452 = new Buffer(-351, aByteArray451);
+            aBuffer_452 = new Buffer(aByteArray451);
             Class17.method435();
             do {
                 int i = buffer.readUnsignedShort();

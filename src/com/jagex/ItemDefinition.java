@@ -8,8 +8,8 @@ public class ItemDefinition {
     public static boolean aBoolean638 = true;
     public static int anInt645;
     public static int[] anIntArray655;
-    public static Class3 aClass3_660 = new Class3(50, 31);
-    public static Class3 aClass3_661 = new Class3(100, 31);
+    public static Cache aCache_660 = new Cache(50, 31);
+    public static Cache aCache_661 = new Cache(100, 31);
     public static Buffer aBuffer_665;
     public static boolean aBoolean667 = true;
     public static int anInt669;
@@ -68,7 +68,7 @@ public class ItemDefinition {
     public static Class13_Sub1_Sub4_Sub4 method503(int i, int j, int k, boolean flag) {
         try {
             if (k == 0) {
-                Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (Class13_Sub1_Sub4_Sub4) aClass3_661.method172(i);
+                Class13_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (Class13_Sub1_Sub4_Sub4) aCache_661.method172(i);
                 if (class13_sub1_sub4_sub4 != null && class13_sub1_sub4_sub4.anInt1686 != j && class13_sub1_sub4_sub4.anInt1686 != -1) {
                     class13_sub1_sub4_sub4.method253();
                     class13_sub1_sub4_sub4 = null;
@@ -178,7 +178,7 @@ public class ItemDefinition {
                 class13_sub1_sub4_sub4_2.anInt1686 = l5;
             }
             if (k == 0) {
-                aClass3_661.method173(class13_sub1_sub4_sub4_1, i, 9388);
+                aCache_661.method173(class13_sub1_sub4_sub4_1, i, 9388);
             }
             Class13_Sub1_Sub4.method351(0, ai1, i2, l1);
             Class13_Sub1_Sub4.method353(k2, (byte) -12, i3, l2, j2);
@@ -229,8 +229,8 @@ public class ItemDefinition {
 
     public static void method511(int i) {
         try {
-            aClass3_660 = null;
-            aClass3_661 = null;
+            aCache_660 = null;
+            aCache_661 = null;
             if (i != 47779) {
                 for (int j = 1; j > 0; j++) {
                 }
@@ -245,9 +245,9 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public static void method515(Class1 class1) {
-        aBuffer_665 = new Buffer(-351, class1.readFile("obj.dat", null));
-        Buffer buffer = new Buffer(-351, class1.readFile("obj.idx", null));
+    public static void method515(Archive archive) {
+        aBuffer_665 = new Buffer(archive.readFile("obj.dat", null));
+        Buffer buffer = new Buffer(archive.readFile("obj.idx", null));
         anInt669 = buffer.readUnsignedShort();
         anIntArray655 = new int[anInt669];
         int i = 2;
@@ -418,7 +418,7 @@ public class ItemDefinition {
                 return method505(j).method509(1);
             }
         }
-        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aClass3_660.method172(anInt633);
+        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_660.method172(anInt633);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -436,7 +436,7 @@ public class ItemDefinition {
         }
         class13_sub1_sub1_sub4.method282(64 + anInt625, 768 + anInt629, -50, -10, -50, true);
         class13_sub1_sub1_sub4.aBoolean1529 = true;
-        aClass3_660.method173(class13_sub1_sub1_sub4, anInt633, 9388);
+        aCache_660.method173(class13_sub1_sub1_sub4, anInt633, 9388);
         return class13_sub1_sub1_sub4;
     }
 

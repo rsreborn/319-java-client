@@ -6,8 +6,8 @@ public class Class14 {
 
     public static Class13_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new Class13_Sub1_Sub1_Sub4[4];
     public static int anInt245;
-    public static Class3 aClass3_248 = new Class3(500, 31);
-    public static Class3 aClass3_249 = new Class3(30, 31);
+    public static Cache aCache_248 = new Cache(500, 31);
+    public static Cache aCache_249 = new Cache(30, 31);
     public static int anInt252;
     public static Game aGame254;
     public static Buffer aBuffer_267;
@@ -69,8 +69,8 @@ public class Class14 {
             if (i != 47779) {
                 return;
             } else {
-                aClass3_248 = null;
-                aClass3_249 = null;
+                aCache_248 = null;
+                aCache_249 = null;
                 anIntArray287 = null;
                 aClass14Array278 = null;
                 aBuffer_267 = null;
@@ -97,9 +97,9 @@ public class Class14 {
         return class14;
     }
 
-    public static void method426(Class1 class1) {
-        aBuffer_267 = new Buffer(-351, class1.readFile("loc.dat", null));
-        Buffer buffer = new Buffer(-351, class1.readFile("loc.idx", null));
+    public static void method426(Archive archive) {
+        aBuffer_267 = new Buffer(archive.readFile("loc.dat", null));
+        Buffer buffer = new Buffer(archive.readFile("loc.idx", null));
         anInt252 = buffer.readUnsignedShort();
         anIntArray287 = new int[anInt252];
         int i = 2;
@@ -369,7 +369,7 @@ public class Class14 {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + j) + ((long) (i + 1) << 32);
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aClass3_249.method172(l);
+                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aCache_249.method172(l);
                 if (class13_sub1_sub1_sub4_1 != null) {
                     return class13_sub1_sub1_sub4_1;
                 }
@@ -383,7 +383,7 @@ public class Class14 {
                     if (flag2) {
                         k2 += 0x10000;
                     }
-                    class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aClass3_248.method172(k2);
+                    class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_248.method172(k2);
                     if (class13_sub1_sub1_sub4 == null) {
                         class13_sub1_sub1_sub4 = Class13_Sub1_Sub1_Sub4.method265((byte) 4, k2 & 0xffff);
                         if (class13_sub1_sub1_sub4 == null) {
@@ -392,7 +392,7 @@ public class Class14 {
                         if (flag2) {
                             class13_sub1_sub1_sub4.method280(true);
                         }
-                        aClass3_248.method173(class13_sub1_sub1_sub4, k2, 9388);
+                        aCache_248.method173(class13_sub1_sub1_sub4, k2, 9388);
                     }
                     if (k1 > 1) {
                         aClass13_Sub1_Sub1_Sub4Array239[l1] = class13_sub1_sub1_sub4;
@@ -414,7 +414,7 @@ public class Class14 {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + (i1 << 3) + j) + ((long) (i + 1) << 32);
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (Class13_Sub1_Sub1_Sub4) aClass3_249.method172(l);
+                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (Class13_Sub1_Sub1_Sub4) aCache_249.method172(l);
                 if (class13_sub1_sub1_sub4_2 != null) {
                     return class13_sub1_sub1_sub4_2;
                 }
@@ -423,7 +423,7 @@ public class Class14 {
                 if (flag4) {
                     i2 += 0x10000;
                 }
-                class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aClass3_248.method172(i2);
+                class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_248.method172(i2);
                 if (class13_sub1_sub1_sub4 == null) {
                     class13_sub1_sub1_sub4 = Class13_Sub1_Sub1_Sub4.method265((byte) 4, i2 & 0xffff);
                     if (class13_sub1_sub1_sub4 == null) {
@@ -432,7 +432,7 @@ public class Class14 {
                     if (flag4) {
                         class13_sub1_sub1_sub4.method280(true);
                     }
-                    aClass3_248.method173(class13_sub1_sub1_sub4, i2, 9388);
+                    aCache_248.method173(class13_sub1_sub1_sub4, i2, 9388);
                 }
             }
             boolean flag1;
@@ -464,7 +464,7 @@ public class Class14 {
             if (anInt266 == 1) {
                 class13_sub1_sub1_sub4_3.anInt1524 = class13_sub1_sub1_sub4_3.anInt1377;
             }
-            aClass3_249.method173(class13_sub1_sub1_sub4_3, l, 9388);
+            aCache_249.method173(class13_sub1_sub1_sub4_3, l, 9388);
             return class13_sub1_sub1_sub4_3;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("4845, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception);

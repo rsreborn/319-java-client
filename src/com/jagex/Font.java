@@ -4,7 +4,7 @@ import com.jagex.sign.Signlink;
 
 import java.util.Random;
 
-public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4 {
+public class Font extends Class13_Sub1_Sub4 {
 
     public int anInt1648;
     public int anInt1649;
@@ -21,7 +21,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4 {
     public Random aRandom1660;
     public boolean aBoolean1661;
 
-    public Class13_Sub1_Sub4_Sub2(String s, Class1 class1, boolean flag, int i) {
+    public Font(String s, Archive archive, boolean flag, int i) {
         anInt1648 = -40024;
         anInt1649 = 6;
         aBoolean1652 = false;
@@ -34,8 +34,8 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4 {
         aRandom1660 = new Random();
         aBoolean1661 = false;
         try {
-            Buffer buffer = new Buffer(-351, class1.readFile(s + ".dat", null));
-            Buffer class13_sub1_sub2_1 = new Buffer(-351, class1.readFile("index.dat", null));
+            Buffer buffer = new Buffer(archive.readFile(s + ".dat", null));
+            Buffer class13_sub1_sub2_1 = new Buffer(archive.readFile("index.dat", null));
             byte byte0 = -1;
             class13_sub1_sub2_1.position = buffer.readUnsignedShort() + 4;
             int k = class13_sub1_sub2_1.readUnsignedByte();
@@ -94,7 +94,7 @@ public class Class13_Sub1_Sub4_Sub2 extends Class13_Sub1_Sub4 {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("91897, " + s + ", " + class1 + ", " + flag + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("91897, " + s + ", " + archive + ", " + flag + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

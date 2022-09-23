@@ -24,12 +24,12 @@ public class Class32 {
         aBoolean494 = true;
     }
 
-    public static void method493(Class1 class1, byte byte0) {
+    public static void method493(Archive archive, byte byte0) {
         try {
             if (byte0 != 72) {
                 return;
             }
-            Buffer buffer = new Buffer(-351, class1.readFile("flo.dat", null));
+            Buffer buffer = new Buffer(archive.readFile("flo.dat", null));
             anInt488 = buffer.readUnsignedShort();
             if (aClass32Array489 == null) {
                 aClass32Array489 = new Class32[anInt488];
@@ -42,7 +42,7 @@ public class Class32 {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("75176, " + class1 + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("75176, " + archive + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

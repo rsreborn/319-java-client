@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class1 {
+public class Archive {
 
     public int anInt40;
     public boolean aBoolean41;
@@ -14,7 +14,7 @@ public class Class1 {
     public int[] anIntArray47;
     public boolean aBoolean48;
 
-    public Class1(byte[] abyte0, int i) {
+    public Archive(byte[] abyte0, int i) {
         anInt40 = 782;
         aBoolean41 = true;
         try {
@@ -29,14 +29,14 @@ public class Class1 {
 
     public void method148(byte[] abyte0, int i) {
         try {
-            Buffer buffer = new Buffer(-351, abyte0);
+            Buffer buffer = new Buffer(abyte0);
             int j = buffer.readTriByte();
             int k = buffer.readTriByte();
             if (k != j) {
                 byte[] abyte1 = new byte[j];
                 Class16.method427(abyte1, j, abyte0, k, 6);
                 aByteArray42 = abyte1;
-                buffer = new Buffer(-351, aByteArray42);
+                buffer = new Buffer(aByteArray42);
                 aBoolean48 = true;
             } else {
                 aByteArray42 = abyte0;

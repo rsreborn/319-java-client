@@ -6,7 +6,7 @@ public class Class47 {
 
     public static Class47[] aClass47Array757;
     public static Buffer aBuffer_758;
-    public static Class3 aClass3_759 = new Class3(30, 31);
+    public static Cache aCache_759 = new Cache(30, 31);
     public static int[] anIntArray761;
     public static int anInt763;
     public static int anInt775;
@@ -88,9 +88,9 @@ public class Class47 {
         return class47;
     }
 
-    public static void method587(Class1 class1) {
-        aBuffer_758 = new Buffer(-351, class1.readFile("npc.dat", null));
-        Buffer buffer = new Buffer(-351, class1.readFile("npc.idx", null));
+    public static void method587(Archive archive) {
+        aBuffer_758 = new Buffer(archive.readFile("npc.dat", null));
+        Buffer buffer = new Buffer(archive.readFile("npc.idx", null));
         anInt775 = buffer.readUnsignedShort();
         anIntArray761 = new int[anInt775];
         int i = 2;
@@ -109,7 +109,7 @@ public class Class47 {
             if (i != 47779) {
                 anInt763 = -14;
             }
-            aClass3_759 = null;
+            aCache_759 = null;
             anIntArray761 = null;
             aClass47Array757 = null;
             aBuffer_758 = null;
@@ -133,7 +133,7 @@ public class Class47 {
                     return class47.method582(i, j, true, ai);
                 }
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aClass3_759.method172(aLong770);
+            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_759.method172(aLong770);
             if (class13_sub1_sub1_sub4 == null) {
                 boolean flag1 = false;
                 for (int k = 0; k < anIntArray769.length; k++) {
@@ -160,7 +160,7 @@ public class Class47 {
                 }
                 class13_sub1_sub1_sub4.method272(true);
                 class13_sub1_sub1_sub4.method282(64 + anInt776, 850 + anInt755, -30, -50, -30, true);
-                aClass3_759.method173(class13_sub1_sub1_sub4, aLong770, 9388);
+                aCache_759.method173(class13_sub1_sub1_sub4, aLong770, 9388);
             }
             Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = Class13_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
             class13_sub1_sub1_sub4_1.method267(Class8.method189(j, 19953) & Class8.method189(i, 19953), aByte779, class13_sub1_sub1_sub4);

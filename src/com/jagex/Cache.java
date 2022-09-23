@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class3 {
+public class Cache {
 
     public int anInt49;
     public boolean aBoolean50;
@@ -16,7 +16,7 @@ public class Class3 {
     public Class49 aClass49_58;
     public Class21 aClass21_59;
 
-    public Class3(int i, int j) {
+    public Cache(int i, int j) {
         anInt49 = 36;
         aBoolean50 = false;
         aBoolean51 = true;

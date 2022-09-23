@@ -7,7 +7,7 @@ public class Class40 {
     public static int anInt683;
     public static int anInt684;
     public static Class40[] aClass40Array685;
-    public static Class3 aClass3_697 = new Class3(30, 31);
+    public static Cache aCache_697 = new Cache(30, 31);
     public int anInt686;
     public int anInt687;
     public int anInt688;
@@ -28,9 +28,9 @@ public class Class40 {
         anInt693 = 128;
     }
 
-    public static void method528(Class1 class1, byte byte0) {
+    public static void method528(Archive archive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.readFile("spotanim.dat", null));
+            Buffer buffer = new Buffer(archive.readFile("spotanim.dat", null));
             if (byte0 != 72) {
                 anInt683 = -170;
             }
@@ -47,7 +47,7 @@ public class Class40 {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("95120, " + class1 + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("95120, " + archive + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -94,7 +94,7 @@ public class Class40 {
     }
 
     public Class13_Sub1_Sub1_Sub4 method530() {
-        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aClass3_697.method172(anInt686);
+        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_697.method172(anInt686);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -107,7 +107,7 @@ public class Class40 {
                 class13_sub1_sub1_sub4.method279(anIntArray690[i], anIntArray691[i]);
             }
         }
-        aClass3_697.method173(class13_sub1_sub1_sub4, anInt686, 9388);
+        aCache_697.method173(class13_sub1_sub1_sub4, anInt686, 9388);
         return class13_sub1_sub1_sub4;
     }
 

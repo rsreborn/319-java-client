@@ -417,7 +417,7 @@ public class Class25 {
         try {
             boolean bool = true;
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             int i_238_ = -1;
             if (i != 0)
                 throw new NullPointerException();
@@ -541,7 +541,7 @@ public class Class25 {
                           int i_5_, int i_6_, byte[] is) {
         try {
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             if (!bool)
                 aBoolean419 = !aBoolean419;
             int i_7_ = -1;
@@ -617,7 +617,7 @@ public class Class25 {
             if (i_48_ != 6)
                 anInt414 = 120;
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             for (int i_53_ = 0; i_53_ < 4; i_53_++) {
                 for (int i_54_ = 0; i_54_ < 64; i_54_++) {
                     for (int i_55_ = 0; i_55_ < 64; i_55_++) {
@@ -653,7 +653,7 @@ public class Class25 {
                           Class10 class10, int i_68_) {
         try {
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             if (!bool) {
                 for (int i_69_ = 1; i_69_ > 0; i_69_++) {
                     /* empty */
@@ -1879,7 +1879,7 @@ public class Class25 {
                     }
                 }
                 Buffer buffer
-                        = new Buffer(-351, is);
+                        = new Buffer(is);
                 for (int i_269_ = 0; i_269_ < 4; i_269_++) {
                     for (int i_270_ = 0; i_270_ < 64; i_270_++) {
                         for (int i_271_ = 0; i_271_ < 64; i_271_++)

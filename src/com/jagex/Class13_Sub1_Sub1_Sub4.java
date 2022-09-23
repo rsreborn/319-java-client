@@ -143,15 +143,15 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 anIntArray1526 = new int[anInt1500];
             }
             anIntArray1510 = new int[anInt1500];
-            Buffer buffer = new Buffer(-351, class23.aByteArray379);
+            Buffer buffer = new Buffer(class23.aByteArray379);
             buffer.position = class23.anInt383;
-            Buffer class13_sub1_sub2_1 = new Buffer(-351, class23.aByteArray379);
+            Buffer class13_sub1_sub2_1 = new Buffer(class23.aByteArray379);
             class13_sub1_sub2_1.position = class23.anInt384;
-            Buffer buffer_2 = new Buffer(-351, class23.aByteArray379);
+            Buffer buffer_2 = new Buffer(class23.aByteArray379);
             buffer_2.position = class23.anInt385;
-            Buffer buffer_3 = new Buffer(-351, class23.aByteArray379);
+            Buffer buffer_3 = new Buffer(class23.aByteArray379);
             buffer_3.position = class23.anInt386;
-            Buffer buffer_4 = new Buffer(-351, class23.aByteArray379);
+            Buffer buffer_4 = new Buffer(class23.aByteArray379);
             buffer_4.position = class23.anInt387;
             int j = 0;
             int k = 0;
@@ -708,7 +708,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 class23.anInt382 = 0;
                 return;
             }
-            Buffer buffer = new Buffer(-351, abyte0);
+            Buffer buffer = new Buffer(abyte0);
             buffer.position = abyte0.length - 18;
             Class23 class23_1 = aClass23Array1531[i] = new Class23();
             class23_1.aByteArray379 = abyte0;

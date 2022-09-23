@@ -22,9 +22,9 @@ public class Class26 {
         anInt445 = -1;
     }
 
-    public static void method473(Class1 class1, byte byte0) {
+    public static void method473(Archive archive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.readFile("varbit.dat", null));
+            Buffer buffer = new Buffer(archive.readFile("varbit.dat", null));
             anInt438 = buffer.readUnsignedShort();
             if (aClass26Array439 == null) {
                 aClass26Array439 = new Class26[anInt438];
@@ -46,7 +46,7 @@ public class Class26 {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("40928, " + class1 + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("40928, " + archive + ", " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

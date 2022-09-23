@@ -6,30 +6,29 @@ public class Widget {
 
     public static Widget[] widgets;
     public static int anInt546;
-    public static boolean aBoolean567 = true;
-    public static Cache aCache_575 = new Cache(30, 31);
+    public static Cache modelCache = new Cache(30, 31);
     public static Cache spriteCache;
     public int anInt534;
     public int anInt535;
     public int anInt536;
     public int anInt537;
-    public boolean aBoolean538;
+    public boolean isItemSwappable;
     public Class13_Sub1_Sub4_Sub4[] sprites;
     public int anInt540;
     public int modelType;
-    public int anInt542;
+    public int modelId;
     public int hasHover;
-    public int anInt544;
+    public int enabledColor;
     public int[] anIntArray545;
     public String[] options;
     public String disabledText;
     public int[] children;
-    public int anInt550;
+    public int disabledColor;
     public boolean isTextCentered;
-    public boolean aBoolean552;
+    public boolean isItemUsable;
     public String aString553;
-    public int anInt554;
-    public boolean aBoolean555;
+    public int itemSpritePaddingY;
+    public boolean isFilled;
     public int[] anIntArray556;
     public int[] childY;
     public int anInt558;
@@ -38,11 +37,11 @@ public class Widget {
     public boolean hiddenUntilHovered;
     public byte alpha;
     public String aString563;
-    public String aString564;
-    public Class13_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_565;
-    public int anInt566;
+    public String hoverText;
+    public Class13_Sub1_Sub4_Sub4 enabledSprite;
+    public int enabledHoverColor;
     public int anInt568;
-    public Class13_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_569;
+    public Class13_Sub1_Sub4_Sub4 disabledSprite;
     public int type;
     public int anInt571;
     public int anInt572;
@@ -53,10 +52,10 @@ public class Widget {
     public boolean aBoolean578;
     public int[] itemContainerItemAmounts;
     public int[] spriteX;
-    public int[][] anIntArrayArray581;
+    public int[][] cs1Opcodes;
     public int width;
     public Font fonts;
-    public boolean aBoolean585;
+    public boolean isInventory;
     public int height;
     public int anInt587;
     public int anInt588;
@@ -67,22 +66,22 @@ public class Widget {
     public int anInt593;
     public boolean aBoolean594;
     public int anInt595;
-    public int anInt596;
+    public int disabledHoverColor;
     public int actionType;
     public int scrollLimit;
-    public int anInt599;
+    public int itemSpritePaddingX;
 
     public Widget() {
     }
 
     public static void method498(int i, Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j, int k) {
         try {
-            aCache_575.method174();
+            modelCache.method174();
             if (j != 0) {
                 return;
             }
             if (class13_sub1_sub1_sub4 != null && i != 4) {
-                aCache_575.method173(class13_sub1_sub1_sub4, (i << 16) + k, 9388);
+                modelCache.method173(class13_sub1_sub1_sub4, (i << 16) + k, 9388);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -91,7 +90,7 @@ public class Widget {
         }
     }
 
-    public static Class13_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, Class1 class1, String s) {
+    public static Class13_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, Archive archive, String s) {
         try {
             if (flag) {
                 anInt546 = -374;
@@ -102,25 +101,25 @@ public class Widget {
                 return class13_sub1_sub4_sub4;
             }
             try {
-                class13_sub1_sub4_sub4 = new Class13_Sub1_Sub4_Sub4(class1, s, i);
+                class13_sub1_sub4_sub4 = new Class13_Sub1_Sub4_Sub4(archive, s, i);
                 spriteCache.method173(class13_sub1_sub4_sub4, l, 9388);
             } catch (Exception _ex) {
                 return null;
             }
             return class13_sub1_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("88345, " + i + ", " + flag + ", " + class1 + ", " + s + ", " + runtimeexception);
+            Signlink.reportError("88345, " + i + ", " + flag + ", " + archive + ", " + s + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method501(Class1 class1, Class1 class1_1, Font[] aclass13_sub1_sub4_sub2) {
+    public static void load(Archive widgetArchive, Archive mediaArchive, Font[] fonts) {
         try {
             spriteCache = new Cache(50000, 31);
-            Buffer buffer = new Buffer(-351, class1.readFile("data", null));
+            Buffer buffer = new Buffer(widgetArchive.readFile("data", null));
             int parentId = -1;
-            int j = buffer.readUnsignedShort();
-            widgets = new Widget[j];
+            int id = buffer.readUnsignedShort();
+            widgets = new Widget[id];
             while (buffer.position < buffer.payload.length) {
                 int widgetIndex = buffer.readUnsignedShort();
                 if (widgetIndex == 65535) {
@@ -151,14 +150,14 @@ public class Widget {
                         widget.anIntArray556[j1] = buffer.readUnsignedShort();
                     }
                 }
-                int k1 = buffer.readUnsignedByte();
-                if (k1 > 0) {
-                    widget.anIntArrayArray581 = new int[k1][];
-                    for (int l1 = 0; l1 < k1; l1++) {
-                        int i3 = buffer.readUnsignedShort();
-                        widget.anIntArrayArray581[l1] = new int[i3];
-                        for (int l4 = 0; l4 < i3; l4++) {
-                            widget.anIntArrayArray581[l1][l4] = buffer.readUnsignedShort();
+                int cs1Length = buffer.readUnsignedByte();
+                if (cs1Length > 0) {
+                    widget.cs1Opcodes = new int[cs1Length][];
+                    for (int blockIndex = 0; blockIndex < cs1Length; blockIndex++) {
+                        int cs1BlockLength = buffer.readUnsignedShort();
+                        widget.cs1Opcodes[blockIndex] = new int[cs1BlockLength];
+                        for (int cs1OpcodeIndex = 0; cs1OpcodeIndex < cs1BlockLength; cs1OpcodeIndex++) {
+                            widget.cs1Opcodes[blockIndex][cs1OpcodeIndex] = buffer.readUnsignedShort();
                         }
                     }
                 }
@@ -182,24 +181,28 @@ public class Widget {
                 if (widget.type == 2) {
                     widget.itemContainerItemIds = new int[widget.width * widget.height];
                     widget.itemContainerItemAmounts = new int[widget.width * widget.height];
-                    widget.aBoolean538 = buffer.readUnsignedByte() == 1;
-                    widget.aBoolean585 = buffer.readUnsignedByte() == 1;
-                    widget.aBoolean552 = buffer.readUnsignedByte() == 1;
+
+                    widget.isItemSwappable = buffer.readUnsignedByte() == 1;
+                    widget.isInventory = buffer.readUnsignedByte() == 1;
+                    widget.isItemUsable = buffer.readUnsignedByte() == 1;
                     widget.aBoolean578 = buffer.readUnsignedByte() == 1;
-                    widget.anInt599 = buffer.readUnsignedByte();
-                    widget.anInt554 = buffer.readUnsignedByte();
+
+                    widget.itemSpritePaddingX = buffer.readUnsignedByte();
+                    widget.itemSpritePaddingY = buffer.readUnsignedByte();
+
                     widget.spriteX = new int[20];
                     widget.spriteY = new int[20];
                     widget.sprites = new Class13_Sub1_Sub4_Sub4[20];
+
                     for (int index = 0; index < 20; index++) {
                         int hasSprite = buffer.readUnsignedByte();
                         if (hasSprite == 1) {
                             widget.spriteX[index] = buffer.readShort();
                             widget.spriteY[index] = buffer.readShort();
                             String spriteName = buffer.readString();
-                            if (class1_1 != null && spriteName.length() > 0) {
+                            if (mediaArchive != null && spriteName.length() > 0) {
                                 int spriteId = spriteName.lastIndexOf(",");
-                                widget.sprites[index] = readSprite(Integer.parseInt(spriteName.substring(spriteId + 1)), false, class1_1, spriteName.substring(0, spriteId));
+                                widget.sprites[index] = readSprite(Integer.parseInt(spriteName.substring(spriteId + 1)), false, mediaArchive, spriteName.substring(0, spriteId));
                             }
                         }
                     }
@@ -212,13 +215,13 @@ public class Widget {
                     }
                 }
                 if (widget.type == 3) {
-                    widget.aBoolean555 = buffer.readUnsignedByte() == 1;
+                    widget.isFilled = buffer.readUnsignedByte() == 1;
                 }
                 if (widget.type == 4 || widget.type == 1) {
                     widget.isTextCentered = buffer.readUnsignedByte() == 1;
                     int font = buffer.readUnsignedByte();
-                    if (aclass13_sub1_sub4_sub2 != null) {
-                        widget.fonts = aclass13_sub1_sub4_sub2[font];
+                    if (fonts != null) {
+                        widget.fonts = fonts[font];
                     }
                     widget.hasDropShadow = buffer.readUnsignedByte() == 1;
                 }
@@ -227,30 +230,30 @@ public class Widget {
                     widget.enabledText = buffer.readString();
                 }
                 if (widget.type == 1 || widget.type == 3 || widget.type == 4) {
-                    widget.anInt550 = buffer.readInt();
+                    widget.disabledColor = buffer.readInt();
                 }
                 if (widget.type == 3 || widget.type == 4) {
-                    widget.anInt544 = buffer.readInt();
-                    widget.anInt596 = buffer.readInt();
-                    widget.anInt566 = buffer.readInt();
+                    widget.enabledColor = buffer.readInt();
+                    widget.disabledHoverColor = buffer.readInt();
+                    widget.enabledHoverColor = buffer.readInt();
                 }
                 if (widget.type == 5) {
-                    String s = buffer.readString();
-                    if (class1_1 != null && s.length() > 0) {
-                        int i4 = s.lastIndexOf(",");
-                        widget.aClass13_Sub1_Sub4_Sub4_569 = readSprite(Integer.parseInt(s.substring(i4 + 1)), false, class1_1, s.substring(0, i4));
+                    String spriteName = buffer.readString();
+                    if (mediaArchive != null && spriteName.length() > 0) {
+                        int i4 = spriteName.lastIndexOf(",");
+                        widget.disabledSprite = readSprite(Integer.parseInt(spriteName.substring(i4 + 1)), false, mediaArchive, spriteName.substring(0, i4));
                     }
-                    s = buffer.readString();
-                    if (class1_1 != null && s.length() > 0) {
-                        int j4 = s.lastIndexOf(",");
-                        widget.aClass13_Sub1_Sub4_Sub4_565 = readSprite(Integer.parseInt(s.substring(j4 + 1)), false, class1_1, s.substring(0, j4));
+                    spriteName = buffer.readString();
+                    if (mediaArchive != null && spriteName.length() > 0) {
+                        int j4 = spriteName.lastIndexOf(",");
+                        widget.enabledSprite = readSprite(Integer.parseInt(spriteName.substring(j4 + 1)), false, mediaArchive, spriteName.substring(0, j4));
                     }
                 }
                 if (widget.type == 6) {
                     int l = buffer.readUnsignedByte();
                     if (l != 0) {
                         widget.modelType = 1;
-                        widget.anInt542 = (l - 1 << 8) + buffer.readUnsignedByte();
+                        widget.modelId = (l - 1 << 8) + buffer.readUnsignedByte();
                     }
                     l = buffer.readUnsignedByte();
                     if (l != 0) {
@@ -278,14 +281,14 @@ public class Widget {
                     widget.itemContainerItemAmounts = new int[widget.width * widget.height];
                     widget.isTextCentered = buffer.readUnsignedByte() == 1;
                     int l2 = buffer.readUnsignedByte();
-                    if (aclass13_sub1_sub4_sub2 != null) {
-                        widget.fonts = aclass13_sub1_sub4_sub2[l2];
+                    if (fonts != null) {
+                        widget.fonts = fonts[l2];
                     }
                     widget.hasDropShadow = buffer.readUnsignedByte() == 1;
-                    widget.anInt550 = buffer.readInt();
-                    widget.anInt599 = buffer.readShort();
-                    widget.anInt554 = buffer.readShort();
-                    widget.aBoolean585 = buffer.readUnsignedByte() == 1;
+                    widget.disabledColor = buffer.readInt();
+                    widget.itemSpritePaddingX = buffer.readShort();
+                    widget.itemSpritePaddingY = buffer.readShort();
+                    widget.isInventory = buffer.readUnsignedByte() == 1;
                     widget.options = new String[5];
                     for (int k4 = 0; k4 < 5; k4++) {
                         widget.options[k4] = buffer.readString();
@@ -300,19 +303,19 @@ public class Widget {
                     widget.anInt558 = buffer.readUnsignedShort();
                 }
                 if (widget.actionType == 1 || widget.actionType == 4 || widget.actionType == 5 || widget.actionType == 6) {
-                    widget.aString564 = buffer.readString();
-                    if (widget.aString564.length() == 0) {
+                    widget.hoverText = buffer.readString();
+                    if (widget.hoverText.length() == 0) {
                         if (widget.actionType == 1) {
-                            widget.aString564 = "Ok";
+                            widget.hoverText = "Ok";
                         }
                         if (widget.actionType == 4) {
-                            widget.aString564 = "Select";
+                            widget.hoverText = "Select";
                         }
                         if (widget.actionType == 5) {
-                            widget.aString564 = "Select";
+                            widget.hoverText = "Select";
                         }
                         if (widget.actionType == 6) {
-                            widget.aString564 = "Continue";
+                            widget.hoverText = "Continue";
                         }
                     }
                 }
@@ -320,13 +323,13 @@ public class Widget {
             spriteCache = null;
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("68183, " + class1 + ", " + class1_1 + ", " + aclass13_sub1_sub4_sub2 + ", " + runtimeexception);
+            Signlink.reportError("68183, " + widgetArchive + ", " + mediaArchive + ", " + fonts + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     public Class13_Sub1_Sub1_Sub4 method497(int i, int j) {
-        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_575.method172((i << 16) + j);
+        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) modelCache.method172((i << 16) + j);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -346,7 +349,7 @@ public class Widget {
             class13_sub1_sub1_sub4 = null;
         }
         if (class13_sub1_sub1_sub4 != null) {
-            aCache_575.method173(class13_sub1_sub1_sub4, (i << 16) + j, 9388);
+            modelCache.method173(class13_sub1_sub1_sub4, (i << 16) + j, 9388);
         }
         return class13_sub1_sub1_sub4;
     }
@@ -360,7 +363,7 @@ public class Widget {
             if (flag1) {
                 class13_sub1_sub1_sub4 = method497(anInt587, anInt588);
             } else {
-                class13_sub1_sub1_sub4 = method497(modelType, anInt542);
+                class13_sub1_sub1_sub4 = method497(modelType, modelId);
             }
             if (class13_sub1_sub1_sub4 == null) {
                 return null;

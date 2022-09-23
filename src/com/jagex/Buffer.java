@@ -98,7 +98,7 @@ public class Buffer extends Class13_Sub1 {
         }
     }
 
-    public Buffer(int i, byte[] abyte0) {
+    public Buffer(byte[] bytes) {
         anInt1379 = 36;
         aByte1380 = 5;
         anInt1381 = -45536;
@@ -117,17 +117,8 @@ public class Buffer extends Class13_Sub1 {
         aBoolean1394 = false;
         aBoolean1395 = true;
         aBoolean1396 = false;
-        try {
-            while (i >= 0) {
-                throw new NullPointerException();
-            }
-            payload = abyte0;
-            position = 0;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("14039, " + i + ", " + abyte0 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+        payload = bytes;
+        position = 0;
     }
 
     public static Buffer method299(int i, int j) {

@@ -27,27 +27,27 @@ public class Class8 {
 
     public static void method186(int i, byte[] abyte0) {
         try {
-            Buffer buffer = new Buffer(-351, abyte0);
+            Buffer buffer = new Buffer(abyte0);
             buffer.position = abyte0.length - 8;
             int j = buffer.readUnsignedShort();
             int k = buffer.readUnsignedShort();
             int l = buffer.readUnsignedShort();
             int i1 = buffer.readUnsignedShort();
             int j1 = 0;
-            Buffer class13_sub1_sub2_1 = new Buffer(-351, abyte0);
+            Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
             class13_sub1_sub2_1.position = j1;
             j1 += j + 2;
-            Buffer buffer_2 = new Buffer(-351, abyte0);
+            Buffer buffer_2 = new Buffer(abyte0);
             buffer_2.position = j1;
             j1 += k;
-            Buffer buffer_3 = new Buffer(-351, abyte0);
+            Buffer buffer_3 = new Buffer(abyte0);
             buffer_3.position = j1;
             j1 += l;
-            Buffer buffer_4 = new Buffer(-351, abyte0);
+            Buffer buffer_4 = new Buffer(abyte0);
             buffer_4.position = j1;
             j1 += i1;
             Buffer buffer_5;
-            for (buffer_5 = new Buffer(-351, abyte0); i >= 0; ) {
+            for (buffer_5 = new Buffer(abyte0); i >= 0; ) {
                 return;
             }
             buffer_5.position = j1;

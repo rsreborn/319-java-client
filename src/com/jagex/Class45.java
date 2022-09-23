@@ -6,7 +6,7 @@ public class Class45 {
 
     public static boolean aBoolean728 = true;
     public static char[] aCharArray729 = new char[100];
-    public static Buffer aBuffer_730 = new Buffer(-351, new byte[100]);
+    public static Buffer aBuffer_730 = new Buffer(new byte[100]);
     public static char[] aCharArray731 = {
             ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r',
             'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p',

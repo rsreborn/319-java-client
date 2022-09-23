@@ -20,10 +20,10 @@ public class Debug {
             for (Widget widget : Widget.widgets) {
                 if (widget != null) {
                     if (widget.children != null) {
-                        bw.write("Dump for interface: " + widget.id + "");
+                        bw.write("Dump for interface: " + widget.id);
                         bw.newLine();
                         for (int i = 0; i < widget.children.length; i++) {
-                            bw.write("Child #" + i + "     Child ID: " + widget.children[i] + "    Child X: " + widget.childX[i] + "    Child Y: " + widget.childY[i] + "");
+                            bw.write("Child #" + i + "\tWidget Type: \t" + widget.parentId +  " \tChild ID: " + widget.children[i] + "\tChild X: " + widget.childX[i] + "\tChild Y: " + widget.childY[i]);
                             bw.newLine();
                         }
                         bw.newLine();

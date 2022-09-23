@@ -38,9 +38,9 @@ public class Class50 {
         anInt814 = 2;
     }
 
-    public static void method591(Class1 class1, byte byte0) {
+    public static void method591(Archive archive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(-351, class1.readFile("seq.dat", null));
+            Buffer buffer = new Buffer(archive.readFile("seq.dat", null));
             anInt799 = buffer.readUnsignedShort();
             if (byte0 != 72) {
                 anInt797 = -421;
@@ -56,7 +56,7 @@ public class Class50 {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("59847, " + class1 + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("59847, " + archive + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

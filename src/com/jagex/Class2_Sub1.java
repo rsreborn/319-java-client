@@ -621,14 +621,14 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         method156(0, i);
     }
 
-    public void method169(Class1 class1, Game var_game) {
+    public void method169(Archive archive, Game var_game) {
         String[] strings = {"model_version", "anim_version", "midi_version",
                 "map_version"};
         for (int i = 0; i < 4; i++) {
-            byte[] is = class1.readFile(strings[i], null);
+            byte[] is = archive.readFile(strings[i], null);
             int i_36_ = is.length / 2;
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             anIntArrayArray1306[i] = new int[i_36_];
             aByteArrayArray1297[i] = new byte[i_36_];
             for (int i_37_ = 0; i_37_ < i_36_; i_37_++)
@@ -637,15 +637,15 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         String[] strings_38_
                 = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
         for (int i = 0; i < 4; i++) {
-            byte[] is = class1.readFile(strings_38_[i], null);
+            byte[] is = archive.readFile(strings_38_[i], null);
             int i_39_ = is.length / 4;
             Buffer buffer
-                    = new Buffer(-351, is);
+                    = new Buffer(is);
             anIntArrayArray1323[i] = new int[i_39_];
             for (int i_40_ = 0; i_40_ < i_39_; i_40_++)
                 anIntArrayArray1323[i][i_40_] = buffer.readInt();
         }
-        byte[] is = class1.readFile("model_index", null);
+        byte[] is = archive.readFile("model_index", null);
         int i = anIntArrayArray1306[0].length;
         aByteArray1302 = new byte[i];
         for (int i_41_ = 0; i_41_ < i; i_41_++) {
@@ -654,8 +654,8 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             else
                 aByteArray1302[i_41_] = (byte) 0;
         }
-        is = class1.readFile("map_index", null);
-        Buffer buffer = new Buffer(-351, is);
+        is = archive.readFile("map_index", null);
+        Buffer buffer = new Buffer(is);
         i = is.length / 7;
         anIntArray1320 = new int[i];
         anIntArray1332 = new int[i];
@@ -667,14 +667,14 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             anIntArray1317[i_42_] = buffer.readUnsignedShort();
             anIntArray1312[i_42_] = buffer.readUnsignedByte();
         }
-        is = class1.readFile("anim_index", null);
-        buffer = new Buffer(-351, is);
+        is = archive.readFile("anim_index", null);
+        buffer = new Buffer(is);
         i = is.length / 2;
         anIntArray1303 = new int[i];
         for (int i_43_ = 0; i_43_ < i; i_43_++)
             anIntArray1303[i_43_] = buffer.readUnsignedShort();
-        is = class1.readFile("midi_index", null);
-        buffer = new Buffer(-351, is);
+        is = archive.readFile("midi_index", null);
+        buffer = new Buffer(is);
         i = is.length;
         anIntArray1315 = new int[i];
         for (int i_44_ = 0; i_44_ < i; i_44_++)
