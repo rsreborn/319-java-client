@@ -337,7 +337,7 @@ public class Game extends GameShell {
     public int anInt1084;
     public int anInt1085;
     public int anInt1086;
-    public int anInt1087;
+    public int tabId;
     public Class13_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1088;
     public Class13_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1089;
     public Class13_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1090;
@@ -632,7 +632,7 @@ public class Game extends GameShell {
         anInt1078 = -1;
         anInt1079 = -1;
         aBoolean1080 = true;
-        anInt1087 = -1;
+        tabId = -1;
         anInt1093 = 395;
         anIntArrayArray1097 = new int[104][104];
         aBoolean1099 = false;
@@ -2761,9 +2761,9 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 147) {
-                    int i3 = buffer.readUnsignedShort();
+                    int widgetId = buffer.readUnsignedShort();
                     boolean flag = buffer.readUnsignedByte() == 1;
-                    Widget.widgets[i3].hiddenUntilHovered = flag;
+                    Widget.widgets[widgetId].hiddenUntilHovered = flag;
                     opcode = -1;
                     return true;
                 }
@@ -2809,7 +2809,7 @@ public class Game extends GameShell {
                     opcode = -1;
                     return true;
                 }
-                if (opcode == 103) {
+                if (IncomingPacket.DISPLAY_SYSTEM_UPDATE.equals(opcode)) {
                     anInt1269 = buffer.readUnsignedShort() * 30;
                     opcode = -1;
                     return true;
@@ -2842,7 +2842,7 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 246) {
-                    int k4 = buffer.method342(-89);
+                    int k4 = buffer.method342();
                     dialogueId = k4;
                     redrawChatbox = true;
                     opcode = -1;
@@ -2859,19 +2859,19 @@ public class Game extends GameShell {
                 }
                 if (opcode == 219) {
                     int l4 = buffer.readUnsignedLittleEndianShortA();
-                    int k12 = buffer.readUnsignedLittleEndianShort();
+                    int widgetId = buffer.readUnsignedLittleEndianShort();
                     int j17 = buffer.readUnsignedLittleEndianShortA();
                     int i21 = buffer.readUnsignedLittleEndianShortA();
-                    Widget.widgets[k12].anInt535 = i21;
-                    Widget.widgets[k12].anInt536 = l4;
-                    Widget.widgets[k12].anInt534 = j17;
+                    Widget.widgets[widgetId].anInt535 = i21;
+                    Widget.widgets[widgetId].anInt536 = l4;
+                    Widget.widgets[widgetId].anInt534 = j17;
                     opcode = -1;
                     return true;
                 }
-                if (opcode == 168) {
-                    anInt1087 = buffer.readUnsignedByte();
-                    if (anInt1087 == anInt864) {
-                        if (anInt1087 == 3) {
+                if (IncomingPacket.FLASH_SIDEBAR_ICON.equals(opcode)) {
+                    tabId = buffer.readUnsignedByte();
+                    if (tabId == anInt864) {
+                        if (tabId == 3) {
                             anInt864 = 1;
                         } else {
                             anInt864 = 3;
@@ -2890,7 +2890,7 @@ public class Game extends GameShell {
                     redrawTabArea = true;
                     int i5 = buffer.readMiddleEndianInt2(anInt919);
                     int l12 = buffer.readUnsignedByteA(856);
-                    int k17 = buffer.readUnsignedByteC(19179);
+                    int k17 = buffer.readUnsignedByteC();
                     anIntArray1045[k17] = i5;
                     anIntArray908[k17] = l12;
                     anIntArray983[k17] = 1;
@@ -2923,12 +2923,12 @@ public class Game extends GameShell {
                 }
                 if (opcode == 105) {
                     anInt1231 = buffer.readUnsignedByte();
-                    anInt1232 = buffer.readUnsignedByteC(19179);
+                    anInt1232 = buffer.readUnsignedByteC();
                     opcode = -1;
                     return true;
                 }
                 if (opcode == 15) {
-                    anInt864 = buffer.readUnsignedByteC(19179);
+                    anInt864 = buffer.readUnsignedByteC();
                     redrawTabArea = true;
                     aBoolean1286 = true;
                     opcode = -1;
@@ -2950,7 +2950,8 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 191) {
-                    int j5 = buffer.method342(-89);
+                    int j5 = buffer.method342();
+                    System.out.println(j5);
                     if (j5 >= 0) {
                         method79(j5, anInt1119);
                     }
@@ -2959,8 +2960,8 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 253) {
-                    int k5 = buffer.readUnsignedLittleEndianShortA();
-                    method79(k5, anInt1119);
+                    int widgetId = buffer.readUnsignedLittleEndianShortA();
+                    method79(widgetId, anInt1119);
                     if (openChatboxWidgetId != -1) {
                         openChatboxWidgetId = -1;
                         redrawChatbox = true;
@@ -2969,7 +2970,7 @@ public class Game extends GameShell {
                         anInt1141 = 0;
                         redrawChatbox = true;
                     }
-                    anInt874 = k5;
+                    anInt874 = widgetId;
                     redrawTabArea = true;
                     aBoolean1286 = true;
                     anInt1217 = -1;
@@ -3123,8 +3124,8 @@ public class Game extends GameShell {
                 }
                 if (opcode == 102) {
                     redrawTabArea = true;
-                    int k6 = buffer.readUnsignedShort();
-                    Widget widget_2 = Widget.widgets[k6];
+                    int widgetId = buffer.readUnsignedShort();
+                    Widget widget = Widget.widgets[widgetId];
                     while (buffer.position < packetSize) {
                         int l18 = buffer.readUnsignedSmart();
                         int l21 = buffer.readUnsignedShort();
@@ -3132,9 +3133,9 @@ public class Game extends GameShell {
                         if (j24 == 255) {
                             j24 = buffer.readInt();
                         }
-                        if (l18 >= 0 && l18 < widget_2.itemContainerItemIds.length) {
-                            widget_2.itemContainerItemIds[l18] = l21;
-                            widget_2.itemContainerItemAmounts[l18] = j24;
+                        if (l18 >= 0 && l18 < widget.itemContainerItemIds.length) {
+                            widget.itemContainerItemIds[l18] = l21;
+                            widget.itemContainerItemAmounts[l18] = j24;
                         }
                     }
                     opcode = -1;
@@ -3408,7 +3409,7 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 126) {
-                    anInt1232 = buffer.readUnsignedByteC(19179);
+                    anInt1232 = buffer.readUnsignedByteC();
                     anInt1231 = buffer.readUnsignedByte();
                     for (int j8 = anInt1231; j8 < anInt1231 + 8; j8++) {
                         for (int i15 = anInt1232; i15 < anInt1232 + 8; i15++) {
@@ -3951,7 +3952,7 @@ public class Game extends GameShell {
                 }
             }
             if (j == 12) {
-                int l = buffer.readUnsignedByteC(19179);
+                int l = buffer.readUnsignedByteC();
                 int k3 = anInt1231 + (l >> 4 & 7);
                 int j6 = anInt1232 + (l & 7);
                 int i9 = buffer.readUnsignedShortA();
@@ -4056,7 +4057,7 @@ public class Game extends GameShell {
                 return;
             }
             if (j == 218) {
-                int l1 = buffer.readUnsignedByteC(19179);
+                int l1 = buffer.readUnsignedByteC();
                 int k4 = anInt1231 + (l1 >> 4 & 7);
                 int j7 = anInt1232 + (l1 & 7);
                 byte byte0 = buffer.method333(7270);
@@ -6165,7 +6166,7 @@ public class Game extends GameShell {
                 aBoolean1017 = false;
                 clickToContinueText = null;
                 anInt887 = 0;
-                anInt1087 = -1;
+                tabId = -1;
                 aBoolean1068 = true;
                 method134(0);
                 for (int j3 = 0; j3 < 5; j3++) {
@@ -6917,11 +6918,11 @@ public class Game extends GameShell {
             int k1 = Class13_Sub1_Sub4.anInt1429;
             int l1 = Class13_Sub1_Sub4.anInt1427;
             Class13_Sub1_Sub4.method353(j + widget.width, (byte) -12, i + widget.height, i, j);
-            int i2 = widget.children.length;
-            for (int j2 = 0; j2 < i2; j2++) {
-                int k2 = widget.childX[j2] + j;
-                int l2 = (widget.childY[j2] + i) - k;
-                Widget widget_1 = Widget.widgets[widget.children[j2]];
+            int numberOfChildren = widget.children.length;
+            for (int index = 0; index < numberOfChildren; index++) {
+                int k2 = widget.childX[index] + j;
+                int l2 = (widget.childY[index] + i) - k;
+                Widget widget_1 = Widget.widgets[widget.children[index]];
                 k2 += widget_1.anInt537;
                 l2 += widget_1.anInt590;
                 if (widget_1.contentType > 0) {
@@ -7881,7 +7882,7 @@ public class Game extends GameShell {
                     }
                 }
                 if ((i1 & 0x20) != 0) {
-                    int l1 = buffer.readUnsignedByteC(19179);
+                    int l1 = buffer.readUnsignedByteC();
                     int l2 = buffer.readUnsignedByte();
                     class13_sub1_sub1_sub6_sub2.method293(l1, true, pulseCycle, l2);
                     class13_sub1_sub1_sub6_sub2.anInt1604 = pulseCycle + 300;
@@ -11071,12 +11072,12 @@ public class Game extends GameShell {
                 method44(aBoolean1193);
                 aClass31_1212.method491(super.aGraphics15, 4, false, 550);
             }
-            if (anInt1087 != -1) {
+            if (tabId != -1) {
                 aBoolean1286 = true;
             }
             if (aBoolean1286) {
-                if (anInt1087 != -1 && anInt1087 == anInt864) {
-                    anInt1087 = -1;
+                if (tabId != -1 && tabId == anInt864) {
+                    tabId = -1;
                     aBuffer_928.writeOpcode(69);
                     aBuffer_928.writeByte(anInt864);
                 }
@@ -11107,25 +11108,25 @@ public class Game extends GameShell {
                             aClass13_Sub1_Sub4_Sub3_870.method401(9, (byte) 83, 209);
                         }
                     }
-                    if (anIntArray1018[0] != -1 && (anInt1087 != 0 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[0] != -1 && (tabId != 0 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[0].method401(13, (byte) 83, 29);
                     }
-                    if (anIntArray1018[1] != -1 && (anInt1087 != 1 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[1] != -1 && (tabId != 1 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[1].method401(11, (byte) 83, 53);
                     }
-                    if (anIntArray1018[2] != -1 && (anInt1087 != 2 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[2] != -1 && (tabId != 2 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[2].method401(11, (byte) 83, 82);
                     }
-                    if (anIntArray1018[3] != -1 && (anInt1087 != 3 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[3] != -1 && (tabId != 3 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[3].method401(12, (byte) 83, 115);
                     }
-                    if (anIntArray1018[4] != -1 && (anInt1087 != 4 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[4] != -1 && (tabId != 4 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[4].method401(13, (byte) 83, 153);
                     }
-                    if (anIntArray1018[5] != -1 && (anInt1087 != 5 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[5] != -1 && (tabId != 5 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[5].method401(11, (byte) 83, 180);
                     }
-                    if (anIntArray1018[6] != -1 && (anInt1087 != 6 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[6] != -1 && (tabId != 6 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[6].method401(13, (byte) 83, 208);
                     }
                 }
@@ -11156,22 +11157,22 @@ public class Game extends GameShell {
                             aClass13_Sub1_Sub4_Sub3_1091.method401(0, (byte) 83, 229);
                         }
                     }
-                    if (anIntArray1018[8] != -1 && (anInt1087 != 8 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[8] != -1 && (tabId != 8 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[7].method401(2, (byte) 83, 74);
                     }
-                    if (anIntArray1018[9] != -1 && (anInt1087 != 9 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[9] != -1 && (tabId != 9 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[8].method401(3, (byte) 83, 102);
                     }
-                    if (anIntArray1018[10] != -1 && (anInt1087 != 10 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[10] != -1 && (tabId != 10 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[9].method401(4, (byte) 83, 137);
                     }
-                    if (anIntArray1018[11] != -1 && (anInt1087 != 11 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[11] != -1 && (tabId != 11 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[10].method401(2, (byte) 83, 174);
                     }
-                    if (anIntArray1018[12] != -1 && (anInt1087 != 12 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[12] != -1 && (tabId != 12 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[11].method401(2, (byte) 83, 201);
                     }
-                    if (anIntArray1018[13] != -1 && (anInt1087 != 13 || pulseCycle % 20 < 10)) {
+                    if (anIntArray1018[13] != -1 && (tabId != 13 || pulseCycle % 20 < 10)) {
                         aClass13_Sub1_Sub4_Sub3Array1181[12].method401(2, (byte) 83, 226);
                     }
                 }
@@ -12102,6 +12103,7 @@ public class Game extends GameShell {
             Class14.aGame254 = this;
             Class47.aGame777 = this;
             Debug.printInterfaceData();
+            Debug.printInterfaceData2();
             return;
         } catch (Exception exception) {
             Signlink.reportError("loaderror " + aString827 + " " + anInt1053);
@@ -12367,7 +12369,7 @@ public class Game extends GameShell {
             }
             if ((mask & 2) != 0) // appearance
             {
-                int j1 = buffer.readUnsignedByteC(19179);
+                int j1 = buffer.readUnsignedByteC();
                 byte[] abyte0 = new byte[j1];
                 Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
                 buffer.method350(false, j1, abyte0, 0);
@@ -12421,12 +12423,12 @@ public class Game extends GameShell {
                 buffer.position = l3 + j3;
             }
             if ((mask & 0x20) != 0) {
-                int l1 = buffer.readUnsignedByteC(19179);
+                int l1 = buffer.readUnsignedByteC();
                 int l2 = buffer.method332(aByte1172);
                 class13_sub1_sub1_sub6_sub1.method293(l1, true, pulseCycle, l2);
                 class13_sub1_sub1_sub6_sub1.anInt1604 = pulseCycle + 300;
                 class13_sub1_sub1_sub6_sub1.anInt1605 = buffer.method332(aByte1172);
-                class13_sub1_sub1_sub6_sub1.anInt1606 = buffer.readUnsignedByteC(19179);
+                class13_sub1_sub1_sub6_sub1.anInt1606 = buffer.readUnsignedByteC();
             }
             if ((mask & 4) != 0) {
                 int i2 = buffer.readUnsignedLittleEndianShort();

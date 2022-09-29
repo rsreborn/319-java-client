@@ -373,17 +373,8 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public int readUnsignedByteC(int i) {
-        try {
-            if (i != 19179) {
-                return anInt1387;
-            } else {
-                return -payload[position++] & 0xff;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("73655, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public int readUnsignedByteC() {
+        return -payload[position++] & 0xff;
     }
 
     public int method332(byte byte0) {
@@ -473,21 +464,13 @@ public class Buffer extends Class13_Sub1 {
         throw new RuntimeException();
     }
 
-    public int method342(int i) {
-        try {
-            while (i >= 0) {
-                anInt1386 = 37;
-            }
-            position += 2;
-            int j = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
-            if (j > 32767) {
-                j -= 0x10000;
-            }
-            return j;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("97418, " + i + ", " + runtimeexception);
+    public int method342() {
+        position += 2;
+        int j = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
+        if (j > 32767) {
+            j -= 0x10000;
         }
-        throw new RuntimeException();
+        return j;
     }
 
     public int method343(boolean flag) {
