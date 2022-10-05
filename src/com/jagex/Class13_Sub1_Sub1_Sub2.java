@@ -42,13 +42,13 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1 {
                     anInt1471 -= (int) (Math.random() * (double) aClass50_1470.method592(0, anInt1463));
                 }
             }
-            Class14 class14 = Class14.method418(anInt1464);
+            GameObjectDefinition gameObjectDefinition = GameObjectDefinition.readDefinition(anInt1464);
             if (l1 != 29895) {
                 aBoolean1468 = !aBoolean1468;
             }
-            anInt1473 = class14.anInt246;
-            anInt1474 = class14.anInt257;
-            anIntArray1467 = class14.anIntArray243;
+            anInt1473 = gameObjectDefinition.anInt246;
+            anInt1474 = gameObjectDefinition.anInt257;
+            anIntArray1467 = gameObjectDefinition.anIntArray243;
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("49381, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + flag + ", " + k1 + ", " + l1 + ", " + i2 + ", " + runtimeexception);
@@ -83,16 +83,16 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1 {
                     j = aClass50_1470.anIntArray802[anInt1463];
                 }
             }
-            Class14 class14;
+            GameObjectDefinition gameObjectDefinition;
             if (anIntArray1467 != null) {
-                class14 = method259(2);
+                gameObjectDefinition = method259(2);
             } else {
-                class14 = Class14.method418(anInt1464);
+                gameObjectDefinition = GameObjectDefinition.readDefinition(anInt1464);
             }
-            if (class14 == null) {
+            if (gameObjectDefinition == null) {
                 return null;
             } else {
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = class14.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
+                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = gameObjectDefinition.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
                 return class13_sub1_sub1_sub4;
             }
         } catch (RuntimeException runtimeexception) {
@@ -101,7 +101,7 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Class14 method259(int i) {
+    public GameObjectDefinition method259(int i) {
         try {
             int j = -1;
             if (i < 2 || i > 2) {
@@ -120,7 +120,7 @@ public class Class13_Sub1_Sub1_Sub2 extends Class13_Sub1_Sub1 {
             if (j < 0 || j >= anIntArray1467.length || anIntArray1467[j] == -1) {
                 return null;
             } else {
-                return Class14.method418(anIntArray1467[j]);
+                return GameObjectDefinition.readDefinition(anIntArray1467[j]);
             }
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("90506, " + i + ", " + runtimeexception);

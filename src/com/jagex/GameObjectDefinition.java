@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class14 {
+public class GameObjectDefinition {
 
     public static Class13_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new Class13_Sub1_Sub1_Sub4[4];
     public static int anInt245;
@@ -12,7 +12,7 @@ public class Class14 {
     public static Game aGame254;
     public static Buffer aBuffer_267;
     public static boolean aBoolean272;
-    public static Class14[] aClass14Array278;
+    public static GameObjectDefinition[] aGameObjectDefinitionArray278;
     public static int[] anIntArray287;
     public boolean aBoolean240;
     public int[] anIntArray241;
@@ -30,7 +30,7 @@ public class Class14 {
     public boolean aBoolean258;
     public int anInt259;
     public boolean aBoolean260;
-    public String[] aStringArray261;
+    public String[] options;
     public boolean aBoolean262;
     public boolean aBoolean263;
     public boolean aBoolean264;
@@ -42,7 +42,7 @@ public class Class14 {
     public int anInt271;
     public boolean aBoolean273;
     public int anInt274;
-    public String aString275;
+    public String name;
     public byte[] aByteArray276;
     public int anInt277;
     public int[] anIntArray279;
@@ -56,7 +56,7 @@ public class Class14 {
     public int anInt288;
     public int[] anIntArray289;
 
-    public Class14() {
+    public GameObjectDefinition() {
         aBoolean244 = false;
         aBoolean256 = true;
         anInt268 = -1;
@@ -72,7 +72,7 @@ public class Class14 {
                 aCache_248 = null;
                 aCache_249 = null;
                 anIntArray287 = null;
-                aClass14Array278 = null;
+                aGameObjectDefinitionArray278 = null;
                 aBuffer_267 = null;
                 return;
             }
@@ -82,19 +82,19 @@ public class Class14 {
         throw new RuntimeException();
     }
 
-    public static Class14 method418(int i) {
+    public static GameObjectDefinition readDefinition(int i) {
         for (int j = 0; j < 20; j++) {
-            if (aClass14Array278[j].anInt268 == i) {
-                return aClass14Array278[j];
+            if (aGameObjectDefinitionArray278[j].anInt268 == i) {
+                return aGameObjectDefinitionArray278[j];
             }
         }
         anInt245 = (anInt245 + 1) % 20;
-        Class14 class14 = aClass14Array278[anInt245];
+        GameObjectDefinition gameObjectDefinition = aGameObjectDefinitionArray278[anInt245];
         aBuffer_267.position = anIntArray287[i];
-        class14.anInt268 = i;
-        class14.method417();
-        class14.method420(aBuffer_267, 26421);
-        return class14;
+        gameObjectDefinition.anInt268 = i;
+        gameObjectDefinition.method417();
+        gameObjectDefinition.method420(aBuffer_267, 26421);
+        return gameObjectDefinition;
     }
 
     public static void method426(Archive archive) {
@@ -107,16 +107,16 @@ public class Class14 {
             anIntArray287[j] = i;
             i += buffer.readUnsignedShort();
         }
-        aClass14Array278 = new Class14[20];
+        aGameObjectDefinitionArray278 = new GameObjectDefinition[20];
         for (int k = 0; k < 20; k++) {
-            aClass14Array278[k] = new Class14();
+            aGameObjectDefinitionArray278[k] = new GameObjectDefinition();
         }
     }
 
     public void method417() {
         anIntArray241 = null;
         anIntArray289 = null;
-        aString275 = null;
+        name = null;
         aByteArray276 = null;
         anIntArray242 = null;
         anIntArray279 = null;
@@ -132,7 +132,7 @@ public class Class14 {
         anInt269 = 16;
         aByte280 = 0;
         aByte265 = 0;
-        aStringArray261 = null;
+        options = null;
         anInt250 = -1;
         anInt255 = -1;
         aBoolean273 = false;
@@ -205,7 +205,7 @@ public class Class14 {
                             }
                         }
                     } else if (l == 2) {
-                        aString275 = buffer.readString();
+                        name = buffer.readString();
                     } else if (l == 3) {
                         aByteArray276 = buffer.readStringBytes();
                     } else if (l == 5) {
@@ -252,12 +252,12 @@ public class Class14 {
                     } else if (l == 39) {
                         aByte265 = buffer.readByte();
                     } else if (l >= 30 && l < 39) {
-                        if (aStringArray261 == null) {
-                            aStringArray261 = new String[5];
+                        if (options == null) {
+                            options = new String[5];
                         }
-                        aStringArray261[l - 30] = buffer.readString();
-                        if (aStringArray261[l - 30].equalsIgnoreCase("hidden")) {
-                            aStringArray261[l - 30] = null;
+                        options[l - 30] = buffer.readString();
+                        if (options[l - 30].equalsIgnoreCase("hidden")) {
+                            options[l - 30] = null;
                         }
                     } else if (l == 40) {
                         int k1 = buffer.readUnsignedByte();
@@ -320,7 +320,7 @@ public class Class14 {
             } while (true);
             if (k == -1) {
                 aBoolean260 = anIntArray241 != null && (anIntArray289 == null || anIntArray289[0] == 10);
-                if (aStringArray261 != null) {
+                if (options != null) {
                     aBoolean260 = true;
                 }
             }
@@ -490,7 +490,7 @@ public class Class14 {
         }
     }
 
-    public Class14 method424(int i) {
+    public GameObjectDefinition method424(int i) {
         try {
             if (i != 2) {
                 anInt284 = 98;
@@ -509,7 +509,7 @@ public class Class14 {
             if (j < 0 || j >= anIntArray243.length || anIntArray243[j] == -1) {
                 return null;
             } else {
-                return method418(anIntArray243[j]);
+                return readDefinition(anIntArray243[j]);
             }
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("92561, " + i + ", " + runtimeexception);
