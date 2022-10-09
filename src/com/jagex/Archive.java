@@ -1,18 +1,19 @@
 package com.jagex;
 
+import com.jagex.compress.Bzip2;
 import com.jagex.sign.Signlink;
 
 public class Archive {
 
     public int anInt40;
     public boolean aBoolean41;
-    public byte[] aByteArray42;
+    public byte[] decompressedData;
     public int anInt43;
     public int[] anIntArray44;
     public int[] anIntArray45;
     public int[] anIntArray46;
     public int[] anIntArray47;
-    public boolean aBoolean48;
+    public boolean compressed;
 
     public Archive(byte[] abyte0, int i) {
         anInt40 = 782;
@@ -27,20 +28,20 @@ public class Archive {
         throw new RuntimeException();
     }
 
-    public void method148(byte[] abyte0, int i) {
+    public void method148(byte[] archiveData, int i) {
         try {
-            Buffer buffer = new Buffer(abyte0);
-            int j = buffer.readTriByte();
-            int k = buffer.readTriByte();
-            if (k != j) {
-                byte[] abyte1 = new byte[j];
-                Class16.method427(abyte1, j, abyte0, k, 6);
-                aByteArray42 = abyte1;
-                buffer = new Buffer(aByteArray42);
-                aBoolean48 = true;
+            Buffer buffer = new Buffer(archiveData);
+            int decompressedLength = buffer.readMediumBE();
+            int compressedLength = buffer.readMediumBE();
+            if (compressedLength == decompressedLength) {
+                decompressedData = archiveData;
+                compressed = false;
             } else {
-                aByteArray42 = abyte0;
-                aBoolean48 = false;
+                byte[] decompressedData = new byte[decompressedLength];
+                Bzip2.decompressBzip2(decompressedData, decompressedLength, archiveData, compressedLength, 6);
+                this.decompressedData = decompressedData;
+                buffer = new Buffer(this.decompressedData);
+                compressed = true;
             }
             anInt43 = buffer.readUnsignedShort();
             anIntArray44 = new int[anInt43];
@@ -53,14 +54,14 @@ public class Archive {
             }
             for (int i1 = 0; i1 < anInt43; i1++) {
                 anIntArray44[i1] = buffer.readInt();
-                anIntArray45[i1] = buffer.readTriByte();
-                anIntArray46[i1] = buffer.readTriByte();
+                anIntArray45[i1] = buffer.readMediumBE();
+                anIntArray46[i1] = buffer.readMediumBE();
                 anIntArray47[i1] = l;
                 l += anIntArray46[i1];
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("21233, " + abyte0 + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("21233, " + archiveData + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -76,11 +77,11 @@ public class Archive {
                 if (abyte0 == null) {
                     abyte0 = new byte[anIntArray45[k]];
                 }
-                if (!aBoolean48) {
-                    Class16.method427(abyte0, anIntArray45[k], aByteArray42, anIntArray46[k], anIntArray47[k]);
+                if (!compressed) {
+                    Bzip2.decompressBzip2(abyte0, anIntArray45[k], decompressedData, anIntArray46[k], anIntArray47[k]);
                 } else {
                     for (int l = 0; l < anIntArray45[k]; l++) {
-                        abyte0[l] = aByteArray42[anIntArray47[k] + l];
+                        abyte0[l] = decompressedData[anIntArray47[k] + l];
                     }
                 }
                 return abyte0;

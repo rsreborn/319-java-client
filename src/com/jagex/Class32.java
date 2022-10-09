@@ -58,7 +58,7 @@ public class Class32 {
                     return;
                 }
                 if (j == 1) {
-                    anInt491 = buffer.readTriByte();
+                    anInt491 = buffer.readMediumBE();
                     method495((byte) 68, anInt491);
                 } else if (j == 2) {
                     anInt492 = buffer.readUnsignedByte();
@@ -73,7 +73,7 @@ public class Class32 {
                     int l = anInt496;
                     int i1 = anInt497;
                     int j1 = anInt498;
-                    int k1 = buffer.readTriByte();
+                    int k1 = buffer.readMediumBE();
                     method495((byte) 68, k1);
                     anInt495 = k;
                     anInt496 = l;
