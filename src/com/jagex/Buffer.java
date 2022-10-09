@@ -247,7 +247,7 @@ public class Buffer extends Class13_Sub1 {
         return i;
     }
 
-    public int readTriByte() {
+    public int readMediumBE() {
         position += 3;
         return ((payload[position - 3] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }

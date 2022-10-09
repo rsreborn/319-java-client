@@ -11569,7 +11569,7 @@ public class Game extends GameShell {
                     datainputstream.readFully(abyte1, 0, 6);
                     Buffer buffer = new Buffer(abyte1);
                     buffer.position = 3;
-                    int j2 = buffer.readTriByte() + 6;
+                    int j2 = buffer.readMediumBE() + 6;
                     int k2 = 6;
                     abyte0 = new byte[j2];
                     for (int l2 = 0; l2 < 6; l2++) {

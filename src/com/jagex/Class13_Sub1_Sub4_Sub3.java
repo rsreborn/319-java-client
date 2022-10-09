@@ -32,7 +32,7 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4 {
         int j = class13_sub1_sub2_1.readUnsignedByte();
         anIntArray1668 = new int[j];
         for (int k = 0; k < j - 1; k++) {
-            anIntArray1668[k + 1] = class13_sub1_sub2_1.readTriByte();
+            anIntArray1668[k + 1] = class13_sub1_sub2_1.readMediumBE();
         }
         for (int l = 0; l < i; l++) {
             class13_sub1_sub2_1.position += 2;
