@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class45 {
@@ -22,7 +23,7 @@ public class Class45 {
             int k = 0;
             int l = -1;
             for (int i1 = 0; i1 < j; i1++) {
-                int j1 = buffer.readUnsignedByte();
+                int j1 = buffer.readUByte();
                 int k1 = j1 >> 4 & 0xf;
                 if (l == -1) {
                     if (k1 < 13) {

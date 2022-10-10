@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
@@ -320,20 +321,20 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
     public void method297(Buffer buffer, int i) {
         try {
             buffer.position = 0;
-            anInt1687 = buffer.readUnsignedByte();
-            anInt1715 = buffer.readUnsignedByte();
+            anInt1687 = buffer.readUByte();
+            anInt1715 = buffer.readUByte();
             aClass47_1716 = null;
             anInt1702 = 0;
             for (int j = 0; j < 12; j++) {
-                int k = buffer.readUnsignedByte();
+                int k = buffer.readUByte();
                 if (k == 0) {
                     anIntArray1703[j] = 0;
                     continue;
                 }
-                int i1 = buffer.readUnsignedByte();
+                int i1 = buffer.readUByte();
                 anIntArray1703[j] = (k << 8) + i1;
                 if (j == 0 && anIntArray1703[0] == 65535) {
-                    aClass47_1716 = Class47.getDefinition(buffer.readUnsignedShort());
+                    aClass47_1716 = Class47.getDefinition(buffer.readUShortBE());
                     break;
                 }
                 if (anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ItemDefinition.anInt669) {
@@ -344,46 +345,46 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
                 }
             }
             for (int l = 0; l < 5; l++) {
-                int j1 = buffer.readUnsignedByte();
+                int j1 = buffer.readUByte();
                 if (j1 < 0 || j1 >= Game.anIntArrayArray829[l].length) {
                     j1 = 0;
                 }
                 anIntArray1700[l] = j1;
             }
-            super.anInt1584 = buffer.readUnsignedShort();
+            super.anInt1584 = buffer.readUShortBE();
             if (super.anInt1584 == 65535) {
                 super.anInt1584 = -1;
             }
-            super.anInt1585 = buffer.readUnsignedShort();
+            super.anInt1585 = buffer.readUShortBE();
             if (super.anInt1585 == 65535) {
                 super.anInt1585 = -1;
             }
-            super.anInt1570 = buffer.readUnsignedShort();
+            super.anInt1570 = buffer.readUShortBE();
             if (super.anInt1570 == 65535) {
                 super.anInt1570 = -1;
             }
-            super.anInt1571 = buffer.readUnsignedShort();
+            super.anInt1571 = buffer.readUShortBE();
             if (super.anInt1571 == 65535) {
                 super.anInt1571 = -1;
             }
-            super.anInt1572 = buffer.readUnsignedShort();
+            super.anInt1572 = buffer.readUShortBE();
             if (super.anInt1572 == 65535) {
                 super.anInt1572 = -1;
             }
-            super.anInt1573 = buffer.readUnsignedShort();
+            super.anInt1573 = buffer.readUShortBE();
             if (super.anInt1573 == 65535) {
                 super.anInt1573 = -1;
             }
-            super.anInt1607 = buffer.readUnsignedShort();
+            super.anInt1607 = buffer.readUShortBE();
             if (super.anInt1607 == 65535) {
                 super.anInt1607 = -1;
             }
-            aString1689 = Class24.method450(Class24.method447(buffer.readLong(0), 0), 0);
+            aString1689 = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
             if (i != 0) {
                 aBoolean1704 = !aBoolean1704;
             }
-            anInt1697 = buffer.readUnsignedByte();
-            anInt1695 = buffer.readUnsignedShort();
+            anInt1697 = buffer.readUByte();
+            anInt1695 = buffer.readUShortBE();
             aBoolean1701 = true;
             aLong1709 = 0L;
             for (int k1 = 0; k1 < 12; k1++) {

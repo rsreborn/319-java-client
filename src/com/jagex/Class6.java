@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class6 {
@@ -25,9 +26,9 @@ public class Class6 {
             if (i != 26421) {
                 throw new NullPointerException();
             } else {
-                anInt125 = buffer.readUnsignedByte();
-                anInt123 = buffer.readInt();
-                anInt124 = buffer.readInt();
+                anInt125 = buffer.readUByte();
+                anInt123 = buffer.readIntBE();
+                anInt124 = buffer.readIntBE();
                 method182(buffer, false);
                 return;
             }
@@ -39,15 +40,15 @@ public class Class6 {
 
     public void method182(Buffer buffer, boolean flag) {
         try {
-            anInt120 = buffer.readUnsignedByte();
+            anInt120 = buffer.readUByte();
             anIntArray121 = new int[anInt120];
             if (flag) {
                 return;
             }
             anIntArray122 = new int[anInt120];
             for (int i = 0; i < anInt120; i++) {
-                anIntArray121[i] = buffer.readUnsignedShort();
-                anIntArray122[i] = buffer.readUnsignedShort();
+                anIntArray121[i] = buffer.readUShortBE();
+                anIntArray122[i] = buffer.readUShortBE();
             }
             return;
         } catch (RuntimeException runtimeexception) {

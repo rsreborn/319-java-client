@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class32 {
@@ -31,7 +32,7 @@ public class Class32 {
                 return;
             }
             Buffer buffer = new Buffer(cacheArchive.readFile("flo.dat", null));
-            anInt488 = buffer.readUnsignedShort();
+            anInt488 = buffer.readUShortBE();
             if (aClass32Array489 == null) {
                 aClass32Array489 = new Class32[anInt488];
             }
@@ -54,7 +55,7 @@ public class Class32 {
                 throw new NullPointerException();
             }
             do {
-                int j = buffer.readUnsignedByte();
+                int j = buffer.readUByte();
                 if (j == 0) {
                     return;
                 }
@@ -62,7 +63,7 @@ public class Class32 {
                     anInt491 = buffer.readMediumBE();
                     method495((byte) 68, anInt491);
                 } else if (j == 2) {
-                    anInt492 = buffer.readUnsignedByte();
+                    anInt492 = buffer.readUByte();
                 } else if (j == 3) {
                     aBoolean493 = true;
                 } else if (j == 5) {

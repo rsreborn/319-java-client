@@ -1,8 +1,8 @@
 package com.jagex.update;
 
-import com.jagex.Buffer;
 import com.jagex.Game;
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Queue;
@@ -16,7 +16,6 @@ import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
 public class GameUpdateClient extends Class2 implements Runnable {
-    public int anInt1292 = 12258;
     public LinkedList aLinkedList_1293 = new LinkedList();
     public Queue aQueue_1294 = new Queue();
     public int anInt1295 = -22144;
@@ -581,7 +580,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
             fileVersions[i] = new int[fileCount];
             filePriorities[i] = new byte[fileCount];
             for (int j = 0; j < fileCount; j++) {
-                fileVersions[i][j] = buffer.readUnsignedShort();
+                fileVersions[i][j] = buffer.readUShortBE();
             }
         }
 
@@ -592,7 +591,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
             Buffer buffer = new Buffer(checksumFileData);
             fileChecksums[i] = new int[fileCount];
             for (int j = 0; j < fileCount; j++) {
-                fileChecksums[i][j] = buffer.readInt();
+                fileChecksums[i][j] = buffer.readIntBE();
             }
         }
 
@@ -615,10 +614,10 @@ public class GameUpdateClient extends Class2 implements Runnable {
         regionLandscapeIndexes = new int[fileCount];
         regionPreloadFlags = new int[fileCount];
         for (int i = 0; i < fileCount; i++) {
-            regionCoordHashes[i] = buffer.readUnsignedShort();
-            regionMapIndexes[i] = buffer.readUnsignedShort();
-            regionLandscapeIndexes[i] = buffer.readUnsignedShort();
-            regionPreloadFlags[i] = buffer.readUnsignedByte();
+            regionCoordHashes[i] = buffer.readUShortBE();
+            regionMapIndexes[i] = buffer.readUShortBE();
+            regionLandscapeIndexes[i] = buffer.readUShortBE();
+            regionPreloadFlags[i] = buffer.readUByte();
         }
 
         indexFileData = versionlistArchive.readFile("anim_index", null);
@@ -626,7 +625,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
         fileCount = indexFileData.length / 2;
         animIndexes = new int[fileCount];
         for (int i = 0; i < fileCount; i++) {
-            animIndexes[i] = buffer.readUnsignedShort();
+            animIndexes[i] = buffer.readUShortBE();
         }
 
         indexFileData = versionlistArchive.readFile("midi_index", null);
@@ -634,7 +633,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
         fileCount = indexFileData.length;
         midiIndexes = new int[fileCount];
         for (int i = 0; i < fileCount; i++) {
-            midiIndexes[i] = buffer.readUnsignedByte();
+            midiIndexes[i] = buffer.readUByte();
         }
 
         this.game = game;
