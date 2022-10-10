@@ -1,4 +1,4 @@
-package com.jagex;
+package com.jagex.update;
 
 public class Class2 {
 

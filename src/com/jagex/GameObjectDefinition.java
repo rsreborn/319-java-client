@@ -2,6 +2,7 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.update.GameUpdateClient;
 import com.jagex.util.Cache;
 
 public class GameObjectDefinition {
@@ -474,20 +475,20 @@ public class GameObjectDefinition {
         throw new RuntimeException();
     }
 
-    public void method423(int i, Class2_Sub1 class2_sub1) {
+    public void method423(int i, GameUpdateClient gameUpdateClient) {
         try {
             if (anIntArray241 == null) {
                 return;
             }
             for (int j = 0; j < anIntArray241.length; j++) {
-                class2_sub1.method157(0, anIntArray241[j] & 0xffff, 0);
+                gameUpdateClient.method157(0, anIntArray241[j] & 0xffff, 0);
             }
             if (i != 2402) {
                 anInt284 = 36;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("17097, " + i + ", " + class2_sub1 + ", " + runtimeexception);
+            Signlink.reportError("17097, " + i + ", " + gameUpdateClient + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

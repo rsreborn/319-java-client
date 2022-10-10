@@ -3,6 +3,7 @@ package com.jagex;/* com.jagex.Class25 - Decompiled by JODE
  */
 
 import com.jagex.sign.Signlink;
+import com.jagex.update.GameUpdateClient;
 
 public class Class25 {
     public static boolean aBoolean407;
@@ -486,7 +487,7 @@ public class Class25 {
         }
     }
 
-    public static void method468(Class2_Sub1 class2_sub1, int i,
+    public static void method468(GameUpdateClient gameUpdateClient, int i,
                                  Buffer buffer) {
         try {
             if (i <= 0)
@@ -498,7 +499,7 @@ public class Class25 {
                     break;
                 i_258_ += i_259_;
                 GameObjectDefinition gameObjectDefinition = GameObjectDefinition.readDefinition(i_258_);
-                gameObjectDefinition.method423(2402, class2_sub1);
+                gameObjectDefinition.method423(2402, gameUpdateClient);
                 for (; ; ) {
                     int i_260_ = buffer.readUnsignedSmart();
                     if (i_260_ == 0)
@@ -507,7 +508,7 @@ public class Class25 {
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("41445, " + class2_sub1 + ", " + i + ", "
+            Signlink.reportError("41445, " + gameUpdateClient + ", " + i + ", "
                     + buffer + ", "
                     + runtimeexception);
             throw new RuntimeException();

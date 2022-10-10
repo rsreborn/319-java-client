@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.sign.Signlink;
+import com.jagex.update.Class2;
 
 public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
 
