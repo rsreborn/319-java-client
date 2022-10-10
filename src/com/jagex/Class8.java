@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class8 {
@@ -29,10 +30,10 @@ public class Class8 {
         try {
             Buffer buffer = new Buffer(abyte0);
             buffer.position = abyte0.length - 8;
-            int j = buffer.readUnsignedShort();
-            int k = buffer.readUnsignedShort();
-            int l = buffer.readUnsignedShort();
-            int i1 = buffer.readUnsignedShort();
+            int j = buffer.readUShortBE();
+            int k = buffer.readUShortBE();
+            int l = buffer.readUShortBE();
+            int i1 = buffer.readUShortBE();
             int j1 = 0;
             Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
             class13_sub1_sub2_1.position = j1;
@@ -52,21 +53,21 @@ public class Class8 {
             }
             buffer_5.position = j1;
             Class35 class35 = new Class35(buffer_5, false);
-            int k1 = class13_sub1_sub2_1.readUnsignedShort();
+            int k1 = class13_sub1_sub2_1.readUShortBE();
             int[] ai = new int[500];
             int[] ai1 = new int[500];
             int[] ai2 = new int[500];
             int[] ai3 = new int[500];
             for (int l1 = 0; l1 < k1; l1++) {
-                int i2 = class13_sub1_sub2_1.readUnsignedShort();
+                int i2 = class13_sub1_sub2_1.readUShortBE();
                 Class8 class8 = aClass8Array136[i2] = new Class8();
-                class8.anInt137 = buffer_4.readUnsignedByte();
+                class8.anInt137 = buffer_4.readUByte();
                 class8.aClass35_138 = class35;
-                int j2 = class13_sub1_sub2_1.readUnsignedByte();
+                int j2 = class13_sub1_sub2_1.readUByte();
                 int k2 = -1;
                 int l2 = 0;
                 for (int i3 = 0; i3 < j2; i3++) {
-                    int j3 = buffer_2.readUnsignedByte();
+                    int j3 = buffer_2.readUByte();
                     if (j3 > 0) {
                         if (class35.anIntArray531[i3] != 0) {
                             for (int l3 = i3 - 1; l3 > k2; l3--) {

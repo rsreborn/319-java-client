@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
@@ -102,12 +103,12 @@ public class GameObjectDefinition {
     public static void method426(CacheArchive cacheArchive) {
         aBuffer_267 = new Buffer(cacheArchive.readFile("loc.dat", null));
         Buffer buffer = new Buffer(cacheArchive.readFile("loc.idx", null));
-        anInt252 = buffer.readUnsignedShort();
+        anInt252 = buffer.readUShortBE();
         anIntArray287 = new int[anInt252];
         int i = 2;
         for (int j = 0; j < anInt252; j++) {
             anIntArray287[j] = i;
-            i += buffer.readUnsignedShort();
+            i += buffer.readUShortBE();
         }
         aGameObjectDefinitionArray278 = new GameObjectDefinition[20];
         for (int k = 0; k < 20; k++) {
@@ -188,19 +189,19 @@ public class GameObjectDefinition {
             do {
                 int l;
                 do {
-                    l = buffer.readUnsignedByte();
+                    l = buffer.readUByte();
                     if (l == 0) {
                         break label0;
                     }
                     if (l == 1) {
-                        int i1 = buffer.readUnsignedByte();
+                        int i1 = buffer.readUByte();
                         if (i1 > 0) {
                             if (anIntArray241 == null || aBoolean272) {
                                 anIntArray289 = new int[i1];
                                 anIntArray241 = new int[i1];
                                 for (int i2 = 0; i2 < i1; i2++) {
-                                    anIntArray241[i2] = buffer.readUnsignedShort();
-                                    anIntArray289[i2] = buffer.readUnsignedByte();
+                                    anIntArray241[i2] = buffer.readUShortBE();
+                                    anIntArray289[i2] = buffer.readUByte();
                                 }
                             } else {
                                 buffer.position += i1 * 3;
@@ -211,28 +212,28 @@ public class GameObjectDefinition {
                     } else if (l == 3) {
                         aByteArray276 = buffer.readStringBytes();
                     } else if (l == 5) {
-                        int j1 = buffer.readUnsignedByte();
+                        int j1 = buffer.readUByte();
                         if (j1 > 0) {
                             if (anIntArray241 == null || aBoolean272) {
                                 anIntArray289 = null;
                                 anIntArray241 = new int[j1];
                                 for (int j2 = 0; j2 < j1; j2++) {
-                                    anIntArray241[j2] = buffer.readUnsignedShort();
+                                    anIntArray241[j2] = buffer.readUShortBE();
                                 }
                             } else {
                                 buffer.position += j1 * 2;
                             }
                         }
                     } else if (l == 14) {
-                        anInt259 = buffer.readUnsignedByte();
+                        anInt259 = buffer.readUByte();
                     } else if (l == 15) {
-                        anInt253 = buffer.readUnsignedByte();
+                        anInt253 = buffer.readUByte();
                     } else if (l == 17) {
                         aBoolean258 = false;
                     } else if (l == 18) {
                         aBoolean270 = false;
                     } else if (l == 19) {
-                        k = buffer.readUnsignedByte();
+                        k = buffer.readUByte();
                         if (k == 1) {
                             aBoolean260 = true;
                         }
@@ -243,12 +244,12 @@ public class GameObjectDefinition {
                     } else if (l == 23) {
                         aBoolean251 = true;
                     } else if (l == 24) {
-                        anInt282 = buffer.readUnsignedShort();
+                        anInt282 = buffer.readUShortBE();
                         if (anInt282 == 65535) {
                             anInt282 = -1;
                         }
                     } else if (l == 28) {
-                        anInt269 = buffer.readUnsignedByte();
+                        anInt269 = buffer.readUByte();
                     } else if (l == 29) {
                         aByte280 = buffer.readByte();
                     } else if (l == 39) {
@@ -262,35 +263,35 @@ public class GameObjectDefinition {
                             options[l - 30] = null;
                         }
                     } else if (l == 40) {
-                        int k1 = buffer.readUnsignedByte();
+                        int k1 = buffer.readUByte();
                         anIntArray242 = new int[k1];
                         anIntArray279 = new int[k1];
                         for (int k2 = 0; k2 < k1; k2++) {
-                            anIntArray242[k2] = buffer.readUnsignedShort();
-                            anIntArray279[k2] = buffer.readUnsignedShort();
+                            anIntArray242[k2] = buffer.readUShortBE();
+                            anIntArray279[k2] = buffer.readUShortBE();
                         }
                     } else if (l == 60) {
-                        anInt250 = buffer.readUnsignedShort();
+                        anInt250 = buffer.readUShortBE();
                     } else if (l == 62) {
                         aBoolean273 = true;
                     } else if (l == 64) {
                         aBoolean286 = false;
                     } else if (l == 65) {
-                        anInt283 = buffer.readUnsignedShort();
+                        anInt283 = buffer.readUShortBE();
                     } else if (l == 66) {
-                        anInt281 = buffer.readUnsignedShort();
+                        anInt281 = buffer.readUShortBE();
                     } else if (l == 67) {
-                        anInt274 = buffer.readUnsignedShort();
+                        anInt274 = buffer.readUShortBE();
                     } else if (l == 68) {
-                        anInt255 = buffer.readUnsignedShort();
+                        anInt255 = buffer.readUShortBE();
                     } else if (l == 69) {
-                        anInt285 = buffer.readUnsignedByte();
+                        anInt285 = buffer.readUByte();
                     } else if (l == 70) {
-                        anInt247 = buffer.readShort();
+                        anInt247 = buffer.readShortBE();
                     } else if (l == 71) {
-                        anInt277 = buffer.readShort();
+                        anInt277 = buffer.readShortBE();
                     } else if (l == 72) {
-                        anInt288 = buffer.readShort();
+                        anInt288 = buffer.readShortBE();
                     } else if (l == 73) {
                         aBoolean264 = true;
                     } else if (l == 74) {
@@ -299,22 +300,22 @@ public class GameObjectDefinition {
                         if (l != 75) {
                             continue;
                         }
-                        anInt266 = buffer.readUnsignedByte();
+                        anInt266 = buffer.readUByte();
                     }
                     continue label0;
                 } while (l != 77);
-                anInt246 = buffer.readUnsignedShort();
+                anInt246 = buffer.readUShortBE();
                 if (anInt246 == 65535) {
                     anInt246 = -1;
                 }
-                anInt257 = buffer.readUnsignedShort();
+                anInt257 = buffer.readUShortBE();
                 if (anInt257 == 65535) {
                     anInt257 = -1;
                 }
-                int l1 = buffer.readUnsignedByte();
+                int l1 = buffer.readUByte();
                 anIntArray243 = new int[l1 + 1];
                 for (int l2 = 0; l2 <= l1; l2++) {
-                    anIntArray243[l2] = buffer.readUnsignedShort();
+                    anIntArray243[l2] = buffer.readUShortBE();
                     if (anIntArray243[l2] == 65535) {
                         anIntArray243[l2] = -1;
                     }

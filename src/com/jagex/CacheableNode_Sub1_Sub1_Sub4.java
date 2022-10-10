@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
@@ -157,7 +158,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             int k = 0;
             int l = 0;
             for (int i1 = 0; i1 < anInt1496; i1++) {
-                int j1 = buffer.readUnsignedByte();
+                int j1 = buffer.readUByte();
                 int l1 = 0;
                 if ((j1 & 1) != 0) {
                     l1 = class13_sub1_sub2_1.readSmart();
@@ -177,7 +178,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
                 k = anIntArray1498[i1];
                 l = anIntArray1499[i1];
                 if (anIntArray1525 != null) {
-                    anIntArray1525[i1] = buffer_4.readUnsignedByte();
+                    anIntArray1525[i1] = buffer_4.readUByte();
                 }
             }
             buffer.position = class23.anInt390;
@@ -186,18 +187,18 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             buffer_3.position = class23.anInt393;
             buffer_4.position = class23.anInt394;
             for (int k1 = 0; k1 < anInt1500; k1++) {
-                anIntArray1510[k1] = buffer.readUnsignedShort();
+                anIntArray1510[k1] = buffer.readUShortBE();
                 if (anIntArray1507 != null) {
-                    anIntArray1507[k1] = class13_sub1_sub2_1.readUnsignedByte();
+                    anIntArray1507[k1] = class13_sub1_sub2_1.readUByte();
                 }
                 if (anIntArray1508 != null) {
-                    anIntArray1508[k1] = buffer_2.readUnsignedByte();
+                    anIntArray1508[k1] = buffer_2.readUByte();
                 }
                 if (anIntArray1509 != null) {
-                    anIntArray1509[k1] = buffer_3.readUnsignedByte();
+                    anIntArray1509[k1] = buffer_3.readUByte();
                 }
                 if (anIntArray1526 != null) {
-                    anIntArray1526[k1] = buffer_4.readUnsignedByte();
+                    anIntArray1526[k1] = buffer_4.readUByte();
                 }
             }
             buffer.position = class23.anInt388;
@@ -210,7 +211,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             int i3 = 0;
             int j3 = 0;
             for (int k3 = 0; k3 < anInt1500; k3++) {
-                int l3 = class13_sub1_sub2_1.readUnsignedByte();
+                int l3 = class13_sub1_sub2_1.readUByte();
                 if (l3 == 1) {
                     i2 = buffer.readSmart() + j3;
                     j3 = i2;
@@ -253,9 +254,9 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             }
             buffer.position = class23.anInt395;
             for (int i4 = 0; i4 < anInt1512; i4++) {
-                anIntArray1513[i4] = buffer.readUnsignedShort();
-                anIntArray1514[i4] = buffer.readUnsignedShort();
-                anIntArray1515[i4] = buffer.readUnsignedShort();
+                anIntArray1513[i4] = buffer.readUShortBE();
+                anIntArray1514[i4] = buffer.readUShortBE();
+                anIntArray1515[i4] = buffer.readUShortBE();
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -712,18 +713,18 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             buffer.position = abyte0.length - 18;
             Class23 class23_1 = aClass23Array1531[i] = new Class23();
             class23_1.aByteArray379 = abyte0;
-            class23_1.anInt380 = buffer.readUnsignedShort();
-            class23_1.anInt381 = buffer.readUnsignedShort();
-            class23_1.anInt382 = buffer.readUnsignedByte();
-            int j = buffer.readUnsignedByte();
-            int k = buffer.readUnsignedByte();
-            int l = buffer.readUnsignedByte();
-            int i1 = buffer.readUnsignedByte();
-            int j1 = buffer.readUnsignedByte();
-            int k1 = buffer.readUnsignedShort();
-            int l1 = buffer.readUnsignedShort();
-            int i2 = buffer.readUnsignedShort();
-            int j2 = buffer.readUnsignedShort();
+            class23_1.anInt380 = buffer.readUShortBE();
+            class23_1.anInt381 = buffer.readUShortBE();
+            class23_1.anInt382 = buffer.readUByte();
+            int j = buffer.readUByte();
+            int k = buffer.readUByte();
+            int l = buffer.readUByte();
+            int i1 = buffer.readUByte();
+            int j1 = buffer.readUByte();
+            int k1 = buffer.readUShortBE();
+            int l1 = buffer.readUShortBE();
+            int i2 = buffer.readUShortBE();
+            int j2 = buffer.readUShortBE();
             int k2 = 0;
             class23_1.anInt383 = k2;
             if (!flag) {

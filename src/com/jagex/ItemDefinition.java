@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
@@ -250,12 +251,12 @@ public class ItemDefinition {
     public static void method515(CacheArchive cacheArchive) {
         aBuffer_665 = new Buffer(cacheArchive.readFile("obj.dat", null));
         Buffer buffer = new Buffer(cacheArchive.readFile("obj.idx", null));
-        anInt669 = buffer.readUnsignedShort();
+        anInt669 = buffer.readUShortBE();
         anIntArray655 = new int[anInt669];
         int i = 2;
         for (int j = 0; j < anInt669; j++) {
             anIntArray655[j] = i;
-            i += buffer.readUnsignedShort();
+            i += buffer.readUShortBE();
         }
         aItemDefinitionArray620 = new ItemDefinition[10];
         for (int k = 0; k < 10; k++) {
@@ -449,50 +450,50 @@ public class ItemDefinition {
                 }
             }
             do {
-                int k = buffer.readUnsignedByte();
+                int k = buffer.readUByte();
                 if (k == 0) {
                     return;
                 }
                 if (k == 1) {
-                    anInt668 = buffer.readUnsignedShort();
+                    anInt668 = buffer.readUShortBE();
                 } else if (k == 2) {
                     itemName = buffer.readString();
                 } else if (k == 3) {
                     examine = buffer.readStringBytes();
                 } else if (k == 4) {
-                    modelScale = buffer.readUnsignedShort();
+                    modelScale = buffer.readUShortBE();
                 } else if (k == 5) {
-                    anInt670 = buffer.readUnsignedShort();
+                    anInt670 = buffer.readUShortBE();
                 } else if (k == 6) {
-                    anInt663 = buffer.readUnsignedShort();
+                    anInt663 = buffer.readUShortBE();
                 } else if (k == 7) {
-                    anInt656 = buffer.readUnsignedShort();
+                    anInt656 = buffer.readUShortBE();
                     if (anInt656 > 32767) {
                         anInt656 -= 0x10000;
                     }
                 } else if (k == 8) {
-                    anInt628 = buffer.readUnsignedShort();
+                    anInt628 = buffer.readUShortBE();
                     if (anInt628 > 32767) {
                         anInt628 -= 0x10000;
                     }
                 } else if (k == 10) {
-                    anInt634 = buffer.readUnsignedShort();
+                    anInt634 = buffer.readUShortBE();
                 } else if (k == 11) {
                     aBoolean662 = true;
                 } else if (k == 12) {
-                    anInt637 = buffer.readInt();
+                    anInt637 = buffer.readIntBE();
                 } else if (k == 16) {
                     aBoolean650 = true;
                 } else if (k == 23) {
-                    anInt647 = buffer.readUnsignedShort();
+                    anInt647 = buffer.readUShortBE();
                     aByte632 = buffer.readByte();
                 } else if (k == 24) {
-                    anInt664 = buffer.readUnsignedShort();
+                    anInt664 = buffer.readUShortBE();
                 } else if (k == 25) {
-                    anInt654 = buffer.readUnsignedShort();
+                    anInt654 = buffer.readUShortBE();
                     aByte630 = buffer.readByte();
                 } else if (k == 26) {
-                    anInt640 = buffer.readUnsignedShort();
+                    anInt640 = buffer.readUShortBE();
                 } else if (k >= 30 && k < 35) {
                     if (aStringArray643 == null) {
                         aStringArray643 = new String[5];
@@ -507,50 +508,50 @@ public class ItemDefinition {
                     }
                     aStringArray639[k - 35] = buffer.readString();
                 } else if (k == 40) {
-                    int l = buffer.readUnsignedByte();
+                    int l = buffer.readUByte();
                     anIntArray646 = new int[l];
                     anIntArray631 = new int[l];
                     for (int i1 = 0; i1 < l; i1++) {
-                        anIntArray646[i1] = buffer.readUnsignedShort();
-                        anIntArray631[i1] = buffer.readUnsignedShort();
+                        anIntArray646[i1] = buffer.readUShortBE();
+                        anIntArray631[i1] = buffer.readUShortBE();
                     }
                 } else if (k == 78) {
-                    anInt659 = buffer.readUnsignedShort();
+                    anInt659 = buffer.readUShortBE();
                 } else if (k == 79) {
-                    anInt648 = buffer.readUnsignedShort();
+                    anInt648 = buffer.readUShortBE();
                 } else if (k == 90) {
-                    anInt624 = buffer.readUnsignedShort();
+                    anInt624 = buffer.readUShortBE();
                 } else if (k == 91) {
-                    anInt651 = buffer.readUnsignedShort();
+                    anInt651 = buffer.readUShortBE();
                 } else if (k == 92) {
-                    anInt653 = buffer.readUnsignedShort();
+                    anInt653 = buffer.readUShortBE();
                 } else if (k == 93) {
-                    anInt657 = buffer.readUnsignedShort();
+                    anInt657 = buffer.readUShortBE();
                 } else if (k == 95) {
-                    anInt666 = buffer.readUnsignedShort();
+                    anInt666 = buffer.readUShortBE();
                 } else if (k == 97) {
-                    anInt644 = buffer.readUnsignedShort();
+                    anInt644 = buffer.readUShortBE();
                 } else if (k == 98) {
-                    anInt642 = buffer.readUnsignedShort();
+                    anInt642 = buffer.readUShortBE();
                 } else if (k >= 100 && k < 110) {
                     if (anIntArray636 == null) {
                         anIntArray636 = new int[10];
                         anIntArray627 = new int[10];
                     }
-                    anIntArray636[k - 100] = buffer.readUnsignedShort();
-                    anIntArray627[k - 100] = buffer.readUnsignedShort();
+                    anIntArray636[k - 100] = buffer.readUShortBE();
+                    anIntArray627[k - 100] = buffer.readUShortBE();
                 } else if (k == 110) {
-                    anInt658 = buffer.readUnsignedShort();
+                    anInt658 = buffer.readUShortBE();
                 } else if (k == 111) {
-                    anInt635 = buffer.readUnsignedShort();
+                    anInt635 = buffer.readUShortBE();
                 } else if (k == 112) {
-                    anInt621 = buffer.readUnsignedShort();
+                    anInt621 = buffer.readUShortBE();
                 } else if (k == 113) {
                     anInt625 = buffer.readByte();
                 } else if (k == 114) {
                     anInt629 = buffer.readByte() * 5;
                 } else if (k == 115) {
-                    anInt641 = buffer.readUnsignedByte();
+                    anInt641 = buffer.readUByte();
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {

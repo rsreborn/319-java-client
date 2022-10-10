@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class22 {
@@ -35,7 +36,7 @@ public class Class22 {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("varp.dat", null));
             anInt366 = 0;
-            anInt364 = buffer.readUnsignedShort();
+            anInt364 = buffer.readUShortBE();
             if (byte0 != 72) {
                 return;
             }
@@ -67,25 +68,25 @@ public class Class22 {
                 anInt363 = -362;
             }
             do {
-                int k = buffer.readUnsignedByte();
+                int k = buffer.readUByte();
                 if (k == 0) {
                     return;
                 }
                 if (k == 1) {
-                    anInt369 = buffer.readUnsignedByte();
+                    anInt369 = buffer.readUByte();
                 } else if (k == 2) {
-                    anInt370 = buffer.readUnsignedByte();
+                    anInt370 = buffer.readUByte();
                 } else if (k == 3) {
                     aBoolean371 = true;
                     anIntArray367[anInt366++] = i;
                 } else if (k == 4) {
                     aBoolean372 = false;
                 } else if (k == 5) {
-                    anInt373 = buffer.readUnsignedShort();
+                    anInt373 = buffer.readUShortBE();
                 } else if (k == 6) {
                     aBoolean374 = true;
                 } else if (k == 7) {
-                    anInt375 = buffer.readInt();
+                    anInt375 = buffer.readIntBE();
                 } else if (k == 8) {
                     anInt376 = 1;
                     aBoolean377 = true;
@@ -94,7 +95,7 @@ public class Class22 {
                 } else if (k == 11) {
                     aBoolean377 = true;
                 } else if (k == 12) {
-                    anInt378 = buffer.readInt();
+                    anInt378 = buffer.readIntBE();
                 } else if (k == 13) {
                     anInt376 = 2;
                 } else {

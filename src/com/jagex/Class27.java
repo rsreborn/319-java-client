@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class27 {
@@ -37,7 +38,7 @@ public class Class27 {
             aBuffer_452 = new Buffer(aByteArray451);
             Class17.method435();
             do {
-                int i = buffer.readUnsignedShort();
+                int i = buffer.readUShortBE();
                 if (i == 65535) {
                     return;
                 }
@@ -71,7 +72,7 @@ public class Class27 {
     public void method477(Buffer buffer, int i) {
         try {
             for (int j = 0; j < 10; j++) {
-                int k = buffer.readUnsignedByte();
+                int k = buffer.readUByte();
                 if (k != 0) {
                     buffer.position--;
                     aClass17Array453[j] = new Class17();
@@ -81,8 +82,8 @@ public class Class27 {
             if (i != 26421) {
                 aBoolean448 = !aBoolean448;
             }
-            anInt454 = buffer.readUnsignedShort();
-            anInt455 = buffer.readUnsignedShort();
+            anInt454 = buffer.readUShortBE();
+            anInt455 = buffer.readUShortBE();
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("73125, " + buffer + ", " + i + ", " + runtimeexception);
@@ -127,23 +128,23 @@ public class Class27 {
         try {
             int k = method480(i);
             aBuffer_452.position = 0;
-            aBuffer_452.writeInt(0x52494646);
-            aBuffer_452.writeLittleEndianInt(36 + k);
-            aBuffer_452.writeInt(0x57415645);
-            aBuffer_452.writeInt(0x666d7420);
-            aBuffer_452.writeLittleEndianInt(16);
-            aBuffer_452.writeLittleEndianShort(1);
-            aBuffer_452.writeLittleEndianShort(1);
-            aBuffer_452.writeLittleEndianInt(22050);
-            aBuffer_452.writeLittleEndianInt(22050);
-            aBuffer_452.writeLittleEndianShort(1);
+            aBuffer_452.writeIntBE(0x52494646);
+            aBuffer_452.writeIntLE(36 + k);
+            aBuffer_452.writeIntBE(0x57415645);
+            aBuffer_452.writeIntBE(0x666d7420);
+            aBuffer_452.writeIntLE(16);
+            aBuffer_452.writeShortLE(1);
+            aBuffer_452.writeShortLE(1);
+            aBuffer_452.writeIntLE(22050);
+            aBuffer_452.writeIntLE(22050);
+            aBuffer_452.writeShortLE(1);
             if (j != 0) {
                 for (int l = 1; l > 0; l++) {
                 }
             }
-            aBuffer_452.writeLittleEndianShort(8);
-            aBuffer_452.writeInt(0x64617461);
-            aBuffer_452.writeLittleEndianInt(k);
+            aBuffer_452.writeShortLE(8);
+            aBuffer_452.writeIntBE(0x64617461);
+            aBuffer_452.writeIntLE(k);
             aBuffer_452.position += k;
             return aBuffer_452;
         } catch (RuntimeException runtimeexception) {

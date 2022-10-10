@@ -2,6 +2,7 @@ package com.jagex;/* com.jagex.Class25 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class25 {
@@ -422,7 +423,7 @@ public class Class25 {
             if (i != 0)
                 throw new NullPointerException();
             for (; ; ) {
-                int i_239_ = buffer.readUnsignedSmart();
+                int i_239_ = buffer.readUSmart();
                 if (i_239_ == 0)
                     break;
                 i_238_ += i_239_;
@@ -430,18 +431,18 @@ public class Class25 {
                 boolean bool_241_ = false;
                 for (; ; ) {
                     if (bool_241_) {
-                        int i_242_ = buffer.readUnsignedSmart();
+                        int i_242_ = buffer.readUSmart();
                         if (i_242_ == 0)
                             break;
-                        buffer.readUnsignedByte();
+                        buffer.readUByte();
                     } else {
-                        int i_243_ = buffer.readUnsignedSmart();
+                        int i_243_ = buffer.readUSmart();
                         if (i_243_ == 0)
                             break;
                         i_240_ += i_243_ - 1;
                         int i_244_ = i_240_ & 0x3f;
                         int i_245_ = i_240_ >> 6 & 0x3f;
-                        int i_246_ = buffer.readUnsignedByte() >> 2;
+                        int i_246_ = buffer.readUByte() >> 2;
                         int i_247_ = i_245_ + i_236_;
                         int i_248_ = i_244_ + i_237_;
                         if (i_247_ > 0 && i_248_ > 0 && i_247_ < 103
@@ -493,17 +494,17 @@ public class Class25 {
                 anInt420 = -409;
             int i_258_ = -1;
             for (; ; ) {
-                int i_259_ = buffer.readUnsignedSmart();
+                int i_259_ = buffer.readUSmart();
                 if (i_259_ == 0)
                     break;
                 i_258_ += i_259_;
                 GameObjectDefinition gameObjectDefinition = GameObjectDefinition.readDefinition(i_258_);
                 gameObjectDefinition.method423(2402, class2_sub1);
                 for (; ; ) {
-                    int i_260_ = buffer.readUnsignedSmart();
+                    int i_260_ = buffer.readUSmart();
                     if (i_260_ == 0)
                         break;
-                    buffer.readUnsignedByte();
+                    buffer.readUByte();
                 }
             }
         } catch (RuntimeException runtimeexception) {
@@ -546,20 +547,20 @@ public class Class25 {
                 aBoolean419 = !aBoolean419;
             int i_7_ = -1;
             for (; ; ) {
-                int i_8_ = buffer.readUnsignedSmart();
+                int i_8_ = buffer.readUSmart();
                 if (i_8_ == 0)
                     break;
                 i_7_ += i_8_;
                 int i_9_ = 0;
                 for (; ; ) {
-                    int i_10_ = buffer.readUnsignedSmart();
+                    int i_10_ = buffer.readUSmart();
                     if (i_10_ == 0)
                         break;
                     i_9_ += i_10_ - 1;
                     int i_11_ = i_9_ & 0x3f;
                     int i_12_ = i_9_ >> 6 & 0x3f;
                     int i_13_ = i_9_ >> 12;
-                    int i_14_ = buffer.readUnsignedByte();
+                    int i_14_ = buffer.readUByte();
                     int i_15_ = i_14_ >> 2;
                     int i_16_ = i_14_ & 0x3;
                     if (i_13_ == i_3_ && i_12_ >= i && i_12_ < i + 8
@@ -661,20 +662,20 @@ public class Class25 {
             }
             int i_70_ = -1;
             for (; ; ) {
-                int i_71_ = buffer.readUnsignedSmart();
+                int i_71_ = buffer.readUSmart();
                 if (i_71_ == 0)
                     break;
                 i_70_ += i_71_;
                 int i_72_ = 0;
                 for (; ; ) {
-                    int i_73_ = buffer.readUnsignedSmart();
+                    int i_73_ = buffer.readUSmart();
                     if (i_73_ == 0)
                         break;
                     i_72_ += i_73_ - 1;
                     int i_74_ = i_72_ & 0x3f;
                     int i_75_ = i_72_ >> 6 & 0x3f;
                     int i_76_ = i_72_ >> 12;
-                    int i_77_ = buffer.readUnsignedByte();
+                    int i_77_ = buffer.readUByte();
                     int i_78_ = i_77_ >> 2;
                     int i_79_ = i_77_ & 0x3;
                     int i_80_ = i_75_ + i_68_;
@@ -1253,7 +1254,7 @@ public class Class25 {
                         && i_198_ < 104) {
                     aByteArrayArrayArray418[i_199_][i_196_][i_198_] = (byte) 0;
                     for (; ; ) {
-                        int i_201_ = buffer.readUnsignedByte();
+                        int i_201_ = buffer.readUByte();
                         if (i_201_ == 0) {
                             if (i_199_ == 0)
                                 anIntArrayArrayArray413[0][i_196_][i_198_]
@@ -1268,7 +1269,7 @@ public class Class25 {
                             break;
                         }
                         if (i_201_ == 1) {
-                            int i_202_ = buffer.readUnsignedByte();
+                            int i_202_ = buffer.readUByte();
                             if (i_202_ == 1)
                                 i_202_ = 0;
                             if (i_199_ == 0)
@@ -1298,15 +1299,15 @@ public class Class25 {
                     }
                 } else {
                     for (; ; ) {
-                        int i_203_ = buffer.readUnsignedByte();
+                        int i_203_ = buffer.readUByte();
                         if (i_203_ == 0)
                             break;
                         if (i_203_ == 1) {
-                            buffer.readUnsignedByte();
+                            buffer.readUByte();
                             break;
                         }
                         if (i_203_ <= 49)
-                            buffer.readUnsignedByte();
+                            buffer.readUByte();
                     }
                 }
             }

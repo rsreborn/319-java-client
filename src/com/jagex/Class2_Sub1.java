@@ -3,6 +3,7 @@ package com.jagex;/* com.jagex.Class2_Sub1 - Decompiled by JODE
  */
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Queue;
@@ -635,7 +636,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             anIntArrayArray1306[i] = new int[i_36_];
             aByteArrayArray1297[i] = new byte[i_36_];
             for (int i_37_ = 0; i_37_ < i_36_; i_37_++)
-                anIntArrayArray1306[i][i_37_] = buffer.readUnsignedShort();
+                anIntArrayArray1306[i][i_37_] = buffer.readUShortBE();
         }
         String[] strings_38_
                 = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
@@ -646,7 +647,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                     = new Buffer(is);
             anIntArrayArray1323[i] = new int[i_39_];
             for (int i_40_ = 0; i_40_ < i_39_; i_40_++)
-                anIntArrayArray1323[i][i_40_] = buffer.readInt();
+                anIntArrayArray1323[i][i_40_] = buffer.readIntBE();
         }
         byte[] is = cacheArchive.readFile("model_index", null);
         int i = anIntArrayArray1306[0].length;
@@ -665,23 +666,23 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         anIntArray1317 = new int[i];
         anIntArray1312 = new int[i];
         for (int i_42_ = 0; i_42_ < i; i_42_++) {
-            anIntArray1320[i_42_] = buffer.readUnsignedShort();
-            anIntArray1332[i_42_] = buffer.readUnsignedShort();
-            anIntArray1317[i_42_] = buffer.readUnsignedShort();
-            anIntArray1312[i_42_] = buffer.readUnsignedByte();
+            anIntArray1320[i_42_] = buffer.readUShortBE();
+            anIntArray1332[i_42_] = buffer.readUShortBE();
+            anIntArray1317[i_42_] = buffer.readUShortBE();
+            anIntArray1312[i_42_] = buffer.readUByte();
         }
         is = cacheArchive.readFile("anim_index", null);
         buffer = new Buffer(is);
         i = is.length / 2;
         anIntArray1303 = new int[i];
         for (int i_43_ = 0; i_43_ < i; i_43_++)
-            anIntArray1303[i_43_] = buffer.readUnsignedShort();
+            anIntArray1303[i_43_] = buffer.readUShortBE();
         is = cacheArchive.readFile("midi_index", null);
         buffer = new Buffer(is);
         i = is.length;
         anIntArray1315 = new int[i];
         for (int i_44_ = 0; i_44_ < i; i_44_++)
-            anIntArray1315[i_44_] = buffer.readUnsignedByte();
+            anIntArray1315[i_44_] = buffer.readUByte();
         aGame1319 = var_game;
         aBoolean1301 = true;
         aGame1319.method12(this, 2);
