@@ -3541,9 +3541,9 @@ public class Game extends GameShell {
                         try {
                             anIntArray1140[anInt1030] = k20;
                             anInt1030 = (anInt1030 + 1) % 100;
-                            String s9 = Class45.method573(buffer, 0, packetSize - 13);
+                            String s9 = ChatMessageCodec.decode(buffer, packetSize - 13);
                             if (j23 != 3) {
-                                s9 = Class41.method541(false, s9);
+                                s9 = ChatCensor.method541(s9);
                             }
                             if (j23 == 2 || j23 == 3) {
                                 addChatMessage("@cr2@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
@@ -9831,10 +9831,10 @@ public class Game extends GameShell {
                             aBuffer_928.writeByte(0);
                             int j = aBuffer_928.position;
                             aBuffer_928.writeLong(aLong1033);
-                            Class45.method574(aBuffer_928, -45468, aString1218);
+                            ChatMessageCodec.encode(aBuffer_928, aString1218);
                             aBuffer_928.writeSizeByte(aBuffer_928.position - j);
-                            aString1218 = Class45.method575(false, aString1218);
-                            aString1218 = Class41.method541(false, aString1218);
+                            aString1218 = ChatMessageCodec.verify(aString1218);
+                            aString1218 = ChatCensor.method541(aString1218);
                             addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), aString1218, 6);
                             if (anInt1129 == 2) {
                                 anInt1129 = 1;
@@ -9997,13 +9997,13 @@ public class Game extends GameShell {
                             aBuffer_928.writeByte(0);
                             int i3 = aBuffer_928.position;
                             aBuffer_1282.position = 0;
-                            Class45.method574(aBuffer_1282, -45468, aString1280);
+                            ChatMessageCodec.encode(aBuffer_1282, aString1280);
                             aBuffer_928.method349(aBuffer_1282.payload, 0, true, aBuffer_1282.position);
                             aBuffer_928.writeInvertedByte(k2);
                             aBuffer_928.writeByte(i2);
                             aBuffer_928.writeSizeByte(aBuffer_928.position - i3);
-                            aString1280 = Class45.method575(false, aString1280);
-                            aString1280 = Class41.method541(false, aString1280);
+                            aString1280 = ChatMessageCodec.verify(aString1280);
+                            aString1280 = ChatCensor.method541(aString1280);
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1586 = aString1280;
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1566 = i2;
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1617 = k2;
@@ -12100,7 +12100,7 @@ public class Game extends GameShell {
                 ai[i8] = l8 * i9 >> 16;
             }
             Class10.method230(800, (byte) 1, ai, 334, 512, 500);
-            Class41.method531(cacheArchive_4);
+            ChatCensor.load(cacheArchive_4);
             aClass48_865 = new Class48((byte) -123, this);
             method12(aClass48_865, 10);
             CacheableNode_Sub1_Sub1_Sub2.aGame1469 = this;
@@ -12406,8 +12406,8 @@ public class Game extends GameShell {
                             aBuffer_1282.position = 0;
                             buffer.readBytes(aBuffer_1282.payload, 0, j3);
                             aBuffer_1282.position = 0;
-                            String s = Class45.method573(aBuffer_1282, 0, j3);
-                            s = Class41.method541(false, s);
+                            String s = ChatMessageCodec.decode(aBuffer_1282, j3);
+                            s = ChatCensor.method541(s);
                             class13_sub1_sub1_sub6_sub1.aString1586 = s;
                             class13_sub1_sub1_sub6_sub1.anInt1566 = k1 >> 8;
                             class13_sub1_sub1_sub6_sub1.anInt1617 = k1 & 0xff;
