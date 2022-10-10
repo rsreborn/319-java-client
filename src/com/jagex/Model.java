@@ -2,20 +2,20 @@ package com.jagex;
 
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
-import com.jagex.update.Class2;
+import com.jagex.update.GameUpdateClient;
 
-public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
+public class Model extends CacheableNode_Sub1_ {
 
     public static boolean aBoolean1488;
     public static int anInt1489 = -670;
     public static int anInt1490;
-    public static CacheableNode_Sub1_Sub1_Sub4 aClass13_Sub1_Sub1_Sub4_1491 = new CacheableNode_Sub1_Sub1_Sub4(-23549);
+    public static Model aClass13_Sub1_Sub1_Sub4_1491 = new Model(-23549);
     public static int[] anIntArray1492 = new int[2000];
     public static int[] anIntArray1493 = new int[2000];
     public static int[] anIntArray1494 = new int[2000];
     public static int[] anIntArray1495 = new int[2000];
     public static Class23[] aClass23Array1531;
-    public static Class2 aClass2_1532;
+    public static GameUpdateClient aClass2_1532;
     public static boolean[] aBooleanArray1533 = new boolean[4096];
     public static boolean[] aBooleanArray1534 = new boolean[4096];
     public static int[] anIntArray1535 = new int[4096];
@@ -93,7 +93,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
     public boolean aBoolean1529;
     public Class7[] aClass7Array1530;
 
-    public CacheableNode_Sub1_Sub1_Sub4(int i) {
+    public Model(int i) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -108,7 +108,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         }
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4(byte byte0, int i) {
+    public Model(byte byte0, int i) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -266,7 +266,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4(int i, byte byte0, CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4) {
+    public Model(int i, byte byte0, Model[] aclass13_sub1_sub1_sub4) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -281,7 +281,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             anInt1512 = 0;
             anInt1511 = -1;
             for (int j = 0; j < i; j++) {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[j];
+                Model class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[j];
                 if (class13_sub1_sub1_sub4 != null) {
                     anInt1496 += class13_sub1_sub1_sub4.anInt1496;
                     anInt1500 += class13_sub1_sub1_sub4.anInt1500;
@@ -332,7 +332,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             anInt1512 = 0;
             int k = 0;
             for (int l = 0; l < i; l++) {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[l];
+                Model class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[l];
                 if (class13_sub1_sub1_sub4_1 != null) {
                     for (int i1 = 0; i1 < class13_sub1_sub1_sub4_1.anInt1500; i1++) {
                         if (flag) {
@@ -385,7 +385,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4(CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4, int i, boolean flag, int j) {
+    public Model(Model[] aclass13_sub1_sub1_sub4, int i, boolean flag, int j) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -403,7 +403,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             anInt1512 = 0;
             anInt1511 = -1;
             for (int k = 0; k < j; k++) {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[k];
+                Model class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[k];
                 if (class13_sub1_sub1_sub4 != null) {
                     anInt1496 += class13_sub1_sub1_sub4.anInt1496;
                     anInt1500 += class13_sub1_sub1_sub4.anInt1500;
@@ -452,7 +452,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
             anInt1512 = 0;
             int l = 0;
             for (int i1 = 0; i1 < j; i1++) {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[i1];
+                Model class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[i1];
                 if (class13_sub1_sub1_sub4_1 != null) {
                     int j1 = anInt1496;
                     for (int k1 = 0; k1 < class13_sub1_sub1_sub4_1.anInt1496; k1++) {
@@ -515,7 +515,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4(boolean flag, boolean flag1, int i, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, boolean flag2) {
+    public Model(boolean flag, boolean flag1, int i, Model class13_sub1_sub1_sub4, boolean flag2) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -581,7 +581,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4(CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, boolean flag, boolean flag1) {
+    public Model(Model class13_sub1_sub1_sub4, int i, boolean flag, boolean flag1) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -696,9 +696,9 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public static void method262(int i, Class2 class2) {
+    public static void method262(int i, GameUpdateClient gameUpdateClient) {
         aClass23Array1531 = new Class23[i];
-        aClass2_1532 = class2;
+        aClass2_1532 = gameUpdateClient;
     }
 
     public static void method263(byte[] abyte0, boolean flag, int i) {
@@ -797,7 +797,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public static CacheableNode_Sub1_Sub1_Sub4 method265(byte byte0, int i) {
+    public static Model method265(byte byte0, int i) {
         try {
             if (byte0 != 4) {
                 aBoolean1488 = !aBoolean1488;
@@ -810,7 +810,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
                 aClass2_1532.method150(i);
                 return null;
             } else {
-                return new CacheableNode_Sub1_Sub1_Sub4((byte) 34, i);
+                return new Model((byte) 34, i);
             }
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("48082, " + byte0 + ", " + i + ", " + runtimeexception);
@@ -850,7 +850,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         return (i & 0xff80) + j;
     }
 
-    public void method267(boolean flag, byte byte0, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4) {
+    public void method267(boolean flag, byte byte0, Model class13_sub1_sub1_sub4) {
         try {
             anInt1496 = class13_sub1_sub1_sub4.anInt1496;
             anInt1500 = class13_sub1_sub1_sub4.anInt1500;
@@ -911,7 +911,7 @@ public class CacheableNode_Sub1_Sub1_Sub4 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public int method268(CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i) {
+    public int method268(Model class13_sub1_sub1_sub4, int i) {
         int j = -1;
         int k = class13_sub1_sub1_sub4.anIntArray1497[i];
         int l = class13_sub1_sub1_sub4.anIntArray1498[i];

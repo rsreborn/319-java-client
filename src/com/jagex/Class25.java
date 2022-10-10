@@ -1404,11 +1404,11 @@ public class Class25 {
                                 i_221_, i_214_,
                                 class13_sub1_sub1)
                                 && gameObjectDefinition.aBoolean286) {
-                            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+                            Model class13_sub1_sub1_sub4;
                             if (class13_sub1_sub1
-                                    instanceof CacheableNode_Sub1_Sub1_Sub4)
+                                    instanceof Model)
                                 class13_sub1_sub1_sub4
-                                        = ((CacheableNode_Sub1_Sub1_Sub4)
+                                        = ((Model)
                                         class13_sub1_sub1);
                             else
                                 class13_sub1_sub1_sub4

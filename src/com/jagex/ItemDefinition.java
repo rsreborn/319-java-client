@@ -95,7 +95,7 @@ public class ItemDefinition {
                     itemDefinition = method505(l);
                 }
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = itemDefinition.method509(1);
+            Model class13_sub1_sub1_sub4 = itemDefinition.method509(1);
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
@@ -283,13 +283,13 @@ public class ItemDefinition {
             } else {
                 anInt623 = 192;
             }
-            if (!CacheableNode_Sub1_Sub1_Sub4.method266(j)) {
+            if (!Model.method266(j)) {
                 flag = false;
             }
-            if (k != -1 && !CacheableNode_Sub1_Sub1_Sub4.method266(k)) {
+            if (k != -1 && !Model.method266(k)) {
                 flag = false;
             }
-            if (l != -1 && !CacheableNode_Sub1_Sub1_Sub4.method266(l)) {
+            if (l != -1 && !Model.method266(l)) {
                 flag = false;
             }
             return flag;
@@ -313,8 +313,8 @@ public class ItemDefinition {
             if (k == -1) {
                 return true;
             }
-            boolean flag = CacheableNode_Sub1_Sub1_Sub4.method266(k);
-            if (l != -1 && !CacheableNode_Sub1_Sub1_Sub4.method266(l)) {
+            boolean flag = Model.method266(k);
+            if (l != -1 && !Model.method266(l)) {
                 flag = false;
             }
             return flag;
@@ -324,7 +324,7 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method507(int i, int j) {
+    public Model method507(int i, int j) {
         try {
             int k = anInt647;
             int l = anInt664;
@@ -340,21 +340,21 @@ public class ItemDefinition {
             if (k == -1) {
                 return null;
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, k);
+            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, k);
             if (l != -1) {
                 if (i1 != -1) {
-                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, l);
-                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, i1);
-                    CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4_1 = {
+                    Model class13_sub1_sub1_sub4_1 = Model.method265((byte) 4, l);
+                    Model class13_sub1_sub1_sub4_3 = Model.method265((byte) 4, i1);
+                    Model[] aclass13_sub1_sub1_sub4_1 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_1, class13_sub1_sub1_sub4_3
                     };
-                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(3, (byte) 61, aclass13_sub1_sub1_sub4_1);
+                    class13_sub1_sub1_sub4 = new Model(3, (byte) 61, aclass13_sub1_sub1_sub4_1);
                 } else {
-                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, l);
-                    CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = {
+                    Model class13_sub1_sub1_sub4_2 = Model.method265((byte) 4, l);
+                    Model[] aclass13_sub1_sub1_sub4 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_2
                     };
-                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(2, (byte) 61, aclass13_sub1_sub1_sub4);
+                    class13_sub1_sub1_sub4 = new Model(2, (byte) 61, aclass13_sub1_sub1_sub4);
                 }
             }
             if (j == 0 && aByte632 != 0) {
@@ -409,7 +409,7 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method509(int i) {
+    public Model method509(int i) {
         if (anIntArray636 != null && i > 1) {
             int j = -1;
             for (int k = 0; k < 10; k++) {
@@ -421,11 +421,11 @@ public class ItemDefinition {
                 return method505(j).method509(1);
             }
         }
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_660.get(anInt633);
+        Model class13_sub1_sub1_sub4 = (Model) aCache_660.get(anInt633);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
-        class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, anInt668);
+        class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt668);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }
@@ -560,7 +560,7 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method512(int i, byte byte0) {
+    public Model method512(int i, byte byte0) {
         try {
             int j = anInt624;
             int k = anInt653;
@@ -574,13 +574,13 @@ public class ItemDefinition {
             if (j == -1) {
                 return null;
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, j);
+            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, j);
             if (k != -1) {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, k);
-                CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = {
+                Model class13_sub1_sub1_sub4_1 = Model.method265((byte) 4, k);
+                Model[] aclass13_sub1_sub1_sub4 = {
                         class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_1
                 };
-                class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(2, (byte) 61, aclass13_sub1_sub1_sub4);
+                class13_sub1_sub1_sub4 = new Model(2, (byte) 61, aclass13_sub1_sub1_sub4);
             }
             if (anIntArray646 != null) {
                 for (int l = 0; l < anIntArray646.length; l++) {
@@ -594,7 +594,7 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method513(int i, int j) {
+    public Model method513(int i, int j) {
         try {
             while (i >= 0) {
                 anInt626 = 265;
@@ -610,7 +610,7 @@ public class ItemDefinition {
                     return method505(k).method513(-453, 1);
                 }
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, anInt668);
+            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt668);
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }

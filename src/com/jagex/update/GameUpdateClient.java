@@ -15,9 +15,9 @@ import java.net.Socket;
 import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
-public class GameUpdateClient extends Class2 implements Runnable {
+public class GameUpdateClient implements Runnable {
     public LinkedList aLinkedList_1293 = new LinkedList();
-    public Queue aQueue_1294 = new Queue();
+    public Queue immediateRequests = new Queue();
     public int anInt1295 = -22144;
     public GameUpdateNode gameUpdateNode;
     public byte[][] filePriorities = new byte[4][];
@@ -57,7 +57,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
     public InputStream updateServerInputStream;
     public int[] regionMapIndexes;
     public int anInt1333;
-    public LinkedList aLinkedList_1334 = new LinkedList();
+    public LinkedList wanted = new LinkedList();
     public int anInt1335;
 
     public void method151(int i) {
@@ -103,9 +103,9 @@ public class GameUpdateClient extends Class2 implements Runnable {
     public void method152(int i) {
         try {
             GameUpdateNode class13_sub1_sub3;
-            synchronized (aLinkedList_1334) {
+            synchronized (wanted) {
                 class13_sub1_sub3
-                        = (GameUpdateNode) aLinkedList_1334.pop();
+                        = (GameUpdateNode) wanted.pop();
             }
             while (i >= 0)
                 aBoolean1324 = !aBoolean1324;
@@ -124,7 +124,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
                                 [class13_sub1_sub3.type]
                                 [class13_sub1_sub3.id])))
                     is = null;
-                synchronized (aLinkedList_1334) {
+                synchronized (wanted) {
                     if (is == null)
                         aLinkedList_1293.pushBack(class13_sub1_sub3);
                     else {
@@ -134,7 +134,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
                         }
                     }
                     class13_sub1_sub3
-                            = (GameUpdateNode) aLinkedList_1334.pop();
+                            = (GameUpdateNode) wanted.pop();
                 }
             }
         } catch (RuntimeException runtimeexception) {
@@ -168,28 +168,25 @@ public class GameUpdateClient extends Class2 implements Runnable {
         }
     }
 
-    public void method156(int i, int i_4_) {
-        if (i >= 0 && i <= fileVersions.length && i_4_ >= 0
-                && i_4_ <= fileVersions[i].length
-                && fileVersions[i][i_4_] != 0) {
-            synchronized (aQueue_1294) {
-                for (GameUpdateNode class13_sub1_sub3
-                     = (GameUpdateNode) aQueue_1294.first();
-                     class13_sub1_sub3 != null;
-                     class13_sub1_sub3
-                             = (GameUpdateNode) aQueue_1294.next()) {
-                    if (class13_sub1_sub3.type == i
-                            && class13_sub1_sub3.id == i_4_)
+    public void requestFile(int type, int id) {
+        if (type >= 0 && type <= fileVersions.length && id >= 0 && id <= fileVersions[type].length && fileVersions[type][id] != 0) {
+            synchronized (immediateRequests) {
+                for (GameUpdateNode updateNode = (GameUpdateNode) immediateRequests.first(); updateNode != null; updateNode = (GameUpdateNode) immediateRequests.next()) {
+                    if (updateNode.type == type && updateNode.id == id) {
                         return;
+                    }
                 }
-                GameUpdateNode class13_sub1_sub3 = new GameUpdateNode();
-                class13_sub1_sub3.type = i;
-                class13_sub1_sub3.id = i_4_;
-                class13_sub1_sub3.immediate = true;
-                synchronized (aLinkedList_1334) {
-                    aLinkedList_1334.pushBack(class13_sub1_sub3);
+
+                GameUpdateNode updateNode = new GameUpdateNode();
+                updateNode.type = type;
+                updateNode.id = id;
+                updateNode.immediate = true;
+
+                synchronized (wanted) {
+                    wanted.pushBack(updateNode);
                 }
-                aQueue_1294.push(class13_sub1_sub3);
+
+                immediateRequests.push(updateNode);
             }
         }
     }
@@ -216,16 +213,8 @@ public class GameUpdateClient extends Class2 implements Runnable {
         }
     }
 
-    public int method158(byte i) {
-        try {
-            if (i != aByte1314)
-                return 0;
-            return animIndexes.length;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("53573, " + i + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
-        }
+    public int animCount() {
+        return animIndexes.length;
     }
 
     public void sendRequest(int i, GameUpdateNode gameUpdateNode) {
@@ -241,7 +230,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
                     if (l - aLong1311 < 4000L)
                         return;
                     aLong1311 = l;
-                    updateServerSocket = game.openSocket(43594 + Game.anInt952);
+                    updateServerSocket = game.openSocket(43594 + Game.portOffset);
                     updateServerInputStream = updateServerSocket.getInputStream();
                     updateServerOutputStream = updateServerSocket.getOutputStream();
                     updateServerOutputStream.write(15);
@@ -539,9 +528,9 @@ public class GameUpdateClient extends Class2 implements Runnable {
         }
     }
 
-    public int method167() {
-        synchronized (aQueue_1294) {
-            return aQueue_1294.size();
+    public int immediateRequestCount() {
+        synchronized (immediateRequests) {
+            return immediateRequests.size();
         }
     }
 
@@ -568,7 +557,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
     }
 
     public void method150(int i) {
-        method156(0, i);
+        requestFile(0, i);
     }
 
     public void readVersionlist(CacheArchive versionlistArchive, Game game) {
@@ -761,7 +750,7 @@ public class GameUpdateClient extends Class2 implements Runnable {
             return null;
         }
 
-        synchronized (aQueue_1294) {
+        synchronized (immediateRequests) {
             updateNode.clear();
         }
 

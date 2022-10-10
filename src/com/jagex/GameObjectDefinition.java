@@ -8,7 +8,7 @@ import com.jagex.util.Cache;
 
 public class GameObjectDefinition {
 
-    public static CacheableNode_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new CacheableNode_Sub1_Sub1_Sub4[4];
+    public static Model[] aClass13_Sub1_Sub1_Sub4Array239 = new Model[4];
     public static int anInt245;
     public static Cache aCache_248 = new Cache(500);
     public static Cache aCache_249 = new Cache(30);
@@ -156,13 +156,13 @@ public class GameObjectDefinition {
         anIntArray243 = null;
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method419(int i, int j, int k, int l, int i1, int j1, int k1) {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method422(k1, j, i, false);
+    public Model method419(int i, int j, int k, int l, int i1, int j1, int k1) {
+        Model class13_sub1_sub1_sub4 = method422(k1, j, i, false);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }
         if (aBoolean263 || aBoolean240) {
-            class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(class13_sub1_sub1_sub4, 0, aBoolean240, aBoolean263);
+            class13_sub1_sub1_sub4 = new Model(class13_sub1_sub1_sub4, 0, aBoolean240, aBoolean263);
         }
         if (aBoolean263) {
             int l1 = (k + l + i1 + j1) / 4;
@@ -352,7 +352,7 @@ public class GameObjectDefinition {
             }
             boolean flag = true;
             for (int j = 0; j < anIntArray241.length; j++) {
-                flag &= CacheableNode_Sub1_Sub1_Sub4.method266(anIntArray241[j] & 0xffff);
+                flag &= Model.method266(anIntArray241[j] & 0xffff);
             }
             return flag;
         } catch (RuntimeException runtimeexception) {
@@ -361,9 +361,9 @@ public class GameObjectDefinition {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method422(int i, int j, int k, boolean flag) {
+    public Model method422(int i, int j, int k, boolean flag) {
         try {
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = null;
+            Model class13_sub1_sub1_sub4 = null;
             if (flag) {
                 aBoolean244 = !aBoolean244;
             }
@@ -373,7 +373,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + j) + ((long) (i + 1) << 32);
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.get(l);
+                Model class13_sub1_sub1_sub4_1 = (Model) aCache_249.get(l);
                 if (class13_sub1_sub1_sub4_1 != null) {
                     return class13_sub1_sub1_sub4_1;
                 }
@@ -387,9 +387,9 @@ public class GameObjectDefinition {
                     if (flag2) {
                         k2 += 0x10000;
                     }
-                    class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.get(k2);
+                    class13_sub1_sub1_sub4 = (Model) aCache_248.get(k2);
                     if (class13_sub1_sub1_sub4 == null) {
-                        class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, k2 & 0xffff);
+                        class13_sub1_sub1_sub4 = Model.method265((byte) 4, k2 & 0xffff);
                         if (class13_sub1_sub1_sub4 == null) {
                             return null;
                         }
@@ -403,7 +403,7 @@ public class GameObjectDefinition {
                     }
                 }
                 if (k1 > 1) {
-                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(k1, (byte) 61, aClass13_Sub1_Sub1_Sub4Array239);
+                    class13_sub1_sub1_sub4 = new Model(k1, (byte) 61, aClass13_Sub1_Sub1_Sub4Array239);
                 }
             } else {
                 int i1 = -1;
@@ -418,7 +418,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + (i1 << 3) + j) + ((long) (i + 1) << 32);
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.get(l);
+                Model class13_sub1_sub1_sub4_2 = (Model) aCache_249.get(l);
                 if (class13_sub1_sub1_sub4_2 != null) {
                     return class13_sub1_sub1_sub4_2;
                 }
@@ -427,9 +427,9 @@ public class GameObjectDefinition {
                 if (flag4) {
                     i2 += 0x10000;
                 }
-                class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.get(i2);
+                class13_sub1_sub1_sub4 = (Model) aCache_248.get(i2);
                 if (class13_sub1_sub1_sub4 == null) {
-                    class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, i2 & 0xffff);
+                    class13_sub1_sub1_sub4 = Model.method265((byte) 4, i2 & 0xffff);
                     if (class13_sub1_sub1_sub4 == null) {
                         return null;
                     }
@@ -443,7 +443,7 @@ public class GameObjectDefinition {
             flag1 = anInt283 != 128 || anInt281 != 128 || anInt274 != 128;
             boolean flag3;
             flag3 = anInt247 != 0 || anInt277 != 0 || anInt288 != 0;
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = new CacheableNode_Sub1_Sub1_Sub4(j == 0 && i == -1 && !flag1 && !flag3, Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
+            Model class13_sub1_sub1_sub4_3 = new Model(j == 0 && i == -1 && !flag1 && !flag3, Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
             if (i != -1) {
                 class13_sub1_sub1_sub4_3.method272(true);
                 class13_sub1_sub1_sub4_3.method273(i, false);
@@ -535,13 +535,13 @@ public class GameObjectDefinition {
                 }
                 boolean flag = true;
                 for (int l = 0; l < anIntArray241.length; l++) {
-                    flag &= CacheableNode_Sub1_Sub1_Sub4.method266(anIntArray241[l] & 0xffff);
+                    flag &= Model.method266(anIntArray241[l] & 0xffff);
                 }
                 return flag;
             }
             for (int k = 0; k < anIntArray289.length; k++) {
                 if (anIntArray289[k] == i) {
-                    return CacheableNode_Sub1_Sub1_Sub4.method266(anIntArray241[k] & 0xffff);
+                    return Model.method266(anIntArray241[k] & 0xffff);
                 }
             }
             return true;

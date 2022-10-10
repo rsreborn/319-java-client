@@ -9,7 +9,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
     public CacheableNode_Sub1_Sub1_Sub6_Sub2() {
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method298(int i) {
+    public Model method298(int i) {
         try {
             if (super.anInt1597 >= 0 && super.anInt1600 == 0) {
                 int j = Class50.aClass50Array800[super.anInt1597].anIntArray802[super.anInt1598];
@@ -45,12 +45,12 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
             if (aClass47_1717 == null) {
                 return null;
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method298(-37578);
+            Model class13_sub1_sub1_sub4 = method298(-37578);
             if (i <= 0) {
                 for (int j = 1; j > 0; j++) {
                 }
@@ -61,10 +61,10 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
             super.anInt1590 = class13_sub1_sub1_sub4.anInt1377;
             if (super.anInt1592 != -1 && super.anInt1593 != -1) {
                 Class40 class40 = Class40.aClass40Array685[super.anInt1592];
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = class40.method530();
+                Model class13_sub1_sub1_sub4_1 = class40.method530();
                 if (class13_sub1_sub1_sub4_1 != null) {
                     int k = class40.aClass50_689.anIntArray802[super.anInt1593];
-                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(k, 19953), 629, class13_sub1_sub1_sub4_1, true);
+                    Model class13_sub1_sub1_sub4_2 = new Model(false, Class8.method189(k, 19953), 629, class13_sub1_sub1_sub4_1, true);
                     class13_sub1_sub1_sub4_2.method278(0, -991, -super.anInt1596, 0);
                     class13_sub1_sub1_sub4_2.method272(true);
                     class13_sub1_sub1_sub4_2.method273(k, false);
@@ -74,10 +74,10 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
                         class13_sub1_sub1_sub4_2.method281(class40.anInt692, class40.anInt692, class40.anInt693, (byte) 0);
                     }
                     class13_sub1_sub1_sub4_2.method282(64 + class40.anInt695, 850 + class40.anInt696, -30, -50, -30, true);
-                    CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = {
+                    Model[] aclass13_sub1_sub1_sub4 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_2
                     };
-                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4, 0, true, 2);
+                    class13_sub1_sub1_sub4 = new Model(aclass13_sub1_sub1_sub4, 0, true, 2);
                 }
             }
             if (aClass47_1717.aByte768 == 1) {

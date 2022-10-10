@@ -96,12 +96,12 @@ public class Class40 {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method530() {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_697.get(anInt686);
+    public Model method530() {
+        Model class13_sub1_sub1_sub4 = (Model) aCache_697.get(anInt686);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
-        class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, anInt687);
+        class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt687);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }
