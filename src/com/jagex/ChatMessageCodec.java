@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
+
 public class ChatMessageCodec {
 
     public static char[] message = new char[100];
@@ -18,7 +20,7 @@ public class ChatMessageCodec {
         int k = 0;
         int l = -1;
         for (int i1 = 0; i1 < length; i1++) {
-            int j1 = buffer.readUnsignedByte();
+            int j1 = buffer.readUByte();
             int k1 = j1 >> 4 & 0xf;
             if (l == -1) {
                 if (k1 < 13) {

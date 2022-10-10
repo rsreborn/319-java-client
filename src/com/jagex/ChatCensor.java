@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class ChatCensor {
@@ -39,50 +40,50 @@ public class ChatCensor {
     }
 
     public static void method533(Buffer buffer) {
-        int i = buffer.readInt();
+        int i = buffer.readIntBE();
         aCharArrayArray712 = new char[i][];
         anIntArray713 = new int[i];
         for (int j = 0; j < i; j++) {
-            anIntArray713[j] = buffer.readUnsignedByte();
-            char[] ac = new char[buffer.readUnsignedByte()];
+            anIntArray713[j] = buffer.readUByte();
+            char[] ac = new char[buffer.readUByte()];
             for (int k = 0; k < ac.length; k++) {
-                ac[k] = (char) buffer.readUnsignedByte();
+                ac[k] = (char) buffer.readUByte();
             }
             aCharArrayArray712[j] = ac;
         }
     }
 
     public static void method534(Buffer buffer) {
-        int i = buffer.readInt();
+        int i = buffer.readIntBE();
         aCharArrayArray709 = new char[i][];
         aByteArrayArrayArray710 = new byte[i][][];
         method537(aByteArrayArrayArray710, buffer, aCharArrayArray709);
     }
 
     public static void method535(Buffer buffer) {
-        int j = buffer.readInt();
+        int j = buffer.readIntBE();
         aCharArrayArray711 = new char[j][];
         method538(true, buffer, aCharArrayArray711);
     }
 
     public static void method536(Buffer buffer) {
-        anIntArray708 = new int[buffer.readInt()];
+        anIntArray708 = new int[buffer.readIntBE()];
         for (int i = 0; i < anIntArray708.length; i++) {
-            anIntArray708[i] = buffer.readUnsignedShort();
+            anIntArray708[i] = buffer.readUShortBE();
         }
     }
 
     public static void method537(byte[][][] abyte0, Buffer buffer, char[][] ac) {
         for (int j = 0; j < ac.length; j++) {
-            char[] ac1 = new char[buffer.readUnsignedByte()];
+            char[] ac1 = new char[buffer.readUByte()];
             for (int k = 0; k < ac1.length; k++) {
-                ac1[k] = (char) buffer.readUnsignedByte();
+                ac1[k] = (char) buffer.readUByte();
             }
             ac[j] = ac1;
-            byte[][] abyte1 = new byte[buffer.readUnsignedByte()][2];
+            byte[][] abyte1 = new byte[buffer.readUByte()][2];
             for (int l = 0; l < abyte1.length; l++) {
-                abyte1[l][0] = (byte) buffer.readUnsignedByte();
-                abyte1[l][1] = (byte) buffer.readUnsignedByte();
+                abyte1[l][0] = (byte) buffer.readUByte();
+                abyte1[l][1] = (byte) buffer.readUByte();
             }
             if (abyte1.length > 0) {
                 abyte0[j] = abyte1;
@@ -92,9 +93,9 @@ public class ChatCensor {
 
     public static void method538(boolean flag, Buffer buffer, char[][] ac) {
         for (int i = 0; i < ac.length; i++) {
-            char[] ac1 = new char[buffer.readUnsignedByte()];
+            char[] ac1 = new char[buffer.readUByte()];
             for (int j = 0; j < ac1.length; j++) {
-                ac1[j] = (char) buffer.readUnsignedByte();
+                ac1[j] = (char) buffer.readUByte();
             }
             ac[i] = ac1;
         }
