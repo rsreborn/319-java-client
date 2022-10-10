@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
@@ -120,87 +121,87 @@ public class Widget {
             spriteCache = new Cache(50000);
             Buffer buffer = new Buffer(widgetCacheArchive.readFile("data", null));
             int parentId = -1;
-            int id = buffer.readUnsignedShort();
+            int id = buffer.readUShortBE();
             widgets = new Widget[id];
             while (buffer.position < buffer.payload.length) {
-                int widgetIndex = buffer.readUnsignedShort();
+                int widgetIndex = buffer.readUShortBE();
                 if (widgetIndex == 65535) {
-                    parentId = buffer.readUnsignedShort();
-                    widgetIndex = buffer.readUnsignedShort();
+                    parentId = buffer.readUShortBE();
+                    widgetIndex = buffer.readUShortBE();
                 }
                 Widget widget = widgets[widgetIndex] = new Widget();
                 widget.id = widgetIndex;
                 widget.parentId = parentId;
-                widget.type = buffer.readUnsignedByte();
-                widget.actionType = buffer.readUnsignedByte();
-                widget.contentType = buffer.readUnsignedShort();
-                widget.width = buffer.readUnsignedShort();
-                widget.height = buffer.readUnsignedShort();
-                widget.alpha = (byte) buffer.readUnsignedByte();
-                widget.hasHover = buffer.readUnsignedByte();
+                widget.type = buffer.readUByte();
+                widget.actionType = buffer.readUByte();
+                widget.contentType = buffer.readUShortBE();
+                widget.width = buffer.readUShortBE();
+                widget.height = buffer.readUShortBE();
+                widget.alpha = (byte) buffer.readUByte();
+                widget.hasHover = buffer.readUByte();
                 if (widget.hasHover != 0) {
-                    widget.hasHover = (widget.hasHover - 1 << 8) + buffer.readUnsignedByte();
+                    widget.hasHover = (widget.hasHover - 1 << 8) + buffer.readUByte();
                 } else {
                     widget.hasHover = -1;
                 }
-                int i1 = buffer.readUnsignedByte();
+                int i1 = buffer.readUByte();
                 if (i1 > 0) {
                     widget.anIntArray545 = new int[i1];
                     widget.anIntArray556 = new int[i1];
                     for (int j1 = 0; j1 < i1; j1++) {
-                        widget.anIntArray545[j1] = buffer.readUnsignedByte();
-                        widget.anIntArray556[j1] = buffer.readUnsignedShort();
+                        widget.anIntArray545[j1] = buffer.readUByte();
+                        widget.anIntArray556[j1] = buffer.readUShortBE();
                     }
                 }
-                int cs1Length = buffer.readUnsignedByte();
+                int cs1Length = buffer.readUByte();
                 if (cs1Length > 0) {
                     widget.cs1Opcodes = new int[cs1Length][];
                     for (int blockIndex = 0; blockIndex < cs1Length; blockIndex++) {
-                        int cs1BlockLength = buffer.readUnsignedShort();
+                        int cs1BlockLength = buffer.readUShortBE();
                         widget.cs1Opcodes[blockIndex] = new int[cs1BlockLength];
                         for (int cs1OpcodeIndex = 0; cs1OpcodeIndex < cs1BlockLength; cs1OpcodeIndex++) {
-                            widget.cs1Opcodes[blockIndex][cs1OpcodeIndex] = buffer.readUnsignedShort();
+                            widget.cs1Opcodes[blockIndex][cs1OpcodeIndex] = buffer.readUShortBE();
                         }
                     }
                 }
                 if (widget.type == 0) {
-                    widget.scrollLimit = buffer.readUnsignedShort();
-                    widget.hiddenUntilHovered = buffer.readUnsignedByte() == 1;
-                    int childrenCount = buffer.readUnsignedShort();
+                    widget.scrollLimit = buffer.readUShortBE();
+                    widget.hiddenUntilHovered = buffer.readUByte() == 1;
+                    int childrenCount = buffer.readUShortBE();
                     widget.children = new int[childrenCount];
                     widget.childX = new int[childrenCount];
                     widget.childY = new int[childrenCount];
                     for (int child = 0; child < childrenCount; child++) {
-                        widget.children[child] = buffer.readUnsignedShort();
-                        widget.childX[child] = buffer.readShort();
-                        widget.childY[child] = buffer.readShort();
+                        widget.children[child] = buffer.readUShortBE();
+                        widget.childX[child] = buffer.readShortBE();
+                        widget.childY[child] = buffer.readShortBE();
                     }
                 }
                 if (widget.type == 1) {
-                    widget.anInt574 = buffer.readUnsignedShort();
-                    widget.aBoolean594 = buffer.readUnsignedByte() == 1;
+                    widget.anInt574 = buffer.readUShortBE();
+                    widget.aBoolean594 = buffer.readUByte() == 1;
                 }
                 if (widget.type == 2) {
                     widget.itemContainerItemIds = new int[widget.width * widget.height];
                     widget.itemContainerItemAmounts = new int[widget.width * widget.height];
 
-                    widget.isItemSwappable = buffer.readUnsignedByte() == 1;
-                    widget.isInventory = buffer.readUnsignedByte() == 1;
-                    widget.isItemUsable = buffer.readUnsignedByte() == 1;
-                    widget.aBoolean578 = buffer.readUnsignedByte() == 1;
+                    widget.isItemSwappable = buffer.readUByte() == 1;
+                    widget.isInventory = buffer.readUByte() == 1;
+                    widget.isItemUsable = buffer.readUByte() == 1;
+                    widget.aBoolean578 = buffer.readUByte() == 1;
 
-                    widget.itemSpritePaddingX = buffer.readUnsignedByte();
-                    widget.itemSpritePaddingY = buffer.readUnsignedByte();
+                    widget.itemSpritePaddingX = buffer.readUByte();
+                    widget.itemSpritePaddingY = buffer.readUByte();
 
                     widget.spriteX = new int[20];
                     widget.spriteY = new int[20];
                     widget.sprites = new CacheableNode_Sub1_Sub4_Sub4[20];
 
                     for (int index = 0; index < 20; index++) {
-                        int hasSprite = buffer.readUnsignedByte();
+                        int hasSprite = buffer.readUByte();
                         if (hasSprite == 1) {
-                            widget.spriteX[index] = buffer.readShort();
-                            widget.spriteY[index] = buffer.readShort();
+                            widget.spriteX[index] = buffer.readShortBE();
+                            widget.spriteY[index] = buffer.readShortBE();
                             String spriteName = buffer.readString();
                             if (mediaCacheArchive != null && spriteName.length() > 0) {
                                 int spriteId = spriteName.lastIndexOf(",");
@@ -217,27 +218,27 @@ public class Widget {
                     }
                 }
                 if (widget.type == 3) {
-                    widget.isFilled = buffer.readUnsignedByte() == 1;
+                    widget.isFilled = buffer.readUByte() == 1;
                 }
                 if (widget.type == 4 || widget.type == 1) {
-                    widget.isTextCentered = buffer.readUnsignedByte() == 1;
-                    int font = buffer.readUnsignedByte();
+                    widget.isTextCentered = buffer.readUByte() == 1;
+                    int font = buffer.readUByte();
                     if (fonts != null) {
                         widget.fonts = fonts[font];
                     }
-                    widget.hasDropShadow = buffer.readUnsignedByte() == 1;
+                    widget.hasDropShadow = buffer.readUByte() == 1;
                 }
                 if (widget.type == 4) {
                     widget.disabledText = buffer.readString();
                     widget.enabledText = buffer.readString();
                 }
                 if (widget.type == 1 || widget.type == 3 || widget.type == 4) {
-                    widget.disabledColor = buffer.readInt();
+                    widget.disabledColor = buffer.readIntBE();
                 }
                 if (widget.type == 3 || widget.type == 4) {
-                    widget.enabledColor = buffer.readInt();
-                    widget.disabledHoverColor = buffer.readInt();
-                    widget.enabledHoverColor = buffer.readInt();
+                    widget.enabledColor = buffer.readIntBE();
+                    widget.disabledHoverColor = buffer.readIntBE();
+                    widget.enabledHoverColor = buffer.readIntBE();
                 }
                 if (widget.type == 5) {
                     String spriteName = buffer.readString();
@@ -252,45 +253,45 @@ public class Widget {
                     }
                 }
                 if (widget.type == 6) {
-                    int l = buffer.readUnsignedByte();
+                    int l = buffer.readUByte();
                     if (l != 0) {
                         widget.modelType = 1;
-                        widget.modelId = (l - 1 << 8) + buffer.readUnsignedByte();
+                        widget.modelId = (l - 1 << 8) + buffer.readUByte();
                     }
-                    l = buffer.readUnsignedByte();
+                    l = buffer.readUByte();
                     if (l != 0) {
                         widget.anInt587 = 1;
-                        widget.anInt588 = (l - 1 << 8) + buffer.readUnsignedByte();
+                        widget.anInt588 = (l - 1 << 8) + buffer.readUByte();
                     }
-                    l = buffer.readUnsignedByte();
+                    l = buffer.readUByte();
                     if (l != 0) {
-                        widget.anInt571 = (l - 1 << 8) + buffer.readUnsignedByte();
+                        widget.anInt571 = (l - 1 << 8) + buffer.readUByte();
                     } else {
                         widget.anInt571 = -1;
                     }
-                    l = buffer.readUnsignedByte();
+                    l = buffer.readUByte();
                     if (l != 0) {
-                        widget.anInt572 = (l - 1 << 8) + buffer.readUnsignedByte();
+                        widget.anInt572 = (l - 1 << 8) + buffer.readUByte();
                     } else {
                         widget.anInt572 = -1;
                     }
-                    widget.anInt534 = buffer.readUnsignedShort();
-                    widget.anInt535 = buffer.readUnsignedShort();
-                    widget.anInt536 = buffer.readUnsignedShort();
+                    widget.anInt534 = buffer.readUShortBE();
+                    widget.anInt535 = buffer.readUShortBE();
+                    widget.anInt536 = buffer.readUShortBE();
                 }
                 if (widget.type == 7) {
                     widget.itemContainerItemIds = new int[widget.width * widget.height];
                     widget.itemContainerItemAmounts = new int[widget.width * widget.height];
-                    widget.isTextCentered = buffer.readUnsignedByte() == 1;
-                    int l2 = buffer.readUnsignedByte();
+                    widget.isTextCentered = buffer.readUByte() == 1;
+                    int l2 = buffer.readUByte();
                     if (fonts != null) {
                         widget.fonts = fonts[l2];
                     }
-                    widget.hasDropShadow = buffer.readUnsignedByte() == 1;
-                    widget.disabledColor = buffer.readInt();
-                    widget.itemSpritePaddingX = buffer.readShort();
-                    widget.itemSpritePaddingY = buffer.readShort();
-                    widget.isInventory = buffer.readUnsignedByte() == 1;
+                    widget.hasDropShadow = buffer.readUByte() == 1;
+                    widget.disabledColor = buffer.readIntBE();
+                    widget.itemSpritePaddingX = buffer.readShortBE();
+                    widget.itemSpritePaddingY = buffer.readShortBE();
+                    widget.isInventory = buffer.readUByte() == 1;
                     widget.options = new String[5];
                     for (int k4 = 0; k4 < 5; k4++) {
                         widget.options[k4] = buffer.readString();
@@ -302,7 +303,7 @@ public class Widget {
                 if (widget.actionType == 2 || widget.type == 2) {
                     widget.aString563 = buffer.readString();
                     widget.aString553 = buffer.readString();
-                    widget.anInt558 = buffer.readUnsignedShort();
+                    widget.anInt558 = buffer.readUShortBE();
                 }
                 if (widget.actionType == 1 || widget.actionType == 4 || widget.actionType == 5 || widget.actionType == 6) {
                     widget.hoverText = buffer.readString();

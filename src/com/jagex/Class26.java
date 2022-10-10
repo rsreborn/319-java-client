@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class26 {
@@ -26,7 +27,7 @@ public class Class26 {
     public static void method473(CacheArchive cacheArchive, byte byte0) {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("varbit.dat", null));
-            anInt438 = buffer.readUnsignedShort();
+            anInt438 = buffer.readUShortBE();
             if (aClass26Array439 == null) {
                 aClass26Array439 = new Class26[anInt438];
             }
@@ -58,22 +59,22 @@ public class Class26 {
                 return;
             }
             do {
-                int k = buffer.readUnsignedByte();
+                int k = buffer.readUByte();
                 if (k == 0) {
                     return;
                 }
                 if (k == 1) {
-                    anInt441 = buffer.readUnsignedShort();
-                    anInt442 = buffer.readUnsignedByte();
-                    anInt443 = buffer.readUnsignedByte();
+                    anInt441 = buffer.readUShortBE();
+                    anInt442 = buffer.readUByte();
+                    anInt443 = buffer.readUByte();
                 } else if (k == 10) {
                     aString440 = buffer.readString();
                 } else if (k == 2) {
                     aBoolean444 = true;
                 } else if (k == 3) {
-                    anInt445 = buffer.readInt();
+                    anInt445 = buffer.readIntBE();
                 } else if (k == 4) {
-                    anInt446 = buffer.readInt();
+                    anInt446 = buffer.readIntBE();
                 } else {
                     System.out.println("Error unrecognised config code: " + k);
                 }

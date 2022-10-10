@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class4 {
@@ -34,7 +35,7 @@ public class Class4 {
     public static void method175(CacheArchive cacheArchive, byte byte0) {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("idk.dat", null));
-            anInt64 = buffer.readUnsignedShort();
+            anInt64 = buffer.readUShortBE();
             if (aClass4Array65 == null) {
                 aClass4Array65 = new Class4[anInt64];
             }
@@ -59,26 +60,26 @@ public class Class4 {
                 aBoolean60 = !aBoolean60;
             }
             do {
-                int j = buffer.readUnsignedByte();
+                int j = buffer.readUByte();
                 if (j == 0) {
                     return;
                 }
                 if (j == 1) {
-                    anInt66 = buffer.readUnsignedByte();
+                    anInt66 = buffer.readUByte();
                 } else if (j == 2) {
-                    int k = buffer.readUnsignedByte();
+                    int k = buffer.readUByte();
                     anIntArray67 = new int[k];
                     for (int l = 0; l < k; l++) {
-                        anIntArray67[l] = buffer.readUnsignedShort();
+                        anIntArray67[l] = buffer.readUShortBE();
                     }
                 } else if (j == 3) {
                     aBoolean71 = true;
                 } else if (j >= 40 && j < 50) {
-                    anIntArray68[j - 40] = buffer.readUnsignedShort();
+                    anIntArray68[j - 40] = buffer.readUShortBE();
                 } else if (j >= 50 && j < 60) {
-                    anIntArray69[j - 50] = buffer.readUnsignedShort();
+                    anIntArray69[j - 50] = buffer.readUShortBE();
                 } else if (j >= 60 && j < 70) {
-                    anIntArray70[j - 60] = buffer.readUnsignedShort();
+                    anIntArray70[j - 60] = buffer.readUShortBE();
                 } else {
                     System.out.println("Error unrecognised config code: " + j);
                 }

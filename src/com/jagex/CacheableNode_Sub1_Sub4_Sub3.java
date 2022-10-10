@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub4_Sub3 extends CacheableNode_Sub1_Sub4 {
@@ -27,24 +28,24 @@ public class CacheableNode_Sub1_Sub4_Sub3 extends CacheableNode_Sub1_Sub4 {
         anInt1666 = 809;
         Buffer buffer = new Buffer(cacheArchive.readFile(s + ".dat", null));
         Buffer class13_sub1_sub2_1 = new Buffer(cacheArchive.readFile("index.dat", null));
-        class13_sub1_sub2_1.position = buffer.readUnsignedShort();
-        anInt1673 = class13_sub1_sub2_1.readUnsignedShort();
-        anInt1674 = class13_sub1_sub2_1.readUnsignedShort();
-        int j = class13_sub1_sub2_1.readUnsignedByte();
+        class13_sub1_sub2_1.position = buffer.readUShortBE();
+        anInt1673 = class13_sub1_sub2_1.readUShortBE();
+        anInt1674 = class13_sub1_sub2_1.readUShortBE();
+        int j = class13_sub1_sub2_1.readUByte();
         anIntArray1668 = new int[j];
         for (int k = 0; k < j - 1; k++) {
             anIntArray1668[k + 1] = class13_sub1_sub2_1.readMediumBE();
         }
         for (int l = 0; l < i; l++) {
             class13_sub1_sub2_1.position += 2;
-            buffer.position += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
+            buffer.position += class13_sub1_sub2_1.readUShortBE() * class13_sub1_sub2_1.readUShortBE();
             class13_sub1_sub2_1.position++;
         }
-        anInt1671 = class13_sub1_sub2_1.readUnsignedByte();
-        anInt1672 = class13_sub1_sub2_1.readUnsignedByte();
-        anInt1669 = class13_sub1_sub2_1.readUnsignedShort();
-        anInt1670 = class13_sub1_sub2_1.readUnsignedShort();
-        int i1 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1671 = class13_sub1_sub2_1.readUByte();
+        anInt1672 = class13_sub1_sub2_1.readUByte();
+        anInt1669 = class13_sub1_sub2_1.readUShortBE();
+        anInt1670 = class13_sub1_sub2_1.readUShortBE();
+        int i1 = class13_sub1_sub2_1.readUByte();
         int j1 = anInt1669 * anInt1670;
         aByteArray1667 = new byte[j1];
         if (i1 == 0) {

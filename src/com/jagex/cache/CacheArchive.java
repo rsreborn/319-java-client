@@ -1,6 +1,6 @@
 package com.jagex.cache;
 
-import com.jagex.Buffer;
+import com.jagex.io.Buffer;
 import com.jagex.compress.Bzip2;
 import com.jagex.sign.Signlink;
 
@@ -38,14 +38,14 @@ public class CacheArchive {
                 buffer = new Buffer(this.decompressedData);
                 compressed = true;
             }
-            fileCount = buffer.readUnsignedShort();
+            fileCount = buffer.readUShortBE();
             fileNameHashes = new int[fileCount];
             decompressedFileLengths = new int[fileCount];
             compressedFileLengths = new int[fileCount];
             fileDataOffsets = new int[fileCount];
             int offset = buffer.position + fileCount * 10;
             for (int i = 0; i < fileCount; i++) {
-                fileNameHashes[i] = buffer.readInt();
+                fileNameHashes[i] = buffer.readIntBE();
                 decompressedFileLengths[i] = buffer.readMediumBE();
                 compressedFileLengths[i] = buffer.readMediumBE();
                 fileDataOffsets[i] = offset;

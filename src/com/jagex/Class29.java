@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class29 {
@@ -114,27 +115,27 @@ public class Class29 {
 
     public void method489(Class6 class6, int i, Buffer buffer) {
         try {
-            int j = buffer.readUnsignedByte();
+            int j = buffer.readUByte();
             anIntArray465[0] = j >> 4;
             anIntArray465[1] = j & 0xf;
             if (i != anInt464) {
                 aBoolean463 = !aBoolean463;
             }
             if (j != 0) {
-                anIntArray468[0] = buffer.readUnsignedShort();
-                anIntArray468[1] = buffer.readUnsignedShort();
-                int k = buffer.readUnsignedByte();
+                anIntArray468[0] = buffer.readUShortBE();
+                anIntArray468[1] = buffer.readUShortBE();
+                int k = buffer.readUByte();
                 for (int l = 0; l < 2; l++) {
                     for (int i1 = 0; i1 < anIntArray465[l]; i1++) {
-                        anIntArrayArrayArray466[l][0][i1] = buffer.readUnsignedShort();
-                        anIntArrayArrayArray467[l][0][i1] = buffer.readUnsignedShort();
+                        anIntArrayArrayArray466[l][0][i1] = buffer.readUShortBE();
+                        anIntArrayArrayArray467[l][0][i1] = buffer.readUShortBE();
                     }
                 }
                 for (int j1 = 0; j1 < 2; j1++) {
                     for (int k1 = 0; k1 < anIntArray465[j1]; k1++) {
                         if ((k & 1 << j1 * 4 << k1) != 0) {
-                            anIntArrayArrayArray466[j1][1][k1] = buffer.readUnsignedShort();
-                            anIntArrayArrayArray467[j1][1][k1] = buffer.readUnsignedShort();
+                            anIntArrayArrayArray466[j1][1][k1] = buffer.readUShortBE();
+                            anIntArrayArrayArray467[j1][1][k1] = buffer.readUShortBE();
                         } else {
                             anIntArrayArrayArray466[j1][1][k1] = anIntArrayArrayArray466[j1][0][k1];
                             anIntArrayArrayArray467[j1][1][k1] = anIntArrayArrayArray467[j1][0][k1];

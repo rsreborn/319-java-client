@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 import java.util.Random;
@@ -38,8 +39,8 @@ public class Font extends CacheableNode_Sub1_Sub4 {
             Buffer buffer = new Buffer(cacheArchive.readFile(s + ".dat", null));
             Buffer class13_sub1_sub2_1 = new Buffer(cacheArchive.readFile("index.dat", null));
             byte byte0 = -1;
-            class13_sub1_sub2_1.position = buffer.readUnsignedShort() + 4;
-            int k = class13_sub1_sub2_1.readUnsignedByte();
+            class13_sub1_sub2_1.position = buffer.readUShortBE() + 4;
+            int k = class13_sub1_sub2_1.readUByte();
             if (i != anInt1649) {
                 throw new NullPointerException();
             }
@@ -48,11 +49,11 @@ public class Font extends CacheableNode_Sub1_Sub4 {
             }
             for (int l = 0; l < 256; l++) {
                 int j = l;
-                anIntArray1656[l] = class13_sub1_sub2_1.readUnsignedByte();
-                anIntArray1657[l] = class13_sub1_sub2_1.readUnsignedByte();
-                int i1 = anIntArray1654[l] = class13_sub1_sub2_1.readUnsignedShort();
-                int j1 = anIntArray1655[l] = class13_sub1_sub2_1.readUnsignedShort();
-                int k1 = class13_sub1_sub2_1.readUnsignedByte();
+                anIntArray1656[l] = class13_sub1_sub2_1.readUByte();
+                anIntArray1657[l] = class13_sub1_sub2_1.readUByte();
+                int i1 = anIntArray1654[l] = class13_sub1_sub2_1.readUShortBE();
+                int j1 = anIntArray1655[l] = class13_sub1_sub2_1.readUShortBE();
+                int k1 = class13_sub1_sub2_1.readUByte();
                 int l1 = i1 * j1;
                 aByteArrayArray1653[l] = new byte[l1];
                 if (k1 == 0) {

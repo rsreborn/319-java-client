@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
@@ -36,7 +37,7 @@ public class Class40 {
             if (byte0 != 72) {
                 anInt683 = -170;
             }
-            anInt684 = buffer.readUnsignedShort();
+            anInt684 = buffer.readUShortBE();
             if (aClass40Array685 == null) {
                 aClass40Array685 = new Class40[anInt684];
             }
@@ -60,31 +61,31 @@ public class Class40 {
                 anInt683 = -226;
             }
             do {
-                int j = buffer.readUnsignedByte();
+                int j = buffer.readUByte();
                 if (j == 0) {
                     return;
                 }
                 if (j == 1) {
-                    anInt687 = buffer.readUnsignedShort();
+                    anInt687 = buffer.readUShortBE();
                 } else if (j == 2) {
-                    anInt688 = buffer.readUnsignedShort();
+                    anInt688 = buffer.readUShortBE();
                     if (Class50.aClass50Array800 != null) {
                         aClass50_689 = Class50.aClass50Array800[anInt688];
                     }
                 } else if (j == 4) {
-                    anInt692 = buffer.readUnsignedShort();
+                    anInt692 = buffer.readUShortBE();
                 } else if (j == 5) {
-                    anInt693 = buffer.readUnsignedShort();
+                    anInt693 = buffer.readUShortBE();
                 } else if (j == 6) {
-                    anInt694 = buffer.readUnsignedShort();
+                    anInt694 = buffer.readUShortBE();
                 } else if (j == 7) {
-                    anInt695 = buffer.readUnsignedByte();
+                    anInt695 = buffer.readUByte();
                 } else if (j == 8) {
-                    anInt696 = buffer.readUnsignedByte();
+                    anInt696 = buffer.readUByte();
                 } else if (j >= 40 && j < 50) {
-                    anIntArray690[j - 40] = buffer.readUnsignedShort();
+                    anIntArray690[j - 40] = buffer.readUShortBE();
                 } else if (j >= 50 && j < 60) {
-                    anIntArray691[j - 50] = buffer.readUnsignedShort();
+                    anIntArray691[j - 50] = buffer.readUShortBE();
                 } else {
                     System.out.println("Error unrecognised spotanim config code: " + j);
                 }
