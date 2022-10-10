@@ -121,7 +121,7 @@ public class Class47 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method582(int i, int j, boolean flag, int[] ai) {
+    public CacheableNode_Sub1_Sub1_Sub4 method582(int i, int j, boolean flag, int[] ai) {
         try {
             if (!flag) {
                 aBoolean762 = !aBoolean762;
@@ -134,25 +134,25 @@ public class Class47 {
                     return class47.method582(i, j, true, ai);
                 }
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Node_Sub1_Sub1_Sub4) aCache_759.method172(aLong770);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_759.method172(aLong770);
             if (class13_sub1_sub1_sub4 == null) {
                 boolean flag1 = false;
                 for (int k = 0; k < anIntArray769.length; k++) {
-                    if (!Node_Sub1_Sub1_Sub4.method266(anIntArray769[k])) {
+                    if (!CacheableNode_Sub1_Sub1_Sub4.method266(anIntArray769[k])) {
                         flag1 = true;
                     }
                 }
                 if (flag1) {
                     return null;
                 }
-                Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[anIntArray769.length];
+                CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4[anIntArray769.length];
                 for (int l = 0; l < anIntArray769.length; l++) {
-                    aclass13_sub1_sub1_sub4[l] = Node_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray769[l]);
+                    aclass13_sub1_sub1_sub4[l] = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray769[l]);
                 }
                 if (aclass13_sub1_sub1_sub4.length == 1) {
                     class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
                 } else {
-                    class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
+                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
                 }
                 if (anIntArray750 != null) {
                     for (int i1 = 0; i1 < anIntArray750.length; i1++) {
@@ -163,7 +163,7 @@ public class Class47 {
                 class13_sub1_sub1_sub4.method282(64 + anInt776, 850 + anInt755, -30, -50, -30, true);
                 aCache_759.method173(class13_sub1_sub1_sub4, aLong770, 9388);
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = Node_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = CacheableNode_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
             class13_sub1_sub1_sub4_1.method267(Class8.method189(j, 19953) & Class8.method189(i, 19953), aByte779, class13_sub1_sub1_sub4);
             if (j != -1 && i != -1) {
                 class13_sub1_sub1_sub4_1.method274(aByte774, ai, i, j);
@@ -186,7 +186,7 @@ public class Class47 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method583(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method583(int i) {
         try {
             i = 78 / i;
             if (anIntArray751 != null) {
@@ -202,22 +202,22 @@ public class Class47 {
             }
             boolean flag = false;
             for (int j = 0; j < anIntArray766.length; j++) {
-                if (!Node_Sub1_Sub1_Sub4.method266(anIntArray766[j])) {
+                if (!CacheableNode_Sub1_Sub1_Sub4.method266(anIntArray766[j])) {
                     flag = true;
                 }
             }
             if (flag) {
                 return null;
             }
-            Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[anIntArray766.length];
+            CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4[anIntArray766.length];
             for (int k = 0; k < anIntArray766.length; k++) {
-                aclass13_sub1_sub1_sub4[k] = Node_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray766[k]);
+                aclass13_sub1_sub1_sub4[k] = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray766[k]);
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
             if (aclass13_sub1_sub1_sub4.length == 1) {
                 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
             } else {
-                class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
+                class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
             }
             if (anIntArray750 != null) {
                 for (int l = 0; l < anIntArray750.length; l++) {

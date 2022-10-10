@@ -5,7 +5,7 @@ import com.jagex.sign.Signlink;
 
 import java.util.Random;
 
-public class Font extends Node_Sub1_Sub4 {
+public class Font extends CacheableNode_Sub1_Sub4 {
 
     public int anInt1648;
     public int anInt1649;
@@ -310,7 +310,7 @@ public class Font extends Node_Sub1_Sub4 {
                 }
             }
             if (aBoolean1661) {
-                Node_Sub1_Sub4.method359((byte) -40, 0x800000, l, j + (int) ((double) anInt1659 * 0.69999999999999996D), i - l);
+                CacheableNode_Sub1_Sub4.method359((byte) -40, 0x800000, l, j + (int) ((double) anInt1659 * 0.69999999999999996D), i - l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -427,31 +427,31 @@ public class Font extends Node_Sub1_Sub4 {
     }
 
     public void method392(byte[] abyte0, int i, int j, int k, int l, int i1) {
-        int j1 = i + j * Node_Sub1_Sub4.anInt1424;
-        int k1 = Node_Sub1_Sub4.anInt1424 - k;
+        int j1 = i + j * CacheableNode_Sub1_Sub4.anInt1424;
+        int k1 = CacheableNode_Sub1_Sub4.anInt1424 - k;
         int l1 = 0;
         int i2 = 0;
-        if (j < Node_Sub1_Sub4.anInt1426) {
-            int j2 = Node_Sub1_Sub4.anInt1426 - j;
+        if (j < CacheableNode_Sub1_Sub4.anInt1426) {
+            int j2 = CacheableNode_Sub1_Sub4.anInt1426 - j;
             l -= j2;
-            j = Node_Sub1_Sub4.anInt1426;
+            j = CacheableNode_Sub1_Sub4.anInt1426;
             i2 += j2 * k;
-            j1 += j2 * Node_Sub1_Sub4.anInt1424;
+            j1 += j2 * CacheableNode_Sub1_Sub4.anInt1424;
         }
-        if (j + l >= Node_Sub1_Sub4.anInt1427) {
-            l -= ((j + l) - Node_Sub1_Sub4.anInt1427) + 1;
+        if (j + l >= CacheableNode_Sub1_Sub4.anInt1427) {
+            l -= ((j + l) - CacheableNode_Sub1_Sub4.anInt1427) + 1;
         }
-        if (i < Node_Sub1_Sub4.anInt1428) {
-            int k2 = Node_Sub1_Sub4.anInt1428 - i;
+        if (i < CacheableNode_Sub1_Sub4.anInt1428) {
+            int k2 = CacheableNode_Sub1_Sub4.anInt1428 - i;
             k -= k2;
-            i = Node_Sub1_Sub4.anInt1428;
+            i = CacheableNode_Sub1_Sub4.anInt1428;
             i2 += k2;
             j1 += k2;
             l1 += k2;
             k1 += k2;
         }
-        if (i + k >= Node_Sub1_Sub4.anInt1429) {
-            int l2 = ((i + k) - Node_Sub1_Sub4.anInt1429) + 1;
+        if (i + k >= CacheableNode_Sub1_Sub4.anInt1429) {
+            int l2 = ((i + k) - CacheableNode_Sub1_Sub4.anInt1429) + 1;
             k -= l2;
             l1 += l2;
             k1 += l2;
@@ -459,7 +459,7 @@ public class Font extends Node_Sub1_Sub4 {
         if (k <= 0 || l <= 0) {
             return;
         } else {
-            method393(Node_Sub1_Sub4.anIntArray1423, abyte0, i1, i2, j1, k, l, k1, l1);
+            method393(CacheableNode_Sub1_Sub4.anIntArray1423, abyte0, i1, i2, j1, k, l, k1, l1);
             return;
         }
     }
@@ -506,31 +506,31 @@ public class Font extends Node_Sub1_Sub4 {
     public void method394(int i, int j, byte byte0, int k, int l, byte[] abyte0, int i1,
                           int j1) {
         try {
-            int k1 = j + l * Node_Sub1_Sub4.anInt1424;
-            int l1 = Node_Sub1_Sub4.anInt1424 - k;
+            int k1 = j + l * CacheableNode_Sub1_Sub4.anInt1424;
+            int l1 = CacheableNode_Sub1_Sub4.anInt1424 - k;
             int i2 = 0;
             int j2 = 0;
-            if (l < Node_Sub1_Sub4.anInt1426) {
-                int k2 = Node_Sub1_Sub4.anInt1426 - l;
+            if (l < CacheableNode_Sub1_Sub4.anInt1426) {
+                int k2 = CacheableNode_Sub1_Sub4.anInt1426 - l;
                 j1 -= k2;
-                l = Node_Sub1_Sub4.anInt1426;
+                l = CacheableNode_Sub1_Sub4.anInt1426;
                 j2 += k2 * k;
-                k1 += k2 * Node_Sub1_Sub4.anInt1424;
+                k1 += k2 * CacheableNode_Sub1_Sub4.anInt1424;
             }
-            if (l + j1 >= Node_Sub1_Sub4.anInt1427) {
-                j1 -= ((l + j1) - Node_Sub1_Sub4.anInt1427) + 1;
+            if (l + j1 >= CacheableNode_Sub1_Sub4.anInt1427) {
+                j1 -= ((l + j1) - CacheableNode_Sub1_Sub4.anInt1427) + 1;
             }
-            if (j < Node_Sub1_Sub4.anInt1428) {
-                int l2 = Node_Sub1_Sub4.anInt1428 - j;
+            if (j < CacheableNode_Sub1_Sub4.anInt1428) {
+                int l2 = CacheableNode_Sub1_Sub4.anInt1428 - j;
                 k -= l2;
-                j = Node_Sub1_Sub4.anInt1428;
+                j = CacheableNode_Sub1_Sub4.anInt1428;
                 j2 += l2;
                 k1 += l2;
                 i2 += l2;
                 l1 += l2;
             }
-            if (j + k >= Node_Sub1_Sub4.anInt1429) {
-                int i3 = ((j + k) - Node_Sub1_Sub4.anInt1429) + 1;
+            if (j + k >= CacheableNode_Sub1_Sub4.anInt1429) {
+                int i3 = ((j + k) - CacheableNode_Sub1_Sub4.anInt1429) + 1;
                 k -= i3;
                 i2 += i3;
                 l1 += i3;
@@ -538,7 +538,7 @@ public class Font extends Node_Sub1_Sub4 {
             if (k <= 0 || j1 <= 0) {
                 return;
             }
-            method395(i1, 0, i2, k, l1, j1, Node_Sub1_Sub4.anIntArray1423, i, j2, abyte0, k1);
+            method395(i1, 0, i2, k, l1, j1, CacheableNode_Sub1_Sub4.anIntArray1423, i, j2, abyte0, k1);
             if (byte0 != 9) {
                 for (int j3 = 1; j3 > 0; j3++) {
                 }

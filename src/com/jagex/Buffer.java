@@ -1,11 +1,12 @@
 package com.jagex;
 
+import com.jagex.util.CacheableNode;
 import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 
 import java.math.BigInteger;
 
-public class Buffer extends Node_Sub1 {
+public class Buffer extends CacheableNode {
 
     public static int[] anIntArray1401;
     public final int[] BIT_MASKS = {

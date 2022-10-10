@@ -3,7 +3,7 @@ package com.jagex;
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
+public class CacheableNode_Sub1_Sub4_ extends CacheableNode_Sub1_Sub4 {
 
     public static boolean aBoolean1623 = true;
     public static int anInt1624 = 809;
@@ -20,7 +20,7 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
     public static int[] anIntArray1635;
     public static int[] anIntArray1636;
     public static int anInt1637;
-    public static Node_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1638 = new Node_Sub1_Sub4_Sub3[50];
+    public static CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1638 = new CacheableNode_Sub1_Sub4_Sub3[50];
     public static boolean[] aBooleanArray1639 = new boolean[50];
     public static int[] anIntArray1640 = new int[50];
     public static int anInt1641;
@@ -76,15 +76,15 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
 
     public static void method364(boolean flag) {
         try {
-            anIntArray1636 = new int[Node_Sub1_Sub4.anInt1425];
+            anIntArray1636 = new int[CacheableNode_Sub1_Sub4.anInt1425];
             if (!flag) {
                 aBoolean1623 = !aBoolean1623;
             }
-            for (int i = 0; i < Node_Sub1_Sub4.anInt1425; i++) {
-                anIntArray1636[i] = Node_Sub1_Sub4.anInt1424 * i;
+            for (int i = 0; i < CacheableNode_Sub1_Sub4.anInt1425; i++) {
+                anIntArray1636[i] = CacheableNode_Sub1_Sub4.anInt1424 * i;
             }
-            anInt1630 = Node_Sub1_Sub4.anInt1424 / 2;
-            anInt1631 = Node_Sub1_Sub4.anInt1425 / 2;
+            anInt1630 = CacheableNode_Sub1_Sub4.anInt1424 / 2;
+            anInt1631 = CacheableNode_Sub1_Sub4.anInt1425 / 2;
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("40101, " + flag + ", " + runtimeexception);
@@ -156,7 +156,7 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             anInt1637 = 0;
             for (int i = 0; i < 50; i++) {
                 try {
-                    aClass13_Sub1_Sub4_Sub3Array1638[i] = new Node_Sub1_Sub4_Sub3(cacheArchive, String.valueOf(i), 0);
+                    aClass13_Sub1_Sub4_Sub3Array1638[i] = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive, String.valueOf(i), 0);
                     if (aBoolean1625 && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method396(true);
                     } else {
@@ -245,7 +245,7 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             anIntArrayArray1643[k] = null;
         }
         anIntArrayArray1643[i] = ai;
-        Node_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1638[i];
+        CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1638[i];
         int[] ai1 = anIntArrayArray1647[i];
         if (aBoolean1625) {
             aBooleanArray1639[i] = false;
@@ -412,14 +412,14 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             k3 = (k1 - i2 << 15) / (i - k);
         }
         if (i <= j && i <= k) {
-            if (i >= Node_Sub1_Sub4.anInt1427) {
+            if (i >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (j > Node_Sub1_Sub4.anInt1427) {
-                j = Node_Sub1_Sub4.anInt1427;
+            if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+                j = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (j < k) {
                 j1 = l <<= 16;
@@ -441,39 +441,39 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 if (i != j && j3 < j2 || i == j && j3 > l2) {
                     k -= j;
                     j -= i;
-                    for (i = anIntArray1636[i]; --j >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                        method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
+                    for (i = anIntArray1636[i]; --j >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                        method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
                         j1 += j3;
                         l += j2;
                         i2 += k3;
                         k1 += k2;
                     }
                     while (--k >= 0) {
-                        method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
+                        method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
                         j1 += j3;
                         i1 += l2;
                         i2 += k3;
                         l1 += i3;
-                        i += Node_Sub1_Sub4.anInt1424;
+                        i += CacheableNode_Sub1_Sub4.anInt1424;
                     }
                     return;
                 }
                 k -= j;
                 j -= i;
-                for (i = anIntArray1636[i]; --j >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
+                for (i = anIntArray1636[i]; --j >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                     j1 += j3;
                     l += j2;
                     i2 += k3;
                     k1 += k2;
                 }
                 while (--k >= 0) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                     j1 += j3;
                     i1 += l2;
                     i2 += k3;
                     l1 += i3;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
@@ -496,51 +496,51 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (i != k && j3 < j2 || i == k && l2 > j2) {
                 j -= k;
                 k -= i;
-                for (i = anIntArray1636[i]; --k >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
+                for (i = anIntArray1636[i]; --k >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                     i1 += j3;
                     l += j2;
                     l1 += k3;
                     k1 += k2;
                 }
                 while (--j >= 0) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
                     j1 += l2;
                     l += j2;
                     i2 += i3;
                     k1 += k2;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             j -= k;
             k -= i;
-            for (i = anIntArray1636[i]; --k >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
+            for (i = anIntArray1636[i]; --k >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                 i1 += j3;
                 l += j2;
                 l1 += k3;
                 k1 += k2;
             }
             while (--j >= 0) {
-                method375(Node_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, i, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                 j1 += l2;
                 l += j2;
                 i2 += i3;
                 k1 += k2;
-                i += Node_Sub1_Sub4.anInt1424;
+                i += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
         if (j <= k) {
-            if (j >= Node_Sub1_Sub4.anInt1427) {
+            if (j >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (i > Node_Sub1_Sub4.anInt1427) {
-                i = Node_Sub1_Sub4.anInt1427;
+            if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+                i = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (k < i) {
                 l = i1 <<= 16;
@@ -562,39 +562,39 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 if (j != k && j2 < l2 || j == k && j2 > j3) {
                     i -= k;
                     k -= j;
-                    for (j = anIntArray1636[j]; --k >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                        method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
+                    for (j = anIntArray1636[j]; --k >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                        method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                         l += j2;
                         i1 += l2;
                         k1 += k2;
                         l1 += i3;
                     }
                     while (--i >= 0) {
-                        method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
+                        method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                         l += j2;
                         j1 += j3;
                         k1 += k2;
                         i2 += k3;
-                        j += Node_Sub1_Sub4.anInt1424;
+                        j += CacheableNode_Sub1_Sub4.anInt1424;
                     }
                     return;
                 }
                 i -= k;
                 k -= j;
-                for (j = anIntArray1636[j]; --k >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
+                for (j = anIntArray1636[j]; --k >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                     l += j2;
                     i1 += l2;
                     k1 += k2;
                     l1 += i3;
                 }
                 while (--i >= 0) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
                     l += j2;
                     j1 += j3;
                     k1 += k2;
                     i2 += k3;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
@@ -617,50 +617,50 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (j2 < l2) {
                 k -= i;
                 i -= j;
-                for (j = anIntArray1636[j]; --i >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
+                for (j = anIntArray1636[j]; --i >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
                     j1 += j2;
                     i1 += l2;
                     i2 += k2;
                     l1 += i3;
                 }
                 while (--k >= 0) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                     l += j3;
                     i1 += l2;
                     k1 += k3;
                     l1 += i3;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             k -= i;
             i -= j;
-            for (j = anIntArray1636[j]; --i >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
+            for (j = anIntArray1636[j]; --i >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                 j1 += j2;
                 i1 += l2;
                 i2 += k2;
                 l1 += i3;
             }
             while (--k >= 0) {
-                method375(Node_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, j, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                 l += j3;
                 i1 += l2;
                 k1 += k3;
                 l1 += i3;
-                j += Node_Sub1_Sub4.anInt1424;
+                j += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
-        if (k >= Node_Sub1_Sub4.anInt1427) {
+        if (k >= CacheableNode_Sub1_Sub4.anInt1427) {
             return;
         }
-        if (i > Node_Sub1_Sub4.anInt1427) {
-            i = Node_Sub1_Sub4.anInt1427;
+        if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+            i = CacheableNode_Sub1_Sub4.anInt1427;
         }
-        if (j > Node_Sub1_Sub4.anInt1427) {
-            j = Node_Sub1_Sub4.anInt1427;
+        if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+            j = CacheableNode_Sub1_Sub4.anInt1427;
         }
         if (i < j) {
             i1 = j1 <<= 16;
@@ -682,39 +682,39 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (l2 < j3) {
                 j -= i;
                 i -= k;
-                for (k = anIntArray1636[k]; --i >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
+                for (k = anIntArray1636[k]; --i >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                     i1 += l2;
                     j1 += j3;
                     l1 += i3;
                     i2 += k3;
                 }
                 while (--j >= 0) {
-                    method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
+                    method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                     i1 += l2;
                     l += j2;
                     l1 += i3;
                     k1 += k2;
-                    k += Node_Sub1_Sub4.anInt1424;
+                    k += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             j -= i;
             i -= k;
-            for (k = anIntArray1636[k]; --i >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
+            for (k = anIntArray1636[k]; --i >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
                 i1 += l2;
                 j1 += j3;
                 l1 += i3;
                 i2 += k3;
             }
             while (--j >= 0) {
-                method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                 i1 += l2;
                 l += j2;
                 l1 += i3;
                 k1 += k2;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
@@ -737,39 +737,39 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
         if (l2 < j3) {
             i -= j;
             j -= k;
-            for (k = anIntArray1636[k]; --j >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
+            for (k = anIntArray1636[k]; --j >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                 l += l2;
                 j1 += j3;
                 k1 += i3;
                 i2 += k3;
             }
             while (--i >= 0) {
-                method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
+                method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                 i1 += j2;
                 j1 += j3;
                 l1 += k2;
                 i2 += k3;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
         i -= j;
         j -= k;
-        for (k = anIntArray1636[k]; --j >= 0; k += Node_Sub1_Sub4.anInt1424) {
-            method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
+        for (k = anIntArray1636[k]; --j >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+            method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
             l += l2;
             j1 += j3;
             k1 += i3;
             i2 += k3;
         }
         while (--i >= 0) {
-            method375(Node_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
+            method375(CacheableNode_Sub1_Sub4.anIntArray1423, k, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
             i1 += j2;
             j1 += j3;
             l1 += k2;
             i2 += k3;
-            k += Node_Sub1_Sub4.anInt1424;
+            k += CacheableNode_Sub1_Sub4.anInt1424;
         }
     }
 
@@ -782,8 +782,8 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 } else {
                     l1 = 0;
                 }
-                if (i1 > Node_Sub1_Sub4.anInt1430) {
-                    i1 = Node_Sub1_Sub4.anInt1430;
+                if (i1 > CacheableNode_Sub1_Sub4.anInt1430) {
+                    i1 = CacheableNode_Sub1_Sub4.anInt1430;
                 }
                 if (l < 0) {
                     j1 -= l * l1;
@@ -852,8 +852,8 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
         }
         int i2 = (k1 - j1) / (i1 - l);
         if (aBoolean1626) {
-            if (i1 > Node_Sub1_Sub4.anInt1430) {
-                i1 = Node_Sub1_Sub4.anInt1430;
+            if (i1 > CacheableNode_Sub1_Sub4.anInt1430) {
+                i1 = CacheableNode_Sub1_Sub4.anInt1430;
             }
             if (l < 0) {
                 j1 -= l * i2;
@@ -896,14 +896,14 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             j2 = (l - j1 << 16) / (i - k);
         }
         if (i <= j && i <= k) {
-            if (i >= Node_Sub1_Sub4.anInt1427) {
+            if (i >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (j > Node_Sub1_Sub4.anInt1427) {
-                j = Node_Sub1_Sub4.anInt1427;
+            if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+                j = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (j < k) {
                 j1 = l <<= 16;
@@ -920,31 +920,31 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 if (i != j && j2 < l1 || i == j && j2 > i2) {
                     k -= j;
                     j -= i;
-                    for (i = anIntArray1636[i]; --j >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                        method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, l >> 16);
+                    for (i = anIntArray1636[i]; --j >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                        method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, l >> 16);
                         j1 += j2;
                         l += l1;
                     }
                     while (--k >= 0) {
-                        method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, i1 >> 16);
+                        method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, i1 >> 16);
                         j1 += j2;
                         i1 += i2;
-                        i += Node_Sub1_Sub4.anInt1424;
+                        i += CacheableNode_Sub1_Sub4.anInt1424;
                     }
                     return;
                 }
                 k -= j;
                 j -= i;
-                for (i = anIntArray1636[i]; --j >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, j1 >> 16);
+                for (i = anIntArray1636[i]; --j >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, j1 >> 16);
                     j1 += j2;
                     l += l1;
                 }
                 while (--k >= 0) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, i1 >> 16, j1 >> 16);
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, i1 >> 16, j1 >> 16);
                     j1 += j2;
                     i1 += i2;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
@@ -962,43 +962,43 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (i != k && j2 < l1 || i == k && i2 > l1) {
                 j -= k;
                 k -= i;
-                for (i = anIntArray1636[i]; --k >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, i1 >> 16, l >> 16);
+                for (i = anIntArray1636[i]; --k >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, i1 >> 16, l >> 16);
                     i1 += j2;
                     l += l1;
                 }
                 while (--j >= 0) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, l >> 16);
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, j1 >> 16, l >> 16);
                     j1 += i2;
                     l += l1;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             j -= k;
             k -= i;
-            for (i = anIntArray1636[i]; --k >= 0; i += Node_Sub1_Sub4.anInt1424) {
-                method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, i1 >> 16);
+            for (i = anIntArray1636[i]; --k >= 0; i += CacheableNode_Sub1_Sub4.anInt1424) {
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, i1 >> 16);
                 i1 += j2;
                 l += l1;
             }
             while (--j >= 0) {
-                method377(Node_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, j1 >> 16);
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, i, k1, 0, l >> 16, j1 >> 16);
                 j1 += i2;
                 l += l1;
-                i += Node_Sub1_Sub4.anInt1424;
+                i += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
         if (j <= k) {
-            if (j >= Node_Sub1_Sub4.anInt1427) {
+            if (j >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (i > Node_Sub1_Sub4.anInt1427) {
-                i = Node_Sub1_Sub4.anInt1427;
+            if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+                i = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (k < i) {
                 l = i1 <<= 16;
@@ -1015,31 +1015,31 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 if (j != k && l1 < i2 || j == k && l1 > j2) {
                     i -= k;
                     k -= j;
-                    for (j = anIntArray1636[j]; --k >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                        method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, i1 >> 16);
+                    for (j = anIntArray1636[j]; --k >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                        method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, i1 >> 16);
                         l += l1;
                         i1 += i2;
                     }
                     while (--i >= 0) {
-                        method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, j1 >> 16);
+                        method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, j1 >> 16);
                         l += l1;
                         j1 += j2;
-                        j += Node_Sub1_Sub4.anInt1424;
+                        j += CacheableNode_Sub1_Sub4.anInt1424;
                     }
                     return;
                 }
                 i -= k;
                 k -= j;
-                for (j = anIntArray1636[j]; --k >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, l >> 16);
+                for (j = anIntArray1636[j]; --k >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, l >> 16);
                     l += l1;
                     i1 += i2;
                 }
                 while (--i >= 0) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, j1 >> 16, l >> 16);
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, j1 >> 16, l >> 16);
                     l += l1;
                     j1 += j2;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
@@ -1057,42 +1057,42 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (l1 < i2) {
                 k -= i;
                 i -= j;
-                for (j = anIntArray1636[j]; --i >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, j1 >> 16, i1 >> 16);
+                for (j = anIntArray1636[j]; --i >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, j1 >> 16, i1 >> 16);
                     j1 += l1;
                     i1 += i2;
                 }
                 while (--k >= 0) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, i1 >> 16);
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, l >> 16, i1 >> 16);
                     l += j2;
                     i1 += i2;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             k -= i;
             i -= j;
-            for (j = anIntArray1636[j]; --i >= 0; j += Node_Sub1_Sub4.anInt1424) {
-                method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, j1 >> 16);
+            for (j = anIntArray1636[j]; --i >= 0; j += CacheableNode_Sub1_Sub4.anInt1424) {
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, j1 >> 16);
                 j1 += l1;
                 i1 += i2;
             }
             while (--k >= 0) {
-                method377(Node_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, l >> 16);
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, j, k1, 0, i1 >> 16, l >> 16);
                 l += j2;
                 i1 += i2;
-                j += Node_Sub1_Sub4.anInt1424;
+                j += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
-        if (k >= Node_Sub1_Sub4.anInt1427) {
+        if (k >= CacheableNode_Sub1_Sub4.anInt1427) {
             return;
         }
-        if (i > Node_Sub1_Sub4.anInt1427) {
-            i = Node_Sub1_Sub4.anInt1427;
+        if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+            i = CacheableNode_Sub1_Sub4.anInt1427;
         }
-        if (j > Node_Sub1_Sub4.anInt1427) {
-            j = Node_Sub1_Sub4.anInt1427;
+        if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+            j = CacheableNode_Sub1_Sub4.anInt1427;
         }
         if (i < j) {
             i1 = j1 <<= 16;
@@ -1109,31 +1109,31 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             if (i2 < j2) {
                 j -= i;
                 i -= k;
-                for (k = anIntArray1636[k]; --i >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, j1 >> 16);
+                for (k = anIntArray1636[k]; --i >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, j1 >> 16);
                     i1 += i2;
                     j1 += j2;
                 }
                 while (--j >= 0) {
-                    method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, l >> 16);
+                    method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, l >> 16);
                     i1 += i2;
                     l += l1;
-                    k += Node_Sub1_Sub4.anInt1424;
+                    k += CacheableNode_Sub1_Sub4.anInt1424;
                 }
                 return;
             }
             j -= i;
             i -= k;
-            for (k = anIntArray1636[k]; --i >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, i1 >> 16);
+            for (k = anIntArray1636[k]; --i >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, i1 >> 16);
                 i1 += i2;
                 j1 += j2;
             }
             while (--j >= 0) {
-                method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, l >> 16, i1 >> 16);
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, l >> 16, i1 >> 16);
                 i1 += i2;
                 l += l1;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
@@ -1151,38 +1151,38 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
         if (i2 < j2) {
             i -= j;
             j -= k;
-            for (k = anIntArray1636[k]; --j >= 0; k += Node_Sub1_Sub4.anInt1424) {
-                method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, l >> 16, j1 >> 16);
+            for (k = anIntArray1636[k]; --j >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, l >> 16, j1 >> 16);
                 l += i2;
                 j1 += j2;
             }
             while (--i >= 0) {
-                method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, j1 >> 16);
+                method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, i1 >> 16, j1 >> 16);
                 i1 += l1;
                 j1 += j2;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
             }
             return;
         }
         i -= j;
         j -= k;
-        for (k = anIntArray1636[k]; --j >= 0; k += Node_Sub1_Sub4.anInt1424) {
-            method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, l >> 16);
+        for (k = anIntArray1636[k]; --j >= 0; k += CacheableNode_Sub1_Sub4.anInt1424) {
+            method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, l >> 16);
             l += i2;
             j1 += j2;
         }
         while (--i >= 0) {
-            method377(Node_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, i1 >> 16);
+            method377(CacheableNode_Sub1_Sub4.anIntArray1423, k, k1, 0, j1 >> 16, i1 >> 16);
             i1 += l1;
             j1 += j2;
-            k += Node_Sub1_Sub4.anInt1424;
+            k += CacheableNode_Sub1_Sub4.anInt1424;
         }
     }
 
     public static void method377(int[] ai, int i, int j, int k, int l, int i1) {
         if (aBoolean1626) {
-            if (i1 > Node_Sub1_Sub4.anInt1430) {
-                i1 = Node_Sub1_Sub4.anInt1430;
+            if (i1 > CacheableNode_Sub1_Sub4.anInt1430) {
+                i1 = CacheableNode_Sub1_Sub4.anInt1430;
             }
             if (l < 0) {
                 l = 0;
@@ -1258,14 +1258,14 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             j8 = (k1 - i2 << 16) / (i - k);
         }
         if (i <= j && i <= k) {
-            if (i >= Node_Sub1_Sub4.anInt1427) {
+            if (i >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (j > Node_Sub1_Sub4.anInt1427) {
-                j = Node_Sub1_Sub4.anInt1427;
+            if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+                j = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (j < k) {
                 j1 = l <<= 16;
@@ -1293,23 +1293,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                     j -= i;
                     i = anIntArray1636[i];
                     while (--j >= 0) {
-                        method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                        method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                         j1 += i8;
                         l += i7;
                         i2 += j8;
                         k1 += j7;
-                        i += Node_Sub1_Sub4.anInt1424;
+                        i += CacheableNode_Sub1_Sub4.anInt1424;
                         l4 += j5;
                         k5 += i6;
                         j6 += l6;
                     }
                     while (--k >= 0) {
-                        method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                        method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                         j1 += i8;
                         i1 += k7;
                         i2 += j8;
                         l1 += l7;
-                        i += Node_Sub1_Sub4.anInt1424;
+                        i += CacheableNode_Sub1_Sub4.anInt1424;
                         l4 += j5;
                         k5 += i6;
                         j6 += l6;
@@ -1320,23 +1320,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 j -= i;
                 i = anIntArray1636[i];
                 while (--j >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                     j1 += i8;
                     l += i7;
                     i2 += j8;
                     k1 += j7;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
                 }
                 while (--k >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                     j1 += i8;
                     i1 += k7;
                     i2 += j8;
                     l1 += l7;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
@@ -1368,23 +1368,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 k -= i;
                 i = anIntArray1636[i];
                 while (--k >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                     i1 += i8;
                     l += i7;
                     l1 += j8;
                     k1 += j7;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
                 }
                 while (--j >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                     j1 += k7;
                     l += i7;
                     i2 += l7;
                     k1 += j7;
-                    i += Node_Sub1_Sub4.anInt1424;
+                    i += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
@@ -1395,23 +1395,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             k -= i;
             i = anIntArray1636[i];
             while (--k >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                 i1 += i8;
                 l += i7;
                 l1 += j8;
                 k1 += j7;
-                i += Node_Sub1_Sub4.anInt1424;
+                i += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
             }
             while (--j >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, i, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                 j1 += k7;
                 l += i7;
                 i2 += l7;
                 k1 += j7;
-                i += Node_Sub1_Sub4.anInt1424;
+                i += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
@@ -1419,14 +1419,14 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             return;
         }
         if (j <= k) {
-            if (j >= Node_Sub1_Sub4.anInt1427) {
+            if (j >= CacheableNode_Sub1_Sub4.anInt1427) {
                 return;
             }
-            if (k > Node_Sub1_Sub4.anInt1427) {
-                k = Node_Sub1_Sub4.anInt1427;
+            if (k > CacheableNode_Sub1_Sub4.anInt1427) {
+                k = CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (i > Node_Sub1_Sub4.anInt1427) {
-                i = Node_Sub1_Sub4.anInt1427;
+            if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+                i = CacheableNode_Sub1_Sub4.anInt1427;
             }
             if (k < i) {
                 l = i1 <<= 16;
@@ -1454,23 +1454,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                     k -= j;
                     j = anIntArray1636[j];
                     while (--k >= 0) {
-                        method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                        method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                         l += i7;
                         i1 += k7;
                         k1 += j7;
                         l1 += l7;
-                        j += Node_Sub1_Sub4.anInt1424;
+                        j += CacheableNode_Sub1_Sub4.anInt1424;
                         l4 += j5;
                         k5 += i6;
                         j6 += l6;
                     }
                     while (--i >= 0) {
-                        method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                        method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                         l += i7;
                         j1 += i8;
                         k1 += j7;
                         i2 += j8;
-                        j += Node_Sub1_Sub4.anInt1424;
+                        j += CacheableNode_Sub1_Sub4.anInt1424;
                         l4 += j5;
                         k5 += i6;
                         j6 += l6;
@@ -1481,23 +1481,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 k -= j;
                 j = anIntArray1636[j];
                 while (--k >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                     l += i7;
                     i1 += k7;
                     k1 += j7;
                     l1 += l7;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
                 }
                 while (--i >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                     l += i7;
                     j1 += i8;
                     k1 += j7;
                     i2 += j8;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
@@ -1529,23 +1529,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 i -= j;
                 j = anIntArray1636[j];
                 while (--i >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                     j1 += i7;
                     i1 += k7;
                     i2 += j7;
                     l1 += l7;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
                 }
                 while (--k >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                     l += i8;
                     i1 += k7;
                     k1 += j8;
                     l1 += l7;
-                    j += Node_Sub1_Sub4.anInt1424;
+                    j += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
@@ -1556,37 +1556,37 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             i -= j;
             j = anIntArray1636[j];
             while (--i >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                 j1 += i7;
                 i1 += k7;
                 i2 += j7;
                 l1 += l7;
-                j += Node_Sub1_Sub4.anInt1424;
+                j += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
             }
             while (--k >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, j, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                 l += i8;
                 i1 += k7;
                 k1 += j8;
                 l1 += l7;
-                j += Node_Sub1_Sub4.anInt1424;
+                j += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
             }
             return;
         }
-        if (k >= Node_Sub1_Sub4.anInt1427) {
+        if (k >= CacheableNode_Sub1_Sub4.anInt1427) {
             return;
         }
-        if (i > Node_Sub1_Sub4.anInt1427) {
-            i = Node_Sub1_Sub4.anInt1427;
+        if (i > CacheableNode_Sub1_Sub4.anInt1427) {
+            i = CacheableNode_Sub1_Sub4.anInt1427;
         }
-        if (j > Node_Sub1_Sub4.anInt1427) {
-            j = Node_Sub1_Sub4.anInt1427;
+        if (j > CacheableNode_Sub1_Sub4.anInt1427) {
+            j = CacheableNode_Sub1_Sub4.anInt1427;
         }
         if (i < j) {
             i1 = j1 <<= 16;
@@ -1614,23 +1614,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
                 i -= k;
                 k = anIntArray1636[k];
                 while (--i >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                     i1 += k7;
                     j1 += i8;
                     l1 += l7;
                     i2 += j8;
-                    k += Node_Sub1_Sub4.anInt1424;
+                    k += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
                 }
                 while (--j >= 0) {
-                    method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+                    method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
                     i1 += k7;
                     l += i7;
                     l1 += l7;
                     k1 += j7;
-                    k += Node_Sub1_Sub4.anInt1424;
+                    k += CacheableNode_Sub1_Sub4.anInt1424;
                     l4 += j5;
                     k5 += i6;
                     j6 += l6;
@@ -1641,23 +1641,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             i -= k;
             k = anIntArray1636[k];
             while (--i >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                 i1 += k7;
                 j1 += i8;
                 l1 += l7;
                 i2 += j8;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
             }
             while (--j >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
                 i1 += k7;
                 l += i7;
                 l1 += l7;
                 k1 += j7;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
@@ -1689,23 +1689,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
             j -= k;
             k = anIntArray1636[k];
             while (--j >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                 l += k7;
                 j1 += i8;
                 k1 += l7;
                 i2 += j8;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
             }
             while (--i >= 0) {
-                method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
+                method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8, l4, k5, j6, i5, l5, k6);
                 i1 += i7;
                 j1 += i8;
                 l1 += j7;
                 i2 += j8;
-                k += Node_Sub1_Sub4.anInt1424;
+                k += CacheableNode_Sub1_Sub4.anInt1424;
                 l4 += j5;
                 k5 += i6;
                 j6 += l6;
@@ -1716,23 +1716,23 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
         j -= k;
         k = anIntArray1636[k];
         while (--j >= 0) {
-            method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
+            method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5, j6, i5, l5, k6);
             l += k7;
             j1 += i8;
             k1 += l7;
             i2 += j8;
-            k += Node_Sub1_Sub4.anInt1424;
+            k += CacheableNode_Sub1_Sub4.anInt1424;
             l4 += j5;
             k5 += i6;
             j6 += l6;
         }
         while (--i >= 0) {
-            method379(Node_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
+            method379(CacheableNode_Sub1_Sub4.anIntArray1423, ai, 0, 0, k, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8, l4, k5, j6, i5, l5, k6);
             i1 += i7;
             j1 += i8;
             l1 += j7;
             i2 += j8;
-            k += Node_Sub1_Sub4.anInt1424;
+            k += CacheableNode_Sub1_Sub4.anInt1424;
             l4 += j5;
             k5 += i6;
             j6 += l6;
@@ -1748,8 +1748,8 @@ public class Node_Sub1_Sub4_Sub1 extends Node_Sub1_Sub4 {
         int k3;
         if (aBoolean1626) {
             j3 = (k1 - j1) / (i1 - l);
-            if (i1 > Node_Sub1_Sub4.anInt1430) {
-                i1 = Node_Sub1_Sub4.anInt1430;
+            if (i1 > CacheableNode_Sub1_Sub4.anInt1430) {
+                i1 = CacheableNode_Sub1_Sub4.anInt1430;
             }
             if (l < 0) {
                 j1 -= l * j3;

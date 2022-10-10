@@ -2,17 +2,17 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub1_Sub5 extends Node_Sub1_Sub1 {
+public class CacheableNode_Sub1_Sub1_Sub5 extends CacheableNode_Sub1_ {
 
     public int anInt1563;
     public int anInt1564;
     public boolean aBoolean1565;
 
-    public Node_Sub1_Sub1_Sub5() {
+    public CacheableNode_Sub1_Sub1_Sub5() {
         aBoolean1565 = false;
     }
 
-    public Node_Sub1_Sub1_Sub4 method256(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
         try {
             if (i <= 0) {
                 aBoolean1565 = !aBoolean1565;

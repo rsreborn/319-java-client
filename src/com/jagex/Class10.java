@@ -258,10 +258,10 @@ public class Class10 {
             boolean[][][][] aflag = new boolean[9][32][53][53];
             for (int i1 = 128; i1 <= 384; i1 += 32) {
                 for (int j1 = 0; j1 < 2048; j1 += 64) {
-                    anInt184 = Node_Sub1_Sub1_Sub4.anIntArray1559[i1];
-                    anInt185 = Node_Sub1_Sub1_Sub4.anIntArray1560[i1];
-                    anInt186 = Node_Sub1_Sub1_Sub4.anIntArray1559[j1];
-                    anInt187 = Node_Sub1_Sub1_Sub4.anIntArray1560[j1];
+                    anInt184 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[i1];
+                    anInt185 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[i1];
+                    anInt186 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[j1];
+                    anInt187 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[j1];
                     int l1 = (i1 - 128) / 32;
                     int j2 = j1 / 64;
                     for (int l2 = -26; l2 <= 26; l2++) {
@@ -462,7 +462,7 @@ public class Class10 {
         aClass13_Sub2ArrayArrayArray167[i][j][k].aClass34_1345 = class34;
     }
 
-    public void method200(Node_Sub1_Sub1 class13_sub1_sub1, int i, boolean flag, int j, int k, byte byte0, int l,
+    public void method200(CacheableNode_Sub1_ class13_sub1_sub1, int i, boolean flag, int j, int k, byte byte0, int l,
                           int i1) {
         try {
             if (class13_sub1_sub1 == null) {
@@ -490,7 +490,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public void method201(Node_Sub1_Sub1 class13_sub1_sub1, int i, int j, int k, Node_Sub1_Sub1 class13_sub1_sub1_1, int l, Node_Sub1_Sub1 class13_sub1_sub1_2,
+    public void method201(CacheableNode_Sub1_ class13_sub1_sub1, int i, int j, int k, CacheableNode_Sub1_ class13_sub1_sub1_1, int l, CacheableNode_Sub1_ class13_sub1_sub1_2,
                           int i1, boolean flag) {
         try {
             Class43 class43 = new Class43();
@@ -505,8 +505,8 @@ public class Class10 {
             Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
             if (class13_sub2 != null) {
                 for (int k1 = 0; k1 < class13_sub2.anInt1350; k1++) {
-                    if (class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351 instanceof Node_Sub1_Sub1_Sub4) {
-                        int l1 = ((Node_Sub1_Sub1_Sub4) class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
+                    if (class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351 instanceof CacheableNode_Sub1_Sub1_Sub4) {
+                        int l1 = ((CacheableNode_Sub1_Sub1_Sub4) class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
                         if (l1 > j1) {
                             j1 = l1;
                         }
@@ -527,7 +527,7 @@ public class Class10 {
         }
     }
 
-    public void method202(Node_Sub1_Sub1 class13_sub1_sub1, int i, boolean flag, Node_Sub1_Sub1 class13_sub1_sub1_1, int j, byte byte0, int k,
+    public void method202(CacheableNode_Sub1_ class13_sub1_sub1, int i, boolean flag, CacheableNode_Sub1_ class13_sub1_sub1_1, int j, byte byte0, int k,
                           int l, int i1, int j1, int k1) {
         try {
             if (class13_sub1_sub1 == null && class13_sub1_sub1_1 == null) {
@@ -560,7 +560,7 @@ public class Class10 {
     }
 
     public void method203(int i, int j, byte byte0, int k, int l, int i1, int j1,
-                          byte byte1, int k1, int l1, Node_Sub1_Sub1 class13_sub1_sub1, int i2) {
+                          byte byte1, int k1, int l1, CacheableNode_Sub1_ class13_sub1_sub1, int i2) {
         try {
             if (class13_sub1_sub1 == null) {
                 return;
@@ -591,7 +591,7 @@ public class Class10 {
     }
 
     public boolean method204(int i, byte byte0, int j, int k, int l, int i1, int j1,
-                             int k1, int l1, int i2, Node_Sub1_Sub1 class13_sub1_sub1) {
+                             int k1, int l1, int i2, CacheableNode_Sub1_ class13_sub1_sub1) {
         try {
             if (class13_sub1_sub1 == null) {
                 return true;
@@ -609,7 +609,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public boolean method205(int i, int j, int k, int l, Node_Sub1_Sub1 class13_sub1_sub1, int i1, int j1,
+    public boolean method205(int i, int j, int k, int l, CacheableNode_Sub1_ class13_sub1_sub1, int i1, int j1,
                              int k1, int l1, boolean flag) {
         try {
             while (i1 >= 0) {
@@ -647,7 +647,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public boolean method206(int i, int j, Node_Sub1_Sub1 class13_sub1_sub1, int k, int l, int i1, int j1,
+    public boolean method206(int i, int j, CacheableNode_Sub1_ class13_sub1_sub1, int k, int l, int i1, int j1,
                              int k1, int l1, int i2, int j2, int k2, int l2) {
         try {
             if (i != 4) {
@@ -666,7 +666,7 @@ public class Class10 {
     }
 
     public boolean method207(int i, int j, int k, int l, int i1, int j1, int k1,
-                             int l1, Node_Sub1_Sub1 class13_sub1_sub1, int i2, boolean flag, int j2, byte byte0) {
+                             int l1, CacheableNode_Sub1_ class13_sub1_sub1, int i2, boolean flag, int j2, byte byte0) {
         for (int k2 = j; k2 < j + l; k2++) {
             for (int l2 = k; l2 < k + i1; l2++) {
                 if (k2 < 0 || l2 < 0 || k2 >= anInt164 || l2 >= anInt165) {
@@ -1044,25 +1044,25 @@ public class Class10 {
                         if (class13_sub2 != null) {
                             Class15 class15 = class13_sub2.aClass15_1346;
                             if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
-                                method227(j2, k2, 1, i2, 1, (Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, 0);
+                                method227(j2, k2, 1, i2, 1, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, 0);
                                 if (class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
-                                    method227(j2, k2, 1, i2, 1, (Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0);
-                                    method228((Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0, 0, 0, false);
-                                    ((Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296).method283(j, l1, i1, j1, i);
+                                    method227(j2, k2, 1, i2, 1, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0);
+                                    method228((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0, 0, 0, false);
+                                    ((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296).method283(j, l1, i1, j1, i);
                                 }
-                                ((Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295).method283(j, l1, i1, j1, i);
+                                ((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295).method283(j, l1, i1, j1, i);
                             }
                             for (int l2 = 0; l2 < class13_sub2.anInt1350; l2++) {
                                 Class20 class20 = class13_sub2.aClass20Array1351[l2];
                                 if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
-                                    method227(j2, k2, (class20.anInt356 - class20.anInt355) + 1, i2, (class20.anInt354 - class20.anInt353) + 1, (Node_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, 0);
-                                    ((Node_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
+                                    method227(j2, k2, (class20.anInt356 - class20.anInt355) + 1, i2, (class20.anInt354 - class20.anInt353) + 1, (CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, 0);
+                                    ((CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
                                 }
                             }
                             Class11 class11 = class13_sub2.aClass11_1348;
                             if (class11 != null && class11.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                                method226((byte) 4, (Node_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228, k2, i2, j2);
-                                ((Node_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228).method283(j, l1, i1, j1, i);
+                                method226((byte) 4, (CacheableNode_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228, k2, i2, j2);
+                                ((CacheableNode_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228).method283(j, l1, i1, j1, i);
                             }
                         }
                     }
@@ -1075,7 +1075,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public void method226(byte byte0, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, int j, int k) {
+    public void method226(byte byte0, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, int j, int k) {
         try {
             if (byte0 != 4) {
                 return;
@@ -1083,25 +1083,25 @@ public class Class10 {
             if (k < anInt164) {
                 Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i];
                 if (class13_sub2 != null && class13_sub2.aClass11_1348 != null && class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 0, true);
+                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 0, true);
                 }
             }
             if (i < anInt164) {
                 Node_Sub2 class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[j][k][i + 1];
                 if (class13_sub2_1 != null && class13_sub2_1.aClass11_1348 != null && class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228, 0, 0, 128, true);
+                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228, 0, 0, 128, true);
                 }
             }
             if (k < anInt164 && i < anInt165) {
                 Node_Sub2 class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i + 1];
                 if (class13_sub2_2 != null && class13_sub2_2.aClass11_1348 != null && class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 128, true);
+                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 128, true);
                 }
             }
             if (k < anInt164 && i > 0) {
                 Node_Sub2 class13_sub2_3 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i - 1];
                 if (class13_sub2_3 != null && class13_sub2_3.aClass11_1348 != null && class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, -128, true);
+                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, -128, true);
                     return;
                 }
             }
@@ -1111,7 +1111,7 @@ public class Class10 {
         }
     }
 
-    public void method227(int i, int j, int k, int l, int i1, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j1) {
+    public void method227(int i, int j, int k, int l, int i1, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j1) {
         try {
             boolean flag = true;
             if (j1 != 0) {
@@ -1133,17 +1133,17 @@ public class Class10 {
                                         int k3 = (anIntArrayArrayArray166[l2][i3][j3] + anIntArrayArrayArray166[l2][i3 + 1][j3] + anIntArrayArrayArray166[l2][i3][j3 + 1] + anIntArrayArrayArray166[l2][i3 + 1][j3 + 1]) / 4 - (anIntArrayArrayArray166[l][i][j] + anIntArrayArrayArray166[l][i + 1][j] + anIntArrayArrayArray166[l][i][j + 1] + anIntArrayArrayArray166[l][i + 1][j + 1]) / 4;
                                         Class15 class15 = class13_sub2.aClass15_1346;
                                         if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
-                                            method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
+                                            method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
                                         if (class15 != null && class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
-                                            method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
+                                            method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
                                         for (int l3 = 0; l3 < class13_sub2.anInt1350; l3++) {
                                             Class20 class20 = class13_sub2.aClass20Array1351[l3];
                                             if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
                                                 int i4 = (class20.anInt354 - class20.anInt353) + 1;
                                                 int j4 = (class20.anInt356 - class20.anInt355) + 1;
-                                                method228(class13_sub1_sub1_sub4, (Node_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, (class20.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (class20.anInt355 - j) * 128 + (j4 - k) * 64, flag);
+                                                method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, (class20.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (class20.anInt355 - j) * 128 + (j4 - k) * 64, flag);
                                             }
                                         }
                                     }
@@ -1162,7 +1162,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public void method228(Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1, int i, int j, int k, boolean flag) {
+    public void method228(CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1, int i, int j, int k, boolean flag) {
         anInt214++;
         int l = 0;
         int[] ai = class13_sub1_sub1_sub4_1.anIntArray1497;
@@ -1302,10 +1302,10 @@ public class Class10 {
                 j = anInt165 * 128 - 1;
             }
             anInt174++;
-            anInt184 = Node_Sub1_Sub1_Sub4.anIntArray1559[i1];
-            anInt185 = Node_Sub1_Sub1_Sub4.anIntArray1560[i1];
-            anInt186 = Node_Sub1_Sub1_Sub4.anIntArray1559[k];
-            anInt187 = Node_Sub1_Sub1_Sub4.anIntArray1560[k];
+            anInt184 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[i1];
+            anInt185 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[i1];
+            anInt186 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[k];
+            anInt187 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[k];
             aBooleanArrayArray218 = aBooleanArrayArrayArrayArray217[(i1 - 128) / 32][k / 64];
             anInt181 = j1;
             anInt182 = k1;
@@ -1944,54 +1944,54 @@ public class Class10 {
         if (j3 < 50) {
             return;
         }
-        int i5 = Node_Sub1_Sub4_Sub1.anInt1630 + (i2 << 9) / k2;
-        int j5 = Node_Sub1_Sub4_Sub1.anInt1631 + (l3 << 9) / k2;
-        int k5 = Node_Sub1_Sub4_Sub1.anInt1630 + (i3 << 9) / j2;
-        int l5 = Node_Sub1_Sub4_Sub1.anInt1631 + (i4 << 9) / j2;
-        int i6 = Node_Sub1_Sub4_Sub1.anInt1630 + (l2 << 9) / k3;
-        int j6 = Node_Sub1_Sub4_Sub1.anInt1631 + (j4 << 9) / k3;
-        int k6 = Node_Sub1_Sub4_Sub1.anInt1630 + (l1 << 9) / j3;
-        int l6 = Node_Sub1_Sub4_Sub1.anInt1631 + (k4 << 9) / j3;
-        Node_Sub1_Sub4_Sub1.anInt1629 = 0;
+        int i5 = CacheableNode_Sub1_Sub4_.anInt1630 + (i2 << 9) / k2;
+        int j5 = CacheableNode_Sub1_Sub4_.anInt1631 + (l3 << 9) / k2;
+        int k5 = CacheableNode_Sub1_Sub4_.anInt1630 + (i3 << 9) / j2;
+        int l5 = CacheableNode_Sub1_Sub4_.anInt1631 + (i4 << 9) / j2;
+        int i6 = CacheableNode_Sub1_Sub4_.anInt1630 + (l2 << 9) / k3;
+        int j6 = CacheableNode_Sub1_Sub4_.anInt1631 + (j4 << 9) / k3;
+        int k6 = CacheableNode_Sub1_Sub4_.anInt1630 + (l1 << 9) / j3;
+        int l6 = CacheableNode_Sub1_Sub4_.anInt1631 + (k4 << 9) / j3;
+        CacheableNode_Sub1_Sub4_.anInt1629 = 0;
         if ((i6 - k6) * (l5 - l6) - (j6 - l6) * (k5 - k6) > 0) {
-            Node_Sub1_Sub4_Sub1.aBoolean1626 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > Node_Sub1_Sub4.anInt1430 || k6 > Node_Sub1_Sub4.anInt1430 || k5 > Node_Sub1_Sub4.anInt1430;
+            CacheableNode_Sub1_Sub4_.aBoolean1626 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > CacheableNode_Sub1_Sub4.anInt1430 || k6 > CacheableNode_Sub1_Sub4.anInt1430 || k5 > CacheableNode_Sub1_Sub4.anInt1430;
             if (aBoolean193 && method238(anInt194, anInt195, j6, l6, l5, i6, k6, k5)) {
                 anInt196 = j1;
                 anInt197 = k1;
             }
             if (class30.anInt477 == -1) {
                 if (class30.anInt475 != 0xbc614e) {
-                    Node_Sub1_Sub4_Sub1.method374(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474);
+                    CacheableNode_Sub1_Sub4_.method374(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474);
                 }
             } else if (!aBoolean162) {
                 if (class30.aBoolean478) {
-                    Node_Sub1_Sub4_Sub1.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
+                    CacheableNode_Sub1_Sub4_.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                 } else {
-                    Node_Sub1_Sub4_Sub1.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, l2, l1, i3, j4, k4, i4, k3, j3, j2, class30.anInt477);
+                    CacheableNode_Sub1_Sub4_.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, l2, l1, i3, j4, k4, i4, k3, j3, j2, class30.anInt477);
                 }
             } else {
                 int i7 = anIntArray211[class30.anInt477];
-                Node_Sub1_Sub4_Sub1.method374(j6, l6, l5, i6, k6, k5, method237(i7, (byte) 5, class30.anInt475), method237(i7, (byte) 5, class30.anInt476), method237(i7, (byte) 5, class30.anInt474));
+                CacheableNode_Sub1_Sub4_.method374(j6, l6, l5, i6, k6, k5, method237(i7, (byte) 5, class30.anInt475), method237(i7, (byte) 5, class30.anInt476), method237(i7, (byte) 5, class30.anInt474));
             }
         }
         if ((i5 - k5) * (l6 - l5) - (j5 - l5) * (k6 - k5) > 0) {
-            Node_Sub1_Sub4_Sub1.aBoolean1626 = i5 < 0 || k5 < 0 || k6 < 0 || i5 > Node_Sub1_Sub4.anInt1430 || k5 > Node_Sub1_Sub4.anInt1430 || k6 > Node_Sub1_Sub4.anInt1430;
+            CacheableNode_Sub1_Sub4_.aBoolean1626 = i5 < 0 || k5 < 0 || k6 < 0 || i5 > CacheableNode_Sub1_Sub4.anInt1430 || k5 > CacheableNode_Sub1_Sub4.anInt1430 || k6 > CacheableNode_Sub1_Sub4.anInt1430;
             if (aBoolean193 && method238(anInt194, anInt195, j5, l5, l6, i5, k5, k6)) {
                 anInt196 = j1;
                 anInt197 = k1;
             }
             if (class30.anInt477 == -1) {
                 if (class30.anInt473 != 0xbc614e) {
-                    Node_Sub1_Sub4_Sub1.method374(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476);
+                    CacheableNode_Sub1_Sub4_.method374(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476);
                     return;
                 }
             } else {
                 if (!aBoolean162) {
-                    Node_Sub1_Sub4_Sub1.method378(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
+                    CacheableNode_Sub1_Sub4_.method378(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                     return;
                 }
                 int j7 = anIntArray211[class30.anInt477];
-                Node_Sub1_Sub4_Sub1.method374(j5, l5, l6, i5, k5, k6, method237(j7, (byte) 5, class30.anInt473), method237(j7, (byte) 5, class30.anInt474), method237(j7, (byte) 5, class30.anInt476));
+                CacheableNode_Sub1_Sub4_.method374(j5, l5, l6, i5, k5, k6, method237(j7, (byte) 5, class30.anInt473), method237(j7, (byte) 5, class30.anInt474), method237(j7, (byte) 5, class30.anInt476));
             }
         }
     }
@@ -2022,10 +2022,10 @@ public class Class10 {
                     Class34.anIntArray522[i2] = l2;
                     Class34.anIntArray523[i2] = j3;
                 }
-                Class34.anIntArray519[i2] = Node_Sub1_Sub4_Sub1.anInt1630 + (j2 << 9) / j3;
-                Class34.anIntArray520[i2] = Node_Sub1_Sub4_Sub1.anInt1631 + (l2 << 9) / j3;
+                Class34.anIntArray519[i2] = CacheableNode_Sub1_Sub4_.anInt1630 + (j2 << 9) / j3;
+                Class34.anIntArray520[i2] = CacheableNode_Sub1_Sub4_.anInt1631 + (l2 << 9) / j3;
             }
-            Node_Sub1_Sub4_Sub1.anInt1629 = 0;
+            CacheableNode_Sub1_Sub4_.anInt1629 = 0;
             k1 = class34.anIntArray510.length;
             for (int k2 = 0; k2 < k1; k2++) {
                 int i3 = class34.anIntArray510[k2];
@@ -2038,24 +2038,24 @@ public class Class10 {
                 int j5 = Class34.anIntArray520[k3];
                 int k5 = Class34.anIntArray520[i4];
                 if ((j4 - k4) * (k5 - j5) - (i5 - j5) * (l4 - k4) > 0) {
-                    Node_Sub1_Sub4_Sub1.aBoolean1626 = j4 < 0 || k4 < 0 || l4 < 0 || j4 > Node_Sub1_Sub4.anInt1430 || k4 > Node_Sub1_Sub4.anInt1430 || l4 > Node_Sub1_Sub4.anInt1430;
+                    CacheableNode_Sub1_Sub4_.aBoolean1626 = j4 < 0 || k4 < 0 || l4 < 0 || j4 > CacheableNode_Sub1_Sub4.anInt1430 || k4 > CacheableNode_Sub1_Sub4.anInt1430 || l4 > CacheableNode_Sub1_Sub4.anInt1430;
                     if (aBoolean193 && method238(anInt194, anInt195, i5, j5, k5, j4, k4, l4)) {
                         anInt196 = i;
                         anInt197 = j;
                     }
                     if (class34.anIntArray513 == null || class34.anIntArray513[k2] == -1) {
                         if (class34.anIntArray507[k2] != 0xbc614e) {
-                            Node_Sub1_Sub4_Sub1.method374(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2]);
+                            CacheableNode_Sub1_Sub4_.method374(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2]);
                         }
                     } else if (!aBoolean162) {
                         if (class34.aBoolean514) {
-                            Node_Sub1_Sub4_Sub1.method378(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2], Class34.anIntArray521[0], Class34.anIntArray521[1], Class34.anIntArray521[3], Class34.anIntArray522[0], Class34.anIntArray522[1], Class34.anIntArray522[3], Class34.anIntArray523[0], Class34.anIntArray523[1], Class34.anIntArray523[3], class34.anIntArray513[k2]);
+                            CacheableNode_Sub1_Sub4_.method378(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2], Class34.anIntArray521[0], Class34.anIntArray521[1], Class34.anIntArray521[3], Class34.anIntArray522[0], Class34.anIntArray522[1], Class34.anIntArray522[3], Class34.anIntArray523[0], Class34.anIntArray523[1], Class34.anIntArray523[3], class34.anIntArray513[k2]);
                         } else {
-                            Node_Sub1_Sub4_Sub1.method378(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2], Class34.anIntArray521[i3], Class34.anIntArray521[k3], Class34.anIntArray521[i4], Class34.anIntArray522[i3], Class34.anIntArray522[k3], Class34.anIntArray522[i4], Class34.anIntArray523[i3], Class34.anIntArray523[k3], Class34.anIntArray523[i4], class34.anIntArray513[k2]);
+                            CacheableNode_Sub1_Sub4_.method378(i5, j5, k5, j4, k4, l4, class34.anIntArray507[k2], class34.anIntArray508[k2], class34.anIntArray509[k2], Class34.anIntArray521[i3], Class34.anIntArray521[k3], Class34.anIntArray521[i4], Class34.anIntArray522[i3], Class34.anIntArray522[k3], Class34.anIntArray522[i4], Class34.anIntArray523[i3], Class34.anIntArray523[k3], Class34.anIntArray523[i4], class34.anIntArray513[k2]);
                         }
                     } else {
                         int l5 = anIntArray211[class34.anIntArray513[k2]];
-                        Node_Sub1_Sub4_Sub1.method374(i5, j5, k5, j4, k4, l4, method237(l5, (byte) 5, class34.anIntArray507[k2]), method237(l5, (byte) 5, class34.anIntArray508[k2]), method237(l5, (byte) 5, class34.anIntArray509[k2]));
+                        CacheableNode_Sub1_Sub4_.method374(i5, j5, k5, j4, k4, l4, method237(l5, (byte) 5, class34.anIntArray507[k2]), method237(l5, (byte) 5, class34.anIntArray508[k2]), method237(l5, (byte) 5, class34.anIntArray509[k2]));
                     }
                 }
             }

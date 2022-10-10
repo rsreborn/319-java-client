@@ -1,8 +1,9 @@
 package com.jagex;
 
 import com.jagex.sign.Signlink;
+import com.jagex.util.CacheableNode;
 
-public class Node_Sub1_Sub4 extends Node_Sub1 {
+public class CacheableNode_Sub1_Sub4 extends CacheableNode {
 
     public static int anInt1417 = 418;
     public static int anInt1418 = 7;
@@ -22,7 +23,7 @@ public class Node_Sub1_Sub4 extends Node_Sub1 {
     public static int anInt1432;
     public static boolean aBoolean1433;
 
-    public Node_Sub1_Sub4() {
+    public CacheableNode_Sub1_Sub4() {
     }
 
     public static void method351(int i, int[] ai, int j, int k) {

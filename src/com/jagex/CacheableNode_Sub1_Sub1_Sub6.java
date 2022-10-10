@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub1_Sub6 extends Node_Sub1_Sub1 {
+public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
 
     public int anInt1566;
     public boolean[] aBooleanArray1567;
@@ -62,7 +62,7 @@ public class Node_Sub1_Sub1_Sub6 extends Node_Sub1_Sub1 {
     public int anInt1621;
     public int anInt1622;
 
-    public Node_Sub1_Sub1_Sub6() {
+    public CacheableNode_Sub1_Sub1_Sub6() {
         aBooleanArray1567 = new boolean[10];
         aBoolean1569 = false;
         anInt1570 = -1;

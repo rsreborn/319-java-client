@@ -1,7 +1,9 @@
 package com.jagex;
 
 import com.jagex.sign.Signlink;
+import com.jagex.util.CacheableNode;
 import com.jagex.util.HashTable;
+import com.jagex.util.Queue;
 
 public class Cache {
 
@@ -11,19 +13,19 @@ public class Cache {
     public boolean aBoolean52;
     public int anInt53;
     public int anInt54;
-    public Node_Sub1 aClass13_Sub1_55;
+    public CacheableNode aClass13_Sub1_55;
     public int anInt56;
     public int anInt57;
     public HashTable aHashTable_58;
-    public Class21 aClass21_59;
+    public Queue aQueue_59;
 
     public Cache(int i, int j) {
         anInt49 = 36;
         aBoolean50 = false;
         aBoolean51 = true;
         aBoolean52 = false;
-        aClass13_Sub1_55 = new Node_Sub1();
-        aClass21_59 = new Class21(14716);
+        aClass13_Sub1_55 = new CacheableNode();
+        aQueue_59 = new Queue();
         try {
             anInt56 = i;
             if (j <= 0) {
@@ -38,10 +40,10 @@ public class Cache {
         throw new RuntimeException();
     }
 
-    public Node_Sub1 method172(long l) {
-        Node_Sub1 class13_sub1 = (Node_Sub1) aHashTable_58.get(l);
+    public CacheableNode method172(long l) {
+        CacheableNode class13_sub1 = (CacheableNode) aHashTable_58.get(l);
         if (class13_sub1 != null) {
-            aClass21_59.method439(class13_sub1);
+            aQueue_59.push(class13_sub1);
             anInt54++;
         } else {
             anInt53++;
@@ -49,16 +51,16 @@ public class Cache {
         return class13_sub1;
     }
 
-    public void method173(Node_Sub1 class13_sub1, long l, int i) {
+    public void method173(CacheableNode class13_sub1, long l, int i) {
         try {
             if (anInt57 == 0) {
-                Node_Sub1 class13_sub1_1 = aClass21_59.method440();
+                CacheableNode class13_sub1_1 = aQueue_59.pop();
                 class13_sub1_1.remove();
-                class13_sub1_1.method254();
+                class13_sub1_1.clear();
                 if (class13_sub1_1 == aClass13_Sub1_55) {
-                    Node_Sub1 class13_sub1_2 = aClass21_59.method440();
+                    CacheableNode class13_sub1_2 = aQueue_59.pop();
                     class13_sub1_2.remove();
-                    class13_sub1_2.method254();
+                    class13_sub1_2.clear();
                 }
             } else {
                 anInt57--;
@@ -67,7 +69,7 @@ public class Cache {
             if (i != 9388) {
                 anInt49 = 361;
             }
-            aClass21_59.method439(class13_sub1);
+            aQueue_59.push(class13_sub1);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("71111, " + class13_sub1 + ", " + l + ", " + i + ", " + runtimeexception);
@@ -77,10 +79,10 @@ public class Cache {
 
     public void method174() {
         do {
-            Node_Sub1 class13_sub1 = aClass21_59.method440();
+            CacheableNode class13_sub1 = aQueue_59.pop();
             if (class13_sub1 != null) {
                 class13_sub1.remove();
-                class13_sub1.method254();
+                class13_sub1.clear();
             } else {
                 anInt57 = anInt56;
                 return;

@@ -49,7 +49,7 @@ public class Class31
                 for (int i = 1; i > 0; i++) {
                 }
             }
-            Node_Sub1_Sub4.method351(0, anIntArray482, anInt484, anInt483);
+            CacheableNode_Sub1_Sub4.method351(0, anIntArray482, anInt484, anInt483);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("97839, " + flag + ", " + runtimeexception);

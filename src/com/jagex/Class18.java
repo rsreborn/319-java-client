@@ -7,7 +7,7 @@ public class Class18 {
     public int anInt329;
     public int anInt330;
     public int anInt331;
-    public Node_Sub1_Sub1 aClass13_Sub1_Sub1_332;
+    public CacheableNode_Sub1_ aClass13_Sub1_Sub1_332;
     public int anInt333;
     public byte aByte334;
 

@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
+public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 {
 
     public static Cache aCache_1696 = new Cache(260, 31);
     public int anInt1687;
@@ -31,11 +31,11 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
     public int anInt1711;
     public int anInt1712;
     public int anInt1713;
-    public Node_Sub1_Sub1_Sub4 aClass13_Sub1_Sub1_Sub4_1714;
+    public CacheableNode_Sub1_Sub1_Sub4 aClass13_Sub1_Sub1_Sub4_1714;
     public int anInt1715;
     public Class47 aClass47_1716;
 
-    public Node_Sub1_Sub1_Sub6_Sub1() {
+    public CacheableNode_Sub1_Sub1_Sub6_() {
         aBoolean1688 = false;
         aByte1690 = -78;
         anInt1698 = -2372;
@@ -60,7 +60,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method295(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method295(int i) {
         try {
             if (i != -37578) {
                 aBoolean1704 = !aBoolean1704;
@@ -72,7 +72,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                 } else if (super.anInt1620 >= 0) {
                     j = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
                 }
-                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass47_1716.method582(-1, j, true, null);
+                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass47_1716.method582(-1, j, true, null);
                 return class13_sub1_sub1_sub4;
             }
             long l = aLong1709;
@@ -97,7 +97,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
             } else if (super.anInt1620 >= 0) {
                 k = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Node_Sub1_Sub1_Sub4) aCache_1696.method172(l);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (CacheableNode_Sub1_Sub1_Sub4) aCache_1696.method172(l);
             if (class13_sub1_sub1_sub4_1 == null) {
                 boolean flag = false;
                 for (int l1 = 0; l1 < 12; l1++) {
@@ -117,7 +117,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                 }
                 if (flag) {
                     if (aLong1710 != -1L) {
-                        class13_sub1_sub1_sub4_1 = (Node_Sub1_Sub1_Sub4) aCache_1696.method172(aLong1710);
+                        class13_sub1_sub1_sub4_1 = (CacheableNode_Sub1_Sub1_Sub4) aCache_1696.method172(aLong1710);
                     }
                     if (class13_sub1_sub1_sub4_1 == null) {
                         return null;
@@ -125,7 +125,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                 }
             }
             if (class13_sub1_sub1_sub4_1 == null) {
-                Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[12];
+                CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4[12];
                 int i2 = 0;
                 for (int k2 = 0; k2 < 12; k2++) {
                     int l2 = anIntArray1703[k2];
@@ -136,19 +136,19 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                         l2 = j1;
                     }
                     if (l2 >= 256 && l2 < 512) {
-                        Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = Class4.aClass4Array65[l2 - 256].method178(0);
+                        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = Class4.aClass4Array65[l2 - 256].method178(0);
                         if (class13_sub1_sub1_sub4_3 != null) {
                             aclass13_sub1_sub1_sub4[i2++] = class13_sub1_sub1_sub4_3;
                         }
                     }
                     if (l2 >= 512) {
-                        Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_4 = ItemDefinition.method505(l2 - 512).method507(4, anInt1687);
+                        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_4 = ItemDefinition.method505(l2 - 512).method507(4, anInt1687);
                         if (class13_sub1_sub1_sub4_4 != null) {
                             aclass13_sub1_sub1_sub4[i2++] = class13_sub1_sub1_sub4_4;
                         }
                     }
                 }
-                class13_sub1_sub1_sub4_1 = new Node_Sub1_Sub1_Sub4(i2, (byte) 61, aclass13_sub1_sub1_sub4);
+                class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(i2, (byte) 61, aclass13_sub1_sub1_sub4);
                 for (int i3 = 0; i3 < 5; i3++) {
                     if (anIntArray1700[i3] != 0) {
                         class13_sub1_sub1_sub4_1.method279(Game.anIntArrayArray829[i3][0], Game.anIntArrayArray829[i3][anIntArray1700[i3]]);
@@ -165,7 +165,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
             if (aBoolean1688) {
                 return class13_sub1_sub1_sub4_1;
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = Node_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = CacheableNode_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
             class13_sub1_sub1_sub4_2.method267(Class8.method189(k, 19953) & Class8.method189(i1, 19953), aByte1705, class13_sub1_sub1_sub4_1);
             if (k != -1 && i1 != -1) {
                 class13_sub1_sub1_sub4_2.method274(aByte1708, Class50.aClass50Array800[super.anInt1597].anIntArray806, i1, k);
@@ -182,7 +182,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method296(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method296(int i) {
         try {
             if (!aBoolean1701) {
                 return null;
@@ -203,25 +203,25 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
             if (flag) {
                 return null;
             }
-            Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[12];
+            CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4[12];
             int l = 0;
             for (int i1 = 0; i1 < 12; i1++) {
                 int j1 = anIntArray1703[i1];
                 if (j1 >= 256 && j1 < 512) {
-                    Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = Class4.aClass4Array65[j1 - 256].method180(aByte1690);
+                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = Class4.aClass4Array65[j1 - 256].method180(aByte1690);
                     if (class13_sub1_sub1_sub4_1 != null) {
                         aclass13_sub1_sub1_sub4[l++] = class13_sub1_sub1_sub4_1;
                     }
                 }
                 if (j1 >= 512) {
-                    Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = ItemDefinition.method505(j1 - 512).method512(anInt1687, (byte) -34);
+                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = ItemDefinition.method505(j1 - 512).method512(anInt1687, (byte) -34);
                     if (class13_sub1_sub1_sub4_2 != null) {
                         aclass13_sub1_sub1_sub4[l++] = class13_sub1_sub1_sub4_2;
                     }
                 }
             }
             i = 64 / i;
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(l, (byte) 61, aclass13_sub1_sub1_sub4);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(l, (byte) 61, aclass13_sub1_sub1_sub4);
             for (int k1 = 0; k1 < 5; k1++) {
                 if (anIntArray1700[k1] != 0) {
                     class13_sub1_sub1_sub4.method279(Game.anIntArrayArray829[k1][0], Game.anIntArrayArray829[k1][anIntArray1700[k1]]);
@@ -237,12 +237,12 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method256(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
         try {
             if (!aBoolean1701) {
                 return null;
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method295(-37578);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method295(-37578);
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
@@ -253,9 +253,9 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
             }
             if (super.anInt1592 != -1 && super.anInt1593 != -1) {
                 Class40 class40 = Class40.aClass40Array685[super.anInt1592];
-                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = class40.method530();
+                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = class40.method530();
                 if (class13_sub1_sub1_sub4_2 != null) {
-                    Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = new Node_Sub1_Sub1_Sub4(false, Class8.method189(super.anInt1593, 19953), 629, class13_sub1_sub1_sub4_2, true);
+                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(super.anInt1593, 19953), 629, class13_sub1_sub1_sub4_2, true);
                     class13_sub1_sub1_sub4_3.method278(0, -991, -super.anInt1596, 0);
                     class13_sub1_sub1_sub4_3.method272(true);
                     class13_sub1_sub1_sub4_3.method273(class40.aClass50_689.anIntArray802[super.anInt1593], false);
@@ -265,10 +265,10 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                         class13_sub1_sub1_sub4_3.method281(class40.anInt692, class40.anInt692, class40.anInt693, (byte) 0);
                     }
                     class13_sub1_sub1_sub4_3.method282(64 + class40.anInt695, 850 + class40.anInt696, -30, -50, -30, true);
-                    Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4_1 = {
+                    CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4_1 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_3
                     };
-                    class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4_1, 0, true, 2);
+                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4_1, 0, true, 2);
                 }
             }
             if (aClass13_Sub1_Sub1_Sub4_1714 != null) {
@@ -276,7 +276,7 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                     aClass13_Sub1_Sub1_Sub4_1714 = null;
                 }
                 if (Game.pulseCycle >= anInt1706 && Game.pulseCycle < anInt1707) {
-                    Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aClass13_Sub1_Sub1_Sub4_1714;
+                    CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aClass13_Sub1_Sub1_Sub4_1714;
                     class13_sub1_sub1_sub4_1.method278(anInt1713 - super.anInt1588, -991, anInt1712 - anInt1699, anInt1711 - super.anInt1587);
                     if (super.anInt1609 == 512) {
                         class13_sub1_sub1_sub4_1.method276(-32823);
@@ -288,10 +288,10 @@ public class Node_Sub1_Sub1_Sub6_Sub1 extends Node_Sub1_Sub1_Sub6 {
                     } else if (super.anInt1609 == 1536) {
                         class13_sub1_sub1_sub4_1.method276(-32823);
                     }
-                    Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = {
+                    CacheableNode_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_1
                     };
-                    class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4, 0, true, 2);
+                    class13_sub1_sub1_sub4 = new CacheableNode_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4, 0, true, 2);
                     if (super.anInt1609 == 512) {
                         class13_sub1_sub1_sub4_1.method276(-32823);
                     } else if (super.anInt1609 == 1024) {

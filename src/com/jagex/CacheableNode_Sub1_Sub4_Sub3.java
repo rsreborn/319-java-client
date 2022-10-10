@@ -3,7 +3,7 @@ package com.jagex;
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub4_Sub3 extends Node_Sub1_Sub4 {
+public class CacheableNode_Sub1_Sub4_Sub3 extends CacheableNode_Sub1_Sub4 {
 
     public int anInt1662;
     public boolean aBoolean1663;
@@ -19,7 +19,7 @@ public class Node_Sub1_Sub4_Sub3 extends Node_Sub1_Sub4 {
     public int anInt1673;
     public int anInt1674;
 
-    public Node_Sub1_Sub4_Sub3(CacheArchive cacheArchive, String s, int i) {
+    public CacheableNode_Sub1_Sub4_Sub3(CacheArchive cacheArchive, String s, int i) {
         anInt1662 = -16631;
         aBoolean1663 = true;
         aBoolean1664 = false;
@@ -202,33 +202,33 @@ public class Node_Sub1_Sub4_Sub3 extends Node_Sub1_Sub4 {
             }
             j += anInt1671;
             i += anInt1672;
-            int k = j + i * Node_Sub1_Sub4.anInt1424;
+            int k = j + i * CacheableNode_Sub1_Sub4.anInt1424;
             int l = 0;
             int i1 = anInt1670;
             int j1 = anInt1669;
-            int k1 = Node_Sub1_Sub4.anInt1424 - j1;
+            int k1 = CacheableNode_Sub1_Sub4.anInt1424 - j1;
             int l1 = 0;
-            if (i < Node_Sub1_Sub4.anInt1426) {
-                int i2 = Node_Sub1_Sub4.anInt1426 - i;
+            if (i < CacheableNode_Sub1_Sub4.anInt1426) {
+                int i2 = CacheableNode_Sub1_Sub4.anInt1426 - i;
                 i1 -= i2;
-                i = Node_Sub1_Sub4.anInt1426;
+                i = CacheableNode_Sub1_Sub4.anInt1426;
                 l += i2 * j1;
-                k += i2 * Node_Sub1_Sub4.anInt1424;
+                k += i2 * CacheableNode_Sub1_Sub4.anInt1424;
             }
-            if (i + i1 > Node_Sub1_Sub4.anInt1427) {
-                i1 -= (i + i1) - Node_Sub1_Sub4.anInt1427;
+            if (i + i1 > CacheableNode_Sub1_Sub4.anInt1427) {
+                i1 -= (i + i1) - CacheableNode_Sub1_Sub4.anInt1427;
             }
-            if (j < Node_Sub1_Sub4.anInt1428) {
-                int j2 = Node_Sub1_Sub4.anInt1428 - j;
+            if (j < CacheableNode_Sub1_Sub4.anInt1428) {
+                int j2 = CacheableNode_Sub1_Sub4.anInt1428 - j;
                 j1 -= j2;
-                j = Node_Sub1_Sub4.anInt1428;
+                j = CacheableNode_Sub1_Sub4.anInt1428;
                 l += j2;
                 k += j2;
                 l1 += j2;
                 k1 += j2;
             }
-            if (j + j1 > Node_Sub1_Sub4.anInt1429) {
-                int k2 = (j + j1) - Node_Sub1_Sub4.anInt1429;
+            if (j + j1 > CacheableNode_Sub1_Sub4.anInt1429) {
+                int k2 = (j + j1) - CacheableNode_Sub1_Sub4.anInt1429;
                 j1 -= k2;
                 l1 += k2;
                 k1 += k2;
@@ -236,7 +236,7 @@ public class Node_Sub1_Sub4_Sub3 extends Node_Sub1_Sub4 {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method402(l, (byte) 114, j1, l1, aByteArray1667, k1, k, Node_Sub1_Sub4.anIntArray1423, anIntArray1668, i1);
+                method402(l, (byte) 114, j1, l1, aByteArray1667, k1, k, CacheableNode_Sub1_Sub4.anIntArray1423, anIntArray1668, i1);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

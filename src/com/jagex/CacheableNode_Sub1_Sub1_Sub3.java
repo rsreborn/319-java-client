@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub1_Sub3 extends Node_Sub1_Sub1 {
+public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
 
     public Class40 aClass40_1475;
     public int anInt1476;
@@ -15,8 +15,8 @@ public class Node_Sub1_Sub1_Sub3 extends Node_Sub1_Sub1 {
     public int anInt1483;
     public int anInt1484;
 
-    public Node_Sub1_Sub1_Sub3(int i, int j, int k, int l, int i1, byte byte0, int j1,
-                               int k1) {
+    public CacheableNode_Sub1_Sub1_Sub3(int i, int j, int k, int l, int i1, byte byte0, int j1,
+                                        int k1) {
         anInt1476 = -22144;
         aBoolean1479 = false;
         try {
@@ -39,14 +39,14 @@ public class Node_Sub1_Sub1_Sub3 extends Node_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method256(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
         try {
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1475.method530();
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1475.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
             int j = aClass40_1475.aClass50_689.anIntArray802[anInt1477];
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new Node_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 95 / i;
             if (!aBoolean1479) {
                 class13_sub1_sub1_sub4_1.method272(true);

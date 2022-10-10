@@ -14,7 +14,7 @@ public class Widget {
     public int anInt536;
     public int anInt537;
     public boolean isItemSwappable;
-    public Node_Sub1_Sub4_Sub4[] sprites;
+    public CacheableNode_Sub1_Sub4_Sub4[] sprites;
     public int anInt540;
     public int modelType;
     public int modelId;
@@ -39,10 +39,10 @@ public class Widget {
     public byte alpha;
     public String aString563;
     public String hoverText;
-    public Node_Sub1_Sub4_Sub4 enabledSprite;
+    public CacheableNode_Sub1_Sub4_Sub4 enabledSprite;
     public int enabledHoverColor;
     public int anInt568;
-    public Node_Sub1_Sub4_Sub4 disabledSprite;
+    public CacheableNode_Sub1_Sub4_Sub4 disabledSprite;
     public int type;
     public int anInt571;
     public int anInt572;
@@ -75,7 +75,7 @@ public class Widget {
     public Widget() {
     }
 
-    public static void method498(int i, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j, int k) {
+    public static void method498(int i, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j, int k) {
         try {
             modelCache.method174();
             if (j != 0) {
@@ -91,18 +91,18 @@ public class Widget {
         }
     }
 
-    public static Node_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, CacheArchive cacheArchive, String s) {
+    public static CacheableNode_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, CacheArchive cacheArchive, String s) {
         try {
             if (flag) {
                 anInt546 = -374;
             }
             long l = (Class24.method448((byte) 23, s) << 8) + (long) i;
-            Node_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (Node_Sub1_Sub4_Sub4) spriteCache.method172(l);
+            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) spriteCache.method172(l);
             if (class13_sub1_sub4_sub4 != null) {
                 return class13_sub1_sub4_sub4;
             }
             try {
-                class13_sub1_sub4_sub4 = new Node_Sub1_Sub4_Sub4(cacheArchive, s, i);
+                class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive, s, i);
                 spriteCache.method173(class13_sub1_sub4_sub4, l, 9388);
             } catch (Exception _ex) {
                 return null;
@@ -193,7 +193,7 @@ public class Widget {
 
                     widget.spriteX = new int[20];
                     widget.spriteY = new int[20];
-                    widget.sprites = new Node_Sub1_Sub4_Sub4[20];
+                    widget.sprites = new CacheableNode_Sub1_Sub4_Sub4[20];
 
                     for (int index = 0; index < 20; index++) {
                         int hasSprite = buffer.readUnsignedByte();
@@ -329,13 +329,13 @@ public class Widget {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method497(int i, int j) {
-        Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Node_Sub1_Sub1_Sub4) modelCache.method172((i << 16) + j);
+    public CacheableNode_Sub1_Sub1_Sub4 method497(int i, int j) {
+        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) modelCache.method172((i << 16) + j);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
         if (i == 1) {
-            class13_sub1_sub1_sub4 = Node_Sub1_Sub1_Sub4.method265((byte) 4, j);
+            class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, j);
         }
         if (i == 2) {
             class13_sub1_sub1_sub4 = Class47.getDefinition(j).method583(524);
@@ -355,12 +355,12 @@ public class Widget {
         return class13_sub1_sub1_sub4;
     }
 
-    public Node_Sub1_Sub1_Sub4 method499(int i, int j, boolean flag, boolean flag1) {
+    public CacheableNode_Sub1_Sub1_Sub4 method499(int i, int j, boolean flag, boolean flag1) {
         try {
             if (!flag) {
                 anInt593 = -416;
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
             if (flag1) {
                 class13_sub1_sub1_sub4 = method497(anInt587, anInt588);
             } else {
@@ -372,7 +372,7 @@ public class Widget {
             if (j == -1 && i == -1 && class13_sub1_sub1_sub4.anIntArray1510 == null) {
                 return class13_sub1_sub1_sub4;
             }
-            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new Node_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953) & Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953) & Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
             if (j != -1 || i != -1) {
                 class13_sub1_sub1_sub4_1.method272(true);
             }

@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Node_Sub1_Sub1_Sub2 extends Node_Sub1_Sub1 {
+public class CacheableNode_Sub1_Sub1_Sub2 extends CacheableNode_Sub1_ {
 
     public static Game aGame1469;
     public int anInt1459;
@@ -21,8 +21,8 @@ public class Node_Sub1_Sub1_Sub2 extends Node_Sub1_Sub1 {
     public int anInt1473;
     public int anInt1474;
 
-    public Node_Sub1_Sub1_Sub2(int i, int j, int k, int l, int i1, int j1, boolean flag,
-                               int k1, int l1, int i2) {
+    public CacheableNode_Sub1_Sub1_Sub2(int i, int j, int k, int l, int i1, int j1, boolean flag,
+                                        int k1, int l1, int i2) {
         aBoolean1468 = false;
         anInt1472 = 525;
         try {
@@ -56,7 +56,7 @@ public class Node_Sub1_Sub1_Sub2 extends Node_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Node_Sub1_Sub1_Sub4 method256(int i) {
+    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
         try {
             i = 97 / i;
             int j = -1;
@@ -92,7 +92,7 @@ public class Node_Sub1_Sub1_Sub2 extends Node_Sub1_Sub1 {
             if (gameObjectDefinition == null) {
                 return null;
             } else {
-                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = gameObjectDefinition.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
+                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = gameObjectDefinition.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
                 return class13_sub1_sub1_sub4;
             }
         } catch (RuntimeException runtimeexception) {
