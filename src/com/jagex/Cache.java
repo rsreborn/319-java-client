@@ -10,7 +10,7 @@ public class Cache {
     public boolean aBoolean52;
     public int anInt53;
     public int anInt54;
-    public Class13_Sub1 aClass13_Sub1_55;
+    public Node_Sub1 aClass13_Sub1_55;
     public int anInt56;
     public int anInt57;
     public Class49 aClass49_58;
@@ -21,7 +21,7 @@ public class Cache {
         aBoolean50 = false;
         aBoolean51 = true;
         aBoolean52 = false;
-        aClass13_Sub1_55 = new Class13_Sub1();
+        aClass13_Sub1_55 = new Node_Sub1();
         aClass21_59 = new Class21(14716);
         try {
             anInt56 = i;
@@ -29,7 +29,7 @@ public class Cache {
                 aBoolean52 = !aBoolean52;
             }
             anInt57 = i;
-            aClass49_58 = new Class49(1024, aBoolean50);
+            aClass49_58 = new Class49(1024);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("35599, " + i + ", " + j + ", " + runtimeexception);
@@ -37,8 +37,8 @@ public class Cache {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1 method172(long l) {
-        Class13_Sub1 class13_sub1 = (Class13_Sub1) aClass49_58.method589(l);
+    public Node_Sub1 method172(long l) {
+        Node_Sub1 class13_sub1 = (Node_Sub1) aClass49_58.method589(l);
         if (class13_sub1 != null) {
             aClass21_59.method439(class13_sub1);
             anInt54++;
@@ -48,21 +48,21 @@ public class Cache {
         return class13_sub1;
     }
 
-    public void method173(Class13_Sub1 class13_sub1, long l, int i) {
+    public void method173(Node_Sub1 class13_sub1, long l, int i) {
         try {
             if (anInt57 == 0) {
-                Class13_Sub1 class13_sub1_1 = aClass21_59.method440();
-                class13_sub1_1.method253();
+                Node_Sub1 class13_sub1_1 = aClass21_59.method440();
+                class13_sub1_1.remove();
                 class13_sub1_1.method254();
                 if (class13_sub1_1 == aClass13_Sub1_55) {
-                    Class13_Sub1 class13_sub1_2 = aClass21_59.method440();
-                    class13_sub1_2.method253();
+                    Node_Sub1 class13_sub1_2 = aClass21_59.method440();
+                    class13_sub1_2.remove();
                     class13_sub1_2.method254();
                 }
             } else {
                 anInt57--;
             }
-            aClass49_58.method590(l, class13_sub1, (byte) 5);
+            aClass49_58.method590(l, class13_sub1);
             if (i != 9388) {
                 anInt49 = 361;
             }
@@ -76,9 +76,9 @@ public class Cache {
 
     public void method174() {
         do {
-            Class13_Sub1 class13_sub1 = aClass21_59.method440();
+            Node_Sub1 class13_sub1 = aClass21_59.method440();
             if (class13_sub1 != null) {
-                class13_sub1.method253();
+                class13_sub1.remove();
                 class13_sub1.method254();
             } else {
                 anInt57 = anInt56;

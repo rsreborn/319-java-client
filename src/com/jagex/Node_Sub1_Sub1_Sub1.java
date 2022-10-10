@@ -2,7 +2,7 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class13_Sub1_Sub1_Sub1 extends Class13_Sub1_Sub1 {
+public class Node_Sub1_Sub1_Sub1 extends Node_Sub1_Sub1 {
 
     public double aDouble1434;
     public double aDouble1435;
@@ -30,8 +30,8 @@ public class Class13_Sub1_Sub1_Sub1 extends Class13_Sub1_Sub1 {
     public int anInt1457;
     public int anInt1458;
 
-    public Class13_Sub1_Sub1_Sub1(int i, int j, int k, int l, int i1, int j1, int k1,
-                                  int l1, byte byte0, int i2, int j2, int k2) {
+    public Node_Sub1_Sub1_Sub1(int i, int j, int k, int l, int i1, int j1, int k1,
+                               int l1, byte byte0, int i2, int j2, int k2) {
         aBoolean1441 = false;
         try {
             aClass40_1446 = Class40.aClass40Array685[j];
@@ -83,9 +83,9 @@ public class Class13_Sub1_Sub1_Sub1 extends Class13_Sub1_Sub1 {
         }
     }
 
-    public Class13_Sub1_Sub1_Sub4 method256(int i) {
+    public Node_Sub1_Sub1_Sub4 method256(int i) {
         try {
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1446.method530();
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1446.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
@@ -93,7 +93,7 @@ public class Class13_Sub1_Sub1_Sub1 extends Class13_Sub1_Sub1 {
             if (aClass40_1446.aClass50_689 != null) {
                 j = aClass40_1446.aClass50_689.anIntArray802[anInt1452];
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new Class13_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new Node_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 63 / i;
             if (j != -1) {
                 class13_sub1_sub1_sub4_1.method272(true);

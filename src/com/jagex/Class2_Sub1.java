@@ -3,6 +3,7 @@ package com.jagex;/* com.jagex.Class2_Sub1 - Decompiled by JODE
  */
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 
 import java.io.ByteArrayInputStream;
@@ -15,10 +16,10 @@ import java.util.zip.GZIPInputStream;
 
 public class Class2_Sub1 extends Class2 implements Runnable {
     public int anInt1292 = 12258;
-    public Class12 aClass12_1293 = new Class12(36944);
+    public LinkedList aLinkedList_1293 = new LinkedList();
     public Class21 aClass21_1294 = new Class21(14716);
     public int anInt1295 = -22144;
-    public Class13_Sub1_Sub3 aClass13_Sub1_Sub3_1296;
+    public Node_Sub1_Sub3 aClass13_Sub1_Sub3_1296;
     public byte[][] aByteArrayArray1297 = new byte[4][];
     public byte[] aByteArray1298 = new byte[500];
     public boolean aBoolean1299 = false;
@@ -44,31 +45,31 @@ public class Class2_Sub1 extends Class2 implements Runnable {
     public Game aGame1319;
     public int[] anIntArray1320;
     public int anInt1321;
-    public Class12 aClass12_1322 = new Class12(36944);
+    public LinkedList aLinkedList_1322 = new LinkedList();
     public int[][] anIntArrayArray1323 = new int[4][];
     public boolean aBoolean1324 = false;
     public int anInt1325;
     public int anInt1326;
     public byte[] aByteArray1327 = new byte[65000];
-    public Class12 aClass12_1328 = new Class12(36944);
+    public LinkedList aLinkedList_1328 = new LinkedList();
     public int anInt1329;
-    public Class12 aClass12_1330 = new Class12(36944);
+    public LinkedList aLinkedList_1330 = new LinkedList();
     public InputStream anInputStream1331;
     public int[] anIntArray1332;
     public int anInt1333;
-    public Class12 aClass12_1334 = new Class12(36944);
+    public LinkedList aLinkedList_1334 = new LinkedList();
     public int anInt1335;
 
     public void method151(int i) {
         try {
             anInt1308 = 0;
             anInt1309 = 0;
-            Class13_Sub1_Sub3 class13_sub1_sub3
-                    = (Class13_Sub1_Sub3) aClass12_1322.method248();
+            Node_Sub1_Sub3 class13_sub1_sub3
+                    = (Node_Sub1_Sub3) aLinkedList_1322.first();
             if (i == 27519) {
                 for (/**/; class13_sub1_sub3 != null;
                          class13_sub1_sub3
-                                 = (Class13_Sub1_Sub3) aClass12_1322.method250(-475)) {
+                                 = (Node_Sub1_Sub3) aLinkedList_1322.next()) {
                     if (class13_sub1_sub3.aBoolean1415)
                         anInt1308++;
                     else
@@ -76,7 +77,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                 }
                 while (anInt1308 < 10) {
                     class13_sub1_sub3
-                            = (Class13_Sub1_Sub3) aClass12_1293.method247();
+                            = (Node_Sub1_Sub3) aLinkedList_1293.pop();
                     if (class13_sub1_sub3 == null)
                         break;
                     if ((aByteArrayArray1297[class13_sub1_sub3.anInt1414]
@@ -86,7 +87,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                     aByteArrayArray1297[class13_sub1_sub3.anInt1414]
                             [class13_sub1_sub3.anInt1416]
                             = (byte) 0;
-                    aClass12_1322.method245(class13_sub1_sub3);
+                    aLinkedList_1322.pushBack(class13_sub1_sub3);
                     anInt1308++;
                     method159(0, class13_sub1_sub3);
                     aBoolean1299 = true;
@@ -101,10 +102,10 @@ public class Class2_Sub1 extends Class2 implements Runnable {
 
     public void method152(int i) {
         try {
-            Class13_Sub1_Sub3 class13_sub1_sub3;
-            synchronized (aClass12_1334) {
+            Node_Sub1_Sub3 class13_sub1_sub3;
+            synchronized (aLinkedList_1334) {
                 class13_sub1_sub3
-                        = (Class13_Sub1_Sub3) aClass12_1334.method247();
+                        = (Node_Sub1_Sub3) aLinkedList_1334.pop();
             }
             while (i >= 0)
                 aBoolean1324 = !aBoolean1324;
@@ -123,17 +124,17 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                                 [class13_sub1_sub3.anInt1414]
                                 [class13_sub1_sub3.anInt1416])))
                     is = null;
-                synchronized (aClass12_1334) {
+                synchronized (aLinkedList_1334) {
                     if (is == null)
-                        aClass12_1293.method245(class13_sub1_sub3);
+                        aLinkedList_1293.pushBack(class13_sub1_sub3);
                     else {
                         class13_sub1_sub3.aByteArray1412 = is;
-                        synchronized (aClass12_1330) {
-                            aClass12_1330.method245(class13_sub1_sub3);
+                        synchronized (aLinkedList_1330) {
+                            aLinkedList_1330.pushBack(class13_sub1_sub3);
                         }
                     }
                     class13_sub1_sub3
-                            = (Class13_Sub1_Sub3) aClass12_1334.method247();
+                            = (Node_Sub1_Sub3) aLinkedList_1334.pop();
                 }
             }
         } catch (RuntimeException runtimeexception) {
@@ -191,21 +192,21 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                 && i_4_ <= anIntArrayArray1306[i].length
                 && anIntArrayArray1306[i][i_4_] != 0) {
             synchronized (aClass21_1294) {
-                for (Class13_Sub1_Sub3 class13_sub1_sub3
-                     = (Class13_Sub1_Sub3) aClass21_1294.method441();
+                for (Node_Sub1_Sub3 class13_sub1_sub3
+                     = (Node_Sub1_Sub3) aClass21_1294.method441();
                      class13_sub1_sub3 != null;
                      class13_sub1_sub3
-                             = (Class13_Sub1_Sub3) aClass21_1294.method442(-475)) {
+                             = (Node_Sub1_Sub3) aClass21_1294.method442(-475)) {
                     if (class13_sub1_sub3.anInt1414 == i
                             && class13_sub1_sub3.anInt1416 == i_4_)
                         return;
                 }
-                Class13_Sub1_Sub3 class13_sub1_sub3 = new Class13_Sub1_Sub3();
+                Node_Sub1_Sub3 class13_sub1_sub3 = new Node_Sub1_Sub3();
                 class13_sub1_sub3.anInt1414 = i;
                 class13_sub1_sub3.anInt1416 = i_4_;
                 class13_sub1_sub3.aBoolean1415 = true;
-                synchronized (aClass12_1334) {
-                    aClass12_1334.method245(class13_sub1_sub3);
+                synchronized (aLinkedList_1334) {
+                    aLinkedList_1334.pushBack(class13_sub1_sub3);
                 }
                 aClass21_1294.method439(class13_sub1_sub3);
             }
@@ -217,14 +218,14 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             if (aGame1319.cacheIndexes[0] != null
                     && anIntArrayArray1306[i][i_5_] != 0
                     && aByteArrayArray1297[i][i_5_] != 0 && anInt1307 != 0) {
-                Class13_Sub1_Sub3 class13_sub1_sub3 = new Class13_Sub1_Sub3();
+                Node_Sub1_Sub3 class13_sub1_sub3 = new Node_Sub1_Sub3();
                 class13_sub1_sub3.anInt1414 = i;
                 class13_sub1_sub3.anInt1416 = i_5_;
                 if (i_6_ != 0)
                     anInt1295 = -413;
                 class13_sub1_sub3.aBoolean1415 = false;
-                synchronized (aClass12_1328) {
-                    aClass12_1328.method245(class13_sub1_sub3);
+                synchronized (aLinkedList_1328) {
+                    aLinkedList_1328.pushBack(class13_sub1_sub3);
                 }
             }
         } catch (RuntimeException runtimeexception) {
@@ -246,7 +247,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         }
     }
 
-    public void method159(int i, Class13_Sub1_Sub3 class13_sub1_sub3) {
+    public void method159(int i, Node_Sub1_Sub3 class13_sub1_sub3) {
         try {
             if (i != 0) {
                 for (int i_7_ = 1; i_7_ > 0; i_7_++) {
@@ -383,10 +384,10 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                         break;
                     if (anInt1307 == 0)
                         break;
-                    Class13_Sub1_Sub3 class13_sub1_sub3;
-                    synchronized (aClass12_1328) {
+                    Node_Sub1_Sub3 class13_sub1_sub3;
+                    synchronized (aLinkedList_1328) {
                         class13_sub1_sub3
-                                = (Class13_Sub1_Sub3) aClass12_1328.method247();
+                                = (Node_Sub1_Sub3) aLinkedList_1328.pop();
                     }
                     while (class13_sub1_sub3 != null) {
                         if ((aByteArrayArray1297[class13_sub1_sub3.anInt1414]
@@ -396,7 +397,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                                     [class13_sub1_sub3.anInt1414]
                                     [class13_sub1_sub3.anInt1416]
                                     = (byte) 0;
-                            aClass12_1322.method245(class13_sub1_sub3);
+                            aLinkedList_1322.pushBack(class13_sub1_sub3);
                             method159(0, class13_sub1_sub3);
                             aBoolean1299 = true;
                             if (anInt1329 < anInt1335)
@@ -408,9 +409,9 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                             if (anInt1309 == 10)
                                 return;
                         }
-                        synchronized (aClass12_1328) {
-                            class13_sub1_sub3 = ((Class13_Sub1_Sub3)
-                                    aClass12_1328.method247());
+                        synchronized (aLinkedList_1328) {
+                            class13_sub1_sub3 = ((Node_Sub1_Sub3)
+                                    aLinkedList_1328.pop());
                         }
                     }
                     for (int i_20_ = 0; i_20_ < 4; i_20_++) {
@@ -419,11 +420,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                         for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
                             if (is[i_22_] == anInt1307) {
                                 is[i_22_] = (byte) 0;
-                                class13_sub1_sub3 = new Class13_Sub1_Sub3();
+                                class13_sub1_sub3 = new Node_Sub1_Sub3();
                                 class13_sub1_sub3.anInt1414 = i_20_;
                                 class13_sub1_sub3.anInt1416 = i_22_;
                                 class13_sub1_sub3.aBoolean1415 = false;
-                                aClass12_1322.method245(class13_sub1_sub3);
+                                aLinkedList_1322.pushBack(class13_sub1_sub3);
                                 method159(0, class13_sub1_sub3);
                                 aBoolean1299 = true;
                                 if (anInt1329 < anInt1335)
@@ -470,13 +471,13 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                                     + (aByteArray1298[4] & 0xff));
                             int i_28_ = aByteArray1298[5] & 0xff;
                             aClass13_Sub1_Sub3_1296 = null;
-                            for (Class13_Sub1_Sub3 class13_sub1_sub3
-                                 = ((Class13_Sub1_Sub3)
-                                    aClass12_1322.method248());
+                            for (Node_Sub1_Sub3 class13_sub1_sub3
+                                 = ((Node_Sub1_Sub3)
+                                    aLinkedList_1322.first());
                                  class13_sub1_sub3 != null;
                                  class13_sub1_sub3
-                                         = ((Class13_Sub1_Sub3)
-                                         aClass12_1322.method250(-475))) {
+                                         = ((Node_Sub1_Sub3)
+                                         aLinkedList_1322.next())) {
                                 if (class13_sub1_sub3.anInt1414 == i_25_
                                         && class13_sub1_sub3.anInt1416 == i_26_)
                                     aClass13_Sub1_Sub3_1296
@@ -492,12 +493,12 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                                     aClass13_Sub1_Sub3_1296.aByteArray1412
                                             = null;
                                     if (aClass13_Sub1_Sub3_1296.aBoolean1415) {
-                                        synchronized (aClass12_1330) {
-                                            aClass12_1330.method245
+                                        synchronized (aLinkedList_1330) {
+                                            aLinkedList_1330.pushBack
                                                     (aClass13_Sub1_Sub3_1296);
                                         }
                                     } else
-                                        aClass13_Sub1_Sub3_1296.method253();
+                                        aClass13_Sub1_Sub3_1296.remove();
                                     aClass13_Sub1_Sub3_1296 = null;
                                 } else {
                                     if ((aClass13_Sub1_Sub3_1296.aByteArray1412
@@ -547,12 +548,12 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                                 aClass13_Sub1_Sub3_1296.anInt1414 = 93;
                             }
                             if (aClass13_Sub1_Sub3_1296.aBoolean1415) {
-                                synchronized (aClass12_1330) {
-                                    aClass12_1330
-                                            .method245(aClass13_Sub1_Sub3_1296);
+                                synchronized (aLinkedList_1330) {
+                                    aLinkedList_1330
+                                            .pushBack(aClass13_Sub1_Sub3_1296);
                                 }
                             } else
-                                aClass13_Sub1_Sub3_1296.method253();
+                                aClass13_Sub1_Sub3_1296.remove();
                         }
                         anInt1305 = 0;
                     } catch (IOException ioexception) {
@@ -579,8 +580,8 @@ public class Class2_Sub1 extends Class2 implements Runnable {
 
     public void method166(int i) {
         try {
-            synchronized (aClass12_1328) {
-                aClass12_1328.method252();
+            synchronized (aLinkedList_1328) {
+                aLinkedList_1328.clear();
             }
             i = 78 / i;
         } catch (RuntimeException runtimeexception) {
@@ -711,11 +712,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                         method165(4717);
                 }
                 boolean bool = false;
-                for (Class13_Sub1_Sub3 class13_sub1_sub3
-                     = (Class13_Sub1_Sub3) aClass12_1322.method248();
+                for (Node_Sub1_Sub3 class13_sub1_sub3
+                     = (Node_Sub1_Sub3) aLinkedList_1322.first();
                      class13_sub1_sub3 != null;
                      class13_sub1_sub3
-                             = (Class13_Sub1_Sub3) aClass12_1322.method250(-475)) {
+                             = (Node_Sub1_Sub3) aLinkedList_1322.next()) {
                     if (class13_sub1_sub3.aBoolean1415) {
                         bool = true;
                         class13_sub1_sub3.anInt1413++;
@@ -726,11 +727,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                     }
                 }
                 if (!bool) {
-                    for (Class13_Sub1_Sub3 class13_sub1_sub3
-                         = (Class13_Sub1_Sub3) aClass12_1322.method248();
+                    for (Node_Sub1_Sub3 class13_sub1_sub3
+                         = (Node_Sub1_Sub3) aLinkedList_1322.first();
                          class13_sub1_sub3 != null;
-                         class13_sub1_sub3 = ((Class13_Sub1_Sub3)
-                                 aClass12_1322.method250(-475))) {
+                         class13_sub1_sub3 = ((Node_Sub1_Sub3)
+                                 aLinkedList_1322.next())) {
                         bool = true;
                         class13_sub1_sub3.anInt1413++;
                         if (class13_sub1_sub3.anInt1413 > 50) {
@@ -798,10 +799,10 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         }
     }
 
-    public Class13_Sub1_Sub3 method171() {
-        Class13_Sub1_Sub3 class13_sub1_sub3;
-        synchronized (aClass12_1330) {
-            class13_sub1_sub3 = (Class13_Sub1_Sub3) aClass12_1330.method247();
+    public Node_Sub1_Sub3 method171() {
+        Node_Sub1_Sub3 class13_sub1_sub3;
+        synchronized (aLinkedList_1330) {
+            class13_sub1_sub3 = (Node_Sub1_Sub3) aLinkedList_1330.pop();
         }
         if (class13_sub1_sub3 == null)
             return null;

@@ -6,7 +6,7 @@ public class Class20 {
     public int anInt348;
     public int anInt349;
     public int anInt350;
-    public Class13_Sub1_Sub1 aClass13_Sub1_Sub1_351;
+    public Node_Sub1_Sub1 aClass13_Sub1_Sub1_351;
     public int anInt352;
     public int anInt353;
     public int anInt354;

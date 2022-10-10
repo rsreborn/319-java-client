@@ -1,10 +1,11 @@
 package com.jagex;
 
+import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 
 import java.math.BigInteger;
 
-public class Buffer extends Class13_Sub1 {
+public class Buffer extends Node_Sub1 {
 
     public static int[] anIntArray1401;
     public final int[] BIT_MASKS = {
@@ -16,9 +17,9 @@ public class Buffer extends Class13_Sub1 {
     public static int anInt1404;
     public static int anInt1405;
     public static int anInt1406;
-    public static Class12 aClass12_1407 = new Class12(36944);
-    public static Class12 aClass12_1408 = new Class12(36944);
-    public static Class12 aClass12_1409 = new Class12(36944);
+    public static LinkedList aLinkedList_1407 = new LinkedList();
+    public static LinkedList aLinkedList_1408 = new LinkedList();
+    public static LinkedList aLinkedList_1409 = new LinkedList();
     public static char[] aCharArray1410 = {
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
             'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
@@ -123,17 +124,17 @@ public class Buffer extends Class13_Sub1 {
 
     public static Buffer method299(int i, int j) {
         try {
-            synchronized (aClass12_1408) {
+            synchronized (aLinkedList_1408) {
                 Buffer buffer_2 = null;
                 if (j == 0 && anInt1404 > 0) {
                     anInt1404--;
-                    buffer_2 = (Buffer) aClass12_1407.method247();
+                    buffer_2 = (Buffer) aLinkedList_1407.pop();
                 } else if (j == 1 && anInt1405 > 0) {
                     anInt1405--;
-                    buffer_2 = (Buffer) aClass12_1408.method247();
+                    buffer_2 = (Buffer) aLinkedList_1408.pop();
                 } else if (j == 2 && anInt1406 > 0) {
                     anInt1406--;
-                    buffer_2 = (Buffer) aClass12_1409.method247();
+                    buffer_2 = (Buffer) aLinkedList_1409.pop();
                 }
                 if (buffer_2 != null) {
                     buffer_2.position = 0;

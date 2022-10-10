@@ -94,12 +94,12 @@ public class Class40 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4 method530() {
-        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_697.method172(anInt686);
+    public Node_Sub1_Sub1_Sub4 method530() {
+        Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (Node_Sub1_Sub1_Sub4) aCache_697.method172(anInt686);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
-        class13_sub1_sub1_sub4 = Class13_Sub1_Sub1_Sub4.method265((byte) 4, anInt687);
+        class13_sub1_sub1_sub4 = Node_Sub1_Sub1_Sub4.method265((byte) 4, anInt687);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }

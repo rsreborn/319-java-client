@@ -1,12 +1,14 @@
 package com.jagex;
 
-public class Class13_Sub1 extends Class13 {
+import com.jagex.util.Node;
+
+public class Node_Sub1 extends Node {
 
     public static int anInt1338;
-    public Class13_Sub1 aClass13_Sub1_1336;
-    public Class13_Sub1 aClass13_Sub1_1337;
+    public Node_Sub1 aClass13_Sub1_1336;
+    public Node_Sub1 aClass13_Sub1_1337;
 
-    public Class13_Sub1() {
+    public Node_Sub1() {
     }
 
     public void method254() {

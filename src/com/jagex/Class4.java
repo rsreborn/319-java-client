@@ -99,7 +99,7 @@ public class Class4 {
             }
             boolean flag1 = true;
             for (int i = 0; i < anIntArray67.length; i++) {
-                if (!Class13_Sub1_Sub1_Sub4.method266(anIntArray67[i])) {
+                if (!Node_Sub1_Sub1_Sub4.method266(anIntArray67[i])) {
                     flag1 = false;
                 }
             }
@@ -110,20 +110,20 @@ public class Class4 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4 method178(int i) {
+    public Node_Sub1_Sub1_Sub4 method178(int i) {
         try {
             if (anIntArray67 == null) {
                 return null;
             }
-            Class13_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4[anIntArray67.length];
+            Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[anIntArray67.length];
             for (int j = 0; j < anIntArray67.length; j++) {
-                aclass13_sub1_sub1_sub4[j] = Class13_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray67[j]);
+                aclass13_sub1_sub1_sub4[j] = Node_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray67[j]);
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
             if (aclass13_sub1_sub1_sub4.length == 1) {
                 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
             } else {
-                class13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
+                class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
             }
             for (int k = 0; k < 6; k++) {
                 if (anIntArray68[k] == 0) {
@@ -149,7 +149,7 @@ public class Class4 {
             }
             boolean flag = true;
             for (int j = 0; j < 5; j++) {
-                if (anIntArray70[j] != -1 && !Class13_Sub1_Sub1_Sub4.method266(anIntArray70[j])) {
+                if (anIntArray70[j] != -1 && !Node_Sub1_Sub1_Sub4.method266(anIntArray70[j])) {
                     flag = false;
                 }
             }
@@ -160,16 +160,16 @@ public class Class4 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4 method180(byte byte0) {
+    public Node_Sub1_Sub1_Sub4 method180(byte byte0) {
         try {
-            Class13_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4[5];
+            Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4[5];
             int i = 0;
             for (int j = 0; j < 5; j++) {
                 if (anIntArray70[j] != -1) {
-                    aclass13_sub1_sub1_sub4[i++] = Class13_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray70[j]);
+                    aclass13_sub1_sub1_sub4[i++] = Node_Sub1_Sub1_Sub4.method265((byte) 4, anIntArray70[j]);
                 }
             }
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4(i, (byte) 61, aclass13_sub1_sub1_sub4);
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(i, (byte) 61, aclass13_sub1_sub1_sub4);
             if (byte0 != -78) {
                 aBoolean61 = !aBoolean61;
             }

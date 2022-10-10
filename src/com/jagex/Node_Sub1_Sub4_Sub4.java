@@ -6,7 +6,7 @@ import com.jagex.sign.Signlink;
 import java.awt.*;
 import java.awt.image.PixelGrabber;
 
-public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
+public class Node_Sub1_Sub4_Sub4 extends Node_Sub1_Sub4 {
 
     public int anInt1675;
     public boolean aBoolean1676;
@@ -21,7 +21,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
     public int anInt1685;
     public int anInt1686;
 
-    public Class13_Sub1_Sub4_Sub4(int i, int j) {
+    public Node_Sub1_Sub4_Sub4(int i, int j) {
         anInt1675 = 47637;
         aBoolean1676 = false;
         aByte1677 = 6;
@@ -33,7 +33,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         anInt1683 = anInt1684 = 0;
     }
 
-    public Class13_Sub1_Sub4_Sub4(byte[] abyte0, Component component) {
+    public Node_Sub1_Sub4_Sub4(byte[] abyte0, Component component) {
         anInt1675 = 47637;
         aBoolean1676 = false;
         aByte1677 = 6;
@@ -59,7 +59,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         }
     }
 
-    public Class13_Sub1_Sub4_Sub4(CacheArchive cacheArchive, String s, int i) {
+    public Node_Sub1_Sub4_Sub4(CacheArchive cacheArchive, String s, int i) {
         anInt1675 = 47637;
         aBoolean1676 = false;
         aByte1677 = 6;
@@ -110,7 +110,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             if (flag) {
                 aBoolean1679 = !aBoolean1679;
             }
-            Class13_Sub1_Sub4.method351(0, anIntArray1680, anInt1682, anInt1681);
+            Node_Sub1_Sub4.method351(0, anIntArray1680, anInt1682, anInt1681);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("37582, " + flag + ", " + runtimeexception);
@@ -183,33 +183,33 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         try {
             i += anInt1683;
             j += anInt1684;
-            int l = i + j * Class13_Sub1_Sub4.anInt1424;
+            int l = i + j * Node_Sub1_Sub4.anInt1424;
             int i1 = 0;
             int j1 = anInt1682;
             int k1 = anInt1681;
-            int l1 = Class13_Sub1_Sub4.anInt1424 - k1;
+            int l1 = Node_Sub1_Sub4.anInt1424 - k1;
             int i2 = 0;
-            if (j < Class13_Sub1_Sub4.anInt1426) {
-                int j2 = Class13_Sub1_Sub4.anInt1426 - j;
+            if (j < Node_Sub1_Sub4.anInt1426) {
+                int j2 = Node_Sub1_Sub4.anInt1426 - j;
                 j1 -= j2;
-                j = Class13_Sub1_Sub4.anInt1426;
+                j = Node_Sub1_Sub4.anInt1426;
                 i1 += j2 * k1;
-                l += j2 * Class13_Sub1_Sub4.anInt1424;
+                l += j2 * Node_Sub1_Sub4.anInt1424;
             }
-            if (j + j1 > Class13_Sub1_Sub4.anInt1427) {
-                j1 -= (j + j1) - Class13_Sub1_Sub4.anInt1427;
+            if (j + j1 > Node_Sub1_Sub4.anInt1427) {
+                j1 -= (j + j1) - Node_Sub1_Sub4.anInt1427;
             }
-            if (i < Class13_Sub1_Sub4.anInt1428) {
-                int k2 = Class13_Sub1_Sub4.anInt1428 - i;
+            if (i < Node_Sub1_Sub4.anInt1428) {
+                int k2 = Node_Sub1_Sub4.anInt1428 - i;
                 k1 -= k2;
-                i = Class13_Sub1_Sub4.anInt1428;
+                i = Node_Sub1_Sub4.anInt1428;
                 i1 += k2;
                 l += k2;
                 i2 += k2;
                 l1 += k2;
             }
-            if (i + k1 > Class13_Sub1_Sub4.anInt1429) {
-                int l2 = (i + k1) - Class13_Sub1_Sub4.anInt1429;
+            if (i + k1 > Node_Sub1_Sub4.anInt1429) {
+                int l2 = (i + k1) - Node_Sub1_Sub4.anInt1429;
                 k1 -= l2;
                 i2 += l2;
                 l1 += l2;
@@ -217,7 +217,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             if (k1 <= 0 || j1 <= 0) {
                 return;
             }
-            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Class13_Sub1_Sub4.anIntArray1423);
+            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Node_Sub1_Sub4.anIntArray1423);
             if (k <= 0) {
                 anInt1678 = 287;
                 return;
@@ -264,33 +264,33 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
                 }
             }
             i += anInt1684;
-            int l = j + i * Class13_Sub1_Sub4.anInt1424;
+            int l = j + i * Node_Sub1_Sub4.anInt1424;
             int i1 = 0;
             int j1 = anInt1682;
             int k1 = anInt1681;
-            int l1 = Class13_Sub1_Sub4.anInt1424 - k1;
+            int l1 = Node_Sub1_Sub4.anInt1424 - k1;
             int i2 = 0;
-            if (i < Class13_Sub1_Sub4.anInt1426) {
-                int j2 = Class13_Sub1_Sub4.anInt1426 - i;
+            if (i < Node_Sub1_Sub4.anInt1426) {
+                int j2 = Node_Sub1_Sub4.anInt1426 - i;
                 j1 -= j2;
-                i = Class13_Sub1_Sub4.anInt1426;
+                i = Node_Sub1_Sub4.anInt1426;
                 i1 += j2 * k1;
-                l += j2 * Class13_Sub1_Sub4.anInt1424;
+                l += j2 * Node_Sub1_Sub4.anInt1424;
             }
-            if (i + j1 > Class13_Sub1_Sub4.anInt1427) {
-                j1 -= (i + j1) - Class13_Sub1_Sub4.anInt1427;
+            if (i + j1 > Node_Sub1_Sub4.anInt1427) {
+                j1 -= (i + j1) - Node_Sub1_Sub4.anInt1427;
             }
-            if (j < Class13_Sub1_Sub4.anInt1428) {
-                int k2 = Class13_Sub1_Sub4.anInt1428 - j;
+            if (j < Node_Sub1_Sub4.anInt1428) {
+                int k2 = Node_Sub1_Sub4.anInt1428 - j;
                 k1 -= k2;
-                j = Class13_Sub1_Sub4.anInt1428;
+                j = Node_Sub1_Sub4.anInt1428;
                 i1 += k2;
                 l += k2;
                 i2 += k2;
                 l1 += k2;
             }
-            if (j + k1 > Class13_Sub1_Sub4.anInt1429) {
-                int l2 = (j + k1) - Class13_Sub1_Sub4.anInt1429;
+            if (j + k1 > Node_Sub1_Sub4.anInt1429) {
+                int l2 = (j + k1) - Node_Sub1_Sub4.anInt1429;
                 k1 -= l2;
                 i2 += l2;
                 l1 += l2;
@@ -298,7 +298,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             if (k1 <= 0 || j1 <= 0) {
                 return;
             } else {
-                method409(Class13_Sub1_Sub4.anIntArray1423, anIntArray1680, 0, i1, l, k1, j1, l1, i2);
+                method409(Node_Sub1_Sub4.anIntArray1423, anIntArray1680, 0, i1, l, k1, j1, l1, i2);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -355,7 +355,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         try {
             i += anInt1683;
             l += anInt1684;
-            int i1 = i + l * Class13_Sub1_Sub4.anInt1424;
+            int i1 = i + l * Node_Sub1_Sub4.anInt1424;
             int j1 = 0;
             if (j < 8 || j > 8) {
                 for (int k1 = 1; k1 > 0; k1++) {
@@ -363,29 +363,29 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             }
             int l1 = anInt1682;
             int i2 = anInt1681;
-            int j2 = Class13_Sub1_Sub4.anInt1424 - i2;
+            int j2 = Node_Sub1_Sub4.anInt1424 - i2;
             int k2 = 0;
-            if (l < Class13_Sub1_Sub4.anInt1426) {
-                int l2 = Class13_Sub1_Sub4.anInt1426 - l;
+            if (l < Node_Sub1_Sub4.anInt1426) {
+                int l2 = Node_Sub1_Sub4.anInt1426 - l;
                 l1 -= l2;
-                l = Class13_Sub1_Sub4.anInt1426;
+                l = Node_Sub1_Sub4.anInt1426;
                 j1 += l2 * i2;
-                i1 += l2 * Class13_Sub1_Sub4.anInt1424;
+                i1 += l2 * Node_Sub1_Sub4.anInt1424;
             }
-            if (l + l1 > Class13_Sub1_Sub4.anInt1427) {
-                l1 -= (l + l1) - Class13_Sub1_Sub4.anInt1427;
+            if (l + l1 > Node_Sub1_Sub4.anInt1427) {
+                l1 -= (l + l1) - Node_Sub1_Sub4.anInt1427;
             }
-            if (i < Class13_Sub1_Sub4.anInt1428) {
-                int i3 = Class13_Sub1_Sub4.anInt1428 - i;
+            if (i < Node_Sub1_Sub4.anInt1428) {
+                int i3 = Node_Sub1_Sub4.anInt1428 - i;
                 i2 -= i3;
-                i = Class13_Sub1_Sub4.anInt1428;
+                i = Node_Sub1_Sub4.anInt1428;
                 j1 += i3;
                 i1 += i3;
                 k2 += i3;
                 j2 += i3;
             }
-            if (i + i2 > Class13_Sub1_Sub4.anInt1429) {
-                int j3 = (i + i2) - Class13_Sub1_Sub4.anInt1429;
+            if (i + i2 > Node_Sub1_Sub4.anInt1429) {
+                int j3 = (i + i2) - Node_Sub1_Sub4.anInt1429;
                 i2 -= j3;
                 k2 += j3;
                 j2 += j3;
@@ -393,7 +393,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             if (i2 <= 0 || l1 <= 0) {
                 return;
             } else {
-                method411(true, i2, l1, anIntArray1680, j2, k2, k, 0, i1, Class13_Sub1_Sub4.anIntArray1423, j1);
+                method411(true, i2, l1, anIntArray1680, j2, k2, k, 0, i1, Node_Sub1_Sub4.anIntArray1423, j1);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -444,20 +444,20 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
                 i3 = i3 * j >> 8;
                 int j3 = (k1 << 16) + (k2 * l2 + j2 * i3);
                 int k3 = (j1 << 16) + (k2 * i3 - j2 * l2);
-                int l3 = k + l1 * Class13_Sub1_Sub4.anInt1424;
+                int l3 = k + l1 * Node_Sub1_Sub4.anInt1424;
                 for (l1 = 0; l1 < i; l1++) {
                     int i4 = ai[l1];
                     int j4 = l3 + i4;
                     int k4 = j3 + i3 * i4;
                     int l4 = k3 - l2 * i4;
                     for (k = -ai1[l1]; k < 0; k++) {
-                        Class13_Sub1_Sub4.anIntArray1423[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * anInt1681];
+                        Node_Sub1_Sub4.anIntArray1423[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * anInt1681];
                         k4 += i3;
                         l4 -= l2;
                     }
                     j3 += l2;
                     k3 += i3;
-                    l3 += Class13_Sub1_Sub4.anInt1424;
+                    l3 += Node_Sub1_Sub4.anInt1424;
                 }
                 return;
             } catch (Exception _ex) {
@@ -484,7 +484,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
                 k2 = k2 * i >> 8;
                 int l2 = (l << 16) + (i2 * j2 + l1 * k2);
                 int i3 = (k << 16) + (i2 * k2 - l1 * j2);
-                int j3 = k1 + j1 * Class13_Sub1_Sub4.anInt1424;
+                int j3 = k1 + j1 * Node_Sub1_Sub4.anInt1424;
                 for (j1 = 0; j1 < i1; j1++) {
                     int k3 = j3;
                     int l3 = l2;
@@ -492,7 +492,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
                     for (k1 = -j; k1 < 0; k1++) {
                         int j4 = anIntArray1680[(l3 >> 16) + (i4 >> 16) * anInt1681];
                         if (j4 != 0) {
-                            Class13_Sub1_Sub4.anIntArray1423[k3++] = j4;
+                            Node_Sub1_Sub4.anIntArray1423[k3++] = j4;
                         } else {
                             k3++;
                         }
@@ -501,7 +501,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
                     }
                     l2 += j2;
                     i3 += k2;
-                    j3 += Class13_Sub1_Sub4.anInt1424;
+                    j3 += Node_Sub1_Sub4.anInt1424;
                 }
                 return;
             } catch (Exception _ex) {
@@ -513,42 +513,42 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
         throw new RuntimeException();
     }
 
-    public void method414(int i, int j, Class13_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3, byte byte0) {
+    public void method414(int i, int j, Node_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3, byte byte0) {
         try {
             j += anInt1683;
             i += anInt1684;
-            int k = j + i * Class13_Sub1_Sub4.anInt1424;
+            int k = j + i * Node_Sub1_Sub4.anInt1424;
             int l = 0;
             int i1 = anInt1682;
             int j1 = anInt1681;
-            int k1 = Class13_Sub1_Sub4.anInt1424 - j1;
+            int k1 = Node_Sub1_Sub4.anInt1424 - j1;
             int l1 = 0;
             if (byte0 == 6) {
                 byte0 = 0;
             } else {
                 anInt1675 = 447;
             }
-            if (i < Class13_Sub1_Sub4.anInt1426) {
-                int i2 = Class13_Sub1_Sub4.anInt1426 - i;
+            if (i < Node_Sub1_Sub4.anInt1426) {
+                int i2 = Node_Sub1_Sub4.anInt1426 - i;
                 i1 -= i2;
-                i = Class13_Sub1_Sub4.anInt1426;
+                i = Node_Sub1_Sub4.anInt1426;
                 l += i2 * j1;
-                k += i2 * Class13_Sub1_Sub4.anInt1424;
+                k += i2 * Node_Sub1_Sub4.anInt1424;
             }
-            if (i + i1 > Class13_Sub1_Sub4.anInt1427) {
-                i1 -= (i + i1) - Class13_Sub1_Sub4.anInt1427;
+            if (i + i1 > Node_Sub1_Sub4.anInt1427) {
+                i1 -= (i + i1) - Node_Sub1_Sub4.anInt1427;
             }
-            if (j < Class13_Sub1_Sub4.anInt1428) {
-                int j2 = Class13_Sub1_Sub4.anInt1428 - j;
+            if (j < Node_Sub1_Sub4.anInt1428) {
+                int j2 = Node_Sub1_Sub4.anInt1428 - j;
                 j1 -= j2;
-                j = Class13_Sub1_Sub4.anInt1428;
+                j = Node_Sub1_Sub4.anInt1428;
                 l += j2;
                 k += j2;
                 l1 += j2;
                 k1 += j2;
             }
-            if (j + j1 > Class13_Sub1_Sub4.anInt1429) {
-                int k2 = (j + j1) - Class13_Sub1_Sub4.anInt1429;
+            if (j + j1 > Node_Sub1_Sub4.anInt1429) {
+                int k2 = (j + j1) - Node_Sub1_Sub4.anInt1429;
                 j1 -= k2;
                 l1 += k2;
                 k1 += k2;
@@ -556,7 +556,7 @@ public class Class13_Sub1_Sub4_Sub4 extends Class13_Sub1_Sub4 {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method415(l, 0, class13_sub1_sub4_sub3.aByteArray1667, i1, 381, l1, k, k1, j1, anIntArray1680, Class13_Sub1_Sub4.anIntArray1423);
+                method415(l, 0, class13_sub1_sub4_sub3.aByteArray1667, i1, 381, l1, k, k1, j1, anIntArray1680, Node_Sub1_Sub4.anIntArray1423);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

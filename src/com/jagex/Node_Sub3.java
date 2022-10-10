@@ -1,6 +1,8 @@
 package com.jagex;
 
-public class Class13_Sub3 extends Class13 {
+import com.jagex.util.Node;
+
+public class Node_Sub3 extends Node {
 
     public int anInt1363;
     public int anInt1364;
@@ -15,7 +17,7 @@ public class Class13_Sub3 extends Class13 {
     public int anInt1373;
     public int anInt1374;
 
-    public Class13_Sub3() {
+    public Node_Sub3() {
         anInt1371 = -1;
     }
 }

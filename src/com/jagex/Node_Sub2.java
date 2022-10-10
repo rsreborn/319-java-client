@@ -1,6 +1,8 @@
 package com.jagex;
 
-public class Class13_Sub2 extends Class13 {
+import com.jagex.util.Node;
+
+public class Node_Sub2 extends Node {
 
     public boolean aBoolean1339;
     public int anInt1340;
@@ -25,9 +27,9 @@ public class Class13_Sub2 extends Class13 {
     public int anInt1359;
     public int anInt1360;
     public int anInt1361;
-    public Class13_Sub2 aClass13_Sub2_1362;
+    public Node_Sub2 aClass13_Sub2_1362;
 
-    public Class13_Sub2(int i, int j, int k) {
+    public Node_Sub2(int i, int j, int k) {
         aBoolean1339 = false;
         aClass20Array1351 = new Class20[5];
         anIntArray1352 = new int[5];

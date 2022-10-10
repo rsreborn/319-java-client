@@ -26,7 +26,7 @@ public class GameShell extends Applet
     public int anInt14;
     public Graphics aGraphics15;
     public Class31 aClass31_16;
-    public Class13_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array17;
+    public Node_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array17;
     public Frame_Sub1 aFrame_Sub1_18;
     public boolean aBoolean19;
     public boolean aBoolean20;
@@ -57,7 +57,7 @@ public class GameShell extends Applet
         anInt9 = 1;
         aLongArray10 = new long[10];
         aBoolean12 = false;
-        aClass13_Sub1_Sub4_Sub4Array17 = new Class13_Sub1_Sub4_Sub4[6];
+        aClass13_Sub1_Sub4_Sub4Array17 = new Node_Sub1_Sub4_Sub4[6];
         aBoolean19 = true;
         aBoolean20 = true;
         anIntArray33 = new int[128];

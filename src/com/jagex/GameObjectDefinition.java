@@ -5,7 +5,7 @@ import com.jagex.sign.Signlink;
 
 public class GameObjectDefinition {
 
-    public static Class13_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new Class13_Sub1_Sub1_Sub4[4];
+    public static Node_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new Node_Sub1_Sub1_Sub4[4];
     public static int anInt245;
     public static Cache aCache_248 = new Cache(500, 31);
     public static Cache aCache_249 = new Cache(30, 31);
@@ -153,13 +153,13 @@ public class GameObjectDefinition {
         anIntArray243 = null;
     }
 
-    public Class13_Sub1_Sub1_Sub4 method419(int i, int j, int k, int l, int i1, int j1, int k1) {
-        Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method422(k1, j, i, false);
+    public Node_Sub1_Sub1_Sub4 method419(int i, int j, int k, int l, int i1, int j1, int k1) {
+        Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method422(k1, j, i, false);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }
         if (aBoolean263 || aBoolean240) {
-            class13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4(class13_sub1_sub1_sub4, 0, aBoolean240, aBoolean263);
+            class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(class13_sub1_sub1_sub4, 0, aBoolean240, aBoolean263);
         }
         if (aBoolean263) {
             int l1 = (k + l + i1 + j1) / 4;
@@ -349,7 +349,7 @@ public class GameObjectDefinition {
             }
             boolean flag = true;
             for (int j = 0; j < anIntArray241.length; j++) {
-                flag &= Class13_Sub1_Sub1_Sub4.method266(anIntArray241[j] & 0xffff);
+                flag &= Node_Sub1_Sub1_Sub4.method266(anIntArray241[j] & 0xffff);
             }
             return flag;
         } catch (RuntimeException runtimeexception) {
@@ -358,9 +358,9 @@ public class GameObjectDefinition {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4 method422(int i, int j, int k, boolean flag) {
+    public Node_Sub1_Sub1_Sub4 method422(int i, int j, int k, boolean flag) {
         try {
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = null;
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = null;
             if (flag) {
                 aBoolean244 = !aBoolean244;
             }
@@ -370,7 +370,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + j) + ((long) (i + 1) << 32);
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Class13_Sub1_Sub1_Sub4) aCache_249.method172(l);
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (Node_Sub1_Sub1_Sub4) aCache_249.method172(l);
                 if (class13_sub1_sub1_sub4_1 != null) {
                     return class13_sub1_sub1_sub4_1;
                 }
@@ -384,9 +384,9 @@ public class GameObjectDefinition {
                     if (flag2) {
                         k2 += 0x10000;
                     }
-                    class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_248.method172(k2);
+                    class13_sub1_sub1_sub4 = (Node_Sub1_Sub1_Sub4) aCache_248.method172(k2);
                     if (class13_sub1_sub1_sub4 == null) {
-                        class13_sub1_sub1_sub4 = Class13_Sub1_Sub1_Sub4.method265((byte) 4, k2 & 0xffff);
+                        class13_sub1_sub1_sub4 = Node_Sub1_Sub1_Sub4.method265((byte) 4, k2 & 0xffff);
                         if (class13_sub1_sub1_sub4 == null) {
                             return null;
                         }
@@ -400,7 +400,7 @@ public class GameObjectDefinition {
                     }
                 }
                 if (k1 > 1) {
-                    class13_sub1_sub1_sub4 = new Class13_Sub1_Sub1_Sub4(k1, (byte) 61, aClass13_Sub1_Sub1_Sub4Array239);
+                    class13_sub1_sub1_sub4 = new Node_Sub1_Sub1_Sub4(k1, (byte) 61, aClass13_Sub1_Sub1_Sub4Array239);
                 }
             } else {
                 int i1 = -1;
@@ -415,7 +415,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + (i1 << 3) + j) + ((long) (i + 1) << 32);
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (Class13_Sub1_Sub1_Sub4) aCache_249.method172(l);
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (Node_Sub1_Sub1_Sub4) aCache_249.method172(l);
                 if (class13_sub1_sub1_sub4_2 != null) {
                     return class13_sub1_sub1_sub4_2;
                 }
@@ -424,9 +424,9 @@ public class GameObjectDefinition {
                 if (flag4) {
                     i2 += 0x10000;
                 }
-                class13_sub1_sub1_sub4 = (Class13_Sub1_Sub1_Sub4) aCache_248.method172(i2);
+                class13_sub1_sub1_sub4 = (Node_Sub1_Sub1_Sub4) aCache_248.method172(i2);
                 if (class13_sub1_sub1_sub4 == null) {
-                    class13_sub1_sub1_sub4 = Class13_Sub1_Sub1_Sub4.method265((byte) 4, i2 & 0xffff);
+                    class13_sub1_sub1_sub4 = Node_Sub1_Sub1_Sub4.method265((byte) 4, i2 & 0xffff);
                     if (class13_sub1_sub1_sub4 == null) {
                         return null;
                     }
@@ -440,7 +440,7 @@ public class GameObjectDefinition {
             flag1 = anInt283 != 128 || anInt281 != 128 || anInt274 != 128;
             boolean flag3;
             flag3 = anInt247 != 0 || anInt277 != 0 || anInt288 != 0;
-            Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = new Class13_Sub1_Sub1_Sub4(j == 0 && i == -1 && !flag1 && !flag3, Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
+            Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_3 = new Node_Sub1_Sub1_Sub4(j == 0 && i == -1 && !flag1 && !flag3, Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
             if (i != -1) {
                 class13_sub1_sub1_sub4_3.method272(true);
                 class13_sub1_sub1_sub4_3.method273(i, false);
@@ -532,13 +532,13 @@ public class GameObjectDefinition {
                 }
                 boolean flag = true;
                 for (int l = 0; l < anIntArray241.length; l++) {
-                    flag &= Class13_Sub1_Sub1_Sub4.method266(anIntArray241[l] & 0xffff);
+                    flag &= Node_Sub1_Sub1_Sub4.method266(anIntArray241[l] & 0xffff);
                 }
                 return flag;
             }
             for (int k = 0; k < anIntArray289.length; k++) {
                 if (anIntArray289[k] == i) {
-                    return Class13_Sub1_Sub1_Sub4.method266(anIntArray241[k] & 0xffff);
+                    return Node_Sub1_Sub1_Sub4.method266(anIntArray241[k] & 0xffff);
                 }
             }
             return true;

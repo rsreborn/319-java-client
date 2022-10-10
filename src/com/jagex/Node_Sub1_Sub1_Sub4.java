@@ -2,12 +2,12 @@ package com.jagex;
 
 import com.jagex.sign.Signlink;
 
-public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
+public class Node_Sub1_Sub1_Sub4 extends Node_Sub1_Sub1 {
 
     public static boolean aBoolean1488;
     public static int anInt1489 = -670;
     public static int anInt1490;
-    public static Class13_Sub1_Sub1_Sub4 aClass13_Sub1_Sub1_Sub4_1491 = new Class13_Sub1_Sub1_Sub4(-23549);
+    public static Node_Sub1_Sub1_Sub4 aClass13_Sub1_Sub1_Sub4_1491 = new Node_Sub1_Sub1_Sub4(-23549);
     public static int[] anIntArray1492 = new int[2000];
     public static int[] anIntArray1493 = new int[2000];
     public static int[] anIntArray1494 = new int[2000];
@@ -46,10 +46,10 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
     public static int[] anIntArray1562;
 
     static {
-        anIntArray1559 = Class13_Sub1_Sub4_Sub1.anIntArray1634;
-        anIntArray1560 = Class13_Sub1_Sub4_Sub1.anIntArray1635;
-        anIntArray1561 = Class13_Sub1_Sub4_Sub1.anIntArray1646;
-        anIntArray1562 = Class13_Sub1_Sub4_Sub1.anIntArray1633;
+        anIntArray1559 = Node_Sub1_Sub4_Sub1.anIntArray1634;
+        anIntArray1560 = Node_Sub1_Sub4_Sub1.anIntArray1635;
+        anIntArray1561 = Node_Sub1_Sub4_Sub1.anIntArray1646;
+        anIntArray1562 = Node_Sub1_Sub4_Sub1.anIntArray1633;
     }
 
     public boolean aBoolean1485;
@@ -91,7 +91,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
     public boolean aBoolean1529;
     public Class7[] aClass7Array1530;
 
-    public Class13_Sub1_Sub1_Sub4(int i) {
+    public Node_Sub1_Sub1_Sub4(int i) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -106,7 +106,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         }
     }
 
-    public Class13_Sub1_Sub1_Sub4(byte byte0, int i) {
+    public Node_Sub1_Sub1_Sub4(byte byte0, int i) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -264,7 +264,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4(int i, byte byte0, Class13_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4) {
+    public Node_Sub1_Sub1_Sub4(int i, byte byte0, Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -279,7 +279,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             anInt1512 = 0;
             anInt1511 = -1;
             for (int j = 0; j < i; j++) {
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[j];
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[j];
                 if (class13_sub1_sub1_sub4 != null) {
                     anInt1496 += class13_sub1_sub1_sub4.anInt1496;
                     anInt1500 += class13_sub1_sub1_sub4.anInt1500;
@@ -330,7 +330,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             anInt1512 = 0;
             int k = 0;
             for (int l = 0; l < i; l++) {
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[l];
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[l];
                 if (class13_sub1_sub1_sub4_1 != null) {
                     for (int i1 = 0; i1 < class13_sub1_sub1_sub4_1.anInt1500; i1++) {
                         if (flag) {
@@ -383,7 +383,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4(Class13_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4, int i, boolean flag, int j) {
+    public Node_Sub1_Sub1_Sub4(Node_Sub1_Sub1_Sub4[] aclass13_sub1_sub1_sub4, int i, boolean flag, int j) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -401,7 +401,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             anInt1512 = 0;
             anInt1511 = -1;
             for (int k = 0; k < j; k++) {
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[k];
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[k];
                 if (class13_sub1_sub1_sub4 != null) {
                     anInt1496 += class13_sub1_sub1_sub4.anInt1496;
                     anInt1500 += class13_sub1_sub1_sub4.anInt1500;
@@ -450,7 +450,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             anInt1512 = 0;
             int l = 0;
             for (int i1 = 0; i1 < j; i1++) {
-                Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[i1];
+                Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = aclass13_sub1_sub1_sub4[i1];
                 if (class13_sub1_sub1_sub4_1 != null) {
                     int j1 = anInt1496;
                     for (int k1 = 0; k1 < class13_sub1_sub1_sub4_1.anInt1496; k1++) {
@@ -513,7 +513,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4(boolean flag, boolean flag1, int i, Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, boolean flag2) {
+    public Node_Sub1_Sub1_Sub4(boolean flag, boolean flag1, int i, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, boolean flag2) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -579,7 +579,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public Class13_Sub1_Sub1_Sub4(Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, boolean flag, boolean flag1) {
+    public Node_Sub1_Sub1_Sub4(Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, boolean flag, boolean flag1) {
         aBoolean1485 = false;
         anInt1486 = 629;
         aBoolean1529 = false;
@@ -795,7 +795,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public static Class13_Sub1_Sub1_Sub4 method265(byte byte0, int i) {
+    public static Node_Sub1_Sub1_Sub4 method265(byte byte0, int i) {
         try {
             if (byte0 != 4) {
                 aBoolean1488 = !aBoolean1488;
@@ -808,7 +808,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 aClass2_1532.method150(i);
                 return null;
             } else {
-                return new Class13_Sub1_Sub1_Sub4((byte) 34, i);
+                return new Node_Sub1_Sub1_Sub4((byte) 34, i);
             }
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("48082, " + byte0 + ", " + i + ", " + runtimeexception);
@@ -848,7 +848,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         return (i & 0xff80) + j;
     }
 
-    public void method267(boolean flag, byte byte0, Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4) {
+    public void method267(boolean flag, byte byte0, Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4) {
         try {
             anInt1496 = class13_sub1_sub1_sub4.anInt1496;
             anInt1500 = class13_sub1_sub1_sub4.anInt1500;
@@ -909,7 +909,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         throw new RuntimeException();
     }
 
-    public int method268(Class13_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i) {
+    public int method268(Node_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i) {
         int j = -1;
         int k = class13_sub1_sub1_sub4.anIntArray1497[i];
         int l = class13_sub1_sub1_sub4.anIntArray1498[i];
@@ -1532,8 +1532,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
     }
 
     public void method285(int i, int j, int k, int l, int i1, int j1, int k1) {
-        int l1 = Class13_Sub1_Sub4_Sub1.anInt1630;
-        int i2 = Class13_Sub1_Sub4_Sub1.anInt1631;
+        int l1 = Node_Sub1_Sub4_Sub1.anInt1630;
+        int i2 = Node_Sub1_Sub4_Sub1.anInt1631;
         int j2 = anIntArray1559[i];
         int k2 = anIntArray1560[i];
         int l2 = anIntArray1559[j];
@@ -1596,22 +1596,22 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         }
         int j3 = l1 * l + j1 * i1 >> 16;
         int k3 = j3 - anInt1520 << 9;
-        if (k3 / i3 >= Class13_Sub1_Sub4.anInt1431) {
+        if (k3 / i3 >= Node_Sub1_Sub4.anInt1431) {
             return;
         }
         int l3 = j3 + anInt1520 << 9;
-        if (l3 / i3 <= -Class13_Sub1_Sub4.anInt1431) {
+        if (l3 / i3 <= -Node_Sub1_Sub4.anInt1431) {
             return;
         }
         int i4 = k1 * k - j2 * j >> 16;
         int j4 = anInt1520 * j >> 16;
         int k4 = i4 + j4 << 9;
-        if (k4 / i3 <= -Class13_Sub1_Sub4.anInt1432) {
+        if (k4 / i3 <= -Node_Sub1_Sub4.anInt1432) {
             return;
         }
         int l4 = j4 + (super.anInt1377 * k >> 16);
         int i5 = i4 - l4 << 9;
-        if (i5 / i3 >= Class13_Sub1_Sub4.anInt1432) {
+        if (i5 / i3 >= Node_Sub1_Sub4.anInt1432) {
             return;
         }
         int j5 = l2 + (super.anInt1377 * j >> 16);
@@ -1636,8 +1636,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 k4 /= i3;
                 i5 /= k5;
             }
-            int i6 = anInt1555 - Class13_Sub1_Sub4_Sub1.anInt1630;
-            int k6 = anInt1556 - Class13_Sub1_Sub4_Sub1.anInt1631;
+            int i6 = anInt1555 - Node_Sub1_Sub4_Sub1.anInt1630;
+            int k6 = anInt1556 - Node_Sub1_Sub4_Sub1.anInt1631;
             if (i6 > k3 && i6 < l3 && k6 > i5 && k6 < k4) {
                 if (aBoolean1529) {
                     anIntArray1558[anInt1557++] = i2;
@@ -1646,8 +1646,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                 }
             }
         }
-        int l5 = Class13_Sub1_Sub4_Sub1.anInt1630;
-        int j6 = Class13_Sub1_Sub4_Sub1.anInt1631;
+        int l5 = Node_Sub1_Sub4_Sub1.anInt1630;
+        int j6 = Node_Sub1_Sub4_Sub1.anInt1631;
         int l6 = 0;
         int i7 = 0;
         if (i != 0) {
@@ -1717,7 +1717,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     }
                     if ((i3 - l3) * (anIntArray1536[j2] - anIntArray1536[k1]) - (anIntArray1536[l] - anIntArray1536[k1]) * (k4 - l3) > 0) {
                         aBooleanArray1534[k] = false;
-                        aBooleanArray1533[k] = i3 < 0 || l3 < 0 || k4 < 0 || i3 > Class13_Sub1_Sub4.anInt1430 || l3 > Class13_Sub1_Sub4.anInt1430 || k4 > Class13_Sub1_Sub4.anInt1430;
+                        aBooleanArray1533[k] = i3 < 0 || l3 < 0 || k4 < 0 || i3 > Node_Sub1_Sub4.anInt1430 || l3 > Node_Sub1_Sub4.anInt1430 || k4 > Node_Sub1_Sub4.anInt1430;
                         int k5 = (anIntArray1537[l] + anIntArray1537[k1] + anIntArray1537[j2]) / 3 + anInt1523;
                         anIntArrayArray1542[k5][anIntArray1541[k5]++] = k;
                     }
@@ -1860,11 +1860,11 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         int j = anIntArray1501[i];
         int k = anIntArray1502[i];
         int l = anIntArray1503[i];
-        Class13_Sub1_Sub4_Sub1.aBoolean1626 = aBooleanArray1533[i];
+        Node_Sub1_Sub4_Sub1.aBoolean1626 = aBooleanArray1533[i];
         if (anIntArray1509 == null) {
-            Class13_Sub1_Sub4_Sub1.anInt1629 = 0;
+            Node_Sub1_Sub4_Sub1.anInt1629 = 0;
         } else {
-            Class13_Sub1_Sub4_Sub1.anInt1629 = anIntArray1509[i];
+            Node_Sub1_Sub4_Sub1.anInt1629 = anIntArray1509[i];
         }
         int i1;
         if (anIntArray1507 == null) {
@@ -1873,11 +1873,11 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             i1 = anIntArray1507[i] & 3;
         }
         if (i1 == 0) {
-            Class13_Sub1_Sub4_Sub1.method374(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1505[i], anIntArray1506[i]);
+            Node_Sub1_Sub4_Sub1.method374(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1505[i], anIntArray1506[i]);
             return;
         }
         if (i1 == 1) {
-            Class13_Sub1_Sub4_Sub1.method376(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1561[anIntArray1504[i]]);
+            Node_Sub1_Sub4_Sub1.method376(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1561[anIntArray1504[i]]);
             return;
         }
         if (i1 == 2) {
@@ -1885,7 +1885,7 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             int l1 = anIntArray1513[j1];
             int j2 = anIntArray1514[j1];
             int l2 = anIntArray1515[j1];
-            Class13_Sub1_Sub4_Sub1.method378(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1505[i], anIntArray1506[i], anIntArray1538[l1], anIntArray1538[j2], anIntArray1538[l2], anIntArray1539[l1], anIntArray1539[j2], anIntArray1539[l2], anIntArray1540[l1], anIntArray1540[j2], anIntArray1540[l2], anIntArray1510[i]);
+            Node_Sub1_Sub4_Sub1.method378(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1505[i], anIntArray1506[i], anIntArray1538[l1], anIntArray1538[j2], anIntArray1538[l2], anIntArray1539[l1], anIntArray1539[j2], anIntArray1539[l2], anIntArray1540[l1], anIntArray1540[j2], anIntArray1540[l2], anIntArray1510[i]);
             return;
         }
         if (i1 == 3) {
@@ -1893,13 +1893,13 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
             int i2 = anIntArray1513[k1];
             int k2 = anIntArray1514[k1];
             int i3 = anIntArray1515[k1];
-            Class13_Sub1_Sub4_Sub1.method378(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[i2], anIntArray1538[k2], anIntArray1538[i3], anIntArray1539[i2], anIntArray1539[k2], anIntArray1539[i3], anIntArray1540[i2], anIntArray1540[k2], anIntArray1540[i3], anIntArray1510[i]);
+            Node_Sub1_Sub4_Sub1.method378(anIntArray1536[j], anIntArray1536[k], anIntArray1536[l], anIntArray1535[j], anIntArray1535[k], anIntArray1535[l], anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[i2], anIntArray1538[k2], anIntArray1538[i3], anIntArray1539[i2], anIntArray1539[k2], anIntArray1539[i3], anIntArray1540[i2], anIntArray1540[k2], anIntArray1540[i3], anIntArray1510[i]);
         }
     }
 
     public void method288(int i) {
-        int j = Class13_Sub1_Sub4_Sub1.anInt1630;
-        int k = Class13_Sub1_Sub4_Sub1.anInt1631;
+        int j = Node_Sub1_Sub4_Sub1.anInt1630;
+        int k = Node_Sub1_Sub4_Sub1.anInt1631;
         int l = 0;
         int i1 = anIntArray1501[i];
         int j1 = anIntArray1502[i];
@@ -1977,10 +1977,10 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
         int j7 = anIntArray1549[1];
         int k7 = anIntArray1549[2];
         if ((j3 - j4) * (k7 - j7) - (i7 - j7) * (j5 - j4) > 0) {
-            Class13_Sub1_Sub4_Sub1.aBoolean1626 = false;
+            Node_Sub1_Sub4_Sub1.aBoolean1626 = false;
             if (l == 3) {
-                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Class13_Sub1_Sub4.anInt1430 || j4 > Class13_Sub1_Sub4.anInt1430 || j5 > Class13_Sub1_Sub4.anInt1430) {
-                    Class13_Sub1_Sub4_Sub1.aBoolean1626 = true;
+                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Node_Sub1_Sub4.anInt1430 || j4 > Node_Sub1_Sub4.anInt1430 || j5 > Node_Sub1_Sub4.anInt1430) {
+                    Node_Sub1_Sub4_Sub1.aBoolean1626 = true;
                 }
                 int l7;
                 if (anIntArray1507 == null) {
@@ -1989,26 +1989,26 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     l7 = anIntArray1507[i] & 3;
                 }
                 if (l7 == 0) {
-                    Class13_Sub1_Sub4_Sub1.method374(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2]);
+                    Node_Sub1_Sub4_Sub1.method374(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2]);
                 } else if (l7 == 1) {
-                    Class13_Sub1_Sub4_Sub1.method376(i7, j7, k7, j3, j4, j5, anIntArray1561[anIntArray1504[i]]);
+                    Node_Sub1_Sub4_Sub1.method376(i7, j7, k7, j3, j4, j5, anIntArray1561[anIntArray1504[i]]);
                 } else if (l7 == 2) {
                     int j8 = anIntArray1507[i] >> 2;
                     int k9 = anIntArray1513[j8];
                     int k10 = anIntArray1514[j8];
                     int k11 = anIntArray1515[j8];
-                    Class13_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2], anIntArray1538[k9], anIntArray1538[k10], anIntArray1538[k11], anIntArray1539[k9], anIntArray1539[k10], anIntArray1539[k11], anIntArray1540[k9], anIntArray1540[k10], anIntArray1540[k11], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2], anIntArray1538[k9], anIntArray1538[k10], anIntArray1538[k11], anIntArray1539[k9], anIntArray1539[k10], anIntArray1539[k11], anIntArray1540[k9], anIntArray1540[k10], anIntArray1540[k11], anIntArray1510[i]);
                 } else if (l7 == 3) {
                     int k8 = anIntArray1507[i] >> 2;
                     int l9 = anIntArray1513[k8];
                     int l10 = anIntArray1514[k8];
                     int l11 = anIntArray1515[k8];
-                    Class13_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[l9], anIntArray1538[l10], anIntArray1538[l11], anIntArray1539[l9], anIntArray1539[l10], anIntArray1539[l11], anIntArray1540[l9], anIntArray1540[l10], anIntArray1540[l11], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[l9], anIntArray1538[l10], anIntArray1538[l11], anIntArray1539[l9], anIntArray1539[l10], anIntArray1539[l11], anIntArray1540[l9], anIntArray1540[l10], anIntArray1540[l11], anIntArray1510[i]);
                 }
             }
             if (l == 4) {
-                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Class13_Sub1_Sub4.anInt1430 || j4 > Class13_Sub1_Sub4.anInt1430 || j5 > Class13_Sub1_Sub4.anInt1430 || anIntArray1548[3] < 0 || anIntArray1548[3] > Class13_Sub1_Sub4.anInt1430) {
-                    Class13_Sub1_Sub4_Sub1.aBoolean1626 = true;
+                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Node_Sub1_Sub4.anInt1430 || j4 > Node_Sub1_Sub4.anInt1430 || j5 > Node_Sub1_Sub4.anInt1430 || anIntArray1548[3] < 0 || anIntArray1548[3] > Node_Sub1_Sub4.anInt1430) {
+                    Node_Sub1_Sub4_Sub1.aBoolean1626 = true;
                 }
                 int i8;
                 if (anIntArray1507 == null) {
@@ -2017,14 +2017,14 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     i8 = anIntArray1507[i] & 3;
                 }
                 if (i8 == 0) {
-                    Class13_Sub1_Sub4_Sub1.method374(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2]);
-                    Class13_Sub1_Sub4_Sub1.method374(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1550[0], anIntArray1550[2], anIntArray1550[3]);
+                    Node_Sub1_Sub4_Sub1.method374(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2]);
+                    Node_Sub1_Sub4_Sub1.method374(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1550[0], anIntArray1550[2], anIntArray1550[3]);
                     return;
                 }
                 if (i8 == 1) {
                     int l8 = anIntArray1561[anIntArray1504[i]];
-                    Class13_Sub1_Sub4_Sub1.method376(i7, j7, k7, j3, j4, j5, l8);
-                    Class13_Sub1_Sub4_Sub1.method376(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], l8);
+                    Node_Sub1_Sub4_Sub1.method376(i7, j7, k7, j3, j4, j5, l8);
+                    Node_Sub1_Sub4_Sub1.method376(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], l8);
                     return;
                 }
                 if (i8 == 2) {
@@ -2032,8 +2032,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     int i10 = anIntArray1513[i9];
                     int i11 = anIntArray1514[i9];
                     int i12 = anIntArray1515[i9];
-                    Class13_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2], anIntArray1538[i10], anIntArray1538[i11], anIntArray1538[i12], anIntArray1539[i10], anIntArray1539[i11], anIntArray1539[i12], anIntArray1540[i10], anIntArray1540[i11], anIntArray1540[i12], anIntArray1510[i]);
-                    Class13_Sub1_Sub4_Sub1.method378(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1550[0], anIntArray1550[2], anIntArray1550[3], anIntArray1538[i10], anIntArray1538[i11], anIntArray1538[i12], anIntArray1539[i10], anIntArray1539[i11], anIntArray1539[i12], anIntArray1540[i10], anIntArray1540[i11], anIntArray1540[i12], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1550[0], anIntArray1550[1], anIntArray1550[2], anIntArray1538[i10], anIntArray1538[i11], anIntArray1538[i12], anIntArray1539[i10], anIntArray1539[i11], anIntArray1539[i12], anIntArray1540[i10], anIntArray1540[i11], anIntArray1540[i12], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1550[0], anIntArray1550[2], anIntArray1550[3], anIntArray1538[i10], anIntArray1538[i11], anIntArray1538[i12], anIntArray1539[i10], anIntArray1539[i11], anIntArray1539[i12], anIntArray1540[i10], anIntArray1540[i11], anIntArray1540[i12], anIntArray1510[i]);
                     return;
                 }
                 if (i8 == 3) {
@@ -2041,8 +2041,8 @@ public class Class13_Sub1_Sub1_Sub4 extends Class13_Sub1_Sub1 {
                     int j10 = anIntArray1513[j9];
                     int j11 = anIntArray1514[j9];
                     int j12 = anIntArray1515[j9];
-                    Class13_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[j10], anIntArray1538[j11], anIntArray1538[j12], anIntArray1539[j10], anIntArray1539[j11], anIntArray1539[j12], anIntArray1540[j10], anIntArray1540[j11], anIntArray1540[j12], anIntArray1510[i]);
-                    Class13_Sub1_Sub4_Sub1.method378(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[j10], anIntArray1538[j11], anIntArray1538[j12], anIntArray1539[j10], anIntArray1539[j11], anIntArray1539[j12], anIntArray1540[j10], anIntArray1540[j11], anIntArray1540[j12], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, j7, k7, j3, j4, j5, anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[j10], anIntArray1538[j11], anIntArray1538[j12], anIntArray1539[j10], anIntArray1539[j11], anIntArray1539[j12], anIntArray1540[j10], anIntArray1540[j11], anIntArray1540[j12], anIntArray1510[i]);
+                    Node_Sub1_Sub4_Sub1.method378(i7, k7, anIntArray1549[3], j3, j5, anIntArray1548[3], anIntArray1504[i], anIntArray1504[i], anIntArray1504[i], anIntArray1538[j10], anIntArray1538[j11], anIntArray1538[j12], anIntArray1539[j10], anIntArray1539[j11], anIntArray1539[j12], anIntArray1540[j10], anIntArray1540[j11], anIntArray1540[j12], anIntArray1510[i]);
                 }
             }
         }

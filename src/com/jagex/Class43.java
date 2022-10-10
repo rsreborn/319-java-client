@@ -5,9 +5,9 @@ public class Class43 {
     public int anInt717;
     public int anInt718;
     public int anInt719;
-    public Class13_Sub1_Sub1 aClass13_Sub1_Sub1_720;
-    public Class13_Sub1_Sub1 aClass13_Sub1_Sub1_721;
-    public Class13_Sub1_Sub1 aClass13_Sub1_Sub1_722;
+    public Node_Sub1_Sub1 aClass13_Sub1_Sub1_720;
+    public Node_Sub1_Sub1 aClass13_Sub1_Sub1_721;
+    public Node_Sub1_Sub1 aClass13_Sub1_Sub1_722;
     public int anInt723;
     public int anInt724;
 
