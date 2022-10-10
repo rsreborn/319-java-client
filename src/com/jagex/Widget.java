@@ -77,7 +77,7 @@ public class Widget {
     public Widget() {
     }
 
-    public static void method498(int i, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j, int k) {
+    public static void method498(int i, Model class13_sub1_sub1_sub4, int j, int k) {
         try {
             modelCache.removeAll();
             if (j != 0) {
@@ -331,13 +331,13 @@ public class Widget {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method497(int i, int j) {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) modelCache.get((i << 16) + j);
+    public Model method497(int i, int j) {
+        Model class13_sub1_sub1_sub4 = (Model) modelCache.get((i << 16) + j);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
         if (i == 1) {
-            class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, j);
+            class13_sub1_sub1_sub4 = Model.method265((byte) 4, j);
         }
         if (i == 2) {
             class13_sub1_sub1_sub4 = Class47.getDefinition(j).method583(524);
@@ -357,12 +357,12 @@ public class Widget {
         return class13_sub1_sub1_sub4;
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method499(int i, int j, boolean flag, boolean flag1) {
+    public Model method499(int i, int j, boolean flag, boolean flag1) {
         try {
             if (!flag) {
                 anInt593 = -416;
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+            Model class13_sub1_sub1_sub4;
             if (flag1) {
                 class13_sub1_sub1_sub4 = method497(anInt587, anInt588);
             } else {
@@ -374,7 +374,7 @@ public class Widget {
             if (j == -1 && i == -1 && class13_sub1_sub1_sub4.anIntArray1510 == null) {
                 return class13_sub1_sub1_sub4;
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953) & Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
+            Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953) & Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
             if (j != -1 || i != -1) {
                 class13_sub1_sub1_sub4_1.method272(true);
             }

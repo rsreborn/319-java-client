@@ -4,6 +4,7 @@ package com.jagex;/* com.jagex.Class25 - Decompiled by JODE
 
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
+import com.jagex.update.GameUpdateClient;
 
 public class Class25 {
     public static boolean aBoolean407;
@@ -487,7 +488,7 @@ public class Class25 {
         }
     }
 
-    public static void method468(Class2_Sub1 class2_sub1, int i,
+    public static void method468(GameUpdateClient gameUpdateClient, int i,
                                  Buffer buffer) {
         try {
             if (i <= 0)
@@ -499,7 +500,7 @@ public class Class25 {
                     break;
                 i_258_ += i_259_;
                 GameObjectDefinition gameObjectDefinition = GameObjectDefinition.readDefinition(i_258_);
-                gameObjectDefinition.method423(2402, class2_sub1);
+                gameObjectDefinition.method423(2402, gameUpdateClient);
                 for (; ; ) {
                     int i_260_ = buffer.readUSmart();
                     if (i_260_ == 0)
@@ -508,7 +509,7 @@ public class Class25 {
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("41445, " + class2_sub1 + ", " + i + ", "
+            Signlink.reportError("41445, " + gameUpdateClient + ", " + i + ", "
                     + buffer + ", "
                     + runtimeexception);
             throw new RuntimeException();
@@ -1403,11 +1404,11 @@ public class Class25 {
                                 i_221_, i_214_,
                                 class13_sub1_sub1)
                                 && gameObjectDefinition.aBoolean286) {
-                            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4;
+                            Model class13_sub1_sub1_sub4;
                             if (class13_sub1_sub1
-                                    instanceof CacheableNode_Sub1_Sub1_Sub4)
+                                    instanceof Model)
                                 class13_sub1_sub1_sub4
-                                        = ((CacheableNode_Sub1_Sub1_Sub4)
+                                        = ((Model)
                                         class13_sub1_sub1);
                             else
                                 class13_sub1_sub1_sub4

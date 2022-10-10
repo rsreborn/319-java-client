@@ -83,9 +83,9 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
         }
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1446.method530();
+            Model class13_sub1_sub1_sub4 = aClass40_1446.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
@@ -93,7 +93,7 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
             if (aClass40_1446.aClass50_689 != null) {
                 j = aClass40_1446.aClass50_689.anIntArray802[anInt1452];
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+            Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 63 / i;
             if (j != -1) {
                 class13_sub1_sub1_sub4_1.method272(true);
