@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class22 {
@@ -30,9 +31,9 @@ public class Class22 {
         anInt378 = -1;
     }
 
-    public static void method444(Archive archive, byte byte0) {
+    public static void method444(CacheArchive cacheArchive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(archive.readFile("varp.dat", null));
+            Buffer buffer = new Buffer(cacheArchive.readFile("varp.dat", null));
             anInt366 = 0;
             anInt364 = buffer.readUnsignedShort();
             if (byte0 != 72) {
@@ -55,7 +56,7 @@ public class Class22 {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("22263, " + archive + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("22263, " + cacheArchive + ", " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

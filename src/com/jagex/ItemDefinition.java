@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class ItemDefinition {
@@ -245,9 +246,9 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public static void method515(Archive archive) {
-        aBuffer_665 = new Buffer(archive.readFile("obj.dat", null));
-        Buffer buffer = new Buffer(archive.readFile("obj.idx", null));
+    public static void method515(CacheArchive cacheArchive) {
+        aBuffer_665 = new Buffer(cacheArchive.readFile("obj.dat", null));
+        Buffer buffer = new Buffer(cacheArchive.readFile("obj.idx", null));
         anInt669 = buffer.readUnsignedShort();
         anIntArray655 = new int[anInt669];
         int i = 2;

@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class41 {
@@ -25,11 +26,11 @@ public class Class41 {
     };
     public static boolean aBoolean715;
 
-    public static void method531(Archive archive) {
-        Buffer buffer = new Buffer(archive.readFile("fragmentsenc.txt", null));
-        Buffer class13_sub1_sub2_1 = new Buffer(archive.readFile("badenc.txt", null));
-        Buffer buffer_2 = new Buffer(archive.readFile("domainenc.txt", null));
-        Buffer buffer_3 = new Buffer(archive.readFile("tldlist.txt", null));
+    public static void method531(CacheArchive cacheArchive) {
+        Buffer buffer = new Buffer(cacheArchive.readFile("fragmentsenc.txt", null));
+        Buffer class13_sub1_sub2_1 = new Buffer(cacheArchive.readFile("badenc.txt", null));
+        Buffer buffer_2 = new Buffer(cacheArchive.readFile("domainenc.txt", null));
+        Buffer buffer_3 = new Buffer(cacheArchive.readFile("tldlist.txt", null));
         method532(buffer, class13_sub1_sub2_1, buffer_2, buffer_3);
     }
 

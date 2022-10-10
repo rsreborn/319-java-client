@@ -2,6 +2,7 @@ package com.jagex;/* com.jagex.Class2_Sub1 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 import java.io.ByteArrayInputStream;
@@ -110,10 +111,10 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             while (class13_sub1_sub3 != null) {
                 aBoolean1299 = true;
                 byte[] is = null;
-                if (aGame1319.aClass28Array1264[0] != null)
-                    is = aGame1319.aClass28Array1264
+                if (aGame1319.cacheIndexes[0] != null)
+                    is = aGame1319.cacheIndexes
                             [class13_sub1_sub3.anInt1414 + 1]
-                            .method481(class13_sub1_sub3.anInt1416, 26421);
+                            .readFile(class13_sub1_sub3.anInt1416);
                 if (!method168((anIntArrayArray1323
                                 [class13_sub1_sub3.anInt1414]
                                 [class13_sub1_sub3.anInt1416]),
@@ -213,7 +214,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
 
     public void method157(int i, int i_5_, int i_6_) {
         try {
-            if (aGame1319.aClass28Array1264[0] != null
+            if (aGame1319.cacheIndexes[0] != null
                     && anIntArrayArray1306[i][i_5_] != 0
                     && aByteArrayArray1297[i][i_5_] != 0 && anInt1307 != 0) {
                 Class13_Sub1_Sub3 class13_sub1_sub3 = new Class13_Sub1_Sub3();
@@ -259,7 +260,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                         return;
                     aLong1311 = l;
                     aSocket1310
-                            = aGame1319.method135(43594 + Game.anInt952);
+                            = aGame1319.openSocket(43594 + Game.anInt952);
                     anInputStream1331 = aSocket1310.getInputStream();
                     anOutputStream1300 = aSocket1310.getOutputStream();
                     anOutputStream1300.write(15);
@@ -328,11 +329,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
 
     public void method162(int i, int i_15_, byte i_16_, boolean bool) {
         try {
-            if (aGame1319.aClass28Array1264[0] != null
+            if (aGame1319.cacheIndexes[0] != null
                     && anIntArrayArray1306[i][i_15_] != 0) {
                 byte[] is
-                        = aGame1319.aClass28Array1264[i + 1].method481(i_15_,
-                        26421);
+                        = aGame1319.cacheIndexes[i + 1].readFile(i_15_
+                );
                 if (bool) {
                     for (int i_17_ = 1; i_17_ > 0; i_17_++) {
                         /* empty */
@@ -533,11 +534,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                         }
                         if (anInt1305 + anInt1304 >= is.length
                                 && aClass13_Sub1_Sub3_1296 != null) {
-                            if (aGame1319.aClass28Array1264[0] != null)
-                                aGame1319.aClass28Array1264
+                            if (aGame1319.cacheIndexes[0] != null)
+                                aGame1319.cacheIndexes
                                         [aClass13_Sub1_Sub3_1296.anInt1414 + 1]
-                                        .method482
-                                                (is, -739,
+                                        .writeFile
+                                                (is,
                                                         aClass13_Sub1_Sub3_1296.anInt1416,
                                                         is.length);
                             if (!aClass13_Sub1_Sub3_1296.aBoolean1415
@@ -621,11 +622,11 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         method156(0, i);
     }
 
-    public void method169(Archive archive, Game var_game) {
+    public void method169(CacheArchive cacheArchive, Game var_game) {
         String[] strings = {"model_version", "anim_version", "midi_version",
                 "map_version"};
         for (int i = 0; i < 4; i++) {
-            byte[] is = archive.readFile(strings[i], null);
+            byte[] is = cacheArchive.readFile(strings[i], null);
             int i_36_ = is.length / 2;
             Buffer buffer
                     = new Buffer(is);
@@ -637,7 +638,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
         String[] strings_38_
                 = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
         for (int i = 0; i < 4; i++) {
-            byte[] is = archive.readFile(strings_38_[i], null);
+            byte[] is = cacheArchive.readFile(strings_38_[i], null);
             int i_39_ = is.length / 4;
             Buffer buffer
                     = new Buffer(is);
@@ -645,7 +646,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             for (int i_40_ = 0; i_40_ < i_39_; i_40_++)
                 anIntArrayArray1323[i][i_40_] = buffer.readInt();
         }
-        byte[] is = archive.readFile("model_index", null);
+        byte[] is = cacheArchive.readFile("model_index", null);
         int i = anIntArrayArray1306[0].length;
         aByteArray1302 = new byte[i];
         for (int i_41_ = 0; i_41_ < i; i_41_++) {
@@ -654,7 +655,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             else
                 aByteArray1302[i_41_] = (byte) 0;
         }
-        is = archive.readFile("map_index", null);
+        is = cacheArchive.readFile("map_index", null);
         Buffer buffer = new Buffer(is);
         i = is.length / 7;
         anIntArray1320 = new int[i];
@@ -667,13 +668,13 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             anIntArray1317[i_42_] = buffer.readUnsignedShort();
             anIntArray1312[i_42_] = buffer.readUnsignedByte();
         }
-        is = archive.readFile("anim_index", null);
+        is = cacheArchive.readFile("anim_index", null);
         buffer = new Buffer(is);
         i = is.length / 2;
         anIntArray1303 = new int[i];
         for (int i_43_ = 0; i_43_ < i; i_43_++)
             anIntArray1303[i_43_] = buffer.readUnsignedShort();
-        is = archive.readFile("midi_index", null);
+        is = cacheArchive.readFile("midi_index", null);
         buffer = new Buffer(is);
         i = is.length;
         anIntArray1315 = new int[i];
@@ -689,7 +690,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
             while (aBoolean1301) {
                 anInt1326++;
                 int i = 20;
-                if (anInt1307 == 0 && aGame1319.aClass28Array1264[0] != null)
+                if (anInt1307 == 0 && aGame1319.cacheIndexes[0] != null)
                     i = 50;
                 try {
                     Thread.sleep(i);
@@ -758,7 +759,7 @@ public class Class2_Sub1 extends Class2 implements Runnable {
                 if (aGame1319.aBoolean851 && aSocket1310 != null
                         && anOutputStream1300 != null
                         && (anInt1307 > 0
-                        || aGame1319.aClass28Array1264[0] == null)) {
+                        || aGame1319.cacheIndexes[0] == null)) {
                     anInt1321++;
                     if (anInt1321 > 500) {
                         anInt1321 = 0;

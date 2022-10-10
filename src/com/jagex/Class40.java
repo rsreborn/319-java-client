@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class40 {
@@ -28,9 +29,9 @@ public class Class40 {
         anInt693 = 128;
     }
 
-    public static void method528(Archive archive, byte byte0) {
+    public static void method528(CacheArchive cacheArchive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(archive.readFile("spotanim.dat", null));
+            Buffer buffer = new Buffer(cacheArchive.readFile("spotanim.dat", null));
             if (byte0 != 72) {
                 anInt683 = -170;
             }
@@ -47,7 +48,7 @@ public class Class40 {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("95120, " + archive + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("95120, " + cacheArchive + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
