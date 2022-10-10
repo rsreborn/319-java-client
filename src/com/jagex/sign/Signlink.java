@@ -6,8 +6,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 
-public class Signlink
-        implements Runnable {
+public class Signlink implements Runnable {
 
     public static int clientversion = 319;
     public static int uid;

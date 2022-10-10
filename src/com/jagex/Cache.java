@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.sign.Signlink;
+import com.jagex.util.HashTable;
 
 public class Cache {
 
@@ -13,7 +14,7 @@ public class Cache {
     public Node_Sub1 aClass13_Sub1_55;
     public int anInt56;
     public int anInt57;
-    public Class49 aClass49_58;
+    public HashTable aHashTable_58;
     public Class21 aClass21_59;
 
     public Cache(int i, int j) {
@@ -29,7 +30,7 @@ public class Cache {
                 aBoolean52 = !aBoolean52;
             }
             anInt57 = i;
-            aClass49_58 = new Class49(1024);
+            aHashTable_58 = new HashTable(1024);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("35599, " + i + ", " + j + ", " + runtimeexception);
@@ -38,7 +39,7 @@ public class Cache {
     }
 
     public Node_Sub1 method172(long l) {
-        Node_Sub1 class13_sub1 = (Node_Sub1) aClass49_58.method589(l);
+        Node_Sub1 class13_sub1 = (Node_Sub1) aHashTable_58.get(l);
         if (class13_sub1 != null) {
             aClass21_59.method439(class13_sub1);
             anInt54++;
@@ -62,7 +63,7 @@ public class Cache {
             } else {
                 anInt57--;
             }
-            aClass49_58.method590(l, class13_sub1);
+            aHashTable_58.put(l, class13_sub1);
             if (i != 9388) {
                 anInt49 = 361;
             }
