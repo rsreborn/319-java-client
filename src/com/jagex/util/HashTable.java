@@ -1,7 +1,5 @@
 package com.jagex.util;
 
-import com.jagex.util.Node;
-
 public class HashTable {
 
     public int size;
@@ -27,7 +25,7 @@ public class HashTable {
         return null;
     }
 
-    public void put(long id, Node node) {
+    public void put(Node node, long id) {
         if (node.previous != null) {
             node.remove();
         }

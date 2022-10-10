@@ -6776,7 +6776,7 @@ public class Game extends GameShell {
                 if (k == 4) {
                     CacheableNode_Sub1_Sub4_.method372(0.59999999999999998D, (byte) 7);
                 }
-                ItemDefinition.aCache_661.method174();
+                ItemDefinition.aCache_661.removeAll();
                 aBoolean1216 = true;
             }
             if (j == 3) {
@@ -6857,13 +6857,13 @@ public class Game extends GameShell {
             if (i <= 0) {
                 aBuffer_928.writeByte(175);
             }
-            GameObjectDefinition.aCache_248.method174();
-            GameObjectDefinition.aCache_249.method174();
-            Class47.aCache_759.method174();
-            ItemDefinition.aCache_660.method174();
-            ItemDefinition.aCache_661.method174();
-            CacheableNode_Sub1_Sub1_Sub6_.aCache_1696.method174();
-            Class40.aCache_697.method174();
+            GameObjectDefinition.aCache_248.removeAll();
+            GameObjectDefinition.aCache_249.removeAll();
+            Class47.aCache_759.removeAll();
+            ItemDefinition.aCache_660.removeAll();
+            ItemDefinition.aCache_661.removeAll();
+            CacheableNode_Sub1_Sub1_Sub6_.aCache_1696.removeAll();
+            Class40.aCache_697.removeAll();
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("19773, " + i + ", " + runtimeexception);
@@ -8518,7 +8518,7 @@ public class Game extends GameShell {
                 method96(true);
             } catch (Exception exception) {
             }
-            GameObjectDefinition.aCache_248.method174();
+            GameObjectDefinition.aCache_248.removeAll();
             if (super.aFrame_Sub1_18 != null) {
                 aBuffer_928.writeOpcode(226);
                 aBuffer_928.writeInt(0x3f008edd);

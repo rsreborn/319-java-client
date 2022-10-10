@@ -2,12 +2,13 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.util.Cache;
 
 public class Widget {
 
     public static Widget[] widgets;
     public static int anInt546;
-    public static Cache modelCache = new Cache(30, 31);
+    public static Cache modelCache = new Cache(30);
     public static Cache spriteCache;
     public int anInt534;
     public int anInt535;
@@ -77,12 +78,12 @@ public class Widget {
 
     public static void method498(int i, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j, int k) {
         try {
-            modelCache.method174();
+            modelCache.removeAll();
             if (j != 0) {
                 return;
             }
             if (class13_sub1_sub1_sub4 != null && i != 4) {
-                modelCache.method173(class13_sub1_sub1_sub4, (i << 16) + k, 9388);
+                modelCache.put(class13_sub1_sub1_sub4, (i << 16) + k);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -97,13 +98,13 @@ public class Widget {
                 anInt546 = -374;
             }
             long l = (Class24.method448((byte) 23, s) << 8) + (long) i;
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) spriteCache.method172(l);
+            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) spriteCache.get(l);
             if (class13_sub1_sub4_sub4 != null) {
                 return class13_sub1_sub4_sub4;
             }
             try {
                 class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive, s, i);
-                spriteCache.method173(class13_sub1_sub4_sub4, l, 9388);
+                spriteCache.put(class13_sub1_sub4_sub4, l);
             } catch (Exception _ex) {
                 return null;
             }
@@ -116,7 +117,7 @@ public class Widget {
 
     public static void load(CacheArchive widgetCacheArchive, CacheArchive mediaCacheArchive, Font[] fonts) {
         try {
-            spriteCache = new Cache(50000, 31);
+            spriteCache = new Cache(50000);
             Buffer buffer = new Buffer(widgetCacheArchive.readFile("data", null));
             int parentId = -1;
             int id = buffer.readUnsignedShort();
@@ -330,7 +331,7 @@ public class Widget {
     }
 
     public CacheableNode_Sub1_Sub1_Sub4 method497(int i, int j) {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) modelCache.method172((i << 16) + j);
+        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) modelCache.get((i << 16) + j);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -350,7 +351,7 @@ public class Widget {
             class13_sub1_sub1_sub4 = null;
         }
         if (class13_sub1_sub1_sub4 != null) {
-            modelCache.method173(class13_sub1_sub1_sub4, (i << 16) + j, 9388);
+            modelCache.put(class13_sub1_sub1_sub4, (i << 16) + j);
         }
         return class13_sub1_sub1_sub4;
     }

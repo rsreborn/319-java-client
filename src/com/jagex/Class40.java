@@ -2,13 +2,14 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.util.Cache;
 
 public class Class40 {
 
     public static int anInt683;
     public static int anInt684;
     public static Class40[] aClass40Array685;
-    public static Cache aCache_697 = new Cache(30, 31);
+    public static Cache aCache_697 = new Cache(30);
     public int anInt686;
     public int anInt687;
     public int anInt688;
@@ -95,7 +96,7 @@ public class Class40 {
     }
 
     public CacheableNode_Sub1_Sub1_Sub4 method530() {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_697.method172(anInt686);
+        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_697.get(anInt686);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -108,7 +109,7 @@ public class Class40 {
                 class13_sub1_sub1_sub4.method279(anIntArray690[i], anIntArray691[i]);
             }
         }
-        aCache_697.method173(class13_sub1_sub1_sub4, anInt686, 9388);
+        aCache_697.put(class13_sub1_sub1_sub4, anInt686);
         return class13_sub1_sub1_sub4;
     }
 

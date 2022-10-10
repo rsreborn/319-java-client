@@ -2,12 +2,13 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.util.Cache;
 
 public class Class47 {
 
     public static Class47[] aClass47Array757;
     public static Buffer aBuffer_758;
-    public static Cache aCache_759 = new Cache(30, 31);
+    public static Cache aCache_759 = new Cache(30);
     public static int[] anIntArray761;
     public static int anInt763;
     public static int anInt775;
@@ -134,7 +135,7 @@ public class Class47 {
                     return class47.method582(i, j, true, ai);
                 }
             }
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_759.method172(aLong770);
+            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_759.get(aLong770);
             if (class13_sub1_sub1_sub4 == null) {
                 boolean flag1 = false;
                 for (int k = 0; k < anIntArray769.length; k++) {
@@ -161,7 +162,7 @@ public class Class47 {
                 }
                 class13_sub1_sub1_sub4.method272(true);
                 class13_sub1_sub1_sub4.method282(64 + anInt776, 850 + anInt755, -30, -50, -30, true);
-                aCache_759.method173(class13_sub1_sub1_sub4, aLong770, 9388);
+                aCache_759.put(class13_sub1_sub1_sub4, aLong770);
             }
             CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = CacheableNode_Sub1_Sub1_Sub4.aClass13_Sub1_Sub1_Sub4_1491;
             class13_sub1_sub1_sub4_1.method267(Class8.method189(j, 19953) & Class8.method189(i, 19953), aByte779, class13_sub1_sub1_sub4);

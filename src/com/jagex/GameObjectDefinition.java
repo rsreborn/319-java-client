@@ -2,13 +2,14 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.util.Cache;
 
 public class GameObjectDefinition {
 
     public static CacheableNode_Sub1_Sub1_Sub4[] aClass13_Sub1_Sub1_Sub4Array239 = new CacheableNode_Sub1_Sub1_Sub4[4];
     public static int anInt245;
-    public static Cache aCache_248 = new Cache(500, 31);
-    public static Cache aCache_249 = new Cache(30, 31);
+    public static Cache aCache_248 = new Cache(500);
+    public static Cache aCache_249 = new Cache(30);
     public static int anInt252;
     public static Game aGame254;
     public static Buffer aBuffer_267;
@@ -370,7 +371,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + j) + ((long) (i + 1) << 32);
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.method172(l);
+                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.get(l);
                 if (class13_sub1_sub1_sub4_1 != null) {
                     return class13_sub1_sub1_sub4_1;
                 }
@@ -384,7 +385,7 @@ public class GameObjectDefinition {
                     if (flag2) {
                         k2 += 0x10000;
                     }
-                    class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.method172(k2);
+                    class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.get(k2);
                     if (class13_sub1_sub1_sub4 == null) {
                         class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, k2 & 0xffff);
                         if (class13_sub1_sub1_sub4 == null) {
@@ -393,7 +394,7 @@ public class GameObjectDefinition {
                         if (flag2) {
                             class13_sub1_sub1_sub4.method280(true);
                         }
-                        aCache_248.method173(class13_sub1_sub1_sub4, k2, 9388);
+                        aCache_248.put(class13_sub1_sub1_sub4, k2);
                     }
                     if (k1 > 1) {
                         aClass13_Sub1_Sub1_Sub4Array239[l1] = class13_sub1_sub1_sub4;
@@ -415,7 +416,7 @@ public class GameObjectDefinition {
                     return null;
                 }
                 l = (long) ((anInt268 << 6) + (i1 << 3) + j) + ((long) (i + 1) << 32);
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.method172(l);
+                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_2 = (CacheableNode_Sub1_Sub1_Sub4) aCache_249.get(l);
                 if (class13_sub1_sub1_sub4_2 != null) {
                     return class13_sub1_sub1_sub4_2;
                 }
@@ -424,7 +425,7 @@ public class GameObjectDefinition {
                 if (flag4) {
                     i2 += 0x10000;
                 }
-                class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.method172(i2);
+                class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_248.get(i2);
                 if (class13_sub1_sub1_sub4 == null) {
                     class13_sub1_sub1_sub4 = CacheableNode_Sub1_Sub1_Sub4.method265((byte) 4, i2 & 0xffff);
                     if (class13_sub1_sub1_sub4 == null) {
@@ -433,7 +434,7 @@ public class GameObjectDefinition {
                     if (flag4) {
                         class13_sub1_sub1_sub4.method280(true);
                     }
-                    aCache_248.method173(class13_sub1_sub1_sub4, i2, 9388);
+                    aCache_248.put(class13_sub1_sub1_sub4, i2);
                 }
             }
             boolean flag1;
@@ -465,7 +466,7 @@ public class GameObjectDefinition {
             if (anInt266 == 1) {
                 class13_sub1_sub1_sub4_3.anInt1524 = class13_sub1_sub1_sub4_3.anInt1377;
             }
-            aCache_249.method173(class13_sub1_sub1_sub4_3, l, 9388);
+            aCache_249.put(class13_sub1_sub1_sub4_3, l);
             return class13_sub1_sub1_sub4_3;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("4845, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception);

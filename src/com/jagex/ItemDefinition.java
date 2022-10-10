@@ -2,6 +2,7 @@ package com.jagex;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
+import com.jagex.util.Cache;
 
 public class ItemDefinition {
 
@@ -9,8 +10,8 @@ public class ItemDefinition {
     public static boolean aBoolean638 = true;
     public static int anInt645;
     public static int[] anIntArray655;
-    public static Cache aCache_660 = new Cache(50, 31);
-    public static Cache aCache_661 = new Cache(100, 31);
+    public static Cache aCache_660 = new Cache(50);
+    public static Cache aCache_661 = new Cache(100);
     public static Buffer aBuffer_665;
     public static boolean aBoolean667 = true;
     public static int anInt669;
@@ -69,7 +70,7 @@ public class ItemDefinition {
     public static CacheableNode_Sub1_Sub4_Sub4 method503(int i, int j, int k, boolean flag) {
         try {
             if (k == 0) {
-                CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) aCache_661.method172(i);
+                CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) aCache_661.get(i);
                 if (class13_sub1_sub4_sub4 != null && class13_sub1_sub4_sub4.anInt1686 != j && class13_sub1_sub4_sub4.anInt1686 != -1) {
                     class13_sub1_sub4_sub4.remove();
                     class13_sub1_sub4_sub4 = null;
@@ -179,7 +180,7 @@ public class ItemDefinition {
                 class13_sub1_sub4_sub4_2.anInt1686 = l5;
             }
             if (k == 0) {
-                aCache_661.method173(class13_sub1_sub4_sub4_1, i, 9388);
+                aCache_661.put(class13_sub1_sub4_sub4_1, i);
             }
             CacheableNode_Sub1_Sub4.method351(0, ai1, i2, l1);
             CacheableNode_Sub1_Sub4.method353(k2, (byte) -12, i3, l2, j2);
@@ -419,7 +420,7 @@ public class ItemDefinition {
                 return method505(j).method509(1);
             }
         }
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_660.method172(anInt633);
+        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = (CacheableNode_Sub1_Sub1_Sub4) aCache_660.get(anInt633);
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
@@ -437,7 +438,7 @@ public class ItemDefinition {
         }
         class13_sub1_sub1_sub4.method282(64 + anInt625, 768 + anInt629, -50, -10, -50, true);
         class13_sub1_sub1_sub4.aBoolean1529 = true;
-        aCache_660.method173(class13_sub1_sub1_sub4, anInt633, 9388);
+        aCache_660.put(class13_sub1_sub1_sub4, anInt633);
         return class13_sub1_sub1_sub4;
     }
 
