@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 import java.awt.*;
@@ -67,10 +68,10 @@ public class CacheableNode_Sub1_Sub4_Sub4 extends CacheableNode_Sub1_Sub4 {
         aBoolean1679 = false;
         Buffer buffer = new Buffer(cacheArchive.readFile(s + ".dat", null));
         Buffer class13_sub1_sub2_1 = new Buffer(cacheArchive.readFile("index.dat", null));
-        class13_sub1_sub2_1.position = buffer.readUnsignedShort();
-        anInt1685 = class13_sub1_sub2_1.readUnsignedShort();
-        anInt1686 = class13_sub1_sub2_1.readUnsignedShort();
-        int j = class13_sub1_sub2_1.readUnsignedByte();
+        class13_sub1_sub2_1.position = buffer.readUShortBE();
+        anInt1685 = class13_sub1_sub2_1.readUShortBE();
+        anInt1686 = class13_sub1_sub2_1.readUShortBE();
+        int j = class13_sub1_sub2_1.readUByte();
         int[] ai = new int[j];
         for (int k = 0; k < j - 1; k++) {
             ai[k + 1] = class13_sub1_sub2_1.readMediumBE();
@@ -80,26 +81,26 @@ public class CacheableNode_Sub1_Sub4_Sub4 extends CacheableNode_Sub1_Sub4 {
         }
         for (int l = 0; l < i; l++) {
             class13_sub1_sub2_1.position += 2;
-            buffer.position += class13_sub1_sub2_1.readUnsignedShort() * class13_sub1_sub2_1.readUnsignedShort();
+            buffer.position += class13_sub1_sub2_1.readUShortBE() * class13_sub1_sub2_1.readUShortBE();
             class13_sub1_sub2_1.position++;
         }
-        anInt1683 = class13_sub1_sub2_1.readUnsignedByte();
-        anInt1684 = class13_sub1_sub2_1.readUnsignedByte();
-        anInt1681 = class13_sub1_sub2_1.readUnsignedShort();
-        anInt1682 = class13_sub1_sub2_1.readUnsignedShort();
-        int i1 = class13_sub1_sub2_1.readUnsignedByte();
+        anInt1683 = class13_sub1_sub2_1.readUByte();
+        anInt1684 = class13_sub1_sub2_1.readUByte();
+        anInt1681 = class13_sub1_sub2_1.readUShortBE();
+        anInt1682 = class13_sub1_sub2_1.readUShortBE();
+        int i1 = class13_sub1_sub2_1.readUByte();
         int j1 = anInt1681 * anInt1682;
         anIntArray1680 = new int[j1];
         if (i1 == 0) {
             for (int k1 = 0; k1 < j1; k1++) {
-                anIntArray1680[k1] = ai[buffer.readUnsignedByte()];
+                anIntArray1680[k1] = ai[buffer.readUByte()];
             }
             return;
         }
         if (i1 == 1) {
             for (int l1 = 0; l1 < anInt1681; l1++) {
                 for (int i2 = 0; i2 < anInt1682; i2++) {
-                    anIntArray1680[l1 + i2 * anInt1681] = ai[buffer.readUnsignedByte()];
+                    anIntArray1680[l1 + i2 * anInt1681] = ai[buffer.readUByte()];
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class17 {
@@ -254,7 +255,7 @@ public class Class17 {
             aClass6_302.method181(buffer, 26421);
             aClass6_303 = new Class6();
             aClass6_303.method181(buffer, 26421);
-            int j = buffer.readUnsignedByte();
+            int j = buffer.readUByte();
             if (j != 0) {
                 buffer.position--;
                 aClass6_304 = new Class6();
@@ -262,7 +263,7 @@ public class Class17 {
                 aClass6_305 = new Class6();
                 aClass6_305.method181(buffer, 26421);
             }
-            j = buffer.readUnsignedByte();
+            j = buffer.readUByte();
             if (j != 0) {
                 buffer.position--;
                 aClass6_306 = new Class6();
@@ -270,7 +271,7 @@ public class Class17 {
                 aClass6_307 = new Class6();
                 aClass6_307.method181(buffer, 26421);
             }
-            j = buffer.readUnsignedByte();
+            j = buffer.readUByte();
             if (j != 0) {
                 buffer.position--;
                 aClass6_308 = new Class6();
@@ -279,21 +280,21 @@ public class Class17 {
                 aClass6_309.method181(buffer, 26421);
             }
             for (int k = 0; k < 10; k++) {
-                int l = buffer.readUnsignedSmart();
+                int l = buffer.readUSmart();
                 if (l == 0) {
                     break;
                 }
                 anIntArray310[k] = l;
                 anIntArray311[k] = buffer.readSmart();
-                anIntArray312[k] = buffer.readUnsignedSmart();
+                anIntArray312[k] = buffer.readUSmart();
             }
-            anInt313 = buffer.readUnsignedSmart();
-            anInt314 = buffer.readUnsignedSmart();
+            anInt313 = buffer.readUSmart();
+            anInt314 = buffer.readUSmart();
             if (i != 26421) {
                 throw new NullPointerException();
             } else {
-                anInt317 = buffer.readUnsignedShort();
-                anInt318 = buffer.readUnsignedShort();
+                anInt317 = buffer.readUShortBE();
+                anInt318 = buffer.readUShortBE();
                 aClass29_315 = new Class29();
                 aClass6_316 = new Class6();
                 aClass29_315.method489(aClass6_316, 40848, buffer);

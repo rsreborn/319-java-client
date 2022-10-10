@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class50 {
@@ -42,7 +43,7 @@ public class Class50 {
     public static void method591(CacheArchive cacheArchive, byte byte0) {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("seq.dat", null));
-            anInt799 = buffer.readUnsignedShort();
+            anInt799 = buffer.readUShortBE();
             if (byte0 != 72) {
                 anInt797 = -421;
             }
@@ -90,50 +91,50 @@ public class Class50 {
                 aBoolean798 = !aBoolean798;
             }
             do {
-                int j = buffer.readUnsignedByte();
+                int j = buffer.readUByte();
                 if (j == 0) {
                     break;
                 }
                 if (j == 1) {
-                    anInt801 = buffer.readUnsignedByte();
+                    anInt801 = buffer.readUByte();
                     anIntArray802 = new int[anInt801];
                     anIntArray803 = new int[anInt801];
                     anIntArray804 = new int[anInt801];
                     for (int k = 0; k < anInt801; k++) {
-                        anIntArray802[k] = buffer.readUnsignedShort();
-                        anIntArray803[k] = buffer.readUnsignedShort();
+                        anIntArray802[k] = buffer.readUShortBE();
+                        anIntArray803[k] = buffer.readUShortBE();
                         if (anIntArray803[k] == 65535) {
                             anIntArray803[k] = -1;
                         }
-                        anIntArray804[k] = buffer.readUnsignedShort();
+                        anIntArray804[k] = buffer.readUShortBE();
                     }
                 } else if (j == 2) {
-                    anInt805 = buffer.readUnsignedShort();
+                    anInt805 = buffer.readUShortBE();
                 } else if (j == 3) {
-                    int l = buffer.readUnsignedByte();
+                    int l = buffer.readUByte();
                     anIntArray806 = new int[l + 1];
                     for (int i1 = 0; i1 < l; i1++) {
-                        anIntArray806[i1] = buffer.readUnsignedByte();
+                        anIntArray806[i1] = buffer.readUByte();
                     }
                     anIntArray806[l] = 0x98967f;
                 } else if (j == 4) {
                     aBoolean807 = true;
                 } else if (j == 5) {
-                    anInt808 = buffer.readUnsignedByte();
+                    anInt808 = buffer.readUByte();
                 } else if (j == 6) {
-                    anInt809 = buffer.readUnsignedShort();
+                    anInt809 = buffer.readUShortBE();
                 } else if (j == 7) {
-                    anInt810 = buffer.readUnsignedShort();
+                    anInt810 = buffer.readUShortBE();
                 } else if (j == 8) {
-                    anInt811 = buffer.readUnsignedByte();
+                    anInt811 = buffer.readUByte();
                 } else if (j == 9) {
-                    anInt812 = buffer.readUnsignedByte();
+                    anInt812 = buffer.readUByte();
                 } else if (j == 10) {
-                    anInt813 = buffer.readUnsignedByte();
+                    anInt813 = buffer.readUByte();
                 } else if (j == 11) {
-                    anInt814 = buffer.readUnsignedByte();
+                    anInt814 = buffer.readUByte();
                 } else if (j == 12) {
-                    anInt815 = buffer.readInt();
+                    anInt815 = buffer.readIntBE();
                 } else {
                     System.out.println("Error unrecognised seq config code: " + j);
                 }

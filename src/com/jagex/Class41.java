@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 public class Class41 {
@@ -46,14 +47,14 @@ public class Class41 {
             if (byte0 != 6) {
                 aBoolean707 = !aBoolean707;
             }
-            int i = buffer.readInt();
+            int i = buffer.readIntBE();
             aCharArrayArray712 = new char[i][];
             anIntArray713 = new int[i];
             for (int j = 0; j < i; j++) {
-                anIntArray713[j] = buffer.readUnsignedByte();
-                char[] ac = new char[buffer.readUnsignedByte()];
+                anIntArray713[j] = buffer.readUByte();
+                char[] ac = new char[buffer.readUByte()];
                 for (int k = 0; k < ac.length; k++) {
-                    ac[k] = (char) buffer.readUnsignedByte();
+                    ac[k] = (char) buffer.readUByte();
                 }
                 aCharArrayArray712[j] = ac;
             }
@@ -66,7 +67,7 @@ public class Class41 {
 
     public static void method534(byte byte0, Buffer buffer) {
         try {
-            int i = buffer.readInt();
+            int i = buffer.readIntBE();
             if (byte0 == 5) {
                 byte0 = 0;
             } else {
@@ -84,7 +85,7 @@ public class Class41 {
 
     public static void method535(int i, Buffer buffer) {
         try {
-            int j = buffer.readInt();
+            int j = buffer.readIntBE();
             aCharArrayArray711 = new char[j][];
             method538(true, buffer, aCharArrayArray711);
             if (i != 9) {
@@ -104,9 +105,9 @@ public class Class41 {
             } else {
                 return;
             }
-            anIntArray708 = new int[buffer.readInt()];
+            anIntArray708 = new int[buffer.readIntBE()];
             for (int i = 0; i < anIntArray708.length; i++) {
-                anIntArray708[i] = buffer.readUnsignedShort();
+                anIntArray708[i] = buffer.readUShortBE();
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -118,15 +119,15 @@ public class Class41 {
     public static void method537(int i, byte[][][] abyte0, Buffer buffer, char[][] ac) {
         try {
             for (int j = 0; j < ac.length; j++) {
-                char[] ac1 = new char[buffer.readUnsignedByte()];
+                char[] ac1 = new char[buffer.readUByte()];
                 for (int k = 0; k < ac1.length; k++) {
-                    ac1[k] = (char) buffer.readUnsignedByte();
+                    ac1[k] = (char) buffer.readUByte();
                 }
                 ac[j] = ac1;
-                byte[][] abyte1 = new byte[buffer.readUnsignedByte()][2];
+                byte[][] abyte1 = new byte[buffer.readUByte()][2];
                 for (int l = 0; l < abyte1.length; l++) {
-                    abyte1[l][0] = (byte) buffer.readUnsignedByte();
-                    abyte1[l][1] = (byte) buffer.readUnsignedByte();
+                    abyte1[l][0] = (byte) buffer.readUByte();
+                    abyte1[l][1] = (byte) buffer.readUByte();
                 }
                 if (abyte1.length > 0) {
                     abyte0[j] = abyte1;
@@ -148,9 +149,9 @@ public class Class41 {
                 anInt698 = -155;
             }
             for (int i = 0; i < ac.length; i++) {
-                char[] ac1 = new char[buffer.readUnsignedByte()];
+                char[] ac1 = new char[buffer.readUByte()];
                 for (int j = 0; j < ac1.length; j++) {
-                    ac1[j] = (char) buffer.readUnsignedByte();
+                    ac1[j] = (char) buffer.readUByte();
                 }
                 ac[i] = ac1;
             }
