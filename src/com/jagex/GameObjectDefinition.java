@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class GameObjectDefinition {
@@ -97,9 +98,9 @@ public class GameObjectDefinition {
         return gameObjectDefinition;
     }
 
-    public static void method426(Archive archive) {
-        aBuffer_267 = new Buffer(archive.readFile("loc.dat", null));
-        Buffer buffer = new Buffer(archive.readFile("loc.idx", null));
+    public static void method426(CacheArchive cacheArchive) {
+        aBuffer_267 = new Buffer(cacheArchive.readFile("loc.dat", null));
+        Buffer buffer = new Buffer(cacheArchive.readFile("loc.idx", null));
         anInt252 = buffer.readUnsignedShort();
         anIntArray287 = new int[anInt252];
         int i = 2;

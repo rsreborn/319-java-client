@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Widget {
@@ -90,7 +91,7 @@ public class Widget {
         }
     }
 
-    public static Class13_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, Archive archive, String s) {
+    public static Class13_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, CacheArchive cacheArchive, String s) {
         try {
             if (flag) {
                 anInt546 = -374;
@@ -101,22 +102,22 @@ public class Widget {
                 return class13_sub1_sub4_sub4;
             }
             try {
-                class13_sub1_sub4_sub4 = new Class13_Sub1_Sub4_Sub4(archive, s, i);
+                class13_sub1_sub4_sub4 = new Class13_Sub1_Sub4_Sub4(cacheArchive, s, i);
                 spriteCache.method173(class13_sub1_sub4_sub4, l, 9388);
             } catch (Exception _ex) {
                 return null;
             }
             return class13_sub1_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("88345, " + i + ", " + flag + ", " + archive + ", " + s + ", " + runtimeexception);
+            Signlink.reportError("88345, " + i + ", " + flag + ", " + cacheArchive + ", " + s + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void load(Archive widgetArchive, Archive mediaArchive, Font[] fonts) {
+    public static void load(CacheArchive widgetCacheArchive, CacheArchive mediaCacheArchive, Font[] fonts) {
         try {
             spriteCache = new Cache(50000, 31);
-            Buffer buffer = new Buffer(widgetArchive.readFile("data", null));
+            Buffer buffer = new Buffer(widgetCacheArchive.readFile("data", null));
             int parentId = -1;
             int id = buffer.readUnsignedShort();
             widgets = new Widget[id];
@@ -200,9 +201,9 @@ public class Widget {
                             widget.spriteX[index] = buffer.readShort();
                             widget.spriteY[index] = buffer.readShort();
                             String spriteName = buffer.readString();
-                            if (mediaArchive != null && spriteName.length() > 0) {
+                            if (mediaCacheArchive != null && spriteName.length() > 0) {
                                 int spriteId = spriteName.lastIndexOf(",");
-                                widget.sprites[index] = readSprite(Integer.parseInt(spriteName.substring(spriteId + 1)), false, mediaArchive, spriteName.substring(0, spriteId));
+                                widget.sprites[index] = readSprite(Integer.parseInt(spriteName.substring(spriteId + 1)), false, mediaCacheArchive, spriteName.substring(0, spriteId));
                             }
                         }
                     }
@@ -239,14 +240,14 @@ public class Widget {
                 }
                 if (widget.type == 5) {
                     String spriteName = buffer.readString();
-                    if (mediaArchive != null && spriteName.length() > 0) {
+                    if (mediaCacheArchive != null && spriteName.length() > 0) {
                         int i4 = spriteName.lastIndexOf(",");
-                        widget.disabledSprite = readSprite(Integer.parseInt(spriteName.substring(i4 + 1)), false, mediaArchive, spriteName.substring(0, i4));
+                        widget.disabledSprite = readSprite(Integer.parseInt(spriteName.substring(i4 + 1)), false, mediaCacheArchive, spriteName.substring(0, i4));
                     }
                     spriteName = buffer.readString();
-                    if (mediaArchive != null && spriteName.length() > 0) {
+                    if (mediaCacheArchive != null && spriteName.length() > 0) {
                         int j4 = spriteName.lastIndexOf(",");
-                        widget.enabledSprite = readSprite(Integer.parseInt(spriteName.substring(j4 + 1)), false, mediaArchive, spriteName.substring(0, j4));
+                        widget.enabledSprite = readSprite(Integer.parseInt(spriteName.substring(j4 + 1)), false, mediaCacheArchive, spriteName.substring(0, j4));
                     }
                 }
                 if (widget.type == 6) {
@@ -323,7 +324,7 @@ public class Widget {
             spriteCache = null;
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("68183, " + widgetArchive + ", " + mediaArchive + ", " + fonts + ", " + runtimeexception);
+            Signlink.reportError("68183, " + widgetCacheArchive + ", " + mediaCacheArchive + ", " + fonts + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class4 {
@@ -30,9 +31,9 @@ public class Class4 {
         aBoolean71 = false;
     }
 
-    public static void method175(Archive archive, byte byte0) {
+    public static void method175(CacheArchive cacheArchive, byte byte0) {
         try {
-            Buffer buffer = new Buffer(archive.readFile("idk.dat", null));
+            Buffer buffer = new Buffer(cacheArchive.readFile("idk.dat", null));
             anInt64 = buffer.readUnsignedShort();
             if (aClass4Array65 == null) {
                 aClass4Array65 = new Class4[anInt64];
@@ -47,7 +48,7 @@ public class Class4 {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("48764, " + archive + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("48764, " + cacheArchive + ", " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

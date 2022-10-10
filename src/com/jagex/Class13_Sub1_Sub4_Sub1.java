@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub4_Sub1 extends Class13_Sub1_Sub4 {
@@ -150,12 +151,12 @@ public class Class13_Sub1_Sub4_Sub1 extends Class13_Sub1_Sub4 {
         }
     }
 
-    public static void method368(boolean flag, Archive archive) {
+    public static void method368(boolean flag, CacheArchive cacheArchive) {
         try {
             anInt1637 = 0;
             for (int i = 0; i < 50; i++) {
                 try {
-                    aClass13_Sub1_Sub4_Sub3Array1638[i] = new Class13_Sub1_Sub4_Sub3(archive, String.valueOf(i), 0);
+                    aClass13_Sub1_Sub4_Sub3Array1638[i] = new Class13_Sub1_Sub4_Sub3(cacheArchive, String.valueOf(i), 0);
                     if (aBoolean1625 && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method396(true);
                     } else {
@@ -169,7 +170,7 @@ public class Class13_Sub1_Sub4_Sub1 extends Class13_Sub1_Sub4 {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("25487, " + flag + ", " + archive + ", " + runtimeexception.toString());
+            Signlink.reportError("25487, " + flag + ", " + cacheArchive + ", " + runtimeexception.toString());
             throw new RuntimeException();
         }
     }

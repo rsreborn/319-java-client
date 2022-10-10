@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4 {
@@ -18,14 +19,14 @@ public class Class13_Sub1_Sub4_Sub3 extends Class13_Sub1_Sub4 {
     public int anInt1673;
     public int anInt1674;
 
-    public Class13_Sub1_Sub4_Sub3(Archive archive, String s, int i) {
+    public Class13_Sub1_Sub4_Sub3(CacheArchive cacheArchive, String s, int i) {
         anInt1662 = -16631;
         aBoolean1663 = true;
         aBoolean1664 = false;
         aByte1665 = 6;
         anInt1666 = 809;
-        Buffer buffer = new Buffer(archive.readFile(s + ".dat", null));
-        Buffer class13_sub1_sub2_1 = new Buffer(archive.readFile("index.dat", null));
+        Buffer buffer = new Buffer(cacheArchive.readFile(s + ".dat", null));
+        Buffer class13_sub1_sub2_1 = new Buffer(cacheArchive.readFile("index.dat", null));
         class13_sub1_sub2_1.position = buffer.readUnsignedShort();
         anInt1673 = class13_sub1_sub2_1.readUnsignedShort();
         anInt1674 = class13_sub1_sub2_1.readUnsignedShort();

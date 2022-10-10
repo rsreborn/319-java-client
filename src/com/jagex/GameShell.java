@@ -108,7 +108,7 @@ public class GameShell extends Applet
         if (aFrame_Sub1_18 != null) {
             aFrame_Sub1_18.addWindowListener(this);
         }
-        method13(false, "Loading...", 0);
+        updateLoadingBar(false, "Loading...", 0);
         method6();
         int i = 0;
         int j = 256;
@@ -561,7 +561,7 @@ public class GameShell extends Applet
         thread.setPriority(i);
     }
 
-    public void method13(boolean flag, String s, int i) {
+    public void updateLoadingBar(boolean flag, String text, int percentage) {
         try {
             while (aGraphics15 == null) {
                 aGraphics15 = method11(736).getGraphics();
@@ -574,9 +574,9 @@ public class GameShell extends Applet
                 } catch (Exception _ex) {
                 }
             }
-            Font font = new Font("Helvetica", 1, 13);
+            java.awt.Font font = new java.awt.Font("Helvetica", 1, 13);
             FontMetrics fontmetrics = method11(736).getFontMetrics(font);
-            Font font1 = new Font("Helvetica", 0, 13);
+            java.awt.Font font1 = new java.awt.Font("Helvetica", 0, 13);
             method11(736).getFontMetrics(font1);
             if (flag) {
                 for (int j = 1; j > 0; j++) {
@@ -591,15 +591,15 @@ public class GameShell extends Applet
             int k = anInt14 / 2 - 18;
             aGraphics15.setColor(color);
             aGraphics15.drawRect(anInt13 / 2 - 152, k, 304, 34);
-            aGraphics15.fillRect(anInt13 / 2 - 150, k + 2, i * 3, 30);
+            aGraphics15.fillRect(anInt13 / 2 - 150, k + 2, percentage * 3, 30);
             aGraphics15.setColor(Color.black);
-            aGraphics15.fillRect((anInt13 / 2 - 150) + i * 3, k + 2, 300 - i * 3, 30);
+            aGraphics15.fillRect((anInt13 / 2 - 150) + percentage * 3, k + 2, 300 - percentage * 3, 30);
             aGraphics15.setFont(font);
             aGraphics15.setColor(Color.white);
-            aGraphics15.drawString(s, (anInt13 - fontmetrics.stringWidth(s)) / 2, k + 22);
+            aGraphics15.drawString(text, (anInt13 - fontmetrics.stringWidth(text)) / 2, k + 22);
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("79251, " + flag + ", " + s + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("GameShell.updateLoadingBar, " + flag + ", " + text + ", " + percentage + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

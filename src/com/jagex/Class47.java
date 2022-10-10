@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.CacheArchive;
 import com.jagex.sign.Signlink;
 
 public class Class47 {
@@ -88,9 +89,9 @@ public class Class47 {
         return class47;
     }
 
-    public static void method587(Archive archive) {
-        aBuffer_758 = new Buffer(archive.readFile("npc.dat", null));
-        Buffer buffer = new Buffer(archive.readFile("npc.idx", null));
+    public static void method587(CacheArchive cacheArchive) {
+        aBuffer_758 = new Buffer(cacheArchive.readFile("npc.dat", null));
+        Buffer buffer = new Buffer(cacheArchive.readFile("npc.idx", null));
         anInt775 = buffer.readUnsignedShort();
         anIntArray761 = new int[anInt775];
         int i = 2;
