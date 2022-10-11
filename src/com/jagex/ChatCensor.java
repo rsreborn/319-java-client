@@ -6,13 +6,6 @@ import com.jagex.sign.Signlink;
 
 public class ChatCensor {
 
-    public static int anInt698;
-    public static int anInt699 = 40848;
-    public static byte aByte702 = 4;
-    public static byte aByte703 = 2;
-    public static boolean aBoolean704;
-    public static boolean aBoolean705 = true;
-    public static int anInt706;
     public static int[] anIntArray708;
     public static char[][] aCharArrayArray709;
     public static byte[][][] aByteArrayArrayArray710;
@@ -22,7 +15,6 @@ public class ChatCensor {
     public static final String[] EXCEPTIONS = {
             "cook", "cook's", "cooks", "seeks", "sheet", "woop", "woops", "faq", "noob", "noobs"
     };
-    public static boolean aBoolean715;
 
     public static void load(CacheArchive cacheArchive) {
         Buffer fragmentsEncBuffer = new Buffer(cacheArchive.readFile("fragmentsenc.txt", null));
@@ -131,7 +123,7 @@ public class ChatCensor {
         method549(ac);
         method544(ac);
         method545(ac);
-        method558(ac, 708);
+        method558(ac);
         for (String value : EXCEPTIONS) {
             for (int j = -1; (j = s2.indexOf(value, j + 1)) != -1; ) {
                 char[] ac1 = value.toCharArray();
@@ -145,7 +137,7 @@ public class ChatCensor {
 
     public static void method542(int i, char[] ac, char[] ac1) {
         for (int j = 0; j < ac1.length; j++) {
-            if (ac[j] != '*' && method566(ac1[j], false)) {
+            if (ac[j] != '*' && method566(ac1[j])) {
                 ac[j] = ac1[j];
             }
         }
@@ -156,12 +148,12 @@ public class ChatCensor {
 
         for (int j = 0; j < ac.length; j++) {
             char c = ac[j];
-            if (method563(c, false)) {
+            if (method563(c)) {
                 if (flag) {
-                    if (method565(c, aBoolean704)) {
+                    if (method565(c)) {
                         flag = false;
                     }
-                } else if (method566(c, false)) {
+                } else if (method566(c)) {
                     ac[j] = (char) ((c + 97) - 65);
                 }
             } else {
@@ -212,7 +204,7 @@ public class ChatCensor {
                 if (k + 1 < ac1.length) {
                     c1 = ac1[k + 1];
                 }
-                if (l < ac2.length && (i1 = method555(ac2[l], 0, c, c1)) > 0) {
+                if (l < ac2.length && (i1 = method555(ac2[l], c, c1)) > 0) {
                     k += i1;
                     l++;
                     continue;
@@ -220,14 +212,14 @@ public class ChatCensor {
                 if (l == 0) {
                     break;
                 }
-                if ((i1 = method555(ac2[l - 1], 0, c, c1)) > 0) {
+                if ((i1 = method555(ac2[l - 1], c, c1)) > 0) {
                     k += i1;
                     if (l == 1) {
                         i++;
                     }
                     continue;
                 }
-                if (l >= ac2.length || !method561(c, 0)) {
+                if (l >= ac2.length || !method561(c)) {
                     break;
                 }
                 k++;
@@ -253,7 +245,7 @@ public class ChatCensor {
             return 2;
         }
         for (int j = i - 1; j >= 0; j--) {
-            if (!method561(ac[j], 0)) {
+            if (!method561(ac[j])) {
                 break;
             }
             if (ac[j] == '@') {
@@ -262,7 +254,7 @@ public class ChatCensor {
         }
         int k = 0;
         for (int l = i - 1; l >= 0; l--) {
-            if (!method561(ac1[l], 0)) {
+            if (!method561(ac1[l])) {
                 break;
             }
             if (ac1[l] == '*') {
@@ -272,7 +264,7 @@ public class ChatCensor {
         if (k >= 3) {
             return 4;
         }
-        return !method561(ac[i - 1], 0) ? 0 : 1;
+        return !method561(ac[i - 1]) ? 0 : 1;
     }
 
     public static int method548(char[] ac, int j, char[] ac1) {
@@ -280,7 +272,7 @@ public class ChatCensor {
             return 2;
         }
         for (int k = j + 1; k < ac.length; k++) {
-            if (!method561(ac[k], 0)) {
+            if (!method561(ac[k])) {
                 break;
             }
             if (ac[k] == '.' || ac[k] == ',') {
@@ -289,7 +281,7 @@ public class ChatCensor {
         }
         int l = 0;
         for (int i1 = j + 1; i1 < ac.length; i1++) {
-            if (!method561(ac1[i1], 0)) {
+            if (!method561(ac1[i1])) {
                 break;
             }
             if (ac1[i1] == '*') {
@@ -299,7 +291,7 @@ public class ChatCensor {
         if (l >= 3) {
             return 4;
         }
-        return !method561(ac[j + 1], 0) ? 0 : 1;
+        return !method561(ac[j + 1]) ? 0 : 1;
     }
 
     public static void method549(char[] ac) {
@@ -335,7 +327,7 @@ public class ChatCensor {
                 if (i1 + 1 < ac3.length) {
                     c1 = ac3[i1 + 1];
                 }
-                if (j1 < ac1.length && (k1 = method555(ac1[j1], 0, c, c1)) > 0) {
+                if (j1 < ac1.length && (k1 = method555(ac1[j1], c, c1)) > 0) {
                     i1 += k1;
                     j1++;
                     continue;
@@ -343,14 +335,14 @@ public class ChatCensor {
                 if (j1 == 0) {
                     break;
                 }
-                if ((k1 = method555(ac1[j1 - 1], 0, c, c1)) > 0) {
+                if ((k1 = method555(ac1[j1 - 1], c, c1)) > 0) {
                     i1 += k1;
                     if (j1 == 1) {
                         j++;
                     }
                     continue;
                 }
-                if (j1 >= ac1.length || !method561(c, 0)) {
+                if (j1 >= ac1.length || !method561(c)) {
                     break;
                 }
                 i1++;
@@ -390,11 +382,11 @@ public class ChatCensor {
                         boolean flag3 = false;
                         for (int j3 = j2 - 1; j3 >= 0; j3--) {
                             if (flag3) {
-                                if (method561(ac3[j3], 0)) {
+                                if (method561(ac3[j3])) {
                                     break;
                                 }
                                 j2 = j3;
-                            } else if (!method561(ac3[j3], 0)) {
+                            } else if (!method561(ac3[j3])) {
                                 flag3 = true;
                                 j2 = j3;
                             }
@@ -418,11 +410,11 @@ public class ChatCensor {
                         boolean flag5 = false;
                         for (int l3 = k2 + 1; l3 < ac3.length; l3++) {
                             if (flag5) {
-                                if (method561(ac3[l3], 0)) {
+                                if (method561(ac3[l3])) {
                                     break;
                                 }
                                 k2 = l3;
-                            } else if (!method561(ac3[l3], 0)) {
+                            } else if (!method561(ac3[l3])) {
                                 flag5 = true;
                                 k2 = l3;
                             }
@@ -441,7 +433,7 @@ public class ChatCensor {
             return 2;
         }
         for (int j = i - 1; j >= 0; j--) {
-            if (!method561(ac[j], 0)) {
+            if (!method561(ac[j])) {
                 break;
             }
             if (ac[j] == ',' || ac[j] == '.') {
@@ -450,7 +442,7 @@ public class ChatCensor {
         }
         int k = 0;
         for (int l = i - 1; l >= 0; l--) {
-            if (!method561(ac1[l], 0)) {
+            if (!method561(ac1[l])) {
                 break;
             }
             if (ac1[l] == '*') {
@@ -460,7 +452,7 @@ public class ChatCensor {
         if (k >= 3) {
             return 4;
         }
-        return !method561(ac[i - 1], 0) ? 0 : 1;
+        return !method561(ac[i - 1]) ? 0 : 1;
     }
 
     public static int method552(char[] ac, int i, char[] ac1, int j) {
@@ -468,7 +460,7 @@ public class ChatCensor {
             return 2;
         }
         for (int k = i + 1; k < ac.length; k++) {
-            if (!method561(ac[k], 0)) {
+            if (!method561(ac[k])) {
                 break;
             }
             if (ac[k] == '\\' || ac[k] == '/') {
@@ -478,7 +470,7 @@ public class ChatCensor {
         j = 26 / j;
         int l = 0;
         for (int i1 = i + 1; i1 < ac.length; i1++) {
-            if (!method561(ac1[i1], 0)) {
+            if (!method561(ac1[i1])) {
                 break;
             }
             if (ac1[i1] == '*') {
@@ -488,7 +480,7 @@ public class ChatCensor {
         if (l >= 5) {
             return 4;
         }
-        return !method561(ac[i + 1], 0) ? 0 : 1;
+        return !method561(ac[i + 1]) ? 0 : 1;
     }
 
     public static void method553(char[] ac, byte[][] abyte0, char[] ac1) {
@@ -511,11 +503,11 @@ public class ChatCensor {
                 if (k + 1 < ac.length) {
                     c2 = ac[k + 1];
                 }
-                if (l < ac1.length && (j1 = method556((byte) 9, c2, ac1[l], c)) > 0) {
-                    if (j1 == 1 && method564((byte) 2, c)) {
+                if (l < ac1.length && (j1 = method556(c2, ac1[l], c)) > 0) {
+                    if (j1 == 1 && method564(c)) {
                         flag2 = true;
                     }
-                    if (j1 == 2 && (method564((byte) 2, c) || method564((byte) 2, c2))) {
+                    if (j1 == 2 && (method564(c) || method564(c2))) {
                         flag2 = true;
                     }
                     k += j1;
@@ -525,20 +517,20 @@ public class ChatCensor {
                 if (l == 0) {
                     break;
                 }
-                if ((j1 = method556((byte) 9, c2, ac1[l - 1], c)) > 0) {
+                if ((j1 = method556(c2, ac1[l - 1], c)) > 0) {
                     k += j1;
                     if (l == 1) {
                         i++;
                     }
                     continue;
                 }
-                if (l >= ac1.length || !method562(true, c)) {
+                if (l >= ac1.length || !method562(c)) {
                     break;
                 }
-                if (method561(c, 0) && c != '\'') {
+                if (method561(c) && c != '\'') {
                     flag1 = true;
                 }
-                if (method564((byte) 2, c)) {
+                if (method564(c)) {
                     flag3 = true;
                 }
                 k++;
@@ -557,18 +549,18 @@ public class ChatCensor {
                     if (k < ac.length) {
                         c3 = ac[k];
                     }
-                    byte byte1 = method557(c1, aByte702);
-                    byte byte2 = method557(c3, aByte702);
+                    byte byte1 = method557(c1);
+                    byte byte2 = method557(c3);
                     if (abyte0 != null && method554(false, byte2, abyte0, byte1)) {
                         flag4 = false;
                     }
                 } else {
                     boolean flag5 = false;
                     boolean flag6 = false;
-                    if (j - 1 < 0 || method561(ac[j - 1], 0) && ac[j - 1] != '\'') {
+                    if (j - 1 < 0 || method561(ac[j - 1]) && ac[j - 1] != '\'') {
                         flag5 = true;
                     }
-                    if (k >= ac.length || method561(ac[k], 0) && ac[k] != '\'') {
+                    if (k >= ac.length || method561(ac[k]) && ac[k] != '\'') {
                         flag6 = true;
                     }
                     if (!flag5 || !flag6) {
@@ -578,17 +570,17 @@ public class ChatCensor {
                             j2 = j;
                         }
                         for (; !flag7 && j2 < k; j2++) {
-                            if (j2 >= 0 && (!method561(ac[j2], 0) || ac[j2] == '\'')) {
+                            if (j2 >= 0 && (!method561(ac[j2]) || ac[j2] == '\'')) {
                                 char[] ac2 = new char[3];
                                 int i3;
                                 for (i3 = 0; i3 < 3; i3++) {
-                                    if (j2 + i3 >= ac.length || method561(ac[j2 + i3], 0) && ac[j2 + i3] != '\'') {
+                                    if (j2 + i3 >= ac.length || method561(ac[j2 + i3]) && ac[j2 + i3] != '\'') {
                                         break;
                                     }
                                     ac2[i3] = ac[j2 + i3];
                                 }
                                 boolean flag8 = i3 != 0;
-                                if (i3 < 3 && j2 - 1 >= 0 && (!method561(ac[j2 - 1], 0) || ac[j2 - 1] == '\'')) {
+                                if (i3 < 3 && j2 - 1 >= 0 && (!method561(ac[j2 - 1]) || ac[j2 - 1] == '\'')) {
                                     flag8 = false;
                                 }
                                 if (flag8 && !method567(0, ac2)) {
@@ -606,9 +598,9 @@ public class ChatCensor {
                     int l1 = 0;
                     int i2 = -1;
                     for (int k2 = j; k2 < k; k2++) {
-                        if (method564((byte) 2, ac[k2])) {
+                        if (method564(ac[k2])) {
                             k1++;
-                        } else if (method563(ac[k2], false)) {
+                        } else if (method563(ac[k2])) {
                             l1++;
                             i2 = k2;
                         }
@@ -661,416 +653,298 @@ public class ChatCensor {
         throw new RuntimeException();
     }
 
-    public static int method555(char c, int i, char c1, char c2) {
-        try {
-            if (i != 0) {
-                aBoolean705 = !aBoolean705;
-            }
-            if (c == c1) {
-                return 1;
-            }
-            if (c == 'o' && c1 == '0') {
-                return 1;
-            }
-            if (c == 'o' && c1 == '(' && c2 == ')') {
-                return 2;
-            }
-            if (c == 'c' && (c1 == '(' || c1 == '<' || c1 == '[')) {
-                return 1;
-            }
-            if (c == 'e' && c1 == '\u20AC') {
-                return 1;
-            }
-            if (c == 's' && c1 == '$') {
-                return 1;
-            }
-            return c != 'l' || c1 != 'i' ? 0 : 1;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("9193, " + c + ", " + i + ", " + c1 + ", " + c2 + ", " + runtimeexception.toString());
+    public static int method555(char c, char c1, char c2) {
+        if (c == c1) {
+            return 1;
         }
-        throw new RuntimeException();
+        if (c == 'o' && c1 == '0') {
+            return 1;
+        }
+        if (c == 'o' && c1 == '(' && c2 == ')') {
+            return 2;
+        }
+        if (c == 'c' && (c1 == '(' || c1 == '<' || c1 == '[')) {
+            return 1;
+        }
+        if (c == 'e' && c1 == '\u20AC') {
+            return 1;
+        }
+        if (c == 's' && c1 == '$') {
+            return 1;
+        }
+        return c != 'l' || c1 != 'i' ? 0 : 1;
     }
 
-    public static int method556(byte byte0, char c, char c1, char c2) {
-        try {
-            if (byte0 != 9) {
-                aBoolean705 = !aBoolean705;
+    public static int method556(char c, char c1, char c2) {
+        if (c1 == c2) {
+            return 1;
+        }
+        if (c1 >= 'a' && c1 <= 'm') {
+            if (c1 == 'a') {
+                if (c2 == '4' || c2 == '@' || c2 == '^') {
+                    return 1;
+                }
+                return c2 != '/' || c != '\\' ? 0 : 2;
             }
-            if (c1 == c2) {
-                return 1;
+            if (c1 == 'b') {
+                if (c2 == '6' || c2 == '8') {
+                    return 1;
+                }
+                return (c2 != '1' || c != '3') && (c2 != 'i' || c != '3') ? 0 : 2;
             }
-            if (c1 >= 'a' && c1 <= 'm') {
-                if (c1 == 'a') {
-                    if (c2 == '4' || c2 == '@' || c2 == '^') {
-                        return 1;
-                    }
-                    return c2 != '/' || c != '\\' ? 0 : 2;
-                }
-                if (c1 == 'b') {
-                    if (c2 == '6' || c2 == '8') {
-                        return 1;
-                    }
-                    return (c2 != '1' || c != '3') && (c2 != 'i' || c != '3') ? 0 : 2;
-                }
-                if (c1 == 'c') {
-                    return c2 != '(' && c2 != '<' && c2 != '{' && c2 != '[' ? 0 : 1;
-                }
-                if (c1 == 'd') {
-                    return (c2 != '[' || c != ')') && (c2 != 'i' || c != ')') ? 0 : 2;
-                }
-                if (c1 == 'e') {
-                    return c2 != '3' && c2 != '\u20AC' ? 0 : 1;
-                }
-                if (c1 == 'f') {
-                    if (c2 == 'p' && c == 'h') {
-                        return 2;
-                    }
-                    return c2 != '\243' ? 0 : 1;
-                }
-                if (c1 == 'g') {
-                    return c2 != '9' && c2 != '6' && c2 != 'q' ? 0 : 1;
-                }
-                if (c1 == 'h') {
-                    return c2 != '#' ? 0 : 1;
-                }
-                if (c1 == 'i') {
-                    return c2 != 'y' && c2 != 'l' && c2 != 'j' && c2 != '1' && c2 != '!' && c2 != ':' && c2 != ';' && c2 != '|' ? 0 : 1;
-                }
-                if (c1 == 'j') {
-                    return 0;
-                }
-                if (c1 == 'k') {
-                    return 0;
-                }
-                if (c1 == 'l') {
-                    return c2 != '1' && c2 != '|' && c2 != 'i' ? 0 : 1;
-                }
-                if (c1 == 'm') {
-                    return 0;
-                }
+            if (c1 == 'c') {
+                return c2 != '(' && c2 != '<' && c2 != '{' && c2 != '[' ? 0 : 1;
             }
-            if (c1 >= 'n' && c1 <= 'z') {
-                if (c1 == 'n') {
-                    return 0;
-                }
-                if (c1 == 'o') {
-                    if (c2 == '0' || c2 == '*') {
-                        return 1;
-                    }
-                    return (c2 != '(' || c != ')') && (c2 != '[' || c != ']') && (c2 != '{' || c != '}') && (c2 != '<' || c != '>') ? 0 : 2;
-                }
-                if (c1 == 'p') {
-                    return 0;
-                }
-                if (c1 == 'q') {
-                    return 0;
-                }
-                if (c1 == 'r') {
-                    return 0;
-                }
-                if (c1 == 's') {
-                    return c2 != '5' && c2 != 'z' && c2 != '$' && c2 != '2' ? 0 : 1;
-                }
-                if (c1 == 't') {
-                    return c2 != '7' && c2 != '+' ? 0 : 1;
-                }
-                if (c1 == 'u') {
-                    if (c2 == 'v') {
-                        return 1;
-                    }
-                    return (c2 != '\\' || c != '/') && (c2 != '\\' || c != '|') && (c2 != '|' || c != '/') ? 0 : 2;
-                }
-                if (c1 == 'v') {
-                    return (c2 != '\\' || c != '/') && (c2 != '\\' || c != '|') && (c2 != '|' || c != '/') ? 0 : 2;
-                }
-                if (c1 == 'w') {
-                    return c2 != 'v' || c != 'v' ? 0 : 2;
-                }
-                if (c1 == 'x') {
-                    return (c2 != ')' || c != '(') && (c2 != '}' || c != '{') && (c2 != ']' || c != '[') && (c2 != '>' || c != '<') ? 0 : 2;
-                }
-                if (c1 == 'y') {
-                    return 0;
-                }
-                if (c1 == 'z') {
-                    return 0;
-                }
+            if (c1 == 'd') {
+                return (c2 != '[' || c != ')') && (c2 != 'i' || c != ')') ? 0 : 2;
             }
-            if (c1 >= '0' && c1 <= '9') {
-                if (c1 == '0') {
-                    if (c2 == 'o' || c2 == 'O') {
-                        return 1;
-                    }
-                    return (c2 != '(' || c != ')') && (c2 != '{' || c != '}') && (c2 != '[' || c != ']') ? 0 : 2;
+            if (c1 == 'e') {
+                return c2 != '3' && c2 != '\u20AC' ? 0 : 1;
+            }
+            if (c1 == 'f') {
+                if (c2 == 'p' && c == 'h') {
+                    return 2;
                 }
-                if (c1 == '1') {
-                    return c2 != 'l' ? 0 : 1;
-                } else {
-                    return 0;
+                return c2 != '\243' ? 0 : 1;
+            }
+            if (c1 == 'g') {
+                return c2 != '9' && c2 != '6' && c2 != 'q' ? 0 : 1;
+            }
+            if (c1 == 'h') {
+                return c2 != '#' ? 0 : 1;
+            }
+            if (c1 == 'i') {
+                return c2 != 'y' && c2 != 'l' && c2 != 'j' && c2 != '1' && c2 != '!' && c2 != ':' && c2 != ';' && c2 != '|' ? 0 : 1;
+            }
+            if (c1 == 'j') {
+                return 0;
+            }
+            if (c1 == 'k') {
+                return 0;
+            }
+            if (c1 == 'l') {
+                return c2 != '1' && c2 != '|' && c2 != 'i' ? 0 : 1;
+            }
+            if (c1 == 'm') {
+                return 0;
+            }
+        }
+        if (c1 >= 'n' && c1 <= 'z') {
+            if (c1 == 'n') {
+                return 0;
+            }
+            if (c1 == 'o') {
+                if (c2 == '0' || c2 == '*') {
+                    return 1;
                 }
+                return (c2 != '(' || c != ')') && (c2 != '[' || c != ']') && (c2 != '{' || c != '}') && (c2 != '<' || c != '>') ? 0 : 2;
             }
-            if (c1 == ',') {
-                return c2 != '.' ? 0 : 1;
+            if (c1 == 'p') {
+                return 0;
             }
-            if (c1 == '.') {
-                return c2 != ',' ? 0 : 1;
+            if (c1 == 'q') {
+                return 0;
             }
-            if (c1 == '!') {
-                return c2 != 'i' ? 0 : 1;
+            if (c1 == 'r') {
+                return 0;
+            }
+            if (c1 == 's') {
+                return c2 != '5' && c2 != 'z' && c2 != '$' && c2 != '2' ? 0 : 1;
+            }
+            if (c1 == 't') {
+                return c2 != '7' && c2 != '+' ? 0 : 1;
+            }
+            if (c1 == 'u') {
+                if (c2 == 'v') {
+                    return 1;
+                }
+                return (c2 != '\\' || c != '/') && (c2 != '\\' || c != '|') && (c2 != '|' || c != '/') ? 0 : 2;
+            }
+            if (c1 == 'v') {
+                return (c2 != '\\' || c != '/') && (c2 != '\\' || c != '|') && (c2 != '|' || c != '/') ? 0 : 2;
+            }
+            if (c1 == 'w') {
+                return c2 != 'v' || c != 'v' ? 0 : 2;
+            }
+            if (c1 == 'x') {
+                return (c2 != ')' || c != '(') && (c2 != '}' || c != '{') && (c2 != ']' || c != '[') && (c2 != '>' || c != '<') ? 0 : 2;
+            }
+            if (c1 == 'y') {
+                return 0;
+            }
+            if (c1 == 'z') {
+                return 0;
+            }
+        }
+        if (c1 >= '0' && c1 <= '9') {
+            if (c1 == '0') {
+                if (c2 == 'o' || c2 == 'O') {
+                    return 1;
+                }
+                return (c2 != '(' || c != ')') && (c2 != '{' || c != '}') && (c2 != '[' || c != ']') ? 0 : 2;
+            }
+            if (c1 == '1') {
+                return c2 != 'l' ? 0 : 1;
             } else {
                 return 0;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("1728, " + byte0 + ", " + c + ", " + c1 + ", " + c2 + ", " + runtimeexception.toString());
         }
-        throw new RuntimeException();
+        if (c1 == ',') {
+            return c2 != '.' ? 0 : 1;
+        }
+        if (c1 == '.') {
+            return c2 != ',' ? 0 : 1;
+        }
+        if (c1 == '!') {
+            return c2 != 'i' ? 0 : 1;
+        } else {
+            return 0;
+        }
     }
 
-    public static byte method557(char c, byte byte0) {
-        try {
-            if (byte0 == 4) {
-                byte0 = 0;
-            } else {
-                for (int i = 1; i > 0; i++) {
-                }
-            }
-            if (c >= 'a' && c <= 'z') {
-                return (byte) ((c - 97) + 1);
-            }
-            if (c == '\'') {
-                return 28;
-            }
-            if (c >= '0' && c <= '9') {
-                return (byte) ((c - 48) + 29);
-            } else {
-                return 27;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("56877, " + c + ", " + byte0 + ", " + runtimeexception.toString());
+    public static byte method557(char c) {
+        if (c >= 'a' && c <= 'z') {
+            return (byte) ((c - 97) + 1);
         }
-        throw new RuntimeException();
+        if (c == '\'') {
+            return 28;
+        }
+        if (c >= '0' && c <= '9') {
+            return (byte) ((c - 48) + 29);
+        } else {
+            return 27;
+        }
     }
 
-    public static void method558(char[] ac, int i) {
-        try {
-            int j = 0;
-            int k = 0;
-            if (i <= 0) {
-                for (int l = 1; l > 0; l++) {
+    public static void method558(char[] ac) {
+        int j = 0;
+        int k = 0;
+        int i1 = 0;
+        int j1 = 0;
+        while ((j = method559(ac, k)) != -1) {
+            boolean flag = false;
+            for (int k1 = k; k1 >= 0 && k1 < j && !flag; k1++) {
+                if (!method561(ac[k1]) && !method562(ac[k1])) {
+                    flag = true;
                 }
             }
-            int i1 = 0;
-            int j1 = 0;
-            while ((j = method559(ac, false, k)) != -1) {
-                boolean flag = false;
-                for (int k1 = k; k1 >= 0 && k1 < j && !flag; k1++) {
-                    if (!method561(ac[k1], 0) && !method562(true, ac[k1])) {
-                        flag = true;
-                    }
-                }
-                if (flag) {
-                    i1 = 0;
-                }
-                if (i1 == 0) {
-                    j1 = j;
-                }
-                k = method560((byte) 3, ac, j);
-                int l1 = 0;
-                for (int i2 = j; i2 < k; i2++) {
-                    l1 = (l1 * 10 + ac[i2]) - 48;
-                }
-                if (l1 > 255 || k - j > 8) {
-                    i1 = 0;
-                } else {
-                    i1++;
-                }
-                if (i1 == 4) {
-                    for (int j2 = j1; j2 < k; j2++) {
-                        ac[j2] = '*';
-                    }
-                    i1 = 0;
-                }
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("32736, " + ac + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
-    }
-
-    public static int method559(char[] ac, boolean flag, int i) {
-        try {
             if (flag) {
-                anInt699 = -280;
+                i1 = 0;
             }
-            for (int j = i; j < ac.length && j >= 0; j++) {
-                if (ac[j] >= '0' && ac[j] <= '9') {
-                    return j;
+            if (i1 == 0) {
+                j1 = j;
+            }
+            k = method560((byte) 3, ac, j);
+            int l1 = 0;
+            for (int i2 = j; i2 < k; i2++) {
+                l1 = (l1 * 10 + ac[i2]) - 48;
+            }
+            if (l1 > 255 || k - j > 8) {
+                i1 = 0;
+            } else {
+                i1++;
+            }
+            if (i1 == 4) {
+                for (int j2 = j1; j2 < k; j2++) {
+                    ac[j2] = '*';
                 }
+                i1 = 0;
             }
-            return -1;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("73371, " + ac + ", " + flag + ", " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+    }
+
+    public static int method559(char[] ac, int i) {
+        for (int j = i; j < ac.length && j >= 0; j++) {
+            if (ac[j] >= '0' && ac[j] <= '9') {
+                return j;
+            }
+        }
+        return -1;
     }
 
     public static int method560(byte byte0, char[] ac, int i) {
-        try {
-            if (byte0 != 3) {
-                anInt698 = 105;
+        for (int j = i; j < ac.length && j >= 0; j++) {
+            if (ac[j] < '0' || ac[j] > '9') {
+                return j;
             }
-            for (int j = i; j < ac.length && j >= 0; j++) {
-                if (ac[j] < '0' || ac[j] > '9') {
-                    return j;
-                }
-            }
-            return ac.length;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("47614, " + byte0 + ", " + ac + ", " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        return ac.length;
     }
 
-    public static boolean method561(char c, int i) {
-        try {
-            if (i != 0) {
-                anInt699 = -232;
-            }
-            return !method563(c, false) && !method564((byte) 2, c);
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("46429, " + c + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public static boolean method561(char c) {
+        return !method563(c) && !method564(c);
     }
 
-    public static boolean method562(boolean flag, char c) {
-        try {
-            if (!flag) {
-                throw new NullPointerException();
-            }
-            if (c < 'a' || c > 'z') {
-                return true;
-            }
-            return c == 'v' || c == 'x' || c == 'j' || c == 'q' || c == 'z';
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("20825, " + flag + ", " + c + ", " + runtimeexception);
+    public static boolean method562(char c) {
+        if (c < 'a' || c > 'z') {
+            return true;
         }
-        throw new RuntimeException();
+        return c == 'v' || c == 'x' || c == 'j' || c == 'q' || c == 'z';
     }
 
-    public static boolean method563(char c, boolean flag) {
-        try {
-            if (flag) {
-                throw new NullPointerException();
-            }
-            return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("18646, " + c + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public static boolean method563(char c) {
+        return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
     }
 
-    public static boolean method564(byte byte0, char c) {
-        try {
-            if (byte0 != aByte703) {
-                throw new NullPointerException();
-            }
-            return c >= '0' && c <= '9';
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("85071, " + byte0 + ", " + c + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public static boolean method564(char c) {
+        return c >= '0' && c <= '9';
     }
 
-    public static boolean method565(char c, boolean flag) {
-        try {
-            if (flag) {
-                throw new NullPointerException();
-            }
-            return c >= 'a' && c <= 'z';
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("72651, " + c + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public static boolean method565(char c) {
+        return c >= 'a' && c <= 'z';
     }
 
-    public static boolean method566(char c, boolean flag) {
-        try {
-            if (flag) {
-                aBoolean704 = !aBoolean704;
-            }
-            return c >= 'A' && c <= 'Z';
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("39795, " + c + ", " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static boolean method566(char c) {
+        return c >= 'A' && c <= 'Z';
     }
 
     public static boolean method567(int i, char[] ac) {
-        try {
-            boolean flag = true;
-            for (int j = 0; j < ac.length; j++) {
-                if (!method564((byte) 2, ac[j]) && ac[j] != 0) {
-                    flag = false;
-                }
+        boolean flag = true;
+        for (int j = 0; j < ac.length; j++) {
+            if (!method564(ac[j]) && ac[j] != 0) {
+                flag = false;
             }
-            if (i != 0) {
-                throw new NullPointerException();
-            }
-            if (flag) {
-                return true;
-            }
-            int k = method568(ac, 69);
-            int l = 0;
-            int i1 = anIntArray708.length - 1;
-            if (k == anIntArray708[l] || k == anIntArray708[i1]) {
-                return true;
-            }
-            do {
-                int j1 = (l + i1) / 2;
-                if (k == anIntArray708[j1]) {
-                    return true;
-                }
-                if (k < anIntArray708[j1]) {
-                    i1 = j1;
-                } else {
-                    l = j1;
-                }
-            } while (l != i1 && l + 1 != i1);
-            return false;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("449, " + i + ", " + ac + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        if (flag) {
+            return true;
+        }
+        int k = method568(ac, 69);
+        int l = 0;
+        int i1 = anIntArray708.length - 1;
+        if (k == anIntArray708[l] || k == anIntArray708[i1]) {
+            return true;
+        }
+        do {
+            int j1 = (l + i1) / 2;
+            if (k == anIntArray708[j1]) {
+                return true;
+            }
+            if (k < anIntArray708[j1]) {
+                i1 = j1;
+            } else {
+                l = j1;
+            }
+        } while (l != i1 && l + 1 != i1);
+        return false;
     }
 
     public static int method568(char[] ac, int i) {
-        try {
-            if (ac.length > 6) {
+        if (ac.length > 6) {
+            return 0;
+        }
+        int j = 0;
+        for (int k = 0; k < ac.length; k++) {
+            char c = ac[ac.length - k - 1];
+            if (c >= 'a' && c <= 'z') {
+                j = j * 38 + ((c - 97) + 1);
+            } else if (c == '\'') {
+                j = j * 38 + 27;
+            } else if (c >= '0' && c <= '9') {
+                j = j * 38 + ((c - 48) + 28);
+            } else if (c != 0) {
                 return 0;
             }
-            int j = 0;
-            for (int k = 0; k < ac.length; k++) {
-                char c = ac[ac.length - k - 1];
-                if (c >= 'a' && c <= 'z') {
-                    j = j * 38 + ((c - 97) + 1);
-                } else if (c == '\'') {
-                    j = j * 38 + 27;
-                } else if (c >= '0' && c <= '9') {
-                    j = j * 38 + ((c - 48) + 28);
-                } else if (c != 0) {
-                    return 0;
-                }
-            }
-            if (i <= 0) {
-                anInt706 = 296;
-            }
-            return j;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("16339, " + ac + ", " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        return j;
     }
-
 }
