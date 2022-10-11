@@ -4,12 +4,12 @@ import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
-public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 {
+public class Player extends CacheableNode_Sub1_Sub1_Sub6 {
 
     public static Cache aCache_1696 = new Cache(260);
     public int anInt1687;
     public boolean aBoolean1688;
-    public String playerName;
+    public String name;
     public byte aByte1690;
     public int anInt1691;
     public int anInt1692;
@@ -37,7 +37,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
     public int anInt1715;
     public Class47 aClass47_1716;
 
-    public CacheableNode_Sub1_Sub1_Sub6_() {
+    public Player() {
         aBoolean1688 = false;
         aByte1690 = -78;
         anInt1698 = -2372;
@@ -379,7 +379,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             if (super.anInt1607 == 65535) {
                 super.anInt1607 = -1;
             }
-            playerName = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
+            name = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
             if (i != 0) {
                 aBoolean1704 = !aBoolean1704;
             }

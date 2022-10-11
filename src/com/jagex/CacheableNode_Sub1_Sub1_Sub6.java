@@ -24,7 +24,7 @@ public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
     public int anInt1583;
     public int anInt1584;
     public int anInt1585;
-    public String forcedChat;
+    public String forcedChatMessage;
     public int anInt1587;
     public int anInt1588;
     public int anInt1589;

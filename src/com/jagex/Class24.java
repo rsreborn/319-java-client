@@ -5,18 +5,15 @@ import com.jagex.sign.Signlink;
 public class Class24 {
 
     public static int anInt396 = 7270;
-    public static int anInt397 = 161;
-    public static boolean aBoolean398 = true;
     public static boolean aBoolean399 = true;
-    public static int anInt400 = 60;
     public static char[] aCharArray401 = {
-            '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-            'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-            't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
-            '3', '4', '5', '6', '7', '8', '9'
+        '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+        'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
+        '3', '4', '5', '6', '7', '8', '9'
     };
 
-    public static long method446(String s) {
+    public static long nameToLong(String s) {
         long l = 0L;
         for (int i = 0; i < s.length() && i < 12; i++) {
             char c = s.charAt(i);
