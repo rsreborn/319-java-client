@@ -130,12 +130,12 @@ public class ChatCensor {
                 System.arraycopy(ac1, 0, ac, j, ac1.length);
             }
         }
-        method542(69, ac, s1.toCharArray());
+        method542(ac, s1.toCharArray());
         method543(ac);
         return (new String(ac)).trim();
     }
 
-    public static void method542(int i, char[] ac, char[] ac1) {
+    public static void method542(char[] ac, char[] ac1) {
         for (int j = 0; j < ac1.length; j++) {
             if (ac[j] != '*' && method566(ac1[j])) {
                 ac[j] = ac1[j];
@@ -834,7 +834,7 @@ public class ChatCensor {
             if (i1 == 0) {
                 j1 = j;
             }
-            k = method560((byte) 3, ac, j);
+            k = method560(ac, j);
             int l1 = 0;
             for (int i2 = j; i2 < k; i2++) {
                 l1 = (l1 * 10 + ac[i2]) - 48;
@@ -862,7 +862,7 @@ public class ChatCensor {
         return -1;
     }
 
-    public static int method560(byte byte0, char[] ac, int i) {
+    public static int method560(char[] ac, int i) {
         for (int j = i; j < ac.length && j >= 0; j++) {
             if (ac[j] < '0' || ac[j] > '9') {
                 return j;
