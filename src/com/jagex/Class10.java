@@ -258,10 +258,10 @@ public class Class10 {
             boolean[][][][] aflag = new boolean[9][32][53][53];
             for (int i1 = 128; i1 <= 384; i1 += 32) {
                 for (int j1 = 0; j1 < 2048; j1 += 64) {
-                    anInt184 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[i1];
-                    anInt185 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[i1];
-                    anInt186 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[j1];
-                    anInt187 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[j1];
+                    anInt184 = Model.anIntArray1559[i1];
+                    anInt185 = Model.anIntArray1560[i1];
+                    anInt186 = Model.anIntArray1559[j1];
+                    anInt187 = Model.anIntArray1560[j1];
                     int l1 = (i1 - 128) / 32;
                     int j2 = j1 / 64;
                     for (int l2 = -26; l2 <= 26; l2++) {
@@ -505,8 +505,8 @@ public class Class10 {
             Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
             if (class13_sub2 != null) {
                 for (int k1 = 0; k1 < class13_sub2.anInt1350; k1++) {
-                    if (class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351 instanceof CacheableNode_Sub1_Sub1_Sub4) {
-                        int l1 = ((CacheableNode_Sub1_Sub1_Sub4) class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
+                    if (class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351 instanceof Model) {
+                        int l1 = ((Model) class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
                         if (l1 > j1) {
                             j1 = l1;
                         }
@@ -1044,25 +1044,25 @@ public class Class10 {
                         if (class13_sub2 != null) {
                             Class15 class15 = class13_sub2.aClass15_1346;
                             if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
-                                method227(j2, k2, 1, i2, 1, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, 0);
+                                method227(j2, k2, 1, i2, 1, (Model) class15.aClass13_Sub1_Sub1_295, 0);
                                 if (class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
-                                    method227(j2, k2, 1, i2, 1, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0);
-                                    method228((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, 0, 0, 0, false);
-                                    ((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296).method283(j, l1, i1, j1, i);
+                                    method227(j2, k2, 1, i2, 1, (Model) class15.aClass13_Sub1_Sub1_296, 0);
+                                    method228((Model) class15.aClass13_Sub1_Sub1_295, (Model) class15.aClass13_Sub1_Sub1_296, 0, 0, 0, false);
+                                    ((Model) class15.aClass13_Sub1_Sub1_296).method283(j, l1, i1, j1, i);
                                 }
-                                ((CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295).method283(j, l1, i1, j1, i);
+                                ((Model) class15.aClass13_Sub1_Sub1_295).method283(j, l1, i1, j1, i);
                             }
                             for (int l2 = 0; l2 < class13_sub2.anInt1350; l2++) {
                                 Class20 class20 = class13_sub2.aClass20Array1351[l2];
                                 if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
-                                    method227(j2, k2, (class20.anInt356 - class20.anInt355) + 1, i2, (class20.anInt354 - class20.anInt353) + 1, (CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, 0);
-                                    ((CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
+                                    method227(j2, k2, (class20.anInt356 - class20.anInt355) + 1, i2, (class20.anInt354 - class20.anInt353) + 1, (Model) class20.aClass13_Sub1_Sub1_351, 0);
+                                    ((Model) class20.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
                                 }
                             }
                             Class11 class11 = class13_sub2.aClass11_1348;
                             if (class11 != null && class11.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                                method226((byte) 4, (CacheableNode_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228, k2, i2, j2);
-                                ((CacheableNode_Sub1_Sub1_Sub4) class11.aClass13_Sub1_Sub1_228).method283(j, l1, i1, j1, i);
+                                method226((byte) 4, (Model) class11.aClass13_Sub1_Sub1_228, k2, i2, j2);
+                                ((Model) class11.aClass13_Sub1_Sub1_228).method283(j, l1, i1, j1, i);
                             }
                         }
                     }
@@ -1075,7 +1075,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public void method226(byte byte0, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int i, int j, int k) {
+    public void method226(byte byte0, Model class13_sub1_sub1_sub4, int i, int j, int k) {
         try {
             if (byte0 != 4) {
                 return;
@@ -1083,25 +1083,25 @@ public class Class10 {
             if (k < anInt164) {
                 Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i];
                 if (class13_sub2 != null && class13_sub2.aClass11_1348 != null && class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 0, true);
+                    method228(class13_sub1_sub1_sub4, (Model) class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 0, true);
                 }
             }
             if (i < anInt164) {
                 Node_Sub2 class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[j][k][i + 1];
                 if (class13_sub2_1 != null && class13_sub2_1.aClass11_1348 != null && class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228, 0, 0, 128, true);
+                    method228(class13_sub1_sub1_sub4, (Model) class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228, 0, 0, 128, true);
                 }
             }
             if (k < anInt164 && i < anInt165) {
                 Node_Sub2 class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i + 1];
                 if (class13_sub2_2 != null && class13_sub2_2.aClass11_1348 != null && class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 128, true);
+                    method228(class13_sub1_sub1_sub4, (Model) class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 128, true);
                 }
             }
             if (k < anInt164 && i > 0) {
                 Node_Sub2 class13_sub2_3 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i - 1];
                 if (class13_sub2_3 != null && class13_sub2_3.aClass11_1348 != null && class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
-                    method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, -128, true);
+                    method228(class13_sub1_sub1_sub4, (Model) class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, -128, true);
                     return;
                 }
             }
@@ -1111,7 +1111,7 @@ public class Class10 {
         }
     }
 
-    public void method227(int i, int j, int k, int l, int i1, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, int j1) {
+    public void method227(int i, int j, int k, int l, int i1, Model class13_sub1_sub1_sub4, int j1) {
         try {
             boolean flag = true;
             if (j1 != 0) {
@@ -1133,17 +1133,17 @@ public class Class10 {
                                         int k3 = (anIntArrayArrayArray166[l2][i3][j3] + anIntArrayArrayArray166[l2][i3 + 1][j3] + anIntArrayArrayArray166[l2][i3][j3 + 1] + anIntArrayArrayArray166[l2][i3 + 1][j3 + 1]) / 4 - (anIntArrayArrayArray166[l][i][j] + anIntArrayArrayArray166[l][i + 1][j] + anIntArrayArrayArray166[l][i][j + 1] + anIntArrayArrayArray166[l][i + 1][j + 1]) / 4;
                                         Class15 class15 = class13_sub2.aClass15_1346;
                                         if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
-                                            method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_295, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
+                                            method228(class13_sub1_sub1_sub4, (Model) class15.aClass13_Sub1_Sub1_295, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
                                         if (class15 != null && class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
-                                            method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class15.aClass13_Sub1_Sub1_296, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
+                                            method228(class13_sub1_sub1_sub4, (Model) class15.aClass13_Sub1_Sub1_296, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
                                         for (int l3 = 0; l3 < class13_sub2.anInt1350; l3++) {
                                             Class20 class20 = class13_sub2.aClass20Array1351[l3];
                                             if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
                                                 int i4 = (class20.anInt354 - class20.anInt353) + 1;
                                                 int j4 = (class20.anInt356 - class20.anInt355) + 1;
-                                                method228(class13_sub1_sub1_sub4, (CacheableNode_Sub1_Sub1_Sub4) class20.aClass13_Sub1_Sub1_351, (class20.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (class20.anInt355 - j) * 128 + (j4 - k) * 64, flag);
+                                                method228(class13_sub1_sub1_sub4, (Model) class20.aClass13_Sub1_Sub1_351, (class20.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (class20.anInt355 - j) * 128 + (j4 - k) * 64, flag);
                                             }
                                         }
                                     }
@@ -1162,7 +1162,7 @@ public class Class10 {
         throw new RuntimeException();
     }
 
-    public void method228(CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4, CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1, int i, int j, int k, boolean flag) {
+    public void method228(Model class13_sub1_sub1_sub4, Model class13_sub1_sub1_sub4_1, int i, int j, int k, boolean flag) {
         anInt214++;
         int l = 0;
         int[] ai = class13_sub1_sub1_sub4_1.anIntArray1497;
@@ -1302,10 +1302,10 @@ public class Class10 {
                 j = anInt165 * 128 - 1;
             }
             anInt174++;
-            anInt184 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[i1];
-            anInt185 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[i1];
-            anInt186 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1559[k];
-            anInt187 = CacheableNode_Sub1_Sub1_Sub4.anIntArray1560[k];
+            anInt184 = Model.anIntArray1559[i1];
+            anInt185 = Model.anIntArray1560[i1];
+            anInt186 = Model.anIntArray1559[k];
+            anInt187 = Model.anIntArray1560[k];
             aBooleanArrayArray218 = aBooleanArrayArrayArrayArray217[(i1 - 128) / 32][k / 64];
             anInt181 = j1;
             anInt182 = k1;

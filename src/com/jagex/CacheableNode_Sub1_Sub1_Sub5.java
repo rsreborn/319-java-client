@@ -12,7 +12,7 @@ public class CacheableNode_Sub1_Sub1_Sub5 extends CacheableNode_Sub1_ {
         aBoolean1565 = false;
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
             if (i <= 0) {
                 aBoolean1565 = !aBoolean1565;

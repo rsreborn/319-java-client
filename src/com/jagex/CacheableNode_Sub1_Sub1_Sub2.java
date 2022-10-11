@@ -56,7 +56,7 @@ public class CacheableNode_Sub1_Sub1_Sub2 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
             i = 97 / i;
             int j = -1;
@@ -92,7 +92,7 @@ public class CacheableNode_Sub1_Sub1_Sub2 extends CacheableNode_Sub1_ {
             if (gameObjectDefinition == null) {
                 return null;
             } else {
-                CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = gameObjectDefinition.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
+                Model class13_sub1_sub1_sub4 = gameObjectDefinition.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
                 return class13_sub1_sub1_sub4;
             }
         } catch (RuntimeException runtimeexception) {

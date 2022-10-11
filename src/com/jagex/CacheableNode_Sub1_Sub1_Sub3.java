@@ -39,14 +39,14 @@ public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
         throw new RuntimeException();
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = aClass40_1475.method530();
+            Model class13_sub1_sub1_sub4 = aClass40_1475.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
             int j = aClass40_1475.aClass50_689.anIntArray802[anInt1477];
-            CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4_1 = new CacheableNode_Sub1_Sub1_Sub4(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+            Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 95 / i;
             if (!aBoolean1479) {
                 class13_sub1_sub1_sub4_1.method272(true);

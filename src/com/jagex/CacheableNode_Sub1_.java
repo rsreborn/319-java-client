@@ -17,14 +17,14 @@ public class CacheableNode_Sub1_ extends CacheableNode {
 
     public void method255(int i, int j, int k, int l, int i1, int j1, int k1,
                           int l1, int i2) {
-        CacheableNode_Sub1_Sub1_Sub4 class13_sub1_sub1_sub4 = method256(718);
+        Model class13_sub1_sub1_sub4 = method256(718);
         if (class13_sub1_sub1_sub4 != null) {
             anInt1377 = class13_sub1_sub1_sub4.anInt1377;
             class13_sub1_sub1_sub4.method255(i, j, k, l, i1, j1, k1, l1, i2);
         }
     }
 
-    public CacheableNode_Sub1_Sub1_Sub4 method256(int i) {
+    public Model method256(int i) {
         try {
             if (i <= 0) {
                 aBoolean1375 = !aBoolean1375;
