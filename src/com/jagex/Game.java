@@ -465,7 +465,7 @@ public class Game extends GameShell {
     public int anInt1215;
     public boolean aBoolean1216;
     public int anInt1217;
-    public String aString1218;
+    public String chatMessage;
     public Socket jaggrabSocket;
     public int anInt1220;
     public int anInt1221;
@@ -689,7 +689,7 @@ public class Game extends GameShell {
         anIntArray1207 = new int[50];
         aBoolean1216 = false;
         anInt1217 = -1;
-        aString1218 = "";
+        chatMessage = "";
         anIntArray1224 = new int[5];
         anInt1225 = 60;
         anIntArrayArrayArray1226 = new int[4][13][13];
@@ -1785,7 +1785,7 @@ public class Game extends GameShell {
                         redrawChatbox = true;
                         anInt1141 = 0;
                         aBoolean1017 = true;
-                        aString1218 = "";
+                        chatMessage = "";
                         anInt943 = 3;
                         aLong1033 = aLongArray993[j3];
                         aString1196 = "Enter message to send to " + aStringArray1003[j3];
@@ -2301,7 +2301,7 @@ public class Game extends GameShell {
                 if (l2 != -1) {
                     long l4 = Class24.nameToLong(s3.substring(l2 + 5).trim());
                     if (action == 39) {
-                        method45(688, l4);
+                        addFriend(688, l4);
                     }
                     if (action == 775) {
                         method77(l4, 1);
@@ -4745,7 +4745,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method45(int i, long l) {
+    public void addFriend(int i, long l) {
         try {
             if (l == 0L) {
                 return;
@@ -5575,7 +5575,7 @@ public class Game extends GameShell {
                     redrawChatbox = true;
                     anInt1141 = 0;
                     aBoolean1017 = true;
-                    aString1218 = "";
+                    chatMessage = "";
                     anInt943 = 1;
                     aString1196 = "Enter name of friend to add to list";
                 }
@@ -5583,7 +5583,7 @@ public class Game extends GameShell {
                     redrawChatbox = true;
                     anInt1141 = 0;
                     aBoolean1017 = true;
-                    aString1218 = "";
+                    chatMessage = "";
                     anInt943 = 2;
                     aString1196 = "Enter name of friend to delete from list";
                 }
@@ -5596,7 +5596,7 @@ public class Game extends GameShell {
                 redrawChatbox = true;
                 anInt1141 = 0;
                 aBoolean1017 = true;
-                aString1218 = "";
+                chatMessage = "";
                 anInt943 = 4;
                 aString1196 = "Enter name of player to add to list";
             }
@@ -5604,7 +5604,7 @@ public class Game extends GameShell {
                 redrawChatbox = true;
                 anInt1141 = 0;
                 aBoolean1017 = true;
-                aString1218 = "";
+                chatMessage = "";
                 anInt943 = 5;
                 aString1196 = "Enter name of player to delete from list";
             }
@@ -6470,7 +6470,7 @@ public class Game extends GameShell {
             aClass13_Sub1_Sub4_Sub3_1210.method401(0, (byte) 83, 0);
             if (aBoolean1017) {
                 aFont_893.method381(239, 0, 6, 40, aString1196);
-                aFont_893.method381(239, 128, 6, 60, aString1218 + "*");
+                aFont_893.method381(239, 128, 6, 60, chatMessage + "*");
             } else if (anInt1141 == 1) {
                 aFont_893.method381(239, 0, 6, 40, "Enter amount:");
                 aFont_893.method381(239, 128, 6, 60, aString964 + "*");
@@ -9804,35 +9804,35 @@ public class Game extends GameShell {
                         aString1230 += (char) i;
                     }
                 } else if (aBoolean1017) {
-                    if (i >= 32 && i <= 122 && aString1218.length() < 80) {
-                        aString1218 += (char) i;
+                    if (i >= 32 && i <= 122 && chatMessage.length() < 80) {
+                        chatMessage += (char) i;
                         redrawChatbox = true;
                     }
-                    if (i == 8 && aString1218.length() > 0) {
-                        aString1218 = aString1218.substring(0, aString1218.length() - 1);
+                    if (i == 8 && chatMessage.length() > 0) {
+                        chatMessage = chatMessage.substring(0, chatMessage.length() - 1);
                         redrawChatbox = true;
                     }
                     if (i == 13 || i == 10) {
                         aBoolean1017 = false;
                         redrawChatbox = true;
                         if (anInt943 == 1) {
-                            long l = Class24.nameToLong(aString1218);
-                            method45(688, l);
+                            long l = Class24.nameToLong(chatMessage);
+                            addFriend(688, l);
                         }
                         if (anInt943 == 2 && anInt1054 > 0) {
-                            long l1 = Class24.nameToLong(aString1218);
+                            long l1 = Class24.nameToLong(chatMessage);
                             method123(1, l1);
                         }
-                        if (anInt943 == 3 && aString1218.length() > 0) {
+                        if (anInt943 == 3 && chatMessage.length() > 0) {
                             outBuffer.writeOpcode(235);
                             outBuffer.writeByte(0);
                             int j = outBuffer.position;
                             outBuffer.writeLongBE(aLong1033);
-                            ChatMessageCodec.encode(outBuffer, aString1218);
+                            ChatMessageCodec.encode(outBuffer, chatMessage);
                             outBuffer.writeSizeByte(outBuffer.position - j);
-                            aString1218 = ChatMessageCodec.verify(aString1218);
-                            aString1218 = ChatCensor.censorMessage(aString1218);
-                            addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), aString1218, 6);
+                            chatMessage = ChatMessageCodec.verify(chatMessage);
+                            chatMessage = ChatCensor.censorMessage(chatMessage);
+                            addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), chatMessage, 6);
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
                                 aBoolean1137 = true;
@@ -9843,11 +9843,11 @@ public class Game extends GameShell {
                             }
                         }
                         if (anInt943 == 4 && anInt1098 < 100) {
-                            long l2 = Class24.nameToLong(aString1218);
+                            long l2 = Class24.nameToLong(chatMessage);
                             method77(l2, 1);
                         }
                         if (anInt943 == 5 && anInt1098 > 0) {
-                            long l3 = Class24.nameToLong(aString1218);
+                            long l3 = Class24.nameToLong(chatMessage);
                             method21(l3, -224);
                         }
                     }
