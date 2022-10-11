@@ -428,7 +428,7 @@ public class Game extends GameShell {
             0xffff00, 0xff0000, 65280, 65535, 0xff00ff, 0xffffff
     };
     public byte[][] aByteArrayArray1179;
-    public int anInt1180;
+    public int isOnTutorialIsland;
     public CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1181;
     public int anInt1182;
     public int anInt1183;
@@ -1395,7 +1395,7 @@ public class Game extends GameShell {
                     l++;
                 }
                 if ((j1 == 1 || j1 == 2) && (j1 == 1 || publicChatMode == 0 || publicChatMode == 1 && method71(s, 771))) {
-                    if (k > k1 - 14 && k <= k1 && !s.equals(localPlayer.name)) {
+                    if (k > k1 - 14 && k <= k1 && !s.equals(localPlayer.username)) {
                         if (playerRights >= 1) {
                             aStringArray961[anInt1167] = "Report abuse @whi@" + s;
                             anIntArray911[anInt1167] = 820;
@@ -2052,7 +2052,7 @@ public class Game extends GameShell {
                     boolean flag8 = false;
                     for (int k3 = 0; k3 < anInt899; k3++) {
                         Player class13_sub1_sub1_sub6_sub1_7 = players[playerList[k3]];
-                        if (class13_sub1_sub1_sub6_sub1_7 == null || class13_sub1_sub1_sub6_sub1_7.name == null || !class13_sub1_sub1_sub6_sub1_7.name.equalsIgnoreCase(s9)) {
+                        if (class13_sub1_sub1_sub6_sub1_7 == null || class13_sub1_sub1_sub6_sub1_7.username == null || !class13_sub1_sub1_sub6_sub1_7.username.equalsIgnoreCase(s9)) {
                             continue;
                         }
                         walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_7.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_7.anIntArray1615[0], 0);
@@ -2584,7 +2584,7 @@ public class Game extends GameShell {
                             flag1 = true;
                             break;
                         }
-                        if (!flag1 && anInt1180 == 0) {
+                        if (!flag1 && isOnTutorialIsland == 0) {
                             addChatMessage(s3, "wishes to trade with you.", 4);
                         }
                     } else if (s.endsWith(":duelreq:")) {
@@ -2598,7 +2598,7 @@ public class Game extends GameShell {
                             flag2 = true;
                             break;
                         }
-                        if (!flag2 && anInt1180 == 0) {
+                        if (!flag2 && isOnTutorialIsland == 0) {
                             addChatMessage(s4, "wishes to duel with you.", 8);
                         }
                     } else if (s.endsWith(":chalreq:")) {
@@ -2612,7 +2612,7 @@ public class Game extends GameShell {
                             flag3 = true;
                             break;
                         }
-                        if (!flag3 && anInt1180 == 0) {
+                        if (!flag3 && isOnTutorialIsland == 0) {
                             String s8 = s.substring(s.indexOf(":") + 1, s.length() - 9);
                             addChatMessage(s5, s8, 8);
                         }
@@ -3540,13 +3540,13 @@ public class Game extends GameShell {
                             break;
                         }
                     }
-                    if (!flag4 && anInt1180 == 0) {
+                    if (!flag4 && isOnTutorialIsland == 0) {
                         try {
                             anIntArray1140[anInt1030] = k20;
                             anInt1030 = (anInt1030 + 1) % 100;
                             String s9 = ChatMessageCodec.decode(inBuffer, packetSize - 13);
                             if (j23 != 3) {
-                                s9 = ChatCensor.method541(s9);
+                                s9 = ChatCensor.censorMessage(s9);
                             }
                             if (j23 == 2 || j23 == 3) {
                                 addChatMessage("@cr2@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
@@ -4690,7 +4690,7 @@ public class Game extends GameShell {
                     int j1 = class13_sub1_sub1_sub6_sub1.anInt1587 / 32 - localPlayer.anInt1587 / 32;
                     int l3 = class13_sub1_sub1_sub6_sub1.anInt1588 / 32 - localPlayer.anInt1588 / 32;
                     boolean flag1 = false;
-                    long l6 = Class24.nameToLong(class13_sub1_sub1_sub6_sub1.name);
+                    long l6 = Class24.nameToLong(class13_sub1_sub1_sub6_sub1.username);
                     for (int k6 = 0; k6 < anInt1054; k6++) {
                         if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
                             continue;
@@ -4772,7 +4772,7 @@ public class Game extends GameShell {
                     return;
                 }
             }
-            if (s.equals(localPlayer.name)) {
+            if (s.equals(localPlayer.username)) {
                 return;
             } else {
                 aStringArray1003[anInt1054] = s;
@@ -5265,7 +5265,7 @@ public class Game extends GameShell {
             }
             method89(866);
             method125((byte) 9);
-            method99(false);
+            method99();
             anInt1241++;
             if (anInt932 != 0) {
                 anInt931 += 20;
@@ -6578,8 +6578,8 @@ public class Game extends GameShell {
                 }
                 method36((byte) 2, 77, anInt886, anInt886 - anInt1019 - 77, 0, 463);
                 String s;
-                if (localPlayer != null && localPlayer.name != null) {
-                    s = localPlayer.name;
+                if (localPlayer != null && localPlayer.username != null) {
+                    s = localPlayer.username;
                 } else {
                     s = Class24.method450(username, 0);
                 }
@@ -7331,7 +7331,7 @@ public class Game extends GameShell {
                     return true;
                 }
             }
-            return s.equalsIgnoreCase(localPlayer.name);
+            return s.equalsIgnoreCase(localPlayer.username);
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("46078, " + s + ", " + i + ", " + runtimeexception);
         }
@@ -7348,9 +7348,9 @@ public class Game extends GameShell {
             }
             String s;
             if (class13_sub1_sub1_sub6_sub1.anInt1695 == 0) {
-                s = class13_sub1_sub1_sub6_sub1.name + getCombatLevelColor(localPlayer.anInt1697, class13_sub1_sub1_sub6_sub1.anInt1697) + " (level-" + class13_sub1_sub1_sub6_sub1.anInt1697 + ")";
+                s = class13_sub1_sub1_sub6_sub1.username + getCombatLevelColor(localPlayer.anInt1697, class13_sub1_sub1_sub6_sub1.anInt1697) + " (level-" + class13_sub1_sub1_sub6_sub1.anInt1697 + ")";
             } else {
-                s = class13_sub1_sub1_sub6_sub1.name + " (skill-" + class13_sub1_sub1_sub6_sub1.anInt1695 + ")";
+                s = class13_sub1_sub1_sub6_sub1.username + " (skill-" + class13_sub1_sub1_sub6_sub1.anInt1695 + ")";
             }
             if (anInt1025 == 1) {
                 aStringArray961[anInt1167] = "Use " + selectedItemName + " with @whi@" + s;
@@ -8281,20 +8281,20 @@ public class Game extends GameShell {
 
     public void method87(byte byte0) {
         try {
-            anInt1180 = 0;
+            isOnTutorialIsland = 0;
             if (byte0 != 9) {
                 anInt895 = 364;
             }
             int i = (localPlayer.anInt1587 >> 7) + anInt1083;
             int j = (localPlayer.anInt1588 >> 7) + anInt1084;
             if (i >= 3053 && i <= 3156 && j >= 3056 && j <= 3136) {
-                anInt1180 = 1;
+                isOnTutorialIsland = 1;
             }
             if (i >= 3072 && i <= 3118 && j >= 9492 && j <= 9535) {
-                anInt1180 = 1;
+                isOnTutorialIsland = 1;
             }
-            if (anInt1180 == 1 && i >= 3139 && i <= 3199 && j >= 3008 && j <= 3062) {
-                anInt1180 = 0;
+            if (isOnTutorialIsland == 1 && i >= 3139 && i <= 3199 && j >= 3008 && j <= 3062) {
+                isOnTutorialIsland = 0;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -8689,7 +8689,7 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                if (((CacheableNode_Sub1_Sub1_Sub6) (obj)).forcedChatMessage != null && (i >= anInt899 || publicChatMode == 0 || publicChatMode == 3 || publicChatMode == 1 && method71(((Player) obj).name, 771))) {
+                if (((CacheableNode_Sub1_Sub1_Sub6) (obj)).forcedChatMessage != null && (i >= anInt899 || publicChatMode == 0 || publicChatMode == 3 || publicChatMode == 1 && method71(((Player) obj).username, 771))) {
                     method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590, (byte) 101);
                     if (anInt1078 > -1 && anInt1101 < anInt1102) {
                         anIntArray1106[anInt1101] = aFont_893.method384(((CacheableNode_Sub1_Sub1_Sub6) (obj)).forcedChatMessage, 0) / 2;
@@ -9080,7 +9080,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method99(boolean flag) {
+    public void method99() {
         try {
             for (int i = -1; i < anInt899; i++) {
                 int j;
@@ -9089,16 +9089,13 @@ public class Game extends GameShell {
                 } else {
                     j = playerList[i];
                 }
-                Player class13_sub1_sub1_sub6_sub1 = players[j];
-                if (class13_sub1_sub1_sub6_sub1 != null && class13_sub1_sub1_sub6_sub1.anInt1603 > 0) {
-                    class13_sub1_sub1_sub6_sub1.anInt1603--;
-                    if (class13_sub1_sub1_sub6_sub1.anInt1603 == 0) {
-                        class13_sub1_sub1_sub6_sub1.forcedChatMessage = null;
+                Player player = players[j];
+                if (player != null && player.anInt1603 > 0) {
+                    player.anInt1603--;
+                    if (player.anInt1603 == 0) {
+                        player.forcedChatMessage = null;
                     }
                 }
-            }
-            if (flag) {
-                aBoolean1147 = !aBoolean1147;
             }
             for (int k = 0; k < anInt1284; k++) {
                 int l = anIntArray1285[k];
@@ -9112,7 +9109,7 @@ public class Game extends GameShell {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("76080, " + flag + ", " + runtimeexception);
+            Signlink.reportError("76080, " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -9834,7 +9831,7 @@ public class Game extends GameShell {
                             ChatMessageCodec.encode(outBuffer, aString1218);
                             outBuffer.writeSizeByte(outBuffer.position - j);
                             aString1218 = ChatMessageCodec.verify(aString1218);
-                            aString1218 = ChatCensor.method541(aString1218);
+                            aString1218 = ChatCensor.censorMessage(aString1218);
                             addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), aString1218, 6);
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
@@ -10003,17 +10000,17 @@ public class Game extends GameShell {
                             outBuffer.writeByte(chatColorCode);
                             outBuffer.writeSizeByte(outBuffer.position - startPosition);
                             playerChatMessage = ChatMessageCodec.verify(playerChatMessage);
-                            playerChatMessage = ChatCensor.method541(playerChatMessage);
+                            playerChatMessage = ChatCensor.censorMessage(playerChatMessage);
                             localPlayer.forcedChatMessage = playerChatMessage;
                             localPlayer.chatColor = chatColorCode;
                             localPlayer.chatEffect = chatEffectCode;
                             localPlayer.anInt1603 = 150;
                             if (playerRights == 2) {
-                                addChatMessage("@cr2@" + localPlayer.name, localPlayer.forcedChatMessage, 2);
+                                addChatMessage("@cr2@" + localPlayer.username, localPlayer.forcedChatMessage, 2);
                             } else if (playerRights == 1) {
-                                addChatMessage("@cr1@" + localPlayer.name, localPlayer.forcedChatMessage, 2);
+                                addChatMessage("@cr1@" + localPlayer.username, localPlayer.forcedChatMessage, 2);
                             } else {
-                                addChatMessage(localPlayer.name, localPlayer.forcedChatMessage, 2);
+                                addChatMessage(localPlayer.username, localPlayer.forcedChatMessage, 2);
                             }
                             if (publicChatMode == 2) {
                                 publicChatMode = 3;
@@ -12387,8 +12384,8 @@ public class Game extends GameShell {
                 int playerRights = buffer.readUByte();
                 int length = buffer.readUByteS();
                 int currentPosition = buffer.position;
-                if (player.name != null && player.aBoolean1701) {
-                    long playerNameAsLong = Class24.nameToLong(player.name);
+                if (player.username != null && player.aBoolean1701) {
+                    long playerNameAsLong = Class24.nameToLong(player.username);
                     boolean isOnIgnoreList = false;
                     if (playerRights <= 1) {
                         for (int index = 0; index < anInt1098; index++) {
@@ -12399,23 +12396,23 @@ public class Game extends GameShell {
                             break;
                         }
                     }
-                    if (!isOnIgnoreList && anInt1180 == 0) {
+                    if (!isOnIgnoreList && isOnTutorialIsland == 0) {
                         try {
                             chatBuffer.position = 0;
                             buffer.readBytes(chatBuffer.payload, 0, length);
                             chatBuffer.position = 0;
                             String chatMessage = ChatMessageCodec.decode(chatBuffer, length);
-                            chatMessage = ChatCensor.method541(chatMessage);
+                            chatMessage = ChatCensor.censorMessage(chatMessage);
                             player.forcedChatMessage = chatMessage;
                             player.chatColor = chatColorAndEffects >> 8;
                             player.chatEffect = chatColorAndEffects & 0xff;
                             player.anInt1603 = 150;
                             if (playerRights == 2 || playerRights == 3) {
-                                addChatMessage("@cr2@" + player.name, chatMessage, 1);
+                                addChatMessage("@cr2@" + player.username, chatMessage, 1);
                             } else if (playerRights == 1) {
-                                addChatMessage("@cr1@" + player.name, chatMessage, 1);
+                                addChatMessage("@cr1@" + player.username, chatMessage, 1);
                             } else {
-                                addChatMessage(player.name, chatMessage, 2);
+                                addChatMessage(player.username, chatMessage, 2);
                             }
                         } catch (Exception exception) {
                             Signlink.reportError("cde2");
@@ -12462,9 +12459,9 @@ public class Game extends GameShell {
                 player.forcedChatMessage = buffer.readString();
                 if (player.forcedChatMessage.charAt(0) == '~') {
                     player.forcedChatMessage = player.forcedChatMessage.substring(1);
-                    addChatMessage(player.name, player.forcedChatMessage, 2);
+                    addChatMessage(player.username, player.forcedChatMessage, 2);
                 } else if (player == localPlayer) {
-                    addChatMessage(player.name, player.forcedChatMessage, 2);
+                    addChatMessage(player.username, player.forcedChatMessage, 2);
                 }
                 player.chatColor = 0;
                 player.chatEffect = 0;

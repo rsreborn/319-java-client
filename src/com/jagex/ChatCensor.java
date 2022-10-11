@@ -114,25 +114,25 @@ public class ChatCensor {
         return c >= ' ' && c <= '\177' || c == ' ' || c == '\n' || c == '\t' || c == '\243' || c == '\u20AC';
     }
 
-    public static String method541(String s) {
-        char[] ac = s.toCharArray();
-        method539(ac);
-        String s1 = (new String(ac)).trim();
-        ac = s1.toLowerCase().toCharArray();
-        String s2 = s1.toLowerCase();
-        method549(ac);
-        method544(ac);
-        method545(ac);
-        method558(ac);
+    public static String censorMessage(String chatMessage) {
+        char[] message = chatMessage.toCharArray();
+        method539(message);
+        String formattedMessage = (new String(message)).trim();
+        message = formattedMessage.toLowerCase().toCharArray();
+        String s2 = formattedMessage.toLowerCase();
+        method549(message);
+        method544(message);
+        method545(message);
+        method558(message);
         for (String value : EXCEPTIONS) {
             for (int j = -1; (j = s2.indexOf(value, j + 1)) != -1; ) {
                 char[] ac1 = value.toCharArray();
-                System.arraycopy(ac1, 0, ac, j, ac1.length);
+                System.arraycopy(ac1, 0, message, j, ac1.length);
             }
         }
-        method542(ac, s1.toCharArray());
-        method543(ac);
-        return (new String(ac)).trim();
+        method542(message, formattedMessage.toCharArray());
+        method543(message);
+        return (new String(message)).trim();
     }
 
     public static void method542(char[] ac, char[] ac1) {

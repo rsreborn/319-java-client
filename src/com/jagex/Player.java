@@ -9,7 +9,7 @@ public class Player extends CacheableNode_Sub1_Sub1_Sub6 {
     public static Cache aCache_1696 = new Cache(260);
     public int anInt1687;
     public boolean aBoolean1688;
-    public String name;
+    public String username;
     public byte aByte1690;
     public int anInt1691;
     public int anInt1692;
@@ -379,7 +379,7 @@ public class Player extends CacheableNode_Sub1_Sub1_Sub6 {
             if (super.anInt1607 == 65535) {
                 super.anInt1607 = -1;
             }
-            name = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
+            username = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
             if (i != 0) {
                 aBoolean1704 = !aBoolean1704;
             }
