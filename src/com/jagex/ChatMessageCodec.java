@@ -7,13 +7,13 @@ public class ChatMessageCodec {
     public static char[] message = new char[100];
     public static Buffer messageBuffer = new Buffer(new byte[100]);
     public static final char[] VALID_CHARACTERS = {
-            ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r',
-            'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p',
-            'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2',
-            '3', '4', '5', '6', '7', '8', '9', ' ', '!', '?',
-            '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\',
-            '\'', '@', '#', '+', '=', '\243', '$', '%', '"', '[',
-            ']'
+        ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r',
+        'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p',
+        'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2',
+        '3', '4', '5', '6', '7', '8', '9', ' ', '!', '?',
+        '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\',
+        '\'', '@', '#', '+', '=', '\243', '$', '%', '"', '[',
+        ']'
     };
 
     public static String decode(Buffer buffer, int length) {

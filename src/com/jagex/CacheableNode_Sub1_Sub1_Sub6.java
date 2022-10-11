@@ -4,7 +4,7 @@ import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
 
-    public int anInt1566;
+    public int chatColor;
     public boolean[] aBooleanArray1567;
     public int anInt1568;
     public boolean aBoolean1569;
@@ -24,7 +24,7 @@ public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
     public int anInt1583;
     public int anInt1584;
     public int anInt1585;
-    public String aString1586;
+    public String forcedChat;
     public int anInt1587;
     public int anInt1588;
     public int anInt1589;
@@ -55,7 +55,7 @@ public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
     public int[] anIntArray1614;
     public int[] anIntArray1615;
     public int[] anIntArray1616;
-    public int anInt1617;
+    public int chatEffect;
     public int anInt1618;
     public int anInt1619;
     public int anInt1620;

@@ -343,7 +343,7 @@ public class Widget {
             class13_sub1_sub1_sub4 = Class47.getDefinition(j).method583(524);
         }
         if (i == 3) {
-            class13_sub1_sub1_sub4 = Game.aClass13_Sub1_Sub1_Sub6_Sub1_997.method296(242);
+            class13_sub1_sub1_sub4 = Game.localPlayer.method296(242);
         }
         if (i == 4) {
             class13_sub1_sub1_sub4 = ItemDefinition.method505(j).method513(-453, 50);
