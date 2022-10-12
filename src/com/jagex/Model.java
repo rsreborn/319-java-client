@@ -807,7 +807,7 @@ public class Model extends CacheableNode_Sub1_ {
             }
             Class23 class23 = aClass23Array1531[i];
             if (class23 == null) {
-                aClass2_1532.method150(i);
+                aClass2_1532.requestFile(i);
                 return null;
             } else {
                 return new Model((byte) 34, i);
@@ -824,7 +824,7 @@ public class Model extends CacheableNode_Sub1_ {
         }
         Class23 class23 = aClass23Array1531[i];
         if (class23 == null) {
-            aClass2_1532.method150(i);
+            aClass2_1532.requestFile(i);
             return false;
         } else {
             return true;

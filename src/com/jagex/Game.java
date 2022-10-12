@@ -3,7 +3,7 @@ package com.jagex;
 import com.jagex.cache.CacheArchive;
 import com.jagex.cache.CacheIndex;
 import com.jagex.update.GameUpdateClient;
-import com.jagex.update.GameUpdateNode;
+import com.jagex.update.GameUpdateRequest;
 import com.jagex.io.Buffer;
 import com.jagex.util.LinkedList;
 import com.jagex.util.Node;
@@ -3235,11 +3235,11 @@ public class Game extends GameShell {
                                     anIntArray939[k19] = -1;
                                     k19++;
                                 } else {
-                                    int j29 = anIntArray938[k19] = gameUpdateClient.method160(j25, k27, 0, 8347);
+                                    int j29 = anIntArray938[k19] = gameUpdateClient.getRegionIndex(j25, k27, 0);
                                     if (j29 != -1) {
                                         gameUpdateClient.requestFile(3, j29);
                                     }
-                                    int l30 = anIntArray939[k19] = gameUpdateClient.method160(j25, k27, 1, 8347);
+                                    int l30 = anIntArray939[k19] = gameUpdateClient.getRegionIndex(j25, k27, 1);
                                     if (l30 != -1) {
                                         gameUpdateClient.requestFile(3, l30);
                                     }
@@ -3282,11 +3282,11 @@ public class Game extends GameShell {
                             int l29 = anIntArray937[i28] = ai[i28];
                             int j31 = l29 >> 8 & 0xff;
                             int i32 = l29 & 0xff;
-                            int k32 = anIntArray938[i28] = gameUpdateClient.method160(j31, i32, 0, 8347);
+                            int k32 = anIntArray938[i28] = gameUpdateClient.getRegionIndex(j31, i32, 0);
                             if (k32 != -1) {
                                 gameUpdateClient.requestFile(3, k32);
                             }
-                            int j33 = anIntArray939[i28] = gameUpdateClient.method160(j31, i32, 1, 8347);
+                            int j33 = anIntArray939[i28] = gameUpdateClient.getRegionIndex(j31, i32, 1);
                             if (j33 != -1) {
                                 gameUpdateClient.requestFile(3, j33);
                             }
@@ -5515,48 +5515,48 @@ public class Game extends GameShell {
     public void processUpdateQueue() {
         try {
             do {
-                GameUpdateNode gameUpdateNode;
+                GameUpdateRequest gameUpdateRequest;
                 do {
-                    gameUpdateNode = gameUpdateClient.next();
-                    if (gameUpdateNode == null) {
+                    gameUpdateRequest = gameUpdateClient.next();
+                    if (gameUpdateRequest == null) {
                         return;
                     }
-                    if (gameUpdateNode.type == 0) {
-                        Model.method263(gameUpdateNode.buffer, true, gameUpdateNode.id);
-                        if ((gameUpdateClient.getModelId(gameUpdateNode.id) & 0x62) != 0) {
+                    if (gameUpdateRequest.type == 0) {
+                        Model.method263(gameUpdateRequest.buffer, true, gameUpdateRequest.file);
+                        if ((gameUpdateClient.getModelAttributes(gameUpdateRequest.file) & 0x62) != 0) {
                             redrawTabArea = true;
                             if (openChatboxWidgetId != -1) {
                                 redrawChatbox = true;
                             }
                         }
                     }
-                    if (gameUpdateNode.type == 1 && gameUpdateNode.buffer != null) {
-                        Class8.method186(-383, gameUpdateNode.buffer);
+                    if (gameUpdateRequest.type == 1 && gameUpdateRequest.buffer != null) {
+                        Class8.method186(-383, gameUpdateRequest.buffer);
                     }
-                    if (gameUpdateNode.type == 2 && gameUpdateNode.id == nextSong && gameUpdateNode.buffer != null) {
-                        method54(gameUpdateNode.buffer, songChanging, 22075);
+                    if (gameUpdateRequest.type == 2 && gameUpdateRequest.file == nextSong && gameUpdateRequest.buffer != null) {
+                        method54(gameUpdateRequest.buffer, songChanging, 22075);
                     }
-                    if (gameUpdateNode.type == 3 && anInt1254 == 1) {
+                    if (gameUpdateRequest.type == 3 && anInt1254 == 1) {
                         for (int j = 0; j < aByteArrayArray1146.length; j++) {
-                            if (anIntArray938[j] == gameUpdateNode.id) {
-                                aByteArrayArray1146[j] = gameUpdateNode.buffer;
-                                if (gameUpdateNode.buffer == null) {
+                            if (anIntArray938[j] == gameUpdateRequest.file) {
+                                aByteArrayArray1146[j] = gameUpdateRequest.buffer;
+                                if (gameUpdateRequest.buffer == null) {
                                     anIntArray938[j] = -1;
                                 }
                                 break;
                             }
-                            if (anIntArray939[j] != gameUpdateNode.id) {
+                            if (anIntArray939[j] != gameUpdateRequest.file) {
                                 continue;
                             }
-                            aByteArrayArray1179[j] = gameUpdateNode.buffer;
-                            if (gameUpdateNode.buffer == null) {
+                            aByteArrayArray1179[j] = gameUpdateRequest.buffer;
+                            if (gameUpdateRequest.buffer == null) {
                                 anIntArray939[j] = -1;
                             }
                             break;
                         }
                     }
-                } while (gameUpdateNode.type != 93 || !gameUpdateClient.method155(5, gameUpdateNode.id));
-                Class25.method468(gameUpdateClient, 226, new Buffer(gameUpdateNode.buffer));
+                } while (gameUpdateRequest.type != 93 || !gameUpdateClient.landscapeExists(gameUpdateRequest.file));
+                Class25.method468(gameUpdateClient, 226, new Buffer(gameUpdateRequest.buffer));
             } while (true);
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("Game.processUpdateQueue, " + runtimeexception);
@@ -8526,7 +8526,7 @@ public class Game extends GameShell {
             if (lowMemory && Signlink.cache_dat != null) {
                 int j = gameUpdateClient.getFileVersionCount(0);
                 for (int i1 = 0; i1 < j; i1++) {
-                    int l1 = gameUpdateClient.getModelId(i1);
+                    int l1 = gameUpdateClient.getModelAttributes(i1);
                     if ((l1 & 0x79) == 0) {
                         Model.method264(i1, anInt1093);
                     }
@@ -8537,7 +8537,7 @@ public class Game extends GameShell {
                 anInt1173 = isaacCipher.nextInt();
             }
             CacheableNode_Sub1_Sub4_.method367((byte) 71, 20);
-            gameUpdateClient.method166(anInt1150);
+            gameUpdateClient.clearExtras();
             int k = (anInt984 - 6) / 8 - 1;
             int j1 = (anInt984 + 6) / 8 + 1;
             int i2 = (anInt985 - 6) / 8 - 1;
@@ -8551,13 +8551,13 @@ public class Game extends GameShell {
             for (int l3 = k; l3 <= j1; l3++) {
                 for (int j5 = i2; j5 <= l2; j5++) {
                     if (l3 == k || l3 == j1 || j5 == i2 || j5 == l2) {
-                        int j7 = gameUpdateClient.method160(l3, j5, 0, 8347);
+                        int j7 = gameUpdateClient.getRegionIndex(l3, j5, 0);
                         if (j7 != -1) {
-                            gameUpdateClient.method157(3, j7, 0);
+                            gameUpdateClient.loadExtra(3, j7);
                         }
-                        int k8 = gameUpdateClient.method160(l3, j5, 1, 8347);
+                        int k8 = gameUpdateClient.getRegionIndex(l3, j5, 1);
                         if (k8 != -1) {
-                            gameUpdateClient.method157(3, k8, 0);
+                            gameUpdateClient.loadExtra(3, k8);
                         }
                     }
                 }
@@ -9912,7 +9912,7 @@ public class Game extends GameShell {
                             }
                             if (aString1280.equals("::prefetchmusic")) {
                                 for (int i1 = 0; i1 < gameUpdateClient.getFileVersionCount(2); i1++) {
-                                    gameUpdateClient.setPriority(2, i1, (byte) 1, false);
+                                    gameUpdateClient.requestExtra(2, i1, (byte) 1);
                                 }
                             }
                             if (aString1280.equals("::fpson")) {
@@ -11801,7 +11801,7 @@ public class Game extends GameShell {
                     try {
                         Thread.sleep(100L);
                     } catch (Exception ignored) {}
-                    if (gameUpdateClient.anInt1333 > 3) {
+                    if (gameUpdateClient.errors > 3) {
                         openErrorPage("ondemand");
                         return;
                     }
@@ -11822,7 +11822,7 @@ public class Game extends GameShell {
                     Thread.sleep(100L);
                 } catch (Exception _ex) {
                 }
-                if (gameUpdateClient.anInt1333 > 3) {
+                if (gameUpdateClient.errors > 3) {
                     openErrorPage("ondemand");
                     return;
                 }
@@ -11830,7 +11830,7 @@ public class Game extends GameShell {
             updateLoadingBar(false, "Requesting models", 70);
             k = gameUpdateClient.getFileVersionCount(0);
             for (int k1 = 0; k1 < k; k1++) {
-                int l1 = gameUpdateClient.getModelId(k1);
+                int l1 = gameUpdateClient.getModelAttributes(k1);
                 if ((l1 & 1) != 0) {
                     gameUpdateClient.requestFile(0, k1);
                 }
@@ -11849,18 +11849,18 @@ public class Game extends GameShell {
             }
             if (cacheIndexes[0] != null) {
                 updateLoadingBar(false, "Requesting maps", 75);
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(47, 48, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(47, 48, 1, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 48, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 48, 1, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(49, 48, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(49, 48, 1, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(47, 47, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(47, 47, 1, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 47, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 47, 1, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 148, 0, 8347));
-                gameUpdateClient.requestFile(3, gameUpdateClient.method160(48, 148, 1, 8347));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(47, 48, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(47, 48, 1));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 48, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 48, 1));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(49, 48, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(49, 48, 1));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(47, 47, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(47, 47, 1));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 47, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 47, 1));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 148, 0));
+                gameUpdateClient.requestFile(3, gameUpdateClient.getRegionIndex(48, 148, 1));
                 k = gameUpdateClient.immediateRequestCount();
                 while (gameUpdateClient.immediateRequestCount() > 0) {
                     int j2 = k - gameUpdateClient.immediateRequestCount();
@@ -11876,7 +11876,7 @@ public class Game extends GameShell {
             }
             k = gameUpdateClient.getFileVersionCount(0);
             for (int k2 = 0; k2 < k; k2++) {
-                int l2 = gameUpdateClient.getModelId(k2);
+                int l2 = gameUpdateClient.getModelAttributes(k2);
                 byte byte0 = 0;
                 if ((l2 & 8) != 0) {
                     byte0 = 10;
@@ -11897,15 +11897,15 @@ public class Game extends GameShell {
                     byte0 = 3;
                 }
                 if (byte0 != 0) {
-                    gameUpdateClient.setPriority(0, k2, byte0, false);
+                    gameUpdateClient.requestExtra(0, k2, byte0);
                 }
             }
             gameUpdateClient.preloadRegions(aBoolean953);
             if (!lowMemory) {
                 int l = gameUpdateClient.getFileVersionCount(2);
                 for (int i3 = 1; i3 < l; i3++) {
-                    if (gameUpdateClient.midiIndex1(i3)) {
-                        gameUpdateClient.setPriority(2, i3, (byte) 1, false);
+                    if (gameUpdateClient.highPriorityMidi(i3)) {
+                        gameUpdateClient.requestExtra(2, i3, (byte) 1);
                     }
                 }
             }
