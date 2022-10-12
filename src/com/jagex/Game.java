@@ -2299,18 +2299,18 @@ public class Game extends GameShell {
                 String s3 = aStringArray961[i];
                 int l2 = s3.indexOf("@whi@");
                 if (l2 != -1) {
-                    long l4 = Class24.nameToLong(s3.substring(l2 + 5).trim());
+                    long username = Class24.nameToLong(s3.substring(l2 + 5).trim());
                     if (action == 39) {
-                        addFriend(l4);
+                        addFriend(username);
                     }
                     if (action == 775) {
-                        addUserToIgnore(l4, 1);
+                        addUserToIgnore(username, 1);
                     }
                     if (action == 785) {
-                        removeFriend(l4);
+                        removeFriend(username);
                     }
                     if (action == 781) {
-                        method21(l4, -224);
+                        method21(username, -224);
                     }
                 }
             }
