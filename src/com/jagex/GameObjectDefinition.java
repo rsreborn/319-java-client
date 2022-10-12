@@ -482,7 +482,7 @@ public class GameObjectDefinition {
                 return;
             }
             for (int j = 0; j < anIntArray241.length; j++) {
-                gameUpdateClient.method157(0, anIntArray241[j] & 0xffff, 0);
+                gameUpdateClient.loadExtra(0, anIntArray241[j] & 0xffff);
             }
             if (i != 2402) {
                 anInt284 = 36;

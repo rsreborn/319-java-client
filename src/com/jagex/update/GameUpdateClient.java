@@ -16,174 +16,145 @@ import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
 public class GameUpdateClient implements Runnable {
-    public LinkedList aLinkedList_1293 = new LinkedList();
-    public Queue immediateRequests = new Queue();
-    public int anInt1295 = -22144;
-    public GameUpdateNode gameUpdateNode;
-    public byte[][] filePriorities = new byte[4][];
-    public byte[] inputBuffer = new byte[500];
-    public boolean dataExpected = false;
+
+    public Game game;
+    public CRC32 crc32 = new CRC32();
+    public GameUpdateRequest gameUpdateRequest;
+    public InputStream updateServerInputStream;
+    public Socket updateServerSocket;
     public OutputStream updateServerOutputStream;
-    public boolean running = true;
+    public LinkedList mandatoryRequests = new LinkedList();
+    public Queue immediateRequests = new Queue();
+    public LinkedList extras = new LinkedList();
+    public LinkedList pendingRequests = new LinkedList();
+    public LinkedList completedRequests = new LinkedList();
+    public LinkedList unrequested = new LinkedList();
+    public int totalRequestCount;
+    public int requestedCount;
+    public int extrasRequestedCount;
+    public int completedRequestCount;
+    public byte[][] filePriorities = new byte[4][];
+    public int[][] fileChecksums = new int[4][];
+    public int[][] fileVersions = new int[4][];
     public byte[] modelFileIndexes;
     public int[] animIndexes;
-    public int offset;
-    public int readable;
-    public int[][] fileVersions = new int[4][];
-    public int highestPriority;
-    public int immediateRequestsSent;
-    public int anInt1309;
-    public Socket updateServerSocket;
-    public long aLong1311;
     public int[] regionPreloadFlags;
-    public int anInt1313 = 5;
-    public byte aByte1314 = 50;
-    public int[] midiIndexes;
-    public CRC32 crc32 = new CRC32();
+    public int[] midiPriorities;
+    public int[] regionMapIndexes;
     public int[] regionLandscapeIndexes;
     public String message = "";
-    public Game game;
+    public byte[] inputBuffer = new byte[500];
+    public boolean dataExpected = false;
+    public boolean running = true;
+    public int offset;
+    public int readable;
+    public int highestPriority;
+    public long lastRequestTime;
     public int[] regionCoordHashes;
-    public int sinceKeepAlive;
-    public LinkedList pendingRequests = new LinkedList();
-    public int[][] fileChecksums = new int[4][];
-    public boolean aBoolean1324 = false;
+    public int inactiveTime;
     public int idleCycles;
     public int cycle;
     public byte[] deflateOut = new byte[65000];
-    public LinkedList aLinkedList_1328 = new LinkedList();
-    public int anInt1329;
-    public LinkedList completed = new LinkedList();
-    public InputStream updateServerInputStream;
-    public int[] regionMapIndexes;
-    public int anInt1333;
-    public LinkedList wanted = new LinkedList();
-    public int anInt1335;
+    public int errors;
 
-    public void method151(int i) {
-        try {
-            immediateRequestsSent = 0;
-            anInt1309 = 0;
-            GameUpdateNode class13_sub1_sub3
-                    = (GameUpdateNode) pendingRequests.first();
-            if (i == 27519) {
-                for (/**/; class13_sub1_sub3 != null;
-                         class13_sub1_sub3
-                                 = (GameUpdateNode) pendingRequests.next()) {
-                    if (class13_sub1_sub3.immediate)
-                        immediateRequestsSent++;
-                    else
-                        anInt1309++;
-                }
-                while (immediateRequestsSent < 10) {
-                    class13_sub1_sub3
-                            = (GameUpdateNode) aLinkedList_1293.pop();
-                    if (class13_sub1_sub3 == null)
-                        break;
-                    if ((filePriorities[class13_sub1_sub3.type]
-                            [class13_sub1_sub3.id])
-                            != 0)
-                        anInt1329++;
-                    filePriorities[class13_sub1_sub3.type]
-                            [class13_sub1_sub3.id]
-                            = (byte) 0;
-                    pendingRequests.pushBack(class13_sub1_sub3);
-                    immediateRequestsSent++;
-                    sendRequest(0, class13_sub1_sub3);
-                    dataExpected = true;
-                }
+    public void requestMandatory() {
+        requestedCount = 0;
+        extrasRequestedCount = 0;
+        GameUpdateRequest pendingRequest = (GameUpdateRequest) pendingRequests.first();
+
+        for (/**/; pendingRequest != null; pendingRequest = (GameUpdateRequest) pendingRequests.next()) {
+            if (pendingRequest.mandatory) {
+                requestedCount++;
+            } else {
+                extrasRequestedCount++;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("54544, " + i + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
+        }
+
+        while (requestedCount < 10) {
+            pendingRequest = (GameUpdateRequest) unrequested.pop();
+            if (pendingRequest == null) {
+                break;
+            }
+
+            if ((filePriorities[pendingRequest.type][pendingRequest.file]) != 0) {
+                completedRequestCount++;
+            }
+
+            filePriorities[pendingRequest.type][pendingRequest.file] = (byte) 0;
+            pendingRequests.pushBack(pendingRequest);
+            requestedCount++;
+            sendRequest(pendingRequest);
+            dataExpected = true;
         }
     }
 
-    public void method152(int i) {
-        try {
-            GameUpdateNode class13_sub1_sub3;
-            synchronized (wanted) {
-                class13_sub1_sub3
-                        = (GameUpdateNode) wanted.pop();
+    public void loadMandatory() {
+        GameUpdateRequest request;
+
+        synchronized (mandatoryRequests) {
+            request = (GameUpdateRequest) mandatoryRequests.pop();
+        }
+
+        while (request != null) {
+            dataExpected = true;
+            byte[] data = null;
+            if (game.cacheIndexes[0] != null) {
+                data = game.cacheIndexes[request.type + 1].readFile(request.file);
             }
-            while (i >= 0)
-                aBoolean1324 = !aBoolean1324;
-            while (class13_sub1_sub3 != null) {
-                dataExpected = true;
-                byte[] is = null;
-                if (game.cacheIndexes[0] != null)
-                    is = game.cacheIndexes
-                            [class13_sub1_sub3.type + 1]
-                            .readFile(class13_sub1_sub3.id);
-                if (!method168((fileChecksums
-                                [class13_sub1_sub3.type]
-                                [class13_sub1_sub3.id]),
-                        is, -286,
-                        (fileVersions
-                                [class13_sub1_sub3.type]
-                                [class13_sub1_sub3.id])))
-                    is = null;
-                synchronized (wanted) {
-                    if (is == null)
-                        aLinkedList_1293.pushBack(class13_sub1_sub3);
-                    else {
-                        class13_sub1_sub3.buffer = is;
-                        synchronized (completed) {
-                            completed.pushBack(class13_sub1_sub3);
-                        }
+
+            if (!verify(data, (fileChecksums[request.type][request.file]), (fileVersions[request.type][request.file]))) {
+                data = null;
+            }
+
+            synchronized (mandatoryRequests) {
+                if (data == null) {
+                    unrequested.pushBack(request);
+                } else {
+                    request.buffer = data;
+                    synchronized (completedRequests) {
+                        completedRequests.pushBack(request);
                     }
-                    class13_sub1_sub3
-                            = (GameUpdateNode) wanted.pop();
                 }
+
+                request = (GameUpdateRequest) mandatoryRequests.pop();
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("31218, " + i + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
-    public boolean midiIndex1(int midiIndex) {
-        return midiIndexes[midiIndex] == 1;
+    public boolean highPriorityMidi(int midiIndex) {
+        return midiPriorities[midiIndex] == 1;
     }
 
-    public int getModelId(int modelIndex) {
+    public int getModelAttributes(int modelIndex) {
         return modelFileIndexes[modelIndex] & 0xff;
     }
 
-    public boolean method155(int i, int i_2_) {
-        try {
-            for (int i_3_ = 0; i_3_ < regionCoordHashes.length; i_3_++) {
-                if (regionLandscapeIndexes[i_3_] == i_2_)
-                    return true;
+    public boolean landscapeExists(int landscapeIndex) {
+        for (int i = 0; i < regionCoordHashes.length; i++) {
+            if (regionLandscapeIndexes[i] == landscapeIndex) {
+                return true;
             }
-            if (i != anInt1313)
-                throw new NullPointerException();
-            return false;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("72770, " + i + ", " + i_2_ + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
         }
+
+        return false;
     }
 
-    public void requestFile(int type, int id) {
-        if (type >= 0 && type <= fileVersions.length && id >= 0 && id <= fileVersions[type].length && fileVersions[type][id] != 0) {
+    public void requestFile(int type, int file) {
+        if (type >= 0 && type <= fileVersions.length && file >= 0 && file <= fileVersions[type].length && fileVersions[type][file] != 0) {
             synchronized (immediateRequests) {
-                for (GameUpdateNode updateNode = (GameUpdateNode) immediateRequests.first(); updateNode != null; updateNode = (GameUpdateNode) immediateRequests.next()) {
-                    if (updateNode.type == type && updateNode.id == id) {
+                for (GameUpdateRequest updateNode = (GameUpdateRequest) immediateRequests.first(); updateNode != null; updateNode = (GameUpdateRequest) immediateRequests.next()) {
+                    if (updateNode.type == type && updateNode.file == file) {
                         return;
                     }
                 }
 
-                GameUpdateNode updateNode = new GameUpdateNode();
+                GameUpdateRequest updateNode = new GameUpdateRequest();
                 updateNode.type = type;
-                updateNode.id = id;
-                updateNode.immediate = true;
+                updateNode.file = file;
+                updateNode.mandatory = true;
 
-                synchronized (wanted) {
-                    wanted.pushBack(updateNode);
+                synchronized (mandatoryRequests) {
+                    mandatoryRequests.pushBack(updateNode);
                 }
 
                 immediateRequests.push(updateNode);
@@ -191,25 +162,16 @@ public class GameUpdateClient implements Runnable {
         }
     }
 
-    public void method157(int i, int i_5_, int i_6_) {
-        try {
-            if (game.cacheIndexes[0] != null
-                    && fileVersions[i][i_5_] != 0
-                    && filePriorities[i][i_5_] != 0 && highestPriority != 0) {
-                GameUpdateNode class13_sub1_sub3 = new GameUpdateNode();
-                class13_sub1_sub3.type = i;
-                class13_sub1_sub3.id = i_5_;
-                if (i_6_ != 0)
-                    anInt1295 = -413;
-                class13_sub1_sub3.immediate = false;
-                synchronized (aLinkedList_1328) {
-                    aLinkedList_1328.pushBack(class13_sub1_sub3);
-                }
+    public void loadExtra(int type, int file) {
+        if (game.cacheIndexes[0] != null && fileVersions[type][file] != 0 && filePriorities[type][file] != 0 && highestPriority != 0) {
+            GameUpdateRequest request = new GameUpdateRequest();
+            request.type = type;
+            request.file = file;
+            request.mandatory = false;
+
+            synchronized (extras) {
+                extras.pushBack(request);
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("49822, " + i + ", " + i_5_ + ", " + i_6_
-                    + ", " + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
@@ -217,197 +179,165 @@ public class GameUpdateClient implements Runnable {
         return animIndexes.length;
     }
 
-    public void sendRequest(int i, GameUpdateNode gameUpdateNode) {
+    public void sendRequest(GameUpdateRequest request) {
         try {
-            if (i != 0) {
-                for (int i_7_ = 1; i_7_ > 0; i_7_++) {
-                    /* empty */
+            if (updateServerSocket == null) {
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - lastRequestTime < 4000L) {
+                    return;
                 }
+
+                lastRequestTime = currentTime;
+                updateServerSocket = game.openSocket(43594 + Game.portOffset);
+                updateServerInputStream = updateServerSocket.getInputStream();
+                updateServerOutputStream = updateServerSocket.getOutputStream();
+                updateServerOutputStream.write(15);
+
+                for (int i = 0; i < 8; i++) {
+                    updateServerInputStream.read();
+                }
+
+                idleCycles = 0;
             }
+
+            inputBuffer[0] = (byte) request.type;
+            inputBuffer[1] = (byte) (request.file >> 8);
+            inputBuffer[2] = (byte) request.file;
+
+            if (request.mandatory) {
+                inputBuffer[3] = (byte) 2;
+            } else if (!game.loggedIn) {
+                inputBuffer[3] = (byte) 1;
+            } else {
+                inputBuffer[3] = (byte) 0;
+            }
+
+            updateServerOutputStream.write(inputBuffer, 0, 4);
+            inactiveTime = 0;
+            errors = -10000;
+        } catch (IOException e) {
             try {
-                if (updateServerSocket == null) {
-                    long l = System.currentTimeMillis();
-                    if (l - aLong1311 < 4000L)
-                        return;
-                    aLong1311 = l;
-                    updateServerSocket = game.openSocket(43594 + Game.portOffset);
-                    updateServerInputStream = updateServerSocket.getInputStream();
-                    updateServerOutputStream = updateServerSocket.getOutputStream();
-                    updateServerOutputStream.write(15);
-                    for (int i_8_ = 0; i_8_ < 8; i_8_++)
-                        updateServerInputStream.read();
-                    idleCycles = 0;
-                }
-                inputBuffer[0] = (byte) gameUpdateNode.type;
-                inputBuffer[1] = (byte) (gameUpdateNode.id >> 8);
-                inputBuffer[2] = (byte) gameUpdateNode.id;
-                if (gameUpdateNode.immediate)
-                    inputBuffer[3] = (byte) 2;
-                else if (!game.loggedIn)
-                    inputBuffer[3] = (byte) 1;
-                else
-                    inputBuffer[3] = (byte) 0;
-                updateServerOutputStream.write(inputBuffer, 0, 4);
-                sinceKeepAlive = 0;
-                anInt1333 = -10000;
-            } catch (IOException ioexception) {
-                try {
-                    updateServerSocket.close();
-                } catch (Exception exception) {
-                    /* empty */
-                }
-                updateServerSocket = null;
-                updateServerInputStream = null;
-                updateServerOutputStream = null;
-                readable = 0;
-                anInt1333++;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("65491, " + i + ", " + gameUpdateNode
-                    + ", " + runtimeexception);
-            throw new RuntimeException();
+                updateServerSocket.close();
+            } catch (Exception ignored) {}
+
+            updateServerSocket = null;
+            updateServerInputStream = null;
+            updateServerOutputStream = null;
+            readable = 0;
+            errors++;
         }
     }
 
-    public int method160(int i, int i_9_, int i_10_, int i_11_) {
-        try {
-            int i_12_ = (i << 8) + i_9_;
-            if (i_11_ != 8347) {
-                for (int i_13_ = 1; i_13_ > 0; i_13_++) {
-                    /* empty */
+    public int getRegionIndex(int regionX, int regionY, int type) {
+        int hash = (regionX << 8) + regionY;
+        for (int i = 0; i < regionCoordHashes.length; i++) {
+            if (regionCoordHashes[i] == hash) {
+                if (type == 0) {
+                    return regionMapIndexes[i];
                 }
+
+                return regionLandscapeIndexes[i];
             }
-            for (int i_14_ = 0; i_14_ < regionCoordHashes.length; i_14_++) {
-                if (regionCoordHashes[i_14_] == i_12_) {
-                    if (i_10_ == 0)
-                        return regionMapIndexes[i_14_];
-                    return regionLandscapeIndexes[i_14_];
-                }
-            }
-            return -1;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("42843, " + i + ", " + i_9_ + ", " + i_10_
-                    + ", " + i_11_ + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
         }
+        return -1;
     }
 
     public void stop() {
         running = false;
     }
 
-    public void setPriority(int i, int i_15_, byte i_16_, boolean bool) {
-        try {
-            if (game.cacheIndexes[0] != null
-                    && fileVersions[i][i_15_] != 0) {
-                byte[] is
-                        = game.cacheIndexes[i + 1].readFile(i_15_
-                );
-                if (bool) {
-                    for (int i_17_ = 1; i_17_ > 0; i_17_++) {
-                        /* empty */
-                    }
+    public void requestExtra(int type, int file, byte priority) {
+        if (game.cacheIndexes[0] != null && fileVersions[type][file] != 0) {
+            byte[] data = game.cacheIndexes[type + 1].readFile(file);
+
+            if (!verify(data, fileChecksums[type][file], fileVersions[type][file])) {
+                filePriorities[type][file] = priority;
+
+                if (priority > highestPriority) {
+                    highestPriority = priority;
                 }
-                if (!method168(fileChecksums[i][i_15_], is, -286,
-                        fileVersions[i][i_15_])) {
-                    filePriorities[i][i_15_] = i_16_;
-                    if (i_16_ > highestPriority)
-                        highestPriority = i_16_;
-                    anInt1335++;
-                }
+
+                totalRequestCount++;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("96532, " + i + ", " + i_15_ + ", " + i_16_
-                    + ", " + bool + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
-    public int getFileVersionCount(int versionlistIndex) {
-        return fileVersions[versionlistIndex].length;
+    public int getFileVersionCount(int type) {
+        return fileVersions[type].length;
     }
 
-    public void method164(int i) {
-        while_0_:
-        do {
-            try {
-                if (i != 0) {
-                    for (int i_19_ = 1; i_19_ > 0; i_19_++) {
-                        /* empty */
-                    }
-                }
-                for (; ; ) {
-                    if (immediateRequestsSent != 0)
-                        break while_0_;
-                    if (anInt1309 >= 10)
-                        break;
-                    if (highestPriority == 0)
-                        break;
-                    GameUpdateNode class13_sub1_sub3;
-                    synchronized (aLinkedList_1328) {
-                        class13_sub1_sub3
-                                = (GameUpdateNode) aLinkedList_1328.pop();
-                    }
-                    while (class13_sub1_sub3 != null) {
-                        if ((filePriorities[class13_sub1_sub3.type]
-                                [class13_sub1_sub3.id])
-                                != 0) {
-                            filePriorities
-                                    [class13_sub1_sub3.type]
-                                    [class13_sub1_sub3.id]
-                                    = (byte) 0;
-                            pendingRequests.pushBack(class13_sub1_sub3);
-                            sendRequest(0, class13_sub1_sub3);
-                            dataExpected = true;
-                            if (anInt1329 < anInt1335)
-                                anInt1329++;
-                            message
-                                    = ("Loading extra files - "
-                                    + anInt1329 * 100 / anInt1335 + "%");
-                            anInt1309++;
-                            if (anInt1309 == 10)
-                                return;
-                        }
-                        synchronized (aLinkedList_1328) {
-                            class13_sub1_sub3 = ((GameUpdateNode)
-                                    aLinkedList_1328.pop());
-                        }
-                    }
-                    for (int i_20_ = 0; i_20_ < 4; i_20_++) {
-                        byte[] is = filePriorities[i_20_];
-                        int i_21_ = is.length;
-                        for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
-                            if (is[i_22_] == highestPriority) {
-                                is[i_22_] = (byte) 0;
-                                class13_sub1_sub3 = new GameUpdateNode();
-                                class13_sub1_sub3.type = i_20_;
-                                class13_sub1_sub3.id = i_22_;
-                                class13_sub1_sub3.immediate = false;
-                                pendingRequests.pushBack(class13_sub1_sub3);
-                                sendRequest(0, class13_sub1_sub3);
-                                dataExpected = true;
-                                if (anInt1329 < anInt1335)
-                                    anInt1329++;
-                                message
-                                        = ("Loading extra files - "
-                                        + anInt1329 * 100 / anInt1335 + "%");
-                                anInt1309++;
-                                if (anInt1309 == 10)
-                                    return;
-                            }
-                        }
-                    }
-                    highestPriority--;
-                }
-            } catch (RuntimeException runtimeexception) {
-                Signlink.reportError("5568, " + i + ", "
-                        + runtimeexception);
-                throw new RuntimeException();
+    public void loadExtras() {
+        for (; ; ) {
+            if (requestedCount != 0) {
+                break;
             }
-            break;
-        } while (false);
+            if (extrasRequestedCount >= 10) {
+                break;
+            }
+            if (highestPriority == 0) {
+                break;
+            }
+
+            GameUpdateRequest request;
+            synchronized (extras) {
+                request = (GameUpdateRequest) extras.pop();
+            }
+
+            while (request != null) {
+                if ((filePriorities[request.type][request.file]) != 0) {
+                    filePriorities[request.type][request.file] = (byte) 0;
+                    pendingRequests.pushBack(request);
+                    sendRequest(request);
+                    dataExpected = true;
+
+                    if (completedRequestCount < totalRequestCount) {
+                        completedRequestCount++;
+                    }
+
+                    message = ("Loading extra files - " +
+                            (completedRequestCount * 100 / totalRequestCount) + "%");
+                    extrasRequestedCount++;
+                    if (extrasRequestedCount == 10) {
+                        return;
+                    }
+                }
+
+                synchronized (extras) {
+                    request = ((GameUpdateRequest) extras.pop());
+                }
+            }
+
+            for (int type = 0; type < 4; type++) {
+                byte[] data = filePriorities[type];
+                int size = data.length;
+
+                for (int file = 0; file < size; file++) {
+                    if (data[file] == highestPriority) {
+                        data[file] = (byte) 0;
+                        request = new GameUpdateRequest();
+                        request.type = type;
+                        request.file = file;
+                        request.mandatory = false;
+                        pendingRequests.pushBack(request);
+                        sendRequest(request);
+                        dataExpected = true;
+
+                        if (completedRequestCount < totalRequestCount) {
+                            completedRequestCount++;
+                        }
+
+                        message = ("Loading extra files - " +
+                                (completedRequestCount * 100 / totalRequestCount) + "%");
+                        extrasRequestedCount++;
+                        if (extrasRequestedCount == 10) {
+                            return;
+                        }
+                    }
+                }
+            }
+
+            highestPriority--;
+        }
     }
 
     public void handleResponse() {
@@ -423,39 +353,39 @@ public class GameUpdateClient implements Runnable {
                 int id = (((inputBuffer[1] & 0xff) << 8) + (inputBuffer[2] & 0xff));
                 int size = (((inputBuffer[3] & 0xff) << 8) + (inputBuffer[4] & 0xff));
                 int chunk = inputBuffer[5] & 0xff;
-                gameUpdateNode = null;
+                gameUpdateRequest = null;
 
-                for (GameUpdateNode updateNode = ((GameUpdateNode) pendingRequests.first()); updateNode != null; updateNode = ((GameUpdateNode) pendingRequests.next())) {
-                    if (updateNode.type == type && updateNode.id == id) {
-                        gameUpdateNode = updateNode;
+                for (GameUpdateRequest updateNode = ((GameUpdateRequest) pendingRequests.first()); updateNode != null; updateNode = ((GameUpdateRequest) pendingRequests.next())) {
+                    if (updateNode.type == type && updateNode.file == id) {
+                        gameUpdateRequest = updateNode;
                     }
 
-                    if (gameUpdateNode != null) {
+                    if (gameUpdateRequest != null) {
                         updateNode.cyclesSinceSent = 0;
                     }
                 }
 
-                if (gameUpdateNode != null) {
+                if (gameUpdateRequest != null) {
                     idleCycles = 0;
                     if (size == 0) {
                         Signlink.reportError("Rej: " + type + "," + id);
-                        gameUpdateNode.buffer = null;
+                        gameUpdateRequest.buffer = null;
 
-                        if (gameUpdateNode.immediate) {
-                            synchronized (completed) {
-                                completed.pushBack(gameUpdateNode);
+                        if (gameUpdateRequest.mandatory) {
+                            synchronized (completedRequests) {
+                                completedRequests.pushBack(gameUpdateRequest);
                             }
                         } else {
-                            gameUpdateNode.remove();
+                            gameUpdateRequest.remove();
                         }
 
-                        gameUpdateNode = null;
+                        gameUpdateRequest = null;
                     } else {
-                        if ((gameUpdateNode.buffer == null) && chunk == 0) {
-                            gameUpdateNode.buffer = new byte[size];
+                        if ((gameUpdateRequest.buffer == null) && chunk == 0) {
+                            gameUpdateRequest.buffer = new byte[size];
                         }
 
-                        if ((gameUpdateNode.buffer == null) && chunk != 0) {
+                        if ((gameUpdateRequest.buffer == null) && chunk != 0) {
                             throw new IOException("missing start of file");
                         }
                     }
@@ -476,29 +406,29 @@ public class GameUpdateClient implements Runnable {
             dataExpected = true;
             byte[] buffer = inputBuffer;
             int bufferOffset = 0;
-            if (gameUpdateNode != null) {
-                buffer = gameUpdateNode.buffer;
+            if (gameUpdateRequest != null) {
+                buffer = gameUpdateRequest.buffer;
                 bufferOffset = offset;
             }
 
             for (int i = 0; i < readable; i += updateServerInputStream.read(buffer, i + bufferOffset, (readable - i))) {}
 
-            if (readable + offset >= buffer.length && gameUpdateNode != null) {
+            if (readable + offset >= buffer.length && gameUpdateRequest != null) {
                 if (game.cacheIndexes[0] != null) {
-                    game.cacheIndexes[gameUpdateNode.type + 1].writeFile(buffer, gameUpdateNode.id, buffer.length);
+                    game.cacheIndexes[gameUpdateRequest.type + 1].writeFile(buffer, gameUpdateRequest.file, buffer.length);
                 }
 
-                if (!gameUpdateNode.immediate && gameUpdateNode.type == 3) {
-                    gameUpdateNode.immediate = true;
-                    gameUpdateNode.type = 93;
+                if (!gameUpdateRequest.mandatory && gameUpdateRequest.type == 3) {
+                    gameUpdateRequest.mandatory = true;
+                    gameUpdateRequest.type = 93;
                 }
 
-                if (gameUpdateNode.immediate) {
-                    synchronized (completed) {
-                        completed.pushBack(gameUpdateNode);
+                if (gameUpdateRequest.mandatory) {
+                    synchronized (completedRequests) {
+                        completedRequests.pushBack(gameUpdateRequest);
                     }
                 } else {
-                    gameUpdateNode.remove();
+                    gameUpdateRequest.remove();
                 }
             }
 
@@ -515,16 +445,9 @@ public class GameUpdateClient implements Runnable {
         }
     }
 
-    public void method166(int i) {
-        try {
-            synchronized (aLinkedList_1328) {
-                aLinkedList_1328.clear();
-            }
-            i = 78 / i;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("83594, " + i + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
+    public void clearExtras() {
+        synchronized (extras) {
+            extras.clear();
         }
     }
 
@@ -534,36 +457,31 @@ public class GameUpdateClient implements Runnable {
         }
     }
 
-    public boolean method168(int i, byte[] is, int i_31_, int i_32_) {
-        try {
-            if (i_31_ >= 0)
-                aBoolean1324 = !aBoolean1324;
-            if (is == null || is.length < 2)
-                return false;
-            int i_33_ = is.length - 2;
-            int i_34_ = ((is[i_33_] & 0xff) << 8) + (is[i_33_ + 1] & 0xff);
-            crc32.reset();
-            crc32.update(is, 0, i_33_);
-            int i_35_ = (int) crc32.getValue();
-            if (i_34_ != i_32_)
-                return false;
-			return i_35_ == i;
-		} catch (RuntimeException runtimeexception) {
-            Signlink.reportError("84545, " + i + ", " + is + ", " + i_31_
-                    + ", " + i_32_ + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
+    public boolean verify(byte[] data, int cacheChecksum, int cacheVersion) {
+        if (data == null || data.length < 2) {
+            return false;
         }
+
+        int fileLength = data.length - 2;
+        int fileVersion = ((data[fileLength] & 0xff) << 8) + (data[fileLength + 1] & 0xff);
+        crc32.reset();
+        crc32.update(data, 0, fileLength);
+        int calculatedChecksum = (int) crc32.getValue();
+        if (fileVersion != cacheVersion) {
+            return false;
+        }
+
+        return calculatedChecksum == cacheChecksum;
     }
 
-    public void method150(int i) {
-        requestFile(0, i);
+    public void requestFile(int file) {
+        requestFile(0, file);
     }
 
-    public void readVersionlist(CacheArchive versionlistArchive, Game game) {
+    public void readVersionlist(CacheArchive archive, Game game) {
         String[] versionFileNames = {"model_version", "anim_version", "midi_version", "map_version"};
         for (int i = 0; i < 4; i++) {
-            byte[] versionFileData = versionlistArchive.readFile(versionFileNames[i], null);
+            byte[] versionFileData = archive.readFile(versionFileNames[i], null);
             int fileCount = versionFileData.length / 2;
             Buffer buffer = new Buffer(versionFileData);
             fileVersions[i] = new int[fileCount];
@@ -575,7 +493,7 @@ public class GameUpdateClient implements Runnable {
 
         String[] checksumFileNames = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
         for (int i = 0; i < 4; i++) {
-            byte[] checksumFileData = versionlistArchive.readFile(checksumFileNames[i], null);
+            byte[] checksumFileData = archive.readFile(checksumFileNames[i], null);
             int fileCount = checksumFileData.length / 4;
             Buffer buffer = new Buffer(checksumFileData);
             fileChecksums[i] = new int[fileCount];
@@ -584,7 +502,7 @@ public class GameUpdateClient implements Runnable {
             }
         }
 
-        byte[] indexFileData = versionlistArchive.readFile("model_index", null);
+        byte[] indexFileData = archive.readFile("model_index", null);
         int fileCount = fileVersions[0].length;
         modelFileIndexes = new byte[fileCount];
         for (int i = 0; i < fileCount; i++) {
@@ -595,7 +513,7 @@ public class GameUpdateClient implements Runnable {
             }
         }
 
-        indexFileData = versionlistArchive.readFile("map_index", null);
+        indexFileData = archive.readFile("map_index", null);
         Buffer buffer = new Buffer(indexFileData);
         fileCount = indexFileData.length / 7;
         regionCoordHashes = new int[fileCount];
@@ -609,7 +527,7 @@ public class GameUpdateClient implements Runnable {
             regionPreloadFlags[i] = buffer.readUByte();
         }
 
-        indexFileData = versionlistArchive.readFile("anim_index", null);
+        indexFileData = archive.readFile("anim_index", null);
         buffer = new Buffer(indexFileData);
         fileCount = indexFileData.length / 2;
         animIndexes = new int[fileCount];
@@ -617,12 +535,12 @@ public class GameUpdateClient implements Runnable {
             animIndexes[i] = buffer.readUShortBE();
         }
 
-        indexFileData = versionlistArchive.readFile("midi_index", null);
+        indexFileData = archive.readFile("midi_index", null);
         buffer = new Buffer(indexFileData);
         fileCount = indexFileData.length;
-        midiIndexes = new int[fileCount];
+        midiPriorities = new int[fileCount];
         for (int i = 0; i < fileCount; i++) {
-            midiIndexes[i] = buffer.readUByte();
+            midiPriorities[i] = buffer.readUByte();
         }
 
         this.game = game;
@@ -648,14 +566,14 @@ public class GameUpdateClient implements Runnable {
                     }
 
                     dataExpected = false;
-                    method152(-289);
-                    method151(27519);
+                    loadMandatory();
+                    requestMandatory();
 
-                    if (immediateRequestsSent == 0 && i >= 5) {
+                    if (requestedCount == 0 && i >= 5) {
                         break;
                     }
 
-                    method164(0);
+                    loadExtras();
 
                     if (updateServerInputStream != null) {
                         handleResponse();
@@ -664,24 +582,24 @@ public class GameUpdateClient implements Runnable {
 
                 boolean idle = false;
 
-                for (GameUpdateNode updateNode = (GameUpdateNode) pendingRequests.first(); updateNode != null; updateNode = (GameUpdateNode) pendingRequests.next()) {
-                    if (updateNode.immediate) {
+                for (GameUpdateRequest updateNode = (GameUpdateRequest) pendingRequests.first(); updateNode != null; updateNode = (GameUpdateRequest) pendingRequests.next()) {
+                    if (updateNode.mandatory) {
                         idle = true;
                         updateNode.cyclesSinceSent++;
                         if (updateNode.cyclesSinceSent > 50) {
                             updateNode.cyclesSinceSent = 0;
-                            sendRequest(0, updateNode);
+                            sendRequest(updateNode);
                         }
                     }
                 }
 
                 if (!idle) {
-                    for (GameUpdateNode updateNode = (GameUpdateNode) pendingRequests.first(); updateNode != null; updateNode = ((GameUpdateNode) pendingRequests.next())) {
+                    for (GameUpdateRequest updateNode = (GameUpdateRequest) pendingRequests.first(); updateNode != null; updateNode = ((GameUpdateRequest) pendingRequests.next())) {
                         idle = true;
                         updateNode.cyclesSinceSent++;
                         if (updateNode.cyclesSinceSent > 50) {
                             updateNode.cyclesSinceSent = 0;
-                            sendRequest(0, updateNode);
+                            sendRequest(updateNode);
                         }
                     }
                 }
@@ -704,9 +622,9 @@ public class GameUpdateClient implements Runnable {
                 }
 
                 if (game.loggedIn && updateServerSocket != null && updateServerOutputStream != null && (highestPriority > 0 || game.cacheIndexes[0] == null)) {
-                    sinceKeepAlive++;
-                    if (sinceKeepAlive > 500) {
-                        sinceKeepAlive = 0;
+                    inactiveTime++;
+                    if (inactiveTime > 500) {
+                        inactiveTime = 0;
                         inputBuffer[0] = (byte) 0;
                         inputBuffer[1] = (byte) 0;
                         inputBuffer[2] = (byte) 0;
@@ -726,24 +644,19 @@ public class GameUpdateClient implements Runnable {
     }
 
     public void preloadRegions(boolean forcePreload) {
-        try {
-            int regionCount = regionCoordHashes.length;
-            for (int i = 0; i < regionCount; i++) {
-                if (forcePreload || regionPreloadFlags[i] != 0) {
-                    setPriority(3, regionLandscapeIndexes[i], (byte) 2, false);
-                    setPriority(3, regionMapIndexes[i], (byte) 2, false);
-                }
+        int regionCount = regionCoordHashes.length;
+        for (int i = 0; i < regionCount; i++) {
+            if (forcePreload || regionPreloadFlags[i] != 0) {
+                requestExtra(3, regionLandscapeIndexes[i], (byte) 2);
+                requestExtra(3, regionMapIndexes[i], (byte) 2);
             }
-        } catch (RuntimeException runtimeException) {
-            Signlink.reportError("GameUpdateClient.preloadRegions, " + forcePreload + ", " + runtimeException);
-            throw new RuntimeException();
         }
     }
 
-    public GameUpdateNode next() {
-        GameUpdateNode updateNode;
-        synchronized (completed) {
-            updateNode = (GameUpdateNode) completed.pop();
+    public GameUpdateRequest next() {
+        GameUpdateRequest updateNode;
+        synchronized (completedRequests) {
+            updateNode = (GameUpdateRequest) completedRequests.pop();
         }
 
         if (updateNode == null) {
