@@ -291,7 +291,7 @@ public class Game extends GameShell {
     public int anInt1030;
     public String[] aStringArray1031;
     public boolean[] aBooleanArray1032;
-    public long aLong1033;
+    public long usernameAsLong;
     public boolean aBoolean1034;
     public int anInt1035;
     public int anInt1036;
@@ -312,8 +312,8 @@ public class Game extends GameShell {
     public boolean aBoolean1051;
     public int anInt1052;
     public int anInt1053;
-    public int anInt1054;
-    public int anInt1055;
+    public int friendsListCount;
+    public int friendsListStatusCode;
     public int anInt1056;
     public int anInt1057;
     public int anInt1058;
@@ -1774,7 +1774,7 @@ public class Game extends GameShell {
                 if (k1 != -1) {
                     long l3 = Class24.nameToLong(s.substring(k1 + 5).trim());
                     int j3 = -1;
-                    for (int i4 = 0; i4 < anInt1054; i4++) {
+                    for (int i4 = 0; i4 < friendsListCount; i4++) {
                         if (aLongArray993[i4] != l3) {
                             continue;
                         }
@@ -1787,7 +1787,7 @@ public class Game extends GameShell {
                         aBoolean1017 = true;
                         chatMessage = "";
                         anInt943 = 3;
-                        aLong1033 = aLongArray993[j3];
+                        usernameAsLong = aLongArray993[j3];
                         aString1196 = "Enter message to send to " + aStringArray1003[j3];
                     }
                 }
@@ -2301,10 +2301,10 @@ public class Game extends GameShell {
                 if (l2 != -1) {
                     long l4 = Class24.nameToLong(s3.substring(l2 + 5).trim());
                     if (action == 39) {
-                        addFriend(688, l4);
+                        addFriend(l4);
                     }
                     if (action == 775) {
-                        method77(l4, 1);
+                        addUserToIgnore(l4, 1);
                     }
                     if (action == 785) {
                         method123(1, l4);
@@ -2750,8 +2750,8 @@ public class Game extends GameShell {
                     opcode = -1;
                     return true;
                 }
-                if (opcode == 78) {
-                    anInt1055 = inBuffer.readUByte();
+                if (IncomingPacket.FRIENDS_LIST_STATUS.equals(78)) {
+                    friendsListStatusCode = inBuffer.readUByte();
                     redrawTabArea = true;
                     opcode = -1;
                     return true;
@@ -3048,7 +3048,7 @@ public class Game extends GameShell {
                     long l6 = inBuffer.readLongBE();
                     int k18 = inBuffer.readUByte();
                     String s7 = Class24.method450(Class24.method447(l6, 0), 0);
-                    for (int i24 = 0; i24 < anInt1054; i24++) {
+                    for (int i24 = 0; i24 < friendsListCount; i24++) {
                         if (l6 != aLongArray993[i24]) {
                             continue;
                         }
@@ -3065,16 +3065,16 @@ public class Game extends GameShell {
                         s7 = null;
                         break;
                     }
-                    if (s7 != null && anInt1054 < 200) {
-                        aLongArray993[anInt1054] = l6;
-                        aStringArray1003[anInt1054] = s7;
-                        anIntArray850[anInt1054] = k18;
-                        anInt1054++;
+                    if (s7 != null && friendsListCount < 200) {
+                        aLongArray993[friendsListCount] = l6;
+                        aStringArray1003[friendsListCount] = s7;
+                        anIntArray850[friendsListCount] = k18;
+                        friendsListCount++;
                         redrawTabArea = true;
                     }
                     for (boolean flag5 = false; !flag5; ) {
                         flag5 = true;
-                        for (int l28 = 0; l28 < anInt1054 - 1; l28++) {
+                        for (int l28 = 0; l28 < friendsListCount - 1; l28++) {
                             if (anIntArray850[l28] != anInt951 && anIntArray850[l28 + 1] == anInt951 || anIntArray850[l28] == 0 && anIntArray850[l28 + 1] != 0) {
                                 int k30 = anIntArray850[l28];
                                 anIntArray850[l28] = anIntArray850[l28 + 1];
@@ -4691,7 +4691,7 @@ public class Game extends GameShell {
                     int l3 = class13_sub1_sub1_sub6_sub1.anInt1588 / 32 - localPlayer.anInt1588 / 32;
                     boolean flag1 = false;
                     long l6 = Class24.nameToLong(class13_sub1_sub1_sub6_sub1.username);
-                    for (int k6 = 0; k6 < anInt1054; k6++) {
+                    for (int k6 = 0; k6 < friendsListCount; k6++) {
                         if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
                             continue;
                         }
@@ -4745,22 +4745,21 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void addFriend(int i, long l) {
+    public void addFriend(long l) {
         try {
             if (l == 0L) {
                 return;
             }
-            if (anInt1054 >= 100 && anInt988 != 1) {
+            if (friendsListCount >= 100 && anInt988 != 1) {
                 addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
                 return;
             }
-            if (anInt1054 >= 200) {
+            if (friendsListCount >= 200) {
                 addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
                 return;
             }
             String s = Class24.method450(Class24.method447(l, 0), 0);
-            i = 9 / i;
-            for (int j = 0; j < anInt1054; j++) {
+            for (int j = 0; j < friendsListCount; j++) {
                 if (aLongArray993[j] == l) {
                     addChatMessage("", s + " is already on your friend list", 0);
                     return;
@@ -4775,17 +4774,17 @@ public class Game extends GameShell {
             if (s.equals(localPlayer.username)) {
                 return;
             } else {
-                aStringArray1003[anInt1054] = s;
-                aLongArray993[anInt1054] = l;
-                anIntArray850[anInt1054] = 0;
-                anInt1054++;
+                aStringArray1003[friendsListCount] = s;
+                aLongArray993[friendsListCount] = l;
+                anIntArray850[friendsListCount] = 0;
+                friendsListCount++;
                 redrawTabArea = true;
                 outBuffer.writeOpcode(112);
                 outBuffer.writeLongBE(l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("39619, " + i + ", " + l + ", " + runtimeexception);
+            Signlink.reportError("39619, " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -5570,7 +5569,7 @@ public class Game extends GameShell {
                 anInt919 = isaacCipher.nextInt();
             }
             int i = widget.contentType;
-            if (anInt1055 == 2) {
+            if (friendsListStatusCode == 2) {
                 if (i == 201) {
                     redrawChatbox = true;
                     anInt1141 = 0;
@@ -6148,8 +6147,8 @@ public class Game extends GameShell {
                     }
                 }
                 aLinkedList_1152 = new LinkedList();
-                anInt1055 = 0;
-                anInt1054 = 0;
+                friendsListStatusCode = 0;
+                friendsListCount = 0;
                 dialogueId = -1;
                 openChatboxWidgetId = -1;
                 anInt1217 = -1;
@@ -7326,7 +7325,7 @@ public class Game extends GameShell {
             if (s == null) {
                 return false;
             }
-            for (int j = 0; j < anInt1054; j++) {
+            for (int j = 0; j < friendsListCount; j++) {
                 if (s.equalsIgnoreCase(aStringArray1003[j])) {
                     return true;
                 }
@@ -7788,7 +7787,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method77(long l, int i) {
+    public void addUserToIgnore(long l, int i) {
         try {
             if (l == 0L) {
                 return;
@@ -7807,7 +7806,7 @@ public class Game extends GameShell {
             if (i < anInt972 || i > anInt972) {
                 return;
             }
-            for (int k = 0; k < anInt1054; k++) {
+            for (int k = 0; k < friendsListCount; k++) {
                 if (aLongArray993[k] == l) {
                     addChatMessage("", "Please remove " + s + " from your friend list first", 0);
                     return;
@@ -9352,23 +9351,23 @@ public class Game extends GameShell {
                 method6();
             }
             if (j >= 1 && j <= 100 || j >= 701 && j <= 800) {
-                if (j == 1 && anInt1055 == 0) {
+                if (j == 1 && friendsListStatusCode == 0) {
                     widget.disabledText = "Loading friend list";
                     widget.actionType = 0;
                     return;
                 }
-                if (j == 1 && anInt1055 == 1) {
+                if (j == 1 && friendsListStatusCode == 1) {
                     widget.disabledText = "Connecting to friendserver";
                     widget.actionType = 0;
                     return;
                 }
-                if (j == 2 && anInt1055 != 2) {
+                if (j == 2 && friendsListStatusCode != 2) {
                     widget.disabledText = "Please wait...";
                     widget.actionType = 0;
                     return;
                 }
-                int k = anInt1054;
-                if (anInt1055 != 2) {
+                int k = friendsListCount;
+                if (friendsListStatusCode != 2) {
                     k = 0;
                 }
                 if (j > 700) {
@@ -9387,8 +9386,8 @@ public class Game extends GameShell {
                 }
             }
             if (j >= 101 && j <= 200 || j >= 801 && j <= 900) {
-                int l = anInt1054;
-                if (anInt1055 != 2) {
+                int l = friendsListCount;
+                if (friendsListStatusCode != 2) {
                     l = 0;
                 }
                 if (j > 800) {
@@ -9412,8 +9411,8 @@ public class Game extends GameShell {
                 return;
             }
             if (j == 203) {
-                int i1 = anInt1054;
-                if (anInt1055 != 2) {
+                int i1 = friendsListCount;
+                if (friendsListStatusCode != 2) {
                     i1 = 0;
                 }
                 widget.scrollLimit = i1 * 15 + 20;
@@ -9423,18 +9422,18 @@ public class Game extends GameShell {
                 return;
             }
             if (j >= 401 && j <= 500) {
-                if ((j -= 401) == 0 && anInt1055 == 0) {
+                if ((j -= 401) == 0 && friendsListStatusCode == 0) {
                     widget.disabledText = "Loading ignore list";
                     widget.actionType = 0;
                     return;
                 }
-                if (j == 1 && anInt1055 == 0) {
+                if (j == 1 && friendsListStatusCode == 0) {
                     widget.disabledText = "Please wait...";
                     widget.actionType = 0;
                     return;
                 }
                 int j1 = anInt1098;
-                if (anInt1055 == 0) {
+                if (friendsListStatusCode == 0) {
                     j1 = 0;
                 }
                 if (j >= j1) {
@@ -9817,22 +9816,22 @@ public class Game extends GameShell {
                         redrawChatbox = true;
                         if (anInt943 == 1) {
                             long l = Class24.nameToLong(chatMessage);
-                            addFriend(688, l);
+                            addFriend(l);
                         }
-                        if (anInt943 == 2 && anInt1054 > 0) {
+                        if (anInt943 == 2 && friendsListCount > 0) {
                             long l1 = Class24.nameToLong(chatMessage);
                             method123(1, l1);
                         }
                         if (anInt943 == 3 && chatMessage.length() > 0) {
                             outBuffer.writeOpcode(235);
                             outBuffer.writeByte(0);
-                            int j = outBuffer.position;
-                            outBuffer.writeLongBE(aLong1033);
+                            int currentPosition = outBuffer.position;
+                            outBuffer.writeLongBE(usernameAsLong);
                             ChatMessageCodec.encode(outBuffer, chatMessage);
-                            outBuffer.writeSizeByte(outBuffer.position - j);
+                            outBuffer.writeSizeByte(outBuffer.position - currentPosition);
                             chatMessage = ChatMessageCodec.verify(chatMessage);
                             chatMessage = ChatCensor.censorMessage(chatMessage);
-                            addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), chatMessage, 6);
+                            addChatMessage(Class24.method450(Class24.method447(usernameAsLong, 0), 0), chatMessage, 6);
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
                                 aBoolean1137 = true;
@@ -9844,7 +9843,7 @@ public class Game extends GameShell {
                         }
                         if (anInt943 == 4 && anInt1098 < 100) {
                             long l2 = Class24.nameToLong(chatMessage);
-                            method77(l2, 1);
+                            addUserToIgnore(l2, 1);
                         }
                         if (anInt943 == 5 && anInt1098 > 0) {
                             long l3 = Class24.nameToLong(chatMessage);
@@ -10541,11 +10540,11 @@ public class Game extends GameShell {
             if (l == 0L) {
                 return;
             }
-            for (int j = 0; j < anInt1054; j++) {
+            for (int j = 0; j < friendsListCount; j++) {
                 if (aLongArray993[j] == l) {
-                    anInt1054--;
+                    friendsListCount--;
                     redrawTabArea = true;
-                    for (int k = j; k < anInt1054; k++) {
+                    for (int k = j; k < friendsListCount; k++) {
                         aStringArray1003[k] = aStringArray1003[k + 1];
                         anIntArray850[k] = anIntArray850[k + 1];
                         aLongArray993[k] = aLongArray993[k + 1];

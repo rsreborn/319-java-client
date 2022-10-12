@@ -31,7 +31,10 @@ public enum IncomingPacket {
     PLAYER_UPDATING(76),
     NPC_UPDATING(249),
 
+    FRIENDS_LIST_STATUS(78),
+
     TEMPORARY_ENDING_PACKET(500);
+
 
     private final int packetId;
 
