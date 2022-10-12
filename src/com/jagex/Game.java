@@ -2750,7 +2750,7 @@ public class Game extends GameShell {
                     opcode = -1;
                     return true;
                 }
-                if (IncomingPacket.FRIENDS_LIST_STATUS.equals(78)) {
+                if (IncomingPacket.FRIENDS_LIST_STATUS.equals(opcode)) {
                     friendsListStatusCode = inBuffer.readUByte();
                     redrawTabArea = true;
                     opcode = -1;
