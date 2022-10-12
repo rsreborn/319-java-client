@@ -124,7 +124,7 @@ public class Game extends GameShell {
     public int[] anIntArray847;
     public boolean aBoolean848;
     public int[] anIntArray849;
-    public int[] anIntArray850;
+    public int[] friendListWorlds;
     public boolean loggedIn;
     public int packetSize;
     public int opcode;
@@ -250,7 +250,7 @@ public class Game extends GameShell {
     public long[] ignoreList;
     public CacheArchive aCacheArchive_991;
     public int anInt992;
-    public long[] aLongArray993;
+    public long[] friendsListUsernamesAsLong;
     public boolean aBoolean994;
     public int anInt995;
     public int anInt996;
@@ -258,7 +258,7 @@ public class Game extends GameShell {
     public int[] anIntArray1000;
     public BufferedConnection gameConnection;
     public int lastLoginAddress;
-    public String[] aStringArray1003;
+    public String[] friendListUsernames;
     public int anInt1004;
     public int anInt1005;
     public int anInt1006;
@@ -550,7 +550,7 @@ public class Game extends GameShell {
         anIntArray847 = new int[151];
         aBoolean848 = false;
         anIntArray849 = new int[5];
-        anIntArray850 = new int[200];
+        friendListWorlds = new int[200];
         loggedIn = false;
         anInt864 = 3;
         aBoolean866 = false;
@@ -598,10 +598,10 @@ public class Game extends GameShell {
         aBoolean989 = false;
         ignoreList = new long[100];
         anInt992 = 9;
-        aLongArray993 = new long[200];
+        friendsListUsernamesAsLong = new long[200];
         aBoolean994 = true;
         anIntArray1000 = new int[151];
-        aStringArray1003 = new String[200];
+        friendListUsernames = new String[200];
         anInt1009 = 215;
         aBoolean1010 = true;
         anIntArray1011 = new int[7];
@@ -1775,20 +1775,20 @@ public class Game extends GameShell {
                     long l3 = Class24.nameToLong(s.substring(k1 + 5).trim());
                     int j3 = -1;
                     for (int i4 = 0; i4 < friendsListCount; i4++) {
-                        if (aLongArray993[i4] != l3) {
+                        if (friendsListUsernamesAsLong[i4] != l3) {
                             continue;
                         }
                         j3 = i4;
                         break;
                     }
-                    if (j3 != -1 && anIntArray850[j3] > 0) {
+                    if (j3 != -1 && friendListWorlds[j3] > 0) {
                         redrawChatbox = true;
                         anInt1141 = 0;
                         aBoolean1017 = true;
                         chatMessage = "";
                         anInt943 = 3;
-                        usernameAsLong = aLongArray993[j3];
-                        aString1196 = "Enter message to send to " + aStringArray1003[j3];
+                        usernameAsLong = friendsListUsernamesAsLong[j3];
+                        aString1196 = "Enter message to send to " + friendListUsernames[j3];
                     }
                 }
             }
@@ -2048,7 +2048,7 @@ public class Game extends GameShell {
                 int i2 = s1.indexOf("@whi@");
                 if (i2 != -1) {
                     s1 = s1.substring(i2 + 5).trim();
-                    String s9 = Class24.method450(Class24.method447(Class24.nameToLong(s1), 0), 0);
+                    String s9 = Class24.method450(Class24.longToUsername(Class24.nameToLong(s1)));
                     boolean flag8 = false;
                     for (int k3 = 0; k3 < anInt899; k3++) {
                         Player class13_sub1_sub1_sub6_sub1_7 = players[playerList[k3]];
@@ -2307,7 +2307,7 @@ public class Game extends GameShell {
                         addUserToIgnore(l4, 1);
                     }
                     if (action == 785) {
-                        method123(1, l4);
+                        removeFriend(l4);
                     }
                     if (action == 781) {
                         method21(l4, -224);
@@ -3047,44 +3047,44 @@ public class Game extends GameShell {
                 if (opcode == 213) {
                     long l6 = inBuffer.readLongBE();
                     int k18 = inBuffer.readUByte();
-                    String s7 = Class24.method450(Class24.method447(l6, 0), 0);
+                    String friendUsername = Class24.method450(Class24.longToUsername(l6));
                     for (int i24 = 0; i24 < friendsListCount; i24++) {
-                        if (l6 != aLongArray993[i24]) {
+                        if (l6 != friendsListUsernamesAsLong[i24]) {
                             continue;
                         }
-                        if (anIntArray850[i24] != k18) {
-                            anIntArray850[i24] = k18;
+                        if (friendListWorlds[i24] != k18) {
+                            friendListWorlds[i24] = k18;
                             redrawTabArea = true;
                             if (k18 > 0) {
-                                addChatMessage("", s7 + " has logged in.", 5);
+                                addChatMessage("", friendUsername + " has logged in.", 5);
                             }
                             if (k18 == 0) {
-                                addChatMessage("", s7 + " has logged out.", 5);
+                                addChatMessage("", friendUsername + " has logged out.", 5);
                             }
                         }
-                        s7 = null;
+                        friendUsername = null;
                         break;
                     }
-                    if (s7 != null && friendsListCount < 200) {
-                        aLongArray993[friendsListCount] = l6;
-                        aStringArray1003[friendsListCount] = s7;
-                        anIntArray850[friendsListCount] = k18;
+                    if (friendUsername != null && friendsListCount < 200) {
+                        friendsListUsernamesAsLong[friendsListCount] = l6;
+                        friendListUsernames[friendsListCount] = friendUsername;
+                        friendListWorlds[friendsListCount] = k18;
                         friendsListCount++;
                         redrawTabArea = true;
                     }
                     for (boolean flag5 = false; !flag5; ) {
                         flag5 = true;
                         for (int l28 = 0; l28 < friendsListCount - 1; l28++) {
-                            if (anIntArray850[l28] != anInt951 && anIntArray850[l28 + 1] == anInt951 || anIntArray850[l28] == 0 && anIntArray850[l28 + 1] != 0) {
-                                int k30 = anIntArray850[l28];
-                                anIntArray850[l28] = anIntArray850[l28 + 1];
-                                anIntArray850[l28 + 1] = k30;
-                                String s10 = aStringArray1003[l28];
-                                aStringArray1003[l28] = aStringArray1003[l28 + 1];
-                                aStringArray1003[l28 + 1] = s10;
-                                long l32 = aLongArray993[l28];
-                                aLongArray993[l28] = aLongArray993[l28 + 1];
-                                aLongArray993[l28 + 1] = l32;
+                            if (friendListWorlds[l28] != anInt951 && friendListWorlds[l28 + 1] == anInt951 || friendListWorlds[l28] == 0 && friendListWorlds[l28 + 1] != 0) {
+                                int k30 = friendListWorlds[l28];
+                                friendListWorlds[l28] = friendListWorlds[l28 + 1];
+                                friendListWorlds[l28 + 1] = k30;
+                                String s10 = friendListUsernames[l28];
+                                friendListUsernames[l28] = friendListUsernames[l28 + 1];
+                                friendListUsernames[l28 + 1] = s10;
+                                long l32 = friendsListUsernamesAsLong[l28];
+                                friendsListUsernamesAsLong[l28] = friendsListUsernamesAsLong[l28 + 1];
+                                friendsListUsernamesAsLong[l28 + 1] = l32;
                                 redrawTabArea = true;
                                 flag5 = false;
                             }
@@ -3549,11 +3549,11 @@ public class Game extends GameShell {
                                 s9 = ChatCensor.censorMessage(s9);
                             }
                             if (j23 == 2 || j23 == 3) {
-                                addChatMessage("@cr2@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr2@" + Class24.method450(Class24.longToUsername(l9)), s9, 7);
                             } else if (j23 == 1) {
-                                addChatMessage("@cr1@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr1@" + Class24.method450(Class24.longToUsername(l9)), s9, 7);
                             } else {
-                                addChatMessage(Class24.method450(Class24.method447(l9, 0), 0), s9, 3);
+                                addChatMessage(Class24.method450(Class24.longToUsername(l9)), s9, 3);
                             }
                         } catch (Exception exception1) {
                             Signlink.reportError("cde1");
@@ -4692,7 +4692,7 @@ public class Game extends GameShell {
                     boolean flag1 = false;
                     long l6 = Class24.nameToLong(class13_sub1_sub1_sub6_sub1.username);
                     for (int k6 = 0; k6 < friendsListCount; k6++) {
-                        if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
+                        if (l6 != friendsListUsernamesAsLong[k6] || friendListWorlds[k6] == 0) {
                             continue;
                         }
                         flag1 = true;
@@ -4745,9 +4745,9 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void addFriend(long l) {
+    public void addFriend(long usernameAsLong) {
         try {
-            if (l == 0L) {
+            if (usernameAsLong == 0L) {
                 return;
             }
             if (friendsListCount >= 100 && anInt988 != 1) {
@@ -4758,33 +4758,33 @@ public class Game extends GameShell {
                 addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
                 return;
             }
-            String s = Class24.method450(Class24.method447(l, 0), 0);
-            for (int j = 0; j < friendsListCount; j++) {
-                if (aLongArray993[j] == l) {
-                    addChatMessage("", s + " is already on your friend list", 0);
+            String username = Class24.method450(Class24.longToUsername(usernameAsLong));
+            for (int i = 0; i < friendsListCount; i++) {
+                if (friendsListUsernamesAsLong[i] == usernameAsLong) {
+                    addChatMessage("", username + " is already on your friend list", 0);
                     return;
                 }
             }
-            for (int k = 0; k < anInt1098; k++) {
-                if (ignoreList[k] == l) {
-                    addChatMessage("", "Please remove " + s + " from your ignore list first", 0);
+            for (int i = 0; i < anInt1098; i++) {
+                if (ignoreList[i] == usernameAsLong) {
+                    addChatMessage("", "Please remove " + username + " from your ignore list first", 0);
                     return;
                 }
             }
-            if (s.equals(localPlayer.username)) {
+            if (username.equals(localPlayer.username)) {
                 return;
             } else {
-                aStringArray1003[friendsListCount] = s;
-                aLongArray993[friendsListCount] = l;
-                anIntArray850[friendsListCount] = 0;
+                friendListUsernames[friendsListCount] = username;
+                friendsListUsernamesAsLong[friendsListCount] = usernameAsLong;
+                friendListWorlds[friendsListCount] = 0;
                 friendsListCount++;
                 redrawTabArea = true;
                 outBuffer.writeOpcode(112);
-                outBuffer.writeLongBE(l);
+                outBuffer.writeLongBE(usernameAsLong);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("39619, " + l + ", " + runtimeexception);
+            Signlink.reportError("39619, " + usernameAsLong + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -4890,9 +4890,9 @@ public class Game extends GameShell {
             anIntArray832 = null;
             aClass13_Sub1_Sub4_Sub4Array1145 = null;
             aClass13_Sub1_Sub4_Sub4_1223 = null;
-            aStringArray1003 = null;
-            aLongArray993 = null;
-            anIntArray850 = null;
+            friendListUsernames = null;
+            friendsListUsernamesAsLong = null;
+            friendListWorlds = null;
             aClass31_1248 = null;
             aClass31_1249 = null;
             aClass31_1245 = null;
@@ -6580,7 +6580,7 @@ public class Game extends GameShell {
                 if (localPlayer != null && localPlayer.username != null) {
                     s = localPlayer.username;
                 } else {
-                    s = Class24.method450(username, 0);
+                    s = Class24.method450(username);
                 }
                 font.method385((byte) -96, s + ":", 0, 4, 90);
                 font.method385((byte) -96, playerChatMessage + "*", 255, 6 + font.method383(3, s + ": "), 90);
@@ -7326,7 +7326,7 @@ public class Game extends GameShell {
                 return false;
             }
             for (int j = 0; j < friendsListCount; j++) {
-                if (s.equalsIgnoreCase(aStringArray1003[j])) {
+                if (s.equalsIgnoreCase(friendListUsernames[j])) {
                     return true;
                 }
             }
@@ -7796,7 +7796,7 @@ public class Game extends GameShell {
                 addChatMessage("", "Your ignore list is full. Max of 100 hit", 0);
                 return;
             }
-            String s = Class24.method450(Class24.method447(l, 0), 0);
+            String s = Class24.method450(Class24.longToUsername(l));
             for (int j = 0; j < anInt1098; j++) {
                 if (ignoreList[j] == l) {
                     addChatMessage("", s + " is already on your ignore list", 0);
@@ -7807,7 +7807,7 @@ public class Game extends GameShell {
                 return;
             }
             for (int k = 0; k < friendsListCount; k++) {
-                if (aLongArray993[k] == l) {
+                if (friendsListUsernamesAsLong[k] == l) {
                     addChatMessage("", "Please remove " + s + " from your friend list first", 0);
                     return;
                 }
@@ -9380,7 +9380,7 @@ public class Game extends GameShell {
                     widget.actionType = 0;
                     return;
                 } else {
-                    widget.disabledText = aStringArray1003[j];
+                    widget.disabledText = friendListUsernames[j];
                     widget.actionType = 1;
                     return;
                 }
@@ -9400,12 +9400,12 @@ public class Game extends GameShell {
                     widget.actionType = 0;
                     return;
                 }
-                if (anIntArray850[j] == 0) {
+                if (friendListWorlds[j] == 0) {
                     widget.disabledText = "@red@Offline";
-                } else if (anIntArray850[j] == anInt951) {
-                    widget.disabledText = "@gre@World-" + (anIntArray850[j] - 9);
+                } else if (friendListWorlds[j] == anInt951) {
+                    widget.disabledText = "@gre@World-" + (friendListWorlds[j] - 9);
                 } else {
-                    widget.disabledText = "@yel@World-" + (anIntArray850[j] - 9);
+                    widget.disabledText = "@yel@World-" + (friendListWorlds[j] - 9);
                 }
                 widget.actionType = 1;
                 return;
@@ -9441,7 +9441,7 @@ public class Game extends GameShell {
                     widget.actionType = 0;
                     return;
                 } else {
-                    widget.disabledText = Class24.method450(Class24.method447(ignoreList[j], 0), 0);
+                    widget.disabledText = Class24.method450(Class24.longToUsername(ignoreList[j]));
                     widget.actionType = 1;
                     return;
                 }
@@ -9815,12 +9815,12 @@ public class Game extends GameShell {
                         aBoolean1017 = false;
                         redrawChatbox = true;
                         if (anInt943 == 1) {
-                            long l = Class24.nameToLong(chatMessage);
-                            addFriend(l);
+                            long username = Class24.nameToLong(chatMessage);
+                            addFriend(username);
                         }
                         if (anInt943 == 2 && friendsListCount > 0) {
-                            long l1 = Class24.nameToLong(chatMessage);
-                            method123(1, l1);
+                            long username = Class24.nameToLong(chatMessage);
+                            removeFriend(username);
                         }
                         if (anInt943 == 3 && chatMessage.length() > 0) {
                             outBuffer.writeOpcode(235);
@@ -9831,7 +9831,7 @@ public class Game extends GameShell {
                             outBuffer.writeSizeByte(outBuffer.position - currentPosition);
                             chatMessage = ChatMessageCodec.verify(chatMessage);
                             chatMessage = ChatCensor.censorMessage(chatMessage);
-                            addChatMessage(Class24.method450(Class24.method447(usernameAsLong, 0), 0), chatMessage, 6);
+                            addChatMessage(Class24.method450(Class24.longToUsername(usernameAsLong)), chatMessage, 6);
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
                                 aBoolean1137 = true;
@@ -10332,10 +10332,10 @@ public class Game extends GameShell {
                 } else {
                     j--;
                 }
-                aStringArray961[anInt1167] = "Remove @whi@" + aStringArray1003[j];
+                aStringArray961[anInt1167] = "Remove @whi@" + friendListUsernames[j];
                 anIntArray911[anInt1167] = 785;
                 anInt1167++;
-                aStringArray961[anInt1167] = "Message @whi@" + aStringArray1003[j];
+                aStringArray961[anInt1167] = "Message @whi@" + friendListUsernames[j];
                 anIntArray911[anInt1167] = 7;
                 anInt1167++;
                 return true;
@@ -10532,31 +10532,28 @@ public class Game extends GameShell {
         }
     }
 
-    public void method123(int i, long l) {
+    public void removeFriend(long username) {
         try {
-            if (i != 1) {
-                opcode = inBuffer.readUByte();
-            }
-            if (l == 0L) {
+            if (username == 0L) {
                 return;
             }
-            for (int j = 0; j < friendsListCount; j++) {
-                if (aLongArray993[j] == l) {
+            for (int i = 0; i < friendsListCount; i++) {
+                if (friendsListUsernamesAsLong[i] == username) {
                     friendsListCount--;
                     redrawTabArea = true;
-                    for (int k = j; k < friendsListCount; k++) {
-                        aStringArray1003[k] = aStringArray1003[k + 1];
-                        anIntArray850[k] = anIntArray850[k + 1];
-                        aLongArray993[k] = aLongArray993[k + 1];
+                    for (int k = i; k < friendsListCount; k++) {
+                        friendListUsernames[k] = friendListUsernames[k + 1];
+                        friendListWorlds[k] = friendListWorlds[k + 1];
+                        friendsListUsernamesAsLong[k] = friendsListUsernamesAsLong[k + 1];
                     }
                     outBuffer.writeOpcode(77);
-                    outBuffer.writeLongBE(l);
+                    outBuffer.writeLongBE(username);
                     return;
                 }
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("57862, " + i + ", " + l + ", " + runtimeexception);
+            Signlink.reportError("57862, " + username + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

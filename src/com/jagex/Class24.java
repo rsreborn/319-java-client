@@ -31,11 +31,8 @@ public class Class24 {
         return l;
     }
 
-    public static String method447(long l, int i) {
+    public static String longToUsername(long l) {
         try {
-            if (i != 0) {
-                anInt396 = -277;
-            }
             if (l <= 0L || l >= 0x5b5b57f8a98a5dd1L) {
                 return "invalid_name";
             }
@@ -51,7 +48,7 @@ public class Class24 {
             }
             return new String(ac, 12 - j, j);
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("50315, " + l + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("50315, " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -87,11 +84,8 @@ public class Class24 {
         throw new RuntimeException();
     }
 
-    public static String method450(String s, int i) {
+    public static String method450(String s) {
         try {
-            if (i < 0 || i > 0) {
-                aBoolean399 = !aBoolean399;
-            }
             if (s.length() > 0) {
                 char[] ac = s.toCharArray();
                 for (int j = 0; j < ac.length; j++) {
@@ -110,7 +104,7 @@ public class Class24 {
                 return s;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("67660, " + s + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("67660, " + s + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

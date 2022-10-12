@@ -379,7 +379,7 @@ public class Player extends CacheableNode_Sub1_Sub1_Sub6 {
             if (super.anInt1607 == 65535) {
                 super.anInt1607 = -1;
             }
-            username = Class24.method450(Class24.method447(buffer.readLongBE(), 0), 0);
+            username = Class24.method450(Class24.longToUsername(buffer.readLongBE()));
             if (i != 0) {
                 aBoolean1704 = !aBoolean1704;
             }
