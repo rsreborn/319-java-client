@@ -1,13 +1,16 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.Class8;
+import com.jagex.Game;
+import com.jagex.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
-public class Class47 {
+public class NpcConfig {
 
-    public static Class47[] aClass47Array757;
+    public static NpcConfig[] aNpcConfigArray757;
     public static Buffer aBuffer_758;
     public static Cache aCache_759 = new Cache(30);
     public static int[] anIntArray761;
@@ -50,7 +53,7 @@ public class Class47 {
     public int anInt785;
     public int anInt786;
 
-    public Class47() {
+    public NpcConfig() {
         anInt745 = 128;
         anInt746 = -1;
         anInt748 = -1;
@@ -77,18 +80,18 @@ public class Class47 {
         anInt786 = -1;
     }
 
-    public static Class47 getDefinition(int i) {
+    public static NpcConfig getDefinition(int i) {
         for (int j = 0; j < 20; j++) {
-            if (aClass47Array757[j].aLong770 == (long) i) {
-                return aClass47Array757[j];
+            if (aNpcConfigArray757[j].aLong770 == (long) i) {
+                return aNpcConfigArray757[j];
             }
         }
         anInt780 = (anInt780 + 1) % 20;
-        Class47 class47 = aClass47Array757[anInt780] = new Class47();
+        NpcConfig npcConfig = aNpcConfigArray757[anInt780] = new NpcConfig();
         aBuffer_758.position = anIntArray761[i];
-        class47.aLong770 = i;
-        class47.method586(aBuffer_758, 26421);
-        return class47;
+        npcConfig.aLong770 = i;
+        npcConfig.method586(aBuffer_758, 26421);
+        return npcConfig;
     }
 
     public static void method587(CacheArchive cacheArchive) {
@@ -101,9 +104,9 @@ public class Class47 {
             anIntArray761[j] = i;
             i += buffer.readUShortBE();
         }
-        aClass47Array757 = new Class47[20];
+        aNpcConfigArray757 = new NpcConfig[20];
         for (int k = 0; k < 20; k++) {
-            aClass47Array757[k] = new Class47();
+            aNpcConfigArray757[k] = new NpcConfig();
         }
     }
 
@@ -114,7 +117,7 @@ public class Class47 {
             }
             aCache_759 = null;
             anIntArray761 = null;
-            aClass47Array757 = null;
+            aNpcConfigArray757 = null;
             aBuffer_758 = null;
             return;
         } catch (RuntimeException runtimeexception) {
@@ -129,11 +132,11 @@ public class Class47 {
                 aBoolean762 = !aBoolean762;
             }
             if (anIntArray751 != null) {
-                Class47 class47 = method584((byte) 0);
-                if (class47 == null) {
+                NpcConfig npcConfig = method584((byte) 0);
+                if (npcConfig == null) {
                     return null;
                 } else {
-                    return class47.method582(i, j, true, ai);
+                    return npcConfig.method582(i, j, true, ai);
                 }
             }
             Model class13_sub1_sub1_sub4 = (Model) aCache_759.get(aLong770);
@@ -192,11 +195,11 @@ public class Class47 {
         try {
             i = 78 / i;
             if (anIntArray751 != null) {
-                Class47 class47 = method584((byte) 0);
-                if (class47 == null) {
+                NpcConfig npcConfig = method584((byte) 0);
+                if (npcConfig == null) {
                     return null;
                 } else {
-                    return class47.method583(524);
+                    return npcConfig.method583(524);
                 }
             }
             if (anIntArray766 == null) {
@@ -233,7 +236,7 @@ public class Class47 {
         throw new RuntimeException();
     }
 
-    public Class47 method584(byte byte0) {
+    public NpcConfig method584(byte byte0) {
         try {
             int i = -1;
             if (byte0 != 0) {
@@ -241,10 +244,10 @@ public class Class47 {
                 }
             }
             if (anInt767 != -1) {
-                Class26 class26 = Class26.aClass26Array439[anInt767];
-                int k = class26.anInt441;
-                int l = class26.anInt442;
-                int i1 = class26.anInt443;
+                VarbitConfig varbitConfig = VarbitConfig.aVarbitConfigArray439[anInt767];
+                int k = varbitConfig.anInt441;
+                int l = varbitConfig.anInt442;
+                int i1 = varbitConfig.anInt443;
                 int j1 = Game.anIntArray1271[i1 - l];
                 i = aGame777.anIntArray1149[k] >> l & j1;
             } else if (anInt764 != -1) {

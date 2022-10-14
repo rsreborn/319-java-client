@@ -1,20 +1,21 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
-public class Class40 {
+public class SpotAnimConfig {
 
     public static int anInt683;
     public static int anInt684;
-    public static Class40[] aClass40Array685;
+    public static SpotAnimConfig[] aSpotAnimConfigArray685;
     public static Cache aCache_697 = new Cache(30);
     public int anInt686;
     public int anInt687;
     public int anInt688;
-    public Class50 aClass50_689;
+    public SeqConfig aSeqConfig_689;
     public int[] anIntArray690;
     public int[] anIntArray691;
     public int anInt692;
@@ -23,7 +24,7 @@ public class Class40 {
     public int anInt695;
     public int anInt696;
 
-    public Class40() {
+    public SpotAnimConfig() {
         anInt688 = -1;
         anIntArray690 = new int[6];
         anIntArray691 = new int[6];
@@ -38,15 +39,15 @@ public class Class40 {
                 anInt683 = -170;
             }
             anInt684 = buffer.readUShortBE();
-            if (aClass40Array685 == null) {
-                aClass40Array685 = new Class40[anInt684];
+            if (aSpotAnimConfigArray685 == null) {
+                aSpotAnimConfigArray685 = new SpotAnimConfig[anInt684];
             }
             for (int i = 0; i < anInt684; i++) {
-                if (aClass40Array685[i] == null) {
-                    aClass40Array685[i] = new Class40();
+                if (aSpotAnimConfigArray685[i] == null) {
+                    aSpotAnimConfigArray685[i] = new SpotAnimConfig();
                 }
-                aClass40Array685[i].anInt686 = i;
-                aClass40Array685[i].method529(buffer, 26421);
+                aSpotAnimConfigArray685[i].anInt686 = i;
+                aSpotAnimConfigArray685[i].method529(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -69,8 +70,8 @@ public class Class40 {
                     anInt687 = buffer.readUShortBE();
                 } else if (j == 2) {
                     anInt688 = buffer.readUShortBE();
-                    if (Class50.aClass50Array800 != null) {
-                        aClass50_689 = Class50.aClass50Array800[anInt688];
+                    if (SeqConfig.aSeqConfigArray800 != null) {
+                        aSeqConfig_689 = SeqConfig.aSeqConfigArray800[anInt688];
                     }
                 } else if (j == 4) {
                     anInt692 = buffer.readUShortBE();

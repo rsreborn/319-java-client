@@ -1,14 +1,14 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class Class26 {
+public class VarbitConfig {
 
     public static boolean aBoolean436;
     public static int anInt438;
-    public static Class26[] aClass26Array439;
+    public static VarbitConfig[] aVarbitConfigArray439;
     public int anInt437;
     public String aString440;
     public int anInt441;
@@ -18,7 +18,7 @@ public class Class26 {
     public int anInt445;
     public int anInt446;
 
-    public Class26() {
+    public VarbitConfig() {
         anInt437 = 40848;
         aBoolean444 = false;
         anInt445 = -1;
@@ -28,16 +28,16 @@ public class Class26 {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("varbit.dat", null));
             anInt438 = buffer.readUShortBE();
-            if (aClass26Array439 == null) {
-                aClass26Array439 = new Class26[anInt438];
+            if (aVarbitConfigArray439 == null) {
+                aVarbitConfigArray439 = new VarbitConfig[anInt438];
             }
             for (int i = 0; i < anInt438; i++) {
-                if (aClass26Array439[i] == null) {
-                    aClass26Array439[i] = new Class26();
+                if (aVarbitConfigArray439[i] == null) {
+                    aVarbitConfigArray439[i] = new VarbitConfig();
                 }
-                aClass26Array439[i].method474(i, 40848, buffer);
-                if (aClass26Array439[i].aBoolean444) {
-                    Class22.aClass22Array365[aClass26Array439[i].anInt441].aBoolean377 = true;
+                aVarbitConfigArray439[i].method474(i, 40848, buffer);
+                if (aVarbitConfigArray439[i].aBoolean444) {
+                    VarpConfig.aVarpConfigArray365[aVarbitConfigArray439[i].anInt441].aBoolean377 = true;
                 }
             }
             if (byte0 != 72) {

@@ -1,12 +1,15 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.Class8;
+import com.jagex.Game;
+import com.jagex.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.update.GameUpdateClient;
 import com.jagex.util.Cache;
 
-public class GameObjectDefinition {
+public class LocConfig {
 
     public static Model[] aClass13_Sub1_Sub1_Sub4Array239 = new Model[4];
     public static int anInt245;
@@ -16,7 +19,7 @@ public class GameObjectDefinition {
     public static Game aGame254;
     public static Buffer aBuffer_267;
     public static boolean aBoolean272;
-    public static GameObjectDefinition[] aGameObjectDefinitionArray278;
+    public static LocConfig[] aLocConfigArray278;
     public static int[] anIntArray287;
     public boolean aBoolean240;
     public int[] anIntArray241;
@@ -60,7 +63,7 @@ public class GameObjectDefinition {
     public int anInt288;
     public int[] anIntArray289;
 
-    public GameObjectDefinition() {
+    public LocConfig() {
         aBoolean244 = false;
         aBoolean256 = true;
         anInt268 = -1;
@@ -76,7 +79,7 @@ public class GameObjectDefinition {
                 aCache_248 = null;
                 aCache_249 = null;
                 anIntArray287 = null;
-                aGameObjectDefinitionArray278 = null;
+                aLocConfigArray278 = null;
                 aBuffer_267 = null;
                 return;
             }
@@ -86,19 +89,19 @@ public class GameObjectDefinition {
         throw new RuntimeException();
     }
 
-    public static GameObjectDefinition readDefinition(int i) {
+    public static LocConfig readDefinition(int i) {
         for (int j = 0; j < 20; j++) {
-            if (aGameObjectDefinitionArray278[j].anInt268 == i) {
-                return aGameObjectDefinitionArray278[j];
+            if (aLocConfigArray278[j].anInt268 == i) {
+                return aLocConfigArray278[j];
             }
         }
         anInt245 = (anInt245 + 1) % 20;
-        GameObjectDefinition gameObjectDefinition = aGameObjectDefinitionArray278[anInt245];
+        LocConfig locConfig = aLocConfigArray278[anInt245];
         aBuffer_267.position = anIntArray287[i];
-        gameObjectDefinition.anInt268 = i;
-        gameObjectDefinition.method417();
-        gameObjectDefinition.method420(aBuffer_267, 26421);
-        return gameObjectDefinition;
+        locConfig.anInt268 = i;
+        locConfig.method417();
+        locConfig.method420(aBuffer_267, 26421);
+        return locConfig;
     }
 
     public static void method426(CacheArchive cacheArchive) {
@@ -111,9 +114,9 @@ public class GameObjectDefinition {
             anIntArray287[j] = i;
             i += buffer.readUShortBE();
         }
-        aGameObjectDefinitionArray278 = new GameObjectDefinition[20];
+        aLocConfigArray278 = new LocConfig[20];
         for (int k = 0; k < 20; k++) {
-            aGameObjectDefinitionArray278[k] = new GameObjectDefinition();
+            aLocConfigArray278[k] = new LocConfig();
         }
     }
 
@@ -494,17 +497,17 @@ public class GameObjectDefinition {
         }
     }
 
-    public GameObjectDefinition method424(int i) {
+    public LocConfig method424(int i) {
         try {
             if (i != 2) {
                 anInt284 = 98;
             }
             int j = -1;
             if (anInt246 != -1) {
-                Class26 class26 = Class26.aClass26Array439[anInt246];
-                int k = class26.anInt441;
-                int l = class26.anInt442;
-                int i1 = class26.anInt443;
+                VarbitConfig varbitConfig = VarbitConfig.aVarbitConfigArray439[anInt246];
+                int k = varbitConfig.anInt441;
+                int l = varbitConfig.anInt442;
+                int i1 = varbitConfig.anInt443;
                 int j1 = Game.anIntArray1271[i1 - l];
                 j = aGame254.anIntArray1149[k] >> l & j1;
             } else if (anInt257 != -1) {
