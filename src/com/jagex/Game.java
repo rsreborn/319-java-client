@@ -1,16 +1,23 @@
 package com.jagex;
 
+import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.cache.CacheArchive;
 import com.jagex.cache.CacheIndex;
 import com.jagex.cache.configs.*;
+import com.jagex.graphics.*;
+import com.jagex.renderable.*;
+import com.jagex.map.CollisionMap;
+import com.jagex.map.MapRegion;
+import com.jagex.map.Scene;
 import com.jagex.net.BufferedConnection;
 import com.jagex.net.IncomingPacket;
 import com.jagex.net.OutgoingPacket;
+import com.jagex.net.PacketConstants;
+import com.jagex.sound.Track;
 import com.jagex.update.GameUpdateClient;
 import com.jagex.update.GameUpdateRequest;
 import com.jagex.io.Buffer;
-import com.jagex.util.LinkedList;
-import com.jagex.util.Node;
+import com.jagex.util.*;
 import com.jagex.sign.Signlink;
 
 import java.applet.AppletContext;
@@ -59,7 +66,7 @@ public class Game extends GameShell {
     public static String aString966 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\243$%^&*()-_=+[{]};:'@#~,<.>/?\\| ";
     public static int[] anIntArray968;
     public static int anInt986;
-    public static CacheableNode_Sub1_Sub1_Sub6_ aClass13_Sub1_Sub1_Sub6_Sub1_997;
+    public static Player aClass13_Sub1_Sub1_Sub6_Sub1_997;
     public static int anInt998;
     public static BigInteger rsaKey = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
     public static int anInt1074;
@@ -116,7 +123,7 @@ public class Game extends GameShell {
     public int anInt835;
     public int anInt836;
     public int anInt837;
-    public CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array838;
+    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array838;
     public int[] chatTypes;
     public String[] chatPlayerNames;
     public String[] chatMessages;
@@ -141,25 +148,25 @@ public class Game extends GameShell {
     public int anInt861;
     public int anInt862;
     public int anInt864;
-    public Class48 aClass48_865;
+    public MouseCapturer aMouseCapturer_865;
     public volatile boolean aBoolean866;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_867;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_868;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_869;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_870;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_871;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_867;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_868;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_869;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_870;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_871;
     public int anInt872;
     public GameUpdateClient gameUpdateClient;
     public int anInt874;
-    public Class31 aClass31_875;
-    public Class31 aClass31_876;
-    public Class31 aClass31_877;
-    public Class31 aClass31_878;
-    public Class31 aClass31_879;
-    public Class31 aClass31_880;
-    public Class31 aClass31_881;
-    public Class31 aClass31_882;
-    public Class31 aClass31_883;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_875;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_876;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_877;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_878;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_879;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_880;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_881;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_882;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_883;
     public int anInt884;
     public int anInt885;
     public int anInt886;
@@ -167,14 +174,14 @@ public class Game extends GameShell {
     public int anInt888;
     public int anInt889;
     public int anInt890;
-    public Font aFont_891;
-    public Font aFont_892;
-    public Font aFont_893;
-    public Font aFont_894;
+    public com.jagex.graphics.Font aFont_891;
+    public com.jagex.graphics.Font aFont_892;
+    public com.jagex.graphics.Font aFont_893;
+    public com.jagex.graphics.Font aFont_894;
     public int anInt895;
     public int anInt896;
     public int anInt897;
-    public CacheableNode_Sub1_Sub1_Sub6_[] players;
+    public Player[] players;
     public int anInt899;
     public int[] playerList;
     public int anInt901;
@@ -198,8 +205,8 @@ public class Game extends GameShell {
     public int anInt922;
     public int anInt923;
     public int anInt924;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_925;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_926;
+    public Sprite aClass13_Sub1_Sub4_Sub4_925;
+    public Sprite aClass13_Sub1_Sub4_Sub4_926;
     public int anInt927;
     public Buffer aBuffer_928;
     public int anInt929;
@@ -217,9 +224,9 @@ public class Game extends GameShell {
     public byte[] aByteArray941;
     public int anInt943;
     public boolean aBoolean944;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_945;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_946;
-    public Class39[] aClass39Array947;
+    public Sprite aClass13_Sub1_Sub4_Sub4_945;
+    public Sprite aClass13_Sub1_Sub4_Sub4_946;
+    public CollisionMap[] aCollisionMapArray947;
     public int[] anIntArray948;
     public int anInt949;
     public int anInt950;
@@ -230,7 +237,7 @@ public class Game extends GameShell {
     public String[] aStringArray961;
     public String aString964;
     public int anInt965;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_967;
+    public Sprite aClass13_Sub1_Sub4_Sub4_967;
     public LinkedList[][][] aLinkedListArrayArrayArray969;
     public int[] anIntArray970;
     public boolean aBoolean971;
@@ -311,7 +318,7 @@ public class Game extends GameShell {
     public volatile boolean aBoolean1046;
     public volatile boolean aBoolean1047;
     public boolean aBoolean1048;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1049;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1049;
     public Widget aWidget_1050;
     public boolean aBoolean1051;
     public int anInt1052;
@@ -346,11 +353,11 @@ public class Game extends GameShell {
     public int anInt1085;
     public int anInt1086;
     public int tabId;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1088;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1089;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1090;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1091;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1092;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1088;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1089;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1090;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1091;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1092;
     public int anInt1093;
     public int anInt1094;
     public int daysSinceRecoveryQuestionsUpdated;
@@ -369,23 +376,23 @@ public class Game extends GameShell {
     public int[] anIntArray1109;
     public String[] aStringArray1110;
     public int anInt1111;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1112;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1113;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1114;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1112;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1113;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1114;
     public int anInt1115;
     public int[] anIntArray1116;
     public boolean[] aBooleanArray1117;
     public int anInt1118;
     public int anInt1119;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1120;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1121;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1120;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1121;
     public long aLong1122;
-    public CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1123;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1124;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1125;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1126;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1127;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1128;
+    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1123;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1124;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1125;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1126;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1127;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1128;
     public int anInt1129;
     public int[] anIntArray1130;
     public int[] anIntArray1131;
@@ -400,7 +407,7 @@ public class Game extends GameShell {
     public int[] anIntArray1140;
     public int anInt1141;
     public int anInt1143;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array1145;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1145;
     public byte[][] aByteArrayArray1146;
     public boolean aBoolean1147;
     public boolean redrawTabArea;
@@ -408,7 +415,7 @@ public class Game extends GameShell {
     public int anInt1150;
     public LinkedList aLinkedList_1152;
     public boolean aBoolean1154;
-    public CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1155;
+    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1155;
     public int anInt1157;
     public int anInt1159;
     public String clickToContinueText;
@@ -433,15 +440,15 @@ public class Game extends GameShell {
     };
     public byte[][] aByteArrayArray1179;
     public int anInt1180;
-    public CacheableNode_Sub1_Sub4_Sub3[] aClass13_Sub1_Sub4_Sub3Array1181;
+    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1181;
     public int anInt1182;
     public int anInt1183;
     public int anInt1184;
     public int anInt1185;
-    public Class31 aClass31_1186;
-    public Class31 aClass31_1187;
-    public Class31 aClass31_1188;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array1189;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1186;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1187;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1188;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1189;
     public int[] anIntArray1190;
     public int anInt1191;
     public int anInt1192;
@@ -450,22 +457,22 @@ public class Game extends GameShell {
     public int[] anIntArray1195;
     public String aString1196;
     public int anInt1197;
-    public Class10 aClass10_1198;
+    public Scene aScene_1198;
     public LinkedList aLinkedList_1199;
     public int[] anIntArray1200;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array1201;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1201;
     public int anInt1203;
     public int anInt1204;
     public int anInt1205;
     public int anInt1206;
     public int[] anIntArray1207;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1208;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1209;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1210;
-    public Class31 aClass31_1211;
-    public Class31 aClass31_1212;
-    public Class31 aClass31_1213;
-    public Class31 aClass31_1214;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1208;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1209;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1210;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1211;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1212;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1213;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1214;
     public int anInt1215;
     public boolean aBoolean1216;
     public int anInt1217;
@@ -474,7 +481,7 @@ public class Game extends GameShell {
     public int anInt1220;
     public int anInt1221;
     public int anInt1222;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1223;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1223;
     public int[] anIntArray1224;
     public int anInt1225;
     public int[][][] anIntArrayArrayArray1226;
@@ -491,34 +498,34 @@ public class Game extends GameShell {
     };
     public boolean aBoolean1234;
     public boolean aBoolean1235;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array1236;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1236;
     public boolean aBoolean1237;
     public boolean aBoolean1239;
     public int anInt1241;
     public Buffer buffer;
     public long aLong1243;
     public boolean aBoolean1244;
-    public Class31 aClass31_1245;
-    public Class31 aClass31_1246;
-    public Class31 aClass31_1247;
-    public Class31 aClass31_1248;
-    public Class31 aClass31_1249;
-    public Class31 aClass31_1250;
-    public Class31 aClass31_1251;
-    public Class31 aClass31_1252;
-    public Class31 aClass31_1253;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1245;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1246;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1247;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1248;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1249;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1250;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1251;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1252;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_1253;
     public int anInt1254;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1255;
-    public CacheableNode_Sub1_Sub4_Sub3 aClass13_Sub1_Sub4_Sub3_1256;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1255;
+    public IndexedImage aClass13_Sub1_Sub4_Sub3_1256;
     public int anInt1257;
     public int anInt1258;
     public boolean aBoolean1259;
     public int anInt1261;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1262;
-    public CacheableNode_Sub1_Sub4_Sub4 aClass13_Sub1_Sub4_Sub4_1263;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1262;
+    public Sprite aClass13_Sub1_Sub4_Sub4_1263;
     public CacheIndex[] cacheIndexes;
     public int anInt1265;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array1266;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1266;
     public int[][][] anIntArrayArrayArray1267;
     public int anInt1268;
     public int anInt1269;
@@ -532,7 +539,7 @@ public class Game extends GameShell {
     public int anInt1279;
     public String aString1280;
     public Buffer aBuffer_1282;
-    public CacheableNode_Sub1_Sub1_Sub6_Sub2[] aClass13_Sub1_Sub1_Sub6_Sub2Array1283;
+    public Npc[] aClass13_Sub1_Sub1_Sub6_Sub2Array1283;
     public int anInt1284;
     public int[] anIntArray1285;
     public boolean aBoolean1286;
@@ -546,7 +553,7 @@ public class Game extends GameShell {
         aBoolean826 = true;
         anIntArray831 = new int[1000];
         anIntArray832 = new int[1000];
-        aClass13_Sub1_Sub4_Sub3Array838 = new CacheableNode_Sub1_Sub4_Sub3[2];
+        aClass13_Sub1_Sub4_Sub3Array838 = new IndexedImage[2];
         chatTypes = new int[100];
         chatPlayerNames = new String[100];
         chatMessages = new String[100];
@@ -564,14 +571,14 @@ public class Game extends GameShell {
         anInt895 = -22144;
         anInt896 = 2048;
         anInt897 = 2047;
-        players = new CacheableNode_Sub1_Sub1_Sub6_[anInt896];
+        players = new Player[anInt896];
         playerList = new int[anInt896];
         anIntArray902 = new int[anInt896];
         aBufferArray903 = new Buffer[anInt896];
         anInt904 = -1;
         anInt905 = 46358;
         anInt906 = 0x766654;
-        anIntArray908 = new int[Class44.anInt725];
+        anIntArray908 = new int[SkillConstants.SKILL_COUNT];
         anIntArray909 = new int[500];
         anIntArray910 = new int[500];
         anIntArray911 = new int[500];
@@ -583,7 +590,7 @@ public class Game extends GameShell {
         aBuffer_928 = Buffer.allocate(1);
         aByteArray941 = new byte[16384];
         aBoolean944 = true;
-        aClass39Array947 = new Class39[4];
+        aCollisionMapArray947 = new CollisionMap[4];
         anIntArray948 = new int[50];
         anInt949 = 0x4d4233;
         anInt950 = -1;
@@ -598,7 +605,7 @@ public class Game extends GameShell {
         aBoolean977 = false;
         aBoolean978 = false;
         aLinkedList_982 = new LinkedList();
-        anIntArray983 = new int[Class44.anInt725];
+        anIntArray983 = new int[SkillConstants.SKILL_COUNT];
         aBoolean987 = false;
         aBoolean989 = false;
         aLongArray990 = new long[100];
@@ -620,7 +627,7 @@ public class Game extends GameShell {
         aBooleanArray1032 = new boolean[5];
         aBoolean1034 = false;
         anInt1036 = 1;
-        anIntArray1045 = new int[Class44.anInt725];
+        anIntArray1045 = new int[SkillConstants.SKILL_COUNT];
         aBoolean1046 = false;
         aBoolean1047 = false;
         aBoolean1048 = false;
@@ -656,12 +663,12 @@ public class Game extends GameShell {
         anInt1111 = 0x332d25;
         anIntArray1116 = new int[5];
         aBooleanArray1117 = new boolean[5];
-        aClass13_Sub1_Sub4_Sub3Array1123 = new CacheableNode_Sub1_Sub4_Sub3[100];
+        aClass13_Sub1_Sub4_Sub3Array1123 = new IndexedImage[100];
         aBoolean1137 = false;
         anInt1139 = 100;
         anIntArray1140 = new int[100];
         anInt1143 = -1;
-        aClass13_Sub1_Sub4_Sub4Array1145 = new CacheableNode_Sub1_Sub4_Sub4[1000];
+        aClass13_Sub1_Sub4_Sub4Array1145 = new Sprite[1000];
         aBoolean1147 = true;
         redrawTabArea = false;
         anIntArray1149 = new int[2000];
@@ -676,10 +683,10 @@ public class Game extends GameShell {
         anInt1173 = 208;
         aString1174 = "";
         aString1175 = "";
-        aClass13_Sub1_Sub4_Sub3Array1181 = new CacheableNode_Sub1_Sub4_Sub3[13];
+        aClass13_Sub1_Sub4_Sub3Array1181 = new IndexedImage[13];
         anInt1182 = 0x23201b;
         anInt1185 = 60;
-        aClass13_Sub1_Sub4_Sub4Array1189 = new CacheableNode_Sub1_Sub4_Sub4[100];
+        aClass13_Sub1_Sub4_Sub4Array1189 = new Sprite[100];
         anIntArray1190 = new int[5];
         anInt1191 = -1;
         aBoolean1193 = true;
@@ -688,7 +695,7 @@ public class Game extends GameShell {
         aString1196 = "";
         aLinkedList_1199 = new LinkedList();
         anIntArray1200 = new int[33];
-        aClass13_Sub1_Sub4_Sub4Array1201 = new CacheableNode_Sub1_Sub4_Sub4[8];
+        aClass13_Sub1_Sub4_Sub4Array1201 = new Sprite[8];
         anInt1203 = 932;
         anInt1204 = -670;
         anInt1206 = 2;
@@ -704,7 +711,7 @@ public class Game extends GameShell {
         aString1230 = "";
         aBoolean1234 = false;
         aBoolean1235 = false;
-        aClass13_Sub1_Sub4_Sub4Array1236 = new CacheableNode_Sub1_Sub4_Sub4[20];
+        aClass13_Sub1_Sub4_Sub4Array1236 = new Sprite[20];
         aBoolean1237 = false;
         aBoolean1239 = false;
         buffer = Buffer.allocate(1);
@@ -714,7 +721,7 @@ public class Game extends GameShell {
         anInt1261 = -1;
         cacheIndexes = new CacheIndex[5];
         anInt1265 = 4;
-        aClass13_Sub1_Sub4_Sub4Array1266 = new CacheableNode_Sub1_Sub4_Sub4[20];
+        aClass13_Sub1_Sub4_Sub4Array1266 = new Sprite[20];
         anInt1268 = -49493;
         username = "";
         password = "";
@@ -724,7 +731,7 @@ public class Game extends GameShell {
         anInt1279 = -22144;
         aString1280 = "";
         aBuffer_1282 = new Buffer(new byte[5000]);
-        aClass13_Sub1_Sub1_Sub6_Sub2Array1283 = new CacheableNode_Sub1_Sub1_Sub6_Sub2[16384];
+        aClass13_Sub1_Sub1_Sub6_Sub2Array1283 = new Npc[16384];
         anIntArray1285 = new int[16384];
         aBoolean1286 = false;
         anInt1287 = -49493;
@@ -809,14 +816,14 @@ public class Game extends GameShell {
 
     public static void method85(boolean flag) {
         try {
-            Class10.aBoolean162 = false;
+            Scene.aBoolean162 = false;
             if (!flag) {
                 for (int i = 1; i > 0; i++) {
                 }
             }
-            CacheableNode_Sub1_Sub4_.aBoolean1625 = false;
+            Rasterizer3D.aBoolean1625 = false;
             lowMemory = false;
-            Class25.aBoolean433 = false;
+            MapRegion.aBoolean433 = false;
             LocationConfig.aBoolean272 = false;
             return;
         } catch (RuntimeException runtimeexception) {
@@ -827,10 +834,10 @@ public class Game extends GameShell {
 
     public static void method106(int i) {
         try {
-            Class10.aBoolean162 = true;
-            CacheableNode_Sub1_Sub4_.aBoolean1625 = true;
+            Scene.aBoolean162 = true;
+            Rasterizer3D.aBoolean1625 = true;
             lowMemory = true;
-            Class25.aBoolean433 = true;
+            MapRegion.aBoolean433 = true;
             if (i < 8 || i > 8) {
                 return;
             } else {
@@ -887,9 +894,9 @@ public class Game extends GameShell {
 
     public void method14(int i, int j, int k, int l, int i1, int j1) {
         try {
-            int k1 = aClass10_1198.method220(k, l, i1);
+            int k1 = aScene_1198.method220(k, l, i1);
             if (k1 != 0) {
-                int l1 = aClass10_1198.method224(k, l, i1, k1);
+                int l1 = aScene_1198.method224(k, l, i1, k1);
                 int l2 = l1 >> 6 & 3;
                 int j3 = l1 & 0x1f;
                 int l3 = i;
@@ -901,7 +908,7 @@ public class Game extends GameShell {
                 int j5 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig_2 = LocationConfig.readDefinition(j5);
                 if (locationConfig_2.anInt255 != -1) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3_2 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_2.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3_2 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_2.anInt255];
                     if (class13_sub1_sub4_sub3_2 != null) {
                         int j6 = (locationConfig_2.anInt259 * 4 - class13_sub1_sub4_sub3_2.anInt1669) / 2;
                         int k6 = (locationConfig_2.anInt253 * 4 - class13_sub1_sub4_sub3_2.anInt1670) / 2;
@@ -967,15 +974,15 @@ public class Game extends GameShell {
                     }
                 }
             }
-            k1 = aClass10_1198.method222(k, l, i1);
+            k1 = aScene_1198.method222(k, l, i1);
             if (k1 != 0) {
-                int i2 = aClass10_1198.method224(k, l, i1, k1);
+                int i2 = aScene_1198.method224(k, l, i1, k1);
                 int i3 = i2 >> 6 & 3;
                 int k3 = i2 & 0x1f;
                 int i4 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig_1 = LocationConfig.readDefinition(i4);
                 if (locationConfig_1.anInt255 != -1) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3_1 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_1.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3_1 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_1.anInt255];
                     if (class13_sub1_sub4_sub3_1 != null) {
                         int k5 = (locationConfig_1.anInt259 * 4 - class13_sub1_sub4_sub3_1.anInt1669) / 2;
                         int l5 = (locationConfig_1.anInt253 * 4 - class13_sub1_sub4_sub3_1.anInt1670) / 2;
@@ -1001,7 +1008,7 @@ public class Game extends GameShell {
                     }
                 }
             }
-            k1 = aClass10_1198.method223(k, l, i1);
+            k1 = aScene_1198.method223(k, l, i1);
             if (j < 3 || j > 3) {
                 for (int j2 = 1; j2 > 0; j2++) {
                 }
@@ -1010,7 +1017,7 @@ public class Game extends GameShell {
                 int k2 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig = LocationConfig.readDefinition(k2);
                 if (locationConfig.anInt255 != -1) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig.anInt255];
                     if (class13_sub1_sub4_sub3 != null) {
                         int j4 = (locationConfig.anInt259 * 4 - class13_sub1_sub4_sub3.anInt1669) / 2;
                         int k4 = (locationConfig.anInt253 * 4 - class13_sub1_sub4_sub3.anInt1670) / 2;
@@ -1040,38 +1047,38 @@ public class Game extends GameShell {
 
     public void method16(int i) {
         try {
-            if (aClass31_1245 != null) {
+            if (aProducingGraphicsBuffer_1245 != null) {
                 return;
             }
-            super.aClass31_16 = null;
-            aClass31_1214 = null;
-            aClass31_1212 = null;
+            super.aProducingGraphicsBuffer_16 = null;
+            aProducingGraphicsBuffer_1214 = null;
+            aProducingGraphicsBuffer_1212 = null;
             if (i != 35437) {
                 method6();
             }
-            aClass31_1211 = null;
-            aClass31_1213 = null;
-            aClass31_1186 = null;
-            aClass31_1187 = null;
-            aClass31_1188 = null;
-            aClass31_1248 = new Class31(true, 128, method11(736), 265);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1249 = new Class31(true, 128, method11(736), 265);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1245 = new Class31(true, 509, method11(736), 171);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1246 = new Class31(true, 360, method11(736), 132);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1247 = new Class31(true, 360, method11(736), 200);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1250 = new Class31(true, 202, method11(736), 238);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1251 = new Class31(true, 203, method11(736), 238);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1252 = new Class31(true, 74, method11(736), 94);
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass31_1253 = new Class31(true, 75, method11(736), 94);
-            CacheableNode_Sub1_Sub4.method354(false);
+            aProducingGraphicsBuffer_1211 = null;
+            aProducingGraphicsBuffer_1213 = null;
+            aProducingGraphicsBuffer_1186 = null;
+            aProducingGraphicsBuffer_1187 = null;
+            aProducingGraphicsBuffer_1188 = null;
+            aProducingGraphicsBuffer_1248 = new ProducingGraphicsBuffer(true, 128, method11(736), 265);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1249 = new ProducingGraphicsBuffer(true, 128, method11(736), 265);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1245 = new ProducingGraphicsBuffer(true, 509, method11(736), 171);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1246 = new ProducingGraphicsBuffer(true, 360, method11(736), 132);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1247 = new ProducingGraphicsBuffer(true, 360, method11(736), 200);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1250 = new ProducingGraphicsBuffer(true, 202, method11(736), 238);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1251 = new ProducingGraphicsBuffer(true, 203, method11(736), 238);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1252 = new ProducingGraphicsBuffer(true, 74, method11(736), 94);
+            Rasterizer.method354(false);
+            aProducingGraphicsBuffer_1253 = new ProducingGraphicsBuffer(true, 75, method11(736), 94);
+            Rasterizer.method354(false);
             if (aCacheArchive_991 != null) {
                 method32(736);
                 method122(8);
@@ -1118,8 +1125,8 @@ public class Game extends GameShell {
                     j -= 73;
                     k -= 75;
                     int l = anInt922 + anInt1205 & 0x7ff;
-                    int i1 = CacheableNode_Sub1_Sub4_.anIntArray1634[l];
-                    int j1 = CacheableNode_Sub1_Sub4_.anIntArray1635[l];
+                    int i1 = Rasterizer3D.anIntArray1634[l];
+                    int j1 = Rasterizer3D.anIntArray1635[l];
                     i1 = i1 * (anInt1035 + 256) >> 8;
                     j1 = j1 * (anInt1035 + 256) >> 8;
                     int k1 = k * i1 + j * j1 >> 11;
@@ -1154,12 +1161,12 @@ public class Game extends GameShell {
                 logout();
                 return;
             }
-            aClass31_1213.method490(false);
+            aProducingGraphicsBuffer_1213.method490(false);
             aFont_892.method381(257, 0, 6, 144, "Connection lost");
             aFont_892.method381(256, 0xffffff, 6, 143, "Connection lost");
             aFont_892.method381(257, 0, 6, 159, "Please wait - attempting to reestablish");
             aFont_892.method381(256, 0xffffff, 6, 158, "Please wait - attempting to reestablish");
-            aClass31_1213.method491(super.aGraphics15, 4, false, 4);
+            aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, false, 4);
             anInt1094 = 0;
             packetSize += i;
             anInt1221 = 0;
@@ -1185,7 +1192,7 @@ public class Game extends GameShell {
     public void method20(boolean flag, boolean flag1) {
         try {
             method16(35437);
-            aClass31_1247.method490(false);
+            aProducingGraphicsBuffer_1247.method490(false);
             aClass13_Sub1_Sub4_Sub3_1120.method401(0, (byte) 83, 0);
             loggedIn &= flag;
             char c = '\u0168';
@@ -1216,7 +1223,7 @@ public class Game extends GameShell {
                 }
                 aFont_893.method389(true, c / 2 - 90, (byte) 8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
-                aFont_893.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + Class24.method451(password, true) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
+                aFont_893.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + StringUtil.method451(password, true) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
                 if (!flag1) {
                     int i1 = c / 2 - 80;
@@ -1244,15 +1251,15 @@ public class Game extends GameShell {
                 aClass13_Sub1_Sub4_Sub3_1121.method401(i2 - 20, (byte) 83, j1 - 73);
                 aFont_893.method382(j1, true, "Cancel", i2 + 5, 0xffffff, false);
             }
-            aClass31_1247.method491(super.aGraphics15, 171, false, 202);
+            aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 171, false, 202);
             if (aBoolean1216) {
                 aBoolean1216 = false;
-                aClass31_1245.method491(super.aGraphics15, 0, false, 128);
-                aClass31_1246.method491(super.aGraphics15, 371, false, 202);
-                aClass31_1250.method491(super.aGraphics15, 265, false, 0);
-                aClass31_1251.method491(super.aGraphics15, 265, false, 562);
-                aClass31_1252.method491(super.aGraphics15, 171, false, 128);
-                aClass31_1253.method491(super.aGraphics15, 171, false, 562);
+                aProducingGraphicsBuffer_1245.method491(super.aGraphics15, 0, false, 128);
+                aProducingGraphicsBuffer_1246.method491(super.aGraphics15, 371, false, 202);
+                aProducingGraphicsBuffer_1250.method491(super.aGraphics15, 265, false, 0);
+                aProducingGraphicsBuffer_1251.method491(super.aGraphics15, 265, false, 562);
+                aProducingGraphicsBuffer_1252.method491(super.aGraphics15, 171, false, 128);
+                aProducingGraphicsBuffer_1253.method491(super.aGraphics15, 171, false, 562);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -1292,11 +1299,11 @@ public class Game extends GameShell {
     public void method22(int i) {
         try {
             i = 90 / i;
-            if (lowMemory && anInt1254 == 2 && Class25.anInt416 != anInt1166) {
-                aClass31_1213.method490(false);
+            if (lowMemory && anInt1254 == 2 && MapRegion.anInt416 != anInt1166) {
+                aProducingGraphicsBuffer_1213.method490(false);
                 aFont_892.method381(257, 0, 6, 151, "Loading - please wait.");
                 aFont_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
-                aClass31_1213.method491(super.aGraphics15, 4, false, 4);
+                aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, false, 4);
                 anInt1254 = 1;
                 aLong1243 = System.currentTimeMillis();
             }
@@ -1338,7 +1345,7 @@ public class Game extends GameShell {
                         l = 10;
                         i1 = 10;
                     }
-                    flag &= Class25.method464(0, l, i1, abyte0);
+                    flag &= MapRegion.method464(0, l, i1, abyte0);
                 }
             }
             if (i >= 0) {
@@ -1351,7 +1358,7 @@ public class Game extends GameShell {
                 return -4;
             } else {
                 anInt1254 = 2;
-                Class25.anInt416 = anInt1166;
+                MapRegion.anInt416 = anInt1166;
                 method91(aBoolean1237);
                 aBuffer_928.writeOpcode(25);
                 return 0;
@@ -1634,7 +1641,7 @@ public class Game extends GameShell {
                 aBuffer_928.writeShortBE(itemId);
             }
             if (action == 69) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2.anIntArray1616[0], class13_sub1_sub1_sub6_sub2.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1660,7 +1667,7 @@ public class Game extends GameShell {
                 aBuffer_928.writeShortBE(widgetId + anInt1084);
             }
             if (action == 672) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_1 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_1.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_1.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1688,7 +1695,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 352) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1.anIntArray1616[0], class13_sub1_sub1_sub6_sub1.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1776,7 +1783,7 @@ public class Game extends GameShell {
                 String s = aStringArray961[i];
                 int k1 = s.indexOf("@whi@");
                 if (k1 != -1) {
-                    long l3 = Class24.method446(s.substring(k1 + 5).trim());
+                    long l3 = StringUtil.method446(s.substring(k1 + 5).trim());
                     int j3 = -1;
                     for (int i4 = 0; i4 < anInt1054; i4++) {
                         if (aLongArray993[i4] != l3) {
@@ -1882,7 +1889,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 257) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_2 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_2.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_2.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1933,7 +1940,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 1210) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_3 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_3 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_3 != null) {
                     NpcConfig npcConfig = class13_sub1_sub1_sub6_sub2_3.aNpcConfig_1717;
                     if (npcConfig.anIntArray751 != null) {
@@ -1971,7 +1978,7 @@ public class Game extends GameShell {
                 aBuffer_928.writeShortLEA(anInt1014, slot + anInt1083);
             }
             if (action == 345) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_1 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_1 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_1 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_1.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_1.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1983,7 +1990,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 183) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_2 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_2 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_2 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_2.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_2.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -1996,7 +2003,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 582) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_4 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_4 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_4 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_4.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_4.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2020,7 +2027,7 @@ public class Game extends GameShell {
                 addChatMessage("", s8, 0);
             }
             if (action == 219) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_3 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_3 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_3 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_3.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_3.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2052,10 +2059,10 @@ public class Game extends GameShell {
                 int i2 = s1.indexOf("@whi@");
                 if (i2 != -1) {
                     s1 = s1.substring(i2 + 5).trim();
-                    String s9 = Class24.method450(Class24.method447(Class24.method446(s1), 0), 0);
+                    String s9 = StringUtil.method450(StringUtil.method447(StringUtil.method446(s1), 0), 0);
                     boolean flag8 = false;
                     for (int k3 = 0; k3 < anInt899; k3++) {
-                        CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_7 = players[playerList[k3]];
+                        Player class13_sub1_sub1_sub6_sub1_7 = players[playerList[k3]];
                         if (class13_sub1_sub1_sub6_sub1_7 == null || class13_sub1_sub1_sub6_sub1_7.aString1689 == null || !class13_sub1_sub1_sub6_sub1_7.aString1689.equalsIgnoreCase(s9)) {
                             continue;
                         }
@@ -2142,7 +2149,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 514) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_4 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_4 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_4 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_4.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_4.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2170,7 +2177,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 616) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_5 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_5 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_5 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_5.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_5.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2188,7 +2195,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 447) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_6 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_6 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_6 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_6.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_6.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2254,7 +2261,7 @@ public class Game extends GameShell {
                 aBuffer_928.writeShortBE(itemId >> 14 & 0x7fff);
             }
             if (action == 812) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_5 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_5 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_5 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_5.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_5.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2266,7 +2273,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 758) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_6 = players[itemId];
+                Player class13_sub1_sub1_sub6_sub1_6 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_6 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_6.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_6.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2303,7 +2310,7 @@ public class Game extends GameShell {
                 String s3 = aStringArray961[i];
                 int l2 = s3.indexOf("@whi@");
                 if (l2 != -1) {
-                    long l4 = Class24.method446(s3.substring(l2 + 5).trim());
+                    long l4 = StringUtil.method446(s3.substring(l2 + 5).trim());
                     if (action == 39) {
                         method45(688, l4);
                     }
@@ -2319,7 +2326,7 @@ public class Game extends GameShell {
                 }
             }
             if (action == 291) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_7 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
+                Npc class13_sub1_sub1_sub6_sub2_7 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[itemId];
                 if (class13_sub1_sub1_sub6_sub2_7 != null) {
                     walk(false, 1, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_7.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_7.anIntArray1615[0], 0);
                     anInt929 = super.anInt30;
@@ -2343,9 +2350,9 @@ public class Game extends GameShell {
             }
             if (action == 770) {
                 if (!aBoolean989) {
-                    aClass10_1198.method232(super.anInt31 - 4, true, super.anInt30 - 4);
+                    aScene_1198.method232(super.anInt31 - 4, true, super.anInt30 - 4);
                 } else {
-                    aClass10_1198.method232(widgetId - 4, true, slot - 4);
+                    aScene_1198.method232(widgetId - 4, true, slot - 4);
                 }
             }
             if (action == 31) {
@@ -2498,7 +2505,7 @@ public class Game extends GameShell {
                     if (isaacCipher != null) {
                         opcode = opcode - isaacCipher.nextInt() & 0xff;
                     }
-                    packetSize = Class33.PACKET_SIZES[opcode];
+                    packetSize = PacketConstants.PACKET_SIZES[opcode];
                     available--;
                 }
                 if (packetSize == -1) {
@@ -2579,7 +2586,7 @@ public class Game extends GameShell {
                     String s = buffer.readString();
                     if (s.endsWith(":tradereq:")) {
                         String s3 = s.substring(0, s.indexOf(":"));
-                        long l15 = Class24.method446(s3);
+                        long l15 = StringUtil.method446(s3);
                         boolean flag1 = false;
                         for (int j26 = 0; j26 < anInt1098; j26++) {
                             if (aLongArray990[j26] != l15) {
@@ -2593,7 +2600,7 @@ public class Game extends GameShell {
                         }
                     } else if (s.endsWith(":duelreq:")) {
                         String s4 = s.substring(0, s.indexOf(":"));
-                        long l16 = Class24.method446(s4);
+                        long l16 = StringUtil.method446(s4);
                         boolean flag2 = false;
                         for (int k26 = 0; k26 < anInt1098; k26++) {
                             if (aLongArray990[k26] != l16) {
@@ -2607,7 +2614,7 @@ public class Game extends GameShell {
                         }
                     } else if (s.endsWith(":chalreq:")) {
                         String s5 = s.substring(0, s.indexOf(":"));
-                        long l17 = Class24.method446(s5);
+                        long l17 = StringUtil.method446(s5);
                         boolean flag3 = false;
                         for (int l26 = 0; l26 < anInt1098; l26++) {
                             if (aLongArray990[l26] != l17) {
@@ -2803,7 +2810,7 @@ public class Game extends GameShell {
                     if (aBoolean1010 && !lowMemory && anInt1057 < 50) {
                         anIntArray1278[anInt1057] = l3;
                         anIntArray1207[anInt1057] = l11;
-                        anIntArray948[anInt1057] = k16 + Class27.anIntArray450[l3];
+                        anIntArray948[anInt1057] = k16 + Track.anIntArray450[l3];
                         anInt1057++;
                     }
                     opcode = -1;
@@ -2993,7 +3000,7 @@ public class Game extends GameShell {
                     daysSinceRecoveryQuestionsUpdated = buffer.readUByteA();
                     unreadMessagesCount = buffer.readUShortLEA();
                     if (lastLoginAddress != 0 && anInt1217 == -1) {
-                        Signlink.dnslookup(Class24.method449(lastLoginAddress, false));
+                        Signlink.dnslookup(StringUtil.method449(lastLoginAddress, false));
                         closeWidgets();
                         char c = '\u028A';
                         if (daysSinceRecoveryQuestionsUpdated != 201 || hasMembershipAndIsOnFreeToPlayWorld == 1) {
@@ -3051,7 +3058,7 @@ public class Game extends GameShell {
                 if (opcode == 213) {
                     long l6 = buffer.readLongBE();
                     int k18 = buffer.readUByte();
-                    String s7 = Class24.method450(Class24.method447(l6, 0), 0);
+                    String s7 = StringUtil.method450(StringUtil.method447(l6, 0), 0);
                     for (int i24 = 0; i24 < anInt1054; i24++) {
                         if (l6 != aLongArray993[i24]) {
                             continue;
@@ -3214,10 +3221,10 @@ public class Game extends GameShell {
                     }
                     anInt1254 = 1;
                     aLong1243 = System.currentTimeMillis();
-                    aClass31_1213.method490(false);
+                    aProducingGraphicsBuffer_1213.method490(false);
                     aFont_892.method381(257, 0, 6, 151, "Loading - please wait.");
                     aFont_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
-                    aClass31_1213.method491(super.aGraphics15, 4, false, 4);
+                    aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, false, 4);
                     if (opcode == 228) {
                         int k19 = 0;
                         for (int k22 = (anInt984 - 6) / 8; k22 <= (anInt984 + 6) / 8; k22++) {
@@ -3301,7 +3308,7 @@ public class Game extends GameShell {
                     anInt1085 = anInt1083;
                     anInt1086 = anInt1084;
                     for (int l25 = 0; l25 < 16384; l25++) {
-                        CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l25];
+                        Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l25];
                         if (class13_sub1_sub1_sub6_sub2 != null) {
                             for (int i30 = 0; i30 < 10; i30++) {
                                 class13_sub1_sub1_sub6_sub2.anIntArray1615[i30] -= i20;
@@ -3312,7 +3319,7 @@ public class Game extends GameShell {
                         }
                     }
                     for (int j28 = 0; j28 < anInt896; j28++) {
-                        CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[j28];
+                        Player class13_sub1_sub1_sub6_sub1 = players[j28];
                         if (class13_sub1_sub1_sub6_sub1 != null) {
                             for (int k31 = 0; k31 < 10; k31++) {
                                 class13_sub1_sub1_sub6_sub1.anIntArray1615[k31] -= i20;
@@ -3548,16 +3555,16 @@ public class Game extends GameShell {
                         try {
                             anIntArray1140[anInt1030] = k20;
                             anInt1030 = (anInt1030 + 1) % 100;
-                            String s9 = Class45.method573(buffer, 0, packetSize - 13);
+                            String s9 = ChatMessageCodec.method573(buffer, 0, packetSize - 13);
                             if (j23 != 3) {
-                                s9 = Class41.method541(false, s9);
+                                s9 = MessageCensor.method541(false, s9);
                             }
                             if (j23 == 2 || j23 == 3) {
-                                addChatMessage("@cr2@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr2@" + StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 7);
                             } else if (j23 == 1) {
-                                addChatMessage("@cr1@" + Class24.method450(Class24.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr1@" + StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 7);
                             } else {
-                                addChatMessage(Class24.method450(Class24.method447(l9, 0), 0), s9, 3);
+                                addChatMessage(StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 3);
                             }
                         } catch (Exception exception1) {
                             Signlink.reportError("cde1");
@@ -3605,7 +3612,7 @@ public class Game extends GameShell {
                     continue;
                 }
                 i = k;
-                if (j1 == 2 && aClass10_1198.method224(anInt1166, l, i1, k) >= 0) {
+                if (j1 == 2 && aScene_1198.method224(anInt1166, l, i1, k) >= 0) {
                     LocationConfig gameObject = LocationConfig.readDefinition(index);
                     if (gameObject.anIntArray243 != null) {
                         gameObject = gameObject.method424(2);
@@ -3670,16 +3677,16 @@ public class Game extends GameShell {
                     }
                 }
                 if (j1 == 1) {
-                    CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[index];
+                    Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[index];
                     if (class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.aByte768 == 1 && (class13_sub1_sub1_sub6_sub2.anInt1587 & 0x7f) == 64 && (class13_sub1_sub1_sub6_sub2.anInt1588 & 0x7f) == 64) {
                         for (int i2 = 0; i2 < anInt1284; i2++) {
-                            CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[i2]];
+                            Npc class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[i2]];
                             if (class13_sub1_sub1_sub6_sub2_1 != null && class13_sub1_sub1_sub6_sub2_1 != class13_sub1_sub1_sub6_sub2 && class13_sub1_sub1_sub6_sub2_1.aNpcConfig_1717.aByte768 == 1 && class13_sub1_sub1_sub6_sub2_1.anInt1587 == class13_sub1_sub1_sub6_sub2.anInt1587 && class13_sub1_sub1_sub6_sub2_1.anInt1588 == class13_sub1_sub1_sub6_sub2.anInt1588) {
                                 method133(anIntArray1285[i2], l, i1, class13_sub1_sub1_sub6_sub2_1.aNpcConfig_1717);
                             }
                         }
                         for (int k2 = 0; k2 < anInt899; k2++) {
-                            CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_1 = players[playerList[k2]];
+                            Player class13_sub1_sub1_sub6_sub1_1 = players[playerList[k2]];
                             if (class13_sub1_sub1_sub6_sub1_1 != null && class13_sub1_sub1_sub6_sub1_1.anInt1587 == class13_sub1_sub1_sub6_sub2.anInt1587 && class13_sub1_sub1_sub6_sub1_1.anInt1588 == class13_sub1_sub1_sub6_sub2.anInt1588) {
                                 method72(class13_sub1_sub1_sub6_sub1_1, playerList[k2], i1, l, aBoolean978);
                             }
@@ -3688,16 +3695,16 @@ public class Game extends GameShell {
                     method133(index, l, i1, class13_sub1_sub1_sub6_sub2.aNpcConfig_1717);
                 }
                 if (j1 == 0) {
-                    CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[index];
+                    Player class13_sub1_sub1_sub6_sub1 = players[index];
                     if ((class13_sub1_sub1_sub6_sub1.anInt1587 & 0x7f) == 64 && (class13_sub1_sub1_sub6_sub1.anInt1588 & 0x7f) == 64) {
                         for (int j2 = 0; j2 < anInt1284; j2++) {
-                            CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[j2]];
+                            Npc class13_sub1_sub1_sub6_sub2_2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[j2]];
                             if (class13_sub1_sub1_sub6_sub2_2 != null && class13_sub1_sub1_sub6_sub2_2.aNpcConfig_1717.aByte768 == 1 && class13_sub1_sub1_sub6_sub2_2.anInt1587 == class13_sub1_sub1_sub6_sub1.anInt1587 && class13_sub1_sub1_sub6_sub2_2.anInt1588 == class13_sub1_sub1_sub6_sub1.anInt1588) {
                                 method133(anIntArray1285[j2], l, i1, class13_sub1_sub1_sub6_sub2_2.aNpcConfig_1717);
                             }
                         }
                         for (int l2 = 0; l2 < anInt899; l2++) {
-                            CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_2 = players[playerList[l2]];
+                            Player class13_sub1_sub1_sub6_sub1_2 = players[playerList[l2]];
                             if (class13_sub1_sub1_sub6_sub1_2 != null && class13_sub1_sub1_sub6_sub1_2 != class13_sub1_sub1_sub6_sub1 && class13_sub1_sub1_sub6_sub1_2.anInt1587 == class13_sub1_sub1_sub6_sub1.anInt1587 && class13_sub1_sub1_sub6_sub1_2.anInt1588 == class13_sub1_sub1_sub6_sub1.anInt1588) {
                                 method72(class13_sub1_sub1_sub6_sub1_2, playerList[l2], i1, l, aBoolean978);
                             }
@@ -3708,7 +3715,7 @@ public class Game extends GameShell {
                 if (j1 == 3) {
                     LinkedList linkedList = aLinkedListArrayArrayArray969[anInt1166][l][i1];
                     if (linkedList != null) {
-                        for (CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.last(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.previous()) {
+                        for (com.jagex.renderable.Object class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.last(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.previous()) {
                             ObjectConfig objectConfig = ObjectConfig.method505(class13_sub1_sub1_sub5.anInt1563);
                             if (anInt1025 == 1) {
                                 aStringArray961[anInt1167] = "Use " + selectedItemName + " with @lre@" + objectConfig.itemName;
@@ -3782,24 +3789,24 @@ public class Game extends GameShell {
     public void method32(int i) {
         try {
             byte[] abyte0 = aCacheArchive_991.readFile("title.dat", null);
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(abyte0, this);
-            aClass31_1248.method490(false);
+            Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
+            aProducingGraphicsBuffer_1248.method490(false);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            aClass31_1249.method490(false);
+            aProducingGraphicsBuffer_1249.method490(false);
             class13_sub1_sub4_sub4.method406(-637, 0, 902);
-            aClass31_1245.method490(false);
+            aProducingGraphicsBuffer_1245.method490(false);
             class13_sub1_sub4_sub4.method406(-128, 0, 902);
-            aClass31_1246.method490(false);
+            aProducingGraphicsBuffer_1246.method490(false);
             class13_sub1_sub4_sub4.method406(-202, -371, 902);
-            aClass31_1247.method490(false);
+            aProducingGraphicsBuffer_1247.method490(false);
             class13_sub1_sub4_sub4.method406(-202, -171, 902);
-            aClass31_1250.method490(false);
+            aProducingGraphicsBuffer_1250.method490(false);
             class13_sub1_sub4_sub4.method406(0, -265, 902);
-            aClass31_1251.method490(false);
+            aProducingGraphicsBuffer_1251.method490(false);
             class13_sub1_sub4_sub4.method406(-562, -265, 902);
-            aClass31_1252.method490(false);
+            aProducingGraphicsBuffer_1252.method490(false);
             class13_sub1_sub4_sub4.method406(-128, -171, 902);
-            aClass31_1253.method490(false);
+            aProducingGraphicsBuffer_1253.method490(false);
             class13_sub1_sub4_sub4.method406(-562, -171, 902);
             i = 94 / i;
             int[] ai = new int[class13_sub1_sub4_sub4.anInt1681];
@@ -3811,26 +3818,26 @@ public class Game extends GameShell {
                     class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.anInt1681 * j] = ai[l];
                 }
             }
-            aClass31_1248.method490(false);
+            aProducingGraphicsBuffer_1248.method490(false);
             class13_sub1_sub4_sub4.method406(382, 0, 902);
-            aClass31_1249.method490(false);
+            aProducingGraphicsBuffer_1249.method490(false);
             class13_sub1_sub4_sub4.method406(-255, 0, 902);
-            aClass31_1245.method490(false);
+            aProducingGraphicsBuffer_1245.method490(false);
             class13_sub1_sub4_sub4.method406(254, 0, 902);
-            aClass31_1246.method490(false);
+            aProducingGraphicsBuffer_1246.method490(false);
             class13_sub1_sub4_sub4.method406(180, -371, 902);
-            aClass31_1247.method490(false);
+            aProducingGraphicsBuffer_1247.method490(false);
             class13_sub1_sub4_sub4.method406(180, -171, 902);
-            aClass31_1250.method490(false);
+            aProducingGraphicsBuffer_1250.method490(false);
             class13_sub1_sub4_sub4.method406(382, -265, 902);
-            aClass31_1251.method490(false);
+            aProducingGraphicsBuffer_1251.method490(false);
             class13_sub1_sub4_sub4.method406(-180, -265, 902);
-            aClass31_1252.method490(false);
+            aProducingGraphicsBuffer_1252.method490(false);
             class13_sub1_sub4_sub4.method406(254, -171, 902);
-            aClass31_1253.method490(false);
+            aProducingGraphicsBuffer_1253.method490(false);
             class13_sub1_sub4_sub4.method406(-180, -171, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(aCacheArchive_991, "logo", 0);
-            aClass31_1245.method490(false);
+            class13_sub1_sub4_sub4 = new Sprite(aCacheArchive_991, "logo", 0);
+            aProducingGraphicsBuffer_1245.method490(false);
             class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.anInt1681 / 2 - 128);
             class13_sub1_sub4_sub4 = null;
             abyte0 = null;
@@ -3964,7 +3971,7 @@ public class Game extends GameShell {
                 if (k3 >= 0 && j6 >= 0 && k3 < 104 && j6 < 104) {
                     LinkedList linkedList = aLinkedListArrayArrayArray969[anInt1166][k3][j6];
                     if (linkedList != null) {
-                        for (CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.first(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.next()) {
+                        for (com.jagex.renderable.Object class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.first(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.next()) {
                             if (class13_sub1_sub1_sub5.anInt1563 != (i9 & 0x7fff)) {
                                 continue;
                             }
@@ -3994,36 +4001,36 @@ public class Game extends GameShell {
                     int l19 = anIntArrayArrayArray1267[anInt1166][l3 + 1][k6 + 1];
                     int k20 = anIntArrayArrayArray1267[anInt1166][l3][k6 + 1];
                     if (k17 == 0) {
-                        Class15 class15 = aClass10_1198.method216(k6, l3, -203, anInt1166);
+                        Class15 class15 = aScene_1198.method216(k6, l3, -203, anInt1166);
                         if (class15 != null) {
                             int l21 = class15.anInt297 >> 14 & 0x7fff;
                             if (i14 == 2) {
-                                class15.aClass13_Sub1_Sub1_295 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, 4 + i16, j9, i19, false, 2, 29895, l21);
-                                class15.aClass13_Sub1_Sub1_296 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, i16 + 1 & 3, j9, i19, false, 2, 29895, l21);
+                                class15.aClass13_Sub1_Sub1_295 = new Location(k20, j18, l19, 4 + i16, j9, i19, false, 2, 29895, l21);
+                                class15.aClass13_Sub1_Sub1_296 = new Location(k20, j18, l19, i16 + 1 & 3, j9, i19, false, 2, 29895, l21);
                             } else {
-                                class15.aClass13_Sub1_Sub1_295 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, i16, j9, i19, false, i14, 29895, l21);
+                                class15.aClass13_Sub1_Sub1_295 = new Location(k20, j18, l19, i16, j9, i19, false, i14, 29895, l21);
                             }
                         }
                     }
                     if (k17 == 1) {
-                        Class18 class18 = aClass10_1198.method217(anInt1166, (byte) -27, l3, k6);
+                        Class18 class18 = aScene_1198.method217(anInt1166, (byte) -27, l3, k6);
                         if (class18 != null) {
-                            class18.aClass13_Sub1_Sub1_332 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, 0, j9, i19, false, 4, 29895, class18.anInt333 >> 14 & 0x7fff);
+                            class18.aClass13_Sub1_Sub1_332 = new Location(k20, j18, l19, 0, j9, i19, false, 4, 29895, class18.anInt333 >> 14 & 0x7fff);
                         }
                     }
                     if (k17 == 2) {
-                        Class20 class20 = aClass10_1198.method218(anInt1166, -47543, l3, k6);
+                        Class20 class20 = aScene_1198.method218(anInt1166, -47543, l3, k6);
                         if (i14 == 11) {
                             i14 = 10;
                         }
                         if (class20 != null) {
-                            class20.aClass13_Sub1_Sub1_351 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, i16, j9, i19, false, i14, 29895, class20.anInt359 >> 14 & 0x7fff);
+                            class20.aClass13_Sub1_Sub1_351 = new Location(k20, j18, l19, i16, j9, i19, false, i14, 29895, class20.anInt359 >> 14 & 0x7fff);
                         }
                     }
                     if (k17 == 3) {
-                        Class11 class11 = aClass10_1198.method219(l3, k6, false, anInt1166);
+                        Class11 class11 = aScene_1198.method219(l3, k6, false, anInt1166);
                         if (class11 != null) {
-                            class11.aClass13_Sub1_Sub1_228 = new CacheableNode_Sub1_Sub1_Sub2(k20, j18, l19, i16, j9, i19, false, 22, 29895, class11.anInt229 >> 14 & 0x7fff);
+                            class11.aClass13_Sub1_Sub1_228 = new Location(k20, j18, l19, i16, j9, i19, false, 22, 29895, class11.anInt229 >> 14 & 0x7fff);
                         }
                     }
                 }
@@ -4037,7 +4044,7 @@ public class Game extends GameShell {
                 int l11 = anInt1232 + (l6 & 7);
                 int j14 = buffer.readUShortBE();
                 if (k9 >= 0 && l11 >= 0 && k9 < 104 && l11 < 104 && j14 != anInt950) {
-                    CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_2 = new CacheableNode_Sub1_Sub1_Sub5();
+                    com.jagex.renderable.Object class13_sub1_sub1_sub5_2 = new com.jagex.renderable.Object();
                     class13_sub1_sub1_sub5_2.anInt1563 = j1;
                     class13_sub1_sub1_sub5_2.anInt1564 = i4;
                     if (aLinkedListArrayArrayArray969[anInt1166][k9][l11] == null) {
@@ -4077,7 +4084,7 @@ public class Game extends GameShell {
                 int j21 = i20 & 3;
                 int i22 = anIntArray1233[l20];
                 byte byte3 = buffer.readByte();
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1;
+                Player class13_sub1_sub1_sub6_sub1;
                 if (k18 == anInt950) {
                     class13_sub1_sub1_sub6_sub1 = aClass13_Sub1_Sub1_Sub6_Sub1_997;
                 } else {
@@ -4131,7 +4138,7 @@ public class Game extends GameShell {
                 if (l4 >= 0 && k7 >= 0 && l4 < 104 && k7 < 104) {
                     l4 = l4 * 128 + 64;
                     k7 = k7 * 128 + 64;
-                    CacheableNode_Sub1_Sub1_Sub3 class13_sub1_sub1_sub3 = new CacheableNode_Sub1_Sub1_Sub3(pulseCycle, i10, l4, anInt1166, k7, (byte) 6, method80(anInt1166, 781, k7, l4) - k12, l14);
+                    Animated class13_sub1_sub1_sub3 = new Animated(pulseCycle, i10, l4, anInt1166, k7, (byte) 6, method80(anInt1166, 781, k7, l4) - k12, l14);
                     aLinkedList_982.pushBack(class13_sub1_sub1_sub3);
                 }
                 return;
@@ -4169,7 +4176,7 @@ public class Game extends GameShell {
                     i8 = i8 * 128 + 64;
                     k10 = k10 * 128 + 64;
                     i13 = i13 * 128 + 64;
-                    CacheableNode_Sub1_Sub1_ class13_sub1_sub1_sub1 = new CacheableNode_Sub1_Sub1_(k19 + pulseCycle, i17, method80(anInt1166, 781, i8, j5) - i18, j20 + pulseCycle, l18, j5, i8, anInt1166, (byte) 1, i21, j15, k21);
+                    Projectile class13_sub1_sub1_sub1 = new Projectile(k19 + pulseCycle, i17, method80(anInt1166, 781, i8, j5) - i18, j20 + pulseCycle, l18, j5, i8, anInt1166, (byte) 1, i21, j15, k21);
                     class13_sub1_sub1_sub1.method258(method80(anInt1166, 781, i13, k10) - l18, 0, i13, k19 + pulseCycle, k10);
                     aLinkedList_1199.pushBack(class13_sub1_sub1_sub1);
                 }
@@ -4182,7 +4189,7 @@ public class Game extends GameShell {
                 int l10 = anInt1232 + (k5 & 7);
                 int j13 = buffer.readUShortLEA();
                 if (j8 >= 0 && l10 >= 0 && j8 < 104 && l10 < 104) {
-                    CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_1 = new CacheableNode_Sub1_Sub1_Sub5();
+                    com.jagex.renderable.Object class13_sub1_sub1_sub5_1 = new com.jagex.renderable.Object();
                     class13_sub1_sub1_sub5_1.anInt1563 = l2;
                     class13_sub1_sub1_sub5_1.anInt1564 = j13;
                     if (aLinkedListArrayArrayArray969[anInt1166][j8][l10] == null) {
@@ -4204,7 +4211,7 @@ public class Game extends GameShell {
                 if (aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0] >= l5 - k15 && aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0] <= l5 + k15 && aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0] >= k8 - k15 && aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0] <= k8 + k15 && aBoolean1010 && !lowMemory && anInt1057 < 50) {
                     anIntArray1278[anInt1057] = i11;
                     anIntArray1207[anInt1057] = j17;
-                    anIntArray948[anInt1057] = Class27.anIntArray450[i11];
+                    anIntArray948[anInt1057] = Track.anIntArray450[i11];
                     anInt1057++;
                 }
             }
@@ -4218,7 +4225,7 @@ public class Game extends GameShell {
                 if (i6 >= 0 && l8 >= 0 && i6 < 104 && l8 < 104) {
                     LinkedList linkedList_1 = aLinkedListArrayArrayArray969[anInt1166][i6][l8];
                     if (linkedList_1 != null) {
-                        for (CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_3 = (CacheableNode_Sub1_Sub1_Sub5) linkedList_1.first(); class13_sub1_sub1_sub5_3 != null; class13_sub1_sub1_sub5_3 = (CacheableNode_Sub1_Sub1_Sub5) linkedList_1.next()) {
+                        for (com.jagex.renderable.Object class13_sub1_sub1_sub5_3 = (com.jagex.renderable.Object) linkedList_1.first(); class13_sub1_sub1_sub5_3 != null; class13_sub1_sub1_sub5_3 = (com.jagex.renderable.Object) linkedList_1.next()) {
                             if (class13_sub1_sub1_sub5_3.anInt1563 != (j11 & 0x7fff) || class13_sub1_sub1_sub5_3.anInt1564 != l13) {
                                 continue;
                             }
@@ -4249,7 +4256,7 @@ public class Game extends GameShell {
                 i = 1;
             }
             for (int j = 0; j < i; j++) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1;
+                Player class13_sub1_sub1_sub6_sub1;
                 int k;
                 if (flag) {
                     class13_sub1_sub1_sub6_sub1 = aClass13_Sub1_Sub1_Sub6_Sub1_997;
@@ -4270,7 +4277,7 @@ public class Game extends GameShell {
                 if (class13_sub1_sub1_sub6_sub1.aClass13_Sub1_Sub1_Sub4_1714 != null && pulseCycle >= class13_sub1_sub1_sub6_sub1.anInt1706 && pulseCycle < class13_sub1_sub1_sub6_sub1.anInt1707) {
                     class13_sub1_sub1_sub6_sub1.aBoolean1688 = false;
                     class13_sub1_sub1_sub6_sub1.anInt1699 = method80(anInt1166, 781, class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1587);
-                    aClass10_1198.method206(anInt1265, anInt1166, class13_sub1_sub1_sub6_sub1, class13_sub1_sub1_sub6_sub1.anInt1692, class13_sub1_sub1_sub6_sub1.anInt1691, 60, class13_sub1_sub1_sub6_sub1.anInt1587, k, class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1693, class13_sub1_sub1_sub6_sub1.anInt1694, class13_sub1_sub1_sub6_sub1.anInt1699, class13_sub1_sub1_sub6_sub1.anInt1589);
+                    aScene_1198.method206(anInt1265, anInt1166, class13_sub1_sub1_sub6_sub1, class13_sub1_sub1_sub6_sub1.anInt1692, class13_sub1_sub1_sub6_sub1.anInt1691, 60, class13_sub1_sub1_sub6_sub1.anInt1587, k, class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1693, class13_sub1_sub1_sub6_sub1.anInt1694, class13_sub1_sub1_sub6_sub1.anInt1699, class13_sub1_sub1_sub6_sub1.anInt1589);
                     continue;
                 }
                 if ((class13_sub1_sub1_sub6_sub1.anInt1587 & 0x7f) == 64 && (class13_sub1_sub1_sub6_sub1.anInt1588 & 0x7f) == 64) {
@@ -4280,7 +4287,7 @@ public class Game extends GameShell {
                     anIntArrayArray1228[l][i1] = anInt979;
                 }
                 class13_sub1_sub1_sub6_sub1.anInt1699 = method80(anInt1166, 781, class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1587);
-                aClass10_1198.method205(class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1587, anInt1166, k, class13_sub1_sub1_sub6_sub1, -554, class13_sub1_sub1_sub6_sub1.anInt1699, 60, class13_sub1_sub1_sub6_sub1.anInt1589, class13_sub1_sub1_sub6_sub1.aBoolean1569);
+                aScene_1198.method205(class13_sub1_sub1_sub6_sub1.anInt1588, class13_sub1_sub1_sub6_sub1.anInt1587, anInt1166, k, class13_sub1_sub1_sub6_sub1, -554, class13_sub1_sub1_sub6_sub1.anInt1699, 60, class13_sub1_sub1_sub6_sub1.anInt1589, class13_sub1_sub1_sub6_sub1.aBoolean1569);
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -4293,26 +4300,26 @@ public class Game extends GameShell {
         try {
             aClass13_Sub1_Sub4_Sub3_1255.method401(l, (byte) 83, i1);
             aClass13_Sub1_Sub4_Sub3_1256.method401((l + i) - 16, (byte) 83, i1);
-            CacheableNode_Sub1_Sub4.method356(false, i1, l + 16, anInt1182, 16, i - 32);
+            Rasterizer.method356(false, i1, l + 16, anInt1182, 16, i - 32);
             int j1 = ((i - 32) * i) / j;
             if (j1 < 8) {
                 j1 = 8;
             }
             int k1 = ((i - 32 - j1) * k) / (j - i);
-            CacheableNode_Sub1_Sub4.method356(false, i1, l + 16 + k1, anInt949, 16, j1);
-            CacheableNode_Sub1_Sub4.method361(i1, j1, anInt906, l + 16 + k1, -38103);
+            Rasterizer.method356(false, i1, l + 16 + k1, anInt949, 16, j1);
+            Rasterizer.method361(i1, j1, anInt906, l + 16 + k1, -38103);
             if (byte0 == 2) {
                 byte0 = 0;
             } else {
                 anInt992 = isaacCipher.nextInt();
             }
-            CacheableNode_Sub1_Sub4.method361(i1 + 1, j1, anInt906, l + 16 + k1, -38103);
-            CacheableNode_Sub1_Sub4.method359((byte) -40, anInt906, i1, l + 16 + k1, 16);
-            CacheableNode_Sub1_Sub4.method359((byte) -40, anInt906, i1, l + 17 + k1, 16);
-            CacheableNode_Sub1_Sub4.method361(i1 + 15, j1, anInt1111, l + 16 + k1, -38103);
-            CacheableNode_Sub1_Sub4.method361(i1 + 14, j1 - 1, anInt1111, l + 17 + k1, -38103);
-            CacheableNode_Sub1_Sub4.method359((byte) -40, anInt1111, i1, l + 15 + k1 + j1, 16);
-            CacheableNode_Sub1_Sub4.method359((byte) -40, anInt1111, i1 + 1, l + 14 + k1 + j1, 15);
+            Rasterizer.method361(i1 + 1, j1, anInt906, l + 16 + k1, -38103);
+            Rasterizer.method359((byte) -40, anInt906, i1, l + 16 + k1, 16);
+            Rasterizer.method359((byte) -40, anInt906, i1, l + 17 + k1, 16);
+            Rasterizer.method361(i1 + 15, j1, anInt1111, l + 16 + k1, -38103);
+            Rasterizer.method361(i1 + 14, j1 - 1, anInt1111, l + 17 + k1, -38103);
+            Rasterizer.method359((byte) -40, anInt1111, i1, l + 15 + k1 + j1, 16);
+            Rasterizer.method359((byte) -40, anInt1111, i1 + 1, l + 14 + k1 + j1, 15);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("99804, " + byte0 + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + runtimeexception);
@@ -4522,7 +4529,7 @@ public class Game extends GameShell {
     public void method40(int i) {
         try {
             packetSize += i;
-            for (CacheableNode_Sub1_Sub1_Sub3 class13_sub1_sub1_sub3 = (CacheableNode_Sub1_Sub1_Sub3) aLinkedList_982.first(); class13_sub1_sub1_sub3 != null; class13_sub1_sub1_sub3 = (CacheableNode_Sub1_Sub1_Sub3) aLinkedList_982.next()) {
+            for (Animated class13_sub1_sub1_sub3 = (Animated) aLinkedList_982.first(); class13_sub1_sub1_sub3 != null; class13_sub1_sub1_sub3 = (Animated) aLinkedList_982.next()) {
                 if (class13_sub1_sub1_sub3.anInt1480 != anInt1166 || class13_sub1_sub1_sub3.aBoolean1479) {
                     class13_sub1_sub1_sub3.remove();
                 } else if (pulseCycle >= class13_sub1_sub1_sub3.anInt1484) {
@@ -4530,7 +4537,7 @@ public class Game extends GameShell {
                     if (class13_sub1_sub1_sub3.aBoolean1479) {
                         class13_sub1_sub1_sub3.remove();
                     } else {
-                        aClass10_1198.method205(class13_sub1_sub1_sub3.anInt1482, class13_sub1_sub1_sub3.anInt1481, class13_sub1_sub1_sub3.anInt1480, -1, class13_sub1_sub1_sub3, -554, class13_sub1_sub1_sub3.anInt1483, 60, 0, false);
+                        aScene_1198.method205(class13_sub1_sub1_sub3.anInt1482, class13_sub1_sub1_sub3.anInt1481, class13_sub1_sub1_sub3.anInt1480, -1, class13_sub1_sub1_sub3, -554, class13_sub1_sub1_sub3.anInt1483, 60, 0, false);
                     }
                 }
             }
@@ -4583,9 +4590,9 @@ public class Game extends GameShell {
                     break;
                 }
                 if (aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k] == null) {
-                    aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k] = new CacheableNode_Sub1_Sub1_Sub6_Sub2();
+                    aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k] = new Npc();
                 }
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k];
                 anIntArray1285[anInt1284++] = k;
                 class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
                 int yPosition = buffer.readBits(5);
@@ -4637,10 +4644,10 @@ public class Game extends GameShell {
 
     public void method44(boolean flag) {
         try {
-            aClass31_1212.method490(false);
+            aProducingGraphicsBuffer_1212.method490(false);
             if (anInt1094 == 2) {
                 byte[] abyte0 = aClass13_Sub1_Sub4_Sub3_1209.aByteArray1667;
-                int[] ai = CacheableNode_Sub1_Sub4.anIntArray1423;
+                int[] ai = Rasterizer.anIntArray1423;
                 int k2 = abyte0.length;
                 for (int i5 = 0; i5 < k2; i5++) {
                     if (abyte0[i5] == 0) {
@@ -4648,7 +4655,7 @@ public class Game extends GameShell {
                     }
                 }
                 aClass13_Sub1_Sub4_Sub4_967.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
-                aClass31_1213.method490(false);
+                aProducingGraphicsBuffer_1213.method490(false);
                 return;
             }
             int i = anInt922 + anInt1205 & 0x7ff;
@@ -4675,7 +4682,7 @@ public class Game extends GameShell {
                 }
             }
             for (int i6 = 0; i6 < anInt1284; i6++) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[i6]];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[i6]];
                 if (class13_sub1_sub1_sub6_sub2 != null && class13_sub1_sub1_sub6_sub2.method291(true)) {
                     NpcConfig npcConfig = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717;
                     if (npcConfig.anIntArray751 != null) {
@@ -4689,12 +4696,12 @@ public class Game extends GameShell {
                 }
             }
             for (int j6 = 0; j6 < anInt899; j6++) {
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[playerList[j6]];
+                Player class13_sub1_sub1_sub6_sub1 = players[playerList[j6]];
                 if (class13_sub1_sub1_sub6_sub1 != null && class13_sub1_sub1_sub6_sub1.method291(true)) {
                     int j1 = class13_sub1_sub1_sub6_sub1.anInt1587 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1587 / 32;
                     int l3 = class13_sub1_sub1_sub6_sub1.anInt1588 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1588 / 32;
                     boolean flag1 = false;
-                    long l6 = Class24.method446(class13_sub1_sub1_sub6_sub1.aString1689);
+                    long l6 = StringUtil.method446(class13_sub1_sub1_sub6_sub1.aString1689);
                     for (int k6 = 0; k6 < anInt1054; k6++) {
                         if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
                             continue;
@@ -4714,7 +4721,7 @@ public class Game extends GameShell {
             }
             if (anInt1227 != 0 && pulseCycle % 20 < 10) {
                 if (anInt1227 == 1 && anInt1015 >= 0 && anInt1015 < aClass13_Sub1_Sub1_Sub6_Sub2Array1283.length) {
-                    CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anInt1015];
+                    Npc class13_sub1_sub1_sub6_sub2_1 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anInt1015];
                     if (class13_sub1_sub1_sub6_sub2_1 != null) {
                         int k1 = class13_sub1_sub1_sub6_sub2_1.anInt1587 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1587 / 32;
                         int i4 = class13_sub1_sub1_sub6_sub2_1.anInt1588 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1588 / 32;
@@ -4727,7 +4734,7 @@ public class Game extends GameShell {
                     method116(aClass13_Sub1_Sub4_Sub4_946, l1, 1, j4);
                 }
                 if (anInt1227 == 10 && anInt999 >= 0 && anInt999 < players.length) {
-                    CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1_1 = players[anInt999];
+                    Player class13_sub1_sub1_sub6_sub1_1 = players[anInt999];
                     if (class13_sub1_sub1_sub6_sub1_1 != null) {
                         int i2 = class13_sub1_sub1_sub6_sub1_1.anInt1587 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1587 / 32;
                         int k4 = class13_sub1_sub1_sub6_sub1_1.anInt1588 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1588 / 32;
@@ -4740,8 +4747,8 @@ public class Game extends GameShell {
                 int l4 = (anInt1222 * 4 + 2) - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1588 / 32;
                 method115(aClass13_Sub1_Sub4_Sub4_945, j2, l4, 543);
             }
-            CacheableNode_Sub1_Sub4.method356(false, 97, 78, 0xffffff, 3, 3);
-            aClass31_1213.method490(false);
+            Rasterizer.method356(false, 97, 78, 0xffffff, 3, 3);
+            aProducingGraphicsBuffer_1213.method490(false);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("85574, " + flag + ", " + runtimeexception);
@@ -4762,7 +4769,7 @@ public class Game extends GameShell {
                 addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
                 return;
             }
-            String s = Class24.method450(Class24.method447(l, 0), 0);
+            String s = StringUtil.method450(StringUtil.method447(l, 0), 0);
             i = 9 / i;
             for (int j = 0; j < anInt1054; j++) {
                 if (aLongArray993[j] == l) {
@@ -4805,10 +4812,10 @@ public class Game extends GameShell {
             }
             gameConnection = null;
             method39(anInt1173);
-            if (aClass48_865 != null) {
-                aClass48_865.aBoolean792 = false;
+            if (aMouseCapturer_865 != null) {
+                aMouseCapturer_865.aBoolean792 = false;
             }
-            aClass48_865 = null;
+            aMouseCapturer_865 = null;
             gameUpdateClient.stop();
             gameUpdateClient = null;
             aBuffer_1282 = null;
@@ -4822,29 +4829,29 @@ public class Game extends GameShell {
             anIntArray939 = null;
             anIntArrayArrayArray1267 = null;
             aByteArrayArrayArray1164 = null;
-            aClass10_1198 = null;
-            aClass39Array947 = null;
+            aScene_1198 = null;
+            aCollisionMapArray947 = null;
             anIntArrayArray1097 = null;
             anIntArrayArray817 = null;
             anIntArray959 = null;
             anIntArray960 = null;
             aByteArray941 = null;
-            aClass31_1211 = null;
-            aClass31_1212 = null;
-            aClass31_1213 = null;
-            aClass31_1214 = null;
-            aClass31_1186 = null;
-            aClass31_1187 = null;
-            aClass31_1188 = null;
-            aClass31_875 = null;
-            aClass31_876 = null;
-            aClass31_877 = null;
-            aClass31_878 = null;
-            aClass31_879 = null;
-            aClass31_880 = null;
-            aClass31_881 = null;
-            aClass31_882 = null;
-            aClass31_883 = null;
+            aProducingGraphicsBuffer_1211 = null;
+            aProducingGraphicsBuffer_1212 = null;
+            aProducingGraphicsBuffer_1213 = null;
+            aProducingGraphicsBuffer_1214 = null;
+            aProducingGraphicsBuffer_1186 = null;
+            aProducingGraphicsBuffer_1187 = null;
+            aProducingGraphicsBuffer_1188 = null;
+            aProducingGraphicsBuffer_875 = null;
+            aProducingGraphicsBuffer_876 = null;
+            aProducingGraphicsBuffer_877 = null;
+            aProducingGraphicsBuffer_878 = null;
+            aProducingGraphicsBuffer_879 = null;
+            aProducingGraphicsBuffer_880 = null;
+            aProducingGraphicsBuffer_881 = null;
+            aProducingGraphicsBuffer_882 = null;
+            aProducingGraphicsBuffer_883 = null;
             aClass13_Sub1_Sub4_Sub3_1208 = null;
             aClass13_Sub1_Sub4_Sub3_1209 = null;
             aClass13_Sub1_Sub4_Sub3_1210 = null;
@@ -4898,18 +4905,18 @@ public class Game extends GameShell {
             aStringArray1003 = null;
             aLongArray993 = null;
             anIntArray850 = null;
-            aClass31_1248 = null;
-            aClass31_1249 = null;
-            aClass31_1245 = null;
-            aClass31_1246 = null;
-            aClass31_1247 = null;
+            aProducingGraphicsBuffer_1248 = null;
+            aProducingGraphicsBuffer_1249 = null;
+            aProducingGraphicsBuffer_1245 = null;
+            aProducingGraphicsBuffer_1246 = null;
+            aProducingGraphicsBuffer_1247 = null;
             if (i <= 0) {
                 anInt1170 = -41;
             }
-            aClass31_1250 = null;
-            aClass31_1251 = null;
-            aClass31_1252 = null;
-            aClass31_1253 = null;
+            aProducingGraphicsBuffer_1250 = null;
+            aProducingGraphicsBuffer_1251 = null;
+            aProducingGraphicsBuffer_1252 = null;
+            aProducingGraphicsBuffer_1253 = null;
             method41(88);
             LocationConfig.method416(47779);
             NpcConfig.method588(47779);
@@ -4922,12 +4929,12 @@ public class Game extends GameShell {
             SpotAnimationConfig.aSpotAnimationConfigArray685 = null;
             SpotAnimationConfig.aCache_697 = null;
             VariablePlayerConfig.aVariablePlayerConfigArray365 = null;
-            super.aClass31_16 = null;
-            CacheableNode_Sub1_Sub1_Sub6_.aCache_1696 = null;
-            CacheableNode_Sub1_Sub4_.method363(47779);
-            Class10.method193(47779);
+            super.aProducingGraphicsBuffer_16 = null;
+            Player.aCache_1696 = null;
+            Rasterizer3D.method363(47779);
+            Scene.method193(47779);
             Model.method261(47779);
-            Class8.method187(47779);
+            AnimationFrame.method187(47779);
             System.gc();
             return;
         } catch (RuntimeException runtimeexception) {
@@ -4960,7 +4967,7 @@ public class Game extends GameShell {
             anIntArray960[l3++] = k;
             boolean flag1 = false;
             int j4 = anIntArray959.length;
-            int[][] ai = aClass39Array947[anInt1166].anIntArrayArray682;
+            int[][] ai = aCollisionMapArray947[anInt1166].anIntArrayArray682;
             while (currentIndex != l3) {
                 j3 = anIntArray959[currentIndex];
                 k3 = anIntArray960[currentIndex];
@@ -4970,16 +4977,16 @@ public class Game extends GameShell {
                     break;
                 }
                 if (k2 != 0) {
-                    if ((k2 < 5 || k2 == 10) && aClass39Array947[anInt1166].method525(j2, k3, i2, j3, 322, k1, k2 - 1)) {
+                    if ((k2 < 5 || k2 == 10) && aCollisionMapArray947[anInt1166].method525(j2, k3, i2, j3, 322, k1, k2 - 1)) {
                         flag1 = true;
                         break;
                     }
-                    if (k2 < 10 && aClass39Array947[anInt1166].method526(j2, j3, k1, k2 - 1, k3, i2, true)) {
+                    if (k2 < 10 && aCollisionMapArray947[anInt1166].method526(j2, j3, k1, k2 - 1, k3, i2, true)) {
                         flag1 = true;
                         break;
                     }
                 }
-                if (l1 != 0 && i != 0 && aClass39Array947[anInt1166].method527(i, i2, l1, j3, k3, -965, j2, i1)) {
+                if (l1 != 0 && i != 0 && aCollisionMapArray947[anInt1166].method527(i, i2, l1, j3, k3, -965, j2, i1)) {
                     flag1 = true;
                     break;
                 }
@@ -5142,32 +5149,32 @@ public class Game extends GameShell {
             if (!loggedIn) {
                 return;
             }
-            synchronized (aClass48_865.anObject787) {
+            synchronized (aMouseCapturer_865.anObject787) {
                 if (aBoolean860) {
-                    if (super.clickType != 0 || aClass48_865.anInt791 >= 40) {
+                    if (super.clickType != 0 || aMouseCapturer_865.anInt791 >= 40) {
                         aBuffer_928.writeOpcode(250);
                         aBuffer_928.writeByte(0);
                         int k2 = aBuffer_928.position;
                         int k3 = 0;
-                        for (int k4 = 0; k4 < aClass48_865.anInt791; k4++) {
+                        for (int k4 = 0; k4 < aMouseCapturer_865.anInt791; k4++) {
                             if (k2 - aBuffer_928.position >= 240) {
                                 break;
                             }
                             k3++;
-                            int i5 = aClass48_865.anIntArray790[k4];
+                            int i5 = aMouseCapturer_865.anIntArray790[k4];
                             if (i5 < 0) {
                                 i5 = 0;
                             } else if (i5 > 502) {
                                 i5 = 502;
                             }
-                            int l5 = aClass48_865.anIntArray788[k4];
+                            int l5 = aMouseCapturer_865.anIntArray788[k4];
                             if (l5 < 0) {
                                 l5 = 0;
                             } else if (l5 > 764) {
                                 l5 = 764;
                             }
                             int j6 = i5 * 765 + l5;
-                            if (aClass48_865.anIntArray790[k4] == -1 && aClass48_865.anIntArray788[k4] == -1) {
+                            if (aMouseCapturer_865.anIntArray790[k4] == -1 && aMouseCapturer_865.anIntArray788[k4] == -1) {
                                 l5 = -1;
                                 i5 = -1;
                                 j6 = 0x7ffff;
@@ -5196,18 +5203,18 @@ public class Game extends GameShell {
                             }
                         }
                         aBuffer_928.writeSizeByte(aBuffer_928.position - k2);
-                        if (k3 >= aClass48_865.anInt791) {
-                            aClass48_865.anInt791 = 0;
+                        if (k3 >= aMouseCapturer_865.anInt791) {
+                            aMouseCapturer_865.anInt791 = 0;
                         } else {
-                            aClass48_865.anInt791 -= k3;
-                            for (int j5 = 0; j5 < aClass48_865.anInt791; j5++) {
-                                aClass48_865.anIntArray788[j5] = aClass48_865.anIntArray788[j5 + k3];
-                                aClass48_865.anIntArray790[j5] = aClass48_865.anIntArray790[j5 + k3];
+                            aMouseCapturer_865.anInt791 -= k3;
+                            for (int j5 = 0; j5 < aMouseCapturer_865.anInt791; j5++) {
+                                aMouseCapturer_865.anIntArray788[j5] = aMouseCapturer_865.anIntArray788[j5 + k3];
+                                aMouseCapturer_865.anIntArray790[j5] = aMouseCapturer_865.anIntArray790[j5 + k3];
                             }
                         }
                     }
                 } else {
-                    aClass48_865.anInt791 = 0;
+                    aMouseCapturer_865.anInt791 = 0;
                 }
             }
             if (super.clickType != 0) {
@@ -5372,11 +5379,11 @@ public class Game extends GameShell {
                 aBuffer_928.writeShortBE((int) (Math.random() * 65536D));
                 aBuffer_928.writeSizeByte(aBuffer_928.position - j);
             }
-            if (Class10.anInt196 != -1) {
-                int k = Class10.anInt196;
-                int k1 = Class10.anInt197;
+            if (Scene.anInt196 != -1) {
+                int k = Scene.anInt196;
+                int k1 = Scene.anInt197;
                 boolean flag1 = walk(true, 0, -220, aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1616[0], aClass13_Sub1_Sub1_Sub6_Sub1_997.anIntArray1615[0], 0, 0, 0, 0, k1, k, 0);
-                Class10.anInt196 = -1;
+                Scene.anInt196 = -1;
                 if (flag1) {
                     anInt929 = super.anInt30;
                     anInt930 = super.anInt31;
@@ -5535,7 +5542,7 @@ public class Game extends GameShell {
                         }
                     }
                     if (gameUpdateRequest.type == 1 && gameUpdateRequest.buffer != null) {
-                        Class8.method186(-383, gameUpdateRequest.buffer);
+                        AnimationFrame.method186(-383, gameUpdateRequest.buffer);
                     }
                     if (gameUpdateRequest.type == 2 && gameUpdateRequest.file == nextSong && gameUpdateRequest.buffer != null) {
                         method54(gameUpdateRequest.buffer, songChanging, 22075);
@@ -5560,7 +5567,7 @@ public class Game extends GameShell {
                         }
                     }
                 } while (gameUpdateRequest.type != 93 || !gameUpdateClient.landscapeExists(gameUpdateRequest.file));
-                Class25.method468(gameUpdateClient, 226, new Buffer(gameUpdateRequest.buffer));
+                MapRegion.method468(gameUpdateClient, 226, new Buffer(gameUpdateRequest.buffer));
             } while (true);
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("Game.processUpdateQueue, " + runtimeexception);
@@ -5668,7 +5675,7 @@ public class Game extends GameShell {
                 closeWidgets();
                 if (aString1230.length() > 0) {
                     aBuffer_928.writeOpcode(31);
-                    aBuffer_928.writeLongBE(Class24.method446(aString1230));
+                    aBuffer_928.writeLongBE(StringUtil.method446(aString1230));
                     aBuffer_928.writeByte(i - 601);
                     aBuffer_928.writeByte(aBoolean1034 ? 1 : 0);
                 }
@@ -5741,19 +5748,19 @@ public class Game extends GameShell {
                     }
                 }
             }
-            int i3 = CacheableNode_Sub1_Sub4_.anInt1645;
+            int i3 = Rasterizer3D.anInt1645;
             Model.aBoolean1554 = true;
             Model.anInt1557 = 0;
             Model.anInt1555 = super.anInt23 - 4;
             Model.anInt1556 = super.anInt24 - 4;
-            CacheableNode_Sub1_Sub4.method354(false);
-            aClass10_1198.method233(l, anInt1006, anInt1008, -16656, anInt1007, anInt1004, anInt1005);
-            aClass10_1198.method208(true);
+            Rasterizer.method354(false);
+            aScene_1198.method233(l, anInt1006, anInt1008, -16656, anInt1007, anInt1004, anInt1005);
+            aScene_1198.method208(true);
             method94((byte) 6);
             method93(-894);
             method98(true, i3);
             method28(false);
-            aClass31_1213.method491(super.aGraphics15, 4, false, 4);
+            aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, false, 4);
             anInt1004 = j1;
             anInt1005 = k1;
             anInt1006 = l1;
@@ -5833,12 +5840,12 @@ public class Game extends GameShell {
     public void method52(int i, int j) {
         LinkedList linkedList = aLinkedListArrayArrayArray969[anInt1166][i][j];
         if (linkedList == null) {
-            aClass10_1198.method215(anInt1166, i, j);
+            aScene_1198.method215(anInt1166, i, j);
             return;
         }
         int k = 0xfa0a1f01;
-        Object obj = null;
-        for (CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.first(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.next()) {
+        java.lang.Object obj = null;
+        for (com.jagex.renderable.Object class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.first(); class13_sub1_sub1_sub5 != null; class13_sub1_sub1_sub5 = (com.jagex.renderable.Object) linkedList.next()) {
             ObjectConfig objectConfig = ObjectConfig.method505(class13_sub1_sub1_sub5.anInt1563);
             int l = objectConfig.anInt637;
             if (objectConfig.aBoolean662) {
@@ -5850,18 +5857,18 @@ public class Game extends GameShell {
             }
         }
         linkedList.push(((Node) (obj)));
-        Object obj1 = null;
-        Object obj2 = null;
-        for (CacheableNode_Sub1_Sub1_Sub5 class13_sub1_sub1_sub5_1 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.first(); class13_sub1_sub1_sub5_1 != null; class13_sub1_sub1_sub5_1 = (CacheableNode_Sub1_Sub1_Sub5) linkedList.next()) {
-            if (class13_sub1_sub1_sub5_1.anInt1563 != ((CacheableNode_Sub1_Sub1_Sub5) (obj)).anInt1563 && obj1 == null) {
+        java.lang.Object obj1 = null;
+        java.lang.Object obj2 = null;
+        for (com.jagex.renderable.Object class13_sub1_sub1_sub5_1 = (com.jagex.renderable.Object) linkedList.first(); class13_sub1_sub1_sub5_1 != null; class13_sub1_sub1_sub5_1 = (com.jagex.renderable.Object) linkedList.next()) {
+            if (class13_sub1_sub1_sub5_1.anInt1563 != ((com.jagex.renderable.Object) (obj)).anInt1563 && obj1 == null) {
                 obj1 = class13_sub1_sub1_sub5_1;
             }
-            if (class13_sub1_sub1_sub5_1.anInt1563 != ((CacheableNode_Sub1_Sub1_Sub5) (obj)).anInt1563 && class13_sub1_sub1_sub5_1.anInt1563 != ((CacheableNode_Sub1_Sub1_Sub5) (obj1)).anInt1563 && obj2 == null) {
+            if (class13_sub1_sub1_sub5_1.anInt1563 != ((com.jagex.renderable.Object) (obj)).anInt1563 && class13_sub1_sub1_sub5_1.anInt1563 != ((com.jagex.renderable.Object) (obj1)).anInt1563 && obj2 == null) {
                 obj2 = class13_sub1_sub1_sub5_1;
             }
         }
         int i1 = i + (j << 7) + 0x60000000;
-        aClass10_1198.method201(((CacheableNode_Sub1_) (obj2)), j, i, method80(anInt1166, 781, j * 128 + 64, i * 128 + 64), ((CacheableNode_Sub1_) (obj1)), anInt1166, ((CacheableNode_Sub1_) (obj)), i1, false);
+        aScene_1198.method201(((Renderable) (obj2)), j, i, method80(anInt1166, 781, j * 128 + 64, i * 128 + 64), ((Renderable) (obj1)), anInt1166, ((Renderable) (obj)), i1, false);
     }
 
     public void updateLoadingBar(boolean flag, String text, int percentage) {
@@ -5873,7 +5880,7 @@ public class Game extends GameShell {
                 super.updateLoadingBar(false, text, percentage);
                 return;
             }
-            aClass31_1247.method490(false);
+            aProducingGraphicsBuffer_1247.method490(false);
             if (flag) {
                 return;
             }
@@ -5882,24 +5889,24 @@ public class Game extends GameShell {
             byte byte0 = 20;
             aFont_893.method381(c / 2, 0xffffff, 6, c1 / 2 - 26 - byte0, "RuneScape is loading - please wait...");
             int j = c1 / 2 - 18 - byte0;
-            CacheableNode_Sub1_Sub4.method357((byte) 4, j, c / 2 - 152, 34, 0x8c1111, 304);
-            CacheableNode_Sub1_Sub4.method357((byte) 4, j + 1, c / 2 - 151, 32, 0, 302);
-            CacheableNode_Sub1_Sub4.method356(false, c / 2 - 150, j + 2, 0x8c1111, percentage * 3, 30);
-            CacheableNode_Sub1_Sub4.method356(false, (c / 2 - 150) + percentage * 3, j + 2, 0, 300 - percentage * 3, 30);
+            Rasterizer.method357((byte) 4, j, c / 2 - 152, 34, 0x8c1111, 304);
+            Rasterizer.method357((byte) 4, j + 1, c / 2 - 151, 32, 0, 302);
+            Rasterizer.method356(false, c / 2 - 150, j + 2, 0x8c1111, percentage * 3, 30);
+            Rasterizer.method356(false, (c / 2 - 150) + percentage * 3, j + 2, 0, 300 - percentage * 3, 30);
             aFont_893.method381(c / 2, 0xffffff, 6, (c1 / 2 + 5) - byte0, text);
-            aClass31_1247.method491(super.aGraphics15, 171, false, 202);
+            aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 171, false, 202);
             if (aBoolean1216) {
                 aBoolean1216 = false;
                 if (!aBoolean1047) {
-                    aClass31_1248.method491(super.aGraphics15, 0, false, 0);
-                    aClass31_1249.method491(super.aGraphics15, 0, false, 637);
+                    aProducingGraphicsBuffer_1248.method491(super.aGraphics15, 0, false, 0);
+                    aProducingGraphicsBuffer_1249.method491(super.aGraphics15, 0, false, 637);
                 }
-                aClass31_1245.method491(super.aGraphics15, 0, false, 128);
-                aClass31_1246.method491(super.aGraphics15, 371, false, 202);
-                aClass31_1250.method491(super.aGraphics15, 265, false, 0);
-                aClass31_1251.method491(super.aGraphics15, 265, false, 562);
-                aClass31_1252.method491(super.aGraphics15, 171, false, 128);
-                aClass31_1253.method491(super.aGraphics15, 171, false, 562);
+                aProducingGraphicsBuffer_1245.method491(super.aGraphics15, 0, false, 128);
+                aProducingGraphicsBuffer_1246.method491(super.aGraphics15, 371, false, 202);
+                aProducingGraphicsBuffer_1250.method491(super.aGraphics15, 265, false, 0);
+                aProducingGraphicsBuffer_1251.method491(super.aGraphics15, 265, false, 562);
+                aProducingGraphicsBuffer_1252.method491(super.aGraphics15, 171, false, 128);
+                aProducingGraphicsBuffer_1253.method491(super.aGraphics15, 171, false, 562);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -6028,7 +6035,7 @@ public class Game extends GameShell {
                 method20(true, true);
             }
             gameConnection = new BufferedConnection(openSocket(43594 + portOffset), 681, this);
-            long l = Class24.method446(username);
+            long l = StringUtil.method446(username);
             int i = (int) (l >> 16 & 31L);
             aBuffer_928.position = 0;
             aBuffer_928.writeByte(14);
@@ -6097,7 +6104,7 @@ public class Game extends GameShell {
                 aBoolean860 = gameConnection.read() == 1;
                 aLong1122 = 0L;
                 anInt927 = 0;
-                aClass48_865.anInt791 = 0;
+                aMouseCapturer_865.anInt791 = 0;
                 super.aBoolean20 = true;
                 aBoolean1080 = true;
                 loggedIn = true;
@@ -6141,7 +6148,7 @@ public class Game extends GameShell {
                 for (int k2 = 0; k2 < 16384; k2++) {
                     aClass13_Sub1_Sub1_Sub6_Sub2Array1283[k2] = null;
                 }
-                aClass13_Sub1_Sub1_Sub6_Sub1_997 = players[anInt897] = new CacheableNode_Sub1_Sub1_Sub6_();
+                aClass13_Sub1_Sub1_Sub6_Sub1_997 = players[anInt897] = new Player();
                 aLinkedList_1199.clear();
                 aLinkedList_982.clear();
                 for (int l2 = 0; l2 < 4; l2++) {
@@ -6434,9 +6441,9 @@ public class Game extends GameShell {
             if (i != 45234) {
                 method6();
             }
-            CacheableNode_Sub1_Sub4.method356(false, j, k, j1, l, i1);
-            CacheableNode_Sub1_Sub4.method356(false, j + 1, k + 1, 0, l - 2, 16);
-            CacheableNode_Sub1_Sub4.method357((byte) 4, k + 18, j + 1, i1 - 19, 0, l - 2);
+            Rasterizer.method356(false, j, k, j1, l, i1);
+            Rasterizer.method356(false, j + 1, k + 1, 0, l - 2, 16);
+            Rasterizer.method357((byte) 4, k + 18, j + 1, i1 - 19, 0, l - 2);
             aFont_893.method385((byte) -96, "Choose Option", j1, j + 3, k + 14);
             int k1 = super.anInt23;
             int l1 = super.anInt24;
@@ -6469,8 +6476,8 @@ public class Game extends GameShell {
 
     public void method61(boolean flag) {
         try {
-            aClass31_1214.method490(false);
-            CacheableNode_Sub1_Sub4_.anIntArray1636 = anIntArray857;
+            aProducingGraphicsBuffer_1214.method490(false);
+            Rasterizer3D.anIntArray1636 = anIntArray857;
             aClass13_Sub1_Sub4_Sub3_1210.method401(0, (byte) 83, 0);
             if (aBoolean1017) {
                 aFont_893.method381(239, 0, 6, 40, aString1196);
@@ -6489,9 +6496,9 @@ public class Game extends GameShell {
             } else if (dialogueId != -1) {
                 method67(Widget.widgets[dialogueId], 0, 0, 0, 988);
             } else {
-                Font font = aFont_892;
+                com.jagex.graphics.Font font = aFont_892;
                 int i = 0;
-                CacheableNode_Sub1_Sub4.method353(463, (byte) -12, 77, 0, 0);
+                Rasterizer.method353(463, (byte) -12, 77, 0, 0);
                 for (int j = 0; j < 100; j++) {
                     if (chatMessages[j] != null) {
                         int k = chatTypes[j];
@@ -6575,7 +6582,7 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                CacheableNode_Sub1_Sub4.method352(4);
+                Rasterizer.method352(4);
                 anInt886 = i * 14 + 7;
                 if (anInt886 < 78) {
                     anInt886 = 78;
@@ -6585,21 +6592,21 @@ public class Game extends GameShell {
                 if (aClass13_Sub1_Sub1_Sub6_Sub1_997 != null && aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1689 != null) {
                     s = aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1689;
                 } else {
-                    s = Class24.method450(username, 0);
+                    s = StringUtil.method450(username, 0);
                 }
                 font.method385((byte) -96, s + ":", 0, 4, 90);
                 font.method385((byte) -96, aString1280 + "*", 255, 6 + font.method383(3, s + ": "), 90);
-                CacheableNode_Sub1_Sub4.method359((byte) -40, 0, 0, 77, 479);
+                Rasterizer.method359((byte) -40, 0, 0, 77, 479);
             }
             if (aBoolean989 && anInt820 == 2) {
                 method60(45234);
             }
-            aClass31_1214.method491(super.aGraphics15, 357, false, 17);
-            aClass31_1213.method490(false);
+            aProducingGraphicsBuffer_1214.method491(super.aGraphics15, 357, false, 17);
+            aProducingGraphicsBuffer_1213.method490(false);
             if (flag) {
                 opcode = buffer.readUByte();
             }
-            CacheableNode_Sub1_Sub4_.anIntArray1636 = anIntArray859;
+            Rasterizer3D.anIntArray1636 = anIntArray859;
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("68585, " + flag + ", " + runtimeexception);
@@ -6609,8 +6616,8 @@ public class Game extends GameShell {
 
     public void method62(byte byte0) {
         try {
-            aClass31_1211.method490(false);
-            CacheableNode_Sub1_Sub4_.anIntArray1636 = anIntArray858;
+            aProducingGraphicsBuffer_1211.method490(false);
+            Rasterizer3D.anIntArray1636 = anIntArray858;
             aClass13_Sub1_Sub4_Sub3_1208.method401(0, (byte) 83, 0);
             if (anInt874 != -1) {
                 method67(Widget.widgets[anInt874], 0, 0, 0, 988);
@@ -6620,9 +6627,9 @@ public class Game extends GameShell {
             if (aBoolean989 && anInt820 == 1) {
                 method60(45234);
             }
-            aClass31_1211.method491(super.aGraphics15, 205, false, 553);
-            aClass31_1213.method490(false);
-            CacheableNode_Sub1_Sub4_.anIntArray1636 = anIntArray859;
+            aProducingGraphicsBuffer_1211.method491(super.aGraphics15, 205, false, 553);
+            aProducingGraphicsBuffer_1213.method490(false);
+            Rasterizer3D.anIntArray1636 = anIntArray859;
             if (byte0 == 6) {
                 byte0 = 0;
                 return;
@@ -6646,10 +6653,10 @@ public class Game extends GameShell {
                 int j1 = 24628 + (103 - i1) * 512 * 4;
                 for (int l1 = 1; l1 < 103; l1++) {
                     if ((aByteArrayArrayArray1164[j][l1][i1] & 0x18) == 0) {
-                        aClass10_1198.method229(ai, j1, 512, j, l1, i1);
+                        aScene_1198.method229(ai, j1, 512, j, l1, i1);
                     }
                     if (j < 3 && (aByteArrayArrayArray1164[j + 1][l1][i1] & 8) != 0) {
-                        aClass10_1198.method229(ai, j1, 512, j + 1, l1, i1);
+                        aScene_1198.method229(ai, j1, 512, j + 1, l1, i1);
                     }
                     j1 += 4;
                 }
@@ -6670,11 +6677,11 @@ public class Game extends GameShell {
                     }
                 }
             }
-            aClass31_1213.method490(false);
+            aProducingGraphicsBuffer_1213.method490(false);
             anInt830 = 0;
             for (int l2 = 0; l2 < 104; l2++) {
                 for (int i3 = 0; i3 < 104; i3++) {
-                    int k3 = aClass10_1198.method223(anInt1166, l2, i3);
+                    int k3 = aScene_1198.method223(anInt1166, l2, i3);
                     if (k3 != 0) {
                         k3 = k3 >> 14 & 0x7fff;
                         int l3 = LocationConfig.readDefinition(k3).anInt250;
@@ -6684,7 +6691,7 @@ public class Game extends GameShell {
                             if (l3 != 22 && l3 != 29 && l3 != 34 && l3 != 36 && l3 != 46 && l3 != 47 && l3 != 48) {
                                 byte byte0 = 104;
                                 byte byte1 = 104;
-                                int[][] ai1 = aClass39Array947[anInt1166].anIntArrayArray682;
+                                int[][] ai1 = aCollisionMapArray947[anInt1166].anIntArrayArray682;
                                 for (int k4 = 0; k4 < 10; k4++) {
                                     int l4 = (int) (Math.random() * 4D);
                                     if (l4 == 0 && i4 > 0 && i4 > l2 - 3 && (ai1[i4 - 1][j4] & 0x1280108) == 0) {
@@ -6769,16 +6776,16 @@ public class Game extends GameShell {
             int k = anIntArray1149[i];
             if (j == 1) {
                 if (k == 1) {
-                    CacheableNode_Sub1_Sub4_.method372(0.90000000000000002D, (byte) 7);
+                    Rasterizer3D.method372(0.90000000000000002D, (byte) 7);
                 }
                 if (k == 2) {
-                    CacheableNode_Sub1_Sub4_.method372(0.80000000000000004D, (byte) 7);
+                    Rasterizer3D.method372(0.80000000000000004D, (byte) 7);
                 }
                 if (k == 3) {
-                    CacheableNode_Sub1_Sub4_.method372(0.69999999999999996D, (byte) 7);
+                    Rasterizer3D.method372(0.69999999999999996D, (byte) 7);
                 }
                 if (k == 4) {
-                    CacheableNode_Sub1_Sub4_.method372(0.59999999999999998D, (byte) 7);
+                    Rasterizer3D.method372(0.59999999999999998D, (byte) 7);
                 }
                 ObjectConfig.aCache_661.removeAll();
                 aBoolean1216 = true;
@@ -6866,7 +6873,7 @@ public class Game extends GameShell {
             NpcConfig.aCache_759.removeAll();
             ObjectConfig.aCache_660.removeAll();
             ObjectConfig.aCache_661.removeAll();
-            CacheableNode_Sub1_Sub1_Sub6_.aCache_1696.removeAll();
+            Player.aCache_1696.removeAll();
             SpotAnimationConfig.aCache_697.removeAll();
             return;
         } catch (RuntimeException runtimeexception) {
@@ -6889,9 +6896,9 @@ public class Game extends GameShell {
             username = "";
             password = "";
             method65(509);
-            aClass10_1198.method194(false);
+            aScene_1198.method194(false);
             for (int j = 0; j < 4; j++) {
-                aClass39Array947[j].method516();
+                aCollisionMapArray947[j].method516();
             }
             System.gc();
             method39(anInt1173);
@@ -6913,11 +6920,11 @@ public class Game extends GameShell {
             if (widget.hiddenUntilHovered && anInt861 != widget.id && anInt1118 != widget.id && anInt907 != widget.id) {
                 return;
             }
-            int i1 = CacheableNode_Sub1_Sub4.anInt1428;
-            int j1 = CacheableNode_Sub1_Sub4.anInt1426;
-            int k1 = CacheableNode_Sub1_Sub4.anInt1429;
-            int l1 = CacheableNode_Sub1_Sub4.anInt1427;
-            CacheableNode_Sub1_Sub4.method353(j + widget.width, (byte) -12, i + widget.height, i, j);
+            int i1 = Rasterizer.anInt1428;
+            int j1 = Rasterizer.anInt1426;
+            int k1 = Rasterizer.anInt1429;
+            int l1 = Rasterizer.anInt1427;
+            Rasterizer.method353(j + widget.width, (byte) -12, i + widget.height, i, j);
             int numberOfChildren = widget.children.length;
             for (int index = 0; index < numberOfChildren; index++) {
                 int k2 = widget.childX[index] + j;
@@ -6954,12 +6961,12 @@ public class Game extends GameShell {
                                     int k6 = 0;
                                     int j7 = 0;
                                     int j9 = widget_1.itemContainerItemIds[i3] - 1;
-                                    if (k5 > CacheableNode_Sub1_Sub4.anInt1428 - 32 && k5 < CacheableNode_Sub1_Sub4.anInt1429 && j6 > CacheableNode_Sub1_Sub4.anInt1426 - 32 && j6 < CacheableNode_Sub1_Sub4.anInt1427 || anInt1060 != 0 && anInt1059 == i3) {
+                                    if (k5 > Rasterizer.anInt1428 - 32 && k5 < Rasterizer.anInt1429 && j6 > Rasterizer.anInt1426 - 32 && j6 < Rasterizer.anInt1427 || anInt1060 != 0 && anInt1059 == i3) {
                                         int l9 = 0;
                                         if (anInt1025 == 1 && anInt1026 == i3 && anInt1027 == widget_1.id) {
                                             l9 = 0xffffff;
                                         }
-                                        CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = ObjectConfig.method503(j9, widget_1.itemContainerItemAmounts[i3], l9, aBoolean944);
+                                        Sprite class13_sub1_sub4_sub4_2 = ObjectConfig.method503(j9, widget_1.itemContainerItemAmounts[i3], l9, aBoolean944);
                                         if (class13_sub1_sub4_sub4_2 != null) {
                                             if (anInt1060 != 0 && anInt1059 == i3 && anInt1058 == widget_1.id) {
                                                 k6 = super.anInt23 - anInt1061;
@@ -6975,8 +6982,8 @@ public class Game extends GameShell {
                                                     j7 = 0;
                                                 }
                                                 class13_sub1_sub4_sub4_2.method410(k5 + k6, 8, 128, j6 + j7);
-                                                if (j6 + j7 < CacheableNode_Sub1_Sub4.anInt1426 && widget.anInt595 > 0) {
-                                                    int i10 = (anInt1241 * (CacheableNode_Sub1_Sub4.anInt1426 - j6 - j7)) / 3;
+                                                if (j6 + j7 < Rasterizer.anInt1426 && widget.anInt595 > 0) {
+                                                    int i10 = (anInt1241 * (Rasterizer.anInt1426 - j6 - j7)) / 3;
                                                     if (i10 > anInt1241 * 10) {
                                                         i10 = anInt1241 * 10;
                                                     }
@@ -6986,8 +6993,8 @@ public class Game extends GameShell {
                                                     widget.anInt595 -= i10;
                                                     anInt1062 += i10;
                                                 }
-                                                if (j6 + j7 + 32 > CacheableNode_Sub1_Sub4.anInt1427 && widget.anInt595 < widget.scrollLimit - widget.height) {
-                                                    int j10 = (anInt1241 * ((j6 + j7 + 32) - CacheableNode_Sub1_Sub4.anInt1427)) / 3;
+                                                if (j6 + j7 + 32 > Rasterizer.anInt1427 && widget.anInt595 < widget.scrollLimit - widget.height) {
+                                                    int j10 = (anInt1241 * ((j6 + j7 + 32) - Rasterizer.anInt1427)) / 3;
                                                     if (j10 > anInt1241 * 10) {
                                                         j10 = anInt1241 * 10;
                                                     }
@@ -7010,7 +7017,7 @@ public class Game extends GameShell {
                                         }
                                     }
                                 } else if (widget_1.sprites != null && i3 < 20) {
-                                    CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_1 = widget_1.sprites[i3];
+                                    Sprite class13_sub1_sub4_sub4_1 = widget_1.sprites[i3];
                                     if (class13_sub1_sub4_sub4_1 != null) {
                                         class13_sub1_sub4_sub4_1.method408(j6, (byte) 83, k5);
                                     }
@@ -7034,17 +7041,17 @@ public class Game extends GameShell {
                         }
                         if (widget_1.alpha == 0) {
                             if (widget_1.isFilled) {
-                                CacheableNode_Sub1_Sub4.method356(false, k2, l2, j3, widget_1.width, widget_1.height);
+                                Rasterizer.method356(false, k2, l2, j3, widget_1.width, widget_1.height);
                             } else {
-                                CacheableNode_Sub1_Sub4.method357((byte) 4, l2, k2, widget_1.height, j3, widget_1.width);
+                                Rasterizer.method357((byte) 4, l2, k2, widget_1.height, j3, widget_1.width);
                             }
                         } else if (widget_1.isFilled) {
-                            CacheableNode_Sub1_Sub4.method355(widget_1.width, 0, l2, widget_1.height, j3, k2, 256 - (widget_1.alpha & 0xff));
+                            Rasterizer.method355(widget_1.width, 0, l2, widget_1.height, j3, k2, 256 - (widget_1.alpha & 0xff));
                         } else {
-                            CacheableNode_Sub1_Sub4.method358(widget_1.width, k2, false, 256 - (widget_1.alpha & 0xff), j3, l2, widget_1.height);
+                            Rasterizer.method358(widget_1.width, k2, false, 256 - (widget_1.alpha & 0xff), j3, l2, widget_1.height);
                         }
                     } else if (widget_1.type == 4) {
-                        Font font = widget_1.fonts;
+                        com.jagex.graphics.Font font = widget_1.fonts;
                         String s = widget_1.disabledText;
                         boolean flag1 = anInt907 == widget_1.id || anInt1118 == widget_1.id || anInt861 == widget_1.id;
                         int i4;
@@ -7066,7 +7073,7 @@ public class Game extends GameShell {
                             s = "Please wait...";
                             i4 = widget_1.disabledColor;
                         }
-                        if (CacheableNode_Sub1_Sub4.anInt1424 == 479) {
+                        if (Rasterizer.anInt1424 == 479) {
                             if (i4 == 0xffff00) {
                                 i4 = 255;
                             }
@@ -7129,7 +7136,7 @@ public class Game extends GameShell {
                         }
 
                     } else if (widget_1.type == 5) {
-                        CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4;
+                        Sprite class13_sub1_sub4_sub4;
                         if (method76(-33151, widget_1)) {
                             class13_sub1_sub4_sub4 = widget_1.enabledSprite;
                         } else {
@@ -7139,12 +7146,12 @@ public class Game extends GameShell {
                             class13_sub1_sub4_sub4.method408(l2, (byte) 83, k2);
                         }
                     } else if (widget_1.type == 6) {
-                        int k3 = CacheableNode_Sub1_Sub4_.anInt1630;
-                        int j4 = CacheableNode_Sub1_Sub4_.anInt1631;
-                        CacheableNode_Sub1_Sub4_.anInt1630 = k2 + widget_1.width / 2;
-                        CacheableNode_Sub1_Sub4_.anInt1631 = l2 + widget_1.height / 2;
-                        int i5 = CacheableNode_Sub1_Sub4_.anIntArray1634[widget_1.anInt535] * widget_1.anInt534 >> 16;
-                        int l5 = CacheableNode_Sub1_Sub4_.anIntArray1635[widget_1.anInt535] * widget_1.anInt534 >> 16;
+                        int k3 = Rasterizer3D.anInt1630;
+                        int j4 = Rasterizer3D.anInt1631;
+                        Rasterizer3D.anInt1630 = k2 + widget_1.width / 2;
+                        Rasterizer3D.anInt1631 = l2 + widget_1.height / 2;
+                        int i5 = Rasterizer3D.anIntArray1634[widget_1.anInt535] * widget_1.anInt534 >> 16;
+                        int l5 = Rasterizer3D.anIntArray1635[widget_1.anInt535] * widget_1.anInt534 >> 16;
                         boolean flag2 = method76(-33151, widget_1);
                         int i7;
                         if (flag2) {
@@ -7162,10 +7169,10 @@ public class Game extends GameShell {
                         if (class13_sub1_sub1_sub4 != null) {
                             class13_sub1_sub1_sub4.method285(0, widget_1.anInt536, 0, widget_1.anInt535, 0, i5, l5);
                         }
-                        CacheableNode_Sub1_Sub4_.anInt1630 = k3;
-                        CacheableNode_Sub1_Sub4_.anInt1631 = j4;
+                        Rasterizer3D.anInt1630 = k3;
+                        Rasterizer3D.anInt1631 = j4;
                     } else if (widget_1.type == 7) {
-                        Font class13_sub1_sub4_sub2_1 = widget_1.fonts;
+                        com.jagex.graphics.Font class13_sub1_sub4_sub2_1 = widget_1.fonts;
                         int k4 = 0;
                         for (int j5 = 0; j5 < widget_1.height; j5++) {
                             for (int i6 = 0; i6 < widget_1.width; i6++) {
@@ -7193,7 +7200,7 @@ public class Game extends GameShell {
             if (l <= 0) {
                 opcode = -1;
             }
-            CacheableNode_Sub1_Sub4.method353(k1, (byte) -12, l1, j1, i1);
+            Rasterizer.method353(k1, (byte) -12, l1, j1, i1);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("61542, " + widget + ", " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
@@ -7342,7 +7349,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method72(CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1, int i, int j, int k, boolean flag) {
+    public void method72(Player class13_sub1_sub1_sub6_sub1, int i, int j, int k, boolean flag) {
         try {
             if (class13_sub1_sub1_sub6_sub1 == aClass13_Sub1_Sub1_Sub6_Sub1_997) {
                 return;
@@ -7433,7 +7440,7 @@ public class Game extends GameShell {
     public void method73(int i, boolean flag) {
         try {
             for (int j = 0; j < anInt1284; j++) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[j]];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[j]];
                 int k = 0x20000000 + (anIntArray1285[j] << 14);
                 if (class13_sub1_sub1_sub6_sub2 == null || !class13_sub1_sub1_sub6_sub2.method291(true) || class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.aBoolean782 != flag) {
                     continue;
@@ -7452,7 +7459,7 @@ public class Game extends GameShell {
                 if (!class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.aBoolean784) {
                     k += 0x80000000;
                 }
-                aClass10_1198.method205(class13_sub1_sub1_sub6_sub2.anInt1588, class13_sub1_sub1_sub6_sub2.anInt1587, anInt1166, k, class13_sub1_sub1_sub6_sub2, -554, method80(anInt1166, 781, class13_sub1_sub1_sub6_sub2.anInt1588, class13_sub1_sub1_sub6_sub2.anInt1587), (class13_sub1_sub1_sub6_sub2.anInt1611 - 1) * 64 + 60, class13_sub1_sub1_sub6_sub2.anInt1589, class13_sub1_sub1_sub6_sub2.aBoolean1569);
+                aScene_1198.method205(class13_sub1_sub1_sub6_sub2.anInt1588, class13_sub1_sub1_sub6_sub2.anInt1587, anInt1166, k, class13_sub1_sub1_sub6_sub2, -554, method80(anInt1166, 781, class13_sub1_sub1_sub6_sub2.anInt1588, class13_sub1_sub1_sub6_sub2.anInt1587), (class13_sub1_sub1_sub6_sub2.anInt1611 - 1) * 64 + 60, class13_sub1_sub1_sub6_sub2.anInt1589, class13_sub1_sub1_sub6_sub2.aBoolean1569);
             }
             if (i != 0) {
                 method6();
@@ -7801,7 +7808,7 @@ public class Game extends GameShell {
                 addChatMessage("", "Your ignore list is full. Max of 100 hit", 0);
                 return;
             }
-            String s = Class24.method450(Class24.method447(l, 0), 0);
+            String s = StringUtil.method450(StringUtil.method447(l, 0), 0);
             for (int j = 0; j < anInt1098; j++) {
                 if (aLongArray990[j] == l) {
                     addChatMessage("", s + " is already on your ignore list", 0);
@@ -7835,7 +7842,7 @@ public class Game extends GameShell {
             }
             for (int k = 0; k < anInt901; k++) {
                 int l = anIntArray902[k];
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
                 int i1 = buffer.readUByte();
                 if ((i1 & 1) != 0) {
                     class13_sub1_sub1_sub6_sub2.aNpcConfig_1717 = NpcConfig.getDefinition(buffer.readUShortBEA());
@@ -7978,7 +7985,7 @@ public class Game extends GameShell {
         try {
             for (int j = 0; j < anInt901; j++) {
                 int k = anIntArray902[j];
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[k];
+                Player class13_sub1_sub1_sub6_sub1 = players[k];
                 int l = buffer.readUByte();
                 if ((l & 0x40) != 0) {
                     l += buffer.readUByte() << 8;
@@ -8048,8 +8055,8 @@ public class Game extends GameShell {
                         j1 = aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1697;
                     }
                     if (i1 == 9) {
-                        for (int k1 = 0; k1 < Class44.anInt725; k1++) {
-                            if (Class44.aBooleanArray727[k1]) {
+                        for (int k1 = 0; k1 < SkillConstants.SKILL_COUNT; k1++) {
+                            if (SkillConstants.SKILL_TOGGLES[k1]) {
                                 j1 += anIntArray983[k1];
                             }
                         }
@@ -8334,7 +8341,7 @@ public class Game extends GameShell {
                 } else {
                     k = playerList[j];
                 }
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[k];
+                Player class13_sub1_sub1_sub6_sub1 = players[k];
                 if (class13_sub1_sub1_sub6_sub1 != null) {
                     method126(class13_sub1_sub1_sub6_sub1, 0, 1);
                 }
@@ -8361,32 +8368,32 @@ public class Game extends GameShell {
 
     public void method90(int i) {
         try {
-            if (aClass31_1214 != null) {
+            if (aProducingGraphicsBuffer_1214 != null) {
                 return;
             }
             method41(88);
-            super.aClass31_16 = null;
-            aClass31_1245 = null;
-            aClass31_1246 = null;
-            aClass31_1247 = null;
-            aClass31_1248 = null;
-            aClass31_1249 = null;
-            aClass31_1250 = null;
-            aClass31_1251 = null;
-            aClass31_1252 = null;
-            aClass31_1253 = null;
-            aClass31_1214 = new Class31(true, 479, method11(736), 96);
-            aClass31_1212 = new Class31(true, 172, method11(736), 156);
-            CacheableNode_Sub1_Sub4.method354(false);
+            super.aProducingGraphicsBuffer_16 = null;
+            aProducingGraphicsBuffer_1245 = null;
+            aProducingGraphicsBuffer_1246 = null;
+            aProducingGraphicsBuffer_1247 = null;
+            aProducingGraphicsBuffer_1248 = null;
+            aProducingGraphicsBuffer_1249 = null;
+            aProducingGraphicsBuffer_1250 = null;
+            aProducingGraphicsBuffer_1251 = null;
+            aProducingGraphicsBuffer_1252 = null;
+            aProducingGraphicsBuffer_1253 = null;
+            aProducingGraphicsBuffer_1214 = new ProducingGraphicsBuffer(true, 479, method11(736), 96);
+            aProducingGraphicsBuffer_1212 = new ProducingGraphicsBuffer(true, 172, method11(736), 156);
+            Rasterizer.method354(false);
             aClass13_Sub1_Sub4_Sub3_1209.method401(0, (byte) 83, 0);
-            aClass31_1211 = new Class31(true, 190, method11(736), 261);
-            aClass31_1213 = new Class31(true, 512, method11(736), 334);
-            CacheableNode_Sub1_Sub4.method354(false);
-            for (aClass31_1186 = new Class31(true, 496, method11(736), 50); i >= 0; ) {
+            aProducingGraphicsBuffer_1211 = new ProducingGraphicsBuffer(true, 190, method11(736), 261);
+            aProducingGraphicsBuffer_1213 = new ProducingGraphicsBuffer(true, 512, method11(736), 334);
+            Rasterizer.method354(false);
+            for (aProducingGraphicsBuffer_1186 = new ProducingGraphicsBuffer(true, 496, method11(736), 50); i >= 0; ) {
                 return;
             }
-            aClass31_1187 = new Class31(true, 269, method11(736), 37);
-            aClass31_1188 = new Class31(true, 249, method11(736), 45);
+            aProducingGraphicsBuffer_1187 = new ProducingGraphicsBuffer(true, 269, method11(736), 37);
+            aProducingGraphicsBuffer_1188 = new ProducingGraphicsBuffer(true, 249, method11(736), 45);
             aBoolean1216 = true;
             return;
         } catch (RuntimeException runtimeexception) {
@@ -8401,12 +8408,12 @@ public class Game extends GameShell {
                 anInt1191 = -1;
                 aLinkedList_982.clear();
                 aLinkedList_1199.clear();
-                CacheableNode_Sub1_Sub4_.method366(0);
+                Rasterizer3D.method366(0);
                 method65(509);
-                aClass10_1198.method194(false);
+                aScene_1198.method194(false);
                 System.gc();
                 for (int i = 0; i < 4; i++) {
-                    aClass39Array947[i].method516();
+                    aCollisionMapArray947[i].method516();
                 }
                 for (int l = 0; l < 4; l++) {
                     for (int k1 = 0; k1 < 104; k1++) {
@@ -8415,7 +8422,7 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                Class25 class25 = new Class25(anIntArrayArrayArray1267, 104, 104, -75, aByteArrayArrayArray1164);
+                MapRegion mapRegion = new MapRegion(anIntArrayArrayArray1267, 104, 104, -75, aByteArrayArrayArray1164);
                 int k2 = aByteArrayArray1146.length;
                 aBuffer_928.writeOpcode(63);
                 if (!aBoolean971) {
@@ -8424,7 +8431,7 @@ public class Game extends GameShell {
                         int k5 = (anIntArray937[i3] & 0xff) * 64 - anInt1084;
                         byte[] abyte0 = aByteArrayArray1146[i3];
                         if (abyte0 != null) {
-                            class25.method470(abyte0, aByte1066, (anInt985 - 6) * 8, (anInt984 - 6) * 8, i4, k5, aClass39Array947);
+                            mapRegion.method470(abyte0, aByte1066, (anInt985 - 6) * 8, (anInt984 - 6) * 8, i4, k5, aCollisionMapArray947);
                         }
                     }
                     for (int j4 = 0; j4 < k2; j4++) {
@@ -8432,7 +8439,7 @@ public class Game extends GameShell {
                         int k7 = (anIntArray937[j4] & 0xff) * 64 - anInt1084;
                         byte[] abyte2 = aByteArrayArray1146[j4];
                         if (abyte2 == null && anInt985 < 800) {
-                            class25.method459(l5, (byte) 46, 64, 64, k7);
+                            mapRegion.method459(l5, (byte) 46, 64, 64, k7);
                         }
                     }
                     aBuffer_928.writeOpcode(63);
@@ -8441,7 +8448,7 @@ public class Game extends GameShell {
                         if (abyte1 != null) {
                             int l8 = (anIntArray937[i6] >> 8) * 64 - anInt1083;
                             int k9 = (anIntArray937[i6] & 0xff) * 64 - anInt1084;
-                            class25.method457(true, abyte1, aClass39Array947, k9, aClass10_1198, l8);
+                            mapRegion.method457(true, abyte1, aCollisionMapArray947, k9, aScene_1198, l8);
                         }
                     }
                 }
@@ -8460,7 +8467,7 @@ public class Game extends GameShell {
                                         if (anIntArray937[l11] != j11 || aByteArrayArray1146[l11] == null) {
                                             continue;
                                         }
-                                        class25.method455(j3, j6 * 8, i9, (j10 & 7) * 8, aByteArrayArray1146[l11], aClass39Array947, (l10 & 7) * 8, anInt1073, l9, k4 * 8);
+                                        mapRegion.method455(j3, j6 * 8, i9, (j10 & 7) * 8, aByteArrayArray1146[l11], aCollisionMapArray947, (l10 & 7) * 8, anInt1073, l9, k4 * 8);
                                         break;
                                     }
                                 }
@@ -8471,7 +8478,7 @@ public class Game extends GameShell {
                         for (int k6 = 0; k6 < 13; k6++) {
                             int i8 = anIntArrayArrayArray1226[0][l4][k6];
                             if (i8 == -1) {
-                                class25.method459(l4 * 8, (byte) 46, 8, 8, k6 * 8);
+                                mapRegion.method459(l4 * 8, (byte) 46, 8, 8, k6 * 8);
                             }
                         }
                     }
@@ -8490,7 +8497,7 @@ public class Game extends GameShell {
                                         if (anIntArray937[k12] != j12 || aByteArrayArray1179[k12] == null) {
                                             continue;
                                         }
-                                        class25.method453((k11 & 7) * 8, aClass39Array947, i11, j9 * 8, aClass10_1198, k10, true, (i12 & 7) * 8, l6, j8 * 8, aByteArrayArray1179[k12]);
+                                        mapRegion.method453((k11 & 7) * 8, aCollisionMapArray947, i11, j9 * 8, aScene_1198, k10, true, (i12 & 7) * 8, l6, j8 * 8, aByteArrayArray1179[k12]);
                                         break;
                                     }
                                 }
@@ -8499,10 +8506,10 @@ public class Game extends GameShell {
                     }
                 }
                 aBuffer_928.writeOpcode(63);
-                class25.method458(aClass10_1198, (byte) 6, aClass39Array947);
-                aClass31_1213.method490(false);
+                mapRegion.method458(aScene_1198, (byte) 6, aCollisionMapArray947);
+                aProducingGraphicsBuffer_1213.method490(false);
                 aBuffer_928.writeOpcode(63);
-                int k3 = Class25.anInt426;
+                int k3 = MapRegion.anInt426;
                 if (k3 > anInt1166) {
                     k3 = anInt1166;
                 }
@@ -8510,9 +8517,9 @@ public class Game extends GameShell {
                     k3 = anInt1166 - 1;
                 }
                 if (lowMemory) {
-                    aClass10_1198.method195(Class25.anInt426, true);
+                    aScene_1198.method195(MapRegion.anInt426, true);
                 } else {
-                    aClass10_1198.method195(0, true);
+                    aScene_1198.method195(0, true);
                 }
                 for (int i5 = 0; i5 < 104; i5++) {
                     for (int i7 = 0; i7 < 104; i7++) {
@@ -8540,7 +8547,7 @@ public class Game extends GameShell {
             if (flag) {
                 anInt1173 = isaacCipher.nextInt();
             }
-            CacheableNode_Sub1_Sub4_.method367((byte) 71, 20);
+            Rasterizer3D.method367((byte) 71, 20);
             gameUpdateClient.clearExtras();
             int k = (anInt984 - 6) / 8 - 1;
             int j1 = (anInt984 + 6) / 8 + 1;
@@ -8576,7 +8583,7 @@ public class Game extends GameShell {
     public boolean method92(int i, boolean flag, int j, int k) {
         try {
             int l = i >> 14 & 0x7fff;
-            int i1 = aClass10_1198.method224(anInt1166, j, k, i);
+            int i1 = aScene_1198.method224(anInt1166, j, k, i);
             if (i1 == -1) {
                 return false;
             }
@@ -8638,7 +8645,7 @@ public class Game extends GameShell {
         try {
             anInt1101 = 0;
             for (int i = -1; i < anInt899 + anInt1284; i++) {
-                Object obj;
+                java.lang.Object obj;
                 if (i == -1) {
                     obj = aClass13_Sub1_Sub1_Sub6_Sub1_997;
                 } else if (i < anInt899) {
@@ -8646,11 +8653,11 @@ public class Game extends GameShell {
                 } else {
                     obj = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[anIntArray1285[i - anInt899]];
                 }
-                if (obj == null || !((CacheableNode_Sub1_Sub1_Sub6) (obj)).method291(true)) {
+                if (obj == null || !((Entity) (obj)).method291(true)) {
                     continue;
                 }
-                if (obj instanceof CacheableNode_Sub1_Sub1_Sub6_Sub2) {
-                    NpcConfig npcConfig = ((CacheableNode_Sub1_Sub1_Sub6_Sub2) obj).aNpcConfig_1717;
+                if (obj instanceof Npc) {
+                    NpcConfig npcConfig = ((Npc) obj).aNpcConfig_1717;
                     if (npcConfig.anIntArray751 != null) {
                         npcConfig = npcConfig.method584((byte) 0);
                     }
@@ -8660,9 +8667,9 @@ public class Game extends GameShell {
                 }
                 if (i < anInt899) {
                     int k = 30;
-                    CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = (CacheableNode_Sub1_Sub1_Sub6_) obj;
+                    Player class13_sub1_sub1_sub6_sub1 = (Player) obj;
                     if (class13_sub1_sub1_sub6_sub1.anInt1715 != 0) {
-                        method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 + 15, (byte) 101);
+                        method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 + 15, (byte) 101);
                         if (anInt1078 > -1) {
                             for (int l1 = 0; l1 < 8; l1++) {
                                 if ((class13_sub1_sub1_sub6_sub1.anInt1715 & 1 << l1) != 0) {
@@ -8673,63 +8680,63 @@ public class Game extends GameShell {
                         }
                     }
                     if (i >= 0 && anInt1227 == 10 && anInt999 == playerList[i]) {
-                        method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 + 15, (byte) 101);
+                        method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 + 15, (byte) 101);
                         if (anInt1078 > -1) {
                             aClass13_Sub1_Sub4_Sub4Array1236[7].method408(anInt1079 - k, (byte) 83, anInt1078 - 12);
                         }
                     }
                 } else {
-                    NpcConfig npcConfig_1 = ((CacheableNode_Sub1_Sub1_Sub6_Sub2) obj).aNpcConfig_1717;
+                    NpcConfig npcConfig_1 = ((Npc) obj).aNpcConfig_1717;
                     if (npcConfig_1.anInt749 >= 0 && npcConfig_1.anInt749 < aClass13_Sub1_Sub4_Sub4Array1236.length) {
-                        method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 + 15, (byte) 101);
+                        method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 + 15, (byte) 101);
                         if (anInt1078 > -1) {
                             aClass13_Sub1_Sub4_Sub4Array1236[npcConfig_1.anInt749].method408(anInt1079 - 30, (byte) 83, anInt1078 - 12);
                         }
                     }
                     if (anInt1227 == 1 && anInt1015 == anIntArray1285[i - anInt899] && pulseCycle % 20 < 10) {
-                        method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 + 15, (byte) 101);
+                        method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 + 15, (byte) 101);
                         if (anInt1078 > -1) {
                             aClass13_Sub1_Sub4_Sub4Array1236[2].method408(anInt1079 - 28, (byte) 83, anInt1078 - 12);
                         }
                     }
                 }
-                if (((CacheableNode_Sub1_Sub1_Sub6) (obj)).aString1586 != null && (i >= anInt899 || anInt1159 == 0 || anInt1159 == 3 || anInt1159 == 1 && method71(((CacheableNode_Sub1_Sub1_Sub6_) obj).aString1689, 771))) {
-                    method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590, (byte) 101);
+                if (((Entity) (obj)).aString1586 != null && (i >= anInt899 || anInt1159 == 0 || anInt1159 == 3 || anInt1159 == 1 && method71(((Player) obj).aString1689, 771))) {
+                    method143(((Entity) (obj)), ((Entity) (obj)).anInt1590, (byte) 101);
                     if (anInt1078 > -1 && anInt1101 < anInt1102) {
-                        anIntArray1106[anInt1101] = aFont_893.method384(((CacheableNode_Sub1_Sub1_Sub6) (obj)).aString1586, 0) / 2;
+                        anIntArray1106[anInt1101] = aFont_893.method384(((Entity) (obj)).aString1586, 0) / 2;
                         anIntArray1105[anInt1101] = aFont_893.anInt1659;
                         anIntArray1103[anInt1101] = anInt1078;
                         anIntArray1104[anInt1101] = anInt1079;
-                        anIntArray1107[anInt1101] = ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1566;
-                        anIntArray1108[anInt1101] = ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1617;
-                        anIntArray1109[anInt1101] = ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1603;
-                        aStringArray1110[anInt1101++] = ((CacheableNode_Sub1_Sub1_Sub6) (obj)).aString1586;
-                        if (anInt1289 == 0 && ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1617 >= 1 && ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1617 <= 3) {
+                        anIntArray1107[anInt1101] = ((Entity) (obj)).anInt1566;
+                        anIntArray1108[anInt1101] = ((Entity) (obj)).anInt1617;
+                        anIntArray1109[anInt1101] = ((Entity) (obj)).anInt1603;
+                        aStringArray1110[anInt1101++] = ((Entity) (obj)).aString1586;
+                        if (anInt1289 == 0 && ((Entity) (obj)).anInt1617 >= 1 && ((Entity) (obj)).anInt1617 <= 3) {
                             anIntArray1105[anInt1101] += 10;
                             anIntArray1104[anInt1101] += 5;
                         }
-                        if (anInt1289 == 0 && ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1617 == 4) {
+                        if (anInt1289 == 0 && ((Entity) (obj)).anInt1617 == 4) {
                             anIntArray1106[anInt1101] = 60;
                         }
-                        if (anInt1289 == 0 && ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1617 == 5) {
+                        if (anInt1289 == 0 && ((Entity) (obj)).anInt1617 == 5) {
                             anIntArray1105[anInt1101] += 5;
                         }
                     }
                 }
-                if (((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1604 > pulseCycle) {
-                    method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 + 15, (byte) 101);
+                if (((Entity) (obj)).anInt1604 > pulseCycle) {
+                    method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 + 15, (byte) 101);
                     if (anInt1078 > -1) {
-                        int l = (((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1605 * 30) / ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1606;
+                        int l = (((Entity) (obj)).anInt1605 * 30) / ((Entity) (obj)).anInt1606;
                         if (l > 30) {
                             l = 30;
                         }
-                        CacheableNode_Sub1_Sub4.method356(false, anInt1078 - 15, anInt1079 - 3, 65280, l, 5);
-                        CacheableNode_Sub1_Sub4.method356(false, (anInt1078 - 15) + l, anInt1079 - 3, 0xff0000, 30 - l, 5);
+                        Rasterizer.method356(false, anInt1078 - 15, anInt1079 - 3, 65280, l, 5);
+                        Rasterizer.method356(false, (anInt1078 - 15) + l, anInt1079 - 3, 0xff0000, 30 - l, 5);
                     }
                 }
                 for (int i1 = 0; i1 < 4; i1++) {
-                    if (((CacheableNode_Sub1_Sub1_Sub6) (obj)).anIntArray1614[i1] > pulseCycle) {
-                        method143(((CacheableNode_Sub1_Sub1_Sub6) (obj)), ((CacheableNode_Sub1_Sub1_Sub6) (obj)).anInt1590 / 2, (byte) 101);
+                    if (((Entity) (obj)).anIntArray1614[i1] > pulseCycle) {
+                        method143(((Entity) (obj)), ((Entity) (obj)).anInt1590 / 2, (byte) 101);
                         if (anInt1078 > -1) {
                             if (i1 == 1) {
                                 anInt1079 -= 20;
@@ -8742,9 +8749,9 @@ public class Game extends GameShell {
                                 anInt1078 += 15;
                                 anInt1079 -= 10;
                             }
-                            aClass13_Sub1_Sub4_Sub4Array1266[((CacheableNode_Sub1_Sub1_Sub6) (obj)).anIntArray1613[i1]].method408(anInt1079 - 12, (byte) 83, anInt1078 - 12);
-                            aFont_891.method381(anInt1078, 0, 6, anInt1079 + 4, String.valueOf(((CacheableNode_Sub1_Sub1_Sub6) (obj)).anIntArray1612[i1]));
-                            aFont_891.method381(anInt1078 - 1, 0xffffff, 6, anInt1079 + 3, String.valueOf(((CacheableNode_Sub1_Sub1_Sub6) (obj)).anIntArray1612[i1]));
+                            aClass13_Sub1_Sub4_Sub4Array1266[((Entity) (obj)).anIntArray1613[i1]].method408(anInt1079 - 12, (byte) 83, anInt1078 - 12);
+                            aFont_891.method381(anInt1078, 0, 6, anInt1079 + 4, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
+                            aFont_891.method381(anInt1078 - 1, 0xffffff, 6, anInt1079 + 3, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
                         }
                     }
                 }
@@ -8830,10 +8837,10 @@ public class Game extends GameShell {
                     if (anIntArray1108[j] == 4) {
                         int l3 = aFont_893.method384(s, 0);
                         int j4 = ((150 - anIntArray1109[j]) * (l3 + 100)) / 150;
-                        CacheableNode_Sub1_Sub4.method353(anInt1078 + 50, (byte) -12, 334, 0, anInt1078 - 50);
+                        Rasterizer.method353(anInt1078 + 50, (byte) -12, 334, 0, anInt1078 - 50);
                         aFont_893.method385((byte) -96, s, 0, (anInt1078 + 50) - j4, anInt1079 + 1);
                         aFont_893.method385((byte) -96, s, l2, (anInt1078 + 50) - j4, anInt1079);
-                        CacheableNode_Sub1_Sub4.method352(4);
+                        Rasterizer.method352(4);
                     }
                     if (anIntArray1108[j] == 5) {
                         int i4 = 150 - anIntArray1109[j];
@@ -8843,10 +8850,10 @@ public class Game extends GameShell {
                         } else if (i4 > 125) {
                             k4 = i4 - 125;
                         }
-                        CacheableNode_Sub1_Sub4.method353(512, (byte) -12, anInt1079 + 5, anInt1079 - aFont_893.anInt1659 - 1, 0);
+                        Rasterizer.method353(512, (byte) -12, anInt1079 + 5, anInt1079 - aFont_893.anInt1659 - 1, 0);
                         aFont_893.method381(anInt1078, 0, 6, anInt1079 + 1 + k4, s);
                         aFont_893.method381(anInt1078, l2, 6, anInt1079 + k4, s);
-                        CacheableNode_Sub1_Sub4.method352(4);
+                        Rasterizer.method352(4);
                     }
                 } else {
                     aFont_893.method381(anInt1078, 0, 6, anInt1079 + 1, s);
@@ -8970,7 +8977,7 @@ public class Game extends GameShell {
                 }
             }
             for (int i1 = 0; i1 < 33920; i1++) {
-                aClass31_1248.anIntArray482[i1] = aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1];
+                aProducingGraphicsBuffer_1248.anIntArray482[i1] = aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1];
             }
             int j1 = 0;
             int k1 = 1152;
@@ -8987,17 +8994,17 @@ public class Game extends GameShell {
                         int i4 = k3;
                         int k4 = 256 - k3;
                         k3 = anIntArray843[k3];
-                        int i5 = aClass31_1248.anIntArray482[k1];
-                        aClass31_1248.anIntArray482[k1++] = ((k3 & 0xff00ff) * i4 + (i5 & 0xff00ff) * k4 & 0xff00ff00) + ((k3 & 0xff00) * i4 + (i5 & 0xff00) * k4 & 0xff0000) >> 8;
+                        int i5 = aProducingGraphicsBuffer_1248.anIntArray482[k1];
+                        aProducingGraphicsBuffer_1248.anIntArray482[k1++] = ((k3 & 0xff00ff) * i4 + (i5 & 0xff00ff) * k4 & 0xff00ff00) + ((k3 & 0xff00) * i4 + (i5 & 0xff00) * k4 & 0xff0000) >> 8;
                     } else {
                         k1++;
                     }
                 }
                 k1 += k2;
             }
-            aClass31_1248.method491(super.aGraphics15, 0, false, 0);
+            aProducingGraphicsBuffer_1248.method491(super.aGraphics15, 0, false, 0);
             for (int j2 = 0; j2 < 33920; j2++) {
-                aClass31_1249.anIntArray482[j2] = aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j2];
+                aProducingGraphicsBuffer_1249.anIntArray482[j2] = aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j2];
             }
             j1 = 0;
             k1 = 1176;
@@ -9011,8 +9018,8 @@ public class Game extends GameShell {
                         int j5 = l4;
                         int k5 = 256 - l4;
                         l4 = anIntArray843[l4];
-                        int l5 = aClass31_1249.anIntArray482[k1];
-                        aClass31_1249.anIntArray482[k1++] = ((l4 & 0xff00ff) * j5 + (l5 & 0xff00ff) * k5 & 0xff00ff00) + ((l4 & 0xff00) * j5 + (l5 & 0xff00) * k5 & 0xff0000) >> 8;
+                        int l5 = aProducingGraphicsBuffer_1249.anIntArray482[k1];
+                        aProducingGraphicsBuffer_1249.anIntArray482[k1++] = ((l4 & 0xff00ff) * j5 + (l5 & 0xff00ff) * k5 & 0xff00ff00) + ((l4 & 0xff00) * j5 + (l5 & 0xff00) * k5 & 0xff0000) >> 8;
                     } else {
                         k1++;
                     }
@@ -9020,7 +9027,7 @@ public class Game extends GameShell {
                 j1 += 128 - l3;
                 k1 += 128 - l3 - j3;
             }
-            aClass31_1249.method491(super.aGraphics15, 0, false, 637);
+            aProducingGraphicsBuffer_1249.method491(super.aGraphics15, 0, false, 637);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("15285, " + i + ", " + runtimeexception);
@@ -9032,8 +9039,8 @@ public class Game extends GameShell {
         try {
             loggedIn &= flag;
             if (!lowMemory) {
-                if (CacheableNode_Sub1_Sub4_.anIntArray1644[17] >= i) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3 = CacheableNode_Sub1_Sub4_.aClass13_Sub1_Sub4_Sub3Array1638[17];
+                if (Rasterizer3D.anIntArray1644[17] >= i) {
+                    IndexedImage class13_sub1_sub4_sub3 = Rasterizer3D.aClass13_Sub1_Sub4_Sub3Array1638[17];
                     int j = class13_sub1_sub4_sub3.anInt1669 * class13_sub1_sub4_sub3.anInt1670 - 1;
                     int i1 = class13_sub1_sub4_sub3.anInt1669 * anInt1241 * 2;
                     byte[] abyte0 = class13_sub1_sub4_sub3.aByteArray1667;
@@ -9043,10 +9050,10 @@ public class Game extends GameShell {
                     }
                     class13_sub1_sub4_sub3.aByteArray1667 = abyte3;
                     aByteArray941 = abyte0;
-                    CacheableNode_Sub1_Sub4_.method370(false, 17);
+                    Rasterizer3D.method370(false, 17);
                 }
-                if (CacheableNode_Sub1_Sub4_.anIntArray1644[24] >= i) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3_1 = CacheableNode_Sub1_Sub4_.aClass13_Sub1_Sub4_Sub3Array1638[24];
+                if (Rasterizer3D.anIntArray1644[24] >= i) {
+                    IndexedImage class13_sub1_sub4_sub3_1 = Rasterizer3D.aClass13_Sub1_Sub4_Sub3Array1638[24];
                     int k = class13_sub1_sub4_sub3_1.anInt1669 * class13_sub1_sub4_sub3_1.anInt1670 - 1;
                     int j1 = class13_sub1_sub4_sub3_1.anInt1669 * anInt1241 * 2;
                     byte[] abyte1 = class13_sub1_sub4_sub3_1.aByteArray1667;
@@ -9056,15 +9063,15 @@ public class Game extends GameShell {
                     }
                     class13_sub1_sub4_sub3_1.aByteArray1667 = abyte4;
                     aByteArray941 = abyte1;
-                    CacheableNode_Sub1_Sub4_.method370(false, 24);
+                    Rasterizer3D.method370(false, 24);
                     anInt1153++;
                     if (anInt1153 > 88) {
                         anInt1153 = 0;
                         aBuffer_928.writeOpcode(57);
                     }
                 }
-                if (CacheableNode_Sub1_Sub4_.anIntArray1644[34] >= i) {
-                    CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3_2 = CacheableNode_Sub1_Sub4_.aClass13_Sub1_Sub4_Sub3Array1638[34];
+                if (Rasterizer3D.anIntArray1644[34] >= i) {
+                    IndexedImage class13_sub1_sub4_sub3_2 = Rasterizer3D.aClass13_Sub1_Sub4_Sub3Array1638[34];
                     int l = class13_sub1_sub4_sub3_2.anInt1669 * class13_sub1_sub4_sub3_2.anInt1670 - 1;
                     int k1 = class13_sub1_sub4_sub3_2.anInt1669 * anInt1241 * 2;
                     byte[] abyte2 = class13_sub1_sub4_sub3_2.aByteArray1667;
@@ -9074,7 +9081,7 @@ public class Game extends GameShell {
                     }
                     class13_sub1_sub4_sub3_2.aByteArray1667 = abyte5;
                     aByteArray941 = abyte2;
-                    CacheableNode_Sub1_Sub4_.method370(false, 34);
+                    Rasterizer3D.method370(false, 34);
                     return;
                 }
             }
@@ -9093,7 +9100,7 @@ public class Game extends GameShell {
                 } else {
                     j = playerList[i];
                 }
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[j];
+                Player class13_sub1_sub1_sub6_sub1 = players[j];
                 if (class13_sub1_sub1_sub6_sub1 != null && class13_sub1_sub1_sub6_sub1.anInt1603 > 0) {
                     class13_sub1_sub1_sub6_sub1.anInt1603--;
                     if (class13_sub1_sub1_sub6_sub1.anInt1603 == 0) {
@@ -9106,7 +9113,7 @@ public class Game extends GameShell {
             }
             for (int k = 0; k < anInt1284; k++) {
                 int l = anIntArray1285[k];
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
                 if (class13_sub1_sub1_sub6_sub2 != null && class13_sub1_sub1_sub6_sub2.anInt1603 > 0) {
                     class13_sub1_sub1_sub6_sub2.anInt1603--;
                     if (class13_sub1_sub1_sub6_sub2.anInt1603 == 0) {
@@ -9232,47 +9239,47 @@ public class Game extends GameShell {
                 boolean flag = false;
                 boolean flag1 = false;
                 if (j1 == 0) {
-                    i2 = aClass10_1198.method220(i, k, k1);
+                    i2 = aScene_1198.method220(i, k, k1);
                 }
                 if (j1 == 1) {
-                    i2 = aClass10_1198.method221(i, k, (byte) 122, k1);
+                    i2 = aScene_1198.method221(i, k, (byte) 122, k1);
                 }
                 if (j1 == 2) {
-                    i2 = aClass10_1198.method222(i, k, k1);
+                    i2 = aScene_1198.method222(i, k, k1);
                 }
                 if (j1 == 3) {
-                    i2 = aClass10_1198.method223(i, k, k1);
+                    i2 = aScene_1198.method223(i, k, k1);
                 }
                 if (i2 != 0) {
-                    int i3 = aClass10_1198.method224(i, k, k1, i2);
+                    int i3 = aScene_1198.method224(i, k, k1, i2);
                     int j2 = i2 >> 14 & 0x7fff;
                     int k2 = i3 & 0x1f;
                     int l2 = i3 >> 6;
                     if (j1 == 0) {
-                        aClass10_1198.method211(k1, 464, k, i);
+                        aScene_1198.method211(k1, 464, k, i);
                         LocationConfig locationConfig = LocationConfig.readDefinition(j2);
                         if (locationConfig.aBoolean258) {
-                            aClass39Array947[i].method521(aBoolean1147, l2, k1, k2, k, locationConfig.aBoolean270);
+                            aCollisionMapArray947[i].method521(aBoolean1147, l2, k1, k2, k, locationConfig.aBoolean270);
                         }
                     }
                     if (j1 == 1) {
-                        aClass10_1198.method212(k, k1, 7, i);
+                        aScene_1198.method212(k, k1, 7, i);
                     }
                     if (j1 == 2) {
-                        aClass10_1198.method213(k1, i, (byte) 8, k);
+                        aScene_1198.method213(k1, i, (byte) 8, k);
                         LocationConfig locationConfig_1 = LocationConfig.readDefinition(j2);
                         if (k + locationConfig_1.anInt259 > 103 || k1 + locationConfig_1.anInt259 > 103 || k + locationConfig_1.anInt253 > 103 || k1 + locationConfig_1.anInt253 > 103) {
                             return;
                         }
                         if (locationConfig_1.aBoolean258) {
-                            aClass39Array947[i].method522(k, locationConfig_1.anInt253, l2, locationConfig_1.aBoolean270, locationConfig_1.anInt259, 6, k1);
+                            aCollisionMapArray947[i].method522(k, locationConfig_1.anInt253, l2, locationConfig_1.aBoolean270, locationConfig_1.anInt259, 6, k1);
                         }
                     }
                     if (j1 == 3) {
-                        aClass10_1198.method214(k1, i, k, 480);
+                        aScene_1198.method214(k1, i, k, 480);
                         LocationConfig locationConfig_2 = LocationConfig.readDefinition(j2);
                         if (locationConfig_2.aBoolean258 && locationConfig_2.aBoolean260) {
-                            aClass39Array947[i].method524(k, true, k1);
+                            aCollisionMapArray947[i].method524(k, true, k1);
                         }
                     }
                 }
@@ -9281,7 +9288,7 @@ public class Game extends GameShell {
                     if (j3 < 3 && (aByteArrayArrayArray1164[1][k][k1] & 2) == 2) {
                         j3++;
                     }
-                    Class25.method454(l, l1, aClass39Array947[i], k1, j3, j, k, (byte) 75, aClass10_1198, i, anIntArrayArrayArray1267);
+                    MapRegion.method454(l, l1, aCollisionMapArray947[i], k1, j3, j, k, (byte) 75, aScene_1198, i, anIntArrayArrayArray1267);
                     return;
                 }
             }
@@ -9291,7 +9298,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method103(CacheableNode_Sub1_Sub4_Sub3 class13_sub1_sub4_sub3, byte byte0) {
+    public void method103(IndexedImage class13_sub1_sub4_sub3, byte byte0) {
         try {
             int i = 256;
             if (byte0 != 9) {
@@ -9449,7 +9456,7 @@ public class Game extends GameShell {
                     widget.actionType = 0;
                     return;
                 } else {
-                    widget.disabledText = Class24.method450(Class24.method447(aLongArray990[j], 0), 0);
+                    widget.disabledText = StringUtil.method450(StringUtil.method447(aLongArray990[j], 0), 0);
                     widget.actionType = 1;
                     return;
                 }
@@ -9665,7 +9672,7 @@ public class Game extends GameShell {
                                 flag = true;
                             }
                         } else {
-                            Buffer buffer = Class27.method476((byte) -97, anIntArray1278[k], anIntArray1207[k]);
+                            Buffer buffer = Track.method476((byte) -97, anIntArray1278[k], anIntArray1207[k]);
                             if (System.currentTimeMillis() + (long) (buffer.position / 22) > aLong819 + (long) (anInt1115 / 22)) {
                                 anInt1115 = buffer.position;
                                 aLong819 = System.currentTimeMillis();
@@ -9823,11 +9830,11 @@ public class Game extends GameShell {
                         aBoolean1017 = false;
                         redrawChatbox = true;
                         if (anInt943 == 1) {
-                            long l = Class24.method446(aString1218);
+                            long l = StringUtil.method446(aString1218);
                             method45(688, l);
                         }
                         if (anInt943 == 2 && anInt1054 > 0) {
-                            long l1 = Class24.method446(aString1218);
+                            long l1 = StringUtil.method446(aString1218);
                             method123(1, l1);
                         }
                         if (anInt943 == 3 && aString1218.length() > 0) {
@@ -9835,11 +9842,11 @@ public class Game extends GameShell {
                             aBuffer_928.writeByte(0);
                             int j = aBuffer_928.position;
                             aBuffer_928.writeLongBE(aLong1033);
-                            Class45.method574(aBuffer_928, -45468, aString1218);
+                            ChatMessageCodec.method574(aBuffer_928, -45468, aString1218);
                             aBuffer_928.writeSizeByte(aBuffer_928.position - j);
-                            aString1218 = Class45.method575(false, aString1218);
-                            aString1218 = Class41.method541(false, aString1218);
-                            addChatMessage(Class24.method450(Class24.method447(aLong1033, 0), 0), aString1218, 6);
+                            aString1218 = ChatMessageCodec.method575(false, aString1218);
+                            aString1218 = MessageCensor.method541(false, aString1218);
+                            addChatMessage(StringUtil.method450(StringUtil.method447(aLong1033, 0), 0), aString1218, 6);
                             if (anInt1129 == 2) {
                                 anInt1129 = 1;
                                 aBoolean1137 = true;
@@ -9850,11 +9857,11 @@ public class Game extends GameShell {
                             }
                         }
                         if (anInt943 == 4 && anInt1098 < 100) {
-                            long l2 = Class24.method446(aString1218);
+                            long l2 = StringUtil.method446(aString1218);
                             method77(l2, 1);
                         }
                         if (anInt943 == 5 && anInt1098 > 0) {
-                            long l3 = Class24.method446(aString1218);
+                            long l3 = StringUtil.method446(aString1218);
                             method21(l3, -224);
                         }
                     }
@@ -9892,7 +9899,7 @@ public class Game extends GameShell {
                     if (i == 13 || i == 10) {
                         if (aString964.length() > 0) {
                             aBuffer_928.writeOpcode(105);
-                            aBuffer_928.writeLongBE(Class24.method446(aString964));
+                            aBuffer_928.writeLongBE(StringUtil.method446(aString964));
                         }
                         anInt1141 = 0;
                         redrawChatbox = true;
@@ -9929,7 +9936,7 @@ public class Game extends GameShell {
                                 for (int j1 = 0; j1 < 4; j1++) {
                                     for (int k1 = 1; k1 < 103; k1++) {
                                         for (int j2 = 1; j2 < 103; j2++) {
-                                            aClass39Array947[j1].anIntArrayArray682[k1][j2] = 0;
+                                            aCollisionMapArray947[j1].anIntArrayArray682[k1][j2] = 0;
                                         }
                                     }
                                 }
@@ -10001,13 +10008,13 @@ public class Game extends GameShell {
                             aBuffer_928.writeByte(0);
                             int i3 = aBuffer_928.position;
                             aBuffer_1282.position = 0;
-                            Class45.method574(aBuffer_1282, -45468, aString1280);
+                            ChatMessageCodec.method574(aBuffer_1282, -45468, aString1280);
                             aBuffer_928.readBytesReverseA(aBuffer_1282.payload, 0, aBuffer_1282.position);
                             aBuffer_928.writeInvertedByte(k2);
                             aBuffer_928.writeByte(i2);
                             aBuffer_928.writeSizeByte(aBuffer_928.position - i3);
-                            aString1280 = Class45.method575(false, aString1280);
-                            aString1280 = Class41.method541(false, aString1280);
+                            aString1280 = ChatMessageCodec.method575(false, aString1280);
+                            aString1280 = MessageCensor.method541(false, aString1280);
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1586 = aString1280;
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1566 = i2;
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1617 = k2;
@@ -10095,7 +10102,7 @@ public class Game extends GameShell {
                         class13_sub3.anInt1371--;
                     }
                     if (class13_sub3.anInt1371 == 0) {
-                        if (class13_sub3.anInt1372 < 0 || Class25.method467(class13_sub3.anInt1372, 0, class13_sub3.anInt1374)) {
+                        if (class13_sub3.anInt1372 < 0 || MapRegion.method467(class13_sub3.anInt1372, 0, class13_sub3.anInt1374)) {
                             method102(class13_sub3.anInt1363, class13_sub3.anInt1373, class13_sub3.anInt1365, class13_sub3.anInt1372, 523, class13_sub3.anInt1364, class13_sub3.anInt1366, class13_sub3.anInt1374);
                             class13_sub3.remove();
                         }
@@ -10103,7 +10110,7 @@ public class Game extends GameShell {
                         if (class13_sub3.anInt1367 > 0) {
                             class13_sub3.anInt1367--;
                         }
-                        if (class13_sub3.anInt1367 == 0 && class13_sub3.anInt1365 >= 1 && class13_sub3.anInt1366 >= 1 && class13_sub3.anInt1365 <= 102 && class13_sub3.anInt1366 <= 102 && (class13_sub3.anInt1368 < 0 || Class25.method467(class13_sub3.anInt1368, 0, class13_sub3.anInt1370))) {
+                        if (class13_sub3.anInt1367 == 0 && class13_sub3.anInt1365 >= 1 && class13_sub3.anInt1366 >= 1 && class13_sub3.anInt1365 <= 102 && class13_sub3.anInt1366 <= 102 && (class13_sub3.anInt1368 < 0 || MapRegion.method467(class13_sub3.anInt1368, 0, class13_sub3.anInt1370))) {
                             method102(class13_sub3.anInt1363, class13_sub3.anInt1369, class13_sub3.anInt1365, class13_sub3.anInt1368, 523, class13_sub3.anInt1364, class13_sub3.anInt1366, class13_sub3.anInt1370);
                             class13_sub3.anInt1367 = -1;
                             if (class13_sub3.anInt1368 == class13_sub3.anInt1372 && class13_sub3.anInt1372 == -1) {
@@ -10210,7 +10217,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method115(CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4, int i, int j, int k) {
+    public void method115(Sprite class13_sub1_sub4_sub4, int i, int j, int k) {
         try {
             int l = anInt922 + anInt1205 & 0x7ff;
             int i1 = i * i + j * j;
@@ -10239,7 +10246,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method116(CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4, int i, int j, int k) {
+    public void method116(Sprite class13_sub1_sub4_sub4, int i, int j, int k) {
         try {
             int l = i * i + k * k;
             if (j != 1) {
@@ -10276,13 +10283,13 @@ public class Game extends GameShell {
                     break;
                 }
                 if (players[k] == null) {
-                    players[k] = new CacheableNode_Sub1_Sub1_Sub6_();
+                    players[k] = new Player();
                     if (aBufferArray903[k] != null) {
                         players[k].method297(aBufferArray903[k], 0);
                     }
                 }
                 playerList[anInt899++] = k;
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[k];
+                Player class13_sub1_sub1_sub6_sub1 = players[k];
                 class13_sub1_sub1_sub6_sub1.pulseCycle = pulseCycle;
                 int l = buffer.readBits(1);
                 if (l == 1) {
@@ -10417,21 +10424,21 @@ public class Game extends GameShell {
 
     public void method121(int i) {
         try {
-            CacheableNode_Sub1_Sub1_ class13_sub1_sub1_sub1 = (CacheableNode_Sub1_Sub1_) aLinkedList_1199.first();
+            Projectile class13_sub1_sub1_sub1 = (Projectile) aLinkedList_1199.first();
             packetSize += i;
-            for (; class13_sub1_sub1_sub1 != null; class13_sub1_sub1_sub1 = (CacheableNode_Sub1_Sub1_) aLinkedList_1199.next()) {
+            for (; class13_sub1_sub1_sub1 != null; class13_sub1_sub1_sub1 = (Projectile) aLinkedList_1199.next()) {
                 if (class13_sub1_sub1_sub1.anInt1442 != anInt1166 || pulseCycle > class13_sub1_sub1_sub1.anInt1451) {
                     class13_sub1_sub1_sub1.remove();
                 } else if (pulseCycle >= class13_sub1_sub1_sub1.anInt1450) {
                     if (class13_sub1_sub1_sub1.anInt1440 > 0) {
-                        CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[class13_sub1_sub1_sub1.anInt1440 - 1];
+                        Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[class13_sub1_sub1_sub1.anInt1440 - 1];
                         if (class13_sub1_sub1_sub6_sub2 != null && class13_sub1_sub1_sub6_sub2.anInt1587 >= 0 && class13_sub1_sub1_sub6_sub2.anInt1587 < 13312 && class13_sub1_sub1_sub6_sub2.anInt1588 >= 0 && class13_sub1_sub1_sub6_sub2.anInt1588 < 13312) {
                             class13_sub1_sub1_sub1.method258(method80(class13_sub1_sub1_sub1.anInt1442, 781, class13_sub1_sub1_sub6_sub2.anInt1588, class13_sub1_sub1_sub6_sub2.anInt1587) - class13_sub1_sub1_sub1.anInt1458, 0, class13_sub1_sub1_sub6_sub2.anInt1588, pulseCycle, class13_sub1_sub1_sub6_sub2.anInt1587);
                         }
                     }
                     if (class13_sub1_sub1_sub1.anInt1440 < 0) {
                         int j = -class13_sub1_sub1_sub1.anInt1440 - 1;
-                        CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1;
+                        Player class13_sub1_sub1_sub6_sub1;
                         if (j == anInt950) {
                             class13_sub1_sub1_sub6_sub1 = aClass13_Sub1_Sub1_Sub6_Sub1_997;
                         } else {
@@ -10442,7 +10449,7 @@ public class Game extends GameShell {
                         }
                     }
                     class13_sub1_sub1_sub1.method257(anInt1241, 896);
-                    aClass10_1198.method205((int) class13_sub1_sub1_sub1.aDouble1448, (int) class13_sub1_sub1_sub1.aDouble1447, anInt1166, -1, class13_sub1_sub1_sub1, -554, (int) class13_sub1_sub1_sub1.aDouble1449, 60, class13_sub1_sub1_sub1.anInt1443, false);
+                    aScene_1198.method205((int) class13_sub1_sub1_sub1.aDouble1448, (int) class13_sub1_sub1_sub1.aDouble1447, anInt1166, -1, class13_sub1_sub1_sub1, -554, (int) class13_sub1_sub1_sub1.aDouble1449, 60, class13_sub1_sub1_sub1.anInt1443, false);
                 }
             }
             return;
@@ -10454,9 +10461,9 @@ public class Game extends GameShell {
 
     public void method122(int i) {
         try {
-            aClass13_Sub1_Sub4_Sub3_1120 = new CacheableNode_Sub1_Sub4_Sub3(aCacheArchive_991, "titlebox", 0);
-            aClass13_Sub1_Sub4_Sub3_1121 = new CacheableNode_Sub1_Sub4_Sub3(aCacheArchive_991, "titlebutton", 0);
-            aClass13_Sub1_Sub4_Sub3Array1155 = new CacheableNode_Sub1_Sub4_Sub3[12];
+            aClass13_Sub1_Sub4_Sub3_1120 = new IndexedImage(aCacheArchive_991, "titlebox", 0);
+            aClass13_Sub1_Sub4_Sub3_1121 = new IndexedImage(aCacheArchive_991, "titlebutton", 0);
+            aClass13_Sub1_Sub4_Sub3Array1155 = new IndexedImage[12];
             int j = 0;
             if (i < 8 || i > 8) {
                 opcode = buffer.readUByte();
@@ -10467,20 +10474,20 @@ public class Game extends GameShell {
             }
             if (j == 0) {
                 for (int k = 0; k < 12; k++) {
-                    aClass13_Sub1_Sub4_Sub3Array1155[k] = new CacheableNode_Sub1_Sub4_Sub3(aCacheArchive_991, "runes", k);
+                    aClass13_Sub1_Sub4_Sub3Array1155[k] = new IndexedImage(aCacheArchive_991, "runes", k);
                 }
             } else {
                 for (int l = 0; l < 12; l++) {
-                    aClass13_Sub1_Sub4_Sub3Array1155[l] = new CacheableNode_Sub1_Sub4_Sub3(aCacheArchive_991, "runes", 12 + (l & 3));
+                    aClass13_Sub1_Sub4_Sub3Array1155[l] = new IndexedImage(aCacheArchive_991, "runes", 12 + (l & 3));
                 }
             }
-            aClass13_Sub1_Sub4_Sub4_925 = new CacheableNode_Sub1_Sub4_Sub4(128, 265);
-            aClass13_Sub1_Sub4_Sub4_926 = new CacheableNode_Sub1_Sub4_Sub4(128, 265);
+            aClass13_Sub1_Sub4_Sub4_925 = new Sprite(128, 265);
+            aClass13_Sub1_Sub4_Sub4_926 = new Sprite(128, 265);
             for (int i1 = 0; i1 < 33920; i1++) {
-                aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1] = aClass31_1248.anIntArray482[i1];
+                aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1] = aProducingGraphicsBuffer_1248.anIntArray482[i1];
             }
             for (int j1 = 0; j1 < 33920; j1++) {
-                aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j1] = aClass31_1249.anIntArray482[j1];
+                aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j1] = aProducingGraphicsBuffer_1249.anIntArray482[j1];
             }
             anIntArray844 = new int[256];
             for (int k1 = 0; k1 < 64; k1++) {
@@ -10579,19 +10586,19 @@ public class Game extends GameShell {
             int k = 0;
             int l = 0;
             if (class13_sub3.anInt1364 == 0) {
-                i = aClass10_1198.method220(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
+                i = aScene_1198.method220(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
             }
             if (class13_sub3.anInt1364 == 1) {
-                i = aClass10_1198.method221(class13_sub3.anInt1363, class13_sub3.anInt1365, (byte) 122, class13_sub3.anInt1366);
+                i = aScene_1198.method221(class13_sub3.anInt1363, class13_sub3.anInt1365, (byte) 122, class13_sub3.anInt1366);
             }
             if (class13_sub3.anInt1364 == 2) {
-                i = aClass10_1198.method222(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
+                i = aScene_1198.method222(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
             }
             if (class13_sub3.anInt1364 == 3) {
-                i = aClass10_1198.method223(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
+                i = aScene_1198.method223(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366);
             }
             if (i != 0) {
-                int i1 = aClass10_1198.method224(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366, i);
+                int i1 = aScene_1198.method224(class13_sub3.anInt1363, class13_sub3.anInt1365, class13_sub3.anInt1366, i);
                 j = i >> 14 & 0x7fff;
                 k = i1 & 0x1f;
                 l = i1 >> 6;
@@ -10615,7 +10622,7 @@ public class Game extends GameShell {
             }
             for (int i = 0; i < anInt1284; i++) {
                 int j = anIntArray1285[i];
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[j];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[j];
                 if (class13_sub1_sub1_sub6_sub2 != null) {
                     method126(class13_sub1_sub1_sub6_sub2, 0, class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.aByte768);
                 }
@@ -10627,7 +10634,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method126(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, int i, int j) {
+    public void method126(Entity class13_sub1_sub1_sub6, int i, int j) {
         try {
             if (class13_sub1_sub1_sub6.anInt1587 < 128 || class13_sub1_sub1_sub6.anInt1588 < 128 || class13_sub1_sub1_sub6.anInt1587 >= 13184 || class13_sub1_sub1_sub6.anInt1588 >= 13184) {
                 class13_sub1_sub1_sub6.anInt1597 = -1;
@@ -10664,7 +10671,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method127(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, int i) {
+    public void method127(Entity class13_sub1_sub1_sub6, int i) {
         try {
             int j = class13_sub1_sub1_sub6.anInt1579 - pulseCycle;
             int k = class13_sub1_sub1_sub6.anInt1575 * 128 + class13_sub1_sub1_sub6.anInt1611 * 64;
@@ -10695,7 +10702,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method128(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, byte byte0) {
+    public void method128(Entity class13_sub1_sub1_sub6, byte byte0) {
         try {
             if (class13_sub1_sub1_sub6.anInt1580 == pulseCycle || class13_sub1_sub1_sub6.anInt1597 == -1 || class13_sub1_sub1_sub6.anInt1600 != 0 || class13_sub1_sub1_sub6.anInt1599 + 1 > SequenceConfig.aSequenceConfigArray800[class13_sub1_sub1_sub6.anInt1597].method592(0, class13_sub1_sub1_sub6.anInt1598)) {
                 int i = class13_sub1_sub1_sub6.anInt1580 - class13_sub1_sub1_sub6.anInt1579;
@@ -10731,7 +10738,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method129(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, byte byte0) {
+    public void method129(Entity class13_sub1_sub1_sub6, byte byte0) {
         try {
             class13_sub1_sub1_sub6.anInt1620 = class13_sub1_sub1_sub6.anInt1584;
             if (byte0 != 8) {
@@ -10853,7 +10860,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method130(int i, CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6) {
+    public void method130(int i, Entity class13_sub1_sub1_sub6) {
         try {
             if (i < 6 || i > 6) {
                 opcode = -1;
@@ -10862,7 +10869,7 @@ public class Game extends GameShell {
                 return;
             }
             if (class13_sub1_sub1_sub6.anInt1602 != -1 && class13_sub1_sub1_sub6.anInt1602 < 32768) {
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[class13_sub1_sub1_sub6.anInt1602];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[class13_sub1_sub1_sub6.anInt1602];
                 if (class13_sub1_sub1_sub6_sub2 != null) {
                     int i1 = class13_sub1_sub1_sub6.anInt1587 - class13_sub1_sub1_sub6_sub2.anInt1587;
                     int k1 = class13_sub1_sub1_sub6.anInt1588 - class13_sub1_sub1_sub6_sub2.anInt1588;
@@ -10876,7 +10883,7 @@ public class Game extends GameShell {
                 if (j == anInt950) {
                     j = anInt897;
                 }
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[j];
+                Player class13_sub1_sub1_sub6_sub1 = players[j];
                 if (class13_sub1_sub1_sub6_sub1 != null) {
                     int l1 = class13_sub1_sub1_sub6.anInt1587 - class13_sub1_sub1_sub6_sub1.anInt1587;
                     int i2 = class13_sub1_sub1_sub6.anInt1588 - class13_sub1_sub1_sub6_sub1.anInt1588;
@@ -10920,7 +10927,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method131(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, boolean flag) {
+    public void method131(Entity class13_sub1_sub1_sub6, boolean flag) {
         try {
             loggedIn &= flag;
             class13_sub1_sub1_sub6.aBoolean1569 = false;
@@ -10986,22 +10993,22 @@ public class Game extends GameShell {
         try {
             if (aBoolean1216) {
                 aBoolean1216 = false;
-                aClass31_875.method491(super.aGraphics15, 4, false, 0);
-                aClass31_876.method491(super.aGraphics15, 357, false, 0);
-                aClass31_877.method491(super.aGraphics15, 4, false, 722);
-                aClass31_878.method491(super.aGraphics15, 205, false, 743);
-                aClass31_879.method491(super.aGraphics15, 0, false, 0);
-                aClass31_880.method491(super.aGraphics15, 4, false, 516);
-                aClass31_881.method491(super.aGraphics15, 205, false, 516);
-                aClass31_882.method491(super.aGraphics15, 357, false, 496);
-                aClass31_883.method491(super.aGraphics15, 338, false, 0);
+                aProducingGraphicsBuffer_875.method491(super.aGraphics15, 4, false, 0);
+                aProducingGraphicsBuffer_876.method491(super.aGraphics15, 357, false, 0);
+                aProducingGraphicsBuffer_877.method491(super.aGraphics15, 4, false, 722);
+                aProducingGraphicsBuffer_878.method491(super.aGraphics15, 205, false, 743);
+                aProducingGraphicsBuffer_879.method491(super.aGraphics15, 0, false, 0);
+                aProducingGraphicsBuffer_880.method491(super.aGraphics15, 4, false, 516);
+                aProducingGraphicsBuffer_881.method491(super.aGraphics15, 205, false, 516);
+                aProducingGraphicsBuffer_882.method491(super.aGraphics15, 357, false, 496);
+                aProducingGraphicsBuffer_883.method491(super.aGraphics15, 338, false, 0);
                 redrawTabArea = true;
                 redrawChatbox = true;
                 aBoolean1286 = true;
                 aBoolean1137 = true;
                 if (anInt1254 != 2) {
-                    aClass31_1213.method491(super.aGraphics15, 4, false, 4);
-                    aClass31_1212.method491(super.aGraphics15, 4, false, 550);
+                    aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, false, 4);
+                    aProducingGraphicsBuffer_1212.method491(super.aGraphics15, 4, false, 550);
                 }
             }
             if (anInt1254 == 2) {
@@ -11067,7 +11074,7 @@ public class Game extends GameShell {
             }
             if (anInt1254 == 2) {
                 method44(aBoolean1193);
-                aClass31_1212.method491(super.aGraphics15, 4, false, 550);
+                aProducingGraphicsBuffer_1212.method491(super.aGraphics15, 4, false, 550);
             }
             if (tabId != -1) {
                 aBoolean1286 = true;
@@ -11079,7 +11086,7 @@ public class Game extends GameShell {
                     aBuffer_928.writeByte(anInt864);
                 }
                 aBoolean1286 = false;
-                aClass31_1188.method490(false);
+                aProducingGraphicsBuffer_1188.method490(false);
                 aClass13_Sub1_Sub4_Sub3_1114.method401(0, (byte) 83, 0);
                 if (anInt874 == -1) {
                     if (anIntArray1018[anInt864] != -1) {
@@ -11127,8 +11134,8 @@ public class Game extends GameShell {
                         aClass13_Sub1_Sub4_Sub3Array1181[6].method401(13, (byte) 83, 208);
                     }
                 }
-                aClass31_1188.method491(super.aGraphics15, 160, false, 516);
-                aClass31_1187.method490(false);
+                aProducingGraphicsBuffer_1188.method491(super.aGraphics15, 160, false, 516);
+                aProducingGraphicsBuffer_1187.method490(false);
                 aClass13_Sub1_Sub4_Sub3_1113.method401(0, (byte) 83, 0);
                 if (anInt874 == -1) {
                     if (anIntArray1018[anInt864] != -1) {
@@ -11173,12 +11180,12 @@ public class Game extends GameShell {
                         aClass13_Sub1_Sub4_Sub3Array1181[12].method401(2, (byte) 83, 226);
                     }
                 }
-                aClass31_1187.method491(super.aGraphics15, 466, false, 496);
-                aClass31_1213.method490(false);
+                aProducingGraphicsBuffer_1187.method491(super.aGraphics15, 466, false, 496);
+                aProducingGraphicsBuffer_1213.method490(false);
             }
             if (aBoolean1137) {
                 aBoolean1137 = false;
-                aClass31_1186.method490(false);
+                aProducingGraphicsBuffer_1186.method490(false);
                 aClass13_Sub1_Sub4_Sub3_1112.method401(0, (byte) 83, 0);
                 aFont_892.method382(55, true, "Public chat", 28, 0xffffff, false);
                 if (anInt1159 == 0) {
@@ -11214,8 +11221,8 @@ public class Game extends GameShell {
                     aFont_892.method382(324, true, "Off", 41, 0xff0000, false);
                 }
                 aFont_892.method382(458, true, "Report abuse", 33, 0xffffff, false);
-                aClass31_1186.method491(super.aGraphics15, 453, false, 0);
-                aClass31_1213.method490(false);
+                aProducingGraphicsBuffer_1186.method491(super.aGraphics15, 453, false, 0);
+                aProducingGraphicsBuffer_1213.method490(false);
             }
             anInt1241 = 0;
             if (i != -24986) {
@@ -11384,7 +11391,7 @@ public class Game extends GameShell {
             anInt899 = 0;
             for (int i1 = 0; i1 < k; i1++) {
                 int j1 = playerList[i1];
-                CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1 = players[j1];
+                Player class13_sub1_sub1_sub6_sub1 = players[j1];
                 int k1 = buffer.readBits(1);
                 if (k1 == 0) {
                     playerList[anInt899++] = j1;
@@ -11768,10 +11775,10 @@ public class Game extends GameShell {
         try {
             requestArchiveChecksums();
             aCacheArchive_991 = requestArchive(1, "title", archiveChecksums[1], "title screen", 25);
-            aFont_891 = new Font("p11_full", aCacheArchive_991, false, 6);
-            aFont_892 = new Font("p12_full", aCacheArchive_991, false, 6);
-            aFont_893 = new Font("b12_full", aCacheArchive_991, false, 6);
-            aFont_894 = new Font("q8_full", aCacheArchive_991, true, 6);
+            aFont_891 = new com.jagex.graphics.Font("p11_full", aCacheArchive_991, false, 6);
+            aFont_892 = new com.jagex.graphics.Font("p12_full", aCacheArchive_991, false, 6);
+            aFont_893 = new com.jagex.graphics.Font("b12_full", aCacheArchive_991, false, 6);
+            aFont_894 = new com.jagex.graphics.Font("q8_full", aCacheArchive_991, true, 6);
             method32(736);
             method122(8);
             CacheArchive cacheArchive = requestArchive(2, "config", archiveChecksums[2], "config", 30);
@@ -11782,16 +11789,16 @@ public class Game extends GameShell {
             CacheArchive cacheArchive_5 = requestArchive(8, "sounds", archiveChecksums[8], "sound effects", 55);
             aByteArrayArrayArray1164 = new byte[4][104][104];
             anIntArrayArrayArray1267 = new int[4][105][105];
-            aClass10_1198 = new Class10(104, 4, 104, anIntArrayArrayArray1267, 0);
+            aScene_1198 = new Scene(104, 4, 104, anIntArrayArrayArray1267, 0);
             for (int j = 0; j < 4; j++) {
-                aClass39Array947[j] = new Class39(604, 104, 104);
+                aCollisionMapArray947[j] = new CollisionMap(604, 104, 104);
             }
-            aClass13_Sub1_Sub4_Sub4_1223 = new CacheableNode_Sub1_Sub4_Sub4(512, 512);
+            aClass13_Sub1_Sub4_Sub4_1223 = new Sprite(512, 512);
             CacheArchive cacheArchive_6 = requestArchive(5, "versionlist", archiveChecksums[5], "update list", 60);
             updateLoadingBar(false, "Connecting to update server", 60);
             gameUpdateClient = new GameUpdateClient();
             gameUpdateClient.readVersionlist(cacheArchive_6, this);
-            Class8.method185(gameUpdateClient.animCount());
+            AnimationFrame.method185(gameUpdateClient.animCount());
             Model.method262(gameUpdateClient.getFileVersionCount(0), gameUpdateClient);
             if (!lowMemory) {
                 nextSong = 0;
@@ -11914,102 +11921,102 @@ public class Game extends GameShell {
                 }
             }
             updateLoadingBar(false, "Unpacking media", 80);
-            aClass13_Sub1_Sub4_Sub3_1208 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "invback", 0);
-            aClass13_Sub1_Sub4_Sub3_1210 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "chatback", 0);
-            aClass13_Sub1_Sub4_Sub3_1209 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "mapback", 0);
-            aClass13_Sub1_Sub4_Sub3_1112 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "backbase1", 0);
-            aClass13_Sub1_Sub4_Sub3_1113 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "backbase2", 0);
-            aClass13_Sub1_Sub4_Sub3_1114 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "backhmid1", 0);
+            aClass13_Sub1_Sub4_Sub3_1208 = new IndexedImage(cacheArchive_2, "invback", 0);
+            aClass13_Sub1_Sub4_Sub3_1210 = new IndexedImage(cacheArchive_2, "chatback", 0);
+            aClass13_Sub1_Sub4_Sub3_1209 = new IndexedImage(cacheArchive_2, "mapback", 0);
+            aClass13_Sub1_Sub4_Sub3_1112 = new IndexedImage(cacheArchive_2, "backbase1", 0);
+            aClass13_Sub1_Sub4_Sub3_1113 = new IndexedImage(cacheArchive_2, "backbase2", 0);
+            aClass13_Sub1_Sub4_Sub3_1114 = new IndexedImage(cacheArchive_2, "backhmid1", 0);
             for (int j3 = 0; j3 < 13; j3++) {
-                aClass13_Sub1_Sub4_Sub3Array1181[j3] = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "sideicons", j3);
+                aClass13_Sub1_Sub4_Sub3Array1181[j3] = new IndexedImage(cacheArchive_2, "sideicons", j3);
             }
-            aClass13_Sub1_Sub4_Sub4_967 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "compass", 0);
-            aClass13_Sub1_Sub4_Sub4_1049 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapedge", 0);
+            aClass13_Sub1_Sub4_Sub4_967 = new Sprite(cacheArchive_2, "compass", 0);
+            aClass13_Sub1_Sub4_Sub4_1049 = new Sprite(cacheArchive_2, "mapedge", 0);
             aClass13_Sub1_Sub4_Sub4_1049.method405(834);
             try {
                 for (int k3 = 0; k3 < 100; k3++) {
-                    aClass13_Sub1_Sub4_Sub3Array1123[k3] = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "mapscene", k3);
+                    aClass13_Sub1_Sub4_Sub3Array1123[k3] = new IndexedImage(cacheArchive_2, "mapscene", k3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int l3 = 0; l3 < 100; l3++) {
-                    aClass13_Sub1_Sub4_Sub4Array1189[l3] = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapfunction", l3);
+                    aClass13_Sub1_Sub4_Sub4Array1189[l3] = new Sprite(cacheArchive_2, "mapfunction", l3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int i4 = 0; i4 < 20; i4++) {
-                    aClass13_Sub1_Sub4_Sub4Array1266[i4] = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "hitmarks", i4);
+                    aClass13_Sub1_Sub4_Sub4Array1266[i4] = new Sprite(cacheArchive_2, "hitmarks", i4);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int j4 = 0; j4 < 20; j4++) {
-                    aClass13_Sub1_Sub4_Sub4Array1236[j4] = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "headicons", j4);
+                    aClass13_Sub1_Sub4_Sub4Array1236[j4] = new Sprite(cacheArchive_2, "headicons", j4);
                 }
             } catch (Exception _ex) {
             }
-            aClass13_Sub1_Sub4_Sub4_945 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapmarker", 0);
-            aClass13_Sub1_Sub4_Sub4_946 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapmarker", 1);
+            aClass13_Sub1_Sub4_Sub4_945 = new Sprite(cacheArchive_2, "mapmarker", 0);
+            aClass13_Sub1_Sub4_Sub4_946 = new Sprite(cacheArchive_2, "mapmarker", 1);
             for (int k4 = 0; k4 < 8; k4++) {
-                aClass13_Sub1_Sub4_Sub4Array1201[k4] = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "cross", k4);
+                aClass13_Sub1_Sub4_Sub4Array1201[k4] = new Sprite(cacheArchive_2, "cross", k4);
             }
-            aClass13_Sub1_Sub4_Sub4_1124 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapdots", 0);
-            aClass13_Sub1_Sub4_Sub4_1125 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapdots", 1);
-            aClass13_Sub1_Sub4_Sub4_1126 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapdots", 2);
-            aClass13_Sub1_Sub4_Sub4_1127 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapdots", 3);
-            aClass13_Sub1_Sub4_Sub4_1128 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "mapdots", 4);
-            aClass13_Sub1_Sub4_Sub3_1255 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "scrollbar", 0);
-            aClass13_Sub1_Sub4_Sub3_1256 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "scrollbar", 1);
-            aClass13_Sub1_Sub4_Sub3_867 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_868 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_869 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone3", 0);
-            aClass13_Sub1_Sub4_Sub3_870 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub4_1124 = new Sprite(cacheArchive_2, "mapdots", 0);
+            aClass13_Sub1_Sub4_Sub4_1125 = new Sprite(cacheArchive_2, "mapdots", 1);
+            aClass13_Sub1_Sub4_Sub4_1126 = new Sprite(cacheArchive_2, "mapdots", 2);
+            aClass13_Sub1_Sub4_Sub4_1127 = new Sprite(cacheArchive_2, "mapdots", 3);
+            aClass13_Sub1_Sub4_Sub4_1128 = new Sprite(cacheArchive_2, "mapdots", 4);
+            aClass13_Sub1_Sub4_Sub3_1255 = new IndexedImage(cacheArchive_2, "scrollbar", 0);
+            aClass13_Sub1_Sub4_Sub3_1256 = new IndexedImage(cacheArchive_2, "scrollbar", 1);
+            aClass13_Sub1_Sub4_Sub3_867 = new IndexedImage(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_868 = new IndexedImage(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_869 = new IndexedImage(cacheArchive_2, "redstone3", 0);
+            aClass13_Sub1_Sub4_Sub3_870 = new IndexedImage(cacheArchive_2, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_870.method398(true);
-            aClass13_Sub1_Sub4_Sub3_871 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_871 = new IndexedImage(cacheArchive_2, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_871.method398(true);
-            aClass13_Sub1_Sub4_Sub3_1088 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_1088 = new IndexedImage(cacheArchive_2, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_1088.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1089 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_1089 = new IndexedImage(cacheArchive_2, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_1089.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1090 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone3", 0);
+            aClass13_Sub1_Sub4_Sub3_1090 = new IndexedImage(cacheArchive_2, "redstone3", 0);
             aClass13_Sub1_Sub4_Sub3_1090.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1091 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_1091 = new IndexedImage(cacheArchive_2, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_1091.method398(true);
             aClass13_Sub1_Sub4_Sub3_1091.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1092 = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_1092 = new IndexedImage(cacheArchive_2, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_1092.method398(true);
             aClass13_Sub1_Sub4_Sub3_1092.method399(-275);
             for (int l4 = 0; l4 < 2; l4++) {
-                aClass13_Sub1_Sub4_Sub3Array838[l4] = new CacheableNode_Sub1_Sub4_Sub3(cacheArchive_2, "mod_icons", l4);
+                aClass13_Sub1_Sub4_Sub3Array838[l4] = new IndexedImage(cacheArchive_2, "mod_icons", l4);
             }
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backleft1", 0);
-            aClass31_875 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            Sprite class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backleft1", 0);
+            aProducingGraphicsBuffer_875 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backleft2", 0);
-            aClass31_876 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backleft2", 0);
+            aProducingGraphicsBuffer_876 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backright1", 0);
-            aClass31_877 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backright1", 0);
+            aProducingGraphicsBuffer_877 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backright2", 0);
-            aClass31_878 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backright2", 0);
+            aProducingGraphicsBuffer_878 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backtop1", 0);
-            aClass31_879 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backtop1", 0);
+            aProducingGraphicsBuffer_879 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backvmid1", 0);
-            aClass31_880 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid1", 0);
+            aProducingGraphicsBuffer_880 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backvmid2", 0);
-            aClass31_881 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid2", 0);
+            aProducingGraphicsBuffer_881 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backvmid3", 0);
-            aClass31_882 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid3", 0);
+            aProducingGraphicsBuffer_882 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive_2, "backhmid2", 0);
-            aClass31_883 = new Class31(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
+            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backhmid2", 0);
+            aProducingGraphicsBuffer_883 = new ProducingGraphicsBuffer(true, class13_sub1_sub4_sub4.anInt1681, method11(736), class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
             int i5 = (int) (Math.random() * 21D) - 10;
             int j5 = (int) (Math.random() * 21D) - 10;
@@ -12024,9 +12031,9 @@ public class Game extends GameShell {
                 }
             }
             updateLoadingBar(false, "Unpacking textures", 83);
-            CacheableNode_Sub1_Sub4_.method368(aBoolean1240, cacheArchive_3);
-            CacheableNode_Sub1_Sub4_.method372(0.80000000000000004D, (byte) 7);
-            CacheableNode_Sub1_Sub4_.method367((byte) 71, 20);
+            Rasterizer3D.method368(aBoolean1240, cacheArchive_3);
+            Rasterizer3D.method372(0.80000000000000004D, (byte) 7);
+            Rasterizer3D.method367((byte) 71, 20);
             updateLoadingBar(false, "Unpacking config", 86);
             SequenceConfig.method591(cacheArchive, (byte) 72);
             LocationConfig.method426(cacheArchive);
@@ -12042,10 +12049,10 @@ public class Game extends GameShell {
                 updateLoadingBar(false, "Unpacking sounds", 90);
                 byte[] abyte0 = cacheArchive_5.readFile("sounds.dat", null);
                 Buffer buffer = new Buffer(abyte0);
-                Class27.method475(buffer, (byte) 72);
+                Track.method475(buffer, (byte) 72);
             }
             updateLoadingBar(false, "Unpacking interfaces", 95);
-            Font[] aclass13_sub1_sub4_sub2 = {
+            com.jagex.graphics.Font[] aclass13_sub1_sub4_sub2 = {
                     aFont_891, aFont_892, aFont_893, aFont_894
             };
             Widget.load(cacheArchive_1, cacheArchive_2, aclass13_sub1_sub4_sub2);
@@ -12088,24 +12095,24 @@ public class Game extends GameShell {
                 anIntArray1000[l6 - 5] = j7 - 25;
                 anIntArray847[l6 - 5] = l7 - j7;
             }
-            CacheableNode_Sub1_Sub4_.method365(96, 479, 8);
-            anIntArray857 = CacheableNode_Sub1_Sub4_.anIntArray1636;
-            CacheableNode_Sub1_Sub4_.method365(261, 190, 8);
-            anIntArray858 = CacheableNode_Sub1_Sub4_.anIntArray1636;
-            CacheableNode_Sub1_Sub4_.method365(334, 512, 8);
-            anIntArray859 = CacheableNode_Sub1_Sub4_.anIntArray1636;
+            Rasterizer3D.method365(96, 479, 8);
+            anIntArray857 = Rasterizer3D.anIntArray1636;
+            Rasterizer3D.method365(261, 190, 8);
+            anIntArray858 = Rasterizer3D.anIntArray1636;
+            Rasterizer3D.method365(334, 512, 8);
+            anIntArray859 = Rasterizer3D.anIntArray1636;
             int[] ai = new int[9];
             for (int i8 = 0; i8 < 9; i8++) {
                 int k8 = 128 + i8 * 32 + 15;
                 int l8 = 600 + k8 * 3;
-                int i9 = CacheableNode_Sub1_Sub4_.anIntArray1634[k8];
+                int i9 = Rasterizer3D.anIntArray1634[k8];
                 ai[i8] = l8 * i9 >> 16;
             }
-            Class10.method230(800, (byte) 1, ai, 334, 512, 500);
-            Class41.method531(cacheArchive_4);
-            aClass48_865 = new Class48((byte) -123, this);
-            method12(aClass48_865, 10);
-            CacheableNode_Sub1_Sub1_Sub2.aGame1469 = this;
+            Scene.method230(800, (byte) 1, ai, 334, 512, 500);
+            MessageCensor.method531(cacheArchive_4);
+            aMouseCapturer_865 = new MouseCapturer((byte) -123, this);
+            method12(aMouseCapturer_865, 10);
+            Location.aGame1469 = this;
             LocationConfig.aGame254 = this;
             NpcConfig.aGame777 = this;
             Debug.printInterfaceData();
@@ -12136,7 +12143,7 @@ public class Game extends GameShell {
             anInt1284 = 0;
             for (int l = 0; l < j; l++) {
                 int i1 = anIntArray1285[l];
-                CacheableNode_Sub1_Sub1_Sub6_Sub2 class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[i1];
+                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[i1];
                 int j1 = buffer.readBits(1);
                 if (j1 == 0) {
                     anIntArray1285[anInt1284++] = i1;
@@ -12179,7 +12186,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method143(CacheableNode_Sub1_Sub1_Sub6 class13_sub1_sub1_sub6, int i, byte byte0) {
+    public void method143(Entity class13_sub1_sub1_sub6, int i, byte byte0) {
         try {
             method144(class13_sub1_sub1_sub6.anInt1588, i, class13_sub1_sub1_sub6.anInt1587, aByte1063);
             if (byte0 != 101) {
@@ -12219,8 +12226,8 @@ public class Game extends GameShell {
             i = l * i1 + i * j1 >> 16;
             l = i2;
             if (i >= 50) {
-                anInt1078 = CacheableNode_Sub1_Sub4_.anInt1630 + (k << 9) / i;
-                anInt1079 = CacheableNode_Sub1_Sub4_.anInt1631 + (l << 9) / i;
+                anInt1078 = Rasterizer3D.anInt1630 + (k << 9) / i;
+                anInt1079 = Rasterizer3D.anInt1631 + (l << 9) / i;
                 return;
             } else {
                 anInt1078 = -1;
@@ -12238,7 +12245,7 @@ public class Game extends GameShell {
             if (anInt920 == 0) {
                 return;
             }
-            Font font = aFont_892;
+            com.jagex.graphics.Font font = aFont_892;
             if (i != 0) {
                 anInt1185 = 359;
             }
@@ -12338,7 +12345,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method147(CacheableNode_Sub1_Sub1_Sub6_ class13_sub1_sub1_sub6_sub1, int i, Buffer buffer, int mask, int k) {
+    public void method147(Player class13_sub1_sub1_sub6_sub1, int i, Buffer buffer, int mask, int k) {
         try {
             packetSize += k;
             if ((mask & 0x200) != 0) {
@@ -12392,7 +12399,7 @@ public class Game extends GameShell {
                 int j3 = buffer.readUByteS();
                 int l3 = buffer.position;
                 if (class13_sub1_sub1_sub6_sub1.aString1689 != null && class13_sub1_sub1_sub6_sub1.aBoolean1701) {
-                    long l4 = Class24.method446(class13_sub1_sub1_sub6_sub1.aString1689);
+                    long l4 = StringUtil.method446(class13_sub1_sub1_sub6_sub1.aString1689);
                     boolean flag = false;
                     if (k2 <= 1) {
                         for (int i4 = 0; i4 < anInt1098; i4++) {
@@ -12408,8 +12415,8 @@ public class Game extends GameShell {
                             aBuffer_1282.position = 0;
                             buffer.readBytes(aBuffer_1282.payload, 0, j3);
                             aBuffer_1282.position = 0;
-                            String s = Class45.method573(aBuffer_1282, 0, j3);
-                            s = Class41.method541(false, s);
+                            String s = ChatMessageCodec.method573(aBuffer_1282, 0, j3);
+                            s = MessageCensor.method541(false, s);
                             class13_sub1_sub1_sub6_sub1.aString1586 = s;
                             class13_sub1_sub1_sub6_sub1.anInt1566 = k1 >> 8;
                             class13_sub1_sub1_sub6_sub1.anInt1617 = k1 & 0xff;

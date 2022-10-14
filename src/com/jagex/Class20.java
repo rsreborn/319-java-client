@@ -1,12 +1,14 @@
 package com.jagex;
 
+import com.jagex.renderable.Renderable;
+
 public class Class20 {
 
     public int anInt347;
     public int anInt348;
     public int anInt349;
     public int anInt350;
-    public CacheableNode_Sub1_ aClass13_Sub1_Sub1_351;
+    public Renderable aClass13_Sub1_Sub1_351;
     public int anInt352;
     public int anInt353;
     public int anInt354;

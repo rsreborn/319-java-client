@@ -1,9 +1,9 @@
 package com.jagex.cache.configs;
 
-import com.jagex.CacheableNode_Sub1_Sub4;
-import com.jagex.CacheableNode_Sub1_Sub4_;
-import com.jagex.CacheableNode_Sub1_Sub4_Sub4;
-import com.jagex.Model;
+import com.jagex.graphics.Rasterizer;
+import com.jagex.graphics.Rasterizer3D;
+import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
@@ -72,10 +72,10 @@ public class ObjectConfig {
         anInt652 = 5;
     }
 
-    public static CacheableNode_Sub1_Sub4_Sub4 method503(int i, int j, int k, boolean flag) {
+    public static Sprite method503(int i, int j, int k, boolean flag) {
         try {
             if (k == 0) {
-                CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) aCache_661.get(i);
+                Sprite class13_sub1_sub4_sub4 = (Sprite) aCache_661.get(i);
                 if (class13_sub1_sub4_sub4 != null && class13_sub1_sub4_sub4.anInt1686 != j && class13_sub1_sub4_sub4.anInt1686 != -1) {
                     class13_sub1_sub4_sub4.remove();
                     class13_sub1_sub4_sub4 = null;
@@ -103,28 +103,28 @@ public class ObjectConfig {
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = null;
+            Sprite class13_sub1_sub4_sub4_2 = null;
             if (objectConfig.anInt642 != -1) {
                 class13_sub1_sub4_sub4_2 = method503(objectConfig.anInt644, 10, -1, aBoolean638);
                 if (class13_sub1_sub4_sub4_2 == null) {
                     return null;
                 }
             }
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_1 = new CacheableNode_Sub1_Sub4_Sub4(32, 32);
-            int j1 = CacheableNode_Sub1_Sub4_.anInt1630;
-            int k1 = CacheableNode_Sub1_Sub4_.anInt1631;
-            int[] ai = CacheableNode_Sub1_Sub4_.anIntArray1636;
-            int[] ai1 = CacheableNode_Sub1_Sub4.anIntArray1423;
-            int l1 = CacheableNode_Sub1_Sub4.anInt1424;
-            int i2 = CacheableNode_Sub1_Sub4.anInt1425;
-            int j2 = CacheableNode_Sub1_Sub4.anInt1428;
-            int k2 = CacheableNode_Sub1_Sub4.anInt1429;
-            int l2 = CacheableNode_Sub1_Sub4.anInt1426;
-            int i3 = CacheableNode_Sub1_Sub4.anInt1427;
-            CacheableNode_Sub1_Sub4_.aBoolean1628 = false;
-            CacheableNode_Sub1_Sub4.method351(0, class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
-            CacheableNode_Sub1_Sub4.method356(false, 0, 0, 0, 32, 32);
-            CacheableNode_Sub1_Sub4_.method364(true);
+            Sprite class13_sub1_sub4_sub4_1 = new Sprite(32, 32);
+            int j1 = Rasterizer3D.anInt1630;
+            int k1 = Rasterizer3D.anInt1631;
+            int[] ai = Rasterizer3D.anIntArray1636;
+            int[] ai1 = Rasterizer.anIntArray1423;
+            int l1 = Rasterizer.anInt1424;
+            int i2 = Rasterizer.anInt1425;
+            int j2 = Rasterizer.anInt1428;
+            int k2 = Rasterizer.anInt1429;
+            int l2 = Rasterizer.anInt1426;
+            int i3 = Rasterizer.anInt1427;
+            Rasterizer3D.aBoolean1628 = false;
+            Rasterizer.method351(0, class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
+            Rasterizer.method356(false, 0, 0, 0, 32, 32);
+            Rasterizer3D.method364(true);
             int j3 = objectConfig.modelScale;
             if (k == -1) {
                 j3 = (int) ((double) j3 * 1.5D);
@@ -132,8 +132,8 @@ public class ObjectConfig {
             if (k > 0) {
                 j3 = (int) ((double) j3 * 1.04D);
             }
-            int k3 = CacheableNode_Sub1_Sub4_.anIntArray1634[objectConfig.anInt670] * j3 >> 16;
-            int l3 = CacheableNode_Sub1_Sub4_.anIntArray1635[objectConfig.anInt670] * j3 >> 16;
+            int k3 = Rasterizer3D.anIntArray1634[objectConfig.anInt670] * j3 >> 16;
+            int l3 = Rasterizer3D.anIntArray1635[objectConfig.anInt670] * j3 >> 16;
             class13_sub1_sub1_sub4.method285(0, objectConfig.anInt663, objectConfig.anInt666, objectConfig.anInt670, objectConfig.anInt656, k3 + class13_sub1_sub1_sub4.anInt1377 / 2 + objectConfig.anInt628, l3 + objectConfig.anInt628);
             for (int l4 = 31; l4 >= 0; l4--) {
                 for (int i4 = 31; i4 >= 0; i4--) {
@@ -187,15 +187,15 @@ public class ObjectConfig {
             if (k == 0) {
                 aCache_661.put(class13_sub1_sub4_sub4_1, i);
             }
-            CacheableNode_Sub1_Sub4.method351(0, ai1, i2, l1);
-            CacheableNode_Sub1_Sub4.method353(k2, (byte) -12, i3, l2, j2);
+            Rasterizer.method351(0, ai1, i2, l1);
+            Rasterizer.method353(k2, (byte) -12, i3, l2, j2);
             if (!flag) {
                 aBoolean638 = !aBoolean638;
             }
-            CacheableNode_Sub1_Sub4_.anInt1630 = j1;
-            CacheableNode_Sub1_Sub4_.anInt1631 = k1;
-            CacheableNode_Sub1_Sub4_.anIntArray1636 = ai;
-            CacheableNode_Sub1_Sub4_.aBoolean1628 = true;
+            Rasterizer3D.anInt1630 = j1;
+            Rasterizer3D.anInt1631 = k1;
+            Rasterizer3D.anIntArray1636 = ai;
+            Rasterizer3D.aBoolean1628 = true;
             if (objectConfig.aBoolean662) {
                 class13_sub1_sub4_sub4_1.anInt1685 = 33;
             } else {

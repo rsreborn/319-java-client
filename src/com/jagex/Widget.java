@@ -1,11 +1,16 @@
 package com.jagex;
 
+import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.cache.CacheArchive;
 import com.jagex.cache.configs.NpcConfig;
 import com.jagex.cache.configs.ObjectConfig;
+import com.jagex.graphics.Font;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.Sprite;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
+import com.jagex.util.StringUtil;
 
 public class Widget {
 
@@ -18,7 +23,7 @@ public class Widget {
     public int anInt536;
     public int anInt537;
     public boolean isItemSwappable;
-    public CacheableNode_Sub1_Sub4_Sub4[] sprites;
+    public Sprite[] sprites;
     public int anInt540;
     public int modelType;
     public int modelId;
@@ -43,10 +48,10 @@ public class Widget {
     public byte alpha;
     public String aString563;
     public String hoverText;
-    public CacheableNode_Sub1_Sub4_Sub4 enabledSprite;
+    public Sprite enabledSprite;
     public int enabledHoverColor;
     public int anInt568;
-    public CacheableNode_Sub1_Sub4_Sub4 disabledSprite;
+    public Sprite disabledSprite;
     public int type;
     public int anInt571;
     public int anInt572;
@@ -95,18 +100,18 @@ public class Widget {
         }
     }
 
-    public static CacheableNode_Sub1_Sub4_Sub4 readSprite(int i, boolean flag, CacheArchive cacheArchive, String s) {
+    public static Sprite readSprite(int i, boolean flag, CacheArchive cacheArchive, String s) {
         try {
             if (flag) {
                 anInt546 = -374;
             }
-            long l = (Class24.method448((byte) 23, s) << 8) + (long) i;
-            CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4 = (CacheableNode_Sub1_Sub4_Sub4) spriteCache.get(l);
+            long l = (StringUtil.method448((byte) 23, s) << 8) + (long) i;
+            Sprite class13_sub1_sub4_sub4 = (Sprite) spriteCache.get(l);
             if (class13_sub1_sub4_sub4 != null) {
                 return class13_sub1_sub4_sub4;
             }
             try {
-                class13_sub1_sub4_sub4 = new CacheableNode_Sub1_Sub4_Sub4(cacheArchive, s, i);
+                class13_sub1_sub4_sub4 = new Sprite(cacheArchive, s, i);
                 spriteCache.put(class13_sub1_sub4_sub4, l);
             } catch (Exception _ex) {
                 return null;
@@ -197,7 +202,7 @@ public class Widget {
 
                     widget.spriteX = new int[20];
                     widget.spriteY = new int[20];
-                    widget.sprites = new CacheableNode_Sub1_Sub4_Sub4[20];
+                    widget.sprites = new Sprite[20];
 
                     for (int index = 0; index < 20; index++) {
                         int hasSprite = buffer.readUByte();
@@ -376,7 +381,7 @@ public class Widget {
             if (j == -1 && i == -1 && class13_sub1_sub1_sub4.anIntArray1510 == null) {
                 return class13_sub1_sub1_sub4;
             }
-            Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953) & Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
+            Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953) & AnimationFrame.method189(i, 19953), 629, class13_sub1_sub1_sub4, true);
             if (j != -1 || i != -1) {
                 class13_sub1_sub1_sub4_1.method272(true);
             }

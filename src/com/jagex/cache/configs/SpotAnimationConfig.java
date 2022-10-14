@@ -1,6 +1,6 @@
 package com.jagex.cache.configs;
 
-import com.jagex.Model;
+import com.jagex.graphics.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
