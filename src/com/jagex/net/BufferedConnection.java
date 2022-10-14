@@ -1,5 +1,6 @@
-package com.jagex;
+package com.jagex.net;
 
+import com.jagex.GameShell;
 import com.jagex.sign.Signlink;
 
 import java.io.IOException;

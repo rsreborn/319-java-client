@@ -1,4 +1,4 @@
-package com.jagex;
+package com.jagex.net;
 
 public enum OutgoingPacket {
 
