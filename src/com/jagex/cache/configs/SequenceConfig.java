@@ -1,14 +1,15 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.Class8;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class Class50 {
+public class SequenceConfig {
 
     public static int anInt797 = 12258;
     public static int anInt799;
-    public static Class50[] aClass50Array800;
+    public static SequenceConfig[] aSequenceConfigArray800;
     public static int anInt816;
     public boolean aBoolean798;
     public int anInt801;
@@ -27,7 +28,7 @@ public class Class50 {
     public int anInt814;
     public int anInt815;
 
-    public Class50() {
+    public SequenceConfig() {
         aBoolean798 = false;
         anInt805 = -1;
         aBoolean807 = false;
@@ -47,14 +48,14 @@ public class Class50 {
             if (byte0 != 72) {
                 anInt797 = -421;
             }
-            if (aClass50Array800 == null) {
-                aClass50Array800 = new Class50[anInt799];
+            if (aSequenceConfigArray800 == null) {
+                aSequenceConfigArray800 = new SequenceConfig[anInt799];
             }
             for (int i = 0; i < anInt799; i++) {
-                if (aClass50Array800[i] == null) {
-                    aClass50Array800[i] = new Class50();
+                if (aSequenceConfigArray800[i] == null) {
+                    aSequenceConfigArray800[i] = new SequenceConfig();
                 }
-                aClass50Array800[i].method593(buffer, 26421);
+                aSequenceConfigArray800[i].method593(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {

@@ -1,13 +1,13 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class Class22 {
+public class VariablePlayerConfig {
 
     public static int anInt364;
-    public static Class22[] aClass22Array365;
+    public static VariablePlayerConfig[] aVariablePlayerConfigArray365;
     public static int anInt366;
     public static int[] anIntArray367;
     public int anInt363;
@@ -23,7 +23,7 @@ public class Class22 {
     public boolean aBoolean377;
     public int anInt378;
 
-    public Class22() {
+    public VariablePlayerConfig() {
         anInt363 = 40848;
         aBoolean371 = false;
         aBoolean372 = true;
@@ -40,17 +40,17 @@ public class Class22 {
             if (byte0 != 72) {
                 return;
             }
-            if (aClass22Array365 == null) {
-                aClass22Array365 = new Class22[anInt364];
+            if (aVariablePlayerConfigArray365 == null) {
+                aVariablePlayerConfigArray365 = new VariablePlayerConfig[anInt364];
             }
             if (anIntArray367 == null) {
                 anIntArray367 = new int[anInt364];
             }
             for (int i = 0; i < anInt364; i++) {
-                if (aClass22Array365[i] == null) {
-                    aClass22Array365[i] = new Class22();
+                if (aVariablePlayerConfigArray365[i] == null) {
+                    aVariablePlayerConfigArray365[i] = new VariablePlayerConfig();
                 }
-                aClass22Array365[i].method445(i, 40848, buffer);
+                aVariablePlayerConfigArray365[i].method445(i, 40848, buffer);
             }
             if (buffer.position != buffer.payload.length) {
                 System.out.println("varptype load mismatch");

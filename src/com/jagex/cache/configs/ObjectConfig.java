@@ -1,13 +1,17 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.CacheableNode_Sub1_Sub4;
+import com.jagex.CacheableNode_Sub1_Sub4_;
+import com.jagex.CacheableNode_Sub1_Sub4_Sub4;
+import com.jagex.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
 
-public class ItemDefinition {
+public class ObjectConfig {
 
-    public static ItemDefinition[] aItemDefinitionArray620;
+    public static ObjectConfig[] aObjectConfigArray620;
     public static boolean aBoolean638 = true;
     public static int anInt645;
     public static int[] anIntArray655;
@@ -61,7 +65,7 @@ public class ItemDefinition {
     public int anInt668;
     public int anInt670;
 
-    public ItemDefinition() {
+    public ObjectConfig() {
         anInt619 = 4;
         anInt623 = -25124;
         anInt633 = -1;
@@ -80,28 +84,28 @@ public class ItemDefinition {
                     return class13_sub1_sub4_sub4;
                 }
             }
-            ItemDefinition itemDefinition = method505(i);
-            if (itemDefinition.anIntArray636 == null) {
+            ObjectConfig objectConfig = method505(i);
+            if (objectConfig.anIntArray636 == null) {
                 j = -1;
             }
             if (j > 1) {
                 int l = -1;
                 for (int i1 = 0; i1 < 10; i1++) {
-                    if (j >= itemDefinition.anIntArray627[i1] && itemDefinition.anIntArray627[i1] != 0) {
-                        l = itemDefinition.anIntArray636[i1];
+                    if (j >= objectConfig.anIntArray627[i1] && objectConfig.anIntArray627[i1] != 0) {
+                        l = objectConfig.anIntArray636[i1];
                     }
                 }
                 if (l != -1) {
-                    itemDefinition = method505(l);
+                    objectConfig = method505(l);
                 }
             }
-            Model class13_sub1_sub1_sub4 = itemDefinition.method509(1);
+            Model class13_sub1_sub1_sub4 = objectConfig.method509(1);
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
             CacheableNode_Sub1_Sub4_Sub4 class13_sub1_sub4_sub4_2 = null;
-            if (itemDefinition.anInt642 != -1) {
-                class13_sub1_sub4_sub4_2 = method503(itemDefinition.anInt644, 10, -1, aBoolean638);
+            if (objectConfig.anInt642 != -1) {
+                class13_sub1_sub4_sub4_2 = method503(objectConfig.anInt644, 10, -1, aBoolean638);
                 if (class13_sub1_sub4_sub4_2 == null) {
                     return null;
                 }
@@ -121,16 +125,16 @@ public class ItemDefinition {
             CacheableNode_Sub1_Sub4.method351(0, class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
             CacheableNode_Sub1_Sub4.method356(false, 0, 0, 0, 32, 32);
             CacheableNode_Sub1_Sub4_.method364(true);
-            int j3 = itemDefinition.modelScale;
+            int j3 = objectConfig.modelScale;
             if (k == -1) {
                 j3 = (int) ((double) j3 * 1.5D);
             }
             if (k > 0) {
                 j3 = (int) ((double) j3 * 1.04D);
             }
-            int k3 = CacheableNode_Sub1_Sub4_.anIntArray1634[itemDefinition.anInt670] * j3 >> 16;
-            int l3 = CacheableNode_Sub1_Sub4_.anIntArray1635[itemDefinition.anInt670] * j3 >> 16;
-            class13_sub1_sub1_sub4.method285(0, itemDefinition.anInt663, itemDefinition.anInt666, itemDefinition.anInt670, itemDefinition.anInt656, k3 + class13_sub1_sub1_sub4.anInt1377 / 2 + itemDefinition.anInt628, l3 + itemDefinition.anInt628);
+            int k3 = CacheableNode_Sub1_Sub4_.anIntArray1634[objectConfig.anInt670] * j3 >> 16;
+            int l3 = CacheableNode_Sub1_Sub4_.anIntArray1635[objectConfig.anInt670] * j3 >> 16;
+            class13_sub1_sub1_sub4.method285(0, objectConfig.anInt663, objectConfig.anInt666, objectConfig.anInt670, objectConfig.anInt656, k3 + class13_sub1_sub1_sub4.anInt1377 / 2 + objectConfig.anInt628, l3 + objectConfig.anInt628);
             for (int l4 = 31; l4 >= 0; l4--) {
                 for (int i4 = 31; i4 >= 0; i4--) {
                     if (class13_sub1_sub4_sub4_1.anIntArray1680[l4 + i4 * 32] == 0) {
@@ -171,7 +175,7 @@ public class ItemDefinition {
                     }
                 }
             }
-            if (itemDefinition.anInt642 != -1) {
+            if (objectConfig.anInt642 != -1) {
                 int k5 = class13_sub1_sub4_sub4_2.anInt1685;
                 int l5 = class13_sub1_sub4_sub4_2.anInt1686;
                 class13_sub1_sub4_sub4_2.anInt1685 = 32;
@@ -192,7 +196,7 @@ public class ItemDefinition {
             CacheableNode_Sub1_Sub4_.anInt1631 = k1;
             CacheableNode_Sub1_Sub4_.anIntArray1636 = ai;
             CacheableNode_Sub1_Sub4_.aBoolean1628 = true;
-            if (itemDefinition.aBoolean662) {
+            if (objectConfig.aBoolean662) {
                 class13_sub1_sub4_sub4_1.anInt1685 = 33;
             } else {
                 class13_sub1_sub4_sub4_1.anInt1685 = 32;
@@ -205,29 +209,29 @@ public class ItemDefinition {
         throw new RuntimeException();
     }
 
-    public static ItemDefinition method505(int i) {
+    public static ObjectConfig method505(int i) {
         for (int j = 0; j < 10; j++) {
-            if (aItemDefinitionArray620[j].anInt633 == i) {
-                return aItemDefinitionArray620[j];
+            if (aObjectConfigArray620[j].anInt633 == i) {
+                return aObjectConfigArray620[j];
             }
         }
         anInt645 = (anInt645 + 1) % 10;
-        ItemDefinition itemDefinition = aItemDefinitionArray620[anInt645];
+        ObjectConfig objectConfig = aObjectConfigArray620[anInt645];
         aBuffer_665.position = anIntArray655[i];
-        itemDefinition.anInt633 = i;
-        itemDefinition.method514();
-        itemDefinition.method510(aBuffer_665, 26421);
-        if (itemDefinition.anInt642 != -1) {
-            itemDefinition.method508(143);
+        objectConfig.anInt633 = i;
+        objectConfig.method514();
+        objectConfig.method510(aBuffer_665, 26421);
+        if (objectConfig.anInt642 != -1) {
+            objectConfig.method508(143);
         }
-        if (!aBoolean667 && itemDefinition.aBoolean650) {
-            itemDefinition.itemName = "Members Object";
-            itemDefinition.examine = "Login to a members' server to use this object.".getBytes();
-            itemDefinition.aStringArray643 = null;
-            itemDefinition.aStringArray639 = null;
-            itemDefinition.anInt641 = 0;
+        if (!aBoolean667 && objectConfig.aBoolean650) {
+            objectConfig.itemName = "Members Object";
+            objectConfig.examine = "Login to a members' server to use this object.".getBytes();
+            objectConfig.aStringArray643 = null;
+            objectConfig.aStringArray639 = null;
+            objectConfig.anInt641 = 0;
         }
-        return itemDefinition;
+        return objectConfig;
     }
 
     public static void method511(int i) {
@@ -239,7 +243,7 @@ public class ItemDefinition {
                 }
             }
             anIntArray655 = null;
-            aItemDefinitionArray620 = null;
+            aObjectConfigArray620 = null;
             aBuffer_665 = null;
             return;
         } catch (RuntimeException runtimeexception) {
@@ -258,9 +262,9 @@ public class ItemDefinition {
             anIntArray655[j] = i;
             i += buffer.readUShortBE();
         }
-        aItemDefinitionArray620 = new ItemDefinition[10];
+        aObjectConfigArray620 = new ObjectConfig[10];
         for (int k = 0; k < 10; k++) {
-            aItemDefinitionArray620[k] = new ItemDefinition();
+            aObjectConfigArray620[k] = new ObjectConfig();
         }
     }
 
@@ -377,30 +381,30 @@ public class ItemDefinition {
 
     public void method508(int i) {
         try {
-            ItemDefinition itemDefinition = method505(anInt642);
-            anInt668 = itemDefinition.anInt668;
-            modelScale = itemDefinition.modelScale;
-            anInt670 = itemDefinition.anInt670;
-            anInt663 = itemDefinition.anInt663;
-            anInt666 = itemDefinition.anInt666;
-            anInt656 = itemDefinition.anInt656;
-            anInt628 = itemDefinition.anInt628;
-            anIntArray646 = itemDefinition.anIntArray646;
+            ObjectConfig objectConfig = method505(anInt642);
+            anInt668 = objectConfig.anInt668;
+            modelScale = objectConfig.modelScale;
+            anInt670 = objectConfig.anInt670;
+            anInt663 = objectConfig.anInt663;
+            anInt666 = objectConfig.anInt666;
+            anInt656 = objectConfig.anInt656;
+            anInt628 = objectConfig.anInt628;
+            anIntArray646 = objectConfig.anIntArray646;
             if (i <= 0) {
                 for (int j = 1; j > 0; j++) {
                 }
             }
-            anIntArray631 = itemDefinition.anIntArray631;
-            ItemDefinition itemDefinition_1 = method505(anInt644);
-            itemName = itemDefinition_1.itemName;
-            aBoolean650 = itemDefinition_1.aBoolean650;
-            anInt637 = itemDefinition_1.anInt637;
+            anIntArray631 = objectConfig.anIntArray631;
+            ObjectConfig objectConfig_1 = method505(anInt644);
+            itemName = objectConfig_1.itemName;
+            aBoolean650 = objectConfig_1.aBoolean650;
+            anInt637 = objectConfig_1.anInt637;
             String s = "a";
-            char c = itemDefinition_1.itemName.charAt(0);
+            char c = objectConfig_1.itemName.charAt(0);
             if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 s = "an";
             }
-            examine = ("Swap this note at any bank for " + s + " " + itemDefinition_1.itemName + ".").getBytes();
+            examine = ("Swap this note at any bank for " + s + " " + objectConfig_1.itemName + ".").getBytes();
             aBoolean662 = true;
             return;
         } catch (RuntimeException runtimeexception) {

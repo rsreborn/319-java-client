@@ -1,13 +1,14 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class Class32 {
+// Floor
+public class FloorConfig {
 
     public static int anInt488;
-    public static Class32[] aClass32Array489;
+    public static FloorConfig[] aFloorConfigArray489;
     public String aString490;
     public int anInt491;
     public int anInt492;
@@ -20,7 +21,7 @@ public class Class32 {
     public int anInt499;
     public int anInt500;
 
-    public Class32() {
+    public FloorConfig() {
         anInt492 = -1;
         aBoolean493 = false;
         aBoolean494 = true;
@@ -33,14 +34,14 @@ public class Class32 {
             }
             Buffer buffer = new Buffer(cacheArchive.readFile("flo.dat", null));
             anInt488 = buffer.readUShortBE();
-            if (aClass32Array489 == null) {
-                aClass32Array489 = new Class32[anInt488];
+            if (aFloorConfigArray489 == null) {
+                aFloorConfigArray489 = new FloorConfig[anInt488];
             }
             for (int i = 0; i < anInt488; i++) {
-                if (aClass32Array489[i] == null) {
-                    aClass32Array489[i] = new Class32();
+                if (aFloorConfigArray489[i] == null) {
+                    aFloorConfigArray489[i] = new FloorConfig();
                 }
-                aClass32Array489[i].method494(buffer, 26421);
+                aFloorConfigArray489[i].method494(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {

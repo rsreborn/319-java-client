@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.configs.*;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
@@ -35,7 +36,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
     public int anInt1713;
     public Model aClass13_Sub1_Sub1_Sub4_1714;
     public int anInt1715;
-    public Class47 aClass47_1716;
+    public NpcConfig aNpcConfig_1716;
 
     public CacheableNode_Sub1_Sub1_Sub6_() {
         aBoolean1688 = false;
@@ -67,14 +68,14 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             if (i != -37578) {
                 aBoolean1704 = !aBoolean1704;
             }
-            if (aClass47_1716 != null) {
+            if (aNpcConfig_1716 != null) {
                 int j = -1;
                 if (super.anInt1597 >= 0 && super.anInt1600 == 0) {
-                    j = Class50.aClass50Array800[super.anInt1597].anIntArray802[super.anInt1598];
+                    j = SequenceConfig.aSequenceConfigArray800[super.anInt1597].anIntArray802[super.anInt1598];
                 } else if (super.anInt1620 >= 0) {
-                    j = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
+                    j = SequenceConfig.aSequenceConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
                 }
-                Model class13_sub1_sub1_sub4 = aClass47_1716.method582(-1, j, true, null);
+                Model class13_sub1_sub1_sub4 = aNpcConfig_1716.method582(-1, j, true, null);
                 return class13_sub1_sub1_sub4;
             }
             long l = aLong1709;
@@ -83,21 +84,21 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             int j1 = -1;
             int k1 = -1;
             if (super.anInt1597 >= 0 && super.anInt1600 == 0) {
-                Class50 class50 = Class50.aClass50Array800[super.anInt1597];
-                k = class50.anIntArray802[super.anInt1598];
+                SequenceConfig sequenceConfig = SequenceConfig.aSequenceConfigArray800[super.anInt1597];
+                k = sequenceConfig.anIntArray802[super.anInt1598];
                 if (super.anInt1620 >= 0 && super.anInt1620 != super.anInt1584) {
-                    i1 = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
+                    i1 = SequenceConfig.aSequenceConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
                 }
-                if (class50.anInt809 >= 0) {
-                    j1 = class50.anInt809;
+                if (sequenceConfig.anInt809 >= 0) {
+                    j1 = sequenceConfig.anInt809;
                     l += j1 - anIntArray1703[5] << 40;
                 }
-                if (class50.anInt810 >= 0) {
-                    k1 = class50.anInt810;
+                if (sequenceConfig.anInt810 >= 0) {
+                    k1 = sequenceConfig.anInt810;
                     l += k1 - anIntArray1703[3] << 48;
                 }
             } else if (super.anInt1620 >= 0) {
-                k = Class50.aClass50Array800[super.anInt1620].anIntArray802[super.anInt1621];
+                k = SequenceConfig.aSequenceConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
             }
             Model class13_sub1_sub1_sub4_1 = (Model) aCache_1696.get(l);
             if (class13_sub1_sub1_sub4_1 == null) {
@@ -110,10 +111,10 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
                     if (j1 >= 0 && l1 == 5) {
                         j2 = j1;
                     }
-                    if (j2 >= 256 && j2 < 512 && !Class4.aClass4Array65[j2 - 256].method177(true)) {
+                    if (j2 >= 256 && j2 < 512 && !IdentikitConfig.aIdentikitConfigArray65[j2 - 256].method177(true)) {
                         flag = true;
                     }
-                    if (j2 >= 512 && !ItemDefinition.method505(j2 - 512).method504((byte) 9, anInt1687)) {
+                    if (j2 >= 512 && !ObjectConfig.method505(j2 - 512).method504((byte) 9, anInt1687)) {
                         flag = true;
                     }
                 }
@@ -138,13 +139,13 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
                         l2 = j1;
                     }
                     if (l2 >= 256 && l2 < 512) {
-                        Model class13_sub1_sub1_sub4_3 = Class4.aClass4Array65[l2 - 256].method178(0);
+                        Model class13_sub1_sub1_sub4_3 = IdentikitConfig.aIdentikitConfigArray65[l2 - 256].method178(0);
                         if (class13_sub1_sub1_sub4_3 != null) {
                             aclass13_sub1_sub1_sub4[i2++] = class13_sub1_sub1_sub4_3;
                         }
                     }
                     if (l2 >= 512) {
-                        Model class13_sub1_sub1_sub4_4 = ItemDefinition.method505(l2 - 512).method507(4, anInt1687);
+                        Model class13_sub1_sub1_sub4_4 = ObjectConfig.method505(l2 - 512).method507(4, anInt1687);
                         if (class13_sub1_sub1_sub4_4 != null) {
                             aclass13_sub1_sub1_sub4[i2++] = class13_sub1_sub1_sub4_4;
                         }
@@ -170,7 +171,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             Model class13_sub1_sub1_sub4_2 = Model.aClass13_Sub1_Sub1_Sub4_1491;
             class13_sub1_sub1_sub4_2.method267(Class8.method189(k, 19953) & Class8.method189(i1, 19953), aByte1705, class13_sub1_sub1_sub4_1);
             if (k != -1 && i1 != -1) {
-                class13_sub1_sub1_sub4_2.method274(aByte1708, Class50.aClass50Array800[super.anInt1597].anIntArray806, i1, k);
+                class13_sub1_sub1_sub4_2.method274(aByte1708, SequenceConfig.aSequenceConfigArray800[super.anInt1597].anIntArray806, i1, k);
             } else if (k != -1) {
                 class13_sub1_sub1_sub4_2.method273(k, false);
             }
@@ -189,16 +190,16 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             if (!aBoolean1701) {
                 return null;
             }
-            if (aClass47_1716 != null) {
-                return aClass47_1716.method583(524);
+            if (aNpcConfig_1716 != null) {
+                return aNpcConfig_1716.method583(524);
             }
             boolean flag = false;
             for (int j = 0; j < 12; j++) {
                 int k = anIntArray1703[j];
-                if (k >= 256 && k < 512 && !Class4.aClass4Array65[k - 256].method179(-1743)) {
+                if (k >= 256 && k < 512 && !IdentikitConfig.aIdentikitConfigArray65[k - 256].method179(-1743)) {
                     flag = true;
                 }
-                if (k >= 512 && !ItemDefinition.method505(k - 512).method506(5, anInt1687)) {
+                if (k >= 512 && !ObjectConfig.method505(k - 512).method506(5, anInt1687)) {
                     flag = true;
                 }
             }
@@ -210,13 +211,13 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             for (int i1 = 0; i1 < 12; i1++) {
                 int j1 = anIntArray1703[i1];
                 if (j1 >= 256 && j1 < 512) {
-                    Model class13_sub1_sub1_sub4_1 = Class4.aClass4Array65[j1 - 256].method180(aByte1690);
+                    Model class13_sub1_sub1_sub4_1 = IdentikitConfig.aIdentikitConfigArray65[j1 - 256].method180(aByte1690);
                     if (class13_sub1_sub1_sub4_1 != null) {
                         aclass13_sub1_sub1_sub4[l++] = class13_sub1_sub1_sub4_1;
                     }
                 }
                 if (j1 >= 512) {
-                    Model class13_sub1_sub1_sub4_2 = ItemDefinition.method505(j1 - 512).method512(anInt1687, (byte) -34);
+                    Model class13_sub1_sub1_sub4_2 = ObjectConfig.method505(j1 - 512).method512(anInt1687, (byte) -34);
                     if (class13_sub1_sub1_sub4_2 != null) {
                         aclass13_sub1_sub1_sub4[l++] = class13_sub1_sub1_sub4_2;
                     }
@@ -254,19 +255,19 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
                 return class13_sub1_sub1_sub4;
             }
             if (super.anInt1592 != -1 && super.anInt1593 != -1) {
-                Class40 class40 = Class40.aClass40Array685[super.anInt1592];
-                Model class13_sub1_sub1_sub4_2 = class40.method530();
+                SpotAnimationConfig spotAnimationConfig = SpotAnimationConfig.aSpotAnimationConfigArray685[super.anInt1592];
+                Model class13_sub1_sub1_sub4_2 = spotAnimationConfig.method530();
                 if (class13_sub1_sub1_sub4_2 != null) {
                     Model class13_sub1_sub1_sub4_3 = new Model(false, Class8.method189(super.anInt1593, 19953), 629, class13_sub1_sub1_sub4_2, true);
                     class13_sub1_sub1_sub4_3.method278(0, -991, -super.anInt1596, 0);
                     class13_sub1_sub1_sub4_3.method272(true);
-                    class13_sub1_sub1_sub4_3.method273(class40.aClass50_689.anIntArray802[super.anInt1593], false);
+                    class13_sub1_sub1_sub4_3.method273(spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593], false);
                     class13_sub1_sub1_sub4_3.anIntArrayArray1528 = null;
                     class13_sub1_sub1_sub4_3.anIntArrayArray1527 = null;
-                    if (class40.anInt692 != 128 || class40.anInt693 != 128) {
-                        class13_sub1_sub1_sub4_3.method281(class40.anInt692, class40.anInt692, class40.anInt693, (byte) 0);
+                    if (spotAnimationConfig.anInt692 != 128 || spotAnimationConfig.anInt693 != 128) {
+                        class13_sub1_sub1_sub4_3.method281(spotAnimationConfig.anInt692, spotAnimationConfig.anInt692, spotAnimationConfig.anInt693, (byte) 0);
                     }
-                    class13_sub1_sub1_sub4_3.method282(64 + class40.anInt695, 850 + class40.anInt696, -30, -50, -30, true);
+                    class13_sub1_sub1_sub4_3.method282(64 + spotAnimationConfig.anInt695, 850 + spotAnimationConfig.anInt696, -30, -50, -30, true);
                     Model[] aclass13_sub1_sub1_sub4_1 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_3
                     };
@@ -323,7 +324,7 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
             buffer.position = 0;
             anInt1687 = buffer.readUByte();
             anInt1715 = buffer.readUByte();
-            aClass47_1716 = null;
+            aNpcConfig_1716 = null;
             anInt1702 = 0;
             for (int j = 0; j < 12; j++) {
                 int k = buffer.readUByte();
@@ -334,11 +335,11 @@ public class CacheableNode_Sub1_Sub1_Sub6_ extends CacheableNode_Sub1_Sub1_Sub6 
                 int i1 = buffer.readUByte();
                 anIntArray1703[j] = (k << 8) + i1;
                 if (j == 0 && anIntArray1703[0] == 65535) {
-                    aClass47_1716 = Class47.getDefinition(buffer.readUShortBE());
+                    aNpcConfig_1716 = NpcConfig.getDefinition(buffer.readUShortBE());
                     break;
                 }
-                if (anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ItemDefinition.anInt669) {
-                    int l1 = ItemDefinition.method505(anIntArray1703[j] - 512).anInt641;
+                if (anIntArray1703[j] >= 512 && anIntArray1703[j] - 512 < ObjectConfig.anInt669) {
+                    int l1 = ObjectConfig.method505(anIntArray1703[j] - 512).anInt641;
                     if (l1 != 0) {
                         anInt1702 = l1;
                     }

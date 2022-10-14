@@ -1,6 +1,8 @@
 package com.jagex;
 
 import com.jagex.cache.CacheArchive;
+import com.jagex.cache.configs.NpcConfig;
+import com.jagex.cache.configs.ObjectConfig;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Cache;
@@ -340,13 +342,13 @@ public class Widget {
             class13_sub1_sub1_sub4 = Model.method265((byte) 4, j);
         }
         if (i == 2) {
-            class13_sub1_sub1_sub4 = Class47.getDefinition(j).method583(524);
+            class13_sub1_sub1_sub4 = NpcConfig.getDefinition(j).method583(524);
         }
         if (i == 3) {
             class13_sub1_sub1_sub4 = Game.aClass13_Sub1_Sub1_Sub6_Sub1_997.method296(242);
         }
         if (i == 4) {
-            class13_sub1_sub1_sub4 = ItemDefinition.method505(j).method513(-453, 50);
+            class13_sub1_sub1_sub4 = ObjectConfig.method505(j).method513(-453, 50);
         }
         if (i == 5) {
             class13_sub1_sub1_sub4 = null;

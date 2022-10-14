@@ -4,6 +4,7 @@ import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
+// Sprite?
 public class CacheableNode_Sub1_Sub4_Sub3 extends CacheableNode_Sub1_Sub4 {
 
     public int anInt1662;

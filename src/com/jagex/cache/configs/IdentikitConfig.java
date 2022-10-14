@@ -1,13 +1,15 @@
-package com.jagex;
+package com.jagex.cache.configs;
 
+import com.jagex.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class Class4 {
+// Identikit
+public class IdentikitConfig {
 
     public static int anInt64;
-    public static Class4[] aClass4Array65;
+    public static IdentikitConfig[] aIdentikitConfigArray65;
     public boolean aBoolean60;
     public boolean aBoolean61;
     public int anInt62;
@@ -21,7 +23,7 @@ public class Class4 {
     };
     public boolean aBoolean71;
 
-    public Class4() {
+    public IdentikitConfig() {
         aBoolean60 = true;
         aBoolean61 = true;
         anInt62 = 34249;
@@ -36,14 +38,14 @@ public class Class4 {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("idk.dat", null));
             anInt64 = buffer.readUShortBE();
-            if (aClass4Array65 == null) {
-                aClass4Array65 = new Class4[anInt64];
+            if (aIdentikitConfigArray65 == null) {
+                aIdentikitConfigArray65 = new IdentikitConfig[anInt64];
             }
             for (int i = 0; i < anInt64; i++) {
-                if (aClass4Array65[i] == null) {
-                    aClass4Array65[i] = new Class4();
+                if (aIdentikitConfigArray65[i] == null) {
+                    aIdentikitConfigArray65[i] = new IdentikitConfig();
                 }
-                aClass4Array65[i].method176(buffer, 26421);
+                aIdentikitConfigArray65[i].method176(buffer, 26421);
             }
             if (byte0 != 72) {
                 return;

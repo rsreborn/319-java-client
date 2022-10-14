@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.cache.configs.SpotAnimationConfig;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
@@ -16,7 +17,7 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
     public int anInt1443;
     public int anInt1444;
     public double aDouble1445;
-    public Class40 aClass40_1446;
+    public SpotAnimationConfig aSpotAnimationConfig_1446;
     public double aDouble1447;
     public double aDouble1448;
     public double aDouble1449;
@@ -34,7 +35,7 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
                                     int l1, byte byte0, int i2, int j2, int k2) {
         aBoolean1441 = false;
         try {
-            aClass40_1446 = Class40.aClass40Array685[j];
+            aSpotAnimationConfig_1446 = SpotAnimationConfig.aSpotAnimationConfigArray685[j];
             anInt1442 = l1;
             anInt1455 = j1;
             anInt1456 = k1;
@@ -67,11 +68,11 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
             }
             anInt1443 = (int) (Math.atan2(aDouble1434, aDouble1435) * 325.94900000000001D) + 1024 & 0x7ff;
             anInt1444 = (int) (Math.atan2(aDouble1437, aDouble1436) * 325.94900000000001D) & 0x7ff;
-            if (aClass40_1446.aClass50_689 != null) {
-                for (anInt1453 += i; anInt1453 > aClass40_1446.aClass50_689.method592(0, anInt1452); ) {
-                    anInt1453 -= aClass40_1446.aClass50_689.method592(0, anInt1452) + 1;
+            if (aSpotAnimationConfig_1446.aSequenceConfig_689 != null) {
+                for (anInt1453 += i; anInt1453 > aSpotAnimationConfig_1446.aSequenceConfig_689.method592(0, anInt1452); ) {
+                    anInt1453 -= aSpotAnimationConfig_1446.aSequenceConfig_689.method592(0, anInt1452) + 1;
                     anInt1452++;
-                    if (anInt1452 >= aClass40_1446.aClass50_689.anInt801) {
+                    if (anInt1452 >= aSpotAnimationConfig_1446.aSequenceConfig_689.anInt801) {
                         anInt1452 = 0;
                     }
                 }
@@ -85,13 +86,13 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
 
     public Model method256(int i) {
         try {
-            Model class13_sub1_sub1_sub4 = aClass40_1446.method530();
+            Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1446.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
             int j = -1;
-            if (aClass40_1446.aClass50_689 != null) {
-                j = aClass40_1446.aClass50_689.anIntArray802[anInt1452];
+            if (aSpotAnimationConfig_1446.aSequenceConfig_689 != null) {
+                j = aSpotAnimationConfig_1446.aSequenceConfig_689.anIntArray802[anInt1452];
             }
             Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 63 / i;
@@ -101,11 +102,11 @@ public class CacheableNode_Sub1_Sub1_ extends CacheableNode_Sub1_ {
                 class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
                 class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
             }
-            if (aClass40_1446.anInt692 != 128 || aClass40_1446.anInt693 != 128) {
-                class13_sub1_sub1_sub4_1.method281(aClass40_1446.anInt692, aClass40_1446.anInt692, aClass40_1446.anInt693, (byte) 0);
+            if (aSpotAnimationConfig_1446.anInt692 != 128 || aSpotAnimationConfig_1446.anInt693 != 128) {
+                class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt693, (byte) 0);
             }
             class13_sub1_sub1_sub4_1.method277((byte) 76, anInt1444);
-            class13_sub1_sub1_sub4_1.method282(64 + aClass40_1446.anInt695, 850 + aClass40_1446.anInt696, -30, -50, -30, true);
+            class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1446.anInt695, 850 + aSpotAnimationConfig_1446.anInt696, -30, -50, -30, true);
             return class13_sub1_sub1_sub4_1;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("48721, " + i + ", " + runtimeexception);
