@@ -4,10 +4,10 @@ import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class VarpConfig {
+public class VariablePlayerConfig {
 
     public static int anInt364;
-    public static VarpConfig[] aVarpConfigArray365;
+    public static VariablePlayerConfig[] aVariablePlayerConfigArray365;
     public static int anInt366;
     public static int[] anIntArray367;
     public int anInt363;
@@ -23,7 +23,7 @@ public class VarpConfig {
     public boolean aBoolean377;
     public int anInt378;
 
-    public VarpConfig() {
+    public VariablePlayerConfig() {
         anInt363 = 40848;
         aBoolean371 = false;
         aBoolean372 = true;
@@ -40,17 +40,17 @@ public class VarpConfig {
             if (byte0 != 72) {
                 return;
             }
-            if (aVarpConfigArray365 == null) {
-                aVarpConfigArray365 = new VarpConfig[anInt364];
+            if (aVariablePlayerConfigArray365 == null) {
+                aVariablePlayerConfigArray365 = new VariablePlayerConfig[anInt364];
             }
             if (anIntArray367 == null) {
                 anIntArray367 = new int[anInt364];
             }
             for (int i = 0; i < anInt364; i++) {
-                if (aVarpConfigArray365[i] == null) {
-                    aVarpConfigArray365[i] = new VarpConfig();
+                if (aVariablePlayerConfigArray365[i] == null) {
+                    aVariablePlayerConfigArray365[i] = new VariablePlayerConfig();
                 }
-                aVarpConfigArray365[i].method445(i, 40848, buffer);
+                aVariablePlayerConfigArray365[i].method445(i, 40848, buffer);
             }
             if (buffer.position != buffer.payload.length) {
                 System.out.println("varptype load mismatch");

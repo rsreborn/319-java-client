@@ -6,10 +6,10 @@ import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 // Identikit
-public class IdkConfig {
+public class IdentikitConfig {
 
     public static int anInt64;
-    public static IdkConfig[] aIdkConfigArray65;
+    public static IdentikitConfig[] aIdentikitConfigArray65;
     public boolean aBoolean60;
     public boolean aBoolean61;
     public int anInt62;
@@ -23,7 +23,7 @@ public class IdkConfig {
     };
     public boolean aBoolean71;
 
-    public IdkConfig() {
+    public IdentikitConfig() {
         aBoolean60 = true;
         aBoolean61 = true;
         anInt62 = 34249;
@@ -38,14 +38,14 @@ public class IdkConfig {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("idk.dat", null));
             anInt64 = buffer.readUShortBE();
-            if (aIdkConfigArray65 == null) {
-                aIdkConfigArray65 = new IdkConfig[anInt64];
+            if (aIdentikitConfigArray65 == null) {
+                aIdentikitConfigArray65 = new IdentikitConfig[anInt64];
             }
             for (int i = 0; i < anInt64; i++) {
-                if (aIdkConfigArray65[i] == null) {
-                    aIdkConfigArray65[i] = new IdkConfig();
+                if (aIdentikitConfigArray65[i] == null) {
+                    aIdentikitConfigArray65[i] = new IdentikitConfig();
                 }
-                aIdkConfigArray65[i].method176(buffer, 26421);
+                aIdentikitConfigArray65[i].method176(buffer, 26421);
             }
             if (byte0 != 72) {
                 return;

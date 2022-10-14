@@ -1,8 +1,8 @@
 package com.jagex;
 
 import com.jagex.cache.configs.NpcConfig;
-import com.jagex.cache.configs.SeqConfig;
-import com.jagex.cache.configs.SpotAnimConfig;
+import com.jagex.cache.configs.SequenceConfig;
+import com.jagex.cache.configs.SpotAnimationConfig;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_Sub6 {
@@ -15,19 +15,19 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
     public Model method298(int i) {
         try {
             if (super.anInt1597 >= 0 && super.anInt1600 == 0) {
-                int j = SeqConfig.aSeqConfigArray800[super.anInt1597].anIntArray802[super.anInt1598];
+                int j = SequenceConfig.aSequenceConfigArray800[super.anInt1597].anIntArray802[super.anInt1598];
                 int l = -1;
                 if (super.anInt1620 >= 0 && super.anInt1620 != super.anInt1584) {
-                    l = SeqConfig.aSeqConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
+                    l = SequenceConfig.aSequenceConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
                 }
-                return aNpcConfig_1717.method582(l, j, true, SeqConfig.aSeqConfigArray800[super.anInt1597].anIntArray806);
+                return aNpcConfig_1717.method582(l, j, true, SequenceConfig.aSequenceConfigArray800[super.anInt1597].anIntArray806);
             }
             int k = -1;
             if (i != -37578) {
                 throw new NullPointerException();
             }
             if (super.anInt1620 >= 0) {
-                k = SeqConfig.aSeqConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
+                k = SequenceConfig.aSequenceConfigArray800[super.anInt1620].anIntArray802[super.anInt1621];
             }
             return aNpcConfig_1717.method582(-1, k, true, null);
         } catch (RuntimeException runtimeexception) {
@@ -63,20 +63,20 @@ public class CacheableNode_Sub1_Sub1_Sub6_Sub2 extends CacheableNode_Sub1_Sub1_S
             }
             super.anInt1590 = class13_sub1_sub1_sub4.anInt1377;
             if (super.anInt1592 != -1 && super.anInt1593 != -1) {
-                SpotAnimConfig spotAnimConfig = SpotAnimConfig.aSpotAnimConfigArray685[super.anInt1592];
-                Model class13_sub1_sub1_sub4_1 = spotAnimConfig.method530();
+                SpotAnimationConfig spotAnimationConfig = SpotAnimationConfig.aSpotAnimationConfigArray685[super.anInt1592];
+                Model class13_sub1_sub1_sub4_1 = spotAnimationConfig.method530();
                 if (class13_sub1_sub1_sub4_1 != null) {
-                    int k = spotAnimConfig.aSeqConfig_689.anIntArray802[super.anInt1593];
+                    int k = spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593];
                     Model class13_sub1_sub1_sub4_2 = new Model(false, Class8.method189(k, 19953), 629, class13_sub1_sub1_sub4_1, true);
                     class13_sub1_sub1_sub4_2.method278(0, -991, -super.anInt1596, 0);
                     class13_sub1_sub1_sub4_2.method272(true);
                     class13_sub1_sub1_sub4_2.method273(k, false);
                     class13_sub1_sub1_sub4_2.anIntArrayArray1528 = null;
                     class13_sub1_sub1_sub4_2.anIntArrayArray1527 = null;
-                    if (spotAnimConfig.anInt692 != 128 || spotAnimConfig.anInt693 != 128) {
-                        class13_sub1_sub1_sub4_2.method281(spotAnimConfig.anInt692, spotAnimConfig.anInt692, spotAnimConfig.anInt693, (byte) 0);
+                    if (spotAnimationConfig.anInt692 != 128 || spotAnimationConfig.anInt693 != 128) {
+                        class13_sub1_sub1_sub4_2.method281(spotAnimationConfig.anInt692, spotAnimationConfig.anInt692, spotAnimationConfig.anInt693, (byte) 0);
                     }
-                    class13_sub1_sub1_sub4_2.method282(64 + spotAnimConfig.anInt695, 850 + spotAnimConfig.anInt696, -30, -50, -30, true);
+                    class13_sub1_sub1_sub4_2.method282(64 + spotAnimationConfig.anInt695, 850 + spotAnimationConfig.anInt696, -30, -50, -30, true);
                     Model[] aclass13_sub1_sub1_sub4 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_2
                     };

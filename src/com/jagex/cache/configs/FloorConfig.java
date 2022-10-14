@@ -5,10 +5,10 @@ import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
 // Floor
-public class FloConfig {
+public class FloorConfig {
 
     public static int anInt488;
-    public static FloConfig[] aFloConfigArray489;
+    public static FloorConfig[] aFloorConfigArray489;
     public String aString490;
     public int anInt491;
     public int anInt492;
@@ -21,7 +21,7 @@ public class FloConfig {
     public int anInt499;
     public int anInt500;
 
-    public FloConfig() {
+    public FloorConfig() {
         anInt492 = -1;
         aBoolean493 = false;
         aBoolean494 = true;
@@ -34,14 +34,14 @@ public class FloConfig {
             }
             Buffer buffer = new Buffer(cacheArchive.readFile("flo.dat", null));
             anInt488 = buffer.readUShortBE();
-            if (aFloConfigArray489 == null) {
-                aFloConfigArray489 = new FloConfig[anInt488];
+            if (aFloorConfigArray489 == null) {
+                aFloorConfigArray489 = new FloorConfig[anInt488];
             }
             for (int i = 0; i < anInt488; i++) {
-                if (aFloConfigArray489[i] == null) {
-                    aFloConfigArray489[i] = new FloConfig();
+                if (aFloorConfigArray489[i] == null) {
+                    aFloorConfigArray489[i] = new FloorConfig();
                 }
-                aFloConfigArray489[i].method494(buffer, 26421);
+                aFloorConfigArray489[i].method494(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {

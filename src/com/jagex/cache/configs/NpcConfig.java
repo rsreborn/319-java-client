@@ -244,10 +244,10 @@ public class NpcConfig {
                 }
             }
             if (anInt767 != -1) {
-                VarbitConfig varbitConfig = VarbitConfig.aVarbitConfigArray439[anInt767];
-                int k = varbitConfig.anInt441;
-                int l = varbitConfig.anInt442;
-                int i1 = varbitConfig.anInt443;
+                VariableBitConfig variableBitConfig = VariableBitConfig.aVariableBitConfigArray439[anInt767];
+                int k = variableBitConfig.anInt441;
+                int l = variableBitConfig.anInt442;
+                int i1 = variableBitConfig.anInt443;
                 int j1 = Game.anIntArray1271[i1 - l];
                 i = aGame777.anIntArray1149[k] >> l & j1;
             } else if (anInt764 != -1) {

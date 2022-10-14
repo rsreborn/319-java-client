@@ -5,11 +5,11 @@ import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class SeqConfig {
+public class SequenceConfig {
 
     public static int anInt797 = 12258;
     public static int anInt799;
-    public static SeqConfig[] aSeqConfigArray800;
+    public static SequenceConfig[] aSequenceConfigArray800;
     public static int anInt816;
     public boolean aBoolean798;
     public int anInt801;
@@ -28,7 +28,7 @@ public class SeqConfig {
     public int anInt814;
     public int anInt815;
 
-    public SeqConfig() {
+    public SequenceConfig() {
         aBoolean798 = false;
         anInt805 = -1;
         aBoolean807 = false;
@@ -48,14 +48,14 @@ public class SeqConfig {
             if (byte0 != 72) {
                 anInt797 = -421;
             }
-            if (aSeqConfigArray800 == null) {
-                aSeqConfigArray800 = new SeqConfig[anInt799];
+            if (aSequenceConfigArray800 == null) {
+                aSequenceConfigArray800 = new SequenceConfig[anInt799];
             }
             for (int i = 0; i < anInt799; i++) {
-                if (aSeqConfigArray800[i] == null) {
-                    aSeqConfigArray800[i] = new SeqConfig();
+                if (aSequenceConfigArray800[i] == null) {
+                    aSequenceConfigArray800[i] = new SequenceConfig();
                 }
-                aSeqConfigArray800[i].method593(buffer, 26421);
+                aSequenceConfigArray800[i].method593(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {

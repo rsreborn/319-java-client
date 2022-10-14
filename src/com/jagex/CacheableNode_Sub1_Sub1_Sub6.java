@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.cache.configs.SeqConfig;
+import com.jagex.cache.configs.SequenceConfig;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
@@ -149,7 +149,7 @@ public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
                 k++;
                 l--;
             }
-            if (anInt1597 != -1 && SeqConfig.aSeqConfigArray800[anInt1597].anInt813 == 1) {
+            if (anInt1597 != -1 && SequenceConfig.aSequenceConfigArray800[anInt1597].anInt813 == 1) {
                 anInt1597 = -1;
             }
             if (anInt1591 < 9) {
@@ -195,7 +195,7 @@ public class CacheableNode_Sub1_Sub1_Sub6 extends CacheableNode_Sub1_ {
 
     public void method294(boolean flag, int i, int j, byte byte0) {
         try {
-            if (anInt1597 != -1 && SeqConfig.aSeqConfigArray800[anInt1597].anInt813 == 1) {
+            if (anInt1597 != -1 && SequenceConfig.aSequenceConfigArray800[anInt1597].anInt813 == 1) {
                 anInt1597 = -1;
             }
             if (!flag) {

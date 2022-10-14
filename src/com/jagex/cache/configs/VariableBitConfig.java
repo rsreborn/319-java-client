@@ -4,11 +4,11 @@ import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class VarbitConfig {
+public class VariableBitConfig {
 
     public static boolean aBoolean436;
     public static int anInt438;
-    public static VarbitConfig[] aVarbitConfigArray439;
+    public static VariableBitConfig[] aVariableBitConfigArray439;
     public int anInt437;
     public String aString440;
     public int anInt441;
@@ -18,7 +18,7 @@ public class VarbitConfig {
     public int anInt445;
     public int anInt446;
 
-    public VarbitConfig() {
+    public VariableBitConfig() {
         anInt437 = 40848;
         aBoolean444 = false;
         anInt445 = -1;
@@ -28,16 +28,16 @@ public class VarbitConfig {
         try {
             Buffer buffer = new Buffer(cacheArchive.readFile("varbit.dat", null));
             anInt438 = buffer.readUShortBE();
-            if (aVarbitConfigArray439 == null) {
-                aVarbitConfigArray439 = new VarbitConfig[anInt438];
+            if (aVariableBitConfigArray439 == null) {
+                aVariableBitConfigArray439 = new VariableBitConfig[anInt438];
             }
             for (int i = 0; i < anInt438; i++) {
-                if (aVarbitConfigArray439[i] == null) {
-                    aVarbitConfigArray439[i] = new VarbitConfig();
+                if (aVariableBitConfigArray439[i] == null) {
+                    aVariableBitConfigArray439[i] = new VariableBitConfig();
                 }
-                aVarbitConfigArray439[i].method474(i, 40848, buffer);
-                if (aVarbitConfigArray439[i].aBoolean444) {
-                    VarpConfig.aVarpConfigArray365[aVarbitConfigArray439[i].anInt441].aBoolean377 = true;
+                aVariableBitConfigArray439[i].method474(i, 40848, buffer);
+                if (aVariableBitConfigArray439[i].aBoolean444) {
+                    VariablePlayerConfig.aVariablePlayerConfigArray365[aVariableBitConfigArray439[i].anInt441].aBoolean377 = true;
                 }
             }
             if (byte0 != 72) {

@@ -1,11 +1,11 @@
 package com.jagex;
 
-import com.jagex.cache.configs.SpotAnimConfig;
+import com.jagex.cache.configs.SpotAnimationConfig;
 import com.jagex.sign.Signlink;
 
 public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
 
-    public SpotAnimConfig aSpotAnimConfig_1475;
+    public SpotAnimationConfig aSpotAnimationConfig_1475;
     public int anInt1476;
     public int anInt1477;
     public int anInt1478;
@@ -21,7 +21,7 @@ public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
         anInt1476 = -22144;
         aBoolean1479 = false;
         try {
-            aSpotAnimConfig_1475 = SpotAnimConfig.aSpotAnimConfigArray685[j];
+            aSpotAnimationConfig_1475 = SpotAnimationConfig.aSpotAnimationConfigArray685[j];
             anInt1480 = l;
             anInt1481 = k;
             anInt1482 = i1;
@@ -42,11 +42,11 @@ public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
 
     public Model method256(int i) {
         try {
-            Model class13_sub1_sub1_sub4 = aSpotAnimConfig_1475.method530();
+            Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1475.method530();
             if (class13_sub1_sub1_sub4 == null) {
                 return null;
             }
-            int j = aSpotAnimConfig_1475.aSeqConfig_689.anIntArray802[anInt1477];
+            int j = aSpotAnimationConfig_1475.aSequenceConfig_689.anIntArray802[anInt1477];
             Model class13_sub1_sub1_sub4_1 = new Model(false, Class8.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
             i = 95 / i;
             if (!aBoolean1479) {
@@ -55,24 +55,24 @@ public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
                 class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
                 class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
             }
-            if (aSpotAnimConfig_1475.anInt692 != 128 || aSpotAnimConfig_1475.anInt693 != 128) {
-                class13_sub1_sub1_sub4_1.method281(aSpotAnimConfig_1475.anInt692, aSpotAnimConfig_1475.anInt692, aSpotAnimConfig_1475.anInt693, (byte) 0);
+            if (aSpotAnimationConfig_1475.anInt692 != 128 || aSpotAnimationConfig_1475.anInt693 != 128) {
+                class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt693, (byte) 0);
             }
-            if (aSpotAnimConfig_1475.anInt694 != 0) {
-                if (aSpotAnimConfig_1475.anInt694 == 90) {
+            if (aSpotAnimationConfig_1475.anInt694 != 0) {
+                if (aSpotAnimationConfig_1475.anInt694 == 90) {
                     class13_sub1_sub1_sub4_1.method276(-32823);
                 }
-                if (aSpotAnimConfig_1475.anInt694 == 180) {
+                if (aSpotAnimationConfig_1475.anInt694 == 180) {
                     class13_sub1_sub1_sub4_1.method276(-32823);
                     class13_sub1_sub1_sub4_1.method276(-32823);
                 }
-                if (aSpotAnimConfig_1475.anInt694 == 270) {
+                if (aSpotAnimationConfig_1475.anInt694 == 270) {
                     class13_sub1_sub1_sub4_1.method276(-32823);
                     class13_sub1_sub1_sub4_1.method276(-32823);
                     class13_sub1_sub1_sub4_1.method276(-32823);
                 }
             }
-            class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimConfig_1475.anInt695, 850 + aSpotAnimConfig_1475.anInt696, -30, -50, -30, true);
+            class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1475.anInt695, 850 + aSpotAnimationConfig_1475.anInt696, -30, -50, -30, true);
             return class13_sub1_sub1_sub4_1;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("11505, " + i + ", " + runtimeexception);
@@ -86,10 +86,10 @@ public class CacheableNode_Sub1_Sub1_Sub3 extends CacheableNode_Sub1_ {
             if (byte0 != 4) {
                 return;
             }
-            while (anInt1478 > aSpotAnimConfig_1475.aSeqConfig_689.method592(0, anInt1477)) {
-                anInt1478 -= aSpotAnimConfig_1475.aSeqConfig_689.method592(0, anInt1477) + 1;
+            while (anInt1478 > aSpotAnimationConfig_1475.aSequenceConfig_689.method592(0, anInt1477)) {
+                anInt1478 -= aSpotAnimationConfig_1475.aSequenceConfig_689.method592(0, anInt1477) + 1;
                 anInt1477++;
-                if (anInt1477 >= aSpotAnimConfig_1475.aSeqConfig_689.anInt801 && (anInt1477 < 0 || anInt1477 >= aSpotAnimConfig_1475.aSeqConfig_689.anInt801)) {
+                if (anInt1477 >= aSpotAnimationConfig_1475.aSequenceConfig_689.anInt801 && (anInt1477 < 0 || anInt1477 >= aSpotAnimationConfig_1475.aSequenceConfig_689.anInt801)) {
                     anInt1477 = 0;
                     aBoolean1479 = true;
                 }
