@@ -1,8 +1,8 @@
 package com.jagex.cache.configs;
 
-import com.jagex.Class8;
+import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.Game;
-import com.jagex.Model;
+import com.jagex.graphics.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
@@ -169,7 +169,7 @@ public class NpcConfig {
                 aCache_759.put(class13_sub1_sub1_sub4, aLong770);
             }
             Model class13_sub1_sub1_sub4_1 = Model.aClass13_Sub1_Sub1_Sub4_1491;
-            class13_sub1_sub1_sub4_1.method267(Class8.method189(j, 19953) & Class8.method189(i, 19953), aByte779, class13_sub1_sub1_sub4);
+            class13_sub1_sub1_sub4_1.method267(AnimationFrame.method189(j, 19953) & AnimationFrame.method189(i, 19953), aByte779, class13_sub1_sub1_sub4);
             if (j != -1 && i != -1) {
                 class13_sub1_sub1_sub4_1.method274(aByte774, ai, i, j);
             } else if (j != -1) {

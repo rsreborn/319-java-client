@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.jagex.graphics.ProducingGraphicsBuffer;
+import com.jagex.graphics.Sprite;
 import com.jagex.sign.Signlink;
 
 import java.applet.Applet;
@@ -25,8 +27,8 @@ public class GameShell extends Applet
     public int anInt13;
     public int anInt14;
     public Graphics aGraphics15;
-    public Class31 aClass31_16;
-    public CacheableNode_Sub1_Sub4_Sub4[] aClass13_Sub1_Sub4_Sub4Array17;
+    public ProducingGraphicsBuffer aProducingGraphicsBuffer_16;
+    public Sprite[] aClass13_Sub1_Sub4_Sub4Array17;
     public Frame_Sub1 aFrame_Sub1_18;
     public boolean aBoolean19;
     public boolean aBoolean20;
@@ -57,7 +59,7 @@ public class GameShell extends Applet
         anInt9 = 1;
         aLongArray10 = new long[10];
         aBoolean12 = false;
-        aClass13_Sub1_Sub4_Sub4Array17 = new CacheableNode_Sub1_Sub4_Sub4[6];
+        aClass13_Sub1_Sub4_Sub4Array17 = new Sprite[6];
         aBoolean19 = true;
         aBoolean20 = true;
         anIntArray33 = new int[128];
@@ -70,7 +72,7 @@ public class GameShell extends Applet
             anInt14 = i;
             aFrame_Sub1_18 = new Frame_Sub1(this, anInt14, 864, anInt13);
             aGraphics15 = method11(736).getGraphics();
-            aClass31_16 = new Class31(true, anInt13, method11(736), anInt14);
+            aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(true, anInt13, method11(736), anInt14);
             if (byte0 != aByte1) {
                 aBoolean6 = !aBoolean6;
             }
@@ -87,7 +89,7 @@ public class GameShell extends Applet
             anInt13 = j;
             anInt14 = i;
             aGraphics15 = method11(736).getGraphics();
-            aClass31_16 = new Class31(true, anInt13, method11(736), anInt14);
+            aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(true, anInt13, method11(736), anInt14);
             if (k != 0) {
                 for (int l = 1; l > 0; l++) {
                 }

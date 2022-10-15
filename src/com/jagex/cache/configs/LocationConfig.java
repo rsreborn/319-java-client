@@ -1,8 +1,8 @@
 package com.jagex.cache.configs;
 
-import com.jagex.Class8;
+import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.Game;
-import com.jagex.Model;
+import com.jagex.graphics.Model;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
@@ -446,7 +446,7 @@ public class LocationConfig {
             flag1 = anInt283 != 128 || anInt281 != 128 || anInt274 != 128;
             boolean flag3;
             flag3 = anInt247 != 0 || anInt277 != 0 || anInt288 != 0;
-            Model class13_sub1_sub1_sub4_3 = new Model(j == 0 && i == -1 && !flag1 && !flag3, Class8.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
+            Model class13_sub1_sub1_sub4_3 = new Model(j == 0 && i == -1 && !flag1 && !flag3, AnimationFrame.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
             if (i != -1) {
                 class13_sub1_sub1_sub4_3.method272(true);
                 class13_sub1_sub1_sub4_3.method273(i, false);

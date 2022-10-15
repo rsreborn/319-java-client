@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.map.ShapedTile;
 import com.jagex.util.Node;
 
 public class Node_Sub2 extends Node {
@@ -10,7 +11,7 @@ public class Node_Sub2 extends Node {
     public int anInt1342;
     public int anInt1343;
     public Class30 aClass30_1344;
-    public Class34 aClass34_1345;
+    public ShapedTile aShapedTile_1345;
     public Class15 aClass15_1346;
     public Class18 aClass18_1347;
     public Class11 aClass11_1348;

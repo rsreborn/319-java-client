@@ -1,6 +1,6 @@
 package com.jagex.cache.configs;
 
-import com.jagex.Class8;
+import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
@@ -71,9 +71,9 @@ public class SequenceConfig {
                 return anInt797;
             }
             if (k == 0) {
-                Class8 class8 = Class8.method188((byte) 4, anIntArray802[j]);
-                if (class8 != null) {
-                    k = anIntArray804[j] = class8.anInt137;
+                AnimationFrame animationFrame = AnimationFrame.method188((byte) 4, anIntArray802[j]);
+                if (animationFrame != null) {
+                    k = anIntArray804[j] = animationFrame.anInt137;
                 }
             }
             if (k == 0) {
