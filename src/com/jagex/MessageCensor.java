@@ -4,7 +4,7 @@ import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
-public class ChatCensor {
+public class MessageCensor {
 
     public static int[] anIntArray708;
     public static char[][] aCharArrayArray709;

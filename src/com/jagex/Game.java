@@ -3546,7 +3546,7 @@ public class Game extends GameShell {
                             anInt1030 = (anInt1030 + 1) % 100;
                             String s9 = ChatMessageCodec.decode(inBuffer, packetSize - 13);
                             if (j23 != 3) {
-                                s9 = ChatCensor.censorMessage(s9);
+                                s9 = MessageCensor.censorMessage(s9);
                             }
                             if (j23 == 2 || j23 == 3) {
                                 addChatMessage("@cr2@" + Class24.method450(Class24.longToUsername(l9)), s9, 7);
@@ -9830,7 +9830,7 @@ public class Game extends GameShell {
                             ChatMessageCodec.encode(outBuffer, chatMessage);
                             outBuffer.writeSizeByte(outBuffer.position - currentPosition);
                             chatMessage = ChatMessageCodec.verify(chatMessage);
-                            chatMessage = ChatCensor.censorMessage(chatMessage);
+                            chatMessage = MessageCensor.censorMessage(chatMessage);
                             addChatMessage(Class24.method450(Class24.longToUsername(usernameAsLong)), chatMessage, 6);
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
@@ -9999,7 +9999,7 @@ public class Game extends GameShell {
                             outBuffer.writeByte(chatColorCode);
                             outBuffer.writeSizeByte(outBuffer.position - startPosition);
                             playerChatMessage = ChatMessageCodec.verify(playerChatMessage);
-                            playerChatMessage = ChatCensor.censorMessage(playerChatMessage);
+                            playerChatMessage = MessageCensor.censorMessage(playerChatMessage);
                             localPlayer.forcedChatMessage = playerChatMessage;
                             localPlayer.chatColor = chatColorCode;
                             localPlayer.chatEffect = chatEffectCode;
@@ -12091,7 +12091,7 @@ public class Game extends GameShell {
                 ai[i8] = l8 * i9 >> 16;
             }
             Class10.method230(800, (byte) 1, ai, 334, 512, 500);
-            ChatCensor.load(cacheArchive_4);
+            MessageCensor.load(cacheArchive_4);
             aClass48_865 = new Class48((byte) -123, this);
             method12(aClass48_865, 10);
             CacheableNode_Sub1_Sub1_Sub2.aGame1469 = this;
@@ -12398,7 +12398,7 @@ public class Game extends GameShell {
                             buffer.readBytes(chatBuffer.payload, 0, length);
                             chatBuffer.position = 0;
                             String chatMessage = ChatMessageCodec.decode(chatBuffer, length);
-                            chatMessage = ChatCensor.censorMessage(chatMessage);
+                            chatMessage = MessageCensor.censorMessage(chatMessage);
                             player.forcedChatMessage = chatMessage;
                             player.chatColor = chatColorAndEffects >> 8;
                             player.chatEffect = chatColorAndEffects & 0xff;
