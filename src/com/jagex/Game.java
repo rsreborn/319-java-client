@@ -3555,7 +3555,7 @@ public class Game extends GameShell {
                         try {
                             anIntArray1140[anInt1030] = k20;
                             anInt1030 = (anInt1030 + 1) % 100;
-                            String s9 = ChatMessageCodec.method573(inBuffer, 0, packetSize - 13);
+                            String s9 = ChatMessageCodec.decode(inBuffer, packetSize - 13);
                             if (j23 != 3) {
                                 s9 = MessageCensor.method541(false, s9);
                             }
@@ -6026,10 +6026,10 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method56(String username, String password, boolean flag) {
+    public void method56(String username, String password, boolean reconnecting) {
         Signlink.errorname = username;
         try {
-            if (!flag) {
+            if (!reconnecting) {
                 aString1174 = "";
                 aString1175 = "Connecting to server...";
                 method20(true, true);
@@ -6070,7 +6070,7 @@ public class Game extends GameShell {
                 outBuffer.writeString(password);
                 outBuffer.encrypt(rsaKey, rsaModulus);
                 loginBuffer.position = 0;
-                if (flag) {
+                if (reconnecting) {
                     loginBuffer.writeByte(18);
                 } else {
                     loginBuffer.writeByte(16);
@@ -6096,7 +6096,7 @@ public class Game extends GameShell {
                     Thread.sleep(2000L);
                 } catch (Exception _ex) {
                 }
-                method56(username, password, flag);
+                method56(username, password, reconnecting);
                 return;
             }
             if (responseCode == 2) {
@@ -6298,7 +6298,7 @@ public class Game extends GameShell {
                     } catch (Exception _ex) {
                     }
                 }
-                method56(username, password, flag);
+                method56(username, password, reconnecting);
                 return;
             }
             if (responseCode == -1) {
@@ -6309,7 +6309,7 @@ public class Game extends GameShell {
                         } catch (Exception _ex) {
                         }
                         anInt995++;
-                        method56(username, password, flag);
+                        method56(username, password, reconnecting);
                         return;
                     } else {
                         aString1174 = "No response from loginserver";
@@ -9842,9 +9842,9 @@ public class Game extends GameShell {
                             outBuffer.writeByte(0);
                             int j = outBuffer.position;
                             outBuffer.writeLongBE(aLong1033);
-                            ChatMessageCodec.method574(outBuffer, -45468, aString1218);
+                            ChatMessageCodec.encode(outBuffer, aString1218);
                             outBuffer.writeSizeByte(outBuffer.position - j);
-                            aString1218 = ChatMessageCodec.method575(false, aString1218);
+                            aString1218 = ChatMessageCodec.verify(aString1218);
                             aString1218 = MessageCensor.method541(false, aString1218);
                             addChatMessage(StringUtil.method450(StringUtil.method447(aLong1033, 0), 0), aString1218, 6);
                             if (anInt1129 == 2) {
@@ -10008,12 +10008,12 @@ public class Game extends GameShell {
                             outBuffer.writeByte(0);
                             int i3 = outBuffer.position;
                             aBuffer_1282.position = 0;
-                            ChatMessageCodec.method574(aBuffer_1282, -45468, aString1280);
+                            ChatMessageCodec.encode(aBuffer_1282, aString1280);
                             outBuffer.readBytesReverseA(aBuffer_1282.payload, 0, aBuffer_1282.position);
                             outBuffer.writeInvertedByte(k2);
                             outBuffer.writeByte(i2);
                             outBuffer.writeSizeByte(outBuffer.position - i3);
-                            aString1280 = ChatMessageCodec.method575(false, aString1280);
+                            aString1280 = ChatMessageCodec.verify(aString1280);
                             aString1280 = MessageCensor.method541(false, aString1280);
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1586 = aString1280;
                             aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1566 = i2;
@@ -12415,7 +12415,7 @@ public class Game extends GameShell {
                             aBuffer_1282.position = 0;
                             buffer.readBytes(aBuffer_1282.payload, 0, j3);
                             aBuffer_1282.position = 0;
-                            String s = ChatMessageCodec.method573(aBuffer_1282, 0, j3);
+                            String s = ChatMessageCodec.decode(aBuffer_1282, j3);
                             s = MessageCensor.method541(false, s);
                             class13_sub1_sub1_sub6_sub1.aString1586 = s;
                             class13_sub1_sub1_sub6_sub1.anInt1566 = k1 >> 8;
