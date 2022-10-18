@@ -105,7 +105,7 @@ public class Widget {
             if (flag) {
                 anInt546 = -374;
             }
-            long l = (StringUtil.method448((byte) 23, s) << 8) + (long) i;
+            long l = (StringUtil.encodeBase37(s) << 8) + (long) i;
             Sprite class13_sub1_sub4_sub4 = (Sprite) spriteCache.get(l);
             if (class13_sub1_sub4_sub4 != null) {
                 return class13_sub1_sub4_sub4;

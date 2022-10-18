@@ -431,8 +431,8 @@ public class Game extends GameShell {
     public int[] anIntArray1171;
     public byte aByte1172;
     public int anInt1173;
-    public String aString1174;
-    public String aString1175;
+    public String loginTitle;
+    public String loginMessage;
     public int anInt1176;
     public int anInt1177;
     public int[] anIntArray1178 = {
@@ -681,8 +681,8 @@ public class Game extends GameShell {
         anIntArray1171 = new int[33];
         aByte1172 = 7;
         anInt1173 = 208;
-        aString1174 = "";
-        aString1175 = "";
+        loginTitle = "";
+        loginMessage = "";
         aClass13_Sub1_Sub4_Sub3Array1181 = new IndexedImage[13];
         anInt1182 = 0x23201b;
         anInt1185 = 60;
@@ -1213,17 +1213,17 @@ public class Game extends GameShell {
             }
             if (anInt1220 == 2) {
                 int j = c1 / 2 - 40;
-                if (aString1174.length() > 0) {
-                    aFont_893.method382(c / 2, true, aString1174, j - 15, 0xffff00, false);
-                    aFont_893.method382(c / 2, true, aString1175, j, 0xffff00, false);
+                if (loginTitle.length() > 0) {
+                    aFont_893.method382(c / 2, true, loginTitle, j - 15, 0xffff00, false);
+                    aFont_893.method382(c / 2, true, loginMessage, j, 0xffff00, false);
                     j += 30;
                 } else {
-                    aFont_893.method382(c / 2, true, aString1175, j - 7, 0xffff00, false);
+                    aFont_893.method382(c / 2, true, loginMessage, j - 7, 0xffff00, false);
                     j += 30;
                 }
                 aFont_893.method389(true, c / 2 - 90, (byte) 8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
-                aFont_893.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + StringUtil.method451(password, true) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
+                aFont_893.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + StringUtil.censorString(password) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
                 if (!flag1) {
                     int i1 = c / 2 - 80;
@@ -1783,7 +1783,7 @@ public class Game extends GameShell {
                 String s = aStringArray961[i];
                 int k1 = s.indexOf("@whi@");
                 if (k1 != -1) {
-                    long l3 = StringUtil.method446(s.substring(k1 + 5).trim());
+                    long l3 = StringUtil.encodeBase37Username(s.substring(k1 + 5).trim());
                     int j3 = -1;
                     for (int i4 = 0; i4 < anInt1054; i4++) {
                         if (aLongArray993[i4] != l3) {
@@ -2059,7 +2059,7 @@ public class Game extends GameShell {
                 int i2 = s1.indexOf("@whi@");
                 if (i2 != -1) {
                     s1 = s1.substring(i2 + 5).trim();
-                    String s9 = StringUtil.method450(StringUtil.method447(StringUtil.method446(s1), 0), 0);
+                    String s9 = StringUtil.format(StringUtil.decodeBase37Username(StringUtil.encodeBase37Username(s1)));
                     boolean flag8 = false;
                     for (int k3 = 0; k3 < anInt899; k3++) {
                         Player class13_sub1_sub1_sub6_sub1_7 = players[playerList[k3]];
@@ -2310,7 +2310,7 @@ public class Game extends GameShell {
                 String s3 = aStringArray961[i];
                 int l2 = s3.indexOf("@whi@");
                 if (l2 != -1) {
-                    long l4 = StringUtil.method446(s3.substring(l2 + 5).trim());
+                    long l4 = StringUtil.encodeBase37Username(s3.substring(l2 + 5).trim());
                     if (action == 39) {
                         method45(688, l4);
                     }
@@ -2586,7 +2586,7 @@ public class Game extends GameShell {
                     String s = inBuffer.readString();
                     if (s.endsWith(":tradereq:")) {
                         String s3 = s.substring(0, s.indexOf(":"));
-                        long l15 = StringUtil.method446(s3);
+                        long l15 = StringUtil.encodeBase37Username(s3);
                         boolean flag1 = false;
                         for (int j26 = 0; j26 < anInt1098; j26++) {
                             if (aLongArray990[j26] != l15) {
@@ -2600,7 +2600,7 @@ public class Game extends GameShell {
                         }
                     } else if (s.endsWith(":duelreq:")) {
                         String s4 = s.substring(0, s.indexOf(":"));
-                        long l16 = StringUtil.method446(s4);
+                        long l16 = StringUtil.encodeBase37Username(s4);
                         boolean flag2 = false;
                         for (int k26 = 0; k26 < anInt1098; k26++) {
                             if (aLongArray990[k26] != l16) {
@@ -2614,7 +2614,7 @@ public class Game extends GameShell {
                         }
                     } else if (s.endsWith(":chalreq:")) {
                         String s5 = s.substring(0, s.indexOf(":"));
-                        long l17 = StringUtil.method446(s5);
+                        long l17 = StringUtil.encodeBase37Username(s5);
                         boolean flag3 = false;
                         for (int l26 = 0; l26 < anInt1098; l26++) {
                             if (aLongArray990[l26] != l17) {
@@ -3000,7 +3000,7 @@ public class Game extends GameShell {
                     daysSinceRecoveryQuestionsUpdated = inBuffer.readUByteA();
                     unreadMessagesCount = inBuffer.readUShortLEA();
                     if (lastLoginAddress != 0 && anInt1217 == -1) {
-                        Signlink.dnslookup(StringUtil.method449(lastLoginAddress, false));
+                        Signlink.dnslookup(StringUtil.decodeIp(lastLoginAddress));
                         closeWidgets();
                         char c = '\u028A';
                         if (daysSinceRecoveryQuestionsUpdated != 201 || hasMembershipAndIsOnFreeToPlayWorld == 1) {
@@ -3058,7 +3058,7 @@ public class Game extends GameShell {
                 if (opcode == 213) {
                     long l6 = inBuffer.readLongBE();
                     int k18 = inBuffer.readUByte();
-                    String s7 = StringUtil.method450(StringUtil.method447(l6, 0), 0);
+                    String s7 = StringUtil.format(StringUtil.decodeBase37Username(l6));
                     for (int i24 = 0; i24 < anInt1054; i24++) {
                         if (l6 != aLongArray993[i24]) {
                             continue;
@@ -3560,11 +3560,11 @@ public class Game extends GameShell {
                                 s9 = MessageCensor.method541(false, s9);
                             }
                             if (j23 == 2 || j23 == 3) {
-                                addChatMessage("@cr2@" + StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr2@" + StringUtil.format(StringUtil.decodeBase37Username(l9)), s9, 7);
                             } else if (j23 == 1) {
-                                addChatMessage("@cr1@" + StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 7);
+                                addChatMessage("@cr1@" + StringUtil.format(StringUtil.decodeBase37Username(l9)), s9, 7);
                             } else {
-                                addChatMessage(StringUtil.method450(StringUtil.method447(l9, 0), 0), s9, 3);
+                                addChatMessage(StringUtil.format(StringUtil.decodeBase37Username(l9)), s9, 3);
                             }
                         } catch (Exception exception1) {
                             Signlink.reportError("cde1");
@@ -3863,8 +3863,8 @@ public class Game extends GameShell {
                 }
                 i = super.anInt13 / 2 + 80;
                 if (super.clickType == 1 && super.anInt30 >= i - 75 && super.anInt30 <= i + 75 && super.anInt31 >= l - 20 && super.anInt31 <= l + 20) {
-                    aString1174 = "";
-                    aString1175 = "Enter your username & password.";
+                    loginTitle = "";
+                    loginMessage = "Enter your username & password.";
                     anInt1220 = 2;
                     anInt965 = 0;
                     return;
@@ -4701,7 +4701,7 @@ public class Game extends GameShell {
                     int j1 = class13_sub1_sub1_sub6_sub1.anInt1587 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1587 / 32;
                     int l3 = class13_sub1_sub1_sub6_sub1.anInt1588 / 32 - aClass13_Sub1_Sub1_Sub6_Sub1_997.anInt1588 / 32;
                     boolean flag1 = false;
-                    long l6 = StringUtil.method446(class13_sub1_sub1_sub6_sub1.aString1689);
+                    long l6 = StringUtil.encodeBase37Username(class13_sub1_sub1_sub6_sub1.aString1689);
                     for (int k6 = 0; k6 < anInt1054; k6++) {
                         if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
                             continue;
@@ -4769,7 +4769,7 @@ public class Game extends GameShell {
                 addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
                 return;
             }
-            String s = StringUtil.method450(StringUtil.method447(l, 0), 0);
+            String s = StringUtil.format(StringUtil.decodeBase37Username(l));
             i = 9 / i;
             for (int j = 0; j < anInt1054; j++) {
                 if (aLongArray993[j] == l) {
@@ -5675,7 +5675,7 @@ public class Game extends GameShell {
                 closeWidgets();
                 if (aString1230.length() > 0) {
                     outBuffer.writeOpcode(31);
-                    outBuffer.writeLongBE(StringUtil.method446(aString1230));
+                    outBuffer.writeLongBE(StringUtil.encodeBase37Username(aString1230));
                     outBuffer.writeByte(i - 601);
                     outBuffer.writeByte(aBoolean1034 ? 1 : 0);
                 }
@@ -6030,12 +6030,12 @@ public class Game extends GameShell {
         Signlink.errorname = username;
         try {
             if (!reconnecting) {
-                aString1174 = "";
-                aString1175 = "Connecting to server...";
+                loginTitle = "";
+                loginMessage = "Connecting to server...";
                 method20(true, true);
             }
             gameConnection = new BufferedConnection(openSocket(43594 + portOffset), 681, this);
-            long l = StringUtil.method446(username);
+            long l = StringUtil.encodeBase37Username(username);
             int i = (int) (l >> 16 & 31L);
             outBuffer.position = 0;
             outBuffer.writeByte(14);
@@ -6197,63 +6197,63 @@ public class Game extends GameShell {
                 return;
             }
             if (responseCode == 3) {
-                aString1174 = "";
-                aString1175 = "Invalid username or password.";
+                loginTitle = "";
+                loginMessage = "Invalid username or password.";
                 return;
             }
             if (responseCode == 4) {
-                aString1174 = "Your account has been disabled.";
-                aString1175 = "Please check your message-centre for details.";
+                loginTitle = "Your account has been disabled.";
+                loginMessage = "Please check your message-centre for details.";
                 return;
             }
             if (responseCode == 5) {
-                aString1174 = "Your account is already logged in.";
-                aString1175 = "Try again in 60 secs...";
+                loginTitle = "Your account is already logged in.";
+                loginMessage = "Try again in 60 secs...";
                 return;
             }
             if (responseCode == 6) {
-                aString1174 = "RuneScape has been updated!";
-                aString1175 = "Please reload this page.";
+                loginTitle = "RuneScape has been updated!";
+                loginMessage = "Please reload this page.";
                 return;
             }
             if (responseCode == 7) {
-                aString1174 = "This world is full.";
-                aString1175 = "Please use a different world.";
+                loginTitle = "This world is full.";
+                loginMessage = "Please use a different world.";
                 return;
             }
             if (responseCode == 8) {
-                aString1174 = "Unable to connect.";
-                aString1175 = "Login server offline.";
+                loginTitle = "Unable to connect.";
+                loginMessage = "Login server offline.";
                 return;
             }
             if (responseCode == 9) {
-                aString1174 = "Login limit exceeded.";
-                aString1175 = "Too many connections from your address.";
+                loginTitle = "Login limit exceeded.";
+                loginMessage = "Too many connections from your address.";
                 return;
             }
             if (responseCode == 10) {
-                aString1174 = "Unable to connect.";
-                aString1175 = "Bad session id.";
+                loginTitle = "Unable to connect.";
+                loginMessage = "Bad session id.";
                 return;
             }
             if (responseCode == 11) {
-                aString1175 = "Login server rejected session.";
-                aString1175 = "Please try again.";
+                loginMessage = "Login server rejected session.";
+                loginMessage = "Please try again.";
                 return;
             }
             if (responseCode == 12) {
-                aString1174 = "You need a members account to login to this world.";
-                aString1175 = "Please subscribe, or use a different world.";
+                loginTitle = "You need a members account to login to this world.";
+                loginMessage = "Please subscribe, or use a different world.";
                 return;
             }
             if (responseCode == 13) {
-                aString1174 = "Could not complete login.";
-                aString1175 = "Please try using a different world.";
+                loginTitle = "Could not complete login.";
+                loginMessage = "Please try using a different world.";
                 return;
             }
             if (responseCode == 14) {
-                aString1174 = "The server is being updated.";
-                aString1175 = "Please wait 1 minute and try again.";
+                loginTitle = "The server is being updated.";
+                loginMessage = "Please wait 1 minute and try again.";
                 return;
             }
             if (responseCode == 15) {
@@ -6273,25 +6273,25 @@ public class Game extends GameShell {
                 return;
             }
             if (responseCode == 16) {
-                aString1174 = "Login attempts exceeded.";
-                aString1175 = "Please wait 1 minute and try again.";
+                loginTitle = "Login attempts exceeded.";
+                loginMessage = "Please wait 1 minute and try again.";
                 return;
             }
             if (responseCode == 17) {
-                aString1174 = "You are standing in a members-only area.";
-                aString1175 = "To play on this world move to a free area first";
+                loginTitle = "You are standing in a members-only area.";
+                loginMessage = "To play on this world move to a free area first";
                 return;
             }
             if (responseCode == 20) {
-                aString1174 = "Invalid loginserver requested";
-                aString1175 = "Please try using a different world.";
+                loginTitle = "Invalid loginserver requested";
+                loginMessage = "Please try using a different world.";
                 return;
             }
             if (responseCode == 21) {
                 int k1 = gameConnection.read();
                 for (k1 += 3; k1 >= 0; k1--) {
-                    aString1174 = "You have only just left another world";
-                    aString1175 = "Your profile will be transferred in: " + k1;
+                    loginTitle = "You have only just left another world";
+                    loginMessage = "Your profile will be transferred in: " + k1;
                     method20(true, true);
                     try {
                         Thread.sleep(1200L);
@@ -6312,25 +6312,25 @@ public class Game extends GameShell {
                         method56(username, password, reconnecting);
                         return;
                     } else {
-                        aString1174 = "No response from loginserver";
-                        aString1175 = "Please wait 1 minute and try again.";
+                        loginTitle = "No response from loginserver";
+                        loginMessage = "Please wait 1 minute and try again.";
                         return;
                     }
                 } else {
-                    aString1174 = "No response from server";
-                    aString1175 = "Please try using a different world.";
+                    loginTitle = "No response from server";
+                    loginMessage = "Please try using a different world.";
                     return;
                 }
             } else {
                 System.out.println("response:" + responseCode);
-                aString1174 = "Unexpected server response";
-                aString1175 = "Please try using a different world.";
+                loginTitle = "Unexpected server response";
+                loginMessage = "Please try using a different world.";
                 return;
             }
         } catch (IOException _ex) {
-            aString1174 = "";
+            loginTitle = "";
         }
-        aString1175 = "Error connecting to server.";
+        loginMessage = "Error connecting to server.";
     }
 
     public void method57(int i) {
@@ -6592,7 +6592,7 @@ public class Game extends GameShell {
                 if (aClass13_Sub1_Sub1_Sub6_Sub1_997 != null && aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1689 != null) {
                     s = aClass13_Sub1_Sub1_Sub6_Sub1_997.aString1689;
                 } else {
-                    s = StringUtil.method450(username, 0);
+                    s = StringUtil.format(username);
                 }
                 font.method385((byte) -96, s + ":", 0, 4, 90);
                 font.method385((byte) -96, aString1280 + "*", 255, 6 + font.method383(3, s + ": "), 90);
@@ -7808,7 +7808,7 @@ public class Game extends GameShell {
                 addChatMessage("", "Your ignore list is full. Max of 100 hit", 0);
                 return;
             }
-            String s = StringUtil.method450(StringUtil.method447(l, 0), 0);
+            String s = StringUtil.format(StringUtil.decodeBase37Username(l));
             for (int j = 0; j < anInt1098; j++) {
                 if (aLongArray990[j] == l) {
                     addChatMessage("", s + " is already on your ignore list", 0);
@@ -9456,7 +9456,7 @@ public class Game extends GameShell {
                     widget.actionType = 0;
                     return;
                 } else {
-                    widget.disabledText = StringUtil.method450(StringUtil.method447(aLongArray990[j], 0), 0);
+                    widget.disabledText = StringUtil.format(StringUtil.decodeBase37Username(aLongArray990[j]));
                     widget.actionType = 1;
                     return;
                 }
@@ -9830,11 +9830,11 @@ public class Game extends GameShell {
                         aBoolean1017 = false;
                         redrawChatbox = true;
                         if (anInt943 == 1) {
-                            long l = StringUtil.method446(aString1218);
+                            long l = StringUtil.encodeBase37Username(aString1218);
                             method45(688, l);
                         }
                         if (anInt943 == 2 && anInt1054 > 0) {
-                            long l1 = StringUtil.method446(aString1218);
+                            long l1 = StringUtil.encodeBase37Username(aString1218);
                             method123(1, l1);
                         }
                         if (anInt943 == 3 && aString1218.length() > 0) {
@@ -9846,7 +9846,7 @@ public class Game extends GameShell {
                             outBuffer.writeSizeByte(outBuffer.position - j);
                             aString1218 = ChatMessageCodec.verify(aString1218);
                             aString1218 = MessageCensor.method541(false, aString1218);
-                            addChatMessage(StringUtil.method450(StringUtil.method447(aLong1033, 0), 0), aString1218, 6);
+                            addChatMessage(StringUtil.format(StringUtil.decodeBase37Username(aLong1033)), aString1218, 6);
                             if (anInt1129 == 2) {
                                 anInt1129 = 1;
                                 aBoolean1137 = true;
@@ -9857,11 +9857,11 @@ public class Game extends GameShell {
                             }
                         }
                         if (anInt943 == 4 && anInt1098 < 100) {
-                            long l2 = StringUtil.method446(aString1218);
+                            long l2 = StringUtil.encodeBase37Username(aString1218);
                             method77(l2, 1);
                         }
                         if (anInt943 == 5 && anInt1098 > 0) {
-                            long l3 = StringUtil.method446(aString1218);
+                            long l3 = StringUtil.encodeBase37Username(aString1218);
                             method21(l3, -224);
                         }
                     }
@@ -9899,7 +9899,7 @@ public class Game extends GameShell {
                     if (i == 13 || i == 10) {
                         if (aString964.length() > 0) {
                             outBuffer.writeOpcode(105);
-                            outBuffer.writeLongBE(StringUtil.method446(aString964));
+                            outBuffer.writeLongBE(StringUtil.encodeBase37Username(aString964));
                         }
                         anInt1141 = 0;
                         redrawChatbox = true;
@@ -12399,7 +12399,7 @@ public class Game extends GameShell {
                 int j3 = buffer.readUByteS();
                 int l3 = buffer.position;
                 if (class13_sub1_sub1_sub6_sub1.aString1689 != null && class13_sub1_sub1_sub6_sub1.aBoolean1701) {
-                    long l4 = StringUtil.method446(class13_sub1_sub1_sub6_sub1.aString1689);
+                    long l4 = StringUtil.encodeBase37Username(class13_sub1_sub1_sub6_sub1.aString1689);
                     boolean flag = false;
                     if (k2 <= 1) {
                         for (int i4 = 0; i4 < anInt1098; i4++) {

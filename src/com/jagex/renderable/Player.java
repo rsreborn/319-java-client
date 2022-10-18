@@ -384,7 +384,7 @@ public class Player extends Entity {
             if (super.anInt1607 == 65535) {
                 super.anInt1607 = -1;
             }
-            aString1689 = StringUtil.method450(StringUtil.method447(buffer.readLongBE(), 0), 0);
+            aString1689 = StringUtil.format(StringUtil.decodeBase37Username(buffer.readLongBE()));
             if (i != 0) {
                 aBoolean1704 = !aBoolean1704;
             }

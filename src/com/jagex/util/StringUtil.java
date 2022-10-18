@@ -1,11 +1,6 @@
 package com.jagex.util;
 
-import com.jagex.sign.Signlink;
-
 public class StringUtil {
-
-    public static int anInt396 = 7270;
-    public static boolean aBoolean399 = true;
     public static char[] BASE_37_CHARACTERS = {
             '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
@@ -13,10 +8,10 @@ public class StringUtil {
             '3', '4', '5', '6', '7', '8', '9'
     };
 
-    public static long method446(String s) {
+    public static long encodeBase37Username(String username) {
         long l = 0L;
-        for (int i = 0; i < s.length() && i < 12; i++) {
-            char c = s.charAt(i);
+        for (int i = 0; i < username.length() && i < 12; i++) {
+            char c = username.charAt(i);
             l *= 37L;
             if (c >= 'A' && c <= 'Z') {
                 l += (1 + c) - 65;
@@ -29,104 +24,63 @@ public class StringUtil {
         return l;
     }
 
-    public static String method447(long l, int i) {
-        try {
-            if (i != 0) {
-                anInt396 = -277;
-            }
-            if (l <= 0L || l >= 0x5b5b57f8a98a5dd1L) {
-                return "invalid_name";
-            }
-            if (l % 37L == 0L) {
-                return "invalid_name";
-            }
-            int j = 0;
-            char[] ac = new char[12];
-            while (l != 0L) {
-                long l1 = l;
-                l /= 37L;
-                ac[11 - j++] = BASE_37_CHARACTERS[(int) (l1 - l * 37L)];
-            }
-            return new String(ac, 12 - j, j);
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("50315, " + l + ", " + i + ", " + runtimeexception);
+    public static String decodeBase37Username(long username) {
+        if (username <= 0L || username >= 0x5b5b57f8a98a5dd1L) {
+            return "invalid_name";
         }
-        throw new RuntimeException();
+        if (username % 37L == 0L) {
+            return "invalid_name";
+        }
+        int j = 0;
+        char[] ac = new char[12];
+        while (username != 0L) {
+            long l1 = username;
+            username /= 37L;
+            ac[11 - j++] = BASE_37_CHARACTERS[(int) (l1 - username * 37L)];
+        }
+        return new String(ac, 12 - j, j);
     }
 
-    public static long method448(byte byte0, String s) {
-        try {
-            if (byte0 != 23) {
-                throw new NullPointerException();
-            }
-            s = s.toUpperCase();
-            long l = 0L;
-            for (int i = 0; i < s.length(); i++) {
-                l = (l * 61L + (long) s.charAt(i)) - 32L;
-                l = l + (l >> 56) & 0xffffffffffffffL;
-            }
-            return l;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("34643, " + byte0 + ", " + s + ", " + runtimeexception);
+    public static long encodeBase37(String s) {
+        s = s.toUpperCase();
+        long l = 0L;
+        for (int i = 0; i < s.length(); i++) {
+            l = (l * 61L + (long) s.charAt(i)) - 32L;
+            l = l + (l >> 56) & 0xffffffffffffffL;
         }
-        throw new RuntimeException();
+        return l;
     }
 
-    public static String method449(int i, boolean flag) {
-        try {
-            if (flag) {
-                for (int j = 1; j > 0; j++) {
-                }
-            }
-            return (i >> 24 & 0xff) + "." + (i >> 16 & 0xff) + "." + (i >> 8 & 0xff) + "." + (i & 0xff);
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("46986, " + i + ", " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static String decodeIp(int ip) {
+        return (ip >> 24 & 0xff) + "." + (ip >> 16 & 0xff) + "." + (ip >> 8 & 0xff) + "." + (ip & 0xff);
     }
 
-    public static String method450(String s, int i) {
-        try {
-            if (i < 0 || i > 0) {
-                aBoolean399 = !aBoolean399;
-            }
-            if (s.length() > 0) {
-                char[] ac = s.toCharArray();
-                for (int j = 0; j < ac.length; j++) {
-                    if (ac[j] == '_') {
-                        ac[j] = ' ';
-                        if (j + 1 < ac.length && ac[j + 1] >= 'a' && ac[j + 1] <= 'z') {
-                            ac[j + 1] = (char) ((ac[j + 1] + 65) - 97);
-                        }
+    public static String format(String s) {
+        if (s.length() > 0) {
+            char[] ac = s.toCharArray();
+            for (int j = 0; j < ac.length; j++) {
+                if (ac[j] == '_') {
+                    ac[j] = ' ';
+                    if (j + 1 < ac.length && ac[j + 1] >= 'a' && ac[j + 1] <= 'z') {
+                        ac[j + 1] = (char) ((ac[j + 1] + 65) - 97);
                     }
                 }
-                if (ac[0] >= 'a' && ac[0] <= 'z') {
-                    ac[0] = (char) ((ac[0] + 65) - 97);
-                }
-                return new String(ac);
-            } else {
-                return s;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("67660, " + s + ", " + i + ", " + runtimeexception);
+            if (ac[0] >= 'a' && ac[0] <= 'z') {
+                ac[0] = (char) ((ac[0] + 65) - 97);
+            }
+            return new String(ac);
+        } else {
+            return s;
         }
-        throw new RuntimeException();
     }
 
-    public static String method451(String s, boolean flag) {
-        try {
-            if (!flag) {
-                throw new NullPointerException();
-            }
-            StringBuffer stringbuffer = new StringBuffer();
-            for (int i = 0; i < s.length(); i++) {
-                stringbuffer.append("*");
-            }
-            return stringbuffer.toString();
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("57272, " + s + ", " + flag + ", " + runtimeexception);
+    public static String censorString(String s) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < s.length(); i++) {
+            stringBuffer.append("*");
         }
-        throw new RuntimeException();
+        return stringBuffer.toString();
     }
 
 }
