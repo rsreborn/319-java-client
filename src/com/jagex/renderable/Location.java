@@ -39,7 +39,7 @@ public class Location extends Renderable {
             anInt1461 = k;
             anInt1462 = i;
             if (i1 != -1) {
-                aSequenceConfig_1470 = SequenceConfig.aSequenceConfigArray800[i1];
+                aSequenceConfig_1470 = SequenceConfig.sequences[i1];
                 anInt1463 = 0;
                 anInt1471 = Game.pulseCycle;
                 if (flag && aSequenceConfig_1470.anInt805 != -1) {
@@ -61,49 +61,43 @@ public class Location extends Renderable {
         throw new RuntimeException();
     }
 
-    public Model method256(int i) {
-        try {
-            i = 97 / i;
-            int j = -1;
+    public Model getRotatedModel() {
+        int j = -1;
+        if (aSequenceConfig_1470 != null) {
+            int k = Game.pulseCycle - anInt1471;
+            if (k > 100 && aSequenceConfig_1470.anInt805 > 0) {
+                k = 100;
+            }
+            while (k > aSequenceConfig_1470.method592(0, anInt1463)) {
+                k -= aSequenceConfig_1470.method592(0, anInt1463);
+                anInt1463++;
+                if (anInt1463 < aSequenceConfig_1470.anInt801) {
+                    continue;
+                }
+                anInt1463 -= aSequenceConfig_1470.anInt805;
+                if (anInt1463 >= 0 && anInt1463 < aSequenceConfig_1470.anInt801) {
+                    continue;
+                }
+                aSequenceConfig_1470 = null;
+                break;
+            }
+            anInt1471 = Game.pulseCycle - k;
             if (aSequenceConfig_1470 != null) {
-                int k = Game.pulseCycle - anInt1471;
-                if (k > 100 && aSequenceConfig_1470.anInt805 > 0) {
-                    k = 100;
-                }
-                while (k > aSequenceConfig_1470.method592(0, anInt1463)) {
-                    k -= aSequenceConfig_1470.method592(0, anInt1463);
-                    anInt1463++;
-                    if (anInt1463 < aSequenceConfig_1470.anInt801) {
-                        continue;
-                    }
-                    anInt1463 -= aSequenceConfig_1470.anInt805;
-                    if (anInt1463 >= 0 && anInt1463 < aSequenceConfig_1470.anInt801) {
-                        continue;
-                    }
-                    aSequenceConfig_1470 = null;
-                    break;
-                }
-                anInt1471 = Game.pulseCycle - k;
-                if (aSequenceConfig_1470 != null) {
-                    j = aSequenceConfig_1470.anIntArray802[anInt1463];
-                }
+                j = aSequenceConfig_1470.anIntArray802[anInt1463];
             }
-            LocationConfig locationConfig;
-            if (anIntArray1467 != null) {
-                locationConfig = method259(2);
-            } else {
-                locationConfig = LocationConfig.readDefinition(anInt1464);
-            }
-            if (locationConfig == null) {
-                return null;
-            } else {
-                Model class13_sub1_sub1_sub4 = locationConfig.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
-                return class13_sub1_sub1_sub4;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("43386, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        LocationConfig locationConfig;
+        if (anIntArray1467 != null) {
+            locationConfig = method259(2);
+        } else {
+            locationConfig = LocationConfig.readDefinition(anInt1464);
+        }
+        if (locationConfig == null) {
+            return null;
+        } else {
+            Model class13_sub1_sub1_sub4 = locationConfig.method419(anInt1465, anInt1466, anInt1459, anInt1460, anInt1461, anInt1462, j);
+            return class13_sub1_sub1_sub4;
+        }
     }
 
     public LocationConfig method259(int i) {

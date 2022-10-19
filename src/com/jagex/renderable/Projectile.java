@@ -86,34 +86,28 @@ public class Projectile extends Renderable {
         }
     }
 
-    public Model method256(int i) {
-        try {
-            Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1446.method530();
-            if (class13_sub1_sub1_sub4 == null) {
-                return null;
-            }
-            int j = -1;
-            if (aSpotAnimationConfig_1446.aSequenceConfig_689 != null) {
-                j = aSpotAnimationConfig_1446.aSequenceConfig_689.anIntArray802[anInt1452];
-            }
-            Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
-            i = 63 / i;
-            if (j != -1) {
-                class13_sub1_sub1_sub4_1.method272(true);
-                class13_sub1_sub1_sub4_1.method273(j, false);
-                class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
-                class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
-            }
-            if (aSpotAnimationConfig_1446.anInt692 != 128 || aSpotAnimationConfig_1446.anInt693 != 128) {
-                class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt693, (byte) 0);
-            }
-            class13_sub1_sub1_sub4_1.method277((byte) 76, anInt1444);
-            class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1446.anInt695, 850 + aSpotAnimationConfig_1446.anInt696, -30, -50, -30, true);
-            return class13_sub1_sub1_sub4_1;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("48721, " + i + ", " + runtimeexception);
+    public Model getRotatedModel() {
+        Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1446.method530();
+        if (class13_sub1_sub1_sub4 == null) {
+            return null;
         }
-        throw new RuntimeException();
+        int j = -1;
+        if (aSpotAnimationConfig_1446.aSequenceConfig_689 != null) {
+            j = aSpotAnimationConfig_1446.aSequenceConfig_689.anIntArray802[anInt1452];
+        }
+        Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+        if (j != -1) {
+            class13_sub1_sub1_sub4_1.method272(true);
+            class13_sub1_sub1_sub4_1.method273(j, false);
+            class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
+            class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
+        }
+        if (aSpotAnimationConfig_1446.anInt692 != 128 || aSpotAnimationConfig_1446.anInt693 != 128) {
+            class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt692, aSpotAnimationConfig_1446.anInt693, (byte) 0);
+        }
+        class13_sub1_sub1_sub4_1.method277((byte) 76, anInt1444);
+        class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1446.anInt695, 850 + aSpotAnimationConfig_1446.anInt696, -30, -50, -30, true);
+        return class13_sub1_sub1_sub4_1;
     }
 
     public void method258(int i, int j, int k, int l, int i1) {

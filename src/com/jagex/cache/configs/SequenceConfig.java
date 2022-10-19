@@ -9,7 +9,7 @@ public class SequenceConfig {
 
     public static int anInt797 = 12258;
     public static int anInt799;
-    public static SequenceConfig[] aSequenceConfigArray800;
+    public static SequenceConfig[] sequences;
     public static int anInt816;
     public boolean aBoolean798;
     public int anInt801;
@@ -48,14 +48,14 @@ public class SequenceConfig {
             if (byte0 != 72) {
                 anInt797 = -421;
             }
-            if (aSequenceConfigArray800 == null) {
-                aSequenceConfigArray800 = new SequenceConfig[anInt799];
+            if (sequences == null) {
+                sequences = new SequenceConfig[anInt799];
             }
             for (int i = 0; i < anInt799; i++) {
-                if (aSequenceConfigArray800[i] == null) {
-                    aSequenceConfigArray800[i] = new SequenceConfig();
+                if (sequences[i] == null) {
+                    sequences[i] = new SequenceConfig();
                 }
-                aSequenceConfigArray800[i].method593(buffer, 26421);
+                sequences[i].method593(buffer, 26421);
             }
             return;
         } catch (RuntimeException runtimeexception) {

@@ -1,7 +1,6 @@
 package com.jagex.renderable;
 
 import com.jagex.cache.configs.SequenceConfig;
-import com.jagex.renderable.Renderable;
 import com.jagex.sign.Signlink;
 
 public class Entity extends Renderable {
@@ -10,10 +9,10 @@ public class Entity extends Renderable {
     public boolean[] aBooleanArray1567;
     public int anInt1568;
     public boolean aBoolean1569;
-    public int anInt1570;
-    public int anInt1571;
-    public int anInt1572;
-    public int anInt1573;
+    public int walkingAnimation;
+    public int turnAroundAnimation;
+    public int turnRightAnimation;
+    public int turnLeftAnimation;
     public boolean aBoolean1574;
     public int anInt1575;
     public int anInt1576;
@@ -24,8 +23,8 @@ public class Entity extends Renderable {
     public int anInt1581;
     public int anInt1582;
     public int anInt1583;
-    public int anInt1584;
-    public int anInt1585;
+    public int idleAnimation;
+    public int standTurnAnimation;
     public String aString1586;
     public int anInt1587;
     public int anInt1588;
@@ -37,17 +36,17 @@ public class Entity extends Renderable {
     public int anInt1594;
     public int anInt1595;
     public int anInt1596;
-    public int anInt1597;
+    public int emoteAnimation;
     public int anInt1598;
     public int anInt1599;
-    public int anInt1600;
+    public int animationDelay;
     public int anInt1601;
     public int anInt1602;
     public int anInt1603;
     public int anInt1604;
     public int anInt1605;
     public int anInt1606;
-    public int anInt1607;
+    public int runAnimation;
     public boolean aBoolean1608;
     public int anInt1609;
     public int pulseCycle;
@@ -67,20 +66,20 @@ public class Entity extends Renderable {
     public Entity() {
         aBooleanArray1567 = new boolean[10];
         aBoolean1569 = false;
-        anInt1570 = -1;
-        anInt1571 = -1;
-        anInt1572 = -1;
-        anInt1573 = -1;
+        walkingAnimation = -1;
+        turnAroundAnimation = -1;
+        turnRightAnimation = -1;
+        turnLeftAnimation = -1;
         aBoolean1574 = false;
-        anInt1584 = -1;
-        anInt1585 = -1;
+        idleAnimation = -1;
+        standTurnAnimation = -1;
         anInt1590 = 200;
         anInt1592 = -1;
-        anInt1597 = -1;
+        emoteAnimation = -1;
         anInt1602 = -1;
         anInt1603 = 100;
         anInt1604 = -1000;
-        anInt1607 = -1;
+        runAnimation = -1;
         aBoolean1608 = true;
         anInt1611 = 1;
         anIntArray1612 = new int[4];
@@ -106,16 +105,8 @@ public class Entity extends Renderable {
         }
     }
 
-    public boolean method291(boolean flag) {
-        try {
-            if (!flag) {
-                aBoolean1574 = !aBoolean1574;
-            }
-            return false;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("59087, " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public boolean isVisible() {
+        return false;
     }
 
     public void method292(int i, int j, boolean flag) {
@@ -150,8 +141,8 @@ public class Entity extends Renderable {
                 k++;
                 l--;
             }
-            if (anInt1597 != -1 && SequenceConfig.aSequenceConfigArray800[anInt1597].anInt813 == 1) {
-                anInt1597 = -1;
+            if (emoteAnimation != -1 && SequenceConfig.sequences[emoteAnimation].anInt813 == 1) {
+                emoteAnimation = -1;
             }
             if (anInt1591 < 9) {
                 anInt1591++;
@@ -196,8 +187,8 @@ public class Entity extends Renderable {
 
     public void method294(boolean flag, int i, int j, byte byte0) {
         try {
-            if (anInt1597 != -1 && SequenceConfig.aSequenceConfigArray800[anInt1597].anInt813 == 1) {
-                anInt1597 = -1;
+            if (emoteAnimation != -1 && SequenceConfig.sequences[emoteAnimation].anInt813 == 1) {
+                emoteAnimation = -1;
             }
             if (!flag) {
                 int k = i - anIntArray1615[0];
