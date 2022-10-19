@@ -41,7 +41,7 @@ public class ObjectConfig {
     public int anInt637;
     public String[] aStringArray639;
     public int anInt640;
-    public int anInt641;
+    public int teamIndex;
     public int anInt642;
     public String[] aStringArray643;
     public int anInt644;
@@ -84,7 +84,7 @@ public class ObjectConfig {
                     return class13_sub1_sub4_sub4;
                 }
             }
-            ObjectConfig objectConfig = method505(i);
+            ObjectConfig objectConfig = lookup(i);
             if (objectConfig.anIntArray636 == null) {
                 j = -1;
             }
@@ -96,7 +96,7 @@ public class ObjectConfig {
                     }
                 }
                 if (l != -1) {
-                    objectConfig = method505(l);
+                    objectConfig = lookup(l);
                 }
             }
             Model class13_sub1_sub1_sub4 = objectConfig.method509(1);
@@ -209,7 +209,7 @@ public class ObjectConfig {
         throw new RuntimeException();
     }
 
-    public static ObjectConfig method505(int i) {
+    public static ObjectConfig lookup(int i) {
         for (int j = 0; j < 10; j++) {
             if (aObjectConfigArray620[j].anInt633 == i) {
                 return aObjectConfigArray620[j];
@@ -229,7 +229,7 @@ public class ObjectConfig {
             objectConfig.examine = "Login to a members' server to use this object.".getBytes();
             objectConfig.aStringArray643 = null;
             objectConfig.aStringArray639 = null;
-            objectConfig.anInt641 = 0;
+            objectConfig.teamIndex = 0;
         }
         return objectConfig;
     }
@@ -381,7 +381,7 @@ public class ObjectConfig {
 
     public void method508(int i) {
         try {
-            ObjectConfig objectConfig = method505(anInt642);
+            ObjectConfig objectConfig = lookup(anInt642);
             anInt668 = objectConfig.anInt668;
             modelScale = objectConfig.modelScale;
             anInt670 = objectConfig.anInt670;
@@ -395,7 +395,7 @@ public class ObjectConfig {
                 }
             }
             anIntArray631 = objectConfig.anIntArray631;
-            ObjectConfig objectConfig_1 = method505(anInt644);
+            ObjectConfig objectConfig_1 = lookup(anInt644);
             itemName = objectConfig_1.itemName;
             aBoolean650 = objectConfig_1.aBoolean650;
             anInt637 = objectConfig_1.anInt637;
@@ -422,7 +422,7 @@ public class ObjectConfig {
                 }
             }
             if (j != -1) {
-                return method505(j).method509(1);
+                return lookup(j).method509(1);
             }
         }
         Model class13_sub1_sub1_sub4 = (Model) aCache_660.get(anInt633);
@@ -555,7 +555,7 @@ public class ObjectConfig {
                 } else if (k == 114) {
                     anInt629 = buffer.readByte() * 5;
                 } else if (k == 115) {
-                    anInt641 = buffer.readUByte();
+                    teamIndex = buffer.readUByte();
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
@@ -611,7 +611,7 @@ public class ObjectConfig {
                     }
                 }
                 if (k != -1) {
-                    return method505(k).method513(-453, 1);
+                    return lookup(k).method513(-453, 1);
                 }
             }
             Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt668);
@@ -669,7 +669,7 @@ public class ObjectConfig {
         anInt621 = 128;
         anInt625 = 0;
         anInt629 = 0;
-        anInt641 = 0;
+        teamIndex = 0;
     }
 
 }

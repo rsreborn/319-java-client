@@ -70,8 +70,8 @@ public class SpotAnimationConfig {
                     anInt687 = buffer.readUShortBE();
                 } else if (j == 2) {
                     anInt688 = buffer.readUShortBE();
-                    if (SequenceConfig.aSequenceConfigArray800 != null) {
-                        aSequenceConfig_689 = SequenceConfig.aSequenceConfigArray800[anInt688];
+                    if (SequenceConfig.sequences != null) {
+                        aSequenceConfig_689 = SequenceConfig.sequences[anInt688];
                     }
                 } else if (j == 4) {
                     anInt692 = buffer.readUShortBE();

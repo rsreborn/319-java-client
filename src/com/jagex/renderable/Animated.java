@@ -42,44 +42,38 @@ public class Animated extends Renderable {
         throw new RuntimeException();
     }
 
-    public Model method256(int i) {
-        try {
-            Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1475.method530();
-            if (class13_sub1_sub1_sub4 == null) {
-                return null;
-            }
-            int j = aSpotAnimationConfig_1475.aSequenceConfig_689.anIntArray802[anInt1477];
-            Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
-            i = 95 / i;
-            if (!aBoolean1479) {
-                class13_sub1_sub1_sub4_1.method272(true);
-                class13_sub1_sub1_sub4_1.method273(j, false);
-                class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
-                class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
-            }
-            if (aSpotAnimationConfig_1475.anInt692 != 128 || aSpotAnimationConfig_1475.anInt693 != 128) {
-                class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt693, (byte) 0);
-            }
-            if (aSpotAnimationConfig_1475.anInt694 != 0) {
-                if (aSpotAnimationConfig_1475.anInt694 == 90) {
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                }
-                if (aSpotAnimationConfig_1475.anInt694 == 180) {
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                }
-                if (aSpotAnimationConfig_1475.anInt694 == 270) {
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                    class13_sub1_sub1_sub4_1.method276(-32823);
-                }
-            }
-            class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1475.anInt695, 850 + aSpotAnimationConfig_1475.anInt696, -30, -50, -30, true);
-            return class13_sub1_sub1_sub4_1;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("11505, " + i + ", " + runtimeexception);
+    public Model getRotatedModel() {
+        Model class13_sub1_sub1_sub4 = aSpotAnimationConfig_1475.method530();
+        if (class13_sub1_sub1_sub4 == null) {
+            return null;
         }
-        throw new RuntimeException();
+        int j = aSpotAnimationConfig_1475.aSequenceConfig_689.anIntArray802[anInt1477];
+        Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
+        if (!aBoolean1479) {
+            class13_sub1_sub1_sub4_1.method272(true);
+            class13_sub1_sub1_sub4_1.method273(j, false);
+            class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
+            class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
+        }
+        if (aSpotAnimationConfig_1475.anInt692 != 128 || aSpotAnimationConfig_1475.anInt693 != 128) {
+            class13_sub1_sub1_sub4_1.method281(aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt692, aSpotAnimationConfig_1475.anInt693, (byte) 0);
+        }
+        if (aSpotAnimationConfig_1475.anInt694 != 0) {
+            if (aSpotAnimationConfig_1475.anInt694 == 90) {
+                class13_sub1_sub1_sub4_1.method276(-32823);
+            }
+            if (aSpotAnimationConfig_1475.anInt694 == 180) {
+                class13_sub1_sub1_sub4_1.method276(-32823);
+                class13_sub1_sub1_sub4_1.method276(-32823);
+            }
+            if (aSpotAnimationConfig_1475.anInt694 == 270) {
+                class13_sub1_sub1_sub4_1.method276(-32823);
+                class13_sub1_sub1_sub4_1.method276(-32823);
+                class13_sub1_sub1_sub4_1.method276(-32823);
+            }
+        }
+        class13_sub1_sub1_sub4_1.method282(64 + aSpotAnimationConfig_1475.anInt695, 850 + aSpotAnimationConfig_1475.anInt696, -30, -50, -30, true);
+        return class13_sub1_sub1_sub4_1;
     }
 
     public void method260(byte byte0, int i) {

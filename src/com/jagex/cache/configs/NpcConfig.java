@@ -191,7 +191,7 @@ public class NpcConfig {
         throw new RuntimeException();
     }
 
-    public Model method583(int i) {
+    public Model getHeadModel(int i) {
         try {
             i = 78 / i;
             if (anIntArray751 != null) {
@@ -199,7 +199,7 @@ public class NpcConfig {
                 if (npcConfig == null) {
                     return null;
                 } else {
-                    return npcConfig.method583(524);
+                    return npcConfig.getHeadModel(524);
                 }
             }
             if (anIntArray766 == null) {
