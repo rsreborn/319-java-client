@@ -1540,7 +1540,7 @@ public class Game extends GameShell {
             method120(size, buffer, true);
             method136(buffer, size, 1);
             method117(buffer, size, 964);
-            method81(buffer, size, false);
+            parseTrackedPlayerSyncMasks(buffer, size, false);
             for (int k = 0; k < anInt1071; k++) {
                 int index = anIntArray1072[k];
                 if (players[index].pulseCycle != pulseCycle) {
@@ -7842,25 +7842,25 @@ public class Game extends GameShell {
             }
             for (int k = 0; k < anInt901; k++) {
                 int l = anIntArray902[k];
-                Npc class13_sub1_sub1_sub6_sub2 = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
+                Npc npc = aClass13_Sub1_Sub1_Sub6_Sub2Array1283[l];
                 int i1 = buffer.readUByte();
                 if ((i1 & 1) != 0) {
-                    class13_sub1_sub1_sub6_sub2.aNpcConfig_1717 = NpcConfig.getDefinition(buffer.readUShortBEA());
-                    class13_sub1_sub1_sub6_sub2.anInt1611 = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.aByte768;
-                    class13_sub1_sub1_sub6_sub2.anInt1618 = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt760;
-                    class13_sub1_sub1_sub6_sub2.walkingAnimation = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt778;
-                    class13_sub1_sub1_sub6_sub2.turnAroundAnimation = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt785;
-                    class13_sub1_sub1_sub6_sub2.turnRightAnimation = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt773;
-                    class13_sub1_sub1_sub6_sub2.turnLeftAnimation = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt786;
-                    class13_sub1_sub1_sub6_sub2.idleAnimation = class13_sub1_sub1_sub6_sub2.aNpcConfig_1717.anInt748;
+                    npc.aNpcConfig_1717 = NpcConfig.getDefinition(buffer.readUShortBEA());
+                    npc.anInt1611 = npc.aNpcConfig_1717.aByte768;
+                    npc.anInt1618 = npc.aNpcConfig_1717.anInt760;
+                    npc.walkingAnimation = npc.aNpcConfig_1717.anInt778;
+                    npc.turnAroundAnimation = npc.aNpcConfig_1717.anInt785;
+                    npc.turnRightAnimation = npc.aNpcConfig_1717.anInt773;
+                    npc.turnLeftAnimation = npc.aNpcConfig_1717.anInt786;
+                    npc.idleAnimation = npc.aNpcConfig_1717.anInt748;
                 }
                 if ((i1 & 0x40) != 0) {
                     int j1 = buffer.readUByte();
                     int j2 = buffer.readUByte();
-                    class13_sub1_sub1_sub6_sub2.method293(j1, true, pulseCycle, j2);
-                    class13_sub1_sub1_sub6_sub2.anInt1604 = pulseCycle + 300;
-                    class13_sub1_sub1_sub6_sub2.anInt1605 = buffer.readUByteA();
-                    class13_sub1_sub1_sub6_sub2.anInt1606 = buffer.readUByteA();
+                    npc.method293(j1, true, pulseCycle, j2);
+                    npc.anInt1604 = pulseCycle + 300;
+                    npc.anInt1605 = buffer.readUByteA();
+                    npc.anInt1606 = buffer.readUByteA();
                 }
                 if ((i1 & 4) != 0) {
                     int k1 = buffer.readUShortBE();
@@ -7868,61 +7868,61 @@ public class Game extends GameShell {
                         k1 = -1;
                     }
                     int k2 = buffer.readUByteA();
-                    if (k1 == class13_sub1_sub1_sub6_sub2.emoteAnimation && k1 != -1) {
+                    if (k1 == npc.emoteAnimation && k1 != -1) {
                         int i3 = SequenceConfig.sequences[k1].anInt814;
                         if (i3 == 1) {
-                            class13_sub1_sub1_sub6_sub2.anInt1598 = 0;
-                            class13_sub1_sub1_sub6_sub2.anInt1599 = 0;
-                            class13_sub1_sub1_sub6_sub2.animationDelay = k2;
-                            class13_sub1_sub1_sub6_sub2.anInt1601 = 0;
+                            npc.anInt1598 = 0;
+                            npc.anInt1599 = 0;
+                            npc.animationDelay = k2;
+                            npc.anInt1601 = 0;
                         }
                         if (i3 == 2) {
-                            class13_sub1_sub1_sub6_sub2.anInt1601 = 0;
+                            npc.anInt1601 = 0;
                         }
-                    } else if (k1 == -1 || class13_sub1_sub1_sub6_sub2.emoteAnimation == -1 || SequenceConfig.sequences[k1].anInt808 >= SequenceConfig.sequences[class13_sub1_sub1_sub6_sub2.emoteAnimation].anInt808) {
-                        class13_sub1_sub1_sub6_sub2.emoteAnimation = k1;
-                        class13_sub1_sub1_sub6_sub2.anInt1598 = 0;
-                        class13_sub1_sub1_sub6_sub2.anInt1599 = 0;
-                        class13_sub1_sub1_sub6_sub2.animationDelay = k2;
-                        class13_sub1_sub1_sub6_sub2.anInt1601 = 0;
-                        class13_sub1_sub1_sub6_sub2.anInt1619 = class13_sub1_sub1_sub6_sub2.anInt1591;
+                    } else if (k1 == -1 || npc.emoteAnimation == -1 || SequenceConfig.sequences[k1].anInt808 >= SequenceConfig.sequences[npc.emoteAnimation].anInt808) {
+                        npc.emoteAnimation = k1;
+                        npc.anInt1598 = 0;
+                        npc.anInt1599 = 0;
+                        npc.animationDelay = k2;
+                        npc.anInt1601 = 0;
+                        npc.anInt1619 = npc.anInt1591;
                     }
                 }
                 if ((i1 & 0x20) != 0) {
                     int l1 = buffer.readUByteC();
                     int l2 = buffer.readUByte();
-                    class13_sub1_sub1_sub6_sub2.method293(l1, true, pulseCycle, l2);
-                    class13_sub1_sub1_sub6_sub2.anInt1604 = pulseCycle + 300;
-                    class13_sub1_sub1_sub6_sub2.anInt1605 = buffer.readUByteS();
-                    class13_sub1_sub1_sub6_sub2.anInt1606 = buffer.readUByteS();
+                    npc.method293(l1, true, pulseCycle, l2);
+                    npc.anInt1604 = pulseCycle + 300;
+                    npc.anInt1605 = buffer.readUByteS();
+                    npc.anInt1606 = buffer.readUByteS();
                 }
                 if ((i1 & 2) != 0) {
-                    class13_sub1_sub1_sub6_sub2.aString1586 = buffer.readString();
-                    class13_sub1_sub1_sub6_sub2.anInt1603 = 100;
+                    npc.aString1586 = buffer.readString();
+                    npc.anInt1603 = 100;
                 }
                 if ((i1 & 8) != 0) {
-                    class13_sub1_sub1_sub6_sub2.anInt1592 = buffer.readUShortBE();
+                    npc.anInt1592 = buffer.readUShortBE();
                     int i2 = buffer.readIntLE();
-                    class13_sub1_sub1_sub6_sub2.anInt1596 = i2 >> 16;
-                    class13_sub1_sub1_sub6_sub2.anInt1595 = pulseCycle + (i2 & 0xffff);
-                    class13_sub1_sub1_sub6_sub2.anInt1593 = 0;
-                    class13_sub1_sub1_sub6_sub2.anInt1594 = 0;
-                    if (class13_sub1_sub1_sub6_sub2.anInt1595 > pulseCycle) {
-                        class13_sub1_sub1_sub6_sub2.anInt1593 = -1;
+                    npc.anInt1596 = i2 >> 16;
+                    npc.anInt1595 = pulseCycle + (i2 & 0xffff);
+                    npc.anInt1593 = 0;
+                    npc.anInt1594 = 0;
+                    if (npc.anInt1595 > pulseCycle) {
+                        npc.anInt1593 = -1;
                     }
-                    if (class13_sub1_sub1_sub6_sub2.anInt1592 == 65535) {
-                        class13_sub1_sub1_sub6_sub2.anInt1592 = -1;
+                    if (npc.anInt1592 == 65535) {
+                        npc.anInt1592 = -1;
                     }
                 }
                 if ((i1 & 0x10) != 0) {
-                    class13_sub1_sub1_sub6_sub2.anInt1602 = buffer.readUShortLEA();
-                    if (class13_sub1_sub1_sub6_sub2.anInt1602 == 65535) {
-                        class13_sub1_sub1_sub6_sub2.anInt1602 = -1;
+                    npc.anInt1602 = buffer.readUShortLEA();
+                    if (npc.anInt1602 == 65535) {
+                        npc.anInt1602 = -1;
                     }
                 }
                 if ((i1 & 0x80) != 0) {
-                    class13_sub1_sub1_sub6_sub2.anInt1582 = buffer.readUShortLE();
-                    class13_sub1_sub1_sub6_sub2.anInt1583 = buffer.readUShortBEA();
+                    npc.anInt1582 = buffer.readUShortLE();
+                    npc.anInt1583 = buffer.readUShortBEA();
                 }
             }
             return;
@@ -7981,16 +7981,16 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method81(Buffer buffer, int i, boolean flag) {
+    public void parseTrackedPlayerSyncMasks(Buffer buffer, int i, boolean flag) {
         try {
             for (int j = 0; j < anInt901; j++) {
                 int k = anIntArray902[j];
-                Player class13_sub1_sub1_sub6_sub1 = players[k];
-                int l = buffer.readUByte();
-                if ((l & 0x40) != 0) {
-                    l += buffer.readUByte() << 8;
+                Player player = players[k];
+                int syncMasks = buffer.readUByte();
+                if ((syncMasks & 0x40) != 0) {
+                    syncMasks += buffer.readUByte() << 8;
                 }
-                method147(class13_sub1_sub1_sub6_sub1, k, buffer, l, 0);
+                parsePlayerSyncMasks(player, k, buffer, syncMasks, 0);
             }
             if (flag) {
                 method6();
@@ -12345,39 +12345,39 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method147(Player class13_sub1_sub1_sub6_sub1, int i, Buffer buffer, int mask, int k) {
+    public void parsePlayerSyncMasks(Player player, int i, Buffer buffer, int mask, int k) {
         try {
             packetSize += k;
-            if ((mask & 0x200) != 0) {
+            if ((mask & 0x200) != 0) { // damage type 2
                 int l = buffer.readUByte();
                 int j2 = buffer.readUByte();
-                class13_sub1_sub1_sub6_sub1.method293(l, true, pulseCycle, j2);
-                class13_sub1_sub1_sub6_sub1.anInt1604 = pulseCycle + 300;
-                class13_sub1_sub1_sub6_sub1.anInt1605 = buffer.readUByteS();
-                class13_sub1_sub1_sub6_sub1.anInt1606 = buffer.readUByteA();
+                player.method293(l, true, pulseCycle, j2);
+                player.anInt1604 = pulseCycle + 300;
+                player.anInt1605 = buffer.readUByteS();
+                player.anInt1606 = buffer.readUByteA();
             }
-            if ((mask & 0x100) != 0) {
-                class13_sub1_sub1_sub6_sub1.anInt1575 = buffer.readUByte();
-                class13_sub1_sub1_sub6_sub1.anInt1577 = buffer.readUByteS();
-                class13_sub1_sub1_sub6_sub1.anInt1576 = buffer.readUByte();
-                class13_sub1_sub1_sub6_sub1.anInt1578 = buffer.readUByteA();
-                class13_sub1_sub1_sub6_sub1.anInt1579 = buffer.readUShortBE() + pulseCycle;
-                class13_sub1_sub1_sub6_sub1.anInt1580 = buffer.readUShortBE() + pulseCycle;
-                class13_sub1_sub1_sub6_sub1.anInt1581 = buffer.readUByte();
-                class13_sub1_sub1_sub6_sub1.method290((byte) 5);
+            if ((mask & 0x100) != 0) { // force movement
+                player.anInt1575 = buffer.readUByte();
+                player.anInt1577 = buffer.readUByteS();
+                player.anInt1576 = buffer.readUByte();
+                player.anInt1578 = buffer.readUByteA();
+                player.anInt1579 = buffer.readUShortBE() + pulseCycle;
+                player.anInt1580 = buffer.readUShortBE() + pulseCycle;
+                player.anInt1581 = buffer.readUByte();
+                player.method290((byte) 5);
             }
-            if ((mask & 0x400) != 0) {
-                class13_sub1_sub1_sub6_sub1.anInt1592 = buffer.readUShortLE();
+            if ((mask & 0x400) != 0) { // play spot anim (graphics)
+                player.anInt1592 = buffer.readUShortLE();
                 int i1 = buffer.readIntME1();
-                class13_sub1_sub1_sub6_sub1.anInt1596 = i1 >> 16;
-                class13_sub1_sub1_sub6_sub1.anInt1595 = pulseCycle + (i1 & 0xffff);
-                class13_sub1_sub1_sub6_sub1.anInt1593 = 0;
-                class13_sub1_sub1_sub6_sub1.anInt1594 = 0;
-                if (class13_sub1_sub1_sub6_sub1.anInt1595 > pulseCycle) {
-                    class13_sub1_sub1_sub6_sub1.anInt1593 = -1;
+                player.anInt1596 = i1 >> 16;
+                player.anInt1595 = pulseCycle + (i1 & 0xffff);
+                player.anInt1593 = 0;
+                player.anInt1594 = 0;
+                if (player.anInt1595 > pulseCycle) {
+                    player.anInt1593 = -1;
                 }
-                if (class13_sub1_sub1_sub6_sub1.anInt1592 == 65535) {
-                    class13_sub1_sub1_sub6_sub1.anInt1592 = -1;
+                if (player.anInt1592 == 65535) {
+                    player.anInt1592 = -1;
                 }
             }
             if ((mask & 2) != 0) // appearance
@@ -12387,19 +12387,19 @@ public class Game extends GameShell {
                 Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
                 buffer.readBytesA(abyte0, 0, j1);
                 aBufferArray903[i] = class13_sub1_sub2_1;
-                class13_sub1_sub1_sub6_sub1.syncAppearance(class13_sub1_sub2_1);
+                player.syncAppearance(class13_sub1_sub2_1);
             }
-            if ((mask & 1) != 0) {
-                class13_sub1_sub1_sub6_sub1.anInt1582 = buffer.readUShortBEA();
-                class13_sub1_sub1_sub6_sub1.anInt1583 = buffer.readUShortLEA();
+            if ((mask & 1) != 0) { // face coords
+                player.anInt1582 = buffer.readUShortBEA();
+                player.anInt1583 = buffer.readUShortLEA();
             }
-            if ((mask & 0x80) != 0) {
+            if ((mask & 0x80) != 0) { // chat
                 int k1 = buffer.readUShortBE();
                 int k2 = buffer.readUByte();
                 int j3 = buffer.readUByteS();
                 int l3 = buffer.position;
-                if (class13_sub1_sub1_sub6_sub1.username != null && class13_sub1_sub1_sub6_sub1.visible) {
-                    long l4 = StringUtil.encodeBase37Username(class13_sub1_sub1_sub6_sub1.username);
+                if (player.username != null && player.visible) {
+                    long l4 = StringUtil.encodeBase37Username(player.username);
                     boolean flag = false;
                     if (k2 <= 1) {
                         for (int i4 = 0; i4 < anInt1098; i4++) {
@@ -12417,16 +12417,16 @@ public class Game extends GameShell {
                             aBuffer_1282.position = 0;
                             String s = ChatMessageCodec.decode(aBuffer_1282, j3);
                             s = MessageCensor.method541(false, s);
-                            class13_sub1_sub1_sub6_sub1.aString1586 = s;
-                            class13_sub1_sub1_sub6_sub1.anInt1566 = k1 >> 8;
-                            class13_sub1_sub1_sub6_sub1.anInt1617 = k1 & 0xff;
-                            class13_sub1_sub1_sub6_sub1.anInt1603 = 150;
+                            player.aString1586 = s;
+                            player.anInt1566 = k1 >> 8;
+                            player.anInt1617 = k1 & 0xff;
+                            player.anInt1603 = 150;
                             if (k2 == 2 || k2 == 3) {
-                                addChatMessage("@cr2@" + class13_sub1_sub1_sub6_sub1.username, s, 1);
+                                addChatMessage("@cr2@" + player.username, s, 1);
                             } else if (k2 == 1) {
-                                addChatMessage("@cr1@" + class13_sub1_sub1_sub6_sub1.username, s, 1);
+                                addChatMessage("@cr1@" + player.username, s, 1);
                             } else {
-                                addChatMessage(class13_sub1_sub1_sub6_sub1.username, s, 2);
+                                addChatMessage(player.username, s, 2);
                             }
                         } catch (Exception exception) {
                             Signlink.reportError("cde2");
@@ -12435,61 +12435,61 @@ public class Game extends GameShell {
                 }
                 buffer.position = l3 + j3;
             }
-            if ((mask & 0x20) != 0) {
+            if ((mask & 0x20) != 0) { // damage type 1
                 int l1 = buffer.readUByteC();
                 int l2 = buffer.readUByteS();
-                class13_sub1_sub1_sub6_sub1.method293(l1, true, pulseCycle, l2);
-                class13_sub1_sub1_sub6_sub1.anInt1604 = pulseCycle + 300;
-                class13_sub1_sub1_sub6_sub1.anInt1605 = buffer.readUByteS();
-                class13_sub1_sub1_sub6_sub1.anInt1606 = buffer.readUByteC();
+                player.method293(l1, true, pulseCycle, l2);
+                player.anInt1604 = pulseCycle + 300;
+                player.anInt1605 = buffer.readUByteS();
+                player.anInt1606 = buffer.readUByteC();
             }
-            if ((mask & 4) != 0) {
+            if ((mask & 4) != 0) { // play animation
                 int i2 = buffer.readUShortLE();
                 if (i2 == 65535) {
                     i2 = -1;
                 }
                 int i3 = buffer.readUByteS();
-                if (i2 == class13_sub1_sub1_sub6_sub1.emoteAnimation && i2 != -1) {
+                if (i2 == player.emoteAnimation && i2 != -1) {
                     int k3 = SequenceConfig.sequences[i2].anInt814;
                     if (k3 == 1) {
-                        class13_sub1_sub1_sub6_sub1.anInt1598 = 0;
-                        class13_sub1_sub1_sub6_sub1.anInt1599 = 0;
-                        class13_sub1_sub1_sub6_sub1.animationDelay = i3;
-                        class13_sub1_sub1_sub6_sub1.anInt1601 = 0;
+                        player.anInt1598 = 0;
+                        player.anInt1599 = 0;
+                        player.animationDelay = i3;
+                        player.anInt1601 = 0;
                     }
                     if (k3 == 2) {
-                        class13_sub1_sub1_sub6_sub1.anInt1601 = 0;
+                        player.anInt1601 = 0;
                     }
-                } else if (i2 == -1 || class13_sub1_sub1_sub6_sub1.emoteAnimation == -1 || SequenceConfig.sequences[i2].anInt808 >= SequenceConfig.sequences[class13_sub1_sub1_sub6_sub1.emoteAnimation].anInt808) {
-                    class13_sub1_sub1_sub6_sub1.emoteAnimation = i2;
-                    class13_sub1_sub1_sub6_sub1.anInt1598 = 0;
-                    class13_sub1_sub1_sub6_sub1.anInt1599 = 0;
-                    class13_sub1_sub1_sub6_sub1.animationDelay = i3;
-                    class13_sub1_sub1_sub6_sub1.anInt1601 = 0;
-                    class13_sub1_sub1_sub6_sub1.anInt1619 = class13_sub1_sub1_sub6_sub1.anInt1591;
+                } else if (i2 == -1 || player.emoteAnimation == -1 || SequenceConfig.sequences[i2].anInt808 >= SequenceConfig.sequences[player.emoteAnimation].anInt808) {
+                    player.emoteAnimation = i2;
+                    player.anInt1598 = 0;
+                    player.anInt1599 = 0;
+                    player.animationDelay = i3;
+                    player.anInt1601 = 0;
+                    player.anInt1619 = player.anInt1591;
                 }
             }
-            if ((mask & 0x10) != 0) {
-                class13_sub1_sub1_sub6_sub1.aString1586 = buffer.readString();
-                if (class13_sub1_sub1_sub6_sub1.aString1586.charAt(0) == '~') {
-                    class13_sub1_sub1_sub6_sub1.aString1586 = class13_sub1_sub1_sub6_sub1.aString1586.substring(1);
-                    addChatMessage(class13_sub1_sub1_sub6_sub1.username, class13_sub1_sub1_sub6_sub1.aString1586, 2);
-                } else if (class13_sub1_sub1_sub6_sub1 == aClass13_Sub1_Sub1_Sub6_Sub1_997) {
-                    addChatMessage(class13_sub1_sub1_sub6_sub1.username, class13_sub1_sub1_sub6_sub1.aString1586, 2);
+            if ((mask & 0x10) != 0) { // forced chat
+                player.aString1586 = buffer.readString();
+                if (player.aString1586.charAt(0) == '~') {
+                    player.aString1586 = player.aString1586.substring(1);
+                    addChatMessage(player.username, player.aString1586, 2);
+                } else if (player == aClass13_Sub1_Sub1_Sub6_Sub1_997) {
+                    addChatMessage(player.username, player.aString1586, 2);
                 }
-                class13_sub1_sub1_sub6_sub1.anInt1566 = 0;
-                class13_sub1_sub1_sub6_sub1.anInt1617 = 0;
-                class13_sub1_sub1_sub6_sub1.anInt1603 = 150;
+                player.anInt1566 = 0;
+                player.anInt1617 = 0;
+                player.anInt1603 = 150;
             }
-            if ((mask & 8) != 0) {
-                class13_sub1_sub1_sub6_sub1.anInt1602 = buffer.readUShortLEA();
-                if (class13_sub1_sub1_sub6_sub1.anInt1602 == 65535) {
-                    class13_sub1_sub1_sub6_sub1.anInt1602 = -1;
+            if ((mask & 8) != 0) { // face actor
+                player.anInt1602 = buffer.readUShortLEA();
+                if (player.anInt1602 == 65535) {
+                    player.anInt1602 = -1;
                     return;
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("55924, " + class13_sub1_sub1_sub6_sub1 + ", " + i + ", " + buffer + ", " + mask + ", " + k + ", " + runtimeexception);
+            Signlink.reportError("55924, " + player + ", " + i + ", " + buffer + ", " + mask + ", " + k + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
