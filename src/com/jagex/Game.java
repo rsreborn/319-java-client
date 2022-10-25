@@ -1537,9 +1537,9 @@ public class Game extends GameShell {
             }
             anInt1071 = 0;
             anInt901 = 0;
-            method120(size, buffer, true);
-            method136(buffer, size, 1);
-            method117(buffer, size, 964);
+            parsePlayerMovement(size, buffer, true);
+            parseTrackedPlayerMovement(buffer, size, 1);
+            registerNewPlayers(buffer, size, 964);
             parseTrackedPlayerSyncMasks(buffer, size, false);
             for (int k = 0; k < anInt1071; k++) {
                 int index = anIntArray1072[k];
@@ -10275,7 +10275,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method117(Buffer buffer, int i, int j) {
+    public void registerNewPlayers(Buffer buffer, int i, int j) {
         try {
             while (buffer.bitPosition + 10 < i * 8) {
                 int k = buffer.readBits(11);
@@ -10369,7 +10369,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method120(int i, Buffer buffer, boolean flag) {
+    public void parsePlayerMovement(int i, Buffer buffer, boolean flag) {
         try {
             buffer.initBitAccess();
             int j = buffer.readBits(1);
@@ -11373,7 +11373,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method136(Buffer buffer, int i, int j) {
+    public void parseTrackedPlayerMovement(Buffer buffer, int i, int j) {
         try {
             int k = buffer.readBits(8);
             if (j < 1 || j > 1) {
@@ -12385,7 +12385,7 @@ public class Game extends GameShell {
                 int j1 = buffer.readUByteC();
                 byte[] abyte0 = new byte[j1];
                 Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
-                buffer.readBytesA(abyte0, 0, j1);
+                buffer.readBytes(abyte0, 0, j1);
                 aBufferArray903[i] = class13_sub1_sub2_1;
                 player.syncAppearance(class13_sub1_sub2_1);
             }
