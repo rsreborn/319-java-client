@@ -3642,23 +3642,18 @@ public class Game extends GameShell {
                                 if (gameObject.options[l1] != null) {
                                     aStringArray961[anInt1167] = gameObject.options[l1] + " @cya@" + gameObject.name;
                                     if (l1 == 0) {
-                                        addChatMessage("", "0", 0);
                                         anIntArray911[anInt1167] = 307; // Packet 154
                                     }
                                     if (l1 == 1) {
-                                        addChatMessage("", "1", 0);
                                         anIntArray911[anInt1167] = 275; // Packet 128
                                     }
                                     if (l1 == 2) {
-                                        addChatMessage("", "2", 0);
                                         anIntArray911[anInt1167] = 47; // Packet 211
                                     }
                                     if (l1 == 3) {
-                                        addChatMessage("", "3", 0);
                                         anIntArray911[anInt1167] = 259; // Packet 186
                                     }
                                     if (l1 == 4) {
-                                        addChatMessage("", "4", 0);
                                         anIntArray911[anInt1167] = 1574; // Packet 0
                                     }
                                     anIntArray912[anInt1167] = k;
