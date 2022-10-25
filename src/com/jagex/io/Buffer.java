@@ -217,12 +217,6 @@ public class Buffer extends CacheableNode {
         }
     }
 
-    public void readBytesReverseA(byte[] bytes, int start, int length) {
-        for (int pos = (start + length) - 1; pos >= start; pos--) {
-            payload[position++] = (byte) (bytes[pos] + 128);
-        }
-    }
-
     public void initBitAccess() {
         bitPosition = position * 8;
     }

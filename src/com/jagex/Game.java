@@ -10009,7 +10009,7 @@ public class Game extends GameShell {
                             int i3 = outBuffer.position;
                             aBuffer_1282.position = 0;
                             ChatMessageCodec.encode(aBuffer_1282, aString1280);
-                            outBuffer.readBytesReverseA(aBuffer_1282.payload, 0, aBuffer_1282.position);
+                            outBuffer.readBytes(aBuffer_1282.payload, 0, aBuffer_1282.position);
                             outBuffer.writeByte(k2);
                             outBuffer.writeByte(i2);
                             outBuffer.writeSizeByte(outBuffer.position - i3);
