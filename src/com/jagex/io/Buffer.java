@@ -108,28 +108,8 @@ public class Buffer extends CacheableNode {
         return payload[position++] & 0xff;
     }
 
-    public int readUByteA() {
-        return payload[position++] - 128 & 0xff;
-    }
-
-    public int readUByteC() {
-        return -payload[position++] & 0xff;
-    }
-
-    public int readUByteS() {
-        return 128 - payload[position++] & 0xff;
-    }
-
     public byte readByte() {
         return payload[position++];
-    }
-
-    public byte readByteA() {
-        return (byte) (payload[position++] - 128);
-    }
-
-    public byte readByteC() {
-        return (byte) (-payload[position++]);
     }
 
     public int readUShortBE() {
@@ -140,16 +120,6 @@ public class Buffer extends CacheableNode {
     public int readUShortLE() {
         position += 2;
         return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
-    }
-
-    public int readUShortBEA() {
-        position += 2;
-        return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
-    }
-
-    public int readUShortLEA() {
-        position += 2;
-        return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
     }
 
     public int readShortBE() {
@@ -164,24 +134,6 @@ public class Buffer extends CacheableNode {
     public int readShortLE() {
         position += 2;
         int value = ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
-        if (value > 32767) {
-            value -= 0x10000;
-        }
-        return value;
-    }
-
-    public int readShortBEA() {
-        position += 2;
-        int value = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
-        if (value > 32767) {
-            value -= 0x10000;
-        }
-        return value;
-    }
-
-    public int readShortLEA() {
-        position += 2;
-        int value = ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
         if (value > 32767) {
             value -= 0x10000;
         }
@@ -239,29 +191,7 @@ public class Buffer extends CacheableNode {
         return bytes;
     }
 
-    public void writeByteA(int value) {
-        payload[position++] = (byte) (value + 128);
-    }
-
-    public void writeInvertedByte(int value) {
-        payload[position++] = (byte) (-value);
-    }
-
-    public void writeByteS(int value) {
-        payload[position++] = (byte) (128 - value);
-    }
-
-    public void writeShortA(int value) {
-        payload[position++] = (byte) (value >> 8);
-        payload[position++] = (byte) (value + 128);
-    }
-
-    public void writeShortLEA(int i, int value) {
-        payload[position++] = (byte) (value + 128);
-        payload[position++] = (byte) (value >> 8);
-    }
-
-    public int getMediumLE() {
+    public int readMediumLE() {
         position += 3;
         return ((payload[position - 1] & 0xff) << 16) + ((payload[position - 2] & 0xff) << 8) + (payload[position - 3] & 0xff);
     }
@@ -284,12 +214,6 @@ public class Buffer extends CacheableNode {
     public void readBytes(byte[] bytes, int start, int length) {
         for (int pos = start; pos < start + length; pos++) {
             bytes[pos] = payload[position++];
-        }
-    }
-
-    public void readBytesA(byte[] bytes, int start, int length) {
-        for (int pos = start; pos < start + length; pos++) {
-            bytes[pos] = (byte) (payload[position++] - 128);
         }
     }
 
