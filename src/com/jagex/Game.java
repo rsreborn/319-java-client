@@ -12382,7 +12382,7 @@ public class Game extends GameShell {
             }
             if ((mask & 2) != 0) // appearance
             {
-                int j1 = buffer.readUByteC();
+                int j1 = buffer.readUByte();
                 byte[] abyte0 = new byte[j1];
                 Buffer class13_sub1_sub2_1 = new Buffer(abyte0);
                 buffer.readBytes(abyte0, 0, j1);
