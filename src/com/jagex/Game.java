@@ -2909,7 +2909,7 @@ public class Game extends GameShell {
                     opcode = -1;
                     return true;
                 }
-                if (opcode == 143) {
+                if (IncomingPacket.CLOSE_WIDGETS.equals(opcode)) {
                     if (anInt874 != -1) {
                         anInt874 = -1;
                         redrawTabArea = true;
