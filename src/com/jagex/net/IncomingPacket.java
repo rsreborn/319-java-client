@@ -21,6 +21,8 @@ public enum IncomingPacket {
 
     SET_WIDGET_ANIMATION(95),
 
+    SET_SKILL(211),
+
     UPDATE_WIDGET_STRING(127),
     UPDATE_WIDGET_ITEM_CONTAINER(221),
 

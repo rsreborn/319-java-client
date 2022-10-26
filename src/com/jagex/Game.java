@@ -191,7 +191,7 @@ public class Game extends GameShell {
     public int anInt905;
     public int anInt906;
     public int anInt907;
-    public int[] anIntArray908;
+    public int[] skillLevels;
     public int[] anIntArray909;
     public int[] anIntArray910;
     public int[] anIntArray911;
@@ -314,7 +314,7 @@ public class Game extends GameShell {
     public int anInt1042;
     public int[] anIntArray1043;
     public int[] anIntArray1044;
-    public int[] anIntArray1045;
+    public int[] skillExperience;
     public volatile boolean aBoolean1046;
     public volatile boolean aBoolean1047;
     public boolean aBoolean1048;
@@ -578,7 +578,7 @@ public class Game extends GameShell {
         anInt904 = -1;
         anInt905 = 46358;
         anInt906 = 0x766654;
-        anIntArray908 = new int[SkillConstants.SKILL_COUNT];
+        skillLevels = new int[SkillConstants.SKILL_COUNT];
         anIntArray909 = new int[500];
         anIntArray910 = new int[500];
         anIntArray911 = new int[500];
@@ -627,7 +627,7 @@ public class Game extends GameShell {
         aBooleanArray1032 = new boolean[5];
         aBoolean1034 = false;
         anInt1036 = 1;
-        anIntArray1045 = new int[SkillConstants.SKILL_COUNT];
+        skillExperience = new int[SkillConstants.SKILL_COUNT];
         aBoolean1046 = false;
         aBoolean1047 = false;
         aBoolean1048 = false;
@@ -2634,7 +2634,7 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 232) {
-                    int j1 = inBuffer.readInt2ME(anInt919);
+                    int j1 = inBuffer.readInt2ME();
                     int i10 = inBuffer.readUShortLE();
                     anIntArray970[i10] = j1;
                     if (anIntArray1149[i10] != j1) {
@@ -2893,17 +2893,17 @@ public class Game extends GameShell {
                     opcode = -1;
                     return true;
                 }
-                if (opcode == 211) {
+                if (IncomingPacket.SET_SKILL.equals(opcode)) {
                     redrawTabArea = true;
-                    int i5 = inBuffer.readInt2ME(anInt919);
-                    int l12 = inBuffer.readUByte();
-                    int k17 = inBuffer.readUByte();
-                    anIntArray1045[k17] = i5;
-                    anIntArray908[k17] = l12;
-                    anIntArray983[k17] = 1;
-                    for (int j21 = 0; j21 < 98; j21++) {
-                        if (i5 >= anIntArray968[j21]) {
-                            anIntArray983[k17] = j21 + 2;
+                    int skillExp = inBuffer.readIntBE();
+                    int skillLevel = inBuffer.readUByte();
+                    int skillId = inBuffer.readUByte();
+                    skillExperience[skillId] = skillExp;
+                    skillLevels[skillId] = skillLevel;
+                    anIntArray983[skillId] = 1;
+                    for (int index = 0; index < 98; index++) {
+                        if (skillExp >= anIntArray968[index]) {
+                            anIntArray983[skillId] = index + 2;
                         }
                     }
                     opcode = -1;
@@ -2995,7 +2995,7 @@ public class Game extends GameShell {
                 }
                 if (IncomingPacket.SHOW_WELCOME_SCREEN.equals(opcode)) {
                     daysSinceLastLogin = inBuffer.readUShortBE();
-                    lastLoginAddress = inBuffer.readInt2ME(anInt919);
+                    lastLoginAddress = inBuffer.readIntBE();
                     hasMembershipAndIsOnFreeToPlayWorld = inBuffer.readUByte();
                     daysSinceRecoveryQuestionsUpdated = inBuffer.readUByte();
                     unreadMessagesCount = inBuffer.readUShortLE();
@@ -8018,13 +8018,13 @@ public class Game extends GameShell {
                         return j;
                     }
                     if (i1 == 1) {
-                        j1 = anIntArray908[ai[k++]];
+                        j1 = skillLevels[ai[k++]];
                     }
                     if (i1 == 2) {
                         j1 = anIntArray983[ai[k++]];
                     }
                     if (i1 == 3) {
-                        j1 = anIntArray1045[ai[k++]];
+                        j1 = skillExperience[ai[k++]];
                     }
                     if (i1 == 4) {
                         Widget widget_1 = Widget.widgets[ai[k++]];

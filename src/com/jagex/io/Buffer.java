@@ -206,7 +206,7 @@ public class Buffer extends CacheableNode {
         return ((payload[position - 2] & 0xff) << 24) + ((payload[position - 1] & 0xff) << 16) + ((payload[position - 4] & 0xff) << 8) + (payload[position - 3] & 0xff);
     }
 
-    public int readInt2ME(int i) {
+    public int readInt2ME() {
         position += 4;
         return ((payload[position - 3] & 0xff) << 24) + ((payload[position - 4] & 0xff) << 16) + ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
     }
