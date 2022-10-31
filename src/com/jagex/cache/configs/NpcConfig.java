@@ -21,7 +21,7 @@ public class NpcConfig {
     public int anInt745;
     public int anInt746;
     public String[] aStringArray747;
-    public int anInt748;
+    public int idleAnimation;
     public int anInt749;
     public int[] anIntArray750;
     public int[] anIntArray751;
@@ -41,22 +41,22 @@ public class NpcConfig {
     public long aLong770;
     public int anInt771;
     public int anInt772;
-    public int anInt773;
+    public int turnRightAnimation;
     public byte aByte774;
     public int anInt776;
-    public int anInt778;
+    public int walkingAnimation;
     public byte aByte779;
     public int anInt781;
     public boolean aBoolean782;
     public int[] anIntArray783;
     public boolean aBoolean784;
-    public int anInt785;
-    public int anInt786;
+    public int turnAroundAnimation;
+    public int turnLeftAnimation;
 
     public NpcConfig() {
         anInt745 = 128;
         anInt746 = -1;
-        anInt748 = -1;
+        idleAnimation = -1;
         anInt749 = -1;
         aBoolean752 = true;
         anInt753 = -1;
@@ -69,15 +69,15 @@ public class NpcConfig {
         aLong770 = -1L;
         anInt771 = 128;
         anInt772 = -1;
-        anInt773 = -1;
+        turnRightAnimation = -1;
         aByte774 = 42;
-        anInt778 = -1;
+        walkingAnimation = -1;
         aByte779 = -26;
         anInt781 = -49493;
         aBoolean782 = false;
         aBoolean784 = true;
-        anInt785 = -1;
-        anInt786 = -1;
+        turnAroundAnimation = -1;
+        turnLeftAnimation = -1;
     }
 
     public static NpcConfig getDefinition(int i) {
@@ -287,14 +287,14 @@ public class NpcConfig {
                 } else if (j == 12) {
                     aByte768 = buffer.readByte();
                 } else if (j == 13) {
-                    anInt748 = buffer.readUShortBE();
+                    idleAnimation = buffer.readUShortBE();
                 } else if (j == 14) {
-                    anInt778 = buffer.readUShortBE();
+                    walkingAnimation = buffer.readUShortBE();
                 } else if (j == 17) {
-                    anInt778 = buffer.readUShortBE();
-                    anInt785 = buffer.readUShortBE();
-                    anInt773 = buffer.readUShortBE();
-                    anInt786 = buffer.readUShortBE();
+                    walkingAnimation = buffer.readUShortBE();
+                    turnAroundAnimation = buffer.readUShortBE();
+                    turnRightAnimation = buffer.readUShortBE();
+                    turnLeftAnimation = buffer.readUShortBE();
                 } else if (j >= 30 && j < 40) {
                     if (aStringArray747 == null) {
                         aStringArray747 = new String[5];

@@ -25,25 +25,25 @@ public class Entity extends Renderable {
     public int anInt1583;
     public int idleAnimation;
     public int standTurnAnimation;
-    public String aString1586;
+    public String forceChat;
     public int anInt1587;
     public int anInt1588;
     public int anInt1589;
     public int anInt1590;
     public int anInt1591;
-    public int anInt1592;
+    public int graphic;
     public int anInt1593;
     public int anInt1594;
-    public int anInt1595;
-    public int anInt1596;
+    public int graphicDelay;
+    public int graphicHeight;
     public int emoteAnimation;
     public int anInt1598;
     public int anInt1599;
     public int animationDelay;
     public int anInt1601;
-    public int anInt1602;
-    public int anInt1603;
-    public int anInt1604;
+    public int interactingEntity;
+    public int textCycle;
+    public int cycleStatus;
     public int anInt1605;
     public int anInt1606;
     public int runAnimation;
@@ -53,7 +53,7 @@ public class Entity extends Renderable {
     public int anInt1611;
     public int[] anIntArray1612;
     public int[] anIntArray1613;
-    public int[] anIntArray1614;
+    public int[] hitCycles;
     public int[] anIntArray1615;
     public int[] anIntArray1616;
     public int anInt1617;
@@ -74,17 +74,17 @@ public class Entity extends Renderable {
         idleAnimation = -1;
         standTurnAnimation = -1;
         anInt1590 = 200;
-        anInt1592 = -1;
+        graphic = -1;
         emoteAnimation = -1;
-        anInt1602 = -1;
-        anInt1603 = 100;
-        anInt1604 = -1000;
+        interactingEntity = -1;
+        textCycle = 100;
+        cycleStatus = -1000;
         runAnimation = -1;
         aBoolean1608 = true;
         anInt1611 = 1;
         anIntArray1612 = new int[4];
         anIntArray1613 = new int[4];
-        anIntArray1614 = new int[4];
+        hitCycles = new int[4];
         anIntArray1615 = new int[10];
         anIntArray1616 = new int[10];
         anInt1618 = 32;
@@ -166,22 +166,14 @@ public class Entity extends Renderable {
         throw new RuntimeException();
     }
 
-    public void method293(int i, boolean flag, int j, int k) {
-        try {
-            for (int l = 0; l < 4; l++) {
-                if (anIntArray1614[l] <= j) {
-                    anIntArray1612[l] = i;
-                    anIntArray1613[l] = k;
-                    anIntArray1614[l] = j + 70;
-                    return;
-                }
-            }
-            if (!flag) {
+    public void damage(int i, int k, int cycle) {
+        for (int index = 0; index < 4; index++) {
+            if (hitCycles[index] <= cycle) {
+                anIntArray1612[index] = i;
+                anIntArray1613[index] = k;
+                hitCycles[index] = cycle + 70;
                 return;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("72298, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception);
-            throw new RuntimeException();
         }
     }
 

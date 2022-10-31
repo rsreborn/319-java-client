@@ -25,7 +25,7 @@ public class SequenceConfig {
     public int anInt811;
     public int anInt812;
     public int anInt813;
-    public int anInt814;
+    public int replayMode;
     public int anInt815;
 
     public SequenceConfig() {
@@ -38,7 +38,7 @@ public class SequenceConfig {
         anInt811 = 99;
         anInt812 = -1;
         anInt813 = -1;
-        anInt814 = 2;
+        replayMode = 2;
     }
 
     public static void method591(CacheArchive cacheArchive, byte byte0) {
@@ -133,7 +133,7 @@ public class SequenceConfig {
                 } else if (j == 10) {
                     anInt813 = buffer.readUByte();
                 } else if (j == 11) {
-                    anInt814 = buffer.readUByte();
+                    replayMode = buffer.readUByte();
                 } else if (j == 12) {
                     anInt815 = buffer.readIntBE();
                 } else {
