@@ -235,12 +235,12 @@ public class Player extends Entity {
         if (aBoolean1688) {
             return class13_sub1_sub1_sub4;
         }
-        if (super.anInt1592 != -1 && super.anInt1593 != -1) {
-            SpotAnimationConfig spotAnimationConfig = SpotAnimationConfig.aSpotAnimationConfigArray685[super.anInt1592];
+        if (super.graphic != -1 && super.anInt1593 != -1) {
+            SpotAnimationConfig spotAnimationConfig = SpotAnimationConfig.aSpotAnimationConfigArray685[super.graphic];
             Model class13_sub1_sub1_sub4_2 = spotAnimationConfig.method530();
             if (class13_sub1_sub1_sub4_2 != null) {
                 Model class13_sub1_sub1_sub4_3 = new Model(false, AnimationFrame.method189(super.anInt1593, 19953), 629, class13_sub1_sub1_sub4_2, true);
-                class13_sub1_sub1_sub4_3.method278(0, -991, -super.anInt1596, 0);
+                class13_sub1_sub1_sub4_3.method278(0, -991, -super.graphicHeight, 0);
                 class13_sub1_sub1_sub4_3.method272(true);
                 class13_sub1_sub1_sub4_3.method273(spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593], false);
                 class13_sub1_sub1_sub4_3.anIntArrayArray1528 = null;
