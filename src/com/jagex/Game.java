@@ -758,7 +758,7 @@ public class Game extends GameShell {
 
     public static void main(String[] args) {
         try {
-            System.out.println("RS2 user com.jagex.client - release #" + 319);
+            System.out.println("RS2 user client - release #" + Constants.BUILD_NUMBER);
             if (args.length != 5) {
                 System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
                 return;
@@ -4448,7 +4448,7 @@ public class Game extends GameShell {
                 String s = "Unknown problem";
                 updateLoadingBar(false, "Connecting to web server", 20);
                 try {
-                    DataInputStream dataInputStream = jaggrabRequest("crc" + (int) (Math.random() * 99999999D) + "-" + 319);
+                    DataInputStream dataInputStream = jaggrabRequest("crc" + (int) (Math.random() * 99999999D) + "-" + Constants.BUILD_NUMBER);
                     Buffer buffer = new Buffer(new byte[40]);
                     dataInputStream.readFully(buffer.payload, 0, 40);
                     dataInputStream.close();
@@ -6072,7 +6072,7 @@ public class Game extends GameShell {
                 }
                 loginBuffer.writeByte(outBuffer.position + 36 + 1 + 1 + 2);
                 loginBuffer.writeByte(255);
-                loginBuffer.writeShortBE(319);
+                loginBuffer.writeShortBE(Constants.BUILD_NUMBER);
                 loginBuffer.writeByte(lowMemory ? 1 : 0);
                 for (int l1 = 0; l1 < 9; l1++) {
                     loginBuffer.writeIntBE(archiveChecksums[l1]);
@@ -10391,15 +10391,15 @@ public class Game extends GameShell {
                 return;
             }
             if (k == 3) {
-                int j1 = buffer.readBits(7);
+                int x = buffer.readBits(7);
                 anInt1166 = buffer.readBits(2);
-                int i2 = buffer.readBits(7);
+                int y = buffer.readBits(7);
                 int k2 = buffer.readBits(1);
                 int l2 = buffer.readBits(1);
                 if (l2 == 1) {
                     anIntArray902[anInt901++] = anInt897;
                 }
-                aClass13_Sub1_Sub1_Sub6_Sub1_997.method294(k2 == 1, i2, j1, (byte) 103);
+                aClass13_Sub1_Sub1_Sub6_Sub1_997.method294(k2 == 1, y, x, (byte) 103);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

@@ -177,14 +177,14 @@ public class Entity extends Renderable {
         }
     }
 
-    public void method294(boolean flag, int i, int j, byte byte0) {
+    public void method294(boolean flag, int y, int x, byte byte0) {
         try {
             if (emoteAnimation != -1 && SequenceConfig.sequences[emoteAnimation].anInt813 == 1) {
                 emoteAnimation = -1;
             }
             if (!flag) {
-                int k = i - anIntArray1615[0];
-                int l = j - anIntArray1616[0];
+                int k = y - anIntArray1615[0];
+                int l = x - anIntArray1616[0];
                 if (k >= -8 && k <= 8 && l >= -8 && l <= 8) {
                     if (anInt1591 < 9) {
                         anInt1591++;
@@ -194,8 +194,8 @@ public class Entity extends Renderable {
                         anIntArray1616[i1] = anIntArray1616[i1 - 1];
                         aBooleanArray1567[i1] = aBooleanArray1567[i1 - 1];
                     }
-                    anIntArray1615[0] = i;
-                    anIntArray1616[0] = j;
+                    anIntArray1615[0] = y;
+                    anIntArray1616[0] = x;
                     aBooleanArray1567[0] = false;
                     return;
                 }
@@ -203,17 +203,17 @@ public class Entity extends Renderable {
             anInt1591 = 0;
             anInt1619 = 0;
             anInt1568 = 0;
-            anIntArray1615[0] = i;
+            anIntArray1615[0] = y;
             if (byte0 != 103) {
                 return;
             } else {
-                anIntArray1616[0] = j;
+                anIntArray1616[0] = x;
                 anInt1587 = anIntArray1615[0] * 128 + anInt1611 * 64;
                 anInt1588 = anIntArray1616[0] * 128 + anInt1611 * 64;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("71514, " + flag + ", " + i + ", " + j + ", " + byte0 + ", " + runtimeexception);
+            Signlink.reportError("71514, " + flag + ", " + y + ", " + x + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
