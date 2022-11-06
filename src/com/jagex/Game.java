@@ -1549,7 +1549,7 @@ public class Game extends GameShell {
             parsePlayerMovement(size, buffer, true);
             parseTrackedPlayerMovement(buffer, size, 1);
             registerNewPlayers(buffer, size, 964);
-            parseTrackedPlayerSyncMasks(buffer, size, false);
+            parseTrackedPlayerUpdateMasks(buffer, size, false);
             for (int k = 0; k < anInt1071; k++) {
                 int index = anIntArray1072[k];
                 if (players[index].pulseCycle != pulseCycle) {
@@ -4583,7 +4583,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method42(int i, int j, Buffer buffer) {
+    public void registerNewNpcs(int i, int j, Buffer buffer) {
         try {
             if (j < 1 || j > 1) {
                 anInt1093 = -213;
@@ -7839,7 +7839,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method78(Buffer buffer, int i, int j) {
+    public void parseTrackedNpcUpdateMasks(Buffer buffer, int i, int j) {
         try {
             if (i != -8427) {
                 aLinkedListArrayArrayArray969 = null;
@@ -7985,7 +7985,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void parseTrackedPlayerSyncMasks(Buffer buffer, int i, boolean flag) {
+    public void parseTrackedPlayerUpdateMasks(Buffer buffer, int i, boolean flag) {
         try {
             for (int j = 0; j < anInt901; j++) {
                 int k = anIntArray902[j];
@@ -9197,9 +9197,9 @@ public class Game extends GameShell {
     public void updateNpcs(int i, Buffer buffer) {
         anInt1071 = 0;
         anInt901 = 0;
-        method142(buffer, i);
-        method42(i, 1, buffer);
-        method78(buffer, -8427, i);
+        parseTrackedNpcMovement(buffer, i);
+        registerNewNpcs(i, 1, buffer);
+        parseTrackedNpcUpdateMasks(buffer, -8427, i);
         for (int j = 0; j < anInt1071; j++) {
             int k = anIntArray1072[j];
             if (npcs[k].pulseCycle != pulseCycle) {
@@ -12119,7 +12119,7 @@ public class Game extends GameShell {
         aBoolean1234 = true;
     }
 
-    public void method142(Buffer buffer, int i) {
+    public void parseTrackedNpcMovement(Buffer buffer, int i) {
         buffer.initBitAccess();
 
         int j = buffer.readBits(8);
