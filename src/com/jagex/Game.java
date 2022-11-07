@@ -758,10 +758,14 @@ public class Game extends GameShell {
 
     public static void main(String[] args) {
         try {
-            System.out.println("RS2 user com.jagex.client - release #" + 319);
+            System.out.println("RS2 user client - release #" + Constants.BUILD_NUMBER);
             if (args.length != 5) {
                 System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
-                return;
+                System.out.println("Using defaults: 1 0 highmem members 32");
+                // return;
+                args = new String[] {
+                        "1", "0", "highmem", "members", "32"
+                };
             }
             anInt951 = Integer.parseInt(args[0]);
             portOffset = Integer.parseInt(args[1]);
@@ -883,7 +887,12 @@ public class Game extends GameShell {
 
     private void loadRSAKeys() {
         try {
-            final ObjectInputStream oin = new ObjectInputStream(new FileInputStream("./data/public.key"));
+            // final ObjectInputStream oin = new ObjectInputStream(new FileInputStream("./data/public.key"));
+            InputStream is = getClass().getResourceAsStream("/data/public.key");
+            if (is == null) {
+                is = new FileInputStream("./data/public.key");
+            }
+            final ObjectInputStream oin = new ObjectInputStream(is);
             rsaModulus = (BigInteger) oin.readObject();
             rsaKey = (BigInteger) oin.readObject();
         } catch (final Exception ex) {
@@ -1540,7 +1549,7 @@ public class Game extends GameShell {
             parsePlayerMovement(size, buffer, true);
             parseTrackedPlayerMovement(buffer, size, 1);
             registerNewPlayers(buffer, size, 964);
-            parseTrackedPlayerSyncMasks(buffer, size, false);
+            parseTrackedPlayerUpdateMasks(buffer, size, false);
             for (int k = 0; k < anInt1071; k++) {
                 int index = anIntArray1072[k];
                 if (players[index].pulseCycle != pulseCycle) {
@@ -4448,7 +4457,7 @@ public class Game extends GameShell {
                 String s = "Unknown problem";
                 updateLoadingBar(false, "Connecting to web server", 20);
                 try {
-                    DataInputStream dataInputStream = jaggrabRequest("crc" + (int) (Math.random() * 99999999D) + "-" + 319);
+                    DataInputStream dataInputStream = jaggrabRequest("crc" + (int) (Math.random() * 99999999D) + "-" + Constants.BUILD_NUMBER);
                     Buffer buffer = new Buffer(new byte[40]);
                     dataInputStream.readFully(buffer.payload, 0, 40);
                     dataInputStream.close();
@@ -4574,7 +4583,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method42(int i, int j, Buffer buffer) {
+    public void registerNewNpcs(int i, int j, Buffer buffer) {
         try {
             if (j < 1 || j > 1) {
                 anInt1093 = -213;
@@ -6072,7 +6081,7 @@ public class Game extends GameShell {
                 }
                 loginBuffer.writeByte(outBuffer.position + 36 + 1 + 1 + 2);
                 loginBuffer.writeByte(255);
-                loginBuffer.writeShortBE(319);
+                loginBuffer.writeShortBE(Constants.BUILD_NUMBER);
                 loginBuffer.writeByte(lowMemory ? 1 : 0);
                 for (int l1 = 0; l1 < 9; l1++) {
                     loginBuffer.writeIntBE(archiveChecksums[l1]);
@@ -7830,7 +7839,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method78(Buffer buffer, int i, int j) {
+    public void parseTrackedNpcUpdateMasks(Buffer buffer, int i, int j) {
         try {
             if (i != -8427) {
                 aLinkedListArrayArrayArray969 = null;
@@ -7976,7 +7985,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void parseTrackedPlayerSyncMasks(Buffer buffer, int i, boolean flag) {
+    public void parseTrackedPlayerUpdateMasks(Buffer buffer, int i, boolean flag) {
         try {
             for (int j = 0; j < anInt901; j++) {
                 int k = anIntArray902[j];
@@ -9188,9 +9197,9 @@ public class Game extends GameShell {
     public void updateNpcs(int i, Buffer buffer) {
         anInt1071 = 0;
         anInt901 = 0;
-        method142(buffer, i);
-        method42(i, 1, buffer);
-        method78(buffer, -8427, i);
+        parseTrackedNpcMovement(buffer, i);
+        registerNewNpcs(i, 1, buffer);
+        parseTrackedNpcUpdateMasks(buffer, -8427, i);
         for (int j = 0; j < anInt1071; j++) {
             int k = anIntArray1072[j];
             if (npcs[k].pulseCycle != pulseCycle) {
@@ -10391,15 +10400,15 @@ public class Game extends GameShell {
                 return;
             }
             if (k == 3) {
-                int j1 = buffer.readBits(7);
+                int x = buffer.readBits(7);
                 anInt1166 = buffer.readBits(2);
-                int i2 = buffer.readBits(7);
+                int y = buffer.readBits(7);
                 int k2 = buffer.readBits(1);
                 int l2 = buffer.readBits(1);
                 if (l2 == 1) {
                     anIntArray902[anInt901++] = anInt897;
                 }
-                aClass13_Sub1_Sub1_Sub6_Sub1_997.method294(k2 == 1, i2, j1, (byte) 103);
+                aClass13_Sub1_Sub1_Sub6_Sub1_997.method294(k2 == 1, y, x, (byte) 103);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -12110,7 +12119,7 @@ public class Game extends GameShell {
         aBoolean1234 = true;
     }
 
-    public void method142(Buffer buffer, int i) {
+    public void parseTrackedNpcMovement(Buffer buffer, int i) {
         buffer.initBitAccess();
 
         int j = buffer.readBits(8);

@@ -1,5 +1,7 @@
 package com.jagex.sign;
 
+import com.jagex.util.Constants;
+
 import java.applet.Applet;
 import java.io.*;
 import java.net.InetAddress;
@@ -8,7 +10,6 @@ import java.net.URL;
 
 public class Signlink implements Runnable {
 
-    public static int clientversion = 319;
     public static int uid;
     public static int storeid = 32;
     public static RandomAccessFile cache_dat = null;
@@ -78,7 +79,7 @@ public class Signlink implements Runnable {
         if (storeid < 32 || storeid > 34) {
             storeid = 32;
         }
-        String s = ".file_store_" + storeid;
+        String s = ".file_store_" + Constants.BUILD_NUMBER;
         for (int i = 0; i < as.length; i++) {
             try {
                 String s1 = as[i];
@@ -214,7 +215,7 @@ public class Signlink implements Runnable {
             s = s.replace('@', '_');
             s = s.replace('&', '_');
             s = s.replace('#', '_');
-            DataInputStream datainputstream = openurl("reporterror" + 319 + ".cgi?error=" + errorname + " " + s);
+            DataInputStream datainputstream = openurl("reporterror" + Constants.BUILD_NUMBER + ".cgi?error=" + errorname + " " + s);
             datainputstream.readLine();
             datainputstream.close();
             return;

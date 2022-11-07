@@ -3,6 +3,7 @@ package com.jagex.update;
 import com.jagex.Game;
 import com.jagex.cache.CacheArchive;
 import com.jagex.io.Buffer;
+import com.jagex.util.Constants;
 import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 import com.jagex.util.Queue;
@@ -192,6 +193,11 @@ public class GameUpdateClient implements Runnable {
                 updateServerInputStream = updateServerSocket.getInputStream();
                 updateServerOutputStream = updateServerSocket.getOutputStream();
                 updateServerOutputStream.write(15);
+
+                byte[] buildNumberBuffer = new byte[2];
+                buildNumberBuffer[0] = (byte) (Constants.BUILD_NUMBER >> 8);
+                buildNumberBuffer[1] = (byte) Constants.BUILD_NUMBER;
+                updateServerOutputStream.write(buildNumberBuffer, 0, 2);
 
                 for (int i = 0; i < 8; i++) {
                     updateServerInputStream.read();
