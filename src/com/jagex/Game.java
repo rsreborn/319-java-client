@@ -6087,11 +6087,11 @@ public class Game extends GameShell {
                     loginBuffer.writeIntBE(archiveChecksums[l1]);
                 }
                 loginBuffer.writeBytes(outBuffer.payload, 0, outBuffer.position);
-                outBuffer.isaacCipher = new ISAACCipher(0, seed);
+                outBuffer.isaacCipher = new ISAACCipher(seed);
                 for (int j2 = 0; j2 < 4; j2++) {
                     seed[j2] += 50;
                 }
-                isaacCipher = new ISAACCipher(0, seed);
+                isaacCipher = new ISAACCipher(seed);
                 gameConnection.write(loginBuffer.payload, 0, loginBuffer.position);
                 responseCode = gameConnection.read();
             }
