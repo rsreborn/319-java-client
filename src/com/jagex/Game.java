@@ -12084,33 +12084,33 @@ public class Game extends GameShell {
         anInt1284 = 0;
         for (int l = 0; l < j; l++) {
             int i1 = anIntArray1285[l];
-            Npc class13_sub1_sub1_sub6_sub2 = npcs[i1];
+            Npc npc = npcs[i1];
             int j1 = buffer.readBits(1);
             if (j1 == 0) {
                 anIntArray1285[anInt1284++] = i1;
-                class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
+                npc.pulseCycle = pulseCycle;
             } else {
                 int k1 = buffer.readBits(2);
                 if (k1 == 0) {
                     anIntArray1285[anInt1284++] = i1;
-                    class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
+                    npc.pulseCycle = pulseCycle;
                     anIntArray902[anInt901++] = i1;
                 } else if (k1 == 1) {
                     anIntArray1285[anInt1284++] = i1;
-                    class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
+                    npc.pulseCycle = pulseCycle;
                     int l1 = buffer.readBits(3);
-                    class13_sub1_sub1_sub6_sub2.method292(l1, 125, false);
+                    npc.method292(l1, 125, false);
                     int j2 = buffer.readBits(1);
                     if (j2 == 1) {
                         anIntArray902[anInt901++] = i1;
                     }
                 } else if (k1 == 2) {
                     anIntArray1285[anInt1284++] = i1;
-                    class13_sub1_sub1_sub6_sub2.pulseCycle = pulseCycle;
+                    npc.pulseCycle = pulseCycle;
                     int i2 = buffer.readBits(3);
-                    class13_sub1_sub1_sub6_sub2.method292(i2, 125, true);
+                    npc.method292(i2, 125, true);
                     int k2 = buffer.readBits(3);
-                    class13_sub1_sub1_sub6_sub2.method292(k2, 125, true);
+                    npc.method292(k2, 125, true);
                     int l2 = buffer.readBits(1);
                     if (l2 == 1) {
                         anIntArray902[anInt901++] = i1;
