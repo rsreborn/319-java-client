@@ -1,7 +1,6 @@
 package com.jagex.graphics;
 
 import com.jagex.cache.CacheArchive;
-import com.jagex.graphics.Rasterizer;
 import com.jagex.io.Buffer;
 import com.jagex.sign.Signlink;
 
@@ -204,18 +203,18 @@ public class IndexedImage extends Rasterizer {
             }
             j += anInt1671;
             i += anInt1672;
-            int k = j + i * Rasterizer.anInt1424;
+            int k = j + i * Rasterizer.width;
             int l = 0;
             int i1 = anInt1670;
             int j1 = anInt1669;
-            int k1 = Rasterizer.anInt1424 - j1;
+            int k1 = Rasterizer.width - j1;
             int l1 = 0;
             if (i < Rasterizer.anInt1426) {
                 int i2 = Rasterizer.anInt1426 - i;
                 i1 -= i2;
                 i = Rasterizer.anInt1426;
                 l += i2 * j1;
-                k += i2 * Rasterizer.anInt1424;
+                k += i2 * Rasterizer.width;
             }
             if (i + i1 > Rasterizer.anInt1427) {
                 i1 -= (i + i1) - Rasterizer.anInt1427;
@@ -238,7 +237,7 @@ public class IndexedImage extends Rasterizer {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method402(l, (byte) 114, j1, l1, aByteArray1667, k1, k, Rasterizer.anIntArray1423, anIntArray1668, i1);
+                method402(l, (byte) 114, j1, l1, aByteArray1667, k1, k, Rasterizer.pixels, anIntArray1668, i1);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

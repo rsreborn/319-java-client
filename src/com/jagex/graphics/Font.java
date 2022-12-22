@@ -311,7 +311,7 @@ public class Font extends Rasterizer {
                 }
             }
             if (aBoolean1661) {
-                Rasterizer.method359((byte) -40, 0x800000, l, j + (int) ((double) anInt1659 * 0.69999999999999996D), i - l);
+                Rasterizer.method359(0x800000, l, j + (int) ((double) anInt1659 * 0.69999999999999996D), i - l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -428,8 +428,8 @@ public class Font extends Rasterizer {
     }
 
     public void method392(byte[] abyte0, int i, int j, int k, int l, int i1) {
-        int j1 = i + j * Rasterizer.anInt1424;
-        int k1 = Rasterizer.anInt1424 - k;
+        int j1 = i + j * Rasterizer.width;
+        int k1 = Rasterizer.width - k;
         int l1 = 0;
         int i2 = 0;
         if (j < Rasterizer.anInt1426) {
@@ -437,7 +437,7 @@ public class Font extends Rasterizer {
             l -= j2;
             j = Rasterizer.anInt1426;
             i2 += j2 * k;
-            j1 += j2 * Rasterizer.anInt1424;
+            j1 += j2 * Rasterizer.width;
         }
         if (j + l >= Rasterizer.anInt1427) {
             l -= ((j + l) - Rasterizer.anInt1427) + 1;
@@ -460,7 +460,7 @@ public class Font extends Rasterizer {
         if (k <= 0 || l <= 0) {
             return;
         } else {
-            method393(Rasterizer.anIntArray1423, abyte0, i1, i2, j1, k, l, k1, l1);
+            method393(Rasterizer.pixels, abyte0, i1, i2, j1, k, l, k1, l1);
             return;
         }
     }
@@ -507,8 +507,8 @@ public class Font extends Rasterizer {
     public void method394(int i, int j, byte byte0, int k, int l, byte[] abyte0, int i1,
                           int j1) {
         try {
-            int k1 = j + l * Rasterizer.anInt1424;
-            int l1 = Rasterizer.anInt1424 - k;
+            int k1 = j + l * Rasterizer.width;
+            int l1 = Rasterizer.width - k;
             int i2 = 0;
             int j2 = 0;
             if (l < Rasterizer.anInt1426) {
@@ -516,7 +516,7 @@ public class Font extends Rasterizer {
                 j1 -= k2;
                 l = Rasterizer.anInt1426;
                 j2 += k2 * k;
-                k1 += k2 * Rasterizer.anInt1424;
+                k1 += k2 * Rasterizer.width;
             }
             if (l + j1 >= Rasterizer.anInt1427) {
                 j1 -= ((l + j1) - Rasterizer.anInt1427) + 1;
@@ -539,7 +539,7 @@ public class Font extends Rasterizer {
             if (k <= 0 || j1 <= 0) {
                 return;
             }
-            method395(i1, 0, i2, k, l1, j1, Rasterizer.anIntArray1423, i, j2, abyte0, k1);
+            method395(i1, 0, i2, k, l1, j1, Rasterizer.pixels, i, j2, abyte0, k1);
             if (byte0 != 9) {
                 for (int j3 = 1; j3 > 0; j3++) {
                 }

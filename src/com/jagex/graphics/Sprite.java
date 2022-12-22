@@ -111,7 +111,7 @@ public class Sprite extends Rasterizer {
             if (flag) {
                 aBoolean1679 = !aBoolean1679;
             }
-            Rasterizer.method351(0, anIntArray1680, anInt1682, anInt1681);
+            Rasterizer.method351(anIntArray1680, anInt1682, anInt1681);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("37582, " + flag + ", " + runtimeexception);
@@ -184,18 +184,18 @@ public class Sprite extends Rasterizer {
         try {
             i += anInt1683;
             j += anInt1684;
-            int l = i + j * Rasterizer.anInt1424;
+            int l = i + j * Rasterizer.width;
             int i1 = 0;
             int j1 = anInt1682;
             int k1 = anInt1681;
-            int l1 = Rasterizer.anInt1424 - k1;
+            int l1 = Rasterizer.width - k1;
             int i2 = 0;
             if (j < Rasterizer.anInt1426) {
                 int j2 = Rasterizer.anInt1426 - j;
                 j1 -= j2;
                 j = Rasterizer.anInt1426;
                 i1 += j2 * k1;
-                l += j2 * Rasterizer.anInt1424;
+                l += j2 * Rasterizer.width;
             }
             if (j + j1 > Rasterizer.anInt1427) {
                 j1 -= (j + j1) - Rasterizer.anInt1427;
@@ -218,7 +218,7 @@ public class Sprite extends Rasterizer {
             if (k1 <= 0 || j1 <= 0) {
                 return;
             }
-            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Rasterizer.anIntArray1423);
+            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Rasterizer.pixels);
             if (k <= 0) {
                 anInt1678 = 287;
                 return;
@@ -265,18 +265,18 @@ public class Sprite extends Rasterizer {
                 }
             }
             i += anInt1684;
-            int l = j + i * Rasterizer.anInt1424;
+            int l = j + i * Rasterizer.width;
             int i1 = 0;
             int j1 = anInt1682;
             int k1 = anInt1681;
-            int l1 = Rasterizer.anInt1424 - k1;
+            int l1 = Rasterizer.width - k1;
             int i2 = 0;
             if (i < Rasterizer.anInt1426) {
                 int j2 = Rasterizer.anInt1426 - i;
                 j1 -= j2;
                 i = Rasterizer.anInt1426;
                 i1 += j2 * k1;
-                l += j2 * Rasterizer.anInt1424;
+                l += j2 * Rasterizer.width;
             }
             if (i + j1 > Rasterizer.anInt1427) {
                 j1 -= (i + j1) - Rasterizer.anInt1427;
@@ -299,7 +299,7 @@ public class Sprite extends Rasterizer {
             if (k1 <= 0 || j1 <= 0) {
                 return;
             } else {
-                method409(Rasterizer.anIntArray1423, anIntArray1680, 0, i1, l, k1, j1, l1, i2);
+                method409(Rasterizer.pixels, anIntArray1680, 0, i1, l, k1, j1, l1, i2);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -356,7 +356,7 @@ public class Sprite extends Rasterizer {
         try {
             i += anInt1683;
             l += anInt1684;
-            int i1 = i + l * Rasterizer.anInt1424;
+            int i1 = i + l * Rasterizer.width;
             int j1 = 0;
             if (j < 8 || j > 8) {
                 for (int k1 = 1; k1 > 0; k1++) {
@@ -364,14 +364,14 @@ public class Sprite extends Rasterizer {
             }
             int l1 = anInt1682;
             int i2 = anInt1681;
-            int j2 = Rasterizer.anInt1424 - i2;
+            int j2 = Rasterizer.width - i2;
             int k2 = 0;
             if (l < Rasterizer.anInt1426) {
                 int l2 = Rasterizer.anInt1426 - l;
                 l1 -= l2;
                 l = Rasterizer.anInt1426;
                 j1 += l2 * i2;
-                i1 += l2 * Rasterizer.anInt1424;
+                i1 += l2 * Rasterizer.width;
             }
             if (l + l1 > Rasterizer.anInt1427) {
                 l1 -= (l + l1) - Rasterizer.anInt1427;
@@ -394,7 +394,7 @@ public class Sprite extends Rasterizer {
             if (i2 <= 0 || l1 <= 0) {
                 return;
             } else {
-                method411(true, i2, l1, anIntArray1680, j2, k2, k, 0, i1, Rasterizer.anIntArray1423, j1);
+                method411(true, i2, l1, anIntArray1680, j2, k2, k, 0, i1, Rasterizer.pixels, j1);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -445,20 +445,20 @@ public class Sprite extends Rasterizer {
                 i3 = i3 * j >> 8;
                 int j3 = (k1 << 16) + (k2 * l2 + j2 * i3);
                 int k3 = (j1 << 16) + (k2 * i3 - j2 * l2);
-                int l3 = k + l1 * Rasterizer.anInt1424;
+                int l3 = k + l1 * Rasterizer.width;
                 for (l1 = 0; l1 < i; l1++) {
                     int i4 = ai[l1];
                     int j4 = l3 + i4;
                     int k4 = j3 + i3 * i4;
                     int l4 = k3 - l2 * i4;
                     for (k = -ai1[l1]; k < 0; k++) {
-                        Rasterizer.anIntArray1423[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * anInt1681];
+                        Rasterizer.pixels[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * anInt1681];
                         k4 += i3;
                         l4 -= l2;
                     }
                     j3 += l2;
                     k3 += i3;
-                    l3 += Rasterizer.anInt1424;
+                    l3 += Rasterizer.width;
                 }
                 return;
             } catch (Exception _ex) {
@@ -485,7 +485,7 @@ public class Sprite extends Rasterizer {
                 k2 = k2 * i >> 8;
                 int l2 = (l << 16) + (i2 * j2 + l1 * k2);
                 int i3 = (k << 16) + (i2 * k2 - l1 * j2);
-                int j3 = k1 + j1 * Rasterizer.anInt1424;
+                int j3 = k1 + j1 * Rasterizer.width;
                 for (j1 = 0; j1 < i1; j1++) {
                     int k3 = j3;
                     int l3 = l2;
@@ -493,7 +493,7 @@ public class Sprite extends Rasterizer {
                     for (k1 = -j; k1 < 0; k1++) {
                         int j4 = anIntArray1680[(l3 >> 16) + (i4 >> 16) * anInt1681];
                         if (j4 != 0) {
-                            Rasterizer.anIntArray1423[k3++] = j4;
+                            Rasterizer.pixels[k3++] = j4;
                         } else {
                             k3++;
                         }
@@ -502,7 +502,7 @@ public class Sprite extends Rasterizer {
                     }
                     l2 += j2;
                     i3 += k2;
-                    j3 += Rasterizer.anInt1424;
+                    j3 += Rasterizer.width;
                 }
                 return;
             } catch (Exception _ex) {
@@ -518,11 +518,11 @@ public class Sprite extends Rasterizer {
         try {
             j += anInt1683;
             i += anInt1684;
-            int k = j + i * Rasterizer.anInt1424;
+            int k = j + i * Rasterizer.width;
             int l = 0;
             int i1 = anInt1682;
             int j1 = anInt1681;
-            int k1 = Rasterizer.anInt1424 - j1;
+            int k1 = Rasterizer.width - j1;
             int l1 = 0;
             if (byte0 == 6) {
                 byte0 = 0;
@@ -534,7 +534,7 @@ public class Sprite extends Rasterizer {
                 i1 -= i2;
                 i = Rasterizer.anInt1426;
                 l += i2 * j1;
-                k += i2 * Rasterizer.anInt1424;
+                k += i2 * Rasterizer.width;
             }
             if (i + i1 > Rasterizer.anInt1427) {
                 i1 -= (i + i1) - Rasterizer.anInt1427;
@@ -557,7 +557,7 @@ public class Sprite extends Rasterizer {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method415(l, 0, class13_sub1_sub4_sub3.aByteArray1667, i1, 381, l1, k, k1, j1, anIntArray1680, Rasterizer.anIntArray1423);
+                method415(l, 0, class13_sub1_sub4_sub3.aByteArray1667, i1, 381, l1, k, k1, j1, anIntArray1680, Rasterizer.pixels);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

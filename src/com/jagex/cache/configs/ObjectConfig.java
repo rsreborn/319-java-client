@@ -114,16 +114,16 @@ public class ObjectConfig {
             int j1 = Rasterizer3D.anInt1630;
             int k1 = Rasterizer3D.anInt1631;
             int[] ai = Rasterizer3D.anIntArray1636;
-            int[] ai1 = Rasterizer.anIntArray1423;
-            int l1 = Rasterizer.anInt1424;
-            int i2 = Rasterizer.anInt1425;
+            int[] ai1 = Rasterizer.pixels;
+            int l1 = Rasterizer.width;
+            int i2 = Rasterizer.height;
             int j2 = Rasterizer.anInt1428;
             int k2 = Rasterizer.anInt1429;
             int l2 = Rasterizer.anInt1426;
             int i3 = Rasterizer.anInt1427;
             Rasterizer3D.aBoolean1628 = false;
-            Rasterizer.method351(0, class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
-            Rasterizer.method356(false, 0, 0, 0, 32, 32);
+            Rasterizer.method351(class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
+            Rasterizer.method356(0, 0, 0, 32, 32);
             Rasterizer3D.method364(true);
             int j3 = objectConfig.modelScale;
             if (k == -1) {
@@ -187,8 +187,8 @@ public class ObjectConfig {
             if (k == 0) {
                 aCache_661.put(class13_sub1_sub4_sub4_1, i);
             }
-            Rasterizer.method351(0, ai1, i2, l1);
-            Rasterizer.method353(k2, (byte) -12, i3, l2, j2);
+            Rasterizer.method351(ai1, i2, l1);
+            Rasterizer.method353(k2, i3, l2, j2);
             if (!flag) {
                 aBoolean638 = !aBoolean638;
             }

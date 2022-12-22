@@ -33,7 +33,7 @@ public class NpcConfig {
     public int anInt760;
     public boolean aBoolean762;
     public int anInt764;
-    public String aString765;
+    public String name;
     public int[] anIntArray766;
     public int anInt767;
     public byte aByte768;
@@ -281,7 +281,7 @@ public class NpcConfig {
                         anIntArray769[k1] = buffer.readUShortBE();
                     }
                 } else if (j == 2) {
-                    aString765 = buffer.readString();
+                    name = buffer.readString();
                 } else if (j == 3) {
                     aByteArray754 = buffer.readStringBytes();
                 } else if (j == 12) {
