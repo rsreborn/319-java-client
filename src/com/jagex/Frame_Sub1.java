@@ -9,17 +9,12 @@ public class Frame_Sub1 extends Frame {
     public GameShell gameShell;
 
     public Frame_Sub1(GameShell gameShell, int startingHeight, int startingWidth) {
-        try {
-            this.gameShell = gameShell;
-            setTitle("Jagex");
-            setResizable(false);
-            setSize(startingWidth + 8, startingHeight + 28);
-            show();
-            toFront();
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("11982, " + gameShell + ", " + startingHeight + ", " + startingWidth + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
+        this.gameShell = gameShell;
+        setTitle("Jagex");
+        setResizable(false);
+        setSize(startingWidth + 8, startingHeight + 28);
+        show();
+        toFront();
     }
 
     public Graphics getGraphics() {

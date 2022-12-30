@@ -77,21 +77,11 @@ public class GameShell extends Applet
     }
 
     public void method2(int i, int j, int k) {
-        try {
-            initialWidth = j;
-            initialHeight = i;
-            aGraphics15 = method11().getGraphics();
-            aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
-            if (k != 0) {
-                for (int l = 1; l > 0; l++) {
-                }
-            }
-            method12(this, 1);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("6643, " + i + ", " + j + ", " + k + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+        initialWidth = j;
+        initialHeight = i;
+        aGraphics15 = method11().getGraphics();
+        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
+        method12(this, 1);
     }
 
     public void run() {

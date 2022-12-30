@@ -156,7 +156,7 @@ public class Rasterizer extends CacheableNode {
         }
     }
 
-    public static void method360(int i, int j, int k, int l, int i1) {
+    public static void method360(int color, int alpha, int k, int l, int i1) {
         if (i1 < anInt1426 || i1 >= anInt1427) {
             return;
         }
@@ -167,17 +167,17 @@ public class Rasterizer extends CacheableNode {
         if (l + k > anInt1429) {
             k = anInt1429 - l;
         }
-        int j1 = 256 - j;
-        int k1 = (i >> 16 & 0xff) * j;
-        int l1 = (i >> 8 & 0xff) * j;
-        int i2 = (i & 0xff) * j;
-        int i3 = l + i1 * width;
+        int a = 256 - alpha;
+        int red = (color >> 16 & 0xff) * alpha;
+        int green = (color >> 8 & 0xff) * alpha;
+        int blue = (color & 0xff) * alpha;
+        int pixel = l + i1 * width;
         for (int j3 = 0; j3 < k; j3++) {
-            int j2 = (pixels[i3] >> 16 & 0xff) * j1;
-            int k2 = (pixels[i3] >> 8 & 0xff) * j1;
-            int l2 = (pixels[i3] & 0xff) * j1;
-            int k3 = ((k1 + j2 >> 8) << 16) + ((l1 + k2 >> 8) << 8) + (i2 + l2 >> 8);
-            pixels[i3++] = k3;
+            int j2 = (pixels[pixel] >> 16 & 0xff) * a;
+            int k2 = (pixels[pixel] >> 8 & 0xff) * a;
+            int l2 = (pixels[pixel] & 0xff) * a;
+            int k3 = ((red + j2 >> 8) << 16) + ((green + k2 >> 8) << 8) + (blue + l2 >> 8);
+            pixels[pixel++] = k3;
         }
     }
 
