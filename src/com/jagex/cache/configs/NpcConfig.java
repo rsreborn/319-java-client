@@ -110,20 +110,11 @@ public class NpcConfig {
         }
     }
 
-    public static void method588(int i) {
-        try {
-            if (i != 47779) {
-                anInt763 = -14;
-            }
-            aCache_759 = null;
-            anIntArray761 = null;
-            aNpcConfigArray757 = null;
-            aBuffer_758 = null;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("41198, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void method588() {
+        aCache_759 = null;
+        anIntArray761 = null;
+        aNpcConfigArray757 = null;
+        aBuffer_758 = null;
     }
 
     public Model method582(int i, int j, boolean flag, int[] ai) {

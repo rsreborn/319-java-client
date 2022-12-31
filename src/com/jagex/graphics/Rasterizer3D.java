@@ -48,30 +48,19 @@ public class Rasterizer3D extends Rasterizer {
         }
     }
 
-    public static void method363(int i) {
-        try {
-            anIntArray1632 = null;
-            anIntArray1632 = null;
-            anIntArray1634 = null;
-            anIntArray1635 = null;
-            anIntArray1636 = null;
-            aClass13_Sub1_Sub4_Sub3Array1638 = null;
-            aBooleanArray1639 = null;
-            anIntArray1640 = null;
-            anIntArrayArray1642 = null;
-            anIntArrayArray1643 = null;
-            anIntArray1644 = null;
-            anIntArray1646 = null;
-            if (i != 47779) {
-                return;
-            } else {
-                anIntArrayArray1647 = null;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("24257, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void method363() {
+        anIntArray1632 = null;
+        anIntArray1634 = null;
+        anIntArray1635 = null;
+        anIntArray1636 = null;
+        aClass13_Sub1_Sub4_Sub3Array1638 = null;
+        aBooleanArray1639 = null;
+        anIntArray1640 = null;
+        anIntArrayArray1642 = null;
+        anIntArrayArray1643 = null;
+        anIntArray1644 = null;
+        anIntArray1646 = null;
+        anIntArrayArray1647 = null;
     }
 
     public static void method364(boolean flag) {

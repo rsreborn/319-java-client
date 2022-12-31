@@ -234,22 +234,12 @@ public class ObjectConfig {
         return objectConfig;
     }
 
-    public static void method511(int i) {
-        try {
-            aCache_660 = null;
-            aCache_661 = null;
-            if (i != 47779) {
-                for (int j = 1; j > 0; j++) {
-                }
-            }
-            anIntArray655 = null;
-            aObjectConfigArray620 = null;
-            aBuffer_665 = null;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("59319, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void method511() {
+        aCache_660 = null;
+        aCache_661 = null;
+        anIntArray655 = null;
+        aObjectConfigArray620 = null;
+        aBuffer_665 = null;
     }
 
     public static void method515(CacheArchive cacheArchive) {

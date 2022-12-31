@@ -71,22 +71,12 @@ public class LocationConfig {
         anInt284 = 6;
     }
 
-    public static void method416(int i) {
-        try {
-            if (i != 47779) {
-                return;
-            } else {
-                aCache_248 = null;
-                aCache_249 = null;
-                anIntArray287 = null;
-                aLocationConfigArray278 = null;
-                aBuffer_267 = null;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("69394, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void method416() {
+        aCache_248 = null;
+        aCache_249 = null;
+        anIntArray287 = null;
+        aLocationConfigArray278 = null;
+        aBuffer_267 = null;
     }
 
     public static LocationConfig readDefinition(int i) {

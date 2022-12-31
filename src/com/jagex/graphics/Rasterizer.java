@@ -56,7 +56,7 @@ public class Rasterizer extends CacheableNode {
         anInt1432 = anInt1427 / 2;
     }
 
-    public static void method354() {
+    public static void resetPixels() {
         int totalPixels = width * height;
         for (int pixel = 0; pixel < totalPixels; pixel++) {
             pixels[pixel] = 0;

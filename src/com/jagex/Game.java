@@ -256,7 +256,7 @@ public class Game extends GameShell {
     public int anInt984;
     public int anInt985;
     public boolean aBoolean987;
-    public int anInt988;
+    public int membershipStatus;
     public boolean aBoolean989;
     public long[] aLongArray990;
     public CacheArchive aCacheArchive_991;
@@ -323,7 +323,7 @@ public class Game extends GameShell {
     public boolean aBoolean1051;
     public int anInt1052;
     public int anInt1053;
-    public int anInt1054;
+    public int friendListCount;
     public int friendListStatus;
     public int anInt1056;
     public int anInt1057;
@@ -1054,69 +1054,52 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method16(int i) {
-        try {
-            if (aProducingGraphicsBuffer_1245 != null) {
-                return;
-            }
-            super.aProducingGraphicsBuffer_16 = null;
-            aProducingGraphicsBuffer_1214 = null;
-            aProducingGraphicsBuffer_1212 = null;
-            if (i != 35437) {
-                method6();
-            }
-            aProducingGraphicsBuffer_1211 = null;
-            aProducingGraphicsBuffer_1213 = null;
-            aProducingGraphicsBuffer_1186 = null;
-            aProducingGraphicsBuffer_1187 = null;
-            aProducingGraphicsBuffer_1188 = null;
-            aProducingGraphicsBuffer_1248 = new ProducingGraphicsBuffer(method11(), 128, 265);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1249 = new ProducingGraphicsBuffer(method11(), 128, 265);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1245 = new ProducingGraphicsBuffer(method11(), 509, 171);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1246 = new ProducingGraphicsBuffer(method11(), 360, 132);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1247 = new ProducingGraphicsBuffer(method11(), 360, 200);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1250 = new ProducingGraphicsBuffer(method11(), 202, 238);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1251 = new ProducingGraphicsBuffer(method11(), 203, 238);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1252 = new ProducingGraphicsBuffer(method11(), 74, 94);
-            Rasterizer.method354();
-            aProducingGraphicsBuffer_1253 = new ProducingGraphicsBuffer(method11(), 75, 94);
-            Rasterizer.method354();
-            if (aCacheArchive_991 != null) {
-                method32(736);
-                method122(8);
-            }
-            aBoolean1216 = true;
+    public void method16() {
+        if (aProducingGraphicsBuffer_1245 != null) {
             return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("1902, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        super.aProducingGraphicsBuffer_16 = null;
+        aProducingGraphicsBuffer_1214 = null;
+        aProducingGraphicsBuffer_1212 = null;
+        aProducingGraphicsBuffer_1211 = null;
+        aProducingGraphicsBuffer_1213 = null;
+        aProducingGraphicsBuffer_1186 = null;
+        aProducingGraphicsBuffer_1187 = null;
+        aProducingGraphicsBuffer_1188 = null;
+        aProducingGraphicsBuffer_1248 = new ProducingGraphicsBuffer(method11(), 128, 265);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1249 = new ProducingGraphicsBuffer(method11(), 128, 265);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1245 = new ProducingGraphicsBuffer(method11(), 509, 171);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1246 = new ProducingGraphicsBuffer(method11(), 360, 132);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1247 = new ProducingGraphicsBuffer(method11(), 360, 200);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1250 = new ProducingGraphicsBuffer(method11(), 202, 238);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1251 = new ProducingGraphicsBuffer(method11(), 203, 238);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1252 = new ProducingGraphicsBuffer(method11(), 74, 94);
+        Rasterizer.resetPixels();
+        aProducingGraphicsBuffer_1253 = new ProducingGraphicsBuffer(method11(), 75, 94);
+        Rasterizer.resetPixels();
+        if (aCacheArchive_991 != null) {
+            method32();
+            method122(8);
+        }
+        aBoolean1216 = true;
     }
 
-    public boolean method17(int i, int j) {
-        try {
-            if (j != 9) {
-                throw new NullPointerException();
-            }
-            if (i < 0) {
-                return false;
-            }
-            int k = anIntArray911[i];
-            if (k >= 2000) {
-                k -= 2000;
-            }
-            return k == 39;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("66940, " + i + ", " + j + ", " + runtimeexception);
+    public boolean method17(int i) {
+        if (i < 0) {
+            return false;
         }
-        throw new RuntimeException();
+        int k = anIntArray911[i];
+        if (k >= 2000) {
+            k -= 2000;
+        }
+        return k == 39;
     }
 
     public void method18(int i) {
@@ -1200,7 +1183,7 @@ public class Game extends GameShell {
 
     public void method20(boolean flag, boolean flag1) {
         try {
-            method16(35437);
+            method16();
             aProducingGraphicsBuffer_1247.method490();
             aClass13_Sub1_Sub4_Sub3_1120.method401(0, (byte) 83, 0);
             loggedIn &= flag;
@@ -1794,7 +1777,7 @@ public class Game extends GameShell {
                 if (k1 != -1) {
                     long l3 = StringUtil.encodeBase37Username(s.substring(k1 + 5).trim());
                     int j3 = -1;
-                    for (int i4 = 0; i4 < anInt1054; i4++) {
+                    for (int i4 = 0; i4 < friendListCount; i4++) {
                         if (aLongArray993[i4] != l3) {
                             continue;
                         }
@@ -2321,7 +2304,7 @@ public class Game extends GameShell {
                 if (l2 != -1) {
                     long l4 = StringUtil.encodeBase37Username(s3.substring(l2 + 5).trim());
                     if (action == 39) {
-                        method45(688, l4);
+                        method45(l4);
                     }
                     if (action == 775) {
                         method77(l4, 1);
@@ -3059,7 +3042,7 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (opcode == 55) {
-                    anInt988 = inBuffer.readUByte();
+                    membershipStatus = inBuffer.readUByte();
                     anInt950 = inBuffer.readUShortBE();
                     opcode = -1;
                     return true;
@@ -3068,7 +3051,7 @@ public class Game extends GameShell {
                     long l6 = inBuffer.readLongBE();
                     int k18 = inBuffer.readUByte();
                     String s7 = StringUtil.format(StringUtil.decodeBase37Username(l6));
-                    for (int i24 = 0; i24 < anInt1054; i24++) {
+                    for (int i24 = 0; i24 < friendListCount; i24++) {
                         if (l6 != aLongArray993[i24]) {
                             continue;
                         }
@@ -3085,16 +3068,16 @@ public class Game extends GameShell {
                         s7 = null;
                         break;
                     }
-                    if (s7 != null && anInt1054 < 200) {
-                        aLongArray993[anInt1054] = l6;
-                        aStringArray1003[anInt1054] = s7;
-                        anIntArray850[anInt1054] = k18;
-                        anInt1054++;
+                    if (s7 != null && friendListCount < 200) {
+                        aLongArray993[friendListCount] = l6;
+                        aStringArray1003[friendListCount] = s7;
+                        anIntArray850[friendListCount] = k18;
+                        friendListCount++;
                         redrawTabArea = true;
                     }
                     for (boolean flag5 = false; !flag5; ) {
                         flag5 = true;
-                        for (int l28 = 0; l28 < anInt1054 - 1; l28++) {
+                        for (int l28 = 0; l28 < friendListCount - 1; l28++) {
                             if (anIntArray850[l28] != anInt951 && anIntArray850[l28 + 1] == anInt951 || anIntArray850[l28] == 0 && anIntArray850[l28 + 1] != 0) {
                                 int k30 = anIntArray850[l28];
                                 anIntArray850[l28] = anIntArray850[l28 + 1];
@@ -3790,68 +3773,61 @@ public class Game extends GameShell {
         }
     }
 
-    public void method32(int i) {
-        try {
-            byte[] abyte0 = aCacheArchive_991.readFile("title.dat", null);
-            Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
-            aProducingGraphicsBuffer_1248.method490();
-            class13_sub1_sub4_sub4.method406(0, 0, 902);
-            aProducingGraphicsBuffer_1249.method490();
-            class13_sub1_sub4_sub4.method406(-637, 0, 902);
-            aProducingGraphicsBuffer_1245.method490();
-            class13_sub1_sub4_sub4.method406(-128, 0, 902);
-            aProducingGraphicsBuffer_1246.method490();
-            class13_sub1_sub4_sub4.method406(-202, -371, 902);
-            aProducingGraphicsBuffer_1247.method490();
-            class13_sub1_sub4_sub4.method406(-202, -171, 902);
-            aProducingGraphicsBuffer_1250.method490();
-            class13_sub1_sub4_sub4.method406(0, -265, 902);
-            aProducingGraphicsBuffer_1251.method490();
-            class13_sub1_sub4_sub4.method406(-562, -265, 902);
-            aProducingGraphicsBuffer_1252.method490();
-            class13_sub1_sub4_sub4.method406(-128, -171, 902);
-            aProducingGraphicsBuffer_1253.method490();
-            class13_sub1_sub4_sub4.method406(-562, -171, 902);
-            i = 94 / i;
-            int[] ai = new int[class13_sub1_sub4_sub4.anInt1681];
-            for (int j = 0; j < class13_sub1_sub4_sub4.anInt1682; j++) {
-                for (int k = 0; k < class13_sub1_sub4_sub4.anInt1681; k++) {
-                    ai[k] = class13_sub1_sub4_sub4.anIntArray1680[(class13_sub1_sub4_sub4.anInt1681 - k - 1) + class13_sub1_sub4_sub4.anInt1681 * j];
-                }
-                for (int l = 0; l < class13_sub1_sub4_sub4.anInt1681; l++) {
-                    class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.anInt1681 * j] = ai[l];
-                }
+    public void method32() {
+        byte[] abyte0 = aCacheArchive_991.readFile("title.dat", null);
+        Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
+        aProducingGraphicsBuffer_1248.method490();
+        class13_sub1_sub4_sub4.method406(0, 0, 902);
+        aProducingGraphicsBuffer_1249.method490();
+        class13_sub1_sub4_sub4.method406(-637, 0, 902);
+        aProducingGraphicsBuffer_1245.method490();
+        class13_sub1_sub4_sub4.method406(-128, 0, 902);
+        aProducingGraphicsBuffer_1246.method490();
+        class13_sub1_sub4_sub4.method406(-202, -371, 902);
+        aProducingGraphicsBuffer_1247.method490();
+        class13_sub1_sub4_sub4.method406(-202, -171, 902);
+        aProducingGraphicsBuffer_1250.method490();
+        class13_sub1_sub4_sub4.method406(0, -265, 902);
+        aProducingGraphicsBuffer_1251.method490();
+        class13_sub1_sub4_sub4.method406(-562, -265, 902);
+        aProducingGraphicsBuffer_1252.method490();
+        class13_sub1_sub4_sub4.method406(-128, -171, 902);
+        aProducingGraphicsBuffer_1253.method490();
+        class13_sub1_sub4_sub4.method406(-562, -171, 902);
+        int[] ai = new int[class13_sub1_sub4_sub4.anInt1681];
+        for (int j = 0; j < class13_sub1_sub4_sub4.anInt1682; j++) {
+            for (int k = 0; k < class13_sub1_sub4_sub4.anInt1681; k++) {
+                ai[k] = class13_sub1_sub4_sub4.anIntArray1680[(class13_sub1_sub4_sub4.anInt1681 - k - 1) + class13_sub1_sub4_sub4.anInt1681 * j];
             }
-            aProducingGraphicsBuffer_1248.method490();
-            class13_sub1_sub4_sub4.method406(382, 0, 902);
-            aProducingGraphicsBuffer_1249.method490();
-            class13_sub1_sub4_sub4.method406(-255, 0, 902);
-            aProducingGraphicsBuffer_1245.method490();
-            class13_sub1_sub4_sub4.method406(254, 0, 902);
-            aProducingGraphicsBuffer_1246.method490();
-            class13_sub1_sub4_sub4.method406(180, -371, 902);
-            aProducingGraphicsBuffer_1247.method490();
-            class13_sub1_sub4_sub4.method406(180, -171, 902);
-            aProducingGraphicsBuffer_1250.method490();
-            class13_sub1_sub4_sub4.method406(382, -265, 902);
-            aProducingGraphicsBuffer_1251.method490();
-            class13_sub1_sub4_sub4.method406(-180, -265, 902);
-            aProducingGraphicsBuffer_1252.method490();
-            class13_sub1_sub4_sub4.method406(254, -171, 902);
-            aProducingGraphicsBuffer_1253.method490();
-            class13_sub1_sub4_sub4.method406(-180, -171, 902);
-            class13_sub1_sub4_sub4 = new Sprite(aCacheArchive_991, "logo", 0);
-            aProducingGraphicsBuffer_1245.method490();
-            class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.anInt1681 / 2 - 128);
-            class13_sub1_sub4_sub4 = null;
-            abyte0 = null;
-            ai = null;
-            System.gc();
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("34955, " + i + ", " + runtimeexception);
+            for (int l = 0; l < class13_sub1_sub4_sub4.anInt1681; l++) {
+                class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.anInt1681 * j] = ai[l];
+            }
         }
-        throw new RuntimeException();
+        aProducingGraphicsBuffer_1248.method490();
+        class13_sub1_sub4_sub4.method406(382, 0, 902);
+        aProducingGraphicsBuffer_1249.method490();
+        class13_sub1_sub4_sub4.method406(-255, 0, 902);
+        aProducingGraphicsBuffer_1245.method490();
+        class13_sub1_sub4_sub4.method406(254, 0, 902);
+        aProducingGraphicsBuffer_1246.method490();
+        class13_sub1_sub4_sub4.method406(180, -371, 902);
+        aProducingGraphicsBuffer_1247.method490();
+        class13_sub1_sub4_sub4.method406(180, -171, 902);
+        aProducingGraphicsBuffer_1250.method490();
+        class13_sub1_sub4_sub4.method406(382, -265, 902);
+        aProducingGraphicsBuffer_1251.method490();
+        class13_sub1_sub4_sub4.method406(-180, -265, 902);
+        aProducingGraphicsBuffer_1252.method490();
+        class13_sub1_sub4_sub4.method406(254, -171, 902);
+        aProducingGraphicsBuffer_1253.method490();
+        class13_sub1_sub4_sub4.method406(-180, -171, 902);
+        class13_sub1_sub4_sub4 = new Sprite(aCacheArchive_991, "logo", 0);
+        aProducingGraphicsBuffer_1245.method490();
+        class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.anInt1681 / 2 - 128);
+        class13_sub1_sub4_sub4 = null;
+        abyte0 = null;
+        ai = null;
+        System.gc();
     }
 
     public void method33(boolean flag) {
@@ -4431,7 +4407,7 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                if (j == 1 && (anInt1275 == 1 || method17(anInt1167 - 1, 9)) && anInt1167 > 2) {
+                if (j == 1 && (anInt1275 == 1 || method17(anInt1167 - 1)) && anInt1167 > 2) {
                     j = 2;
                 }
                 if (j == 1 && anInt1167 > 0) {
@@ -4552,35 +4528,28 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method41(int i) {
-        try {
+    public void method41() {
+        currentlyDrawingFlames = false;
+        while (aBoolean866) {
             currentlyDrawingFlames = false;
-            while (aBoolean866) {
-                currentlyDrawingFlames = false;
-                try {
-                    Thread.sleep(50L);
-                } catch (Exception _ex) {
-                }
+            try {
+                Thread.sleep(50L);
+            } catch (Exception _ex) {
             }
-            aClass13_Sub1_Sub4_Sub3_1120 = null;
-            aClass13_Sub1_Sub4_Sub3_1121 = null;
-            aClass13_Sub1_Sub4_Sub3Array1155 = null;
-            anIntArray843 = null;
-            anIntArray844 = null;
-            anIntArray845 = null;
-            anIntArray846 = null;
-            anIntArray1043 = null;
-            i = 46 / i;
-            anIntArray1044 = null;
-            anIntArray1130 = null;
-            anIntArray1131 = null;
-            aClass13_Sub1_Sub4_Sub4_925 = null;
-            aClass13_Sub1_Sub4_Sub4_926 = null;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("6092, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        aClass13_Sub1_Sub4_Sub3_1120 = null;
+        aClass13_Sub1_Sub4_Sub3_1121 = null;
+        aClass13_Sub1_Sub4_Sub3Array1155 = null;
+        anIntArray843 = null;
+        anIntArray844 = null;
+        anIntArray845 = null;
+        anIntArray846 = null;
+        anIntArray1043 = null;
+        anIntArray1044 = null;
+        anIntArray1130 = null;
+        anIntArray1131 = null;
+        aClass13_Sub1_Sub4_Sub4_925 = null;
+        aClass13_Sub1_Sub4_Sub4_926 = null;
     }
 
     public void registerNewNpcs(int i, int j, Buffer buffer) {
@@ -4630,20 +4599,12 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public boolean method43(byte byte0, int i, byte[] abyte0) {
-        try {
-            if (byte0 != 35) {
-                aBoolean994 = !aBoolean994;
-            }
-            if (abyte0 == null) {
-                return true;
-            } else {
-                return Signlink.wavesave(abyte0, i);
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("72990, " + byte0 + ", " + i + ", " + abyte0 + ", " + runtimeexception);
+    public boolean method43(int i, byte[] abyte0) {
+        if (abyte0 == null) {
+            return true;
+        } else {
+            return Signlink.wavesave(abyte0, i);
         }
-        throw new RuntimeException();
     }
 
     public void method44(boolean flag) {
@@ -4706,7 +4667,7 @@ public class Game extends GameShell {
                     int l3 = class13_sub1_sub1_sub6_sub1.anInt1588 / 32 - localPlayer.anInt1588 / 32;
                     boolean flag1 = false;
                     long l6 = StringUtil.encodeBase37Username(class13_sub1_sub1_sub6_sub1.username);
-                    for (int k6 = 0; k6 < anInt1054; k6++) {
+                    for (int k6 = 0; k6 < friendListCount; k6++) {
                         if (l6 != aLongArray993[k6] || anIntArray850[k6] == 0) {
                             continue;
                         }
@@ -4760,49 +4721,43 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method45(int i, long l) {
-        try {
-            if (l == 0L) {
-                return;
-            }
-            if (anInt1054 >= 100 && anInt988 != 1) {
-                addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
-                return;
-            }
-            if (anInt1054 >= 200) {
-                addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
-                return;
-            }
-            String s = StringUtil.format(StringUtil.decodeBase37Username(l));
-            i = 9 / i;
-            for (int j = 0; j < anInt1054; j++) {
-                if (aLongArray993[j] == l) {
-                    addChatMessage("", s + " is already on your friend list", 0);
-                    return;
-                }
-            }
-            for (int k = 0; k < anInt1098; k++) {
-                if (aLongArray990[k] == l) {
-                    addChatMessage("", "Please remove " + s + " from your ignore list first", 0);
-                    return;
-                }
-            }
-            if (s.equals(localPlayer.username)) {
-                return;
-            } else {
-                aStringArray1003[anInt1054] = s;
-                aLongArray993[anInt1054] = l;
-                anIntArray850[anInt1054] = 0;
-                anInt1054++;
-                redrawTabArea = true;
-                outBuffer.writeOpcode(112);
-                outBuffer.writeLongBE(l);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("39619, " + i + ", " + l + ", " + runtimeexception);
+    public void method45(long encodedUsername) {
+        if (encodedUsername == 0L) {
+            return;
         }
-        throw new RuntimeException();
+        if (friendListCount >= 100 && membershipStatus != 1) {
+            addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
+            return;
+        }
+        if (friendListCount >= 200) {
+            addChatMessage("", "Your friendlist is full. Max of 100 for free users, and 200 for members", 0);
+            return;
+        }
+        String decodedUsername = StringUtil.format(StringUtil.decodeBase37Username(encodedUsername));
+        for (int j = 0; j < friendListCount; j++) {
+            if (aLongArray993[j] == encodedUsername) {
+                addChatMessage("", decodedUsername + " is already on your friend list", 0);
+                return;
+            }
+        }
+        for (int k = 0; k < anInt1098; k++) {
+            if (aLongArray990[k] == encodedUsername) {
+                addChatMessage("", "Please remove " + decodedUsername + " from your ignore list first", 0);
+                return;
+            }
+        }
+        if (decodedUsername.equals(localPlayer.username)) {
+            return;
+        } else {
+            aStringArray1003[friendListCount] = decodedUsername;
+            aLongArray993[friendListCount] = encodedUsername;
+            anIntArray850[friendListCount] = 0;
+            friendListCount++;
+            redrawTabArea = true;
+            outBuffer.writeOpcode(112);
+            outBuffer.writeLongBE(encodedUsername);
+            return;
+        }
     }
 
     public void method8(int i) {
@@ -4914,17 +4869,14 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_1245 = null;
             aProducingGraphicsBuffer_1246 = null;
             aProducingGraphicsBuffer_1247 = null;
-            if (i <= 0) {
-                anInt1170 = -41;
-            }
             aProducingGraphicsBuffer_1250 = null;
             aProducingGraphicsBuffer_1251 = null;
             aProducingGraphicsBuffer_1252 = null;
             aProducingGraphicsBuffer_1253 = null;
-            method41(88);
-            LocationConfig.method416(47779);
-            NpcConfig.method588(47779);
-            ObjectConfig.method511(47779);
+            method41();
+            LocationConfig.method416();
+            NpcConfig.method588();
+            ObjectConfig.method511();
             FloorConfig.aFloorConfigArray489 = null;
             IdentikitConfig.aIdentikitConfigArray65 = null;
             Widget.widgets = null;
@@ -4935,7 +4887,7 @@ public class Game extends GameShell {
             VariablePlayerConfig.aVariablePlayerConfigArray365 = null;
             super.aProducingGraphicsBuffer_16 = null;
             Player.modelCache = null;
-            Rasterizer3D.method363(47779);
+            Rasterizer3D.method363();
             Scene.method193(47779);
             Model.method261(47779);
             AnimationFrame.method187(47779);
@@ -5352,7 +5304,7 @@ public class Game extends GameShell {
                             outBuffer.writeByte(j1);
                             outBuffer.writeShortBE(anInt980);
                         }
-                    } else if ((anInt1275 == 1 || method17(anInt1167 - 1, 9)) && anInt1167 > 2) {
+                    } else if ((anInt1275 == 1 || method17(anInt1167 - 1)) && anInt1167 > 2) {
                         method109();
                     } else if (anInt1167 > 0) {
                         method27((byte) 66, anInt1167 - 1);
@@ -5750,7 +5702,7 @@ public class Game extends GameShell {
             Model.anInt1557 = 0;
             Model.anInt1555 = super.anInt23 - 4;
             Model.anInt1556 = super.anInt24 - 4;
-            Rasterizer.method354();
+            Rasterizer.resetPixels();
             aScene_1198.method233(l, anInt1006, anInt1008, -16656, anInt1007, anInt1004, anInt1005);
             aScene_1198.method208(true);
             method94((byte) 6);
@@ -5872,7 +5824,7 @@ public class Game extends GameShell {
         try {
             anInt1053 = percentage;
             aString827 = text;
-            method16(35437);
+            method16();
             if (aCacheArchive_991 == null) {
                 super.updateLoadingBar(false, text, percentage);
                 return;
@@ -6132,7 +6084,7 @@ public class Game extends GameShell {
                 }
                 aLinkedList_1152 = new LinkedList();
                 friendListStatus = 0;
-                anInt1054 = 0;
+                friendListCount = 0;
                 dialogueId = -1;
                 openChatboxWidgetId = -1;
                 anInt1217 = -1;
@@ -7301,7 +7253,7 @@ public class Game extends GameShell {
             if (s == null) {
                 return false;
             }
-            for (int j = 0; j < anInt1054; j++) {
+            for (int j = 0; j < friendListCount; j++) {
                 if (s.equalsIgnoreCase(aStringArray1003[j])) {
                     return true;
                 }
@@ -7782,7 +7734,7 @@ public class Game extends GameShell {
             if (i < anInt972 || i > anInt972) {
                 return;
             }
-            for (int k = 0; k < anInt1054; k++) {
+            for (int k = 0; k < friendListCount; k++) {
                 if (aLongArray993[k] == l) {
                     addChatMessage("", "Please remove " + s + " from your friend list first", 0);
                     return;
@@ -8290,7 +8242,7 @@ public class Game extends GameShell {
             if (aProducingGraphicsBuffer_1214 != null) {
                 return;
             }
-            method41(88);
+            method41();
             super.aProducingGraphicsBuffer_16 = null;
             aProducingGraphicsBuffer_1245 = null;
             aProducingGraphicsBuffer_1246 = null;
@@ -8303,11 +8255,11 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_1253 = null;
             aProducingGraphicsBuffer_1214 = new ProducingGraphicsBuffer(method11(), 479, 96);
             aProducingGraphicsBuffer_1212 = new ProducingGraphicsBuffer(method11(), 172, 156);
-            Rasterizer.method354();
+            Rasterizer.resetPixels();
             aClass13_Sub1_Sub4_Sub3_1209.method401(0, (byte) 83, 0);
             aProducingGraphicsBuffer_1211 = new ProducingGraphicsBuffer(method11(), 190, 261);
             aProducingGraphicsBuffer_1213 = new ProducingGraphicsBuffer(method11(), 512, 334);
-            Rasterizer.method354();
+            Rasterizer.resetPixels();
             for (aProducingGraphicsBuffer_1186 = new ProducingGraphicsBuffer(method11(), 496, 50); i >= 0; ) {
                 return;
             }
@@ -9282,7 +9234,7 @@ public class Game extends GameShell {
                 widget.actionType = 0;
                 return;
             }
-            int k = anInt1054;
+            int k = friendListCount;
             if (friendListStatus != 2) {
                 k = 0;
             }
@@ -9302,7 +9254,7 @@ public class Game extends GameShell {
             }
         }
         if (j >= 101 && j <= 200 || j >= 801 && j <= 900) {
-            int l = anInt1054;
+            int l = friendListCount;
             if (friendListStatus != 2) {
                 l = 0;
             }
@@ -9327,7 +9279,7 @@ public class Game extends GameShell {
             return;
         }
         if (j == 203) {
-            int i1 = anInt1054;
+            int i1 = friendListCount;
             if (friendListStatus != 2) {
                 i1 = 0;
             }
@@ -9566,7 +9518,7 @@ public class Game extends GameShell {
                         if (System.currentTimeMillis() + (long) (buffer.position / 22) > aLong819 + (long) (anInt1115 / 22)) {
                             anInt1115 = buffer.position;
                             aLong819 = System.currentTimeMillis();
-                            if (method43((byte) 35, buffer.position, buffer.payload)) {
+                            if (method43(buffer.position, buffer.payload)) {
                                 anInt1261 = anIntArray1278[k];
                                 anInt904 = anIntArray1207[k];
                             } else {
@@ -9706,9 +9658,9 @@ public class Game extends GameShell {
                         redrawChatbox = true;
                         if (anInt943 == 1) {
                             long l = StringUtil.encodeBase37Username(aString1218);
-                            method45(688, l);
+                            method45(l);
                         }
-                        if (anInt943 == 2 && anInt1054 > 0) {
+                        if (anInt943 == 2 && friendListCount > 0) {
                             long l1 = StringUtil.encodeBase37Username(aString1218);
                             method123(1, l1);
                         }
@@ -10430,11 +10382,11 @@ public class Game extends GameShell {
             if (l == 0L) {
                 return;
             }
-            for (int j = 0; j < anInt1054; j++) {
+            for (int j = 0; j < friendListCount; j++) {
                 if (aLongArray993[j] == l) {
-                    anInt1054--;
+                    friendListCount--;
                     redrawTabArea = true;
-                    for (int k = j; k < anInt1054; k++) {
+                    for (int k = j; k < friendListCount; k++) {
                         aStringArray1003[k] = aStringArray1003[k + 1];
                         anIntArray850[k] = anIntArray850[k + 1];
                         aLongArray993[k] = aLongArray993[k + 1];
@@ -11654,7 +11606,7 @@ public class Game extends GameShell {
             aFont_892 = new com.jagex.graphics.Font("p12_full", aCacheArchive_991, false, 6);
             aFont_893 = new com.jagex.graphics.Font("b12_full", aCacheArchive_991, false, 6);
             aFont_894 = new com.jagex.graphics.Font("q8_full", aCacheArchive_991, true, 6);
-            method32(736);
+            method32();
             method122(8);
             CacheArchive cacheArchive = requestArchive(2, "config", archiveChecksums[2], "config", 30);
             CacheArchive cacheArchive_1 = requestArchive(3, "interface", archiveChecksums[3], "interface", 35);
