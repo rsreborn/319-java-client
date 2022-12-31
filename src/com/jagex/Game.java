@@ -521,8 +521,8 @@ public class Game extends GameShell {
     public int anInt1258;
     public boolean aBoolean1259;
     public int anInt1261;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1262;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1263;
+    public Sprite disabledSprite;
+    public Sprite enabledSprite;
     public CacheIndex[] cacheIndexes;
     public int anInt1265;
     public Sprite[] aClass13_Sub1_Sub4_Sub4Array1266;
@@ -537,7 +537,7 @@ public class Game extends GameShell {
     public int[] archiveChecksums;
     public int[] anIntArray1278;
     public int anInt1279;
-    public String aString1280;
+    public String command;
     public Buffer aBuffer_1282;
     public Npc[] npcs;
     public int anInt1284;
@@ -729,7 +729,7 @@ public class Game extends GameShell {
         archiveChecksums = new int[9];
         anIntArray1278 = new int[50];
         anInt1279 = -22144;
-        aString1280 = "";
+        command = "";
         aBuffer_1282 = new Buffer(new byte[5000]);
         npcs = new Npc[16384];
         anIntArray1285 = new int[16384];
@@ -3477,7 +3477,7 @@ public class Game extends GameShell {
                     int j20 = l8 >> 10 & 0x1f;
                     int i23 = l8 >> 5 & 0x1f;
                     int i26 = l8 & 0x1f;
-                    Widget.widgets[j15].disabledColor = (j20 << 19) + (i23 << 11) + (i26 << 3);
+                    Widget.widgets[j15].disabledTextColor = (j20 << 19) + (i23 << 11) + (i26 << 3);
                     opcode = -1;
                     return true;
                 }
@@ -4438,7 +4438,7 @@ public class Game extends GameShell {
                     method27((byte) 66, anInt1167 - 1);
                 }
                 if (j == 2 && anInt1167 > 0) {
-                    method109(true);
+                    method109();
                 }
             }
             return;
@@ -5273,7 +5273,7 @@ public class Game extends GameShell {
             }
             method22(925);
             method112((byte) 0);
-            method108(0);
+            method108();
             anInt854++;
             if (anInt854 > 750) {
                 method19(0);
@@ -5353,7 +5353,7 @@ public class Game extends GameShell {
                             outBuffer.writeShortBE(anInt980);
                         }
                     } else if ((anInt1275 == 1 || method17(anInt1167 - 1, 9)) && anInt1167 > 2) {
-                        method109(true);
+                        method109();
                     } else if (anInt1167 > 0) {
                         method27((byte) 66, anInt1167 - 1);
                     }
@@ -5780,7 +5780,7 @@ public class Game extends GameShell {
             }
             g.setColor(Color.black);
             g.fillRect(0, 0, 765, 503);
-            method4(1, 9);
+            method4(1);
             if (aBoolean1234) {
                 currentlyDrawingFlames = false;
                 g.setFont(new java.awt.Font("Helvetica", 1, 16));
@@ -6559,7 +6559,7 @@ public class Game extends GameShell {
                     s = StringUtil.format(username);
                 }
                 font.method385((byte) -96, s + ":", 0, 4, 90);
-                font.method385((byte) -96, aString1280 + "*", 255, 6 + font.method383(3, s + ": "), 90);
+                font.method385((byte) -96, command + "*", 255, 6 + font.method383(3, s + ": "), 90);
                 Rasterizer.method359(0, 0, 77, 479);
             }
             if (aBoolean989 && anInt820 == 2) {
@@ -6897,7 +6897,7 @@ public class Game extends GameShell {
                 k2 += widget_1.anInt537;
                 l2 += widget_1.anInt590;
                 if (widget_1.contentType > 0) {
-                    method105(0, widget_1);
+                    method105(widget_1);
                 }
                 if (widget_1.type == 0) {
                     if (widget_1.anInt595 > widget_1.scrollLimit - widget_1.height) {
@@ -6998,7 +6998,7 @@ public class Game extends GameShell {
                                 j3 = widget_1.enabledHoverColor;
                             }
                         } else {
-                            j3 = widget_1.disabledColor;
+                            j3 = widget_1.disabledTextColor;
                             if (flag && widget_1.disabledHoverColor != 0) {
                                 j3 = widget_1.disabledHoverColor;
                             }
@@ -7028,14 +7028,14 @@ public class Game extends GameShell {
                                 s = widget_1.enabledText;
                             }
                         } else {
-                            i4 = widget_1.disabledColor;
+                            i4 = widget_1.disabledTextColor;
                             if (flag1 && widget_1.disabledHoverColor != 0) {
                                 i4 = widget_1.disabledHoverColor;
                             }
                         }
                         if (widget_1.actionType == 6 && aBoolean1048) {
                             s = "Please wait...";
-                            i4 = widget_1.disabledColor;
+                            i4 = widget_1.disabledTextColor;
                         }
                         if (Rasterizer.width == 479) {
                             if (i4 == 0xffff00) {
@@ -7149,9 +7149,9 @@ public class Game extends GameShell {
                                     int i9 = k2 + i6 * (115 + widget_1.itemSpritePaddingX);
                                     int k9 = l2 + j5 * (12 + widget_1.itemSpritePaddingY);
                                     if (widget_1.isTextCentered) {
-                                        class13_sub1_sub4_sub2_1.method382(i9 + widget_1.width / 2, widget_1.hasDropShadow, s2, k9, widget_1.disabledColor, false);
+                                        class13_sub1_sub4_sub2_1.method382(i9 + widget_1.width / 2, widget_1.hasDropShadow, s2, k9, widget_1.disabledTextColor, false);
                                     } else {
-                                        class13_sub1_sub4_sub2_1.method389(widget_1.hasDropShadow, i9, (byte) 8, k9, widget_1.disabledColor, s2);
+                                        class13_sub1_sub4_sub2_1.method389(widget_1.hasDropShadow, i9, (byte) 8, k9, widget_1.disabledTextColor, s2);
                                     }
                                 }
                                 k4++;
@@ -7513,7 +7513,7 @@ public class Game extends GameShell {
         }
         String s1 = getParameter("free");
         aBoolean953 = s1 == null || !s1.equals("1");
-        method2(503, 765, anInt1074);
+        method2(503, 765);
         loadRSAKeys();
     }
 
@@ -8281,17 +8281,8 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method10(int i) {
-        try {
-            if (i >= 0) {
-                anInt1170 = -32;
-            }
-            aBoolean1216 = true;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("22953, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public void method10() {
+        aBoolean1216 = true;
     }
 
     public void method90(int i) {
@@ -9261,302 +9252,287 @@ public class Game extends GameShell {
         }
     }
 
-    public String method104(int i) {
-        try {
-            i = 73 / i;
-            if (Signlink.mainapp != null) {
-                return Signlink.mainapp.getDocumentBase().getHost().toLowerCase();
-            }
-            if (super.aFrame_Sub1_18 != null) {
-                return "runescape.com";
-            } else {
-                return super.getDocumentBase().getHost().toLowerCase();
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("3292, " + i + ", " + runtimeexception);
+    public String method104() {
+        if (Signlink.mainapp != null) {
+            return Signlink.mainapp.getDocumentBase().getHost().toLowerCase();
         }
-        throw new RuntimeException();
+        if (super.aFrame_Sub1_18 != null) {
+            return "runescape.com";
+        } else {
+            return super.getDocumentBase().getHost().toLowerCase();
+        }
     }
 
-    public void method105(int i, Widget widget) {
-        try {
-            int j = widget.contentType;
-            if (i != 0) {
-                method6();
+    public void method105(Widget widget) {
+        int j = widget.contentType;
+
+        if (j >= 1 && j <= 100 || j >= 701 && j <= 800) {
+            if (j == 1 && friendListStatus == 0) {
+                widget.disabledText = "Loading friend list";
+                widget.actionType = 0;
+                return;
             }
-            if (j >= 1 && j <= 100 || j >= 701 && j <= 800) {
-                if (j == 1 && friendListStatus == 0) {
-                    widget.disabledText = "Loading friend list";
-                    widget.actionType = 0;
-                    return;
-                }
-                if (j == 1 && friendListStatus == 1) {
-                    widget.disabledText = "Connecting to friendserver";
-                    widget.actionType = 0;
-                    return;
-                }
-                if (j == 2 && friendListStatus != 2) {
-                    widget.disabledText = "Please wait...";
-                    widget.actionType = 0;
-                    return;
-                }
-                int k = anInt1054;
-                if (friendListStatus != 2) {
-                    k = 0;
-                }
-                if (j > 700) {
-                    j -= 601;
-                } else {
-                    j--;
-                }
-                if (j >= k) {
-                    widget.disabledText = "";
-                    widget.actionType = 0;
-                    return;
-                } else {
-                    widget.disabledText = aStringArray1003[j];
-                    widget.actionType = 1;
-                    return;
-                }
+            if (j == 1 && friendListStatus == 1) {
+                widget.disabledText = "Connecting to friendserver";
+                widget.actionType = 0;
+                return;
             }
-            if (j >= 101 && j <= 200 || j >= 801 && j <= 900) {
-                int l = anInt1054;
-                if (friendListStatus != 2) {
-                    l = 0;
-                }
-                if (j > 800) {
-                    j -= 701;
-                } else {
-                    j -= 101;
-                }
-                if (j >= l) {
-                    widget.disabledText = "";
-                    widget.actionType = 0;
-                    return;
-                }
-                if (anIntArray850[j] == 0) {
-                    widget.disabledText = "@red@Offline";
-                } else if (anIntArray850[j] == anInt951) {
-                    widget.disabledText = "@gre@World-" + (anIntArray850[j] - 9);
-                } else {
-                    widget.disabledText = "@yel@World-" + (anIntArray850[j] - 9);
-                }
+            if (j == 2 && friendListStatus != 2) {
+                widget.disabledText = "Please wait...";
+                widget.actionType = 0;
+                return;
+            }
+            int k = anInt1054;
+            if (friendListStatus != 2) {
+                k = 0;
+            }
+            if (j > 700) {
+                j -= 601;
+            } else {
+                j--;
+            }
+            if (j >= k) {
+                widget.disabledText = "";
+                widget.actionType = 0;
+                return;
+            } else {
+                widget.disabledText = aStringArray1003[j];
                 widget.actionType = 1;
                 return;
             }
-            if (j == 203) {
-                int i1 = anInt1054;
-                if (friendListStatus != 2) {
-                    i1 = 0;
-                }
-                widget.scrollLimit = i1 * 15 + 20;
-                if (widget.scrollLimit <= widget.height) {
-                    widget.scrollLimit = widget.height + 1;
-                }
+        }
+        if (j >= 101 && j <= 200 || j >= 801 && j <= 900) {
+            int l = anInt1054;
+            if (friendListStatus != 2) {
+                l = 0;
+            }
+            if (j > 800) {
+                j -= 701;
+            } else {
+                j -= 101;
+            }
+            if (j >= l) {
+                widget.disabledText = "";
+                widget.actionType = 0;
                 return;
             }
-            if (j >= 401 && j <= 500) {
-                if ((j -= 401) == 0 && friendListStatus == 0) {
-                    widget.disabledText = "Loading ignore list";
-                    widget.actionType = 0;
-                    return;
-                }
-                if (j == 1 && friendListStatus == 0) {
-                    widget.disabledText = "Please wait...";
-                    widget.actionType = 0;
-                    return;
-                }
-                int j1 = anInt1098;
-                if (friendListStatus == 0) {
-                    j1 = 0;
-                }
-                if (j >= j1) {
-                    widget.disabledText = "";
-                    widget.actionType = 0;
-                    return;
-                } else {
-                    widget.disabledText = StringUtil.format(StringUtil.decodeBase37Username(aLongArray990[j]));
-                    widget.actionType = 1;
-                    return;
-                }
+            if (anIntArray850[j] == 0) {
+                widget.disabledText = "@red@Offline";
+            } else if (anIntArray850[j] == anInt951) {
+                widget.disabledText = "@gre@World-" + (anIntArray850[j] - 9);
+            } else {
+                widget.disabledText = "@yel@World-" + (anIntArray850[j] - 9);
             }
-            if (j == 503) {
-                widget.scrollLimit = anInt1098 * 15 + 20;
-                if (widget.scrollLimit <= widget.height) {
-                    widget.scrollLimit = widget.height + 1;
-                }
+            widget.actionType = 1;
+            return;
+        }
+        if (j == 203) {
+            int i1 = anInt1054;
+            if (friendListStatus != 2) {
+                i1 = 0;
+            }
+            widget.scrollLimit = i1 * 15 + 20;
+            if (widget.scrollLimit <= widget.height) {
+                widget.scrollLimit = widget.height + 1;
+            }
+            return;
+        }
+        if (j >= 401 && j <= 500) {
+            if ((j -= 401) == 0 && friendListStatus == 0) {
+                widget.disabledText = "Loading ignore list";
+                widget.actionType = 0;
                 return;
             }
-            if (j == 327) {
-                widget.anInt535 = 150;
-                widget.anInt536 = (int) (Math.sin((double) pulseCycle / 40D) * 256D) & 0x7ff;
-                if (aBoolean1099) {
-                    for (int k1 = 0; k1 < 7; k1++) {
-                        int l1 = anIntArray1011[k1];
-                        if (l1 >= 0 && !IdentikitConfig.aIdentikitConfigArray65[l1].method177(true)) {
-                            return;
-                        }
-                    }
-                    aBoolean1099 = false;
-                    Model[] aclass13_sub1_sub1_sub4 = new Model[7];
-                    int i2 = 0;
-                    for (int j2 = 0; j2 < 7; j2++) {
-                        int k2 = anIntArray1011[j2];
-                        if (k2 >= 0) {
-                            aclass13_sub1_sub1_sub4[i2++] = IdentikitConfig.aIdentikitConfigArray65[k2].method178(0);
-                        }
-                    }
-                    Model class13_sub1_sub1_sub4 = new Model(i2, (byte) 61, aclass13_sub1_sub1_sub4);
-                    for (int l2 = 0; l2 < 5; l2++) {
-                        if (anIntArray1190[l2] != 0) {
-                            class13_sub1_sub1_sub4.method279(playerAppearanceColors[l2][0], playerAppearanceColors[l2][anIntArray1190[l2]]);
-                            if (l2 == 1) {
-                                class13_sub1_sub1_sub4.method279(anIntArray913[0], anIntArray913[anIntArray1190[l2]]);
-                            }
-                        }
-                    }
-                    class13_sub1_sub1_sub4.method272(true);
-                    class13_sub1_sub1_sub4.method273(SequenceConfig.sequences[localPlayer.idleAnimation].anIntArray802[0], false);
-                    class13_sub1_sub1_sub4.method282(64, 850, -30, -50, -30, true);
-                    widget.modelType = 5;
-                    widget.modelId = 0;
-                    Widget.method498(5, class13_sub1_sub1_sub4, anInt1138, 0);
-                }
+            if (j == 1 && friendListStatus == 0) {
+                widget.disabledText = "Please wait...";
+                widget.actionType = 0;
                 return;
             }
-            if (j == 324) {
-                if (aClass13_Sub1_Sub4_Sub4_1262 == null) {
-                    aClass13_Sub1_Sub4_Sub4_1262 = widget.disabledSprite;
-                    aClass13_Sub1_Sub4_Sub4_1263 = widget.enabledSprite;
-                }
-                if (aBoolean1068) {
-                    widget.disabledSprite = aClass13_Sub1_Sub4_Sub4_1263;
-                    return;
-                } else {
-                    widget.disabledSprite = aClass13_Sub1_Sub4_Sub4_1262;
-                    return;
-                }
+            int j1 = anInt1098;
+            if (friendListStatus == 0) {
+                j1 = 0;
             }
-            if (j == 325) {
-                if (aClass13_Sub1_Sub4_Sub4_1262 == null) {
-                    aClass13_Sub1_Sub4_Sub4_1262 = widget.disabledSprite;
-                    aClass13_Sub1_Sub4_Sub4_1263 = widget.enabledSprite;
-                }
-                if (aBoolean1068) {
-                    widget.disabledSprite = aClass13_Sub1_Sub4_Sub4_1262;
-                    return;
-                } else {
-                    widget.disabledSprite = aClass13_Sub1_Sub4_Sub4_1263;
-                    return;
-                }
+            if (j >= j1) {
+                widget.disabledText = "";
+                widget.actionType = 0;
+                return;
+            } else {
+                widget.disabledText = StringUtil.format(StringUtil.decodeBase37Username(aLongArray990[j]));
+                widget.actionType = 1;
+                return;
             }
-            if (j == 600) {
-                widget.disabledText = aString1230;
-                if (pulseCycle % 20 < 10) {
-                    widget.disabledText += "|";
-                    return;
-                } else {
-                    widget.disabledText += " ";
-                    return;
-                }
+        }
+        if (j == 503) {
+            widget.scrollLimit = anInt1098 * 15 + 20;
+            if (widget.scrollLimit <= widget.height) {
+                widget.scrollLimit = widget.height + 1;
             }
-            if (j == 613) {
-                if (anInt1037 >= 1) {
-                    if (aBoolean1034) {
-                        widget.disabledColor = 0xff0000;
-                        widget.disabledText = "Moderator option: Mute player for 48 hours: <ON>";
-                    } else {
-                        widget.disabledColor = 0xffffff;
-                        widget.disabledText = "Moderator option: Mute player for 48 hours: <OFF>";
-                    }
-                } else {
-                    widget.disabledText = "";
-                }
-            }
-            if (j == 650 || j == 655) {
-                if (lastLoginAddress != 0) {
-                    String s;
-                    if (daysSinceLastLogin == 0) {
-                        s = "earlier today";
-                    } else if (daysSinceLastLogin == 1) {
-                        s = "yesterday";
-                    } else {
-                        s = daysSinceLastLogin + " days ago";
-                    }
-                    widget.disabledText = "You last logged in " + s + " from: " + Signlink.dns;
-                } else {
-                    widget.disabledText = "";
-                }
-            }
-            if (j == 651) {
-                if (unreadMessagesCount == 0) {
-                    widget.disabledText = "0 unread messages";
-                    widget.disabledColor = 0xffff00;
-                }
-                if (unreadMessagesCount == 1) {
-                    widget.disabledText = "1 unread message";
-                    widget.disabledColor = 65280;
-                }
-                if (unreadMessagesCount > 1) {
-                    widget.disabledText = unreadMessagesCount + " unread messages";
-                    widget.disabledColor = 65280;
-                }
-            }
-            if (j == 652) {
-                if (daysSinceRecoveryQuestionsUpdated == 201) {
-                    if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
-                        widget.disabledText = "@yel@This is a non-members world: @whi@Since you are a member we";
-                    } else {
-                        widget.disabledText = "";
-                    }
-                } else if (daysSinceRecoveryQuestionsUpdated == 200) {
-                    widget.disabledText = "You have not yet set any password recovery questions.";
-                } else {
-                    String s1;
-                    if (daysSinceRecoveryQuestionsUpdated == 0) {
-                        s1 = "Earlier today";
-                    } else if (daysSinceRecoveryQuestionsUpdated == 1) {
-                        s1 = "Yesterday";
-                    } else {
-                        s1 = daysSinceRecoveryQuestionsUpdated + " days ago";
-                    }
-                    widget.disabledText = s1 + " you changed your recovery questions";
-                }
-            }
-            if (j == 653) {
-                if (daysSinceRecoveryQuestionsUpdated == 201) {
-                    if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
-                        widget.disabledText = "@whi@recommend you use a members world instead. You may use";
-                    } else {
-                        widget.disabledText = "";
-                    }
-                } else if (daysSinceRecoveryQuestionsUpdated == 200) {
-                    widget.disabledText = "We strongly recommend you do so now to secure your account.";
-                } else {
-                    widget.disabledText = "If you do not remember making this change then cancel it immediately";
-                }
-            }
-            if (j == 654) {
-                if (daysSinceRecoveryQuestionsUpdated == 201) {
-                    if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
-                        widget.disabledText = "@whi@this world but member benefits are unavailable whilst here.";
-                        return;
-                    } else {
-                        widget.disabledText = "";
+            return;
+        }
+        if (j == 327) {
+            widget.anInt535 = 150;
+            widget.anInt536 = (int) (Math.sin((double) pulseCycle / 40D) * 256D) & 0x7ff;
+            if (aBoolean1099) {
+                for (int k1 = 0; k1 < 7; k1++) {
+                    int l1 = anIntArray1011[k1];
+                    if (l1 >= 0 && !IdentikitConfig.aIdentikitConfigArray65[l1].method177(true)) {
                         return;
                     }
                 }
-                if (daysSinceRecoveryQuestionsUpdated == 200) {
-                    widget.disabledText = "Do this from the 'account management' area on our front webpage";
+                aBoolean1099 = false;
+                Model[] aclass13_sub1_sub1_sub4 = new Model[7];
+                int i2 = 0;
+                for (int j2 = 0; j2 < 7; j2++) {
+                    int k2 = anIntArray1011[j2];
+                    if (k2 >= 0) {
+                        aclass13_sub1_sub1_sub4[i2++] = IdentikitConfig.aIdentikitConfigArray65[k2].method178(0);
+                    }
+                }
+                Model class13_sub1_sub1_sub4 = new Model(i2, (byte) 61, aclass13_sub1_sub1_sub4);
+                for (int l2 = 0; l2 < 5; l2++) {
+                    if (anIntArray1190[l2] != 0) {
+                        class13_sub1_sub1_sub4.method279(playerAppearanceColors[l2][0], playerAppearanceColors[l2][anIntArray1190[l2]]);
+                        if (l2 == 1) {
+                            class13_sub1_sub1_sub4.method279(anIntArray913[0], anIntArray913[anIntArray1190[l2]]);
+                        }
+                    }
+                }
+                class13_sub1_sub1_sub4.method272(true);
+                class13_sub1_sub1_sub4.method273(SequenceConfig.sequences[localPlayer.idleAnimation].anIntArray802[0], false);
+                class13_sub1_sub1_sub4.method282(64, 850, -30, -50, -30, true);
+                widget.modelType = 5;
+                widget.modelId = 0;
+                Widget.method498(5, class13_sub1_sub1_sub4, anInt1138, 0);
+            }
+            return;
+        }
+        if (j == 324) {
+            if (disabledSprite == null) {
+                disabledSprite = widget.disabledSprite;
+                enabledSprite = widget.enabledSprite;
+            }
+            if (aBoolean1068) {
+                widget.disabledSprite = enabledSprite;
+                return;
+            } else {
+                widget.disabledSprite = disabledSprite;
+                return;
+            }
+        }
+        if (j == 325) {
+            if (disabledSprite == null) {
+                disabledSprite = widget.disabledSprite;
+                enabledSprite = widget.enabledSprite;
+            }
+            if (aBoolean1068) {
+                widget.disabledSprite = disabledSprite;
+                return;
+            } else {
+                widget.disabledSprite = enabledSprite;
+                return;
+            }
+        }
+        if (j == 600) {
+            widget.disabledText = aString1230;
+            if (pulseCycle % 20 < 10) {
+                widget.disabledText += "|";
+                return;
+            } else {
+                widget.disabledText += " ";
+                return;
+            }
+        }
+        if (j == 613) {
+            if (anInt1037 >= 1) {
+                if (aBoolean1034) {
+                    widget.disabledTextColor = 0xff0000;
+                    widget.disabledText = "Moderator option: Mute player for 48 hours: <ON>";
+                } else {
+                    widget.disabledTextColor = 0xffffff;
+                    widget.disabledText = "Moderator option: Mute player for 48 hours: <OFF>";
+                }
+            } else {
+                widget.disabledText = "";
+            }
+        }
+        if (j == 650 || j == 655) {
+            if (lastLoginAddress != 0) {
+                String s;
+                if (daysSinceLastLogin == 0) {
+                    s = "earlier today";
+                } else if (daysSinceLastLogin == 1) {
+                    s = "yesterday";
+                } else {
+                    s = daysSinceLastLogin + " days ago";
+                }
+                widget.disabledText = "You last logged in " + s + " from: " + Signlink.dns;
+            } else {
+                widget.disabledText = "";
+            }
+        }
+        if (j == 651) {
+            if (unreadMessagesCount == 0) {
+                widget.disabledText = "0 unread messages";
+                widget.disabledTextColor = 0xffff00;
+            }
+            if (unreadMessagesCount == 1) {
+                widget.disabledText = "1 unread message";
+                widget.disabledTextColor = 65280;
+            }
+            if (unreadMessagesCount > 1) {
+                widget.disabledText = unreadMessagesCount + " unread messages";
+                widget.disabledTextColor = 65280;
+            }
+        }
+        if (j == 652) {
+            if (daysSinceRecoveryQuestionsUpdated == 201) {
+                if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
+                    widget.disabledText = "@yel@This is a non-members world: @whi@Since you are a member we";
+                } else {
+                    widget.disabledText = "";
+                }
+            } else if (daysSinceRecoveryQuestionsUpdated == 200) {
+                widget.disabledText = "You have not yet set any password recovery questions.";
+            } else {
+                String s1;
+                if (daysSinceRecoveryQuestionsUpdated == 0) {
+                    s1 = "Earlier today";
+                } else if (daysSinceRecoveryQuestionsUpdated == 1) {
+                    s1 = "Yesterday";
+                } else {
+                    s1 = daysSinceRecoveryQuestionsUpdated + " days ago";
+                }
+                widget.disabledText = s1 + " you changed your recovery questions";
+            }
+        }
+        if (j == 653) {
+            if (daysSinceRecoveryQuestionsUpdated == 201) {
+                if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
+                    widget.disabledText = "@whi@recommend you use a members world instead. You may use";
+                } else {
+                    widget.disabledText = "";
+                }
+            } else if (daysSinceRecoveryQuestionsUpdated == 200) {
+                widget.disabledText = "We strongly recommend you do so now to secure your account.";
+            } else {
+                widget.disabledText = "If you do not remember making this change then cancel it immediately";
+            }
+        }
+        if (j == 654) {
+            if (daysSinceRecoveryQuestionsUpdated == 201) {
+                if (hasMembershipAndIsOnFreeToPlayWorld == 1) {
+                    widget.disabledText = "@whi@this world but member benefits are unavailable whilst here.";
                     return;
                 } else {
-                    widget.disabledText = "Do this from the 'account management' area on our front webpage";
+                    widget.disabledText = "";
                     return;
                 }
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("3335, " + i + ", " + widget + ", " + runtimeexception);
-            throw new RuntimeException();
+            if (daysSinceRecoveryQuestionsUpdated == 200) {
+                widget.disabledText = "Do this from the 'account management' area on our front webpage";
+            } else {
+                widget.disabledText = "Do this from the 'account management' area on our front webpage";
+            }
         }
     }
 
@@ -9576,149 +9552,129 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method108(int i) {
-        try {
-            if (i != 0) {
-                for (int j = 1; j > 0; j++) {
-                }
-            }
-            for (int k = 0; k < anInt1057; k++) {
-                if (anIntArray948[k] <= 0) {
-                    boolean flag = false;
-                    try {
-                        if (anIntArray1278[k] == anInt1261 && anIntArray1207[k] == anInt904) {
-                            if (!method118(8178)) {
+    public void method108() {
+        for (int k = 0; k < anInt1057; k++) {
+            if (anIntArray948[k] <= 0) {
+                boolean flag = false;
+                try {
+                    if (anIntArray1278[k] == anInt1261 && anIntArray1207[k] == anInt904) {
+                        if (!method118(8178)) {
+                            flag = true;
+                        }
+                    } else {
+                        Buffer buffer = Track.method476((byte) -97, anIntArray1278[k], anIntArray1207[k]);
+                        if (System.currentTimeMillis() + (long) (buffer.position / 22) > aLong819 + (long) (anInt1115 / 22)) {
+                            anInt1115 = buffer.position;
+                            aLong819 = System.currentTimeMillis();
+                            if (method43((byte) 35, buffer.position, buffer.payload)) {
+                                anInt1261 = anIntArray1278[k];
+                                anInt904 = anIntArray1207[k];
+                            } else {
                                 flag = true;
                             }
-                        } else {
-                            Buffer buffer = Track.method476((byte) -97, anIntArray1278[k], anIntArray1207[k]);
-                            if (System.currentTimeMillis() + (long) (buffer.position / 22) > aLong819 + (long) (anInt1115 / 22)) {
-                                anInt1115 = buffer.position;
-                                aLong819 = System.currentTimeMillis();
-                                if (method43((byte) 35, buffer.position, buffer.payload)) {
-                                    anInt1261 = anIntArray1278[k];
-                                    anInt904 = anIntArray1207[k];
-                                } else {
-                                    flag = true;
-                                }
-                            }
                         }
-                    } catch (Exception exception) {
                     }
-                    if (!flag || anIntArray948[k] == -5) {
-                        anInt1057--;
-                        for (int l = k; l < anInt1057; l++) {
-                            anIntArray1278[l] = anIntArray1278[l + 1];
-                            anIntArray1207[l] = anIntArray1207[l + 1];
-                            anIntArray948[l] = anIntArray948[l + 1];
-                        }
-                        k--;
-                    } else {
-                        anIntArray948[k] = -5;
+                } catch (Exception exception) {
+                }
+                if (!flag || anIntArray948[k] == -5) {
+                    anInt1057--;
+                    for (int l = k; l < anInt1057; l++) {
+                        anIntArray1278[l] = anIntArray1278[l + 1];
+                        anIntArray1207[l] = anIntArray1207[l + 1];
+                        anIntArray948[l] = anIntArray948[l + 1];
                     }
+                    k--;
                 } else {
-                    anIntArray948[k]--;
+                    anIntArray948[k] = -5;
                 }
+            } else {
+                anIntArray948[k]--;
             }
-            if (anInt1157 > 0) {
-                anInt1157 -= 20;
-                if (anInt1157 < 0) {
-                    anInt1157 = 0;
-                }
-                if (anInt1157 == 0 && aBoolean826 && !lowMemory) {
-                    nextSong = anInt1229;
-                    songChanging = true;
-                    gameUpdateClient.requestFile(2, nextSong);
-                    return;
-                }
+        }
+        if (anInt1157 > 0) {
+            anInt1157 -= 20;
+            if (anInt1157 < 0) {
+                anInt1157 = 0;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("14656, " + i + ", " + runtimeexception);
-            throw new RuntimeException();
+            if (anInt1157 == 0 && aBoolean826 && !lowMemory) {
+                nextSong = anInt1229;
+                songChanging = true;
+                gameUpdateClient.requestFile(2, nextSong);
+            }
         }
     }
 
-    public void method109(boolean flag) {
-        try {
-            int i = aFont_893.method383(3, "Choose Option");
-            for (int j = 0; j < anInt1167; j++) {
-                int k = aFont_893.method383(3, aStringArray961[j]);
-                if (k > i) {
-                    i = k;
-                }
+    public void method109() {
+        int i = aFont_893.method383(3, "Choose Option");
+        for (int j = 0; j < anInt1167; j++) {
+            int k = aFont_893.method383(3, aStringArray961[j]);
+            if (k > i) {
+                i = k;
             }
-            i += 8;
-            if (!flag) {
-                for (int l = 1; l > 0; l++) {
-                }
+        }
+        i += 8;
+        int i1 = 15 * anInt1167 + 21;
+        if (super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
+            int j1 = super.mouseX - 4 - i / 2;
+            if (j1 + i > 512) {
+                j1 = 512 - i;
             }
-            int i1 = 15 * anInt1167 + 21;
-            if (super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
-                int j1 = super.mouseX - 4 - i / 2;
-                if (j1 + i > 512) {
-                    j1 = 512 - i;
-                }
-                if (j1 < 0) {
-                    j1 = 0;
-                }
-                int i2 = super.mouseY - 4;
-                if (i2 + i1 > 334) {
-                    i2 = 334 - i1;
-                }
-                if (i2 < 0) {
-                    i2 = 0;
-                }
-                aBoolean989 = true;
-                anInt820 = 0;
-                anInt821 = j1;
-                anInt822 = i2;
-                anInt823 = i;
-                anInt824 = 15 * anInt1167 + 22;
+            if (j1 < 0) {
+                j1 = 0;
             }
-            if (super.mouseX > 553 && super.mouseY > 205 && super.mouseX < 743 && super.mouseY < 466) {
-                int k1 = super.mouseX - 553 - i / 2;
-                if (k1 < 0) {
-                    k1 = 0;
-                } else if (k1 + i > 190) {
-                    k1 = 190 - i;
-                }
-                int j2 = super.mouseY - 205;
-                if (j2 < 0) {
-                    j2 = 0;
-                } else if (j2 + i1 > 261) {
-                    j2 = 261 - i1;
-                }
-                aBoolean989 = true;
-                anInt820 = 1;
-                anInt821 = k1;
-                anInt822 = j2;
-                anInt823 = i;
-                anInt824 = 15 * anInt1167 + 22;
+            int i2 = super.mouseY - 4;
+            if (i2 + i1 > 334) {
+                i2 = 334 - i1;
             }
-            if (super.mouseX > 17 && super.mouseY > 357 && super.mouseX < 496 && super.mouseY < 453) {
-                int l1 = super.mouseX - 17 - i / 2;
-                if (l1 < 0) {
-                    l1 = 0;
-                } else if (l1 + i > 479) {
-                    l1 = 479 - i;
-                }
-                int k2 = super.mouseY - 357;
-                if (k2 < 0) {
-                    k2 = 0;
-                } else if (k2 + i1 > 96) {
-                    k2 = 96 - i1;
-                }
-                aBoolean989 = true;
-                anInt820 = 2;
-                anInt821 = l1;
-                anInt822 = k2;
-                anInt823 = i;
-                anInt824 = 15 * anInt1167 + 22;
-                return;
+            if (i2 < 0) {
+                i2 = 0;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("74466, " + flag + ", " + runtimeexception);
-            throw new RuntimeException();
+            aBoolean989 = true;
+            anInt820 = 0;
+            anInt821 = j1;
+            anInt822 = i2;
+            anInt823 = i;
+            anInt824 = 15 * anInt1167 + 22;
+        }
+        if (super.mouseX > 553 && super.mouseY > 205 && super.mouseX < 743 && super.mouseY < 466) {
+            int k1 = super.mouseX - 553 - i / 2;
+            if (k1 < 0) {
+                k1 = 0;
+            } else if (k1 + i > 190) {
+                k1 = 190 - i;
+            }
+            int j2 = super.mouseY - 205;
+            if (j2 < 0) {
+                j2 = 0;
+            } else if (j2 + i1 > 261) {
+                j2 = 261 - i1;
+            }
+            aBoolean989 = true;
+            anInt820 = 1;
+            anInt821 = k1;
+            anInt822 = j2;
+            anInt823 = i;
+            anInt824 = 15 * anInt1167 + 22;
+        }
+        if (super.mouseX > 17 && super.mouseY > 357 && super.mouseX < 496 && super.mouseY < 453) {
+            int l1 = super.mouseX - 17 - i / 2;
+            if (l1 < 0) {
+                l1 = 0;
+            } else if (l1 + i > 479) {
+                l1 = 479 - i;
+            }
+            int k2 = super.mouseY - 357;
+            if (k2 < 0) {
+                k2 = 0;
+            } else if (k2 + i1 > 96) {
+                k2 = 96 - i1;
+            }
+            aBoolean989 = true;
+            anInt820 = 2;
+            anInt821 = l1;
+            anInt822 = k2;
+            anInt823 = i;
+            anInt824 = 15 * anInt1167 + 22;
         }
     }
 
@@ -9824,34 +9780,34 @@ public class Game extends GameShell {
                         redrawChatbox = true;
                     }
                 } else if (openChatboxWidgetId == -1) {
-                    if (i >= 32 && i <= 122 && aString1280.length() < 80) {
-                        aString1280 += (char) i;
+                    if (i >= 32 && i <= 122 && command.length() < 80) {
+                        command += (char) i;
                         redrawChatbox = true;
                     }
-                    if (i == 8 && aString1280.length() > 0) {
-                        aString1280 = aString1280.substring(0, aString1280.length() - 1);
+                    if (i == 8 && command.length() > 0) {
+                        command = command.substring(0, command.length() - 1);
                         redrawChatbox = true;
                     }
-                    if ((i == 13 || i == 10) && aString1280.length() > 0) {
+                    if ((i == 13 || i == 10) && command.length() > 0) {
                         if (anInt1037 == 2) {
-                            if (aString1280.equals("::clientdrop")) {
+                            if (command.equals("::clientdrop")) {
                                 method19(0);
                             }
-                            if (aString1280.equals("::lag")) {
+                            if (command.equals("::lag")) {
                                 method53(-900);
                             }
-                            if (aString1280.equals("::prefetchmusic")) {
+                            if (command.equals("::prefetchmusic")) {
                                 for (int i1 = 0; i1 < gameUpdateClient.getFileVersionCount(2); i1++) {
                                     gameUpdateClient.requestExtra(2, i1, (byte) 1);
                                 }
                             }
-                            if (aString1280.equals("::fpson")) {
+                            if (command.equals("::fpson")) {
                                 aBoolean962 = true;
                             }
-                            if (aString1280.equals("::fpsoff")) {
+                            if (command.equals("::fpsoff")) {
                                 aBoolean962 = false;
                             }
-                            if (aString1280.equals("::noclip")) {
+                            if (command.equals("::noclip")) {
                                 for (int j1 = 0; j1 < 4; j1++) {
                                     for (int k1 = 1; k1 < 103; k1++) {
                                         for (int j2 = 1; j2 < 103; j2++) {
@@ -9861,80 +9817,80 @@ public class Game extends GameShell {
                                 }
                             }
                         }
-                        if (aString1280.startsWith("::")) {
+                        if (command.startsWith("::")) {
                             outBuffer.writeOpcode(192);
-                            outBuffer.writeByte(aString1280.length() - 1);
-                            outBuffer.writeString(aString1280.substring(2));
+                            outBuffer.writeByte(command.length() - 1);
+                            outBuffer.writeString(command.substring(2));
                         } else {
-                            String s = aString1280.toLowerCase();
+                            String formattedCommand = command.toLowerCase();
                             int i2 = 0;
-                            if (s.startsWith("yellow:")) {
+                            if (formattedCommand.startsWith("yellow:")) {
                                 i2 = 0;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("red:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("red:")) {
                                 i2 = 1;
-                                aString1280 = aString1280.substring(4);
-                            } else if (s.startsWith("green:")) {
+                                command = command.substring(4);
+                            } else if (formattedCommand.startsWith("green:")) {
                                 i2 = 2;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("cyan:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("cyan:")) {
                                 i2 = 3;
-                                aString1280 = aString1280.substring(5);
-                            } else if (s.startsWith("purple:")) {
+                                command = command.substring(5);
+                            } else if (formattedCommand.startsWith("purple:")) {
                                 i2 = 4;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("white:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("white:")) {
                                 i2 = 5;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("flash1:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("flash1:")) {
                                 i2 = 6;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("flash2:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("flash2:")) {
                                 i2 = 7;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("flash3:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("flash3:")) {
                                 i2 = 8;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("glow1:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("glow1:")) {
                                 i2 = 9;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("glow2:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("glow2:")) {
                                 i2 = 10;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("glow3:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("glow3:")) {
                                 i2 = 11;
-                                aString1280 = aString1280.substring(6);
+                                command = command.substring(6);
                             }
-                            s = aString1280.toLowerCase();
+                            formattedCommand = command.toLowerCase();
                             int k2 = 0;
-                            if (s.startsWith("wave:")) {
+                            if (formattedCommand.startsWith("wave:")) {
                                 k2 = 1;
-                                aString1280 = aString1280.substring(5);
-                            } else if (s.startsWith("wave2:")) {
+                                command = command.substring(5);
+                            } else if (formattedCommand.startsWith("wave2:")) {
                                 k2 = 2;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("shake:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("shake:")) {
                                 k2 = 3;
-                                aString1280 = aString1280.substring(6);
-                            } else if (s.startsWith("scroll:")) {
+                                command = command.substring(6);
+                            } else if (formattedCommand.startsWith("scroll:")) {
                                 k2 = 4;
-                                aString1280 = aString1280.substring(7);
-                            } else if (s.startsWith("slide:")) {
+                                command = command.substring(7);
+                            } else if (formattedCommand.startsWith("slide:")) {
                                 k2 = 5;
-                                aString1280 = aString1280.substring(6);
+                                command = command.substring(6);
                             }
                             outBuffer.writeOpcode(141);
                             outBuffer.writeByte(0);
                             int i3 = outBuffer.position;
                             aBuffer_1282.position = 0;
-                            ChatMessageCodec.encode(aBuffer_1282, aString1280);
+                            ChatMessageCodec.encode(aBuffer_1282, command);
                             outBuffer.readBytes(aBuffer_1282.payload, 0, aBuffer_1282.position);
                             outBuffer.writeByte(k2);
                             outBuffer.writeByte(i2);
                             outBuffer.writeSizeByte(outBuffer.position - i3);
-                            aString1280 = ChatMessageCodec.verify(aString1280);
-                            aString1280 = MessageCensor.method541(false, aString1280);
-                            localPlayer.forceChat = aString1280;
+                            command = ChatMessageCodec.verify(command);
+                            command = MessageCensor.method541(false, command);
+                            localPlayer.forceChat = command;
                             localPlayer.anInt1566 = i2;
                             localPlayer.anInt1617 = k2;
                             localPlayer.textCycle = 150;
@@ -9954,7 +9910,7 @@ public class Game extends GameShell {
                                 outBuffer.writeByte(anInt1290);
                             }
                         }
-                        aString1280 = "";
+                        command = "";
                         redrawChatbox = true;
                     }
                 }
@@ -11657,7 +11613,7 @@ public class Game extends GameShell {
         }
         aBoolean914 = true;
         boolean flag = false;
-        String s = method104(470);
+        String s = method104();
         if (s.endsWith("jagex.com")) {
             flag = true;
         }

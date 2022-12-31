@@ -33,7 +33,7 @@ public class Widget {
     public String[] options;
     public String disabledText;
     public int[] children;
-    public int disabledColor;
+    public int disabledTextColor;
     public boolean isTextCentered;
     public boolean isItemUsable;
     public String aString553;
@@ -240,7 +240,7 @@ public class Widget {
                     widget.enabledText = buffer.readString();
                 }
                 if (widget.type == 1 || widget.type == 3 || widget.type == 4) {
-                    widget.disabledColor = buffer.readIntBE();
+                    widget.disabledTextColor = buffer.readIntBE();
                 }
                 if (widget.type == 3 || widget.type == 4) {
                     widget.enabledColor = buffer.readIntBE();
@@ -295,7 +295,7 @@ public class Widget {
                         widget.fonts = fonts[l2];
                     }
                     widget.hasDropShadow = buffer.readUByte() == 1;
-                    widget.disabledColor = buffer.readIntBE();
+                    widget.disabledTextColor = buffer.readIntBE();
                     widget.itemSpritePaddingX = buffer.readShortBE();
                     widget.itemSpritePaddingY = buffer.readShortBE();
                     widget.isInventory = buffer.readUByte() == 1;

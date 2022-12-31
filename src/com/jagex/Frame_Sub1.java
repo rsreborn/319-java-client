@@ -13,7 +13,7 @@ public class Frame_Sub1 extends Frame {
         setTitle("Jagex");
         setResizable(false);
         setSize(startingWidth + 8, startingHeight + 28);
-        show();
+        setVisible(true);
         toFront();
     }
 

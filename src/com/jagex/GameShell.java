@@ -76,9 +76,9 @@ public class GameShell extends Applet
         method12(this, 1);
     }
 
-    public void method2(int i, int j, int k) {
-        initialWidth = j;
-        initialHeight = i;
+    public void method2(int height, int width) {
+        initialWidth = width;
+        initialHeight = height;
         aGraphics15 = method11().getGraphics();
         aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
         method12(this, 1);
@@ -184,9 +184,6 @@ public class GameShell extends Applet
     public void method3(int i) {
         try {
             anInt7 = -2;
-            if (i < 7 || i > 7) {
-                return;
-            }
             method8(427);
             if (aFrame_Sub1_18 != null) {
                 try {
@@ -195,9 +192,7 @@ public class GameShell extends Applet
                 }
                 try {
                     System.exit(0);
-                    return;
                 } catch (Throwable _ex) {
-                    return;
                 }
             }
         } catch (RuntimeException runtimeexception) {
@@ -206,18 +201,8 @@ public class GameShell extends Applet
         }
     }
 
-    public void method4(int i, int j) {
-        try {
-            anInt8 = 1000 / i;
-            if (j < 9 || j > 9) {
-                for (int k = 1; k > 0; k++) {
-                }
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("97612, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void method4(int i) {
+        anInt8 = 1000 / i;
     }
 
     public void start() {
@@ -248,7 +233,7 @@ public class GameShell extends Applet
             aGraphics15 = g;
         }
         aBoolean19 = true;
-        method10(-724);
+        method10();
     }
 
     public void paint(Graphics g) {
@@ -256,12 +241,12 @@ public class GameShell extends Applet
             aGraphics15 = g;
         }
         aBoolean19 = true;
-        method10(-724);
+        method10();
     }
 
-    public void mousePressed(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
+    public void mousePressed(MouseEvent mouseEvent) {
+        int i = mouseEvent.getX();
+        int j = mouseEvent.getY();
         if (aFrame_Sub1_18 != null) {
             i -= 4;
             j -= 22;
@@ -270,14 +255,12 @@ public class GameShell extends Applet
         anInt26 = i;
         anInt27 = j;
         aLong28 = System.currentTimeMillis();
-        if (mouseevent.isMetaDown()) {
+        if (mouseEvent.isMetaDown()) {
             anInt25 = 2;
             anInt22 = 2;
-            return;
         } else {
             anInt25 = 1;
             anInt22 = 1;
-            return;
         }
     }
 
@@ -442,7 +425,7 @@ public class GameShell extends Applet
     public void focusGained(FocusEvent focusevent) {
         aBoolean20 = true;
         aBoolean19 = true;
-        method10(-724);
+        method10();
     }
 
     public void focusLost(FocusEvent focusevent) {
@@ -478,49 +461,19 @@ public class GameShell extends Applet
     }
 
     public void method7(byte byte0) {
-        try {
-            if (byte0 != -19) {
-                anInt4 = -98;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("27521, " + byte0 + ", " + runtimeexception.toString());
-            throw new RuntimeException();
-        }
+
     }
 
     public void method8(int i) {
-        try {
-            i = 25 / i;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("26813, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+
     }
 
     public void method9(boolean flag) {
-        try {
-            if (flag) {
-                aBoolean6 = !aBoolean6;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("3226, " + flag + ", " + runtimeexception.toString());
-            throw new RuntimeException();
-        }
+
     }
 
-    public void method10(int i) {
-        try {
-            while (i >= 0) {
-                return;
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("78649, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public void method10() {
+
     }
 
     public Component method11() {
