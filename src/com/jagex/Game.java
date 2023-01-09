@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.net.*;
 import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.cache.CacheArchive;
 import com.jagex.cache.CacheIndex;
@@ -9,10 +10,6 @@ import com.jagex.renderable.*;
 import com.jagex.map.CollisionMap;
 import com.jagex.map.MapRegion;
 import com.jagex.map.Scene;
-import com.jagex.net.BufferedConnection;
-import com.jagex.net.IncomingPacket;
-import com.jagex.net.OutgoingPacket;
-import com.jagex.net.PacketConstants;
 import com.jagex.sound.Track;
 import com.jagex.update.GameUpdateClient;
 import com.jagex.update.GameUpdateRequest;
