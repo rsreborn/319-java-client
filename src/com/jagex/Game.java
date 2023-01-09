@@ -316,7 +316,7 @@ public class Game extends GameShell {
     public volatile boolean aBoolean1046;
     public volatile boolean currentlyDrawingFlames;
     public boolean aBoolean1048;
-    public Sprite minimapEdgeBackground;
+    public Sprite minimapRedArrowEdge;
     public Widget aWidget_1050;
     public boolean aBoolean1051;
     public int anInt1052;
@@ -382,8 +382,8 @@ public class Game extends GameShell {
     public boolean[] aBooleanArray1117;
     public int anInt1118;
     public int anInt1119;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1120;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1121;
+    public IndexedImage titleBox;
+    public IndexedImage titleButton;
     public long aLong1122;
     public IndexedImage[] mapSceneryIcons;
     public Sprite mapDotGroundItem;
@@ -413,7 +413,7 @@ public class Game extends GameShell {
     public int anInt1150;
     public LinkedList aLinkedList_1152;
     public boolean aBoolean1154;
-    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1155;
+    public IndexedImage[] titleRunes;
     public int anInt1157;
     public int anInt1159;
     public String clickToContinueText;
@@ -1154,7 +1154,7 @@ public class Game extends GameShell {
         try {
             method16();
             aProducingGraphicsBuffer_1247.createRasterizer();
-            aClass13_Sub1_Sub4_Sub3_1120.method401(0, 0);
+            titleBox.method401(0, 0);
             loggedIn &= flag;
             char c = '\u0168';
             char c1 = '\310';
@@ -1166,10 +1166,10 @@ public class Game extends GameShell {
                 i += 30;
                 int l = c / 2 - 80;
                 int k1 = c1 / 2 + 20;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, l - 73);
+                titleButton.method401(k1 - 20, l - 73);
                 boldFont.method382("New User", l, true, k1 + 5, 0xffffff);
                 l = c / 2 + 80;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, l - 73);
+                titleButton.method401(k1 - 20, l - 73);
                 boldFont.method382("Existing User", l, true, k1 + 5, 0xffffff);
             }
             if (anInt1220 == 2) {
@@ -1189,10 +1189,10 @@ public class Game extends GameShell {
                 if (!flag1) {
                     int i1 = c / 2 - 80;
                     int l1 = c1 / 2 + 50;
-                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, i1 - 73);
+                    titleButton.method401(l1 - 20, i1 - 73);
                     boldFont.method382("Login", i1, true, l1 + 5, 0xffffff);
                     i1 = c / 2 + 80;
-                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, i1 - 73);
+                    titleButton.method401(l1 - 20, i1 - 73);
                     boldFont.method382("Cancel", i1, true, l1 + 5, 0xffffff);
                 }
             }
@@ -1209,7 +1209,7 @@ public class Game extends GameShell {
                 k += 15;
                 int j1 = c / 2;
                 int i2 = c1 / 2 + 50;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(i2 - 20, j1 - 73);
+                titleButton.method401(i2 - 20, j1 - 73);
                 boldFont.method382("Cancel", j1, true, i2 + 5, 0xffffff);
             }
             aProducingGraphicsBuffer_1247.drawGraphics(super.aGraphics15, 202, 171);
@@ -1453,7 +1453,7 @@ public class Game extends GameShell {
             if (anInt1184 > anIntArray1043.length) {
                 anInt1184 -= anIntArray1043.length;
                 int l1 = (int) (Math.random() * 12D);
-                method103(aClass13_Sub1_Sub4_Sub3Array1155[l1], (byte) 9);
+                method103(titleRunes[l1], (byte) 9);
             }
             for (int i2 = 1; i2 < c - 1; i2++) {
                 for (int l2 = 1; l2 < 127; l2++) {
@@ -3743,56 +3743,56 @@ public class Game extends GameShell {
     }
 
     public void method32() {
-        byte[] abyte0 = titleArchive.readFile("title.dat", null);
-        Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
+        byte[] file = titleArchive.readFile("title.dat", null);
+        Sprite sprite = new Sprite(file, this);
         aProducingGraphicsBuffer_1248.createRasterizer();
-        class13_sub1_sub4_sub4.method406(0, 0);
+        sprite.method406(0, 0);
         aProducingGraphicsBuffer_1249.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-637, 0);
+        sprite.method406(-637, 0);
         aProducingGraphicsBuffer_1245.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-128, 0);
+        sprite.method406(-128, 0);
         aProducingGraphicsBuffer_1246.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-202, -371);
+        sprite.method406(-202, -371);
         aProducingGraphicsBuffer_1247.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-202, -171);
+        sprite.method406(-202, -171);
         aProducingGraphicsBuffer_1250.createRasterizer();
-        class13_sub1_sub4_sub4.method406(0, -265);
+        sprite.method406(0, -265);
         aProducingGraphicsBuffer_1251.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-562, -265);
+        sprite.method406(-562, -265);
         aProducingGraphicsBuffer_1252.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-128, -171);
+        sprite.method406(-128, -171);
         aProducingGraphicsBuffer_1253.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-562, -171);
-        int[] ai = new int[class13_sub1_sub4_sub4.spriteWidth];
-        for (int j = 0; j < class13_sub1_sub4_sub4.spriteHeight; j++) {
-            for (int k = 0; k < class13_sub1_sub4_sub4.spriteWidth; k++) {
-                ai[k] = class13_sub1_sub4_sub4.anIntArray1680[(class13_sub1_sub4_sub4.spriteWidth - k - 1) + class13_sub1_sub4_sub4.spriteWidth * j];
+        sprite.method406(-562, -171);
+        int[] ai = new int[sprite.spriteWidth];
+        for (int j = 0; j < sprite.spriteHeight; j++) {
+            for (int k = 0; k < sprite.spriteWidth; k++) {
+                ai[k] = sprite.anIntArray1680[(sprite.spriteWidth - k - 1) + sprite.spriteWidth * j];
             }
-            for (int l = 0; l < class13_sub1_sub4_sub4.spriteWidth; l++) {
-                class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.spriteWidth * j] = ai[l];
+            for (int l = 0; l < sprite.spriteWidth; l++) {
+                sprite.anIntArray1680[l + sprite.spriteWidth * j] = ai[l];
             }
         }
         aProducingGraphicsBuffer_1248.createRasterizer();
-        class13_sub1_sub4_sub4.method406(382, 0);
+        sprite.method406(382, 0);
         aProducingGraphicsBuffer_1249.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-255, 0);
+        sprite.method406(-255, 0);
         aProducingGraphicsBuffer_1245.createRasterizer();
-        class13_sub1_sub4_sub4.method406(254, 0);
+        sprite.method406(254, 0);
         aProducingGraphicsBuffer_1246.createRasterizer();
-        class13_sub1_sub4_sub4.method406(180, -371);
+        sprite.method406(180, -371);
         aProducingGraphicsBuffer_1247.createRasterizer();
-        class13_sub1_sub4_sub4.method406(180, -171);
+        sprite.method406(180, -171);
         aProducingGraphicsBuffer_1250.createRasterizer();
-        class13_sub1_sub4_sub4.method406(382, -265);
+        sprite.method406(382, -265);
         aProducingGraphicsBuffer_1251.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-180, -265);
+        sprite.method406(-180, -265);
         aProducingGraphicsBuffer_1252.createRasterizer();
-        class13_sub1_sub4_sub4.method406(254, -171);
+        sprite.method406(254, -171);
         aProducingGraphicsBuffer_1253.createRasterizer();
-        class13_sub1_sub4_sub4.method406(-180, -171);
-        class13_sub1_sub4_sub4 = new Sprite(titleArchive, "logo", 0);
+        sprite.method406(-180, -171);
+        sprite = new Sprite(titleArchive, "logo", 0);
         aProducingGraphicsBuffer_1245.createRasterizer();
-        class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.spriteWidth / 2 - 128);
+        sprite.method408(18, (byte) 83, 382 - sprite.spriteWidth / 2 - 128);
         System.gc();
     }
 
@@ -4503,9 +4503,9 @@ public class Game extends GameShell {
             } catch (Exception _ex) {
             }
         }
-        aClass13_Sub1_Sub4_Sub3_1120 = null;
-        aClass13_Sub1_Sub4_Sub3_1121 = null;
-        aClass13_Sub1_Sub4_Sub3Array1155 = null;
+        titleBox = null;
+        titleButton = null;
+        titleRunes = null;
         anIntArray843 = null;
         anIntArray844 = null;
         anIntArray845 = null;
@@ -9999,7 +9999,7 @@ public class Game extends GameShell {
                 double d = Math.atan2(l1, i2);
                 int j2 = (int) (Math.sin(d) * 63D);
                 int k2 = (int) (Math.cos(d) * 57D);
-                minimapEdgeBackground.method413(256, 20, 15, 15, 20, d, (byte) -98, 83 - k2 - 20, (94 + j2 + 4) - 10);
+                minimapRedArrowEdge.method413(256, 20, 15, 15, 20, d, (byte) -98, 83 - k2 - 20, (94 + j2 + 4) - 10);
                 return;
             } else {
                 method115(class13_sub1_sub4_sub4, i, k, 543);
@@ -10196,9 +10196,9 @@ public class Game extends GameShell {
     }
 
     public void method122() {
-        aClass13_Sub1_Sub4_Sub3_1120 = new IndexedImage(titleArchive, "titlebox", 0);
-        aClass13_Sub1_Sub4_Sub3_1121 = new IndexedImage(titleArchive, "titlebutton", 0);
-        aClass13_Sub1_Sub4_Sub3Array1155 = new IndexedImage[12];
+        titleBox = new IndexedImage(titleArchive, "titlebox", 0);
+        titleButton = new IndexedImage(titleArchive, "titlebutton", 0);
+        titleRunes = new IndexedImage[12];
         int j = 0;
         try {
             j = Integer.parseInt(getParameter("fl_icon"));
@@ -10206,11 +10206,11 @@ public class Game extends GameShell {
         }
         if (j == 0) {
             for (int k = 0; k < 12; k++) {
-                aClass13_Sub1_Sub4_Sub3Array1155[k] = new IndexedImage(titleArchive, "runes", k);
+                titleRunes[k] = new IndexedImage(titleArchive, "runes", k);
             }
         } else {
             for (int l = 0; l < 12; l++) {
-                aClass13_Sub1_Sub4_Sub3Array1155[l] = new IndexedImage(titleArchive, "runes", 12 + (l & 3));
+                titleRunes[l] = new IndexedImage(titleArchive, "runes", 12 + (l & 3));
             }
         }
         aClass13_Sub1_Sub4_Sub4_925 = new Sprite(128, 265);
@@ -11648,31 +11648,31 @@ public class Game extends GameShell {
                 sidebarIcons[icon] = new IndexedImage(mediaArchive, "sideicons", icon);
             }
             minimapCompass = new Sprite(mediaArchive, "compass", 0);
-            minimapEdgeBackground = new Sprite(mediaArchive, "mapedge", 0);
-            minimapEdgeBackground.method405();
+            minimapRedArrowEdge = new Sprite(mediaArchive, "mapedge", 0);
+            minimapRedArrowEdge.method405();
             try {
                 for (int k3 = 0; k3 < 100; k3++) {
                     mapSceneryIcons[k3] = new IndexedImage(mediaArchive, "mapscene", k3);
                 }
-            } catch (Exception _ex) {
+            } catch (Exception ignored) {
             }
             try {
                 for (int l3 = 0; l3 < 100; l3++) {
                     mapPointOfInterestIcons[l3] = new Sprite(mediaArchive, "mapfunction", l3);
                 }
-            } catch (Exception _ex) {
+            } catch (Exception ignored) {
             }
             try {
                 for (int hitmark = 0; hitmark < 20; hitmark++) {
                     hitmarks[hitmark] = new Sprite(mediaArchive, "hitmarks", hitmark);
                 }
-            } catch (Exception _ex) {
+            } catch (Exception ignored) {
             }
             try {
                 for (int headIcon = 0; headIcon < 20; headIcon++) {
                     headIcons[headIcon] = new Sprite(mediaArchive, "headicons", headIcon);
                 }
-            } catch (Exception _ex) {
+            } catch (Exception ignored) {
             }
             mapMarkerFlag = new Sprite(mediaArchive, "mapmarker", 0);
             mapMarkerArrow = new Sprite(mediaArchive, "mapmarker", 1);
