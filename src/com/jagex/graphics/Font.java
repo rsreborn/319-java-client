@@ -107,7 +107,7 @@ public class Font extends Rasterizer {
                 for (int l = 1; l > 0; l++) {
                 }
             }
-            method385((byte) -96, s, k, j - method384(s, 0), i);
+            method385(s, k, j - method384(s, 0), i);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("82776, " + i + ", " + flag + ", " + s + ", " + j + ", " + k + ", " + runtimeexception);
@@ -115,17 +115,8 @@ public class Font extends Rasterizer {
         throw new RuntimeException();
     }
 
-    public void method381(int i, int j, int k, int l, String s) {
-        try {
-            method385((byte) -96, s, j, i - method384(s, 0) / 2, l);
-            if (k < 6 || k > 6) {
-                anInt1648 = -373;
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("91627, " + i + ", " + j + ", " + k + ", " + l + ", " + s + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void method381(String text, int i, int j, int l) {
+        method385(text, j, i - method384(text, 0) / 2, l);
     }
 
     public void method382(int i, boolean flag, String s, int j, int k, boolean flag1) {
@@ -185,27 +176,19 @@ public class Font extends Rasterizer {
         throw new RuntimeException();
     }
 
-    public void method385(byte byte0, String s, int i, int j, int k) {
-        try {
-            if (s == null) {
-                return;
-            }
-            k -= anInt1659;
-            if (byte0 != -96) {
-                return;
-            }
-            for (int l = 0; l < s.length(); l++) {
-                char c = s.charAt(l);
-                if (c != ' ') {
-                    method392(aByteArrayArray1653[c], j + anIntArray1656[c], k + anIntArray1657[c], anIntArray1654[c], anIntArray1655[c], i);
-                }
-                j += anIntArray1658[c];
-            }
+    public void method385(String text, int i, int j, int k) {
+        if (text == null) {
             return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("36940, " + byte0 + ", " + s + ", " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        k -= anInt1659;
+
+        for (int l = 0; l < text.length(); l++) {
+            char c = text.charAt(l);
+            if (c != ' ') {
+                method392(aByteArrayArray1653[c], j + anIntArray1656[c], k + anIntArray1657[c], anIntArray1654[c], anIntArray1655[c], i);
+            }
+            j += anIntArray1658[c];
+        }
     }
 
     public void method386(int i, int j, int k, int l, int i1, String s) {

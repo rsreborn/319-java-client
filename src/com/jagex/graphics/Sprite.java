@@ -171,53 +171,44 @@ public class Sprite extends Rasterizer {
         anInt1684 = 0;
     }
 
-    public void method406(int i, int j, int k) {
-        try {
-            i += anInt1683;
-            j += anInt1684;
-            int l = i + j * Rasterizer.width;
-            int i1 = 0;
-            int j1 = anInt1682;
-            int k1 = anInt1681;
-            int l1 = Rasterizer.width - k1;
-            int i2 = 0;
-            if (j < Rasterizer.anInt1426) {
-                int j2 = Rasterizer.anInt1426 - j;
-                j1 -= j2;
-                j = Rasterizer.anInt1426;
-                i1 += j2 * k1;
-                l += j2 * Rasterizer.width;
-            }
-            if (j + j1 > Rasterizer.anInt1427) {
-                j1 -= (j + j1) - Rasterizer.anInt1427;
-            }
-            if (i < Rasterizer.anInt1428) {
-                int k2 = Rasterizer.anInt1428 - i;
-                k1 -= k2;
-                i = Rasterizer.anInt1428;
-                i1 += k2;
-                l += k2;
-                i2 += k2;
-                l1 += k2;
-            }
-            if (i + k1 > Rasterizer.anInt1429) {
-                int l2 = (i + k1) - Rasterizer.anInt1429;
-                k1 -= l2;
-                i2 += l2;
-                l1 += l2;
-            }
-            if (k1 <= 0 || j1 <= 0) {
-                return;
-            }
-            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Rasterizer.pixels);
-            if (k <= 0) {
-                anInt1678 = 287;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("27980, " + i + ", " + j + ", " + k + ", " + runtimeexception);
-            throw new RuntimeException();
+    public void method406(int i, int j) {
+        i += anInt1683;
+        j += anInt1684;
+        int l = i + j * Rasterizer.width;
+        int i1 = 0;
+        int j1 = anInt1682;
+        int k1 = anInt1681;
+        int l1 = Rasterizer.width - k1;
+        int i2 = 0;
+        if (j < Rasterizer.anInt1426) {
+            int j2 = Rasterizer.anInt1426 - j;
+            j1 -= j2;
+            j = Rasterizer.anInt1426;
+            i1 += j2 * k1;
+            l += j2 * Rasterizer.width;
         }
+        if (j + j1 > Rasterizer.anInt1427) {
+            j1 -= (j + j1) - Rasterizer.anInt1427;
+        }
+        if (i < Rasterizer.anInt1428) {
+            int k2 = Rasterizer.anInt1428 - i;
+            k1 -= k2;
+            i = Rasterizer.anInt1428;
+            i1 += k2;
+            l += k2;
+            i2 += k2;
+            l1 += k2;
+        }
+        if (i + k1 > Rasterizer.anInt1429) {
+            int l2 = (i + k1) - Rasterizer.anInt1429;
+            k1 -= l2;
+            i2 += l2;
+            l1 += l2;
+        }
+        if (k1 <= 0 || j1 <= 0) {
+            return;
+        }
+        method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Rasterizer.pixels);
     }
 
     public void method407(int i, int j, int k, int l, int i1, int j1, int[] ai,

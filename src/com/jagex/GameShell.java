@@ -71,28 +71,28 @@ public class GameShell extends Applet
         initialHeight = height;
         System.out.println("Height " + height + " Width " + width + " Initial Height " + initialHeight + " Initial Width " + initialWidth);
         aFrame_Sub1_18 = new GameFrame(this, initialHeight, initialWidth);
-        aGraphics15 = method11().getGraphics();
-        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
+        aGraphics15 = getGameFrame().getGraphics();
+        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(getGameFrame(), initialWidth, initialHeight);
         method12(this, 1);
     }
 
     public void method2(int height, int width) {
         initialWidth = width;
         initialHeight = height;
-        aGraphics15 = method11().getGraphics();
-        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
+        aGraphics15 = getGameFrame().getGraphics();
+        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(getGameFrame(), initialWidth, initialHeight);
         method12(this, 1);
     }
 
     public void run() {
-        method11().addMouseListener(this);
-        method11().addMouseMotionListener(this);
-        method11().addKeyListener(this);
-        method11().addFocusListener(this);
+        getGameFrame().addMouseListener(this);
+        getGameFrame().addMouseMotionListener(this);
+        getGameFrame().addKeyListener(this);
+        getGameFrame().addFocusListener(this);
         if (aFrame_Sub1_18 != null) {
             aFrame_Sub1_18.addWindowListener(this);
         }
-        updateLoadingBar(false, "Loading...", 0);
+        updateLoadingBar("Loading...", 0);
         method6();
         int i = 0;
         int j = 256;
@@ -476,7 +476,7 @@ public class GameShell extends Applet
 
     }
 
-    public Component method11() {
+    public Component getGameFrame() {
         if (aFrame_Sub1_18 != null) {
             return aFrame_Sub1_18;
         } else {
@@ -490,46 +490,36 @@ public class GameShell extends Applet
         thread.setPriority(i);
     }
 
-    public void updateLoadingBar(boolean flag, String text, int percentage) {
-        try {
-            while (aGraphics15 == null) {
-                aGraphics15 = method11().getGraphics();
-                try {
-                    method11().repaint();
-                } catch (Exception _ex) {
-                }
-                try {
-                    Thread.sleep(1000L);
-                } catch (Exception _ex) {
-                }
+    public void updateLoadingBar(String text, int percentage) {
+        while (aGraphics15 == null) {
+            aGraphics15 = getGameFrame().getGraphics();
+            try {
+                getGameFrame().repaint();
+            } catch (Exception _ex) {
             }
-            java.awt.Font font = new java.awt.Font("Helvetica", 1, 13);
-            FontMetrics fontmetrics = method11().getFontMetrics(font);
-            java.awt.Font font1 = new java.awt.Font("Helvetica", 0, 13);
-            method11().getFontMetrics(font1);
-            if (flag) {
-                for (int j = 1; j > 0; j++) {
-                }
+            try {
+                Thread.sleep(1000L);
+            } catch (Exception _ex) {
             }
-            if (aBoolean19) {
-                aGraphics15.setColor(Color.black);
-                aGraphics15.fillRect(0, 0, initialWidth, initialHeight);
-                aBoolean19 = false;
-            }
-            Color color = new Color(140, 17, 17);
-            int k = initialHeight / 2 - 18;
-            aGraphics15.setColor(color);
-            aGraphics15.drawRect(initialWidth / 2 - 152, k, 304, 34);
-            aGraphics15.fillRect(initialWidth / 2 - 150, k + 2, percentage * 3, 30);
-            aGraphics15.setColor(Color.black);
-            aGraphics15.fillRect((initialWidth / 2 - 150) + percentage * 3, k + 2, 300 - percentage * 3, 30);
-            aGraphics15.setFont(font);
-            aGraphics15.setColor(Color.white);
-            aGraphics15.drawString(text, (initialWidth - fontmetrics.stringWidth(text)) / 2, k + 22);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("GameShell.updateLoadingBar, " + flag + ", " + text + ", " + percentage + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        java.awt.Font font = new java.awt.Font("Helvetica", 1, 13);
+        FontMetrics fontmetrics = getGameFrame().getFontMetrics(font);
+        java.awt.Font font1 = new java.awt.Font("Helvetica", 0, 13);
+        getGameFrame().getFontMetrics(font1);
+        if (aBoolean19) {
+            aGraphics15.setColor(Color.black);
+            aGraphics15.fillRect(0, 0, initialWidth, initialHeight);
+            aBoolean19 = false;
+        }
+        Color color = new Color(140, 17, 17);
+        int k = initialHeight / 2 - 18;
+        aGraphics15.setColor(color);
+        aGraphics15.drawRect(initialWidth / 2 - 152, k, 304, 34);
+        aGraphics15.fillRect(initialWidth / 2 - 150, k + 2, percentage * 3, 30);
+        aGraphics15.setColor(Color.black);
+        aGraphics15.fillRect((initialWidth / 2 - 150) + percentage * 3, k + 2, 300 - percentage * 3, 30);
+        aGraphics15.setFont(font);
+        aGraphics15.setColor(Color.white);
+        aGraphics15.drawString(text, (initialWidth - fontmetrics.stringWidth(text)) / 2, k + 22);
     }
 }
