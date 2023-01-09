@@ -33,18 +33,18 @@ public class Game extends GameShell {
 
     public static int[][] playerAppearanceColors = {
         {
-                6798, 107, 10283, 16, 4797, 7744, 5799, 4634, 33697, 22433,
-                2983, 54193
+            6798, 107, 10283, 16, 4797, 7744, 5799, 4634, 33697, 22433,
+            2983, 54193
         }, {
             8741, 12, 64030, 43162, 7735, 8404, 1701, 38430, 24094, 10153,
             56621, 4783, 1341, 16578, 35003, 25239
         }, {
-                25238, 8742, 12, 64030, 43162, 7735, 8404, 1701, 38430, 24094,
-                10153, 56621, 4783, 1341, 16578, 35003
+            25238, 8742, 12, 64030, 43162, 7735, 8404, 1701, 38430, 24094,
+            10153, 56621, 4783, 1341, 16578, 35003
         }, {
-                4626, 11146, 6439, 12, 4758, 10270
+            4626, 11146, 6439, 12, 4758, 10270
         }, {
-                4550, 4537, 5681, 5673, 5790, 6806, 8076, 4574
+            4550, 4537, 5681, 5673, 5790, 6806, 8076, 4574
         }
     };
     public static boolean aBoolean860;
@@ -58,7 +58,7 @@ public class Game extends GameShell {
     public static int anInt951 = 10;
     public static int portOffset;
     public static boolean aBoolean953 = true;
-    public static boolean lowMemory;
+    public static boolean isLowMemory;
     public static int anInt957;
     public static int anInt958;
     public static boolean aBoolean962;
@@ -770,9 +770,9 @@ public class Game extends GameShell {
             anInt951 = Integer.parseInt(args[0]);
             portOffset = Integer.parseInt(args[1]);
             if (args[2].equals("lowmem")) {
-                method106(8);
+                setLowMemory();
             } else if (args[2].equals("highmem")) {
-                method85(true);
+                setHighMemory();
             } else {
                 System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
                 return;
@@ -796,62 +796,33 @@ public class Game extends GameShell {
         }
     }
 
-    public static String method58(int i, int j) {
-        try {
-            while (i >= 0) {
-                for (int k = 1; k > 0; k++) {
-                }
-            }
-            String s = String.valueOf(j);
-            for (int l = s.length() - 3; l > 0; l -= 3) {
-                s = s.substring(0, l) + "," + s.substring(l);
-            }
-            if (s.length() > 8) {
-                s = "@gre@" + s.substring(0, s.length() - 8) + " million @whi@(" + s + ")";
-            } else if (s.length() > 4) {
-                s = "@cya@" + s.substring(0, s.length() - 4) + "K @whi@(" + s + ")";
-            }
-            return " " + s;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("53115, " + i + ", " + j + ", " + runtimeexception);
+    public static String method58(int j) {
+        String s = String.valueOf(j);
+        for (int l = s.length() - 3; l > 0; l -= 3) {
+            s = s.substring(0, l) + "," + s.substring(l);
         }
-        throw new RuntimeException();
+        if (s.length() > 8) {
+            s = "@gre@" + s.substring(0, s.length() - 8) + " million @whi@(" + s + ")";
+        } else if (s.length() > 4) {
+            s = "@cya@" + s.substring(0, s.length() - 4) + "K @whi@(" + s + ")";
+        }
+        return " " + s;
     }
 
-    public static void method85(boolean flag) {
-        try {
-            Scene.aBoolean162 = false;
-            if (!flag) {
-                for (int i = 1; i > 0; i++) {
-                }
-            }
-            Rasterizer3D.aBoolean1625 = false;
-            lowMemory = false;
-            MapRegion.aBoolean433 = false;
-            LocationConfig.aBoolean272 = false;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("91380, " + flag + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void setHighMemory() {
+        Scene.isLowMemory = false;
+        Rasterizer3D.isLowMemory = false;
+        isLowMemory = false;
+        MapRegion.isLowMemory = false;
+        LocationConfig.isLowMemory = false;
     }
 
-    public static void method106(int i) {
-        try {
-            Scene.aBoolean162 = true;
-            Rasterizer3D.aBoolean1625 = true;
-            lowMemory = true;
-            MapRegion.aBoolean433 = true;
-            if (i < 8 || i > 8) {
-                return;
-            } else {
-                LocationConfig.aBoolean272 = true;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("30709, " + i + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
+    public static void setLowMemory() {
+        Scene.isLowMemory = true;
+        Rasterizer3D.isLowMemory = true;
+        isLowMemory = true;
+        MapRegion.isLowMemory = true;
+        LocationConfig.isLowMemory = true;
     }
 
     public static String getCombatLevelColor(int self, int opponent) {
@@ -1291,7 +1262,7 @@ public class Game extends GameShell {
     public void method22(int i) {
         try {
             i = 90 / i;
-            if (lowMemory && anInt1254 == 2 && MapRegion.anInt416 != anInt1166) {
+            if (isLowMemory && anInt1254 == 2 && MapRegion.anInt416 != anInt1166) {
                 aProducingGraphicsBuffer_1213.method490();
                 aFont_892.method381(257, 0, 6, 151, "Loading - please wait.");
                 aFont_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
@@ -1302,7 +1273,7 @@ public class Game extends GameShell {
             if (anInt1254 == 1) {
                 int j = method23(-20);
                 if (j != 0 && System.currentTimeMillis() - aLong1243 > 0x57e40L) {
-                    Signlink.reportError(username + " glcfb " + serverSeed + "," + j + "," + lowMemory + "," + cacheIndexes[0] + "," + gameUpdateClient.immediateRequestCount() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
+                    Signlink.reportError(username + " glcfb " + serverSeed + "," + j + "," + isLowMemory + "," + cacheIndexes[0] + "," + gameUpdateClient.immediateRequestCount() + "," + anInt1166 + "," + anInt984 + "," + anInt985);
                     aLong1243 = System.currentTimeMillis();
                 }
             }
@@ -2422,7 +2393,7 @@ public class Game extends GameShell {
                 Runtime runtime = Runtime.getRuntime();
                 int j1 = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
                 i1 = 0xffff00;
-                if (j1 > 0x2000000 && lowMemory) {
+                if (j1 > 0x2000000 && isLowMemory) {
                     i1 = 0xff0000;
                 }
                 aFont_892.method380(k, aBoolean1235, "Mem:" + j1 + "k", c, 0xffff00);
@@ -2665,7 +2636,7 @@ public class Game extends GameShell {
                     if (l1 == 65535) {
                         l1 = -1;
                     }
-                    if (l1 != anInt1229 && aBoolean826 && !lowMemory && anInt1157 == 0) {
+                    if (l1 != anInt1229 && aBoolean826 && !isLowMemory && anInt1157 == 0) {
                         nextSong = l1;
                         songChanging = true;
                         gameUpdateClient.requestFile(2, nextSong);
@@ -2677,7 +2648,7 @@ public class Game extends GameShell {
                 if (opcode == 220) {
                     int i2 = inBuffer.readUShortBE();
                     int k10 = inBuffer.readMediumLE();
-                    if (aBoolean826 && !lowMemory) {
+                    if (aBoolean826 && !isLowMemory) {
                         nextSong = i2;
                         songChanging = false;
                         gameUpdateClient.requestFile(2, nextSong);
@@ -2799,7 +2770,7 @@ public class Game extends GameShell {
                     int l3 = inBuffer.readUShortBE();
                     int l11 = inBuffer.readUByte();
                     int k16 = inBuffer.readUShortBE();
-                    if (aBoolean1010 && !lowMemory && anInt1057 < 50) {
+                    if (aBoolean1010 && !isLowMemory && anInt1057 < 50) {
                         anIntArray1278[anInt1057] = l3;
                         anIntArray1207[anInt1057] = l11;
                         anIntArray948[anInt1057] = k16 + Track.anIntArray450[l3];
@@ -4188,7 +4159,7 @@ public class Game extends GameShell {
                 int k13 = buffer.readUByte();
                 int k15 = k13 >> 4 & 0xf;
                 int j17 = k13 & 7;
-                if (localPlayer.anIntArray1615[0] >= l5 - k15 && localPlayer.anIntArray1615[0] <= l5 + k15 && localPlayer.anIntArray1616[0] >= k8 - k15 && localPlayer.anIntArray1616[0] <= k8 + k15 && aBoolean1010 && !lowMemory && anInt1057 < 50) {
+                if (localPlayer.anIntArray1615[0] >= l5 - k15 && localPlayer.anIntArray1615[0] <= l5 + k15 && localPlayer.anIntArray1616[0] >= k8 - k15 && localPlayer.anIntArray1616[0] <= k8 + k15 && aBoolean1010 && !isLowMemory && anInt1057 < 50) {
                     anIntArray1278[anInt1057] = i11;
                     anIntArray1207[anInt1057] = j17;
                     anIntArray948[anInt1057] = Track.anIntArray450[i11];
@@ -4248,7 +4219,7 @@ public class Game extends GameShell {
                 if (class13_sub1_sub1_sub6_sub1 == null || !class13_sub1_sub1_sub6_sub1.isVisible()) {
                     continue;
                 }
-                class13_sub1_sub1_sub6_sub1.aBoolean1688 = (lowMemory && anInt899 > 50 || anInt899 > 200) && !flag && class13_sub1_sub1_sub6_sub1.anInt1620 == class13_sub1_sub1_sub6_sub1.idleAnimation;
+                class13_sub1_sub1_sub6_sub1.aBoolean1688 = (isLowMemory && anInt899 > 50 || anInt899 > 200) && !flag && class13_sub1_sub1_sub6_sub1.anInt1620 == class13_sub1_sub1_sub6_sub1.idleAnimation;
                 int l = class13_sub1_sub1_sub6_sub1.anInt1587 >> 7;
                 int i1 = class13_sub1_sub1_sub6_sub1.anInt1588 >> 7;
                 if (l < 0 || l >= 104 || i1 < 0 || i1 >= 104) {
@@ -6002,7 +5973,7 @@ public class Game extends GameShell {
                 loginBuffer.writeByte(outBuffer.position + 36 + 1 + 1 + 2);
                 loginBuffer.writeByte(255);
                 loginBuffer.writeShortBE(Constants.BUILD_NUMBER);
-                loginBuffer.writeByte(lowMemory ? 1 : 0);
+                loginBuffer.writeByte(isLowMemory ? 1 : 0);
                 for (int l1 = 0; l1 < 9; l1++) {
                     loginBuffer.writeIntBE(archiveChecksums[l1]);
                 }
@@ -6727,7 +6698,7 @@ public class Game extends GameShell {
                 if (k == 4) {
                     aBoolean826 = false;
                 }
-                if (aBoolean826 != flag1 && !lowMemory) {
+                if (aBoolean826 != flag1 && !isLowMemory) {
                     if (aBoolean826) {
                         nextSong = anInt1229;
                         songChanging = true;
@@ -7096,7 +7067,7 @@ public class Game extends GameShell {
                                     ObjectConfig objectConfig = ObjectConfig.lookup(widget_1.itemContainerItemIds[k4] - 1);
                                     String s2 = objectConfig.itemName;
                                     if (objectConfig.aBoolean662 || widget_1.itemContainerItemAmounts[k4] != 1) {
-                                        s2 = s2 + " x" + method58(-218, widget_1.itemContainerItemAmounts[k4]);
+                                        s2 = s2 + " x" + method58(widget_1.itemContainerItemAmounts[k4]);
                                     }
                                     int i9 = k2 + i6 * (115 + widget_1.itemSpritePaddingX);
                                     int k9 = l2 + j5 * (12 + widget_1.itemSpritePaddingY);
@@ -7459,9 +7430,9 @@ public class Game extends GameShell {
         portOffset = Integer.parseInt(getParameter("portoff"));
         String s = getParameter("lowmem");
         if (s != null && s.equals("1")) {
-            method106(8);
+            setLowMemory();
         } else {
-            method85(true);
+            setHighMemory();
         }
         String s1 = getParameter("free");
         aBoolean953 = s1 == null || !s1.equals("1");
@@ -8387,7 +8358,7 @@ public class Game extends GameShell {
                 if (k3 < anInt1166 - 1) {
                     k3 = anInt1166 - 1;
                 }
-                if (lowMemory) {
+                if (isLowMemory) {
                     aScene_1198.method195(MapRegion.anInt426, true);
                 } else {
                     aScene_1198.method195(0, true);
@@ -8405,7 +8376,7 @@ public class Game extends GameShell {
                 outBuffer.writeOpcode(226);
                 outBuffer.writeIntBE(0x3f008edd);
             }
-            if (lowMemory && Signlink.cache_dat != null) {
+            if (isLowMemory && Signlink.cache_dat != null) {
                 int j = gameUpdateClient.getFileVersionCount(0);
                 for (int i1 = 0; i1 < j; i1++) {
                     int l1 = gameUpdateClient.getModelAttributes(i1);
@@ -8909,7 +8880,7 @@ public class Game extends GameShell {
     public void method98(boolean flag, int i) {
         try {
             loggedIn &= flag;
-            if (!lowMemory) {
+            if (!isLowMemory) {
                 if (Rasterizer3D.anIntArray1644[17] >= i) {
                     IndexedImage class13_sub1_sub4_sub3 = Rasterizer3D.aClass13_Sub1_Sub4_Sub3Array1638[17];
                     int j = class13_sub1_sub4_sub3.anInt1669 * class13_sub1_sub4_sub3.anInt1670 - 1;
@@ -9093,7 +9064,7 @@ public class Game extends GameShell {
                 aLinkedListArrayArrayArray969 = null;
             }
             if (k >= 1 && k1 >= 1 && k <= 102 && k1 <= 102) {
-                if (lowMemory && i != anInt1166) {
+                if (isLowMemory && i != anInt1166) {
                     return;
                 }
                 int i2 = 0;
@@ -9548,7 +9519,7 @@ public class Game extends GameShell {
             if (anInt1157 < 0) {
                 anInt1157 = 0;
             }
-            if (anInt1157 == 0 && aBoolean826 && !lowMemory) {
+            if (anInt1157 == 0 && aBoolean826 && !isLowMemory) {
                 nextSong = anInt1229;
                 songChanging = true;
                 gameUpdateClient.requestFile(2, nextSong);
@@ -11627,7 +11598,7 @@ public class Game extends GameShell {
             gameUpdateClient.readVersionlist(cacheArchive_6, this);
             AnimationFrame.method185(gameUpdateClient.animCount());
             Model.method262(gameUpdateClient.getFileVersionCount(0), gameUpdateClient);
-            if (!lowMemory) {
+            if (!isLowMemory) {
                 nextSong = 0;
                 try {
                     nextSong = Integer.parseInt(getParameter("music"));
@@ -11739,7 +11710,7 @@ public class Game extends GameShell {
                 }
             }
             gameUpdateClient.preloadRegions(aBoolean953);
-            if (!lowMemory) {
+            if (!isLowMemory) {
                 int l = gameUpdateClient.getFileVersionCount(2);
                 for (int i3 = 1; i3 < l; i3++) {
                     if (gameUpdateClient.highPriorityMidi(i3)) {
@@ -11872,7 +11843,7 @@ public class Game extends GameShell {
             VariablePlayerConfig.method444(cacheArchive, (byte) 72);
             VariableBitConfig.method473(cacheArchive, (byte) 72);
             ObjectConfig.aBoolean667 = aBoolean953;
-            if (!lowMemory) {
+            if (!isLowMemory) {
                 updateLoadingBar(false, "Unpacking sounds", 90);
                 byte[] abyte0 = cacheArchive_5.readFile("sounds.dat", null);
                 Buffer buffer = new Buffer(abyte0);

@@ -7,7 +7,7 @@ public class Rasterizer3D extends Rasterizer {
 
     public static boolean aBoolean1623 = true;
     public static int anInt1624 = 809;
-    public static boolean aBoolean1625 = true;
+    public static boolean isLowMemory = true;
     public static boolean aBoolean1626;
     public static boolean aBoolean1627;
     public static boolean aBoolean1628 = true;
@@ -124,7 +124,7 @@ public class Rasterizer3D extends Rasterizer {
             }
             if (anIntArrayArray1642 == null) {
                 anInt1641 = i;
-                if (aBoolean1625) {
+                if (isLowMemory) {
                     anIntArrayArray1642 = new int[anInt1641][16384];
                 } else {
                     anIntArrayArray1642 = new int[anInt1641][0x10000];
@@ -146,7 +146,7 @@ public class Rasterizer3D extends Rasterizer {
             for (int i = 0; i < 50; i++) {
                 try {
                     aClass13_Sub1_Sub4_Sub3Array1638[i] = new IndexedImage(cacheArchive, String.valueOf(i), 0);
-                    if (aBoolean1625 && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
+                    if (isLowMemory && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method396(true);
                     } else {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method397(anInt1624);
@@ -236,7 +236,7 @@ public class Rasterizer3D extends Rasterizer {
         anIntArrayArray1643[i] = ai;
         IndexedImage class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1638[i];
         int[] ai1 = anIntArrayArray1647[i];
-        if (aBoolean1625) {
+        if (isLowMemory) {
             aBooleanArray1639[i] = false;
             for (int i1 = 0; i1 < 4096; i1++) {
                 int i2 = ai[i1] = ai1[class13_sub1_sub4_sub3.aByteArray1667[i1]] & 0xf8f8ff;
@@ -1761,7 +1761,7 @@ public class Rasterizer3D extends Rasterizer {
             j1 <<= 9;
         }
         k += l;
-        if (aBoolean1625) {
+        if (isLowMemory) {
             int i4 = 0;
             int k4 = 0;
             int k6 = l - anInt1630;

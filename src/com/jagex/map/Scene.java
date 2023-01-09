@@ -13,7 +13,7 @@ public class Scene {
     public static int anInt153 = -40024;
     public static int anInt157 = 44619;
     public static boolean aBoolean160;
-    public static boolean aBoolean162 = true;
+    public static boolean isLowMemory = true;
     public static int anInt172;
     public static int anInt173;
     public static int anInt174;
@@ -1968,7 +1968,7 @@ public class Scene {
                 if (class30.anInt475 != 0xbc614e) {
                     Rasterizer3D.method374(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474);
                 }
-            } else if (!aBoolean162) {
+            } else if (!isLowMemory) {
                 if (class30.aBoolean478) {
                     Rasterizer3D.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                 } else {
@@ -1991,7 +1991,7 @@ public class Scene {
                     return;
                 }
             } else {
-                if (!aBoolean162) {
+                if (!isLowMemory) {
                     Rasterizer3D.method378(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                     return;
                 }
@@ -2052,7 +2052,7 @@ public class Scene {
                         if (shapedTile.anIntArray507[k2] != 0xbc614e) {
                             Rasterizer3D.method374(i5, j5, k5, j4, k4, l4, shapedTile.anIntArray507[k2], shapedTile.anIntArray508[k2], shapedTile.anIntArray509[k2]);
                         }
-                    } else if (!aBoolean162) {
+                    } else if (!isLowMemory) {
                         if (shapedTile.aBoolean514) {
                             Rasterizer3D.method378(i5, j5, k5, j4, k4, l4, shapedTile.anIntArray507[k2], shapedTile.anIntArray508[k2], shapedTile.anIntArray509[k2], ShapedTile.anIntArray521[0], ShapedTile.anIntArray521[1], ShapedTile.anIntArray521[3], ShapedTile.anIntArray522[0], ShapedTile.anIntArray522[1], ShapedTile.anIntArray522[3], ShapedTile.anIntArray523[0], ShapedTile.anIntArray523[1], ShapedTile.anIntArray523[3], shapedTile.anIntArray513[k2]);
                         } else {

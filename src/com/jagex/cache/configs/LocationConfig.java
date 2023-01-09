@@ -18,7 +18,7 @@ public class LocationConfig {
     public static int anInt252;
     public static Game aGame254;
     public static Buffer aBuffer_267;
-    public static boolean aBoolean272;
+    public static boolean isLowMemory;
     public static LocationConfig[] aLocationConfigArray278;
     public static int[] anIntArray287;
     public boolean aBoolean240;
@@ -190,7 +190,7 @@ public class LocationConfig {
                     if (l == 1) {
                         int i1 = buffer.readUByte();
                         if (i1 > 0) {
-                            if (anIntArray241 == null || aBoolean272) {
+                            if (anIntArray241 == null || isLowMemory) {
                                 anIntArray289 = new int[i1];
                                 anIntArray241 = new int[i1];
                                 for (int i2 = 0; i2 < i1; i2++) {
@@ -208,7 +208,7 @@ public class LocationConfig {
                     } else if (l == 5) {
                         int j1 = buffer.readUByte();
                         if (j1 > 0) {
-                            if (anIntArray241 == null || aBoolean272) {
+                            if (anIntArray241 == null || isLowMemory) {
                                 anIntArray289 = null;
                                 anIntArray241 = new int[j1];
                                 for (int j2 = 0; j2 < j1; j2++) {
