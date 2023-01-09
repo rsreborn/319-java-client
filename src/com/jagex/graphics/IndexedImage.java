@@ -114,47 +114,28 @@ public class IndexedImage extends Rasterizer {
         throw new RuntimeException();
     }
 
-    public void method398(boolean flag) {
-        try {
-            byte[] abyte0 = new byte[anInt1669 * anInt1670];
-            int i = 0;
-            for (int j = 0; j < anInt1670; j++) {
-                for (int k = anInt1669 - 1; k >= 0; k--) {
-                    abyte0[i++] = aByteArray1667[k + j * anInt1669];
-                }
+    public void method398() {
+        byte[] abyte0 = new byte[anInt1669 * anInt1670];
+        int i = 0;
+        for (int j = 0; j < anInt1670; j++) {
+            for (int k = anInt1669 - 1; k >= 0; k--) {
+                abyte0[i++] = aByteArray1667[k + j * anInt1669];
             }
-            aByteArray1667 = abyte0;
-            anInt1671 = anInt1673 - anInt1669 - anInt1671;
-            if (!flag) {
-                for (int l = 1; l > 0; l++) {
-                }
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("27562, " + flag + ", " + runtimeexception);
-            throw new RuntimeException();
         }
+        aByteArray1667 = abyte0;
+        anInt1671 = anInt1673 - anInt1669 - anInt1671;
     }
 
-    public void method399(int i) {
-        try {
-            byte[] abyte0 = new byte[anInt1669 * anInt1670];
-            int j = 0;
-            for (int k = anInt1670 - 1; k >= 0; k--) {
-                for (int l = 0; l < anInt1669; l++) {
-                    abyte0[j++] = aByteArray1667[l + k * anInt1669];
-                }
+    public void method399() {
+        byte[] abyte0 = new byte[anInt1669 * anInt1670];
+        int j = 0;
+        for (int k = anInt1670 - 1; k >= 0; k--) {
+            for (int l = 0; l < anInt1669; l++) {
+                abyte0[j++] = aByteArray1667[l + k * anInt1669];
             }
-            aByteArray1667 = abyte0;
-            anInt1672 = anInt1674 - anInt1670 - anInt1672;
-            while (i >= 0) {
-                anInt1666 = 300;
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("1190, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        aByteArray1667 = abyte0;
+        anInt1672 = anInt1674 - anInt1670 - anInt1672;
     }
 
     public void method400(int i, int j, byte byte0, int k) {

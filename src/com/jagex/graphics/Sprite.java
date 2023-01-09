@@ -157,27 +157,18 @@ public class Sprite extends Rasterizer {
         }
     }
 
-    public void method405(int i) {
-        try {
-            if (i <= 0) {
-                aBoolean1679 = !aBoolean1679;
+    public void method405() {
+        int[] ai = new int[anInt1685 * anInt1686];
+        for (int j = 0; j < anInt1682; j++) {
+            for (int k = 0; k < anInt1681; k++) {
+                ai[(j + anInt1684) * anInt1685 + (k + anInt1683)] = anIntArray1680[j * anInt1681 + k];
             }
-            int[] ai = new int[anInt1685 * anInt1686];
-            for (int j = 0; j < anInt1682; j++) {
-                for (int k = 0; k < anInt1681; k++) {
-                    ai[(j + anInt1684) * anInt1685 + (k + anInt1683)] = anIntArray1680[j * anInt1681 + k];
-                }
-            }
-            anIntArray1680 = ai;
-            anInt1681 = anInt1685;
-            anInt1682 = anInt1686;
-            anInt1683 = 0;
-            anInt1684 = 0;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("26341, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        anIntArray1680 = ai;
+        anInt1681 = anInt1685;
+        anInt1682 = anInt1686;
+        anInt1683 = 0;
+        anInt1684 = 0;
     }
 
     public void method406(int i, int j, int k) {
