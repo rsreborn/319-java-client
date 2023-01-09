@@ -334,17 +334,17 @@ public class ObjectConfig {
             if (k == -1) {
                 return null;
             }
-            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, k);
+            Model class13_sub1_sub1_sub4 = Model.getModel(k);
             if (l != -1) {
                 if (i1 != -1) {
-                    Model class13_sub1_sub1_sub4_1 = Model.method265((byte) 4, l);
-                    Model class13_sub1_sub1_sub4_3 = Model.method265((byte) 4, i1);
+                    Model class13_sub1_sub1_sub4_1 = Model.getModel(l);
+                    Model class13_sub1_sub1_sub4_3 = Model.getModel(i1);
                     Model[] aclass13_sub1_sub1_sub4_1 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_1, class13_sub1_sub1_sub4_3
                     };
                     class13_sub1_sub1_sub4 = new Model(3, (byte) 61, aclass13_sub1_sub1_sub4_1);
                 } else {
-                    Model class13_sub1_sub1_sub4_2 = Model.method265((byte) 4, l);
+                    Model class13_sub1_sub1_sub4_2 = Model.getModel(l);
                     Model[] aclass13_sub1_sub1_sub4 = {
                             class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_2
                     };
@@ -419,7 +419,7 @@ public class ObjectConfig {
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
-        class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt668);
+        class13_sub1_sub1_sub4 = Model.getModel(anInt668);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }
@@ -568,9 +568,9 @@ public class ObjectConfig {
             if (j == -1) {
                 return null;
             }
-            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, j);
+            Model class13_sub1_sub1_sub4 = Model.getModel(j);
             if (k != -1) {
-                Model class13_sub1_sub1_sub4_1 = Model.method265((byte) 4, k);
+                Model class13_sub1_sub1_sub4_1 = Model.getModel(k);
                 Model[] aclass13_sub1_sub1_sub4 = {
                         class13_sub1_sub1_sub4, class13_sub1_sub1_sub4_1
                 };
@@ -588,36 +588,28 @@ public class ObjectConfig {
         throw new RuntimeException();
     }
 
-    public Model method513(int i, int j) {
-        try {
-            while (i >= 0) {
-                anInt626 = 265;
-            }
-            if (anIntArray636 != null && j > 1) {
-                int k = -1;
-                for (int l = 0; l < 10; l++) {
-                    if (j >= anIntArray627[l] && anIntArray627[l] != 0) {
-                        k = anIntArray636[l];
-                    }
-                }
-                if (k != -1) {
-                    return lookup(k).method513(-453, 1);
+    public Model method513(int j) {
+        if (anIntArray636 != null && j > 1) {
+            int k = -1;
+            for (int l = 0; l < 10; l++) {
+                if (j >= anIntArray627[l] && anIntArray627[l] != 0) {
+                    k = anIntArray636[l];
                 }
             }
-            Model class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt668);
-            if (class13_sub1_sub1_sub4 == null) {
-                return null;
+            if (k != -1) {
+                return lookup(k).method513(1);
             }
-            if (anIntArray646 != null) {
-                for (int i1 = 0; i1 < anIntArray646.length; i1++) {
-                    class13_sub1_sub1_sub4.method279(anIntArray646[i1], anIntArray631[i1]);
-                }
-            }
-            return class13_sub1_sub1_sub4;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("1360, " + i + ", " + j + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        Model class13_sub1_sub1_sub4 = Model.getModel(anInt668);
+        if (class13_sub1_sub1_sub4 == null) {
+            return null;
+        }
+        if (anIntArray646 != null) {
+            for (int i1 = 0; i1 < anIntArray646.length; i1++) {
+                class13_sub1_sub1_sub4.method279(anIntArray646[i1], anIntArray631[i1]);
+            }
+        }
+        return class13_sub1_sub1_sub4;
     }
 
     public void method514() {

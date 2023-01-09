@@ -50,8 +50,8 @@ public class Animated extends Renderable {
         int j = aSpotAnimationConfig_1475.aSequenceConfig_689.anIntArray802[anInt1477];
         Model class13_sub1_sub1_sub4_1 = new Model(false, AnimationFrame.method189(j, 19953), 629, class13_sub1_sub1_sub4, true);
         if (!aBoolean1479) {
-            class13_sub1_sub1_sub4_1.method272(true);
-            class13_sub1_sub1_sub4_1.method273(j, false);
+            class13_sub1_sub1_sub4_1.method272();
+            class13_sub1_sub1_sub4_1.method273(j);
             class13_sub1_sub1_sub4_1.anIntArrayArray1528 = null;
             class13_sub1_sub1_sub4_1.anIntArrayArray1527 = null;
         }

@@ -382,7 +382,7 @@ public class LocationConfig {
                     }
                     class13_sub1_sub1_sub4 = (Model) aCache_248.get(k2);
                     if (class13_sub1_sub1_sub4 == null) {
-                        class13_sub1_sub1_sub4 = Model.method265((byte) 4, k2 & 0xffff);
+                        class13_sub1_sub1_sub4 = Model.getModel(k2 & 0xffff);
                         if (class13_sub1_sub1_sub4 == null) {
                             return null;
                         }
@@ -422,7 +422,7 @@ public class LocationConfig {
                 }
                 class13_sub1_sub1_sub4 = (Model) aCache_248.get(i2);
                 if (class13_sub1_sub1_sub4 == null) {
-                    class13_sub1_sub1_sub4 = Model.method265((byte) 4, i2 & 0xffff);
+                    class13_sub1_sub1_sub4 = Model.getModel(i2 & 0xffff);
                     if (class13_sub1_sub1_sub4 == null) {
                         return null;
                     }
@@ -438,8 +438,8 @@ public class LocationConfig {
             flag3 = anInt247 != 0 || anInt277 != 0 || anInt288 != 0;
             Model class13_sub1_sub1_sub4_3 = new Model(j == 0 && i == -1 && !flag1 && !flag3, AnimationFrame.method189(i, 19953), 629, class13_sub1_sub1_sub4, anIntArray242 == null);
             if (i != -1) {
-                class13_sub1_sub1_sub4_3.method272(true);
-                class13_sub1_sub1_sub4_3.method273(i, false);
+                class13_sub1_sub1_sub4_3.method272();
+                class13_sub1_sub1_sub4_3.method273(i);
                 class13_sub1_sub1_sub4_3.anIntArrayArray1528 = null;
                 class13_sub1_sub1_sub4_3.anIntArrayArray1527 = null;
             }

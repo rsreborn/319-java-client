@@ -801,25 +801,17 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public static Model method265(byte byte0, int i) {
-        try {
-            if (byte0 != 4) {
-                aBoolean1488 = !aBoolean1488;
-            }
-            if (aClass23Array1531 == null) {
-                return null;
-            }
-            Class23 class23 = aClass23Array1531[i];
-            if (class23 == null) {
-                aClass2_1532.requestFile(i);
-                return null;
-            } else {
-                return new Model((byte) 34, i);
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("48082, " + byte0 + ", " + i + ", " + runtimeexception);
+    public static Model getModel(int i) {
+        if (aClass23Array1531 == null) {
+            return null;
         }
-        throw new RuntimeException();
+        Class23 class23 = aClass23Array1531[i];
+        if (class23 == null) {
+            aClass2_1532.requestFile(i);
+            return null;
+        } else {
+            return new Model((byte) 34, i);
+        }
     }
 
     public static boolean method266(int i) {
@@ -1046,88 +1038,70 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public void method272(boolean flag) {
-        try {
-            if (!flag) {
-                aBoolean1485 = !aBoolean1485;
+    public void method272() {
+        if (anIntArray1525 != null) {
+            int[] ai = new int[256];
+            int i = 0;
+            for (int k = 0; k < anInt1496; k++) {
+                int i1 = anIntArray1525[k];
+                ai[i1]++;
+                if (i1 > i) {
+                    i = i1;
+                }
             }
-            if (anIntArray1525 != null) {
-                int[] ai = new int[256];
-                int i = 0;
-                for (int k = 0; k < anInt1496; k++) {
-                    int i1 = anIntArray1525[k];
-                    ai[i1]++;
-                    if (i1 > i) {
-                        i = i1;
-                    }
-                }
-                anIntArrayArray1527 = new int[i + 1][];
-                for (int j1 = 0; j1 <= i; j1++) {
-                    anIntArrayArray1527[j1] = new int[ai[j1]];
-                    ai[j1] = 0;
-                }
-                for (int i2 = 0; i2 < anInt1496; i2++) {
-                    int k2 = anIntArray1525[i2];
-                    anIntArrayArray1527[k2][ai[k2]++] = i2;
-                }
-                anIntArray1525 = null;
+            anIntArrayArray1527 = new int[i + 1][];
+            for (int j1 = 0; j1 <= i; j1++) {
+                anIntArrayArray1527[j1] = new int[ai[j1]];
+                ai[j1] = 0;
             }
-            if (anIntArray1526 != null) {
-                int[] ai1 = new int[256];
-                int j = 0;
-                for (int l = 0; l < anInt1500; l++) {
-                    int k1 = anIntArray1526[l];
-                    ai1[k1]++;
-                    if (k1 > j) {
-                        j = k1;
-                    }
-                }
-                anIntArrayArray1528 = new int[j + 1][];
-                for (int l1 = 0; l1 <= j; l1++) {
-                    anIntArrayArray1528[l1] = new int[ai1[l1]];
-                    ai1[l1] = 0;
-                }
-                for (int j2 = 0; j2 < anInt1500; j2++) {
-                    int l2 = anIntArray1526[j2];
-                    anIntArrayArray1528[l2][ai1[l2]++] = j2;
-                }
-                anIntArray1526 = null;
-                return;
+            for (int i2 = 0; i2 < anInt1496; i2++) {
+                int k2 = anIntArray1525[i2];
+                anIntArrayArray1527[k2][ai[k2]++] = i2;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("48416, " + flag + ", " + runtimeexception);
-            throw new RuntimeException();
+            anIntArray1525 = null;
+        }
+        if (anIntArray1526 != null) {
+            int[] ai1 = new int[256];
+            int j = 0;
+            for (int l = 0; l < anInt1500; l++) {
+                int k1 = anIntArray1526[l];
+                ai1[k1]++;
+                if (k1 > j) {
+                    j = k1;
+                }
+            }
+            anIntArrayArray1528 = new int[j + 1][];
+            for (int l1 = 0; l1 <= j; l1++) {
+                anIntArrayArray1528[l1] = new int[ai1[l1]];
+                ai1[l1] = 0;
+            }
+            for (int j2 = 0; j2 < anInt1500; j2++) {
+                int l2 = anIntArray1526[j2];
+                anIntArrayArray1528[l2][ai1[l2]++] = j2;
+            }
+            anIntArray1526 = null;
         }
     }
 
-    public void method273(int i, boolean flag) {
-        try {
-            if (anIntArrayArray1527 == null) {
-                return;
-            }
-            if (i == -1) {
-                return;
-            }
-            AnimationFrame animationFrame = AnimationFrame.method188((byte) 4, i);
-            if (animationFrame == null) {
-                return;
-            }
-            AnimationFrameBase animationFrameBase = animationFrame.aAnimationFrameBase_138;
-            anInt1551 = 0;
-            if (flag) {
-                anInt1487 = -308;
-            }
-            anInt1552 = 0;
-            anInt1553 = 0;
-            for (int j = 0; j < animationFrame.anInt139; j++) {
-                int k = animationFrame.anIntArray140[j];
-                method275(animationFrameBase.anIntArray531[k], animationFrameBase.anIntArrayArray532[k], animationFrame.anIntArray141[j], animationFrame.anIntArray142[j], animationFrame.anIntArray143[j]);
-            }
+    public void method273(int i) {
+        if (anIntArrayArray1527 == null) {
             return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("99471, " + i + ", " + flag + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        if (i == -1) {
+            return;
+        }
+        AnimationFrame animationFrame = AnimationFrame.method188((byte) 4, i);
+        if (animationFrame == null) {
+            return;
+        }
+        AnimationFrameBase animationFrameBase = animationFrame.aAnimationFrameBase_138;
+        anInt1551 = 0;
+        anInt1552 = 0;
+        anInt1553 = 0;
+        for (int j = 0; j < animationFrame.anInt139; j++) {
+            int k = animationFrame.anIntArray140[j];
+            method275(animationFrameBase.anIntArray531[k], animationFrameBase.anIntArrayArray532[k], animationFrame.anIntArray141[j], animationFrame.anIntArray142[j], animationFrame.anIntArray143[j]);
+        }
     }
 
     public void method274(byte byte0, int[] ai, int i, int j) {
@@ -1136,7 +1110,7 @@ public class Model extends Renderable {
                 return;
             }
             if (ai == null || i == -1) {
-                method273(j, false);
+                method273(j);
                 return;
             }
             AnimationFrame animationFrame = AnimationFrame.method188((byte) 4, j);
@@ -1145,7 +1119,7 @@ public class Model extends Renderable {
             }
             AnimationFrame animationFrame_1 = AnimationFrame.method188((byte) 4, i);
             if (animationFrame_1 == null) {
-                method273(j, false);
+                method273(j);
                 return;
             }
             AnimationFrameBase animationFrameBase = animationFrame.aAnimationFrameBase_138;

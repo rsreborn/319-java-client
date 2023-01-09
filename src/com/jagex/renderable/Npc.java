@@ -58,8 +58,8 @@ public class Npc extends Entity {
                 int k = spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593];
                 Model class13_sub1_sub1_sub4_2 = new Model(false, AnimationFrame.method189(k, 19953), 629, class13_sub1_sub1_sub4_1, true);
                 class13_sub1_sub1_sub4_2.method278(0, -991, -super.graphicHeight, 0);
-                class13_sub1_sub1_sub4_2.method272(true);
-                class13_sub1_sub1_sub4_2.method273(k, false);
+                class13_sub1_sub1_sub4_2.method272();
+                class13_sub1_sub1_sub4_2.method273(k);
                 class13_sub1_sub1_sub4_2.anIntArrayArray1528 = null;
                 class13_sub1_sub1_sub4_2.anIntArrayArray1527 = null;
                 if (spotAnimationConfig.anInt692 != 128 || spotAnimationConfig.anInt693 != 128) {

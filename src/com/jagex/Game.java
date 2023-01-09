@@ -1926,8 +1926,8 @@ public class Game extends GameShell {
                 Widget widget = Widget.widgets[widgetId];
                 if (widget.cs1Opcodes != null && widget.cs1Opcodes[0][0] == 5) {
                     int l1 = widget.cs1Opcodes[0][1];
-                    if (anIntArray1149[l1] != widget.anIntArray556[0]) {
-                        anIntArray1149[l1] = widget.anIntArray556[0];
+                    if (anIntArray1149[l1] != widget.conditionValues[0]) {
+                        anIntArray1149[l1] = widget.conditionValues[0];
                         method64(true, l1);
                         redrawTabArea = true;
                     }
@@ -2796,9 +2796,9 @@ public class Game extends GameShell {
                         ObjectConfig objectConfig = ObjectConfig.lookup(i4);
                         Widget.widgets[i17].modelType = 4;
                         Widget.widgets[i17].modelId = i4;
-                        Widget.widgets[i17].anInt535 = objectConfig.anInt670;
-                        Widget.widgets[i17].anInt536 = objectConfig.anInt663;
-                        Widget.widgets[i17].anInt534 = (objectConfig.modelScale * 100) / i12;
+                        Widget.widgets[i17].modelRotationX = objectConfig.anInt670;
+                        Widget.widgets[i17].modelRotationY = objectConfig.anInt663;
+                        Widget.widgets[i17].modelZoom = (objectConfig.modelScale * 100) / i12;
                         opcode = -1;
                         return true;
                     }
@@ -2832,9 +2832,9 @@ public class Game extends GameShell {
                     int widgetId = inBuffer.readUShortLE();
                     int j17 = inBuffer.readUShortLE();
                     int i21 = inBuffer.readUShortLE();
-                    Widget.widgets[widgetId].anInt535 = i21;
-                    Widget.widgets[widgetId].anInt536 = l4;
-                    Widget.widgets[widgetId].anInt534 = j17;
+                    Widget.widgets[widgetId].modelRotationX = i21;
+                    Widget.widgets[widgetId].modelRotationY = l4;
+                    Widget.widgets[widgetId].modelZoom = j17;
                     opcode = -1;
                     return true;
                 }
@@ -3071,7 +3071,7 @@ public class Game extends GameShell {
                     int widgetId = inBuffer.readUShortBE();
                     int l13 = inBuffer.readShortBE();
                     Widget widget = Widget.widgets[widgetId];
-                    widget.anInt571 = l13;
+                    widget.animationId = l13;
                     if (l13 == -1) {
                         widget.anInt568 = 0;
                         widget.anInt540 = 0;
@@ -5259,15 +5259,15 @@ public class Game extends GameShell {
                                 int j3 = anInt1059;
                                 for (int j4 = anInt980; j3 != j4; ) {
                                     if (j3 > j4) {
-                                        widget.method502(j3, (byte) 0, j3 - 1);
+                                        widget.swapItems(j3, j3 - 1);
                                         j3--;
                                     } else if (j3 < j4) {
-                                        widget.method502(j3, (byte) 0, j3 + 1);
+                                        widget.swapItems(j3, j3 + 1);
                                         j3++;
                                     }
                                 }
                             } else {
-                                widget.method502(anInt1059, (byte) 0, anInt980);
+                                widget.swapItems(anInt1059, anInt980);
                             }
                             outBuffer.writeOpcode(OutgoingPacket.MOVE_ITEM.getValue());
                             outBuffer.writeShortBE(anInt1059);
@@ -7037,24 +7037,24 @@ public class Game extends GameShell {
                         int j4 = Rasterizer3D.anInt1631;
                         Rasterizer3D.anInt1630 = k2 + widget_1.width / 2;
                         Rasterizer3D.anInt1631 = l2 + widget_1.height / 2;
-                        int i5 = Rasterizer3D.anIntArray1634[widget_1.anInt535] * widget_1.anInt534 >> 16;
-                        int l5 = Rasterizer3D.anIntArray1635[widget_1.anInt535] * widget_1.anInt534 >> 16;
+                        int i5 = Rasterizer3D.anIntArray1634[widget_1.modelRotationX] * widget_1.modelZoom >> 16;
+                        int l5 = Rasterizer3D.anIntArray1635[widget_1.modelRotationX] * widget_1.modelZoom >> 16;
                         boolean flag2 = method76(-33151, widget_1);
                         int i7;
                         if (flag2) {
-                            i7 = widget_1.anInt572;
+                            i7 = widget_1.animationIdActive;
                         } else {
-                            i7 = widget_1.anInt571;
+                            i7 = widget_1.animationId;
                         }
                         Model class13_sub1_sub1_sub4;
                         if (i7 == -1) {
-                            class13_sub1_sub1_sub4 = widget_1.method499(-1, -1, true, flag2);
+                            class13_sub1_sub1_sub4 = widget_1.getAnimatedModel(-1, -1, flag2);
                         } else {
                             SequenceConfig sequenceConfig = SequenceConfig.sequences[i7];
-                            class13_sub1_sub1_sub4 = widget_1.method499(sequenceConfig.anIntArray803[widget_1.anInt568], sequenceConfig.anIntArray802[widget_1.anInt568], true, flag2);
+                            class13_sub1_sub1_sub4 = widget_1.getAnimatedModel(sequenceConfig.anIntArray803[widget_1.anInt568], sequenceConfig.anIntArray802[widget_1.anInt568], flag2);
                         }
                         if (class13_sub1_sub1_sub4 != null) {
-                            class13_sub1_sub1_sub4.method285(0, widget_1.anInt536, 0, widget_1.anInt535, 0, i5, l5);
+                            class13_sub1_sub1_sub4.method285(0, widget_1.modelRotationY, 0, widget_1.modelRotationX, 0, i5, l5);
                         }
                         Rasterizer3D.anInt1630 = k3;
                         Rasterizer3D.anInt1631 = j4;
@@ -7393,13 +7393,13 @@ public class Game extends GameShell {
                 if (widget_1.type == 1) {
                     flag1 |= method74(i, true, widget_1.id);
                 }
-                if (widget_1.type == 6 && (widget_1.anInt571 != -1 || widget_1.anInt572 != -1)) {
+                if (widget_1.type == 6 && (widget_1.animationId != -1 || widget_1.animationIdActive != -1)) {
                     boolean flag2 = method76(-33151, widget_1);
                     int l;
                     if (flag2) {
-                        l = widget_1.anInt572;
+                        l = widget_1.animationIdActive;
                     } else {
-                        l = widget_1.anInt571;
+                        l = widget_1.animationId;
                     }
                     if (l != -1) {
                         SequenceConfig sequenceConfig = SequenceConfig.sequences[l];
@@ -7657,21 +7657,21 @@ public class Game extends GameShell {
             if (i != -33151) {
                 aLinkedListArrayArrayArray969 = null;
             }
-            if (widget.anIntArray545 == null) {
+            if (widget.conditionTypes == null) {
                 return false;
             }
-            for (int j = 0; j < widget.anIntArray545.length; j++) {
+            for (int j = 0; j < widget.conditionTypes.length; j++) {
                 int k = executeScript(widget, j);
-                int l = widget.anIntArray556[j];
-                if (widget.anIntArray545[j] == 2) {
+                int l = widget.conditionValues[j];
+                if (widget.conditionTypes[j] == 2) {
                     if (k >= l) {
                         return false;
                     }
-                } else if (widget.anIntArray545[j] == 3) {
+                } else if (widget.conditionTypes[j] == 3) {
                     if (k <= l) {
                         return false;
                     }
-                } else if (widget.anIntArray545[j] == 4) {
+                } else if (widget.conditionTypes[j] == 4) {
                     if (k == l) {
                         return false;
                     }
@@ -9293,8 +9293,8 @@ public class Game extends GameShell {
             return;
         }
         if (j == 327) {
-            widget.anInt535 = 150;
-            widget.anInt536 = (int) (Math.sin((double) pulseCycle / 40D) * 256D) & 0x7ff;
+            widget.modelRotationX = 150;
+            widget.modelRotationY = (int) (Math.sin((double) pulseCycle / 40D) * 256D) & 0x7ff;
             if (aBoolean1099) {
                 for (int k1 = 0; k1 < 7; k1++) {
                     int l1 = anIntArray1011[k1];
@@ -9320,8 +9320,8 @@ public class Game extends GameShell {
                         }
                     }
                 }
-                class13_sub1_sub1_sub4.method272(true);
-                class13_sub1_sub1_sub4.method273(SequenceConfig.sequences[localPlayer.idleAnimation].anIntArray802[0], false);
+                class13_sub1_sub1_sub4.method272();
+                class13_sub1_sub1_sub4.method273(SequenceConfig.sequences[localPlayer.idleAnimation].anIntArray802[0]);
                 class13_sub1_sub1_sub4.method282(64, 850, -30, -50, -30, true);
                 widget.modelType = 5;
                 widget.modelId = 0;

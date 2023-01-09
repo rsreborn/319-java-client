@@ -120,7 +120,7 @@ public class IdentikitConfig {
             }
             Model[] aclass13_sub1_sub1_sub4 = new Model[anIntArray67.length];
             for (int j = 0; j < anIntArray67.length; j++) {
-                aclass13_sub1_sub1_sub4[j] = Model.method265((byte) 4, anIntArray67[j]);
+                aclass13_sub1_sub1_sub4[j] = Model.getModel(anIntArray67[j]);
             }
             Model class13_sub1_sub1_sub4;
             if (aclass13_sub1_sub1_sub4.length == 1) {
@@ -169,7 +169,7 @@ public class IdentikitConfig {
             int i = 0;
             for (int j = 0; j < 5; j++) {
                 if (anIntArray70[j] != -1) {
-                    aclass13_sub1_sub1_sub4[i++] = Model.method265((byte) 4, anIntArray70[j]);
+                    aclass13_sub1_sub1_sub4[i++] = Model.getModel(anIntArray70[j]);
                 }
             }
             Model class13_sub1_sub1_sub4 = new Model(i, (byte) 61, aclass13_sub1_sub1_sub4);
