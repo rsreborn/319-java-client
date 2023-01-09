@@ -122,7 +122,7 @@ public class ObjectConfig {
             int l2 = Rasterizer.anInt1426;
             int i3 = Rasterizer.anInt1427;
             Rasterizer3D.aBoolean1628 = false;
-            Rasterizer.method351(class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
+            Rasterizer.createRasterizer(class13_sub1_sub4_sub4_1.anIntArray1680, 32, 32);
             Rasterizer.method356(0, 0, 0, 32, 32);
             Rasterizer3D.method364(true);
             int j3 = objectConfig.modelScale;
@@ -187,7 +187,7 @@ public class ObjectConfig {
             if (k == 0) {
                 aCache_661.put(class13_sub1_sub4_sub4_1, i);
             }
-            Rasterizer.method351(ai1, i2, l1);
+            Rasterizer.createRasterizer(ai1, i2, l1);
             Rasterizer.method353(k2, i3, l2, j2);
             if (!flag) {
                 aBoolean638 = !aBoolean638;

@@ -148,23 +148,23 @@ public class Game extends GameShell {
     public int activeTab;
     public MouseCapturer aMouseCapturer_865;
     public volatile boolean aBoolean866;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_867;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_868;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_869;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_870;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_871;
+    public IndexedImage selectedTabTopLeftCorner;
+    public IndexedImage selectedTabTopLeft;
+    public IndexedImage selectedTabTopCenter;
+    public IndexedImage selectedTabTopRightCorner;
+    public IndexedImage selectedTabTopRight;
     public int anInt872;
     public GameUpdateClient gameUpdateClient;
     public int anInt874;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_875;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_876;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_877;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_878;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_879;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_880;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_881;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_882;
-    public ProducingGraphicsBuffer aProducingGraphicsBuffer_883;
+    public ProducingGraphicsBuffer backgroundBorderLeft;
+    public ProducingGraphicsBuffer backgroundChatboxLeft;
+    public ProducingGraphicsBuffer backgroundMinimapRight;
+    public ProducingGraphicsBuffer backgroundInventoryRight;
+    public ProducingGraphicsBuffer backgroundBorderTop;
+    public ProducingGraphicsBuffer backgroundMinimapLeft;
+    public ProducingGraphicsBuffer backgroundInventoryLeft;
+    public ProducingGraphicsBuffer backgrounChatboxRight;
+    public ProducingGraphicsBuffer backgroundChatboxTop;
     public int anInt884;
     public int anInt885;
     public int anInt886;
@@ -222,8 +222,8 @@ public class Game extends GameShell {
     public byte[] aByteArray941;
     public int anInt943;
     public boolean aBoolean944;
-    public Sprite aClass13_Sub1_Sub4_Sub4_945;
-    public Sprite aClass13_Sub1_Sub4_Sub4_946;
+    public Sprite mapMarkerFlag;
+    public Sprite mapMarkerArrow;
     public CollisionMap[] aCollisionMapArray947;
     public int[] anIntArray948;
     public int anInt949;
@@ -351,11 +351,11 @@ public class Game extends GameShell {
     public int anInt1085;
     public int anInt1086;
     public int tabId;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1088;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1089;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1090;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1091;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1092;
+    public IndexedImage selectedTabBottomLeftCorner;
+    public IndexedImage selectedTabBottomLeft;
+    public IndexedImage selectedTabBottomCenter;
+    public IndexedImage selectedTabBottomRightCorner;
+    public IndexedImage selectedTabBottomRight;
     public int anInt1093;
     public int anInt1094;
     public int daysSinceRecoveryQuestionsUpdated;
@@ -374,9 +374,9 @@ public class Game extends GameShell {
     public int[] anIntArray1109;
     public String[] aStringArray1110;
     public int anInt1111;
-    public IndexedImage chatSettingsBackground;
-    public IndexedImage tabBottomBackground;
-    public IndexedImage tabTopBackground;
+    public IndexedImage backgroundChatSettings;
+    public IndexedImage backgroundTabBottom;
+    public IndexedImage backgroundTabTop;
     public int anInt1115;
     public int[] anIntArray1116;
     public boolean[] aBooleanArray1117;
@@ -385,12 +385,12 @@ public class Game extends GameShell {
     public IndexedImage aClass13_Sub1_Sub4_Sub3_1120;
     public IndexedImage aClass13_Sub1_Sub4_Sub3_1121;
     public long aLong1122;
-    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1123;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1124;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1125;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1126;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1127;
-    public Sprite aClass13_Sub1_Sub4_Sub4_1128;
+    public IndexedImage[] mapSceneryIcons;
+    public Sprite mapDotGroundItem;
+    public Sprite mapDotNpc;
+    public Sprite mapDotPlayer;
+    public Sprite mapDotFriend;
+    public Sprite mapDotMatchingTeamCape;
     public int anInt1129;
     public int[] anIntArray1130;
     public int[] anIntArray1131;
@@ -446,7 +446,7 @@ public class Game extends GameShell {
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1186;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1187;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1188;
-    public Sprite[] aClass13_Sub1_Sub4_Sub4Array1189;
+    public Sprite[] mapPointOfInterestIcons;
     public int[] anIntArray1190;
     public int anInt1191;
     public int anInt1192;
@@ -464,9 +464,9 @@ public class Game extends GameShell {
     public int anInt1205;
     public int anInt1206;
     public int[] anIntArray1207;
-    public IndexedImage inventoryBackground;
-    public IndexedImage minimapBackground;
-    public IndexedImage chatboxBackground;
+    public IndexedImage backgroundInventory;
+    public IndexedImage backgroundMinimap;
+    public IndexedImage backgroundChatbox;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1211;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1212;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1213;
@@ -535,7 +535,7 @@ public class Game extends GameShell {
     public int[] archiveChecksums;
     public int[] anIntArray1278;
     public int anInt1279;
-    public String command;
+    public String chatboxInput;
     public Buffer aBuffer_1282;
     public Npc[] npcs;
     public int anInt1284;
@@ -661,7 +661,7 @@ public class Game extends GameShell {
         anInt1111 = 0x332d25;
         anIntArray1116 = new int[5];
         aBooleanArray1117 = new boolean[5];
-        aClass13_Sub1_Sub4_Sub3Array1123 = new IndexedImage[100];
+        mapSceneryIcons = new IndexedImage[100];
         aBoolean1137 = false;
         anInt1139 = 100;
         anIntArray1140 = new int[100];
@@ -684,7 +684,7 @@ public class Game extends GameShell {
         sidebarIcons = new IndexedImage[13];
         anInt1182 = 0x23201b;
         anInt1185 = 60;
-        aClass13_Sub1_Sub4_Sub4Array1189 = new Sprite[100];
+        mapPointOfInterestIcons = new Sprite[100];
         anIntArray1190 = new int[5];
         anInt1191 = -1;
         aBoolean1193 = true;
@@ -727,7 +727,7 @@ public class Game extends GameShell {
         archiveChecksums = new int[9];
         anIntArray1278 = new int[50];
         anInt1279 = -22144;
-        command = "";
+        chatboxInput = "";
         aBuffer_1282 = new Buffer(new byte[5000]);
         npcs = new Npc[16384];
         anIntArray1285 = new int[16384];
@@ -886,11 +886,11 @@ public class Game extends GameShell {
                 int j5 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig_2 = LocationConfig.readDefinition(j5);
                 if (locationConfig_2.anInt255 != -1) {
-                    IndexedImage class13_sub1_sub4_sub3_2 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_2.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3_2 = mapSceneryIcons[locationConfig_2.anInt255];
                     if (class13_sub1_sub4_sub3_2 != null) {
                         int j6 = (locationConfig_2.anInt259 * 4 - class13_sub1_sub4_sub3_2.anInt1669) / 2;
                         int k6 = (locationConfig_2.anInt253 * 4 - class13_sub1_sub4_sub3_2.anInt1670) / 2;
-                        class13_sub1_sub4_sub3_2.method401(48 + (104 - i1 - locationConfig_2.anInt253) * 4 + k6, (byte) 83, 48 + l * 4 + j6);
+                        class13_sub1_sub4_sub3_2.method401(48 + (104 - i1 - locationConfig_2.anInt253) * 4 + k6, 48 + l * 4 + j6);
                     }
                 } else {
                     if (j3 == 0 || j3 == 2) {
@@ -960,11 +960,11 @@ public class Game extends GameShell {
                 int i4 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig_1 = LocationConfig.readDefinition(i4);
                 if (locationConfig_1.anInt255 != -1) {
-                    IndexedImage class13_sub1_sub4_sub3_1 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig_1.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3_1 = mapSceneryIcons[locationConfig_1.anInt255];
                     if (class13_sub1_sub4_sub3_1 != null) {
                         int k5 = (locationConfig_1.anInt259 * 4 - class13_sub1_sub4_sub3_1.anInt1669) / 2;
                         int l5 = (locationConfig_1.anInt253 * 4 - class13_sub1_sub4_sub3_1.anInt1670) / 2;
-                        class13_sub1_sub4_sub3_1.method401(48 + (104 - i1 - locationConfig_1.anInt253) * 4 + l5, (byte) 83, 48 + l * 4 + k5);
+                        class13_sub1_sub4_sub3_1.method401(48 + (104 - i1 - locationConfig_1.anInt253) * 4 + l5, 48 + l * 4 + k5);
                     }
                 } else if (k3 == 9) {
                     int i5 = 0xeeeeee;
@@ -995,11 +995,11 @@ public class Game extends GameShell {
                 int k2 = k1 >> 14 & 0x7fff;
                 LocationConfig locationConfig = LocationConfig.readDefinition(k2);
                 if (locationConfig.anInt255 != -1) {
-                    IndexedImage class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1123[locationConfig.anInt255];
+                    IndexedImage class13_sub1_sub4_sub3 = mapSceneryIcons[locationConfig.anInt255];
                     if (class13_sub1_sub4_sub3 != null) {
                         int j4 = (locationConfig.anInt259 * 4 - class13_sub1_sub4_sub3.anInt1669) / 2;
                         int k4 = (locationConfig.anInt253 * 4 - class13_sub1_sub4_sub3.anInt1670) / 2;
-                        class13_sub1_sub4_sub3.method401(48 + (104 - i1 - locationConfig.anInt253) * 4 + k4, (byte) 83, 48 + l * 4 + j4);
+                        class13_sub1_sub4_sub3.method401(48 + (104 - i1 - locationConfig.anInt253) * 4 + k4, 48 + l * 4 + j4);
                         return;
                     }
                 }
@@ -1122,12 +1122,12 @@ public class Game extends GameShell {
                 logout();
                 return;
             }
-            aProducingGraphicsBuffer_1213.method490();
+            aProducingGraphicsBuffer_1213.createRasterizer();
             plainFont.method381("Connection lost", 257, 0, 144);
             plainFont.method381("Connection lost", 256, 0xffffff, 143);
             plainFont.method381("Please wait - attempting to reestablish", 257, 0, 159);
             plainFont.method381("Please wait - attempting to reestablish", 256, 0xffffff, 158);
-            aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
+            aProducingGraphicsBuffer_1213.drawGraphics(super.aGraphics15, 4, 4);
             anInt1094 = 0;
             packetSize += i;
             anInt1221 = 0;
@@ -1153,33 +1153,33 @@ public class Game extends GameShell {
     public void method20(boolean flag, boolean flag1) {
         try {
             method16();
-            aProducingGraphicsBuffer_1247.method490();
-            aClass13_Sub1_Sub4_Sub3_1120.method401(0, (byte) 83, 0);
+            aProducingGraphicsBuffer_1247.createRasterizer();
+            aClass13_Sub1_Sub4_Sub3_1120.method401(0, 0);
             loggedIn &= flag;
             char c = '\u0168';
             char c1 = '\310';
             if (anInt1220 == 0) {
                 int i = c1 / 2 + 80;
-                plainSmallFont.method382(c / 2, true, gameUpdateClient.message, i, 0x75a9a9, false);
+                plainSmallFont.method382(gameUpdateClient.message, c / 2, true, i, 0x75a9a9);
                 i = c1 / 2 - 20;
-                boldFont.method382(c / 2, true, "Welcome to RuneScape", i, 0xffff00, false);
+                boldFont.method382("Welcome to RuneScape", c / 2, true, i, 0xffff00);
                 i += 30;
                 int l = c / 2 - 80;
                 int k1 = c1 / 2 + 20;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, (byte) 83, l - 73);
-                boldFont.method382(l, true, "New User", k1 + 5, 0xffffff, false);
+                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, l - 73);
+                boldFont.method382("New User", l, true, k1 + 5, 0xffffff);
                 l = c / 2 + 80;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, (byte) 83, l - 73);
-                boldFont.method382(l, true, "Existing User", k1 + 5, 0xffffff, false);
+                aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, l - 73);
+                boldFont.method382("Existing User", l, true, k1 + 5, 0xffffff);
             }
             if (anInt1220 == 2) {
                 int j = c1 / 2 - 40;
                 if (loginTitle.length() > 0) {
-                    boldFont.method382(c / 2, true, loginTitle, j - 15, 0xffff00, false);
-                    boldFont.method382(c / 2, true, loginMessage, j, 0xffff00, false);
+                    boldFont.method382(loginTitle, c / 2, true, j - 15, 0xffff00);
+                    boldFont.method382(loginMessage, c / 2, true, j, 0xffff00);
                     j += 30;
                 } else {
-                    boldFont.method382(c / 2, true, loginMessage, j - 7, 0xffff00, false);
+                    boldFont.method382(loginMessage, c / 2, true, j - 7, 0xffff00);
                     j += 30;
                 }
                 boldFont.method389(true, c / 2 - 90, (byte) 8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
@@ -1189,38 +1189,38 @@ public class Game extends GameShell {
                 if (!flag1) {
                     int i1 = c / 2 - 80;
                     int l1 = c1 / 2 + 50;
-                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, (byte) 83, i1 - 73);
-                    boldFont.method382(i1, true, "Login", l1 + 5, 0xffffff, false);
+                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, i1 - 73);
+                    boldFont.method382("Login", i1, true, l1 + 5, 0xffffff);
                     i1 = c / 2 + 80;
-                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, (byte) 83, i1 - 73);
-                    boldFont.method382(i1, true, "Cancel", l1 + 5, 0xffffff, false);
+                    aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, i1 - 73);
+                    boldFont.method382("Cancel", i1, true, l1 + 5, 0xffffff);
                 }
             }
             if (anInt1220 == 3) {
-                boldFont.method382(c / 2, true, "Create a free account", c1 / 2 - 60, 0xffff00, false);
+                boldFont.method382("Create a free account", c / 2, true, c1 / 2 - 60, 0xffff00);
                 int k = c1 / 2 - 35;
-                boldFont.method382(c / 2, true, "To create a new account you need to", k, 0xffffff, false);
+                boldFont.method382("To create a new account you need to", c / 2, true, k, 0xffffff);
                 k += 15;
-                boldFont.method382(c / 2, true, "go back to the main RuneScape webpage", k, 0xffffff, false);
+                boldFont.method382("go back to the main RuneScape webpage", c / 2, true, k, 0xffffff);
                 k += 15;
-                boldFont.method382(c / 2, true, "and choose the red 'create account'", k, 0xffffff, false);
+                boldFont.method382("and choose the red 'create account'", c / 2, true, k, 0xffffff);
                 k += 15;
-                boldFont.method382(c / 2, true, "button at the top right of that page.", k, 0xffffff, false);
+                boldFont.method382("button at the top right of that page.", c / 2, true, k, 0xffffff);
                 k += 15;
                 int j1 = c / 2;
                 int i2 = c1 / 2 + 50;
-                aClass13_Sub1_Sub4_Sub3_1121.method401(i2 - 20, (byte) 83, j1 - 73);
-                boldFont.method382(j1, true, "Cancel", i2 + 5, 0xffffff, false);
+                aClass13_Sub1_Sub4_Sub3_1121.method401(i2 - 20, j1 - 73);
+                boldFont.method382("Cancel", j1, true, i2 + 5, 0xffffff);
             }
-            aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 202, 171);
+            aProducingGraphicsBuffer_1247.drawGraphics(super.aGraphics15, 202, 171);
             if (aBoolean1216) {
                 aBoolean1216 = false;
-                aProducingGraphicsBuffer_1245.method491(super.aGraphics15, 128, 0);
-                aProducingGraphicsBuffer_1246.method491(super.aGraphics15, 202, 371);
-                aProducingGraphicsBuffer_1250.method491(super.aGraphics15, 0, 265);
-                aProducingGraphicsBuffer_1251.method491(super.aGraphics15, 562, 265);
-                aProducingGraphicsBuffer_1252.method491(super.aGraphics15, 128, 171);
-                aProducingGraphicsBuffer_1253.method491(super.aGraphics15, 562, 171);
+                aProducingGraphicsBuffer_1245.drawGraphics(super.aGraphics15, 128, 0);
+                aProducingGraphicsBuffer_1246.drawGraphics(super.aGraphics15, 202, 371);
+                aProducingGraphicsBuffer_1250.drawGraphics(super.aGraphics15, 0, 265);
+                aProducingGraphicsBuffer_1251.drawGraphics(super.aGraphics15, 562, 265);
+                aProducingGraphicsBuffer_1252.drawGraphics(super.aGraphics15, 128, 171);
+                aProducingGraphicsBuffer_1253.drawGraphics(super.aGraphics15, 562, 171);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -1261,10 +1261,10 @@ public class Game extends GameShell {
         try {
             i = 90 / i;
             if (isLowMemory && anInt1254 == 2 && MapRegion.anInt416 != anInt1166) {
-                aProducingGraphicsBuffer_1213.method490();
+                aProducingGraphicsBuffer_1213.createRasterizer();
                 plainFont.method381("Loading - please wait.", 257, 0, 151);
                 plainFont.method381("Loading - please wait.", 256, 0xffffff, 150);
-                aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
+                aProducingGraphicsBuffer_1213.drawGraphics(super.aGraphics15, 4, 4);
                 anInt1254 = 1;
                 aLong1243 = System.currentTimeMillis();
             }
@@ -1926,7 +1926,7 @@ public class Game extends GameShell {
                     int l1 = widget.cs1Opcodes[0][1];
                     if (anIntArray1149[l1] != widget.conditionValues[0]) {
                         anIntArray1149[l1] = widget.conditionValues[0];
-                        method64(true, l1);
+                        method64(l1);
                         redrawTabArea = true;
                     }
                 }
@@ -2196,7 +2196,7 @@ public class Game extends GameShell {
                 if (widget_2.cs1Opcodes != null && widget_2.cs1Opcodes[0][0] == 5) {
                     int k2 = widget_2.cs1Opcodes[0][1];
                     anIntArray1149[k2] = 1 - anIntArray1149[k2];
-                    method64(true, k2);
+                    method64(k2);
                     redrawTabArea = true;
                 }
             }
@@ -2429,7 +2429,7 @@ public class Game extends GameShell {
             if (!loggedIn) {
                 method20(true, false);
             } else {
-                method132(-24986);
+                method132();
             }
             anInt1067 = 0;
             return;
@@ -2600,7 +2600,7 @@ public class Game extends GameShell {
                     anIntArray970[i10] = j1;
                     if (anIntArray1149[i10] != j1) {
                         anIntArray1149[i10] = j1;
-                        method64(true, i10);
+                        method64(i10);
                         redrawTabArea = true;
                         if (dialogueId != -1) {
                             redrawChatbox = true;
@@ -2908,7 +2908,7 @@ public class Game extends GameShell {
                     anIntArray970[i13] = byte0;
                     if (anIntArray1149[i13] != byte0) {
                         anIntArray1149[i13] = byte0;
-                        method64(true, i13);
+                        method64(i13);
                         redrawTabArea = true;
                         if (dialogueId != -1) {
                             redrawChatbox = true;
@@ -3182,10 +3182,10 @@ public class Game extends GameShell {
                     }
                     anInt1254 = 1;
                     aLong1243 = System.currentTimeMillis();
-                    aProducingGraphicsBuffer_1213.method490();
+                    aProducingGraphicsBuffer_1213.createRasterizer();
                     plainFont.method381("Loading - please wait.", 257, 0, 151);
                     plainFont.method381("Loading - please wait.", 256, 0xffffff, 150);
-                    aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
+                    aProducingGraphicsBuffer_1213.drawGraphics(super.aGraphics15, 4, 4);
                     if (opcode == 228) {
                         int k19 = 0;
                         for (int k22 = (anInt984 - 6) / 8; k22 <= (anInt984 + 6) / 8; k22++) {
@@ -3474,7 +3474,7 @@ public class Game extends GameShell {
                     for (int i9 = 0; i9 < anIntArray1149.length; i9++) {
                         if (anIntArray1149[i9] != anIntArray970[i9]) {
                             anIntArray1149[i9] = anIntArray970[i9];
-                            method64(true, i9);
+                            method64(i9);
                             redrawTabArea = true;
                         }
                     }
@@ -3745,54 +3745,54 @@ public class Game extends GameShell {
     public void method32() {
         byte[] abyte0 = titleArchive.readFile("title.dat", null);
         Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
-        aProducingGraphicsBuffer_1248.method490();
+        aProducingGraphicsBuffer_1248.createRasterizer();
         class13_sub1_sub4_sub4.method406(0, 0);
-        aProducingGraphicsBuffer_1249.method490();
+        aProducingGraphicsBuffer_1249.createRasterizer();
         class13_sub1_sub4_sub4.method406(-637, 0);
-        aProducingGraphicsBuffer_1245.method490();
+        aProducingGraphicsBuffer_1245.createRasterizer();
         class13_sub1_sub4_sub4.method406(-128, 0);
-        aProducingGraphicsBuffer_1246.method490();
+        aProducingGraphicsBuffer_1246.createRasterizer();
         class13_sub1_sub4_sub4.method406(-202, -371);
-        aProducingGraphicsBuffer_1247.method490();
+        aProducingGraphicsBuffer_1247.createRasterizer();
         class13_sub1_sub4_sub4.method406(-202, -171);
-        aProducingGraphicsBuffer_1250.method490();
+        aProducingGraphicsBuffer_1250.createRasterizer();
         class13_sub1_sub4_sub4.method406(0, -265);
-        aProducingGraphicsBuffer_1251.method490();
+        aProducingGraphicsBuffer_1251.createRasterizer();
         class13_sub1_sub4_sub4.method406(-562, -265);
-        aProducingGraphicsBuffer_1252.method490();
+        aProducingGraphicsBuffer_1252.createRasterizer();
         class13_sub1_sub4_sub4.method406(-128, -171);
-        aProducingGraphicsBuffer_1253.method490();
+        aProducingGraphicsBuffer_1253.createRasterizer();
         class13_sub1_sub4_sub4.method406(-562, -171);
-        int[] ai = new int[class13_sub1_sub4_sub4.anInt1681];
-        for (int j = 0; j < class13_sub1_sub4_sub4.anInt1682; j++) {
-            for (int k = 0; k < class13_sub1_sub4_sub4.anInt1681; k++) {
-                ai[k] = class13_sub1_sub4_sub4.anIntArray1680[(class13_sub1_sub4_sub4.anInt1681 - k - 1) + class13_sub1_sub4_sub4.anInt1681 * j];
+        int[] ai = new int[class13_sub1_sub4_sub4.spriteWidth];
+        for (int j = 0; j < class13_sub1_sub4_sub4.spriteHeight; j++) {
+            for (int k = 0; k < class13_sub1_sub4_sub4.spriteWidth; k++) {
+                ai[k] = class13_sub1_sub4_sub4.anIntArray1680[(class13_sub1_sub4_sub4.spriteWidth - k - 1) + class13_sub1_sub4_sub4.spriteWidth * j];
             }
-            for (int l = 0; l < class13_sub1_sub4_sub4.anInt1681; l++) {
-                class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.anInt1681 * j] = ai[l];
+            for (int l = 0; l < class13_sub1_sub4_sub4.spriteWidth; l++) {
+                class13_sub1_sub4_sub4.anIntArray1680[l + class13_sub1_sub4_sub4.spriteWidth * j] = ai[l];
             }
         }
-        aProducingGraphicsBuffer_1248.method490();
+        aProducingGraphicsBuffer_1248.createRasterizer();
         class13_sub1_sub4_sub4.method406(382, 0);
-        aProducingGraphicsBuffer_1249.method490();
+        aProducingGraphicsBuffer_1249.createRasterizer();
         class13_sub1_sub4_sub4.method406(-255, 0);
-        aProducingGraphicsBuffer_1245.method490();
+        aProducingGraphicsBuffer_1245.createRasterizer();
         class13_sub1_sub4_sub4.method406(254, 0);
-        aProducingGraphicsBuffer_1246.method490();
+        aProducingGraphicsBuffer_1246.createRasterizer();
         class13_sub1_sub4_sub4.method406(180, -371);
-        aProducingGraphicsBuffer_1247.method490();
+        aProducingGraphicsBuffer_1247.createRasterizer();
         class13_sub1_sub4_sub4.method406(180, -171);
-        aProducingGraphicsBuffer_1250.method490();
+        aProducingGraphicsBuffer_1250.createRasterizer();
         class13_sub1_sub4_sub4.method406(382, -265);
-        aProducingGraphicsBuffer_1251.method490();
+        aProducingGraphicsBuffer_1251.createRasterizer();
         class13_sub1_sub4_sub4.method406(-180, -265);
-        aProducingGraphicsBuffer_1252.method490();
+        aProducingGraphicsBuffer_1252.createRasterizer();
         class13_sub1_sub4_sub4.method406(254, -171);
-        aProducingGraphicsBuffer_1253.method490();
+        aProducingGraphicsBuffer_1253.createRasterizer();
         class13_sub1_sub4_sub4.method406(-180, -171);
         class13_sub1_sub4_sub4 = new Sprite(titleArchive, "logo", 0);
-        aProducingGraphicsBuffer_1245.method490();
-        class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.anInt1681 / 2 - 128);
+        aProducingGraphicsBuffer_1245.createRasterizer();
+        class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.spriteWidth / 2 - 128);
         System.gc();
     }
 
@@ -4244,8 +4244,8 @@ public class Game extends GameShell {
 
     public void method36(byte byte0, int i, int j, int k, int l, int i1) {
         try {
-            scrollbarTopArrow.method401(l, (byte) 83, i1);
-            scrollbarBottomArrow.method401((l + i) - 16, (byte) 83, i1);
+            scrollbarTopArrow.method401(l, i1);
+            scrollbarBottomArrow.method401((l + i) - 16, i1);
             Rasterizer.method356(i1, l + 16, anInt1182, 16, i - 32);
             int j1 = ((i - 32) * i) / j;
             if (j1 < 8) {
@@ -4575,9 +4575,9 @@ public class Game extends GameShell {
 
     public void method44(boolean flag) {
         try {
-            aProducingGraphicsBuffer_1212.method490();
+            aProducingGraphicsBuffer_1212.createRasterizer();
             if (anInt1094 == 2) {
-                byte[] abyte0 = minimapBackground.aByteArray1667;
+                byte[] abyte0 = backgroundMinimap.aByteArray1667;
                 int[] ai = Rasterizer.pixels;
                 int k2 = abyte0.length;
                 for (int i5 = 0; i5 < k2; i5++) {
@@ -4586,7 +4586,7 @@ public class Game extends GameShell {
                     }
                 }
                 minimapCompass.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
-                aProducingGraphicsBuffer_1213.method490();
+                aProducingGraphicsBuffer_1213.createRasterizer();
                 return;
             }
             int i = anInt922 + anInt1205 & 0x7ff;
@@ -4608,7 +4608,7 @@ public class Game extends GameShell {
                     if (linkedList != null) {
                         int l = (k5 * 4 + 2) - localPlayer.anInt1587 / 32;
                         int j3 = (l5 * 4 + 2) - localPlayer.anInt1588 / 32;
-                        method115(aClass13_Sub1_Sub4_Sub4_1124, l, j3, 543);
+                        method115(mapDotGroundItem, l, j3, 543);
                     }
                 }
             }
@@ -4622,7 +4622,7 @@ public class Game extends GameShell {
                     if (npcConfig != null && npcConfig.aBoolean752 && npcConfig.aBoolean784) {
                         int i1 = class13_sub1_sub1_sub6_sub2.anInt1587 / 32 - localPlayer.anInt1587 / 32;
                         int k3 = class13_sub1_sub1_sub6_sub2.anInt1588 / 32 - localPlayer.anInt1588 / 32;
-                        method115(aClass13_Sub1_Sub4_Sub4_1125, i1, k3, 543);
+                        method115(mapDotNpc, i1, k3, 543);
                     }
                 }
             }
@@ -4642,11 +4642,11 @@ public class Game extends GameShell {
                     }
                     boolean flag2 = localPlayer.teamIndex != 0 && class13_sub1_sub1_sub6_sub1.teamIndex != 0 && localPlayer.teamIndex == class13_sub1_sub1_sub6_sub1.teamIndex;
                     if (flag1) {
-                        method115(aClass13_Sub1_Sub4_Sub4_1127, j1, l3, 543);
+                        method115(mapDotFriend, j1, l3, 543);
                     } else if (flag2) {
-                        method115(aClass13_Sub1_Sub4_Sub4_1128, j1, l3, 543);
+                        method115(mapDotMatchingTeamCape, j1, l3, 543);
                     } else {
-                        method115(aClass13_Sub1_Sub4_Sub4_1126, j1, l3, 543);
+                        method115(mapDotPlayer, j1, l3, 543);
                     }
                 }
             }
@@ -4656,30 +4656,30 @@ public class Game extends GameShell {
                     if (class13_sub1_sub1_sub6_sub2_1 != null) {
                         int k1 = class13_sub1_sub1_sub6_sub2_1.anInt1587 / 32 - localPlayer.anInt1587 / 32;
                         int i4 = class13_sub1_sub1_sub6_sub2_1.anInt1588 / 32 - localPlayer.anInt1588 / 32;
-                        method116(aClass13_Sub1_Sub4_Sub4_946, k1, 1, i4);
+                        method116(mapMarkerArrow, k1, 1, i4);
                     }
                 }
                 if (anInt1227 == 2) {
                     int l1 = ((anInt1132 - anInt1083) * 4 + 2) - localPlayer.anInt1587 / 32;
                     int j4 = ((anInt1133 - anInt1084) * 4 + 2) - localPlayer.anInt1588 / 32;
-                    method116(aClass13_Sub1_Sub4_Sub4_946, l1, 1, j4);
+                    method116(mapMarkerArrow, l1, 1, j4);
                 }
                 if (anInt1227 == 10 && anInt999 >= 0 && anInt999 < players.length) {
                     Player class13_sub1_sub1_sub6_sub1_1 = players[anInt999];
                     if (class13_sub1_sub1_sub6_sub1_1 != null) {
                         int i2 = class13_sub1_sub1_sub6_sub1_1.anInt1587 / 32 - localPlayer.anInt1587 / 32;
                         int k4 = class13_sub1_sub1_sub6_sub1_1.anInt1588 / 32 - localPlayer.anInt1588 / 32;
-                        method116(aClass13_Sub1_Sub4_Sub4_946, i2, 1, k4);
+                        method116(mapMarkerArrow, i2, 1, k4);
                     }
                 }
             }
             if (anInt1221 != 0) {
                 int j2 = (anInt1221 * 4 + 2) - localPlayer.anInt1587 / 32;
                 int l4 = (anInt1222 * 4 + 2) - localPlayer.anInt1588 / 32;
-                method115(aClass13_Sub1_Sub4_Sub4_945, j2, l4, 543);
+                method115(mapMarkerFlag, j2, l4, 543);
             }
             Rasterizer.method356(97, 78, 0xffffff, 3, 3);
-            aProducingGraphicsBuffer_1213.method490();
+            aProducingGraphicsBuffer_1213.createRasterizer();
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("85574, " + flag + ", " + runtimeexception);
@@ -4768,43 +4768,43 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_1186 = null;
             aProducingGraphicsBuffer_1187 = null;
             aProducingGraphicsBuffer_1188 = null;
-            aProducingGraphicsBuffer_875 = null;
-            aProducingGraphicsBuffer_876 = null;
-            aProducingGraphicsBuffer_877 = null;
-            aProducingGraphicsBuffer_878 = null;
-            aProducingGraphicsBuffer_879 = null;
-            aProducingGraphicsBuffer_880 = null;
-            aProducingGraphicsBuffer_881 = null;
-            aProducingGraphicsBuffer_882 = null;
-            aProducingGraphicsBuffer_883 = null;
-            inventoryBackground = null;
-            minimapBackground = null;
-            chatboxBackground = null;
-            chatSettingsBackground = null;
-            tabBottomBackground = null;
-            tabTopBackground = null;
+            backgroundBorderLeft = null;
+            backgroundChatboxLeft = null;
+            backgroundMinimapRight = null;
+            backgroundInventoryRight = null;
+            backgroundBorderTop = null;
+            backgroundMinimapLeft = null;
+            backgroundInventoryLeft = null;
+            backgrounChatboxRight = null;
+            backgroundChatboxTop = null;
+            backgroundInventory = null;
+            backgroundMinimap = null;
+            backgroundChatbox = null;
+            backgroundChatSettings = null;
+            backgroundTabBottom = null;
+            backgroundTabTop = null;
             sidebarIcons = null;
-            aClass13_Sub1_Sub4_Sub3_867 = null;
-            aClass13_Sub1_Sub4_Sub3_868 = null;
-            aClass13_Sub1_Sub4_Sub3_869 = null;
-            aClass13_Sub1_Sub4_Sub3_870 = null;
-            aClass13_Sub1_Sub4_Sub3_871 = null;
-            aClass13_Sub1_Sub4_Sub3_1088 = null;
-            aClass13_Sub1_Sub4_Sub3_1089 = null;
-            aClass13_Sub1_Sub4_Sub3_1090 = null;
-            aClass13_Sub1_Sub4_Sub3_1091 = null;
-            aClass13_Sub1_Sub4_Sub3_1092 = null;
+            selectedTabTopLeftCorner = null;
+            selectedTabTopLeft = null;
+            selectedTabTopCenter = null;
+            selectedTabTopRightCorner = null;
+            selectedTabTopRight = null;
+            selectedTabBottomLeftCorner = null;
+            selectedTabBottomLeft = null;
+            selectedTabBottomCenter = null;
+            selectedTabBottomRightCorner = null;
+            selectedTabBottomRight = null;
             minimapCompass = null;
             hitmarks = null;
             headIcons = null;
             cursorClickFrames = null;
-            aClass13_Sub1_Sub4_Sub4_1124 = null;
-            aClass13_Sub1_Sub4_Sub4_1125 = null;
-            aClass13_Sub1_Sub4_Sub4_1126 = null;
-            aClass13_Sub1_Sub4_Sub4_1127 = null;
-            aClass13_Sub1_Sub4_Sub4_1128 = null;
-            aClass13_Sub1_Sub4_Sub3Array1123 = null;
-            aClass13_Sub1_Sub4_Sub4Array1189 = null;
+            mapDotGroundItem = null;
+            mapDotNpc = null;
+            mapDotPlayer = null;
+            mapDotFriend = null;
+            mapDotMatchingTeamCape = null;
+            mapSceneryIcons = null;
+            mapPointOfInterestIcons = null;
             anIntArrayArray1228 = null;
             players = null;
             playerList = null;
@@ -5675,7 +5675,7 @@ public class Game extends GameShell {
             method93(-894);
             method98(true, i3);
             method28(false);
-            aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
+            aProducingGraphicsBuffer_1213.drawGraphics(super.aGraphics15, 4, 4);
             anInt1004 = j1;
             anInt1005 = k1;
             anInt1006 = l1;
@@ -5794,7 +5794,7 @@ public class Game extends GameShell {
             super.updateLoadingBar(text, percentage);
             return;
         }
-        aProducingGraphicsBuffer_1247.method490();
+        aProducingGraphicsBuffer_1247.createRasterizer();
 
         char c = '\u0168';
         char c1 = '\310';
@@ -5806,19 +5806,19 @@ public class Game extends GameShell {
         Rasterizer.method356(c / 2 - 150, j + 2, 0x8c1111, percentage * 3, 30);
         Rasterizer.method356((c / 2 - 150) + percentage * 3, j + 2, 0, 300 - percentage * 3, 30);
         boldFont.method381(text, c / 2, 0xffffff, (c1 / 2 + 5) - byte0);
-        aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 202, 171);
+        aProducingGraphicsBuffer_1247.drawGraphics(super.aGraphics15, 202, 171);
         if (aBoolean1216) {
             aBoolean1216 = false;
             if (!currentlyDrawingFlames) {
-                aProducingGraphicsBuffer_1248.method491(super.aGraphics15, 0, 0);
-                aProducingGraphicsBuffer_1249.method491(super.aGraphics15, 637, 0);
+                aProducingGraphicsBuffer_1248.drawGraphics(super.aGraphics15, 0, 0);
+                aProducingGraphicsBuffer_1249.drawGraphics(super.aGraphics15, 637, 0);
             }
-            aProducingGraphicsBuffer_1245.method491(super.aGraphics15, 128, 0);
-            aProducingGraphicsBuffer_1246.method491(super.aGraphics15, 202, 371);
-            aProducingGraphicsBuffer_1250.method491(super.aGraphics15, 0, 265);
-            aProducingGraphicsBuffer_1251.method491(super.aGraphics15, 562, 265);
-            aProducingGraphicsBuffer_1252.method491(super.aGraphics15, 128, 171);
-            aProducingGraphicsBuffer_1253.method491(super.aGraphics15, 562, 171);
+            aProducingGraphicsBuffer_1245.drawGraphics(super.aGraphics15, 128, 0);
+            aProducingGraphicsBuffer_1246.drawGraphics(super.aGraphics15, 202, 371);
+            aProducingGraphicsBuffer_1250.drawGraphics(super.aGraphics15, 0, 265);
+            aProducingGraphicsBuffer_1251.drawGraphics(super.aGraphics15, 562, 265);
+            aProducingGraphicsBuffer_1252.drawGraphics(super.aGraphics15, 128, 171);
+            aProducingGraphicsBuffer_1253.drawGraphics(super.aGraphics15, 562, 171);
         }
     }
 
@@ -5851,8 +5851,8 @@ public class Game extends GameShell {
         if (Signlink.mainapp != null) {
             return Signlink.mainapp;
         }
-        if (super.aFrame_Sub1_18 != null) {
-            return super.aFrame_Sub1_18;
+        if (super.gameFrame != null) {
+            return super.gameFrame;
         } else {
             return this;
         }
@@ -5868,7 +5868,7 @@ public class Game extends GameShell {
             return Signlink.mainapp.getCodeBase();
         }
         try {
-            if (super.aFrame_Sub1_18 != null) {
+            if (super.gameFrame != null) {
                 return new URL("http://127.0.0.1:" + (80 + portOffset));
             }
         } catch (Exception _ex) {
@@ -6023,9 +6023,9 @@ public class Game extends GameShell {
                 anInt1222 = 0;
                 anInt899 = 0;
                 anInt1284 = 0;
-                for (int i2 = 0; i2 < maxPlayerCount; i2++) {
-                    players[i2] = null;
-                    cachedAppearances[i2] = null;
+                for (int player = 0; player < maxPlayerCount; player++) {
+                    players[player] = null;
+                    cachedAppearances[player] = null;
                 }
                 for (int k2 = 0; k2 < 16384; k2++) {
                     npcs[k2] = null;
@@ -6348,280 +6348,255 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method61(boolean flag) {
-        try {
-            aProducingGraphicsBuffer_1214.method490();
-            Rasterizer3D.anIntArray1636 = anIntArray857;
-            chatboxBackground.method401(0, (byte) 83, 0);
-            if (aBoolean1017) {
-                boldFont.method381(aString1196, 239, 0, 40);
-                boldFont.method381(aString1218 + "*", 239, 128, 60);
-            } else if (anInt1141 == 1) {
-                boldFont.method381("Enter amount:", 239, 0, 40);
-                boldFont.method381(aString964 + "*", 239, 128, 60);
-            } else if (anInt1141 == 2) {
-                boldFont.method381("Enter name:", 239, 0, 40);
-                boldFont.method381(aString964 + "*", 239, 128, 60);
-            } else if (clickToContinueText != null) {
-                boldFont.method381(clickToContinueText, 239, 0, 40);
-                boldFont.method381("Click to continue", 239, 128, 60);
-            } else if (openChatboxWidgetId != -1) {
-                method67(Widget.widgets[openChatboxWidgetId], 0, 0, 0, 988);
-            } else if (dialogueId != -1) {
-                method67(Widget.widgets[dialogueId], 0, 0, 0, 988);
-            } else {
-                com.jagex.graphics.Font font = plainFont;
-                int i = 0;
-                Rasterizer.method353(463, 77, 0, 0);
-                for (int j = 0; j < 100; j++) {
-                    if (chatMessages[j] != null) {
-                        int k = chatTypes[j];
-                        int l = (70 - i * 14) + anInt1019;
-                        String s1 = chatPlayerNames[j];
-                        byte byte0 = 0;
-                        if (s1 != null && s1.startsWith("@cr1@")) {
-                            s1 = s1.substring(5);
-                            byte0 = 1;
+    public void method61() {
+        aProducingGraphicsBuffer_1214.createRasterizer();
+        Rasterizer3D.anIntArray1636 = anIntArray857;
+        backgroundChatbox.method401(0, 0);
+        if (aBoolean1017) {
+            boldFont.method381(aString1196, 239, 0, 40);
+            boldFont.method381(aString1218 + "*", 239, 128, 60);
+        } else if (anInt1141 == 1) {
+            boldFont.method381("Enter amount:", 239, 0, 40);
+            boldFont.method381(aString964 + "*", 239, 128, 60);
+        } else if (anInt1141 == 2) {
+            boldFont.method381("Enter name:", 239, 0, 40);
+            boldFont.method381(aString964 + "*", 239, 128, 60);
+        } else if (clickToContinueText != null) {
+            boldFont.method381(clickToContinueText, 239, 0, 40);
+            boldFont.method381("Click to continue", 239, 128, 60);
+        } else if (openChatboxWidgetId != -1) {
+            method67(Widget.widgets[openChatboxWidgetId], 0, 0, 0, 988);
+        } else if (dialogueId != -1) {
+            method67(Widget.widgets[dialogueId], 0, 0, 0, 988);
+        } else {
+            com.jagex.graphics.Font font = plainFont;
+            int i = 0;
+            Rasterizer.method353(463, 77, 0, 0);
+            for (int j = 0; j < 100; j++) {
+                if (chatMessages[j] != null) {
+                    int k = chatTypes[j];
+                    int l = (70 - i * 14) + anInt1019;
+                    String s1 = chatPlayerNames[j];
+                    byte byte0 = 0;
+                    if (s1 != null && s1.startsWith("@cr1@")) {
+                        s1 = s1.substring(5);
+                        byte0 = 1;
+                    }
+                    if (s1 != null && s1.startsWith("@cr2@")) {
+                        s1 = s1.substring(5);
+                        byte0 = 2;
+                    }
+                    if (k == 0) {
+                        if (l > 0 && l < 110) {
+                            font.method385(chatMessages[j], 0, 4, l);
                         }
-                        if (s1 != null && s1.startsWith("@cr2@")) {
-                            s1 = s1.substring(5);
-                            byte0 = 2;
-                        }
-                        if (k == 0) {
-                            if (l > 0 && l < 110) {
-                                font.method385(chatMessages[j], 0, 4, l);
+                        i++;
+                    }
+                    if ((k == 1 || k == 2) && (k == 1 || anInt1159 == 0 || anInt1159 == 1 && method71(s1, 771))) {
+                        if (l > 0 && l < 110) {
+                            int i1 = 4;
+                            if (byte0 == 1) {
+                                playerChatIcons[0].method401(l - 12, i1);
+                                i1 += 14;
                             }
-                            i++;
-                        }
-                        if ((k == 1 || k == 2) && (k == 1 || anInt1159 == 0 || anInt1159 == 1 && method71(s1, 771))) {
-                            if (l > 0 && l < 110) {
-                                int i1 = 4;
-                                if (byte0 == 1) {
-                                    playerChatIcons[0].method401(l - 12, (byte) 83, i1);
-                                    i1 += 14;
-                                }
-                                if (byte0 == 2) {
-                                    playerChatIcons[1].method401(l - 12, (byte) 83, i1);
-                                    i1 += 14;
-                                }
-                                font.method385(s1 + ":", 0, i1, l);
-                                i1 += font.method383(3, s1) + 8;
-                                font.method385(chatMessages[j], 255, i1, l);
+                            if (byte0 == 2) {
+                                playerChatIcons[1].method401(l - 12, i1);
+                                i1 += 14;
                             }
-                            i++;
+                            font.method385(s1 + ":", 0, i1, l);
+                            i1 += font.method383(3, s1) + 8;
+                            font.method385(chatMessages[j], 255, i1, l);
                         }
-                        if ((k == 3 || k == 7) && anInt920 == 0 && (k == 7 || anInt1129 == 0 || anInt1129 == 1 && method71(s1, 771))) {
-                            if (l > 0 && l < 110) {
-                                int j1 = 4;
-                                font.method385("From", 0, j1, l);
-                                j1 += font.method383(3, "From ");
-                                if (byte0 == 1) {
-                                    playerChatIcons[0].method401(l - 12, (byte) 83, j1);
-                                    j1 += 14;
-                                }
-                                if (byte0 == 2) {
-                                    playerChatIcons[1].method401(l - 12, (byte) 83, j1);
-                                    j1 += 14;
-                                }
-                                font.method385(s1 + ":", 0, j1, l);
-                                j1 += font.method383(3, s1) + 8;
-                                font.method385(chatMessages[j], 0x800000, j1, l);
+                        i++;
+                    }
+                    if ((k == 3 || k == 7) && anInt920 == 0 && (k == 7 || anInt1129 == 0 || anInt1129 == 1 && method71(s1, 771))) {
+                        if (l > 0 && l < 110) {
+                            int j1 = 4;
+                            font.method385("From", 0, j1, l);
+                            j1 += font.method383(3, "From ");
+                            if (byte0 == 1) {
+                                playerChatIcons[0].method401(l - 12, j1);
+                                j1 += 14;
                             }
-                            i++;
-                        }
-                        if (k == 4 && (anInt1290 == 0 || anInt1290 == 1 && method71(s1, 771))) {
-                            if (l > 0 && l < 110) {
-                                font.method385(s1 + " " + chatMessages[j], 0x800080, 4, l);
+                            if (byte0 == 2) {
+                                playerChatIcons[1].method401(l - 12, j1);
+                                j1 += 14;
                             }
-                            i++;
+                            font.method385(s1 + ":", 0, j1, l);
+                            j1 += font.method383(3, s1) + 8;
+                            font.method385(chatMessages[j], 0x800000, j1, l);
                         }
-                        if (k == 5 && anInt920 == 0 && anInt1129 < 2) {
-                            if (l > 0 && l < 110) {
-                                font.method385(chatMessages[j], 0x800000, 4, l);
-                            }
-                            i++;
+                        i++;
+                    }
+                    if (k == 4 && (anInt1290 == 0 || anInt1290 == 1 && method71(s1, 771))) {
+                        if (l > 0 && l < 110) {
+                            font.method385(s1 + " " + chatMessages[j], 0x800080, 4, l);
                         }
-                        if (k == 6 && anInt920 == 0 && anInt1129 < 2) {
-                            if (l > 0 && l < 110) {
-                                font.method385("To " + s1 + ":", 0, 4, l);
-                                font.method385(chatMessages[j], 0x800000, 12 + font.method383(3, "To " + s1), l);
-                            }
-                            i++;
+                        i++;
+                    }
+                    if (k == 5 && anInt920 == 0 && anInt1129 < 2) {
+                        if (l > 0 && l < 110) {
+                            font.method385(chatMessages[j], 0x800000, 4, l);
                         }
-                        if (k == 8 && (anInt1290 == 0 || anInt1290 == 1 && method71(s1, 771))) {
-                            if (l > 0 && l < 110) {
-                                font.method385(s1 + " " + chatMessages[j], 0x7e3200, 4, l);
-                            }
-                            i++;
+                        i++;
+                    }
+                    if (k == 6 && anInt920 == 0 && anInt1129 < 2) {
+                        if (l > 0 && l < 110) {
+                            font.method385("To " + s1 + ":", 0, 4, l);
+                            font.method385(chatMessages[j], 0x800000, 12 + font.method383(3, "To " + s1), l);
                         }
+                        i++;
+                    }
+                    if (k == 8 && (anInt1290 == 0 || anInt1290 == 1 && method71(s1, 771))) {
+                        if (l > 0 && l < 110) {
+                            font.method385(s1 + " " + chatMessages[j], 0x7e3200, 4, l);
+                        }
+                        i++;
                     }
                 }
-                Rasterizer.method352();
-                anInt886 = i * 14 + 7;
-                if (anInt886 < 78) {
-                    anInt886 = 78;
-                }
-                method36((byte) 2, 77, anInt886, anInt886 - anInt1019 - 77, 0, 463);
-                String s;
-                if (localPlayer != null && localPlayer.username != null) {
-                    s = localPlayer.username;
-                } else {
-                    s = StringUtil.format(username);
-                }
-                font.method385(s + ":", 0, 4, 90);
-                font.method385(command + "*", 255, 6 + font.method383(3, s + ": "), 90);
-                Rasterizer.method359(0, 0, 77, 479);
             }
-            if (aBoolean989 && anInt820 == 2) {
-                method60(45234);
+            Rasterizer.method352();
+            anInt886 = i * 14 + 7;
+            if (anInt886 < 78) {
+                anInt886 = 78;
             }
-            aProducingGraphicsBuffer_1214.method491(super.aGraphics15, 17, 357);
-            aProducingGraphicsBuffer_1213.method490();
-            if (flag) {
-                opcode = inBuffer.readUByte();
+            method36((byte) 2, 77, anInt886, anInt886 - anInt1019 - 77, 0, 463);
+            String username;
+            if (localPlayer != null && localPlayer.username != null) {
+                username = localPlayer.username;
+            } else {
+                username = StringUtil.format(this.username);
             }
-            Rasterizer3D.anIntArray1636 = anIntArray859;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("68585, " + flag + ", " + runtimeexception);
+            font.method385(username + ":", 0, 4, 90);
+            font.method385(chatboxInput + "*", 255, 6 + font.method383(3, username + ": "), 90);
+            Rasterizer.method359(0, 0, 77, 479);
         }
-        throw new RuntimeException();
+        if (aBoolean989 && anInt820 == 2) {
+            method60(45234);
+        }
+        aProducingGraphicsBuffer_1214.drawGraphics(super.aGraphics15, 17, 357);
+        aProducingGraphicsBuffer_1213.createRasterizer();
+        Rasterizer3D.anIntArray1636 = anIntArray859;
+        return;
     }
 
-    public void method62(byte byte0) {
-        try {
-            aProducingGraphicsBuffer_1211.method490();
-            Rasterizer3D.anIntArray1636 = anIntArray858;
-            inventoryBackground.method401(0, (byte) 83, 0);
-            if (anInt874 != -1) {
-                method67(Widget.widgets[anInt874], 0, 0, 0, 988);
-            } else if (sidebarWidgets[activeTab] != -1) {
-                method67(Widget.widgets[sidebarWidgets[activeTab]], 0, 0, 0, 988);
-            }
-            if (aBoolean989 && anInt820 == 1) {
-                method60(45234);
-            }
-            aProducingGraphicsBuffer_1211.method491(super.aGraphics15, 553, 205);
-            aProducingGraphicsBuffer_1213.method490();
-            Rasterizer3D.anIntArray1636 = anIntArray859;
-            if (byte0 == 6) {
-                byte0 = 0;
-                return;
-            } else {
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("96378, " + byte0 + ", " + runtimeexception);
+    public void method62() {
+        aProducingGraphicsBuffer_1211.createRasterizer();
+        Rasterizer3D.anIntArray1636 = anIntArray858;
+        backgroundInventory.method401(0, 0);
+        if (anInt874 != -1) {
+            method67(Widget.widgets[anInt874], 0, 0, 0, 988);
+        } else if (sidebarWidgets[activeTab] != -1) {
+            method67(Widget.widgets[sidebarWidgets[activeTab]], 0, 0, 0, 988);
         }
-        throw new RuntimeException();
+        if (aBoolean989 && anInt820 == 1) {
+            method60(45234);
+        }
+        aProducingGraphicsBuffer_1211.drawGraphics(super.aGraphics15, 553, 205);
+        aProducingGraphicsBuffer_1213.createRasterizer();
+        Rasterizer3D.anIntArray1636 = anIntArray859;
     }
 
     public void method63(int i, int j) {
-        try {
-            int[] ai = aClass13_Sub1_Sub4_Sub4_1223.anIntArray1680;
-            int k = ai.length;
-            for (int l = 0; l < k; l++) {
-                ai[l] = 0;
+        int[] ai = aClass13_Sub1_Sub4_Sub4_1223.anIntArray1680;
+        int k = ai.length;
+        for (int l = 0; l < k; l++) {
+            ai[l] = 0;
+        }
+        for (int i1 = 1; i1 < 103; i1++) {
+            int j1 = 24628 + (103 - i1) * 512 * 4;
+            for (int l1 = 1; l1 < 103; l1++) {
+                if ((aByteArrayArrayArray1164[j][l1][i1] & 0x18) == 0) {
+                    aScene_1198.method229(ai, j1, 512, j, l1, i1);
+                }
+                if (j < 3 && (aByteArrayArrayArray1164[j + 1][l1][i1] & 8) != 0) {
+                    aScene_1198.method229(ai, j1, 512, j + 1, l1, i1);
+                }
+                j1 += 4;
             }
-            for (int i1 = 1; i1 < 103; i1++) {
-                int j1 = 24628 + (103 - i1) * 512 * 4;
-                for (int l1 = 1; l1 < 103; l1++) {
-                    if ((aByteArrayArrayArray1164[j][l1][i1] & 0x18) == 0) {
-                        aScene_1198.method229(ai, j1, 512, j, l1, i1);
-                    }
-                    if (j < 3 && (aByteArrayArrayArray1164[j + 1][l1][i1] & 8) != 0) {
-                        aScene_1198.method229(ai, j1, 512, j + 1, l1, i1);
-                    }
-                    j1 += 4;
+        }
+        int k1 = ((238 + (int) (Math.random() * 20D)) - 10 << 16) + ((238 + (int) (Math.random() * 20D)) - 10 << 8) + ((238 + (int) (Math.random() * 20D)) - 10);
+        if (i != 8) {
+            method6();
+        }
+        int i2 = (238 + (int) (Math.random() * 20D)) - 10 << 16;
+        aClass13_Sub1_Sub4_Sub4_1223.method403(false);
+        for (int j2 = 1; j2 < 103; j2++) {
+            for (int k2 = 1; k2 < 103; k2++) {
+                if ((aByteArrayArrayArray1164[j][k2][j2] & 0x18) == 0) {
+                    method14(k1, 3, j, k2, j2, i2);
+                }
+                if (j < 3 && (aByteArrayArrayArray1164[j + 1][k2][j2] & 8) != 0) {
+                    method14(k1, 3, j + 1, k2, j2, i2);
                 }
             }
-            int k1 = ((238 + (int) (Math.random() * 20D)) - 10 << 16) + ((238 + (int) (Math.random() * 20D)) - 10 << 8) + ((238 + (int) (Math.random() * 20D)) - 10);
-            if (i != 8) {
-                method6();
-            }
-            int i2 = (238 + (int) (Math.random() * 20D)) - 10 << 16;
-            aClass13_Sub1_Sub4_Sub4_1223.method403(false);
-            for (int j2 = 1; j2 < 103; j2++) {
-                for (int k2 = 1; k2 < 103; k2++) {
-                    if ((aByteArrayArrayArray1164[j][k2][j2] & 0x18) == 0) {
-                        method14(k1, 3, j, k2, j2, i2);
-                    }
-                    if (j < 3 && (aByteArrayArrayArray1164[j + 1][k2][j2] & 8) != 0) {
-                        method14(k1, 3, j + 1, k2, j2, i2);
-                    }
-                }
-            }
-            aProducingGraphicsBuffer_1213.method490();
-            anInt830 = 0;
-            for (int l2 = 0; l2 < 104; l2++) {
-                for (int i3 = 0; i3 < 104; i3++) {
-                    int k3 = aScene_1198.method223(anInt1166, l2, i3);
-                    if (k3 != 0) {
-                        k3 = k3 >> 14 & 0x7fff;
-                        int l3 = LocationConfig.readDefinition(k3).anInt250;
-                        if (l3 >= 0) {
-                            int i4 = l2;
-                            int j4 = i3;
-                            if (l3 != 22 && l3 != 29 && l3 != 34 && l3 != 36 && l3 != 46 && l3 != 47 && l3 != 48) {
-                                byte byte0 = 104;
-                                byte byte1 = 104;
-                                int[][] ai1 = aCollisionMapArray947[anInt1166].anIntArrayArray682;
-                                for (int k4 = 0; k4 < 10; k4++) {
-                                    int l4 = (int) (Math.random() * 4D);
-                                    if (l4 == 0 && i4 > 0 && i4 > l2 - 3 && (ai1[i4 - 1][j4] & 0x1280108) == 0) {
-                                        i4--;
-                                    }
-                                    if (l4 == 1 && i4 < byte0 - 1 && i4 < l2 + 3 && (ai1[i4 + 1][j4] & 0x1280180) == 0) {
-                                        i4++;
-                                    }
-                                    if (l4 == 2 && j4 > 0 && j4 > i3 - 3 && (ai1[i4][j4 - 1] & 0x1280102) == 0) {
-                                        j4--;
-                                    }
-                                    if (l4 == 3 && j4 < byte1 - 1 && j4 < i3 + 3 && (ai1[i4][j4 + 1] & 0x1280120) == 0) {
-                                        j4++;
-                                    }
+        }
+        aProducingGraphicsBuffer_1213.createRasterizer();
+        anInt830 = 0;
+        for (int l2 = 0; l2 < 104; l2++) {
+            for (int i3 = 0; i3 < 104; i3++) {
+                int k3 = aScene_1198.method223(anInt1166, l2, i3);
+                if (k3 != 0) {
+                    k3 = k3 >> 14 & 0x7fff;
+                    int l3 = LocationConfig.readDefinition(k3).anInt250;
+                    if (l3 >= 0) {
+                        int i4 = l2;
+                        int j4 = i3;
+                        if (l3 != 22 && l3 != 29 && l3 != 34 && l3 != 36 && l3 != 46 && l3 != 47 && l3 != 48) {
+                            byte byte0 = 104;
+                            byte byte1 = 104;
+                            int[][] ai1 = aCollisionMapArray947[anInt1166].anIntArrayArray682;
+                            for (int k4 = 0; k4 < 10; k4++) {
+                                int l4 = (int) (Math.random() * 4D);
+                                if (l4 == 0 && i4 > 0 && i4 > l2 - 3 && (ai1[i4 - 1][j4] & 0x1280108) == 0) {
+                                    i4--;
+                                }
+                                if (l4 == 1 && i4 < byte0 - 1 && i4 < l2 + 3 && (ai1[i4 + 1][j4] & 0x1280180) == 0) {
+                                    i4++;
+                                }
+                                if (l4 == 2 && j4 > 0 && j4 > i3 - 3 && (ai1[i4][j4 - 1] & 0x1280102) == 0) {
+                                    j4--;
+                                }
+                                if (l4 == 3 && j4 < byte1 - 1 && j4 < i3 + 3 && (ai1[i4][j4 + 1] & 0x1280120) == 0) {
+                                    j4++;
                                 }
                             }
-                            aClass13_Sub1_Sub4_Sub4Array1145[anInt830] = aClass13_Sub1_Sub4_Sub4Array1189[l3];
-                            anIntArray831[anInt830] = i4;
-                            anIntArray832[anInt830] = j4;
-                            anInt830++;
                         }
+                        aClass13_Sub1_Sub4_Sub4Array1145[anInt830] = mapPointOfInterestIcons[l3];
+                        anIntArray831[anInt830] = i4;
+                        anIntArray832[anInt830] = j4;
+                        anInt830++;
                     }
                 }
             }
-            anInt916++;
-            if (anInt916 > 1069) {
-                anInt916 = 0;
-                outBuffer.writeOpcode(108);
-                outBuffer.writeByte(0);
-                int j3 = outBuffer.position;
-                if ((int) (Math.random() * 2D) == 0) {
-                    outBuffer.writeByte(233);
-                }
-                if ((int) (Math.random() * 2D) == 0) {
-                    outBuffer.writeShortBE(28677);
-                }
-                if ((int) (Math.random() * 2D) == 0) {
-                    outBuffer.writeByte(170);
-                }
-                if ((int) (Math.random() * 2D) == 0) {
-                    outBuffer.writeShortBE(4922);
-                }
-                outBuffer.writeByte((int) (Math.random() * 256D));
-                if ((int) (Math.random() * 2D) == 0) {
-                    outBuffer.writeByte(109);
-                }
-                outBuffer.writeShortBE(62857);
-                outBuffer.writeByte((int) (Math.random() * 256D));
-                outBuffer.writeByte(20);
-                outBuffer.writeShortBE((int) (Math.random() * 65536D));
-                outBuffer.writeSizeByte(outBuffer.position - j3);
-                return;
+        }
+        anInt916++;
+        if (anInt916 > 1069) {
+            anInt916 = 0;
+            outBuffer.writeOpcode(108);
+            outBuffer.writeByte(0);
+            int j3 = outBuffer.position;
+            if ((int) (Math.random() * 2D) == 0) {
+                outBuffer.writeByte(233);
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("20726, " + i + ", " + j + ", " + runtimeexception);
-            throw new RuntimeException();
+            if ((int) (Math.random() * 2D) == 0) {
+                outBuffer.writeShortBE(28677);
+            }
+            if ((int) (Math.random() * 2D) == 0) {
+                outBuffer.writeByte(170);
+            }
+            if ((int) (Math.random() * 2D) == 0) {
+                outBuffer.writeShortBE(4922);
+            }
+            outBuffer.writeByte((int) (Math.random() * 256D));
+            if ((int) (Math.random() * 2D) == 0) {
+                outBuffer.writeByte(109);
+            }
+            outBuffer.writeShortBE(62857);
+            outBuffer.writeByte((int) (Math.random() * 256D));
+            outBuffer.writeByte(20);
+            outBuffer.writeShortBE((int) (Math.random() * 65536D));
+            outBuffer.writeSizeByte(outBuffer.position - j3);
         }
     }
 
@@ -6638,122 +6613,105 @@ public class Game extends GameShell {
         }
     }
 
-    public void method64(boolean flag, int i) {
-        try {
-            if (!flag) {
-                outBuffer.writeByte(125);
+    public void method64(int i) {
+        int j = VariablePlayerConfig.aVariablePlayerConfigArray365[i].anInt373;
+        if (j == 0) {
+            return;
+        }
+        int k = anIntArray1149[i];
+        if (j == 1) {
+            if (k == 1) {
+                Rasterizer3D.method372(0.90000000000000002D);
             }
-            int j = VariablePlayerConfig.aVariablePlayerConfigArray365[i].anInt373;
-            if (j == 0) {
-                return;
+            if (k == 2) {
+                Rasterizer3D.method372(0.80000000000000004D);
             }
-            int k = anIntArray1149[i];
-            if (j == 1) {
-                if (k == 1) {
-                    Rasterizer3D.method372(0.90000000000000002D, (byte) 7);
-                }
-                if (k == 2) {
-                    Rasterizer3D.method372(0.80000000000000004D, (byte) 7);
-                }
-                if (k == 3) {
-                    Rasterizer3D.method372(0.69999999999999996D, (byte) 7);
-                }
-                if (k == 4) {
-                    Rasterizer3D.method372(0.59999999999999998D, (byte) 7);
-                }
-                ObjectConfig.aCache_661.removeAll();
-                aBoolean1216 = true;
+            if (k == 3) {
+                Rasterizer3D.method372(0.69999999999999996D);
             }
-            if (j == 3) {
-                boolean flag1 = aBoolean826;
-                if (k == 0) {
-                    method59(0, 0, aBoolean826);
-                    aBoolean826 = true;
-                }
-                if (k == 1) {
-                    method59(0, -400, aBoolean826);
-                    aBoolean826 = true;
-                }
-                if (k == 2) {
-                    method59(0, -800, aBoolean826);
-                    aBoolean826 = true;
-                }
-                if (k == 3) {
-                    method59(0, -1200, aBoolean826);
-                    aBoolean826 = true;
-                }
-                if (k == 4) {
-                    aBoolean826 = false;
-                }
-                if (aBoolean826 != flag1 && !isLowMemory) {
-                    if (aBoolean826) {
-                        nextSong = anInt1229;
-                        songChanging = true;
-                        gameUpdateClient.requestFile(2, nextSong);
-                    } else {
-                        method39(anInt1173);
-                    }
-                    anInt1157 = 0;
-                }
+            if (k == 4) {
+                Rasterizer3D.method372(0.59999999999999998D);
             }
-            if (j == 4) {
-                if (k == 0) {
-                    aBoolean1010 = true;
-                    method113(0, 215);
-                }
-                if (k == 1) {
-                    aBoolean1010 = true;
-                    method113(-400, 215);
-                }
-                if (k == 2) {
-                    aBoolean1010 = true;
-                    method113(-800, 215);
-                }
-                if (k == 3) {
-                    aBoolean1010 = true;
-                    method113(-1200, 215);
-                }
-                if (k == 4) {
-                    aBoolean1010 = false;
-                }
+            ObjectConfig.aCache_661.removeAll();
+            aBoolean1216 = true;
+        }
+        if (j == 3) {
+            boolean flag1 = aBoolean826;
+            if (k == 0) {
+                method59(0, 0, aBoolean826);
+                aBoolean826 = true;
             }
-            if (j == 5) {
-                anInt1275 = k;
+            if (k == 1) {
+                method59(0, -400, aBoolean826);
+                aBoolean826 = true;
             }
-            if (j == 6) {
-                anInt1289 = k;
+            if (k == 2) {
+                method59(0, -800, aBoolean826);
+                aBoolean826 = true;
             }
-            if (j == 8) {
-                anInt920 = k;
-                redrawChatbox = true;
+            if (k == 3) {
+                method59(0, -1200, aBoolean826);
+                aBoolean826 = true;
             }
-            if (j == 9) {
-                anInt862 = k;
-                return;
+            if (k == 4) {
+                aBoolean826 = false;
             }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("71532, " + flag + ", " + i + ", " + runtimeexception);
-            throw new RuntimeException();
+            if (aBoolean826 != flag1 && !isLowMemory) {
+                if (aBoolean826) {
+                    nextSong = anInt1229;
+                    songChanging = true;
+                    gameUpdateClient.requestFile(2, nextSong);
+                } else {
+                    method39(anInt1173);
+                }
+                anInt1157 = 0;
+            }
+        }
+        if (j == 4) {
+            if (k == 0) {
+                aBoolean1010 = true;
+                method113(0);
+            }
+            if (k == 1) {
+                aBoolean1010 = true;
+                method113(-400);
+            }
+            if (k == 2) {
+                aBoolean1010 = true;
+                method113(-800);
+            }
+            if (k == 3) {
+                aBoolean1010 = true;
+                method113(-1200);
+            }
+            if (k == 4) {
+                aBoolean1010 = false;
+            }
+        }
+        if (j == 5) {
+            anInt1275 = k;
+        }
+        if (j == 6) {
+            anInt1289 = k;
+        }
+        if (j == 8) {
+            anInt920 = k;
+            redrawChatbox = true;
+        }
+        if (j == 9) {
+            anInt862 = k;
+            return;
         }
     }
 
-    public void method65(int i) {
-        try {
-            if (i <= 0) {
-                outBuffer.writeByte(175);
-            }
-            LocationConfig.aCache_248.removeAll();
-            LocationConfig.aCache_249.removeAll();
-            NpcConfig.aCache_759.removeAll();
-            ObjectConfig.aCache_660.removeAll();
-            ObjectConfig.aCache_661.removeAll();
-            Player.modelCache.removeAll();
-            SpotAnimationConfig.aCache_697.removeAll();
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("19773, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void method65() {
+        LocationConfig.aCache_248.removeAll();
+        LocationConfig.aCache_249.removeAll();
+        NpcConfig.aCache_759.removeAll();
+        ObjectConfig.aCache_660.removeAll();
+        ObjectConfig.aCache_661.removeAll();
+        Player.modelCache.removeAll();
+        SpotAnimationConfig.aCache_697.removeAll();
     }
 
     public void logout() {
@@ -6769,7 +6727,7 @@ public class Game extends GameShell {
             anInt1220 = 0;
             username = "";
             password = "";
-            method65(509);
+            method65();
             aScene_1198.method194(false);
             for (int j = 0; j < 4; j++) {
                 aCollisionMapArray947[j].method516();
@@ -7003,7 +6961,7 @@ public class Game extends GameShell {
                                 s = "";
                             }
                             if (widget_1.isTextCentered) {
-                                font.method382(k2 + widget_1.width / 2, widget_1.hasDropShadow, s1, l6, i4, false);
+                                font.method382(s1, k2 + widget_1.width / 2, widget_1.hasDropShadow, l6, i4);
                             } else {
                                 font.method389(widget_1.hasDropShadow, k2, (byte) 8, l6, i4, s1);
                             }
@@ -7059,7 +7017,7 @@ public class Game extends GameShell {
                                     int i9 = k2 + i6 * (115 + widget_1.itemSpritePaddingX);
                                     int k9 = l2 + j5 * (12 + widget_1.itemSpritePaddingY);
                                     if (widget_1.isTextCentered) {
-                                        class13_sub1_sub4_sub2_1.method382(i9 + widget_1.width / 2, widget_1.hasDropShadow, s2, k9, widget_1.disabledTextColor, false);
+                                        class13_sub1_sub4_sub2_1.method382(s2, i9 + widget_1.width / 2, widget_1.hasDropShadow, k9, widget_1.disabledTextColor);
                                     } else {
                                         class13_sub1_sub4_sub2_1.method389(widget_1.hasDropShadow, i9, (byte) 8, k9, widget_1.disabledTextColor, s2);
                                     }
@@ -8214,7 +8172,7 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_1214 = new ProducingGraphicsBuffer(getGameFrame(), 479, 96);
             aProducingGraphicsBuffer_1212 = new ProducingGraphicsBuffer(getGameFrame(), 172, 156);
             Rasterizer.resetPixels();
-            minimapBackground.method401(0, (byte) 83, 0);
+            backgroundMinimap.method401(0, 0);
             aProducingGraphicsBuffer_1211 = new ProducingGraphicsBuffer(getGameFrame(), 190, 261);
             aProducingGraphicsBuffer_1213 = new ProducingGraphicsBuffer(getGameFrame(), 512, 334);
             Rasterizer.resetPixels();
@@ -8238,7 +8196,7 @@ public class Game extends GameShell {
                 aLinkedList_982.clear();
                 aLinkedList_1199.clear();
                 Rasterizer3D.method366(0);
-                method65(509);
+                method65();
                 aScene_1198.method194(false);
                 System.gc();
                 for (int i = 0; i < 4; i++) {
@@ -8336,7 +8294,7 @@ public class Game extends GameShell {
                 }
                 outBuffer.writeOpcode(63);
                 mapRegion.method458(aScene_1198, (byte) 6, aCollisionMapArray947);
-                aProducingGraphicsBuffer_1213.method490();
+                aProducingGraphicsBuffer_1213.createRasterizer();
                 outBuffer.writeOpcode(63);
                 int k3 = MapRegion.anInt426;
                 if (k3 > anInt1166) {
@@ -8359,7 +8317,7 @@ public class Game extends GameShell {
             } catch (Exception exception) {
             }
             LocationConfig.aCache_248.removeAll();
-            if (super.aFrame_Sub1_18 != null) {
+            if (super.gameFrame != null) {
                 outBuffer.writeOpcode(226);
                 outBuffer.writeIntBE(0x3f008edd);
             }
@@ -8831,7 +8789,7 @@ public class Game extends GameShell {
                 }
                 k1 += k2;
             }
-            aProducingGraphicsBuffer_1248.method491(super.aGraphics15, 0, 0);
+            aProducingGraphicsBuffer_1248.drawGraphics(super.aGraphics15, 0, 0);
             for (int j2 = 0; j2 < 33920; j2++) {
                 aProducingGraphicsBuffer_1249.pixels[j2] = aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j2];
             }
@@ -8856,7 +8814,7 @@ public class Game extends GameShell {
                 j1 += 128 - l3;
                 k1 += 128 - l3 - j3;
             }
-            aProducingGraphicsBuffer_1249.method491(super.aGraphics15, 637, 0);
+            aProducingGraphicsBuffer_1249.drawGraphics(super.aGraphics15, 637, 0);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("15285, " + i + ", " + runtimeexception);
@@ -9166,7 +9124,7 @@ public class Game extends GameShell {
         if (Signlink.mainapp != null) {
             return Signlink.mainapp.getDocumentBase().getHost().toLowerCase();
         }
-        if (super.aFrame_Sub1_18 != null) {
+        if (super.gameFrame != null) {
             return "runescape.com";
         } else {
             return super.getDocumentBase().getHost().toLowerCase();
@@ -9690,34 +9648,34 @@ public class Game extends GameShell {
                         redrawChatbox = true;
                     }
                 } else if (openChatboxWidgetId == -1) {
-                    if (i >= 32 && i <= 122 && command.length() < 80) {
-                        command += (char) i;
+                    if (i >= 32 && i <= 122 && chatboxInput.length() < 80) {
+                        chatboxInput += (char) i;
                         redrawChatbox = true;
                     }
-                    if (i == 8 && command.length() > 0) {
-                        command = command.substring(0, command.length() - 1);
+                    if (i == 8 && chatboxInput.length() > 0) {
+                        chatboxInput = chatboxInput.substring(0, chatboxInput.length() - 1);
                         redrawChatbox = true;
                     }
-                    if ((i == 13 || i == 10) && command.length() > 0) {
+                    if ((i == 13 || i == 10) && chatboxInput.length() > 0) {
                         if (anInt1037 == 2) {
-                            if (command.equals("::clientdrop")) {
+                            if (chatboxInput.equals("::clientdrop")) {
                                 method19(0);
                             }
-                            if (command.equals("::lag")) {
+                            if (chatboxInput.equals("::lag")) {
                                 method53(-900);
                             }
-                            if (command.equals("::prefetchmusic")) {
+                            if (chatboxInput.equals("::prefetchmusic")) {
                                 for (int i1 = 0; i1 < gameUpdateClient.getFileVersionCount(2); i1++) {
                                     gameUpdateClient.requestExtra(2, i1, (byte) 1);
                                 }
                             }
-                            if (command.equals("::fpson")) {
+                            if (chatboxInput.equals("::fpson")) {
                                 aBoolean962 = true;
                             }
-                            if (command.equals("::fpsoff")) {
+                            if (chatboxInput.equals("::fpsoff")) {
                                 aBoolean962 = false;
                             }
-                            if (command.equals("::noclip")) {
+                            if (chatboxInput.equals("::noclip")) {
                                 for (int j1 = 0; j1 < 4; j1++) {
                                     for (int k1 = 1; k1 < 103; k1++) {
                                         for (int j2 = 1; j2 < 103; j2++) {
@@ -9727,80 +9685,80 @@ public class Game extends GameShell {
                                 }
                             }
                         }
-                        if (command.startsWith("::")) {
+                        if (chatboxInput.startsWith("::")) {
                             outBuffer.writeOpcode(192);
-                            outBuffer.writeByte(command.length() - 1);
-                            outBuffer.writeString(command.substring(2));
+                            outBuffer.writeByte(chatboxInput.length() - 1);
+                            outBuffer.writeString(chatboxInput.substring(2));
                         } else {
-                            String formattedCommand = command.toLowerCase();
+                            String formattedCommand = chatboxInput.toLowerCase();
                             int i2 = 0;
                             if (formattedCommand.startsWith("yellow:")) {
                                 i2 = 0;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("red:")) {
                                 i2 = 1;
-                                command = command.substring(4);
+                                chatboxInput = chatboxInput.substring(4);
                             } else if (formattedCommand.startsWith("green:")) {
                                 i2 = 2;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("cyan:")) {
                                 i2 = 3;
-                                command = command.substring(5);
+                                chatboxInput = chatboxInput.substring(5);
                             } else if (formattedCommand.startsWith("purple:")) {
                                 i2 = 4;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("white:")) {
                                 i2 = 5;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("flash1:")) {
                                 i2 = 6;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("flash2:")) {
                                 i2 = 7;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("flash3:")) {
                                 i2 = 8;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("glow1:")) {
                                 i2 = 9;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("glow2:")) {
                                 i2 = 10;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("glow3:")) {
                                 i2 = 11;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             }
-                            formattedCommand = command.toLowerCase();
+                            formattedCommand = chatboxInput.toLowerCase();
                             int k2 = 0;
                             if (formattedCommand.startsWith("wave:")) {
                                 k2 = 1;
-                                command = command.substring(5);
+                                chatboxInput = chatboxInput.substring(5);
                             } else if (formattedCommand.startsWith("wave2:")) {
                                 k2 = 2;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("shake:")) {
                                 k2 = 3;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             } else if (formattedCommand.startsWith("scroll:")) {
                                 k2 = 4;
-                                command = command.substring(7);
+                                chatboxInput = chatboxInput.substring(7);
                             } else if (formattedCommand.startsWith("slide:")) {
                                 k2 = 5;
-                                command = command.substring(6);
+                                chatboxInput = chatboxInput.substring(6);
                             }
                             outBuffer.writeOpcode(141);
                             outBuffer.writeByte(0);
                             int i3 = outBuffer.position;
                             aBuffer_1282.position = 0;
-                            ChatMessageCodec.encode(aBuffer_1282, command);
+                            ChatMessageCodec.encode(aBuffer_1282, chatboxInput);
                             outBuffer.readBytes(aBuffer_1282.payload, 0, aBuffer_1282.position);
                             outBuffer.writeByte(k2);
                             outBuffer.writeByte(i2);
                             outBuffer.writeSizeByte(outBuffer.position - i3);
-                            command = ChatMessageCodec.verify(command);
-                            command = MessageCensor.method541(false, command);
-                            localPlayer.forceChat = command;
+                            chatboxInput = ChatMessageCodec.verify(chatboxInput);
+                            chatboxInput = MessageCensor.method541(false, chatboxInput);
+                            localPlayer.forceChat = chatboxInput;
                             localPlayer.anInt1566 = i2;
                             localPlayer.anInt1617 = k2;
                             localPlayer.textCycle = 150;
@@ -9820,7 +9778,7 @@ public class Game extends GameShell {
                                 outBuffer.writeByte(anInt1290);
                             }
                         }
-                        command = "";
+                        chatboxInput = "";
                         redrawChatbox = true;
                     }
                 }
@@ -9914,15 +9872,8 @@ public class Game extends GameShell {
         }
     }
 
-    public void method113(int i, int j) {
-        try {
-            Signlink.wavevol = i;
-            j = 31 / j;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("69963, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void method113(int i) {
+        Signlink.wavevol = i;
     }
 
     public void method114(boolean flag) {
@@ -10019,7 +9970,7 @@ public class Game extends GameShell {
             int l1 = j * j1 + i * k1 >> 16;
             int i2 = j * k1 - i * j1 >> 16;
             if (i1 > 2500) {
-                class13_sub1_sub4_sub4.method414(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4, minimapBackground, (byte) 6);
+                class13_sub1_sub4_sub4.method414(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4, backgroundMinimap, (byte) 6);
                 return;
             } else {
                 class13_sub1_sub4_sub4.method408(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, (byte) 83, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4);
@@ -10765,251 +10716,241 @@ public class Game extends GameShell {
         }
     }
 
-    public void method132(int i) {
-        try {
-            if (aBoolean1216) {
-                aBoolean1216 = false;
-                aProducingGraphicsBuffer_875.method491(super.aGraphics15, 0, 4);
-                aProducingGraphicsBuffer_876.method491(super.aGraphics15, 0, 357);
-                aProducingGraphicsBuffer_877.method491(super.aGraphics15, 722, 4);
-                aProducingGraphicsBuffer_878.method491(super.aGraphics15, 743, 205);
-                aProducingGraphicsBuffer_879.method491(super.aGraphics15, 0, 0);
-                aProducingGraphicsBuffer_880.method491(super.aGraphics15, 516, 4);
-                aProducingGraphicsBuffer_881.method491(super.aGraphics15, 516, 205);
-                aProducingGraphicsBuffer_882.method491(super.aGraphics15, 496, 357);
-                aProducingGraphicsBuffer_883.method491(super.aGraphics15, 0, 338);
-                redrawTabArea = true;
-                redrawChatbox = true;
-                aBoolean1286 = true;
-                aBoolean1137 = true;
-                if (anInt1254 != 2) {
-                    aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
-                    aProducingGraphicsBuffer_1212.method491(super.aGraphics15, 550, 4);
-                }
+    public void method132() {
+        if (aBoolean1216) {
+            aBoolean1216 = false;
+            backgroundBorderLeft.drawGraphics(super.aGraphics15, 0, 4);
+            backgroundChatboxLeft.drawGraphics(super.aGraphics15, 0, 357);
+            backgroundMinimapRight.drawGraphics(super.aGraphics15, 722, 4);
+            backgroundInventoryRight.drawGraphics(super.aGraphics15, 743, 205);
+            backgroundBorderTop.drawGraphics(super.aGraphics15, 0, 0);
+            backgroundMinimapLeft.drawGraphics(super.aGraphics15, 516, 4);
+            backgroundInventoryLeft.drawGraphics(super.aGraphics15, 516, 205);
+            backgrounChatboxRight.drawGraphics(super.aGraphics15, 496, 357);
+            backgroundChatboxTop.drawGraphics(super.aGraphics15, 0, 338);
+            redrawTabArea = true;
+            redrawChatbox = true;
+            aBoolean1286 = true;
+            aBoolean1137 = true;
+            if (anInt1254 != 2) {
+                aProducingGraphicsBuffer_1213.drawGraphics(super.aGraphics15, 4, 4);
+                aProducingGraphicsBuffer_1212.drawGraphics(super.aGraphics15, 550, 4);
             }
-            if (anInt1254 == 2) {
-                method50(anInt992);
-            }
-            if (aBoolean989 && anInt820 == 1) {
-                redrawTabArea = true;
-            }
-            if (anInt874 != -1) {
-                boolean flag = method74(anInt1241, true, anInt874);
-                if (flag) {
-                    redrawTabArea = true;
-                }
-            }
-            if (anInt936 == 2) {
-                redrawTabArea = true;
-            }
-            if (anInt1060 == 2) {
-                redrawTabArea = true;
-            }
-            if (redrawTabArea) {
-                method62((byte) 6);
-                redrawTabArea = false;
-            }
-            if (openChatboxWidgetId == -1) {
-                aWidget_1050.anInt595 = anInt886 - anInt1019 - 77;
-                if (super.anInt23 > 448 && super.anInt23 < 560 && super.anInt24 > 332) {
-                    method111(super.anInt23 - 17, 463, anInt886, super.anInt24 - 357, 77, (byte) 4, aWidget_1050, false, 0);
-                }
-                int j = anInt886 - 77 - aWidget_1050.anInt595;
-                if (j < 0) {
-                    j = 0;
-                }
-                if (j > anInt886 - 77) {
-                    j = anInt886 - 77;
-                }
-                if (anInt1019 != j) {
-                    anInt1019 = j;
-                    redrawChatbox = true;
-                }
-            }
-            if (openChatboxWidgetId != -1) {
-                boolean flag1 = method74(anInt1241, true, openChatboxWidgetId);
-                if (flag1) {
-                    redrawChatbox = true;
-                }
-            }
-            if (anInt936 == 3) {
-                redrawChatbox = true;
-            }
-            if (anInt1060 == 3) {
-                redrawChatbox = true;
-            }
-            if (clickToContinueText != null) {
-                redrawChatbox = true;
-            }
-            if (aBoolean989 && anInt820 == 2) {
-                redrawChatbox = true;
-            }
-            if (redrawChatbox) {
-                method61(false);
-                redrawChatbox = false;
-            }
-            if (anInt1254 == 2) {
-                method44(aBoolean1193);
-                aProducingGraphicsBuffer_1212.method491(super.aGraphics15, 550, 4);
-            }
-            if (tabId != -1) {
-                aBoolean1286 = true;
-            }
-            if (aBoolean1286) {
-                if (tabId != -1 && tabId == activeTab) {
-                    tabId = -1;
-                    outBuffer.writeOpcode(69);
-                    outBuffer.writeByte(activeTab);
-                }
-                aBoolean1286 = false;
-                aProducingGraphicsBuffer_1188.method490();
-                tabTopBackground.method401(0, (byte) 83, 0);
-                if (anInt874 == -1) {
-                    if (sidebarWidgets[activeTab] != -1) {
-                        if (activeTab == 0) {
-                            aClass13_Sub1_Sub4_Sub3_867.method401(10, (byte) 83, 22);
-                        }
-                        if (activeTab == 1) {
-                            aClass13_Sub1_Sub4_Sub3_868.method401(8, (byte) 83, 54);
-                        }
-                        if (activeTab == 2) {
-                            aClass13_Sub1_Sub4_Sub3_868.method401(8, (byte) 83, 82);
-                        }
-                        if (activeTab == 3) {
-                            aClass13_Sub1_Sub4_Sub3_869.method401(8, (byte) 83, 110);
-                        }
-                        if (activeTab == 4) {
-                            aClass13_Sub1_Sub4_Sub3_871.method401(8, (byte) 83, 153);
-                        }
-                        if (activeTab == 5) {
-                            aClass13_Sub1_Sub4_Sub3_871.method401(8, (byte) 83, 181);
-                        }
-                        if (activeTab == 6) {
-                            aClass13_Sub1_Sub4_Sub3_870.method401(9, (byte) 83, 209);
-                        }
-                    }
-                    if (sidebarWidgets[0] != -1 && (tabId != 0 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[0].method401(13, (byte) 83, 29);
-                    }
-                    if (sidebarWidgets[1] != -1 && (tabId != 1 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[1].method401(11, (byte) 83, 53);
-                    }
-                    if (sidebarWidgets[2] != -1 && (tabId != 2 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[2].method401(11, (byte) 83, 82);
-                    }
-                    if (sidebarWidgets[3] != -1 && (tabId != 3 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[3].method401(12, (byte) 83, 115);
-                    }
-                    if (sidebarWidgets[4] != -1 && (tabId != 4 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[4].method401(13, (byte) 83, 153);
-                    }
-                    if (sidebarWidgets[5] != -1 && (tabId != 5 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[5].method401(11, (byte) 83, 180);
-                    }
-                    if (sidebarWidgets[6] != -1 && (tabId != 6 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[6].method401(13, (byte) 83, 208);
-                    }
-                }
-                aProducingGraphicsBuffer_1188.method491(super.aGraphics15, 516, 160);
-                aProducingGraphicsBuffer_1187.method490();
-                tabBottomBackground.method401(0, (byte) 83, 0);
-                if (anInt874 == -1) {
-                    if (sidebarWidgets[activeTab] != -1) {
-                        if (activeTab == 7) {
-                            aClass13_Sub1_Sub4_Sub3_1088.method401(0, (byte) 83, 42);
-                        }
-                        if (activeTab == 8) {
-                            aClass13_Sub1_Sub4_Sub3_1089.method401(0, (byte) 83, 74);
-                        }
-                        if (activeTab == 9) {
-                            aClass13_Sub1_Sub4_Sub3_1089.method401(0, (byte) 83, 102);
-                        }
-                        if (activeTab == 10) {
-                            aClass13_Sub1_Sub4_Sub3_1090.method401(1, (byte) 83, 130);
-                        }
-                        if (activeTab == 11) {
-                            aClass13_Sub1_Sub4_Sub3_1092.method401(0, (byte) 83, 173);
-                        }
-                        if (activeTab == 12) {
-                            aClass13_Sub1_Sub4_Sub3_1092.method401(0, (byte) 83, 201);
-                        }
-                        if (activeTab == 13) {
-                            aClass13_Sub1_Sub4_Sub3_1091.method401(0, (byte) 83, 229);
-                        }
-                    }
-                    if (sidebarWidgets[8] != -1 && (tabId != 8 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[7].method401(2, (byte) 83, 74);
-                    }
-                    if (sidebarWidgets[9] != -1 && (tabId != 9 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[8].method401(3, (byte) 83, 102);
-                    }
-                    if (sidebarWidgets[10] != -1 && (tabId != 10 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[9].method401(4, (byte) 83, 137);
-                    }
-                    if (sidebarWidgets[11] != -1 && (tabId != 11 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[10].method401(2, (byte) 83, 174);
-                    }
-                    if (sidebarWidgets[12] != -1 && (tabId != 12 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[11].method401(2, (byte) 83, 201);
-                    }
-                    if (sidebarWidgets[13] != -1 && (tabId != 13 || pulseCycle % 20 < 10)) {
-                        sidebarIcons[12].method401(2, (byte) 83, 226);
-                    }
-                }
-                aProducingGraphicsBuffer_1187.method491(super.aGraphics15, 496, 466);
-                aProducingGraphicsBuffer_1213.method490();
-            }
-            if (aBoolean1137) {
-                aBoolean1137 = false;
-                aProducingGraphicsBuffer_1186.method490();
-                chatSettingsBackground.method401(0, (byte) 83, 0);
-                plainFont.method382(55, true, "Public chat", 28, 0xffffff, false);
-                if (anInt1159 == 0) {
-                    plainFont.method382(55, true, "On", 41, 65280, false);
-                }
-                if (anInt1159 == 1) {
-                    plainFont.method382(55, true, "Friends", 41, 0xffff00, false);
-                }
-                if (anInt1159 == 2) {
-                    plainFont.method382(55, true, "Off", 41, 0xff0000, false);
-                }
-                if (anInt1159 == 3) {
-                    plainFont.method382(55, true, "Hide", 41, 65535, false);
-                }
-                plainFont.method382(184, true, "Private chat", 28, 0xffffff, false);
-                if (anInt1129 == 0) {
-                    plainFont.method382(184, true, "On", 41, 65280, false);
-                }
-                if (anInt1129 == 1) {
-                    plainFont.method382(184, true, "Friends", 41, 0xffff00, false);
-                }
-                if (anInt1129 == 2) {
-                    plainFont.method382(184, true, "Off", 41, 0xff0000, false);
-                }
-                plainFont.method382(324, true, "Trade/compete", 28, 0xffffff, false);
-                if (anInt1290 == 0) {
-                    plainFont.method382(324, true, "On", 41, 65280, false);
-                }
-                if (anInt1290 == 1) {
-                    plainFont.method382(324, true, "Friends", 41, 0xffff00, false);
-                }
-                if (anInt1290 == 2) {
-                    plainFont.method382(324, true, "Off", 41, 0xff0000, false);
-                }
-                plainFont.method382(458, true, "Report abuse", 33, 0xffffff, false);
-                aProducingGraphicsBuffer_1186.method491(super.aGraphics15, 0, 453);
-                aProducingGraphicsBuffer_1213.method490();
-            }
-            anInt1241 = 0;
-            if (i != -24986) {
-                for (int k = 1; k > 0; k++) {
-                }
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("24138, " + i + ", " + runtimeexception);
-            throw new RuntimeException();
         }
+        if (anInt1254 == 2) {
+            method50(anInt992);
+        }
+        if (aBoolean989 && anInt820 == 1) {
+            redrawTabArea = true;
+        }
+        if (anInt874 != -1) {
+            boolean flag = method74(anInt1241, true, anInt874);
+            if (flag) {
+                redrawTabArea = true;
+            }
+        }
+        if (anInt936 == 2) {
+            redrawTabArea = true;
+        }
+        if (anInt1060 == 2) {
+            redrawTabArea = true;
+        }
+        if (redrawTabArea) {
+            method62();
+            redrawTabArea = false;
+        }
+        if (openChatboxWidgetId == -1) {
+            aWidget_1050.anInt595 = anInt886 - anInt1019 - 77;
+            if (super.anInt23 > 448 && super.anInt23 < 560 && super.anInt24 > 332) {
+                method111(super.anInt23 - 17, 463, anInt886, super.anInt24 - 357, 77, (byte) 4, aWidget_1050, false, 0);
+            }
+            int j = anInt886 - 77 - aWidget_1050.anInt595;
+            if (j < 0) {
+                j = 0;
+            }
+            if (j > anInt886 - 77) {
+                j = anInt886 - 77;
+            }
+            if (anInt1019 != j) {
+                anInt1019 = j;
+                redrawChatbox = true;
+            }
+        }
+        if (openChatboxWidgetId != -1) {
+            boolean flag1 = method74(anInt1241, true, openChatboxWidgetId);
+            if (flag1) {
+                redrawChatbox = true;
+            }
+        }
+        if (anInt936 == 3) {
+            redrawChatbox = true;
+        }
+        if (anInt1060 == 3) {
+            redrawChatbox = true;
+        }
+        if (clickToContinueText != null) {
+            redrawChatbox = true;
+        }
+        if (aBoolean989 && anInt820 == 2) {
+            redrawChatbox = true;
+        }
+        if (redrawChatbox) {
+            method61();
+            redrawChatbox = false;
+        }
+        if (anInt1254 == 2) {
+            method44(aBoolean1193);
+            aProducingGraphicsBuffer_1212.drawGraphics(super.aGraphics15, 550, 4);
+        }
+        if (tabId != -1) {
+            aBoolean1286 = true;
+        }
+        if (aBoolean1286) {
+            if (tabId != -1 && tabId == activeTab) {
+                tabId = -1;
+                outBuffer.writeOpcode(69);
+                outBuffer.writeByte(activeTab);
+            }
+            aBoolean1286 = false;
+            aProducingGraphicsBuffer_1188.createRasterizer();
+            backgroundTabTop.method401(0, 0);
+            if (anInt874 == -1) {
+                if (sidebarWidgets[activeTab] != -1) {
+                    if (activeTab == 0) {
+                        selectedTabTopLeftCorner.method401(10, 22);
+                    }
+                    if (activeTab == 1) {
+                        selectedTabTopLeft.method401(8, 54);
+                    }
+                    if (activeTab == 2) {
+                        selectedTabTopLeft.method401(8, 82);
+                    }
+                    if (activeTab == 3) {
+                        selectedTabTopCenter.method401(8, 110);
+                    }
+                    if (activeTab == 4) {
+                        selectedTabTopRight.method401(8, 153);
+                    }
+                    if (activeTab == 5) {
+                        selectedTabTopRight.method401(8, 181);
+                    }
+                    if (activeTab == 6) {
+                        selectedTabTopRightCorner.method401(9, 209);
+                    }
+                }
+                if (sidebarWidgets[0] != -1 && (tabId != 0 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[0].method401(13, 29);
+                }
+                if (sidebarWidgets[1] != -1 && (tabId != 1 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[1].method401(11, 53);
+                }
+                if (sidebarWidgets[2] != -1 && (tabId != 2 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[2].method401(11, 82);
+                }
+                if (sidebarWidgets[3] != -1 && (tabId != 3 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[3].method401(12, 115);
+                }
+                if (sidebarWidgets[4] != -1 && (tabId != 4 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[4].method401(13, 153);
+                }
+                if (sidebarWidgets[5] != -1 && (tabId != 5 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[5].method401(11, 180);
+                }
+                if (sidebarWidgets[6] != -1 && (tabId != 6 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[6].method401(13, 208);
+                }
+            }
+            aProducingGraphicsBuffer_1188.drawGraphics(super.aGraphics15, 516, 160);
+            aProducingGraphicsBuffer_1187.createRasterizer();
+            backgroundTabBottom.method401(0, 0);
+            if (anInt874 == -1) {
+                if (sidebarWidgets[activeTab] != -1) {
+                    if (activeTab == 7) {
+                        selectedTabBottomLeftCorner.method401(0, 42);
+                    }
+                    if (activeTab == 8) {
+                        selectedTabBottomLeft.method401(0, 74);
+                    }
+                    if (activeTab == 9) {
+                        selectedTabBottomLeft.method401(0, 102);
+                    }
+                    if (activeTab == 10) {
+                        selectedTabBottomCenter.method401(1, 130);
+                    }
+                    if (activeTab == 11) {
+                        selectedTabBottomRight.method401(0, 173);
+                    }
+                    if (activeTab == 12) {
+                        selectedTabBottomRight.method401(0, 201);
+                    }
+                    if (activeTab == 13) {
+                        selectedTabBottomRightCorner.method401(0, 229);
+                    }
+                }
+                if (sidebarWidgets[8] != -1 && (tabId != 8 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[7].method401(2, 74);
+                }
+                if (sidebarWidgets[9] != -1 && (tabId != 9 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[8].method401(3, 102);
+                }
+                if (sidebarWidgets[10] != -1 && (tabId != 10 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[9].method401(4, 137);
+                }
+                if (sidebarWidgets[11] != -1 && (tabId != 11 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[10].method401(2, 174);
+                }
+                if (sidebarWidgets[12] != -1 && (tabId != 12 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[11].method401(2, 201);
+                }
+                if (sidebarWidgets[13] != -1 && (tabId != 13 || pulseCycle % 20 < 10)) {
+                    sidebarIcons[12].method401(2, 226);
+                }
+            }
+            aProducingGraphicsBuffer_1187.drawGraphics(super.aGraphics15, 496, 466);
+            aProducingGraphicsBuffer_1213.createRasterizer();
+        }
+        if (aBoolean1137) {
+            aBoolean1137 = false;
+            aProducingGraphicsBuffer_1186.createRasterizer();
+            backgroundChatSettings.method401(0, 0);
+            plainFont.method382("Public chat", 55, true, 28, 0xffffff);
+            if (anInt1159 == 0) {
+                plainFont.method382("On", 55, true, 41, 65280);
+            }
+            if (anInt1159 == 1) {
+                plainFont.method382("Friends", 55, true, 41, 0xffff00);
+            }
+            if (anInt1159 == 2) {
+                plainFont.method382("Off", 55, true, 41, 0xff0000);
+            }
+            if (anInt1159 == 3) {
+                plainFont.method382("Hide", 55, true, 41, 65535);
+            }
+            plainFont.method382("Private chat", 184, true, 28, 0xffffff);
+            if (anInt1129 == 0) {
+                plainFont.method382("On", 184, true, 41, 65280);
+            }
+            if (anInt1129 == 1) {
+                plainFont.method382("Friends", 184, true, 41, 0xffff00);
+            }
+            if (anInt1129 == 2) {
+                plainFont.method382("Off", 184, true, 41, 0xff0000);
+            }
+            plainFont.method382("Trade/compete", 324, true, 28, 0xffffff);
+            if (anInt1290 == 0) {
+                plainFont.method382("On", 324, true, 41, 65280);
+            }
+            if (anInt1290 == 1) {
+                plainFont.method382("Friends", 324, true, 41, 0xffff00);
+            }
+            if (anInt1290 == 2) {
+                plainFont.method382("Off", 324, true, 41, 0xff0000);
+            }
+            plainFont.method382("Report abuse", 458, true, 33, 0xffffff);
+            aProducingGraphicsBuffer_1186.drawGraphics(super.aGraphics15, 0, 453);
+            aProducingGraphicsBuffer_1213.createRasterizer();
+        }
+        anInt1241 = 0;
     }
 
     public void method133(int i, int k, int l, NpcConfig npcConfig) {
@@ -11697,12 +11638,12 @@ public class Game extends GameShell {
                 }
             }
             updateLoadingBar("Unpacking media", 80);
-            inventoryBackground = new IndexedImage(mediaArchive, "invback", 0);
-            chatboxBackground = new IndexedImage(mediaArchive, "chatback", 0);
-            minimapBackground = new IndexedImage(mediaArchive, "mapback", 0);
-            chatSettingsBackground = new IndexedImage(mediaArchive, "backbase1", 0);
-            tabBottomBackground = new IndexedImage(mediaArchive, "backbase2", 0);
-            tabTopBackground = new IndexedImage(mediaArchive, "backhmid1", 0);
+            backgroundInventory = new IndexedImage(mediaArchive, "invback", 0);
+            backgroundChatbox = new IndexedImage(mediaArchive, "chatback", 0);
+            backgroundMinimap = new IndexedImage(mediaArchive, "mapback", 0);
+            backgroundChatSettings = new IndexedImage(mediaArchive, "backbase1", 0);
+            backgroundTabBottom = new IndexedImage(mediaArchive, "backbase2", 0);
+            backgroundTabTop = new IndexedImage(mediaArchive, "backhmid1", 0);
             for (int icon = 0; icon < 13; icon++) {
                 sidebarIcons[icon] = new IndexedImage(mediaArchive, "sideicons", icon);
             }
@@ -11711,13 +11652,13 @@ public class Game extends GameShell {
             minimapEdgeBackground.method405();
             try {
                 for (int k3 = 0; k3 < 100; k3++) {
-                    aClass13_Sub1_Sub4_Sub3Array1123[k3] = new IndexedImage(mediaArchive, "mapscene", k3);
+                    mapSceneryIcons[k3] = new IndexedImage(mediaArchive, "mapscene", k3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int l3 = 0; l3 < 100; l3++) {
-                    aClass13_Sub1_Sub4_Sub4Array1189[l3] = new Sprite(mediaArchive, "mapfunction", l3);
+                    mapPointOfInterestIcons[l3] = new Sprite(mediaArchive, "mapfunction", l3);
                 }
             } catch (Exception _ex) {
             }
@@ -11733,82 +11674,82 @@ public class Game extends GameShell {
                 }
             } catch (Exception _ex) {
             }
-            aClass13_Sub1_Sub4_Sub4_945 = new Sprite(mediaArchive, "mapmarker", 0);
-            aClass13_Sub1_Sub4_Sub4_946 = new Sprite(mediaArchive, "mapmarker", 1);
+            mapMarkerFlag = new Sprite(mediaArchive, "mapmarker", 0);
+            mapMarkerArrow = new Sprite(mediaArchive, "mapmarker", 1);
             for (int crossFrame = 0; crossFrame < 8; crossFrame++) {
                 cursorClickFrames[crossFrame] = new Sprite(mediaArchive, "cross", crossFrame);
             }
-            aClass13_Sub1_Sub4_Sub4_1124 = new Sprite(mediaArchive, "mapdots", 0);
-            aClass13_Sub1_Sub4_Sub4_1125 = new Sprite(mediaArchive, "mapdots", 1);
-            aClass13_Sub1_Sub4_Sub4_1126 = new Sprite(mediaArchive, "mapdots", 2);
-            aClass13_Sub1_Sub4_Sub4_1127 = new Sprite(mediaArchive, "mapdots", 3);
-            aClass13_Sub1_Sub4_Sub4_1128 = new Sprite(mediaArchive, "mapdots", 4);
+            mapDotGroundItem = new Sprite(mediaArchive, "mapdots", 0);
+            mapDotNpc = new Sprite(mediaArchive, "mapdots", 1);
+            mapDotPlayer = new Sprite(mediaArchive, "mapdots", 2);
+            mapDotFriend = new Sprite(mediaArchive, "mapdots", 3);
+            mapDotMatchingTeamCape = new Sprite(mediaArchive, "mapdots", 4);
             scrollbarTopArrow = new IndexedImage(mediaArchive, "scrollbar", 0);
             scrollbarBottomArrow = new IndexedImage(mediaArchive, "scrollbar", 1);
-            aClass13_Sub1_Sub4_Sub3_867 = new IndexedImage(mediaArchive, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_868 = new IndexedImage(mediaArchive, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_869 = new IndexedImage(mediaArchive, "redstone3", 0);
-            aClass13_Sub1_Sub4_Sub3_870 = new IndexedImage(mediaArchive, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_870.method398();
-            aClass13_Sub1_Sub4_Sub3_871 = new IndexedImage(mediaArchive, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_871.method398();
-            aClass13_Sub1_Sub4_Sub3_1088 = new IndexedImage(mediaArchive, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_1088.method399();
-            aClass13_Sub1_Sub4_Sub3_1089 = new IndexedImage(mediaArchive, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_1089.method399();
-            aClass13_Sub1_Sub4_Sub3_1090 = new IndexedImage(mediaArchive, "redstone3", 0);
-            aClass13_Sub1_Sub4_Sub3_1090.method399();
-            aClass13_Sub1_Sub4_Sub3_1091 = new IndexedImage(mediaArchive, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_1091.method398();
-            aClass13_Sub1_Sub4_Sub3_1091.method399();
-            aClass13_Sub1_Sub4_Sub3_1092 = new IndexedImage(mediaArchive, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_1092.method398();
-            aClass13_Sub1_Sub4_Sub3_1092.method399();
+            selectedTabTopLeftCorner = new IndexedImage(mediaArchive, "redstone1", 0);
+            selectedTabTopLeft = new IndexedImage(mediaArchive, "redstone2", 0);
+            selectedTabTopCenter = new IndexedImage(mediaArchive, "redstone3", 0);
+            selectedTabTopRightCorner = new IndexedImage(mediaArchive, "redstone1", 0);
+            selectedTabTopRightCorner.flipHorizontal();
+            selectedTabTopRight = new IndexedImage(mediaArchive, "redstone2", 0);
+            selectedTabTopRight.flipHorizontal();
+            selectedTabBottomLeftCorner = new IndexedImage(mediaArchive, "redstone1", 0);
+            selectedTabBottomLeftCorner.flipVertical();
+            selectedTabBottomLeft = new IndexedImage(mediaArchive, "redstone2", 0);
+            selectedTabBottomLeft.flipVertical();
+            selectedTabBottomCenter = new IndexedImage(mediaArchive, "redstone3", 0);
+            selectedTabBottomCenter.flipVertical();
+            selectedTabBottomRightCorner = new IndexedImage(mediaArchive, "redstone1", 0);
+            selectedTabBottomRightCorner.flipHorizontal();
+            selectedTabBottomRightCorner.flipVertical();
+            selectedTabBottomRight = new IndexedImage(mediaArchive, "redstone2", 0);
+            selectedTabBottomRight.flipHorizontal();
+            selectedTabBottomRight.flipVertical();
             for (int icon = 0; icon < 2; icon++) {
                 playerChatIcons[icon] = new IndexedImage(mediaArchive, "mod_icons", icon);
             }
-            Sprite class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backleft1", 0);
-            aProducingGraphicsBuffer_875 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backleft2", 0);
-            aProducingGraphicsBuffer_876 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backright1", 0);
-            aProducingGraphicsBuffer_877 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backright2", 0);
-            aProducingGraphicsBuffer_878 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backtop1", 0);
-            aProducingGraphicsBuffer_879 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid1", 0);
-            aProducingGraphicsBuffer_880 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid2", 0);
-            aProducingGraphicsBuffer_881 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid3", 0);
-            aProducingGraphicsBuffer_882 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
-            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backhmid2", 0);
-            aProducingGraphicsBuffer_883 = new ProducingGraphicsBuffer(getGameFrame(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
-            class13_sub1_sub4_sub4.method406(0, 0);
+            Sprite backgroundSprite = new Sprite(mediaArchive, "backleft1", 0);
+            backgroundBorderLeft = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backleft2", 0);
+            backgroundChatboxLeft = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backright1", 0);
+            backgroundMinimapRight = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backright2", 0);
+            backgroundInventoryRight = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backtop1", 0);
+            backgroundBorderTop = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backvmid1", 0);
+            backgroundMinimapLeft = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backvmid2", 0);
+            backgroundInventoryLeft = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backvmid3", 0);
+            backgrounChatboxRight = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
+            backgroundSprite = new Sprite(mediaArchive, "backhmid2", 0);
+            backgroundChatboxTop = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundSprite.method406(0, 0);
             int i5 = (int) (Math.random() * 21D) - 10;
             int j5 = (int) (Math.random() * 21D) - 10;
             int k5 = (int) (Math.random() * 21D) - 10;
             int l5 = (int) (Math.random() * 41D) - 20;
-            for (int i6 = 0; i6 < 100; i6++) {
-                if (aClass13_Sub1_Sub4_Sub4Array1189[i6] != null) {
-                    aClass13_Sub1_Sub4_Sub4Array1189[i6].method404(j5 + l5, i5 + l5, (byte) 6, k5 + l5);
+            for (int icon = 0; icon < 100; icon++) {
+                if (mapPointOfInterestIcons[icon] != null) {
+                    mapPointOfInterestIcons[icon].method404(j5 + l5, i5 + l5, k5 + l5);
                 }
-                if (aClass13_Sub1_Sub4_Sub3Array1123[i6] != null) {
-                    aClass13_Sub1_Sub4_Sub3Array1123[i6].method400(j5 + l5, i5 + l5, (byte) 6, k5 + l5);
+                if (mapSceneryIcons[icon] != null) {
+                    mapSceneryIcons[icon].method400(j5 + l5, i5 + l5, (byte) 6, k5 + l5);
                 }
             }
             updateLoadingBar("Unpacking textures", 83);
             Rasterizer3D.method368(aBoolean1240, textureArchive);
-            Rasterizer3D.method372(0.80000000000000004D, (byte) 7);
+            Rasterizer3D.method372(0.80000000000000004D);
             Rasterizer3D.method367((byte) 71, 20);
             updateLoadingBar("Unpacking config", 86);
             SequenceConfig.method591(configArchive, (byte) 72);
@@ -11837,7 +11778,7 @@ public class Game extends GameShell {
                 int k6 = 999;
                 int i7 = 0;
                 for (int k7 = 0; k7 < 34; k7++) {
-                    if (minimapBackground.aByteArray1667[k7 + j6 * minimapBackground.anInt1669] == 0) {
+                    if (backgroundMinimap.aByteArray1667[k7 + j6 * backgroundMinimap.anInt1669] == 0) {
                         if (k6 == 999) {
                             k6 = k7;
                         }
@@ -11856,7 +11797,7 @@ public class Game extends GameShell {
                 int j7 = 999;
                 int l7 = 0;
                 for (int j8 = 25; j8 < 172; j8++) {
-                    if (minimapBackground.aByteArray1667[j8 + l6 * minimapBackground.anInt1669] == 0 && (j8 > 34 || l6 > 34)) {
+                    if (backgroundMinimap.aByteArray1667[j8 + l6 * backgroundMinimap.anInt1669] == 0 && (j8 > 34 || l6 > 34)) {
                         if (j7 == 999) {
                             j7 = j8;
                         }
@@ -12041,11 +11982,11 @@ public class Game extends GameShell {
                         font.method385("From", 65535, l1, i1 - 1);
                         l1 += font.method383(3, "From ");
                         if (byte0 == 1) {
-                            playerChatIcons[0].method401(i1 - 12, (byte) 83, l1);
+                            playerChatIcons[0].method401(i1 - 12, l1);
                             l1 += 14;
                         }
                         if (byte0 == 2) {
-                            playerChatIcons[1].method401(i1 - 12, (byte) 83, l1);
+                            playerChatIcons[1].method401(i1 - 12, l1);
                             l1 += 14;
                         }
                         font.method385(s + ": " + chatMessages[k], 0, l1, i1);

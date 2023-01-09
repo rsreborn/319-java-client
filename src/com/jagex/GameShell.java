@@ -29,7 +29,7 @@ public class GameShell extends Applet
     public Graphics aGraphics15;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_16;
     public Sprite[] aClass13_Sub1_Sub4_Sub4Array17;
-    public GameFrame aFrame_Sub1_18;
+    public GameFrame gameFrame;
     public boolean aBoolean19;
     public boolean aBoolean20;
     public int anInt21;
@@ -70,7 +70,7 @@ public class GameShell extends Applet
         initialWidth = width;
         initialHeight = height;
         System.out.println("Height " + height + " Width " + width + " Initial Height " + initialHeight + " Initial Width " + initialWidth);
-        aFrame_Sub1_18 = new GameFrame(this, initialHeight, initialWidth);
+        gameFrame = new GameFrame(this, initialHeight, initialWidth);
         aGraphics15 = getGameFrame().getGraphics();
         aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(getGameFrame(), initialWidth, initialHeight);
         method12(this, 1);
@@ -89,8 +89,8 @@ public class GameShell extends Applet
         getGameFrame().addMouseMotionListener(this);
         getGameFrame().addKeyListener(this);
         getGameFrame().addFocusListener(this);
-        if (aFrame_Sub1_18 != null) {
-            aFrame_Sub1_18.addWindowListener(this);
+        if (gameFrame != null) {
+            gameFrame.addWindowListener(this);
         }
         updateLoadingBar("Loading...", 0);
         method6();
@@ -185,7 +185,7 @@ public class GameShell extends Applet
         try {
             anInt7 = -2;
             method8(427);
-            if (aFrame_Sub1_18 != null) {
+            if (gameFrame != null) {
                 try {
                     Thread.sleep(1000L);
                 } catch (Exception _ex) {
@@ -247,7 +247,7 @@ public class GameShell extends Applet
     public void mousePressed(MouseEvent mouseEvent) {
         int i = mouseEvent.getX();
         int j = mouseEvent.getY();
-        if (aFrame_Sub1_18 != null) {
+        if (gameFrame != null) {
             i -= 4;
             j -= 22;
         }
@@ -284,7 +284,7 @@ public class GameShell extends Applet
     public void mouseDragged(MouseEvent mouseevent) {
         int i = mouseevent.getX();
         int j = mouseevent.getY();
-        if (aFrame_Sub1_18 != null) {
+        if (gameFrame != null) {
             i -= 4;
             j -= 22;
         }
@@ -296,7 +296,7 @@ public class GameShell extends Applet
     public void mouseMoved(MouseEvent mouseevent) {
         int i = mouseevent.getX();
         int j = mouseevent.getY();
-        if (aFrame_Sub1_18 != null) {
+        if (gameFrame != null) {
             i -= 4;
             j -= 22;
         }
@@ -477,8 +477,8 @@ public class GameShell extends Applet
     }
 
     public Component getGameFrame() {
-        if (aFrame_Sub1_18 != null) {
-            return aFrame_Sub1_18;
+        if (gameFrame != null) {
+            return gameFrame;
         } else {
             return this;
         }

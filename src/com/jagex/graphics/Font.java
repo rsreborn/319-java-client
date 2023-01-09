@@ -119,18 +119,8 @@ public class Font extends Rasterizer {
         method385(text, j, i - method384(text, 0) / 2, l);
     }
 
-    public void method382(int i, boolean flag, String s, int j, int k, boolean flag1) {
-        try {
-            if (flag1) {
-                for (int l = 1; l > 0; l++) {
-                }
-            }
-            method389(flag, i - method383(3, s) / 2, (byte) 8, j, k, s);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("84269, " + i + ", " + flag + ", " + s + ", " + j + ", " + k + ", " + flag1 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+    public void method382(String text, int i, boolean flag, int j, int k) {
+        method389(flag, i - method383(3, text) / 2, (byte) 8, j, k, text);
     }
 
     public int method383(int i, String s) {
