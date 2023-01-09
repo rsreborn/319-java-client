@@ -32,17 +32,17 @@ public class GameShell extends Applet
     public GameFrame gameFrame;
     public boolean aBoolean19;
     public boolean aBoolean20;
-    public int anInt21;
+    public int idleTime;
     public int anInt22;
-    public int anInt23;
-    public int anInt24;
+    public int mouseX;
+    public int mouseY;
     public int anInt25;
     public int anInt26;
     public int anInt27;
     public long aLong28;
     public int clickType;
-    public int mouseX;
-    public int mouseY;
+    public int clickX;
+    public int clickY;
     public long aLong32;
     public int[] anIntArray33;
     public int[] anIntArray34;
@@ -151,8 +151,8 @@ public class GameShell extends Applet
             }
             for (; i1 < 256; i1 += j) {
                 clickType = anInt25;
-                mouseX = anInt26;
-                mouseY = anInt27;
+                clickX = anInt26;
+                clickY = anInt27;
                 aLong32 = aLong28;
                 anInt25 = 0;
                 method7(aByte2);
@@ -251,7 +251,7 @@ public class GameShell extends Applet
             i -= 4;
             j -= 22;
         }
-        anInt21 = 0;
+        idleTime = 0;
         anInt26 = i;
         anInt27 = j;
         aLong28 = System.currentTimeMillis();
@@ -265,7 +265,7 @@ public class GameShell extends Applet
     }
 
     public void mouseReleased(MouseEvent mouseevent) {
-        anInt21 = 0;
+        idleTime = 0;
         anInt22 = 0;
     }
 
@@ -276,21 +276,21 @@ public class GameShell extends Applet
     }
 
     public void mouseExited(MouseEvent mouseevent) {
-        anInt21 = 0;
-        anInt23 = -1;
-        anInt24 = -1;
+        idleTime = 0;
+        mouseX = -1;
+        mouseY = -1;
     }
 
     public void mouseDragged(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
+        int mouseX = mouseevent.getX();
+        int mouseY = mouseevent.getY();
         if (gameFrame != null) {
-            i -= 4;
-            j -= 22;
+            mouseX -= 4;
+            mouseY -= 22;
         }
-        anInt21 = 0;
-        anInt23 = i;
-        anInt24 = j;
+        idleTime = 0;
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
     }
 
     public void mouseMoved(MouseEvent mouseevent) {
@@ -300,13 +300,13 @@ public class GameShell extends Applet
             i -= 4;
             j -= 22;
         }
-        anInt21 = 0;
-        anInt23 = i;
-        anInt24 = j;
+        idleTime = 0;
+        mouseX = i;
+        mouseY = j;
     }
 
     public void keyPressed(KeyEvent keyevent) {
-        anInt21 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         int j = keyevent.getKeyChar();
         if (j < 30) {
@@ -364,7 +364,7 @@ public class GameShell extends Applet
     }
 
     public void keyReleased(KeyEvent keyevent) {
-        anInt21 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         char c = keyevent.getKeyChar();
         if (c < '\036') {

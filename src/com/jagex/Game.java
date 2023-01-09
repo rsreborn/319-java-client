@@ -1080,8 +1080,8 @@ public class Game extends GameShell {
                 return;
             }
             if (super.clickType == 1) {
-                int j = super.mouseX - 25 - 550;
-                int k = super.mouseY - 5 - 4;
+                int j = super.clickX - 25 - 550;
+                int k = super.clickY - 5 - 4;
                 if (j >= 0 && k >= 0 && j < 146 && k < 151) {
                     j -= 73;
                     k -= 75;
@@ -1549,8 +1549,8 @@ public class Game extends GameShell {
                 if (!flag) {
                     flag = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(98);
@@ -1591,8 +1591,8 @@ public class Game extends GameShell {
                 if (!flag1) {
                     flag1 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(184);
@@ -1605,8 +1605,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2.anIntArray1616[0], class13_sub1_sub1_sub6_sub2.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(111);
@@ -1618,8 +1618,8 @@ public class Game extends GameShell {
                 if (!flag2) {
                     flag2 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(132);
@@ -1631,8 +1631,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_1 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_1 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_1.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_1.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(4);
@@ -1659,8 +1659,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1.anIntArray1616[0], class13_sub1_sub1_sub6_sub1.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     anInt998++;
@@ -1678,8 +1678,8 @@ public class Game extends GameShell {
                 if (!flag3) {
                     flag3 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 anInt1142++;
@@ -1731,8 +1731,8 @@ public class Game extends GameShell {
                 if (!flag4) {
                     flag4 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(149);
@@ -1821,8 +1821,8 @@ public class Game extends GameShell {
                 if (!flag5) {
                     flag5 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(18);
@@ -1853,8 +1853,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_2 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_2 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_2.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_2.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(103);
@@ -1942,8 +1942,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_1 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_1 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_1.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_1.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(156);
@@ -1954,8 +1954,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_2 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_2 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_2.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_2.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(107);
@@ -1967,8 +1967,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_4 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_4 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_4.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_4.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(55);
@@ -1991,8 +1991,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_3 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_3 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_3.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_3.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(175);
@@ -2113,8 +2113,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_4 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_4 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_4.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_4.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(187);
@@ -2141,8 +2141,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_5 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_5 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_5.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_5.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     anInt1077++;
@@ -2159,8 +2159,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_6 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_6 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_6.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_6.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(88);
@@ -2205,8 +2205,8 @@ public class Game extends GameShell {
                 if (!flag6) {
                     flag6 = walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, widgetId, slot, 0);
                 }
-                anInt929 = super.mouseX;
-                anInt930 = super.mouseY;
+                anInt929 = super.clickX;
+                anInt930 = super.clickY;
                 anInt932 = 2;
                 anInt931 = 0;
                 outBuffer.writeOpcode(202);
@@ -2225,8 +2225,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_5 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_5 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_5.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_5.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(134);
@@ -2237,8 +2237,8 @@ public class Game extends GameShell {
                 Player class13_sub1_sub1_sub6_sub1_6 = players[itemId];
                 if (class13_sub1_sub1_sub6_sub1_6 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub1_6.anIntArray1616[0], class13_sub1_sub1_sub6_sub1_6.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(212);
@@ -2290,8 +2290,8 @@ public class Game extends GameShell {
                 Npc class13_sub1_sub1_sub6_sub2_7 = npcs[itemId];
                 if (class13_sub1_sub1_sub6_sub2_7 != null) {
                     walk(false, 1, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, 0, 1, class13_sub1_sub1_sub6_sub2_7.anIntArray1616[0], class13_sub1_sub1_sub6_sub2_7.anIntArray1615[0], 0);
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 2;
                     anInt931 = 0;
                     outBuffer.writeOpcode(49);
@@ -2311,7 +2311,7 @@ public class Game extends GameShell {
             }
             if (action == 770) {
                 if (!aBoolean989) {
-                    aScene_1198.method232(super.mouseY - 4, true, super.mouseX - 4);
+                    aScene_1198.method232(super.clickY - 4, true, super.clickX - 4);
                 } else {
                     aScene_1198.method232(widgetId - 4, true, slot - 4);
                 }
@@ -3558,8 +3558,8 @@ public class Game extends GameShell {
             if (anInt1025 == 0 && anInt973 == 0) {
                 aStringArray961[anInt1167] = "Walk here";
                 anIntArray911[anInt1167] = 770;
-                anIntArray909[anInt1167] = super.anInt23;
-                anIntArray910[anInt1167] = super.anInt24;
+                anIntArray909[anInt1167] = super.mouseX;
+                anIntArray910[anInt1167] = super.mouseY;
                 anInt1167++;
             }
             int i = -1;
@@ -3803,12 +3803,12 @@ public class Game extends GameShell {
                 int i = super.initialWidth / 2 - 80;
                 int l = super.initialHeight / 2 + 20;
                 l += 20;
-                if (super.clickType == 1 && super.mouseX >= i - 75 && super.mouseX <= i + 75 && super.mouseY >= l - 20 && super.mouseY <= l + 20) {
+                if (super.clickType == 1 && super.clickX >= i - 75 && super.clickX <= i + 75 && super.clickY >= l - 20 && super.clickY <= l + 20) {
                     anInt1220 = 3;
                     anInt965 = 0;
                 }
                 i = super.initialWidth / 2 + 80;
-                if (super.clickType == 1 && super.mouseX >= i - 75 && super.mouseX <= i + 75 && super.mouseY >= l - 20 && super.mouseY <= l + 20) {
+                if (super.clickType == 1 && super.clickX >= i - 75 && super.clickX <= i + 75 && super.clickY >= l - 20 && super.clickY <= l + 20) {
                     loginTitle = "";
                     loginMessage = "Enter your username & password.";
                     anInt1220 = 2;
@@ -3820,18 +3820,18 @@ public class Game extends GameShell {
                     int j = super.initialHeight / 2 - 40;
                     j += 30;
                     j += 25;
-                    if (super.clickType == 1 && super.mouseY >= j - 15 && super.mouseY < j) {
+                    if (super.clickType == 1 && super.clickY >= j - 15 && super.clickY < j) {
                         anInt965 = 0;
                     }
                     j += 15;
-                    if (super.clickType == 1 && super.mouseY >= j - 15 && super.mouseY < j) {
+                    if (super.clickType == 1 && super.clickY >= j - 15 && super.clickY < j) {
                         anInt965 = 1;
                     }
                     j += 15;
                     int i1 = super.initialWidth / 2 - 80;
                     int k1 = super.initialHeight / 2 + 50;
                     k1 += 20;
-                    if (super.clickType == 1 && super.mouseX >= i1 - 75 && super.mouseX <= i1 + 75 && super.mouseY >= k1 - 20 && super.mouseY <= k1 + 20) {
+                    if (super.clickType == 1 && super.clickX >= i1 - 75 && super.clickX <= i1 + 75 && super.clickY >= k1 - 20 && super.clickY <= k1 + 20) {
                         anInt995 = 0;
                         method56(username, password, false);
                         if (loggedIn) {
@@ -3839,7 +3839,7 @@ public class Game extends GameShell {
                         }
                     }
                     i1 = super.initialWidth / 2 + 80;
-                    if (super.clickType == 1 && super.mouseX >= i1 - 75 && super.mouseX <= i1 + 75 && super.mouseY >= k1 - 20 && super.mouseY <= k1 + 20) {
+                    if (super.clickType == 1 && super.clickX >= i1 - 75 && super.clickX <= i1 + 75 && super.clickY >= k1 - 20 && super.clickY <= k1 + 20) {
                         anInt1220 = 0;
                         username = "";
                         password = "";
@@ -3891,7 +3891,7 @@ public class Game extends GameShell {
                     int k = super.initialWidth / 2;
                     int j1 = super.initialHeight / 2 + 50;
                     j1 += 20;
-                    if (super.clickType == 1 && super.mouseX >= k - 75 && super.mouseX <= k + 75 && super.mouseY >= j1 - 20 && super.mouseY <= j1 + 20) {
+                    if (super.clickType == 1 && super.clickX >= k - 75 && super.clickX <= k + 75 && super.clickY >= j1 - 20 && super.clickY <= j1 + 20) {
                         anInt1220 = 0;
                     }
                 }
@@ -4282,13 +4282,13 @@ public class Game extends GameShell {
             if (i >= 0) {
                 opcode = inBuffer.readUByte();
             }
-            if (anInt973 == 1 && super.mouseX >= 516 && super.mouseY >= 160 && super.mouseX <= 765 && super.mouseY <= 205) {
+            if (anInt973 == 1 && super.clickX >= 516 && super.clickY >= 160 && super.clickX <= 765 && super.clickY <= 205) {
                 j = 0;
             }
             if (aBoolean989) {
                 if (j != 1) {
-                    int k = super.anInt23;
-                    int j1 = super.anInt24;
+                    int k = super.mouseX;
+                    int j1 = super.mouseY;
                     if (anInt820 == 0) {
                         k -= 4;
                         j1 -= 4;
@@ -4315,8 +4315,8 @@ public class Game extends GameShell {
                     int l = anInt821;
                     int k1 = anInt822;
                     int i2 = anInt823;
-                    int k2 = super.mouseX;
-                    int l2 = super.mouseY;
+                    int k2 = super.clickX;
+                    int l2 = super.clickY;
                     if (anInt820 == 0) {
                         k2 -= 4;
                         l2 -= 4;
@@ -4361,8 +4361,8 @@ public class Game extends GameShell {
                             anInt1058 = j2;
                             anInt1059 = l1;
                             anInt1060 = 2;
-                            anInt1061 = super.mouseX;
-                            anInt1062 = super.mouseY;
+                            anInt1061 = super.clickX;
+                            anInt1062 = super.clickY;
                             if (Widget.widgets[j2].parentId == anInt1217) {
                                 anInt1060 = 1;
                             }
@@ -4738,7 +4738,7 @@ public class Game extends GameShell {
             gameConnection = null;
             method39(anInt1173);
             if (aMouseCapturer_865 != null) {
-                aMouseCapturer_865.aBoolean792 = false;
+                aMouseCapturer_865.isCapturing = false;
             }
             aMouseCapturer_865 = null;
             gameUpdateClient.stop();
@@ -5071,32 +5071,32 @@ public class Game extends GameShell {
             if (!loggedIn) {
                 return;
             }
-            synchronized (aMouseCapturer_865.anObject787) {
+            synchronized (aMouseCapturer_865.objectLock) {
                 if (aBoolean860) {
-                    if (super.clickType != 0 || aMouseCapturer_865.anInt791 >= 40) {
+                    if (super.clickType != 0 || aMouseCapturer_865.coord >= 40) {
                         outBuffer.writeOpcode(250);
                         outBuffer.writeByte(0);
                         int k2 = outBuffer.position;
                         int k3 = 0;
-                        for (int k4 = 0; k4 < aMouseCapturer_865.anInt791; k4++) {
+                        for (int k4 = 0; k4 < aMouseCapturer_865.coord; k4++) {
                             if (k2 - outBuffer.position >= 240) {
                                 break;
                             }
                             k3++;
-                            int i5 = aMouseCapturer_865.anIntArray790[k4];
+                            int i5 = aMouseCapturer_865.coordsY[k4];
                             if (i5 < 0) {
                                 i5 = 0;
                             } else if (i5 > 502) {
                                 i5 = 502;
                             }
-                            int l5 = aMouseCapturer_865.anIntArray788[k4];
+                            int l5 = aMouseCapturer_865.coordsX[k4];
                             if (l5 < 0) {
                                 l5 = 0;
                             } else if (l5 > 764) {
                                 l5 = 764;
                             }
                             int j6 = i5 * 765 + l5;
-                            if (aMouseCapturer_865.anIntArray790[k4] == -1 && aMouseCapturer_865.anIntArray788[k4] == -1) {
+                            if (aMouseCapturer_865.coordsY[k4] == -1 && aMouseCapturer_865.coordsX[k4] == -1) {
                                 l5 = -1;
                                 i5 = -1;
                                 j6 = 0x7ffff;
@@ -5125,18 +5125,18 @@ public class Game extends GameShell {
                             }
                         }
                         outBuffer.writeSizeByte(outBuffer.position - k2);
-                        if (k3 >= aMouseCapturer_865.anInt791) {
-                            aMouseCapturer_865.anInt791 = 0;
+                        if (k3 >= aMouseCapturer_865.coord) {
+                            aMouseCapturer_865.coord = 0;
                         } else {
-                            aMouseCapturer_865.anInt791 -= k3;
-                            for (int j5 = 0; j5 < aMouseCapturer_865.anInt791; j5++) {
-                                aMouseCapturer_865.anIntArray788[j5] = aMouseCapturer_865.anIntArray788[j5 + k3];
-                                aMouseCapturer_865.anIntArray790[j5] = aMouseCapturer_865.anIntArray790[j5 + k3];
+                            aMouseCapturer_865.coord -= k3;
+                            for (int j5 = 0; j5 < aMouseCapturer_865.coord; j5++) {
+                                aMouseCapturer_865.coordsX[j5] = aMouseCapturer_865.coordsX[j5 + k3];
+                                aMouseCapturer_865.coordsY[j5] = aMouseCapturer_865.coordsY[j5 + k3];
                             }
                         }
                     }
                 } else {
-                    aMouseCapturer_865.anInt791 = 0;
+                    aMouseCapturer_865.coord = 0;
                 }
             }
             if (super.clickType != 0) {
@@ -5145,13 +5145,13 @@ public class Game extends GameShell {
                     l = 4095L;
                 }
                 aLong1122 = super.aLong32;
-                int l2 = super.mouseY;
+                int l2 = super.clickY;
                 if (l2 < 0) {
                     l2 = 0;
                 } else if (l2 > 502) {
                     l2 = 502;
                 }
-                int l3 = super.mouseX;
+                int l3 = super.clickX;
                 if (l3 < 0) {
                     l3 = 0;
                 } else if (l3 > 764) {
@@ -5220,7 +5220,7 @@ public class Game extends GameShell {
             }
             if (anInt1060 != 0) {
                 anInt1183++;
-                if (super.anInt23 > anInt1061 + 5 || super.anInt23 < anInt1061 - 5 || super.anInt24 > anInt1062 + 5 || super.anInt24 < anInt1062 - 5) {
+                if (super.mouseX > anInt1061 + 5 || super.mouseX < anInt1061 - 5 || super.mouseY > anInt1062 + 5 || super.mouseY < anInt1062 - 5) {
                     aBoolean1070 = true;
                 }
                 if (super.anInt22 == 0) {
@@ -5307,8 +5307,8 @@ public class Game extends GameShell {
                 boolean flag1 = walk(true, 0, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 0, 0, 0, k1, k, 0);
                 Scene.anInt196 = -1;
                 if (flag1) {
-                    anInt929 = super.mouseX;
-                    anInt930 = super.mouseY;
+                    anInt929 = super.clickX;
+                    anInt930 = super.clickY;
                     anInt932 = 1;
                     anInt931 = 0;
                 }
@@ -5357,10 +5357,10 @@ public class Game extends GameShell {
                 outBuffer.writeByte(255);
                 outBuffer.writeSizeByte(outBuffer.position - l1);
             }
-            super.anInt21++;
-            if (super.anInt21 > 4500) {
+            super.idleTime++;
+            if (super.idleTime > 4500) {
                 anInt856 = 250;
-                super.anInt21 -= 500;
+                super.idleTime -= 500;
                 outBuffer.writeOpcode(121);
             }
             anInt1197++;
@@ -5666,8 +5666,8 @@ public class Game extends GameShell {
             int i3 = Rasterizer3D.anInt1645;
             Model.aBoolean1554 = true;
             Model.anInt1557 = 0;
-            Model.anInt1555 = super.anInt23 - 4;
-            Model.anInt1556 = super.anInt24 - 4;
+            Model.anInt1555 = super.mouseX - 4;
+            Model.anInt1556 = super.mouseY - 4;
             Rasterizer.resetPixels();
             aScene_1198.method233(l, anInt1006, anInt1008, -16656, anInt1007, anInt1004, anInt1005);
             aScene_1198.method208(true);
@@ -5986,7 +5986,7 @@ public class Game extends GameShell {
                 aBoolean860 = gameConnection.read() == 1;
                 aLong1122 = 0L;
                 anInt927 = 0;
-                aMouseCapturer_865.anInt791 = 0;
+                aMouseCapturer_865.coord = 0;
                 super.aBoolean20 = true;
                 aBoolean1080 = true;
                 loggedIn = true;
@@ -6003,7 +6003,7 @@ public class Game extends GameShell {
                 anInt1227 = 0;
                 anInt1167 = 0;
                 aBoolean989 = false;
-                super.anInt21 = 0;
+                super.idleTime = 0;
                 for (int j1 = 0; j1 < 100; j1++) {
                     chatMessages[j1] = null;
                 }
@@ -6217,72 +6217,72 @@ public class Game extends GameShell {
 
     public void handleSidebarTabClick() {
         if (super.clickType == 1) {
-            if (super.mouseX >= 539 && super.mouseX <= 573 && super.mouseY >= 169 && super.mouseY < 205 && sidebarWidgets[0] != -1) {
+            if (super.clickX >= 539 && super.clickX <= 573 && super.clickY >= 169 && super.clickY < 205 && sidebarWidgets[0] != -1) {
                 redrawTabArea = true;
                 activeTab = 0;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 569 && super.mouseX <= 599 && super.mouseY >= 168 && super.mouseY < 205 && sidebarWidgets[1] != -1) {
+            if (super.clickX >= 569 && super.clickX <= 599 && super.clickY >= 168 && super.clickY < 205 && sidebarWidgets[1] != -1) {
                 redrawTabArea = true;
                 activeTab = 1;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 597 && super.mouseX <= 627 && super.mouseY >= 168 && super.mouseY < 205 && sidebarWidgets[2] != -1) {
+            if (super.clickX >= 597 && super.clickX <= 627 && super.clickY >= 168 && super.clickY < 205 && sidebarWidgets[2] != -1) {
                 redrawTabArea = true;
                 activeTab = 2;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 625 && super.mouseX <= 669 && super.mouseY >= 168 && super.mouseY < 203 && sidebarWidgets[3] != -1) {
+            if (super.clickX >= 625 && super.clickX <= 669 && super.clickY >= 168 && super.clickY < 203 && sidebarWidgets[3] != -1) {
                 redrawTabArea = true;
                 activeTab = 3;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 666 && super.mouseX <= 696 && super.mouseY >= 168 && super.mouseY < 205 && sidebarWidgets[4] != -1) {
+            if (super.clickX >= 666 && super.clickX <= 696 && super.clickY >= 168 && super.clickY < 205 && sidebarWidgets[4] != -1) {
                 redrawTabArea = true;
                 activeTab = 4;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 694 && super.mouseX <= 724 && super.mouseY >= 168 && super.mouseY < 205 && sidebarWidgets[5] != -1) {
+            if (super.clickX >= 694 && super.clickX <= 724 && super.clickY >= 168 && super.clickY < 205 && sidebarWidgets[5] != -1) {
                 redrawTabArea = true;
                 activeTab = 5;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 722 && super.mouseX <= 756 && super.mouseY >= 169 && super.mouseY < 205 && sidebarWidgets[6] != -1) {
+            if (super.clickX >= 722 && super.clickX <= 756 && super.clickY >= 169 && super.clickY < 205 && sidebarWidgets[6] != -1) {
                 redrawTabArea = true;
                 activeTab = 6;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 540 && super.mouseX <= 574 && super.mouseY >= 466 && super.mouseY < 502 && sidebarWidgets[7] != -1) {
+            if (super.clickX >= 540 && super.clickX <= 574 && super.clickY >= 466 && super.clickY < 502 && sidebarWidgets[7] != -1) {
                 redrawTabArea = true;
                 activeTab = 7;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 572 && super.mouseX <= 602 && super.mouseY >= 466 && super.mouseY < 503 && sidebarWidgets[8] != -1) {
+            if (super.clickX >= 572 && super.clickX <= 602 && super.clickY >= 466 && super.clickY < 503 && sidebarWidgets[8] != -1) {
                 redrawTabArea = true;
                 activeTab = 8;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 599 && super.mouseX <= 629 && super.mouseY >= 466 && super.mouseY < 503 && sidebarWidgets[9] != -1) {
+            if (super.clickX >= 599 && super.clickX <= 629 && super.clickY >= 466 && super.clickY < 503 && sidebarWidgets[9] != -1) {
                 redrawTabArea = true;
                 activeTab = 9;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 627 && super.mouseX <= 671 && super.mouseY >= 467 && super.mouseY < 502 && sidebarWidgets[10] != -1) {
+            if (super.clickX >= 627 && super.clickX <= 671 && super.clickY >= 467 && super.clickY < 502 && sidebarWidgets[10] != -1) {
                 redrawTabArea = true;
                 activeTab = 10;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 669 && super.mouseX <= 699 && super.mouseY >= 466 && super.mouseY < 503 && sidebarWidgets[11] != -1) {
+            if (super.clickX >= 669 && super.clickX <= 699 && super.clickY >= 466 && super.clickY < 503 && sidebarWidgets[11] != -1) {
                 redrawTabArea = true;
                 activeTab = 11;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 696 && super.mouseX <= 726 && super.mouseY >= 466 && super.mouseY < 503 && sidebarWidgets[12] != -1) {
+            if (super.clickX >= 696 && super.clickX <= 726 && super.clickY >= 466 && super.clickY < 503 && sidebarWidgets[12] != -1) {
                 redrawTabArea = true;
                 activeTab = 12;
                 aBoolean1286 = true;
             }
-            if (super.mouseX >= 724 && super.mouseX <= 758 && super.mouseY >= 466 && super.mouseY < 502 && sidebarWidgets[13] != -1) {
+            if (super.clickX >= 724 && super.clickX <= 758 && super.clickY >= 466 && super.clickY < 502 && sidebarWidgets[13] != -1) {
                 redrawTabArea = true;
                 activeTab = 13;
                 aBoolean1286 = true;
@@ -6319,8 +6319,8 @@ public class Game extends GameShell {
             Rasterizer.method356(j + 1, k + 1, 0, l - 2, 16);
             Rasterizer.method357(k + 18, j + 1, i1 - 19, 0, l - 2);
             boldFont.method385("Choose Option", j1, j + 3, k + 14);
-            int k1 = super.anInt23;
-            int l1 = super.anInt24;
+            int k1 = super.mouseX;
+            int l1 = super.mouseY;
             if (anInt820 == 0) {
                 k1 -= 4;
                 l1 -= 4;
@@ -6801,8 +6801,8 @@ public class Game extends GameShell {
                                         Sprite class13_sub1_sub4_sub4_2 = ObjectConfig.method503(j9, widget_1.itemContainerItemAmounts[i3], l9, aBoolean944);
                                         if (class13_sub1_sub4_sub4_2 != null) {
                                             if (anInt1060 != 0 && anInt1059 == i3 && anInt1058 == widget_1.id) {
-                                                k6 = super.anInt23 - anInt1061;
-                                                j7 = super.anInt24 - anInt1062;
+                                                k6 = super.mouseX - anInt1061;
+                                                j7 = super.mouseY - anInt1062;
                                                 if (k6 < 5 && k6 > -5) {
                                                     k6 = 0;
                                                 }
@@ -8395,8 +8395,8 @@ public class Game extends GameShell {
             } else {
                 walk(false, 0, -220, localPlayer.anIntArray1616[0], localPlayer.anIntArray1615[0], 0, 2, k1, 0, k, j, j1 + 1);
             }
-            anInt929 = super.mouseX;
-            anInt930 = super.mouseY;
+            anInt929 = super.clickX;
+            anInt930 = super.clickY;
             anInt932 = 2;
             anInt931 = 0;
             if (flag) {
@@ -8663,7 +8663,7 @@ public class Game extends GameShell {
                 opcode = -1;
             }
             if (super.clickType == 1) {
-                if (super.mouseX >= 6 && super.mouseX <= 106 && super.mouseY >= 467 && super.mouseY <= 499) {
+                if (super.clickX >= 6 && super.clickX <= 106 && super.clickY >= 467 && super.clickY <= 499) {
                     anInt1159 = (anInt1159 + 1) % 4;
                     aBoolean1137 = true;
                     redrawChatbox = true;
@@ -8672,7 +8672,7 @@ public class Game extends GameShell {
                     outBuffer.writeByte(anInt1129);
                     outBuffer.writeByte(anInt1290);
                 }
-                if (super.mouseX >= 135 && super.mouseX <= 235 && super.mouseY >= 467 && super.mouseY <= 499) {
+                if (super.clickX >= 135 && super.clickX <= 235 && super.clickY >= 467 && super.clickY <= 499) {
                     anInt1129 = (anInt1129 + 1) % 3;
                     aBoolean1137 = true;
                     redrawChatbox = true;
@@ -8681,7 +8681,7 @@ public class Game extends GameShell {
                     outBuffer.writeByte(anInt1129);
                     outBuffer.writeByte(anInt1290);
                 }
-                if (super.mouseX >= 273 && super.mouseX <= 373 && super.mouseY >= 467 && super.mouseY <= 499) {
+                if (super.clickX >= 273 && super.clickX <= 373 && super.clickY >= 467 && super.clickY <= 499) {
                     anInt1290 = (anInt1290 + 1) % 3;
                     aBoolean1137 = true;
                     redrawChatbox = true;
@@ -8690,7 +8690,7 @@ public class Game extends GameShell {
                     outBuffer.writeByte(anInt1129);
                     outBuffer.writeByte(anInt1290);
                 }
-                if (super.mouseX >= 412 && super.mouseX <= 512 && super.mouseY >= 467 && super.mouseY <= 499) {
+                if (super.clickX >= 412 && super.clickX <= 512 && super.clickY >= 467 && super.clickY <= 499) {
                     if (anInt1217 == -1) {
                         closeWidgets();
                         aString1230 = "";
@@ -8942,12 +8942,12 @@ public class Game extends GameShell {
                     }
                     if ((l == 3 || l == 7) && (l == 7 || anInt1129 == 0 || anInt1129 == 1 && method71(s, 771))) {
                         int i1 = 329 - j * 13;
-                        if (super.anInt23 > 4 && super.anInt24 - 4 > i1 - 10 && super.anInt24 - 4 <= i1 + 3) {
+                        if (super.mouseX > 4 && super.mouseY - 4 > i1 - 10 && super.mouseY - 4 <= i1 + 3) {
                             int j1 = plainFont.method383(3, "From:  " + s + chatMessages[k]) + 25;
                             if (j1 > 450) {
                                 j1 = 450;
                             }
-                            if (super.anInt23 < 4 + j1) {
+                            if (super.mouseX < 4 + j1) {
                                 if (anInt1037 >= 1) {
                                     aStringArray961[anInt1167] = "Report abuse @whi@" + s;
                                     anIntArray911[anInt1167] = 2820;
@@ -9482,15 +9482,15 @@ public class Game extends GameShell {
         }
         i += 8;
         int i1 = 15 * anInt1167 + 21;
-        if (super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
-            int j1 = super.mouseX - 4 - i / 2;
+        if (super.clickX > 4 && super.clickY > 4 && super.clickX < 516 && super.clickY < 338) {
+            int j1 = super.clickX - 4 - i / 2;
             if (j1 + i > 512) {
                 j1 = 512 - i;
             }
             if (j1 < 0) {
                 j1 = 0;
             }
-            int i2 = super.mouseY - 4;
+            int i2 = super.clickY - 4;
             if (i2 + i1 > 334) {
                 i2 = 334 - i1;
             }
@@ -9504,14 +9504,14 @@ public class Game extends GameShell {
             anInt823 = i;
             anInt824 = 15 * anInt1167 + 22;
         }
-        if (super.mouseX > 553 && super.mouseY > 205 && super.mouseX < 743 && super.mouseY < 466) {
-            int k1 = super.mouseX - 553 - i / 2;
+        if (super.clickX > 553 && super.clickY > 205 && super.clickX < 743 && super.clickY < 466) {
+            int k1 = super.clickX - 553 - i / 2;
             if (k1 < 0) {
                 k1 = 0;
             } else if (k1 + i > 190) {
                 k1 = 190 - i;
             }
-            int j2 = super.mouseY - 205;
+            int j2 = super.clickY - 205;
             if (j2 < 0) {
                 j2 = 0;
             } else if (j2 + i1 > 261) {
@@ -9524,14 +9524,14 @@ public class Game extends GameShell {
             anInt823 = i;
             anInt824 = 15 * anInt1167 + 22;
         }
-        if (super.mouseX > 17 && super.mouseY > 357 && super.mouseX < 496 && super.mouseY < 453) {
-            int l1 = super.mouseX - 17 - i / 2;
+        if (super.clickX > 17 && super.clickY > 357 && super.clickX < 496 && super.clickY < 453) {
+            int l1 = super.clickX - 17 - i / 2;
             if (l1 < 0) {
                 l1 = 0;
             } else if (l1 + i > 479) {
                 l1 = 479 - i;
             }
-            int k2 = super.mouseY - 357;
+            int k2 = super.clickY - 357;
             if (k2 < 0) {
                 k2 = 0;
             } else if (k2 + i1 > 96) {
@@ -9889,9 +9889,9 @@ public class Game extends GameShell {
             anInt1167 = 1;
             method100(-16609);
             anInt1270 = 0;
-            if (super.anInt23 > 4 && super.anInt24 > 4 && super.anInt23 < 516 && super.anInt24 < 338) {
+            if (super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
                 if (anInt1217 != -1) {
-                    method75(super.anInt23, Widget.widgets[anInt1217], super.anInt24, false, 4, 0, 4);
+                    method75(super.mouseX, Widget.widgets[anInt1217], super.mouseY, false, 4, 0, 4);
                 } else {
                     method31((byte) -83);
                 }
@@ -9900,11 +9900,11 @@ public class Game extends GameShell {
                 anInt861 = anInt1270;
             }
             anInt1270 = 0;
-            if (super.anInt23 > 553 && super.anInt24 > 205 && super.anInt23 < 743 && super.anInt24 < 466) {
+            if (super.mouseX > 553 && super.mouseY > 205 && super.mouseX < 743 && super.mouseY < 466) {
                 if (anInt874 != -1) {
-                    method75(super.anInt23, Widget.widgets[anInt874], super.anInt24, false, 553, 0, 205);
+                    method75(super.mouseX, Widget.widgets[anInt874], super.mouseY, false, 553, 0, 205);
                 } else if (sidebarWidgets[activeTab] != -1) {
-                    method75(super.anInt23, Widget.widgets[sidebarWidgets[activeTab]], super.anInt24, false, 553, 0, 205);
+                    method75(super.mouseX, Widget.widgets[sidebarWidgets[activeTab]], super.mouseY, false, 553, 0, 205);
                 }
             }
             if (anInt1270 != anInt1118) {
@@ -9912,11 +9912,11 @@ public class Game extends GameShell {
                 anInt1118 = anInt1270;
             }
             anInt1270 = 0;
-            if (super.anInt23 > 17 && super.anInt24 > 357 && super.anInt23 < 496 && super.anInt24 < 453) {
+            if (super.mouseX > 17 && super.mouseY > 357 && super.mouseX < 496 && super.mouseY < 453) {
                 if (openChatboxWidgetId != -1) {
-                    method75(super.anInt23, Widget.widgets[openChatboxWidgetId], super.anInt24, false, 17, 0, 357);
-                } else if (super.anInt24 < 434 && super.anInt23 < 426) {
-                    method24(super.anInt23 - 17, anInt1225, super.anInt24 - 357);
+                    method75(super.mouseX, Widget.widgets[openChatboxWidgetId], super.mouseY, false, 17, 0, 357);
+                } else if (super.mouseY < 434 && super.mouseX < 426) {
+                    method24(super.mouseX - 17, anInt1225, super.mouseY - 357);
                 }
             }
             if (openChatboxWidgetId != -1 && anInt1270 != anInt907) {
@@ -10761,8 +10761,8 @@ public class Game extends GameShell {
         }
         if (openChatboxWidgetId == -1) {
             aWidget_1050.anInt595 = anInt886 - anInt1019 - 77;
-            if (super.anInt23 > 448 && super.anInt23 < 560 && super.anInt24 > 332) {
-                method111(super.anInt23 - 17, 463, anInt886, super.anInt24 - 357, 77, (byte) 4, aWidget_1050, false, 0);
+            if (super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
+                method111(super.mouseX - 17, 463, anInt886, super.mouseY - 357, 77, (byte) 4, aWidget_1050, false, 0);
             }
             int j = anInt886 - 77 - aWidget_1050.anInt595;
             if (j < 0) {
@@ -11827,7 +11827,7 @@ public class Game extends GameShell {
             }
             Scene.method230(800, (byte) 1, ai, 334, 512, 500);
             MessageCensor.method531(chatArchive);
-            aMouseCapturer_865 = new MouseCapturer((byte) -123, this);
+            aMouseCapturer_865 = new MouseCapturer(this);
             method12(aMouseCapturer_865, 10);
             Location.aGame1469 = this;
             LocationConfig.aGame254 = this;
