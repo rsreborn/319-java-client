@@ -3320,7 +3320,7 @@ public class Game extends GameShell {
                             }
                         }
                     }
-                    for (Node_Sub3 class13_sub3_1 = (Node_Sub3) aLinkedList_1152.first(); class13_sub3_1 != null; class13_sub3_1 = (Node_Sub3) aLinkedList_1152.next()) {
+                    for (SpawnObjectNode class13_sub3_1 = (SpawnObjectNode) aLinkedList_1152.first(); class13_sub3_1 != null; class13_sub3_1 = (SpawnObjectNode) aLinkedList_1152.next()) {
                         class13_sub3_1.anInt1365 -= i20;
                         class13_sub3_1.anInt1366 -= l22;
                         if (class13_sub3_1.anInt1365 < 0 || class13_sub3_1.anInt1366 < 0 || class13_sub3_1.anInt1365 >= 104 || class13_sub3_1.anInt1366 >= 104) {
@@ -3387,7 +3387,7 @@ public class Game extends GameShell {
                             }
                         }
                     }
-                    for (Node_Sub3 class13_sub3 = (Node_Sub3) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (Node_Sub3) aLinkedList_1152.next()) {
+                    for (SpawnObjectNode class13_sub3 = (SpawnObjectNode) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (SpawnObjectNode) aLinkedList_1152.next()) {
                         if (class13_sub3.anInt1365 >= anInt1231 && class13_sub3.anInt1365 < anInt1231 + 8 && class13_sub3.anInt1366 >= anInt1232 && class13_sub3.anInt1366 < anInt1232 + 8 && class13_sub3.anInt1363 == anInt1166) {
                             class13_sub3.anInt1371 = 0;
                         }
@@ -8087,8 +8087,8 @@ public class Game extends GameShell {
             if (i2 >= 0) {
                 method6();
             }
-            Node_Sub3 class13_sub3 = null;
-            for (Node_Sub3 class13_sub3_1 = (Node_Sub3) aLinkedList_1152.first(); class13_sub3_1 != null; class13_sub3_1 = (Node_Sub3) aLinkedList_1152.next()) {
+            SpawnObjectNode class13_sub3 = null;
+            for (SpawnObjectNode class13_sub3_1 = (SpawnObjectNode) aLinkedList_1152.first(); class13_sub3_1 != null; class13_sub3_1 = (SpawnObjectNode) aLinkedList_1152.next()) {
                 if (class13_sub3_1.anInt1363 != j1 || class13_sub3_1.anInt1365 != j || class13_sub3_1.anInt1366 != l || class13_sub3_1.anInt1364 != l1) {
                     continue;
                 }
@@ -8096,7 +8096,7 @@ public class Game extends GameShell {
                 break;
             }
             if (class13_sub3 == null) {
-                class13_sub3 = new Node_Sub3();
+                class13_sub3 = new SpawnObjectNode();
                 class13_sub3.anInt1363 = j1;
                 class13_sub3.anInt1364 = l1;
                 class13_sub3.anInt1365 = j;
@@ -8770,7 +8770,7 @@ public class Game extends GameShell {
     public void method96(boolean flag) {
         try {
             loggedIn &= flag;
-            for (Node_Sub3 class13_sub3 = (Node_Sub3) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (Node_Sub3) aLinkedList_1152.next()) {
+            for (SpawnObjectNode class13_sub3 = (SpawnObjectNode) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (SpawnObjectNode) aLinkedList_1152.next()) {
                 if (class13_sub3.anInt1371 == -1) {
                     class13_sub3.anInt1367 = 0;
                     method124(class13_sub3, (byte) -56);
@@ -9893,7 +9893,7 @@ public class Game extends GameShell {
                 aBoolean1240 = !aBoolean1240;
             }
             if (anInt1254 == 2) {
-                for (Node_Sub3 class13_sub3 = (Node_Sub3) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (Node_Sub3) aLinkedList_1152.next()) {
+                for (SpawnObjectNode class13_sub3 = (SpawnObjectNode) aLinkedList_1152.first(); class13_sub3 != null; class13_sub3 = (SpawnObjectNode) aLinkedList_1152.next()) {
                     if (class13_sub3.anInt1371 > 0) {
                         class13_sub3.anInt1371--;
                     }
@@ -10372,7 +10372,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method124(Node_Sub3 class13_sub3, byte byte0) {
+    public void method124(SpawnObjectNode class13_sub3, byte byte0) {
         try {
             if (byte0 != -56) {
                 outBuffer.writeByte(253);
