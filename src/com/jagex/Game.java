@@ -163,7 +163,7 @@ public class Game extends GameShell {
     public ProducingGraphicsBuffer backgroundBorderTop;
     public ProducingGraphicsBuffer backgroundMinimapLeft;
     public ProducingGraphicsBuffer backgroundInventoryLeft;
-    public ProducingGraphicsBuffer backgrounChatboxRight;
+    public ProducingGraphicsBuffer backgroundChatboxRight;
     public ProducingGraphicsBuffer backgroundChatboxTop;
     public int anInt884;
     public int anInt885;
@@ -4775,7 +4775,7 @@ public class Game extends GameShell {
             backgroundBorderTop = null;
             backgroundMinimapLeft = null;
             backgroundInventoryLeft = null;
-            backgrounChatboxRight = null;
+            backgroundChatboxRight = null;
             backgroundChatboxTop = null;
             backgroundInventory = null;
             backgroundMinimap = null;
@@ -10726,7 +10726,7 @@ public class Game extends GameShell {
             backgroundBorderTop.drawGraphics(super.aGraphics15, 0, 0);
             backgroundMinimapLeft.drawGraphics(super.aGraphics15, 516, 4);
             backgroundInventoryLeft.drawGraphics(super.aGraphics15, 516, 205);
-            backgrounChatboxRight.drawGraphics(super.aGraphics15, 496, 357);
+            backgroundChatboxRight.drawGraphics(super.aGraphics15, 496, 357);
             backgroundChatboxTop.drawGraphics(super.aGraphics15, 0, 338);
             redrawTabArea = true;
             redrawChatbox = true;
@@ -11730,7 +11730,7 @@ public class Game extends GameShell {
             backgroundInventoryLeft = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
             backgroundSprite.method406(0, 0);
             backgroundSprite = new Sprite(mediaArchive, "backvmid3", 0);
-            backgrounChatboxRight = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
+            backgroundChatboxRight = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
             backgroundSprite.method406(0, 0);
             backgroundSprite = new Sprite(mediaArchive, "backhmid2", 0);
             backgroundChatboxTop = new ProducingGraphicsBuffer(getGameFrame(), backgroundSprite.spriteWidth, backgroundSprite.spriteHeight);
