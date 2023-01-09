@@ -172,10 +172,10 @@ public class Game extends GameShell {
     public int anInt888;
     public int anInt889;
     public int anInt890;
-    public com.jagex.graphics.Font aFont_891;
-    public com.jagex.graphics.Font aFont_892;
-    public com.jagex.graphics.Font aFont_893;
-    public com.jagex.graphics.Font aFont_894;
+    public com.jagex.graphics.Font plainSmallFont;
+    public com.jagex.graphics.Font plainFont;
+    public com.jagex.graphics.Font boldFont;
+    public com.jagex.graphics.Font quillFont;
     public int anInt895;
     public int maxPlayerCount;
     public int anInt897;
@@ -235,7 +235,7 @@ public class Game extends GameShell {
     public String[] aStringArray961;
     public String aString964;
     public int anInt965;
-    public Sprite aClass13_Sub1_Sub4_Sub4_967;
+    public Sprite minimapCompass;
     public LinkedList[][][] aLinkedListArrayArrayArray969;
     public int[] anIntArray970;
     public boolean aBoolean971;
@@ -257,7 +257,7 @@ public class Game extends GameShell {
     public int membershipStatus;
     public boolean aBoolean989;
     public long[] aLongArray990;
-    public CacheArchive aCacheArchive_991;
+    public CacheArchive titleArchive;
     public int anInt992;
     public long[] aLongArray993;
     public boolean aBoolean994;
@@ -374,9 +374,9 @@ public class Game extends GameShell {
     public int[] anIntArray1109;
     public String[] aStringArray1110;
     public int anInt1111;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1112;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1113;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1114;
+    public IndexedImage chatSettingsBackground;
+    public IndexedImage tabBottomBackground;
+    public IndexedImage tabTopBackground;
     public int anInt1115;
     public int[] anIntArray1116;
     public boolean[] aBooleanArray1117;
@@ -438,7 +438,7 @@ public class Game extends GameShell {
     };
     public byte[][] aByteArrayArray1179;
     public int anInt1180;
-    public IndexedImage[] aClass13_Sub1_Sub4_Sub3Array1181;
+    public IndexedImage[] sidebarIcons;
     public int anInt1182;
     public int anInt1183;
     public int anInt1184;
@@ -464,9 +464,9 @@ public class Game extends GameShell {
     public int anInt1205;
     public int anInt1206;
     public int[] anIntArray1207;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1208;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1209;
-    public IndexedImage aClass13_Sub1_Sub4_Sub3_1210;
+    public IndexedImage inventoryBackground;
+    public IndexedImage minimapBackground;
+    public IndexedImage chatboxBackground;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1211;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1212;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_1213;
@@ -681,7 +681,7 @@ public class Game extends GameShell {
         anInt1173 = 208;
         loginTitle = "";
         loginMessage = "";
-        aClass13_Sub1_Sub4_Sub3Array1181 = new IndexedImage[13];
+        sidebarIcons = new IndexedImage[13];
         anInt1182 = 0x23201b;
         anInt1185 = 60;
         aClass13_Sub1_Sub4_Sub4Array1189 = new Sprite[100];
@@ -1053,9 +1053,9 @@ public class Game extends GameShell {
         Rasterizer.resetPixels();
         aProducingGraphicsBuffer_1253 = new ProducingGraphicsBuffer(method11(), 75, 94);
         Rasterizer.resetPixels();
-        if (aCacheArchive_991 != null) {
+        if (titleArchive != null) {
             method32();
-            method122(8);
+            method122();
         }
         aBoolean1216 = true;
     }
@@ -1123,10 +1123,10 @@ public class Game extends GameShell {
                 return;
             }
             aProducingGraphicsBuffer_1213.method490();
-            aFont_892.method381(257, 0, 6, 144, "Connection lost");
-            aFont_892.method381(256, 0xffffff, 6, 143, "Connection lost");
-            aFont_892.method381(257, 0, 6, 159, "Please wait - attempting to reestablish");
-            aFont_892.method381(256, 0xffffff, 6, 158, "Please wait - attempting to reestablish");
+            plainFont.method381(257, 0, 6, 144, "Connection lost");
+            plainFont.method381(256, 0xffffff, 6, 143, "Connection lost");
+            plainFont.method381(257, 0, 6, 159, "Please wait - attempting to reestablish");
+            plainFont.method381(256, 0xffffff, 6, 158, "Please wait - attempting to reestablish");
             aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
             anInt1094 = 0;
             packetSize += i;
@@ -1160,57 +1160,57 @@ public class Game extends GameShell {
             char c1 = '\310';
             if (anInt1220 == 0) {
                 int i = c1 / 2 + 80;
-                aFont_891.method382(c / 2, true, gameUpdateClient.message, i, 0x75a9a9, false);
+                plainSmallFont.method382(c / 2, true, gameUpdateClient.message, i, 0x75a9a9, false);
                 i = c1 / 2 - 20;
-                aFont_893.method382(c / 2, true, "Welcome to RuneScape", i, 0xffff00, false);
+                boldFont.method382(c / 2, true, "Welcome to RuneScape", i, 0xffff00, false);
                 i += 30;
                 int l = c / 2 - 80;
                 int k1 = c1 / 2 + 20;
                 aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, (byte) 83, l - 73);
-                aFont_893.method382(l, true, "New User", k1 + 5, 0xffffff, false);
+                boldFont.method382(l, true, "New User", k1 + 5, 0xffffff, false);
                 l = c / 2 + 80;
                 aClass13_Sub1_Sub4_Sub3_1121.method401(k1 - 20, (byte) 83, l - 73);
-                aFont_893.method382(l, true, "Existing User", k1 + 5, 0xffffff, false);
+                boldFont.method382(l, true, "Existing User", k1 + 5, 0xffffff, false);
             }
             if (anInt1220 == 2) {
                 int j = c1 / 2 - 40;
                 if (loginTitle.length() > 0) {
-                    aFont_893.method382(c / 2, true, loginTitle, j - 15, 0xffff00, false);
-                    aFont_893.method382(c / 2, true, loginMessage, j, 0xffff00, false);
+                    boldFont.method382(c / 2, true, loginTitle, j - 15, 0xffff00, false);
+                    boldFont.method382(c / 2, true, loginMessage, j, 0xffff00, false);
                     j += 30;
                 } else {
-                    aFont_893.method382(c / 2, true, loginMessage, j - 7, 0xffff00, false);
+                    boldFont.method382(c / 2, true, loginMessage, j - 7, 0xffff00, false);
                     j += 30;
                 }
-                aFont_893.method389(true, c / 2 - 90, (byte) 8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
+                boldFont.method389(true, c / 2 - 90, (byte) 8, j, 0xffffff, "Username: " + username + ((anInt965 == 0) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
-                aFont_893.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + StringUtil.censorString(password) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
+                boldFont.method389(true, c / 2 - 88, (byte) 8, j, 0xffffff, "Password: " + StringUtil.censorString(password) + ((anInt965 == 1) & (pulseCycle % 40 < 20) ? "@yel@|" : ""));
                 j += 15;
                 if (!flag1) {
                     int i1 = c / 2 - 80;
                     int l1 = c1 / 2 + 50;
                     aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, (byte) 83, i1 - 73);
-                    aFont_893.method382(i1, true, "Login", l1 + 5, 0xffffff, false);
+                    boldFont.method382(i1, true, "Login", l1 + 5, 0xffffff, false);
                     i1 = c / 2 + 80;
                     aClass13_Sub1_Sub4_Sub3_1121.method401(l1 - 20, (byte) 83, i1 - 73);
-                    aFont_893.method382(i1, true, "Cancel", l1 + 5, 0xffffff, false);
+                    boldFont.method382(i1, true, "Cancel", l1 + 5, 0xffffff, false);
                 }
             }
             if (anInt1220 == 3) {
-                aFont_893.method382(c / 2, true, "Create a free account", c1 / 2 - 60, 0xffff00, false);
+                boldFont.method382(c / 2, true, "Create a free account", c1 / 2 - 60, 0xffff00, false);
                 int k = c1 / 2 - 35;
-                aFont_893.method382(c / 2, true, "To create a new account you need to", k, 0xffffff, false);
+                boldFont.method382(c / 2, true, "To create a new account you need to", k, 0xffffff, false);
                 k += 15;
-                aFont_893.method382(c / 2, true, "go back to the main RuneScape webpage", k, 0xffffff, false);
+                boldFont.method382(c / 2, true, "go back to the main RuneScape webpage", k, 0xffffff, false);
                 k += 15;
-                aFont_893.method382(c / 2, true, "and choose the red 'create account'", k, 0xffffff, false);
+                boldFont.method382(c / 2, true, "and choose the red 'create account'", k, 0xffffff, false);
                 k += 15;
-                aFont_893.method382(c / 2, true, "button at the top right of that page.", k, 0xffffff, false);
+                boldFont.method382(c / 2, true, "button at the top right of that page.", k, 0xffffff, false);
                 k += 15;
                 int j1 = c / 2;
                 int i2 = c1 / 2 + 50;
                 aClass13_Sub1_Sub4_Sub3_1121.method401(i2 - 20, (byte) 83, j1 - 73);
-                aFont_893.method382(j1, true, "Cancel", i2 + 5, 0xffffff, false);
+                boldFont.method382(j1, true, "Cancel", i2 + 5, 0xffffff, false);
             }
             aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 202, 171);
             if (aBoolean1216) {
@@ -1262,8 +1262,8 @@ public class Game extends GameShell {
             i = 90 / i;
             if (isLowMemory && anInt1254 == 2 && MapRegion.anInt416 != anInt1166) {
                 aProducingGraphicsBuffer_1213.method490();
-                aFont_892.method381(257, 0, 6, 151, "Loading - please wait.");
-                aFont_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
+                plainFont.method381(257, 0, 6, 151, "Loading - please wait.");
+                plainFont.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
                 aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
                 anInt1254 = 1;
                 aLong1243 = System.currentTimeMillis();
@@ -2386,7 +2386,7 @@ public class Game extends GameShell {
                 if (super.anInt11 < 15) {
                     i1 = 0xff0000;
                 }
-                aFont_892.method380(k, aBoolean1235, "Fps:" + super.anInt11, c, i1);
+                plainFont.method380(k, aBoolean1235, "Fps:" + super.anInt11, c, i1);
                 k += 15;
                 Runtime runtime = Runtime.getRuntime();
                 int j1 = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
@@ -2394,7 +2394,7 @@ public class Game extends GameShell {
                 if (j1 > 0x2000000 && isLowMemory) {
                     i1 = 0xff0000;
                 }
-                aFont_892.method380(k, aBoolean1235, "Mem:" + j1 + "k", c, 0xffff00);
+                plainFont.method380(k, aBoolean1235, "Mem:" + j1 + "k", c, 0xffff00);
                 k += 15;
             }
             if (anInt1269 != 0) {
@@ -2402,10 +2402,10 @@ public class Game extends GameShell {
                 int l = j / 60;
                 j %= 60;
                 if (j < 10) {
-                    aFont_892.method385((byte) -96, "System update in: " + l + ":0" + j, 0xffff00, 4, 329);
+                    plainFont.method385((byte) -96, "System update in: " + l + ":0" + j, 0xffff00, 4, 329);
                     return;
                 } else {
-                    aFont_892.method385((byte) -96, "System update in: " + l + ":" + j, 0xffff00, 4, 329);
+                    plainFont.method385((byte) -96, "System update in: " + l + ":" + j, 0xffff00, 4, 329);
                     return;
                 }
             }
@@ -3183,8 +3183,8 @@ public class Game extends GameShell {
                     anInt1254 = 1;
                     aLong1243 = System.currentTimeMillis();
                     aProducingGraphicsBuffer_1213.method490();
-                    aFont_892.method381(257, 0, 6, 151, "Loading - please wait.");
-                    aFont_892.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
+                    plainFont.method381(257, 0, 6, 151, "Loading - please wait.");
+                    plainFont.method381(256, 0xffffff, 6, 150, "Loading - please wait.");
                     aProducingGraphicsBuffer_1213.method491(super.aGraphics15, 4, 4);
                     if (opcode == 228) {
                         int k19 = 0;
@@ -3743,7 +3743,7 @@ public class Game extends GameShell {
     }
 
     public void method32() {
-        byte[] abyte0 = aCacheArchive_991.readFile("title.dat", null);
+        byte[] abyte0 = titleArchive.readFile("title.dat", null);
         Sprite class13_sub1_sub4_sub4 = new Sprite(abyte0, this);
         aProducingGraphicsBuffer_1248.method490();
         class13_sub1_sub4_sub4.method406(0, 0, 902);
@@ -3790,12 +3790,9 @@ public class Game extends GameShell {
         class13_sub1_sub4_sub4.method406(254, -171, 902);
         aProducingGraphicsBuffer_1253.method490();
         class13_sub1_sub4_sub4.method406(-180, -171, 902);
-        class13_sub1_sub4_sub4 = new Sprite(aCacheArchive_991, "logo", 0);
+        class13_sub1_sub4_sub4 = new Sprite(titleArchive, "logo", 0);
         aProducingGraphicsBuffer_1245.method490();
         class13_sub1_sub4_sub4.method408(18, (byte) 83, 382 - class13_sub1_sub4_sub4.anInt1681 / 2 - 128);
-        class13_sub1_sub4_sub4 = null;
-        abyte0 = null;
-        ai = null;
         System.gc();
     }
 
@@ -4580,7 +4577,7 @@ public class Game extends GameShell {
         try {
             aProducingGraphicsBuffer_1212.method490();
             if (anInt1094 == 2) {
-                byte[] abyte0 = aClass13_Sub1_Sub4_Sub3_1209.aByteArray1667;
+                byte[] abyte0 = minimapBackground.aByteArray1667;
                 int[] ai = Rasterizer.pixels;
                 int k2 = abyte0.length;
                 for (int i5 = 0; i5 < k2; i5++) {
@@ -4588,7 +4585,7 @@ public class Game extends GameShell {
                         ai[i5] = 0;
                     }
                 }
-                aClass13_Sub1_Sub4_Sub4_967.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
+                minimapCompass.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
                 aProducingGraphicsBuffer_1213.method490();
                 return;
             }
@@ -4599,7 +4596,7 @@ public class Game extends GameShell {
             int j = 48 + localPlayer.anInt1587 / 32;
             int l2 = 464 - localPlayer.anInt1588 / 32;
             aClass13_Sub1_Sub4_Sub4_1223.method412(anIntArray1000, anIntArray847, 151, 256 + anInt1035, 25, i, 146, l2, j, 5, anInt872);
-            aClass13_Sub1_Sub4_Sub4_967.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
+            minimapCompass.method412(anIntArray1171, anIntArray1200, 33, 256, 0, anInt922, 33, 25, 25, 0, anInt872);
             for (int j5 = 0; j5 < anInt830; j5++) {
                 int k = (anIntArray831[j5] * 4 + 2) - localPlayer.anInt1587 / 32;
                 int i3 = (anIntArray832[j5] * 4 + 2) - localPlayer.anInt1588 / 32;
@@ -4780,13 +4777,13 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_881 = null;
             aProducingGraphicsBuffer_882 = null;
             aProducingGraphicsBuffer_883 = null;
-            aClass13_Sub1_Sub4_Sub3_1208 = null;
-            aClass13_Sub1_Sub4_Sub3_1209 = null;
-            aClass13_Sub1_Sub4_Sub3_1210 = null;
-            aClass13_Sub1_Sub4_Sub3_1112 = null;
-            aClass13_Sub1_Sub4_Sub3_1113 = null;
-            aClass13_Sub1_Sub4_Sub3_1114 = null;
-            aClass13_Sub1_Sub4_Sub3Array1181 = null;
+            inventoryBackground = null;
+            minimapBackground = null;
+            chatboxBackground = null;
+            chatSettingsBackground = null;
+            tabBottomBackground = null;
+            tabTopBackground = null;
+            sidebarIcons = null;
             aClass13_Sub1_Sub4_Sub3_867 = null;
             aClass13_Sub1_Sub4_Sub3_868 = null;
             aClass13_Sub1_Sub4_Sub3_869 = null;
@@ -4797,7 +4794,7 @@ public class Game extends GameShell {
             aClass13_Sub1_Sub4_Sub3_1090 = null;
             aClass13_Sub1_Sub4_Sub3_1091 = null;
             aClass13_Sub1_Sub4_Sub3_1092 = null;
-            aClass13_Sub1_Sub4_Sub4_967 = null;
+            minimapCompass = null;
             aClass13_Sub1_Sub4_Sub4Array1266 = null;
             aClass13_Sub1_Sub4_Sub4Array1236 = null;
             aClass13_Sub1_Sub4_Sub4Array1201 = null;
@@ -5794,7 +5791,7 @@ public class Game extends GameShell {
             anInt1053 = percentage;
             aString827 = text;
             method16();
-            if (aCacheArchive_991 == null) {
+            if (titleArchive == null) {
                 super.updateLoadingBar(false, text, percentage);
                 return;
             }
@@ -5805,13 +5802,13 @@ public class Game extends GameShell {
             char c = '\u0168';
             char c1 = '\310';
             byte byte0 = 20;
-            aFont_893.method381(c / 2, 0xffffff, 6, c1 / 2 - 26 - byte0, "RuneScape is loading - please wait...");
+            boldFont.method381(c / 2, 0xffffff, 6, c1 / 2 - 26 - byte0, "RuneScape is loading - please wait...");
             int j = c1 / 2 - 18 - byte0;
             Rasterizer.method357(j, c / 2 - 152, 34, 0x8c1111, 304);
             Rasterizer.method357(j + 1, c / 2 - 151, 32, 0, 302);
             Rasterizer.method356(c / 2 - 150, j + 2, 0x8c1111, percentage * 3, 30);
             Rasterizer.method356((c / 2 - 150) + percentage * 3, j + 2, 0, 300 - percentage * 3, 30);
-            aFont_893.method381(c / 2, 0xffffff, 6, (c1 / 2 + 5) - byte0, text);
+            boldFont.method381(c / 2, 0xffffff, 6, (c1 / 2 + 5) - byte0, text);
             aProducingGraphicsBuffer_1247.method491(super.aGraphics15, 202, 171);
             if (aBoolean1216) {
                 aBoolean1216 = false;
@@ -6329,7 +6326,7 @@ public class Game extends GameShell {
             Rasterizer.method356(j, k, j1, l, i1);
             Rasterizer.method356(j + 1, k + 1, 0, l - 2, 16);
             Rasterizer.method357(k + 18, j + 1, i1 - 19, 0, l - 2);
-            aFont_893.method385((byte) -96, "Choose Option", j1, j + 3, k + 14);
+            boldFont.method385((byte) -96, "Choose Option", j1, j + 3, k + 14);
             int k1 = super.anInt23;
             int l1 = super.anInt24;
             if (anInt820 == 0) {
@@ -6350,7 +6347,7 @@ public class Game extends GameShell {
                 if (k1 > j && k1 < j + l && l1 > j2 - 13 && l1 < j2 + 3) {
                     k2 = 0xffff00;
                 }
-                aFont_893.method389(true, j + 3, (byte) 8, j2, k2, aStringArray961[i2]);
+                boldFont.method389(true, j + 3, (byte) 8, j2, k2, aStringArray961[i2]);
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -6363,25 +6360,25 @@ public class Game extends GameShell {
         try {
             aProducingGraphicsBuffer_1214.method490();
             Rasterizer3D.anIntArray1636 = anIntArray857;
-            aClass13_Sub1_Sub4_Sub3_1210.method401(0, (byte) 83, 0);
+            chatboxBackground.method401(0, (byte) 83, 0);
             if (aBoolean1017) {
-                aFont_893.method381(239, 0, 6, 40, aString1196);
-                aFont_893.method381(239, 128, 6, 60, aString1218 + "*");
+                boldFont.method381(239, 0, 6, 40, aString1196);
+                boldFont.method381(239, 128, 6, 60, aString1218 + "*");
             } else if (anInt1141 == 1) {
-                aFont_893.method381(239, 0, 6, 40, "Enter amount:");
-                aFont_893.method381(239, 128, 6, 60, aString964 + "*");
+                boldFont.method381(239, 0, 6, 40, "Enter amount:");
+                boldFont.method381(239, 128, 6, 60, aString964 + "*");
             } else if (anInt1141 == 2) {
-                aFont_893.method381(239, 0, 6, 40, "Enter name:");
-                aFont_893.method381(239, 128, 6, 60, aString964 + "*");
+                boldFont.method381(239, 0, 6, 40, "Enter name:");
+                boldFont.method381(239, 128, 6, 60, aString964 + "*");
             } else if (clickToContinueText != null) {
-                aFont_893.method381(239, 0, 6, 40, clickToContinueText);
-                aFont_893.method381(239, 128, 6, 60, "Click to continue");
+                boldFont.method381(239, 0, 6, 40, clickToContinueText);
+                boldFont.method381(239, 128, 6, 60, "Click to continue");
             } else if (openChatboxWidgetId != -1) {
                 method67(Widget.widgets[openChatboxWidgetId], 0, 0, 0, 988);
             } else if (dialogueId != -1) {
                 method67(Widget.widgets[dialogueId], 0, 0, 0, 988);
             } else {
-                com.jagex.graphics.Font font = aFont_892;
+                com.jagex.graphics.Font font = plainFont;
                 int i = 0;
                 Rasterizer.method353(463, 77, 0, 0);
                 for (int j = 0; j < 100; j++) {
@@ -6503,7 +6500,7 @@ public class Game extends GameShell {
         try {
             aProducingGraphicsBuffer_1211.method490();
             Rasterizer3D.anIntArray1636 = anIntArray858;
-            aClass13_Sub1_Sub4_Sub3_1208.method401(0, (byte) 83, 0);
+            inventoryBackground.method401(0, (byte) 83, 0);
             if (anInt874 != -1) {
                 method67(Widget.widgets[anInt874], 0, 0, 0, 988);
             } else if (sidebarWidgets[activeTab] != -1) {
@@ -6896,8 +6893,8 @@ public class Game extends GameShell {
                                             }
                                             if (class13_sub1_sub4_sub4_2.anInt1685 == 33 || widget_1.itemContainerItemAmounts[i3] != 1) {
                                                 int k10 = widget_1.itemContainerItemAmounts[i3];
-                                                aFont_891.method385((byte) -96, method29(k10, anInt1204), 0, k5 + 1 + k6, j6 + 10 + j7);
-                                                aFont_891.method385((byte) -96, method29(k10, anInt1204), 0xffff00, k5 + k6, j6 + 9 + j7);
+                                                plainSmallFont.method385((byte) -96, method29(k10, anInt1204), 0, k5 + 1 + k6, j6 + 10 + j7);
+                                                plainSmallFont.method385((byte) -96, method29(k10, anInt1204), 0xffff00, k5 + k6, j6 + 9 + j7);
                                             }
                                         }
                                     }
@@ -8132,7 +8129,7 @@ public class Game extends GameShell {
             if (anInt1167 > 2) {
                 toolTipText = toolTipText + "@whi@ / " + (anInt1167 - 2) + " more options";
             }
-            aFont_893.method390(true, 0xffffff, 15, 999, 4, toolTipText, pulseCycle / 1000);
+            boldFont.method390(true, 0xffffff, 15, 999, 4, toolTipText, pulseCycle / 1000);
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("65826, " + runtimeexception);
             throw new RuntimeException();
@@ -8225,7 +8222,7 @@ public class Game extends GameShell {
             aProducingGraphicsBuffer_1214 = new ProducingGraphicsBuffer(method11(), 479, 96);
             aProducingGraphicsBuffer_1212 = new ProducingGraphicsBuffer(method11(), 172, 156);
             Rasterizer.resetPixels();
-            aClass13_Sub1_Sub4_Sub3_1209.method401(0, (byte) 83, 0);
+            minimapBackground.method401(0, (byte) 83, 0);
             aProducingGraphicsBuffer_1211 = new ProducingGraphicsBuffer(method11(), 190, 261);
             aProducingGraphicsBuffer_1213 = new ProducingGraphicsBuffer(method11(), 512, 334);
             Rasterizer.resetPixels();
@@ -8543,8 +8540,8 @@ public class Game extends GameShell {
                 if (((Entity) (obj)).forceChat != null && (i >= anInt899 || anInt1159 == 0 || anInt1159 == 3 || anInt1159 == 1 && method71(((Player) obj).username, 771))) {
                     method143(((Entity) (obj)), ((Entity) (obj)).anInt1590, (byte) 101);
                     if (anInt1078 > -1 && anInt1101 < anInt1102) {
-                        anIntArray1106[anInt1101] = aFont_893.method384(((Entity) (obj)).forceChat, 0) / 2;
-                        anIntArray1105[anInt1101] = aFont_893.anInt1659;
+                        anIntArray1106[anInt1101] = boldFont.method384(((Entity) (obj)).forceChat, 0) / 2;
+                        anIntArray1105[anInt1101] = boldFont.anInt1659;
                         anIntArray1103[anInt1101] = anInt1078;
                         anIntArray1104[anInt1101] = anInt1079;
                         anIntArray1107[anInt1101] = ((Entity) (obj)).anInt1566;
@@ -8590,8 +8587,8 @@ public class Game extends GameShell {
                                 anInt1079 -= 10;
                             }
                             aClass13_Sub1_Sub4_Sub4Array1266[((Entity) (obj)).anIntArray1613[i1]].method408(anInt1079 - 12, (byte) 83, anInt1078 - 12);
-                            aFont_891.method381(anInt1078, 0, 6, anInt1079 + 4, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
-                            aFont_891.method381(anInt1078 - 1, 0xffffff, 6, anInt1079 + 3, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
+                            plainSmallFont.method381(anInt1078, 0, 6, anInt1079 + 4, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
+                            plainSmallFont.method381(anInt1078 - 1, 0xffffff, 6, anInt1079 + 3, String.valueOf(((Entity) (obj)).anIntArray1612[i1]));
                         }
                     }
                 }
@@ -8659,27 +8656,27 @@ public class Game extends GameShell {
                         }
                     }
                     if (anIntArray1108[j] == 0) {
-                        aFont_893.method381(anInt1078, 0, 6, anInt1079 + 1, s);
-                        aFont_893.method381(anInt1078, l2, 6, anInt1079, s);
+                        boldFont.method381(anInt1078, 0, 6, anInt1079 + 1, s);
+                        boldFont.method381(anInt1078, l2, 6, anInt1079, s);
                     }
                     if (anIntArray1108[j] == 1) {
-                        aFont_893.method386(anInt1079 + 1, 0, -933, anInt979, anInt1078, s);
-                        aFont_893.method386(anInt1079, l2, -933, anInt979, anInt1078, s);
+                        boldFont.method386(anInt1079 + 1, 0, -933, anInt979, anInt1078, s);
+                        boldFont.method386(anInt1079, l2, -933, anInt979, anInt1078, s);
                     }
                     if (anIntArray1108[j] == 2) {
-                        aFont_893.method387(anInt1079 + 1, -11986, s, anInt979, 0, anInt1078);
-                        aFont_893.method387(anInt1079, -11986, s, anInt979, l2, anInt1078);
+                        boldFont.method387(anInt1079 + 1, -11986, s, anInt979, 0, anInt1078);
+                        boldFont.method387(anInt1079, -11986, s, anInt979, l2, anInt1078);
                     }
                     if (anIntArray1108[j] == 3) {
-                        aFont_893.method388(150 - anIntArray1109[j], s, 979, anInt1078, anInt1079 + 1, anInt979, 0);
-                        aFont_893.method388(150 - anIntArray1109[j], s, 979, anInt1078, anInt1079, anInt979, l2);
+                        boldFont.method388(150 - anIntArray1109[j], s, 979, anInt1078, anInt1079 + 1, anInt979, 0);
+                        boldFont.method388(150 - anIntArray1109[j], s, 979, anInt1078, anInt1079, anInt979, l2);
                     }
                     if (anIntArray1108[j] == 4) {
-                        int l3 = aFont_893.method384(s, 0);
+                        int l3 = boldFont.method384(s, 0);
                         int j4 = ((150 - anIntArray1109[j]) * (l3 + 100)) / 150;
                         Rasterizer.method353(anInt1078 + 50, 334, 0, anInt1078 - 50);
-                        aFont_893.method385((byte) -96, s, 0, (anInt1078 + 50) - j4, anInt1079 + 1);
-                        aFont_893.method385((byte) -96, s, l2, (anInt1078 + 50) - j4, anInt1079);
+                        boldFont.method385((byte) -96, s, 0, (anInt1078 + 50) - j4, anInt1079 + 1);
+                        boldFont.method385((byte) -96, s, l2, (anInt1078 + 50) - j4, anInt1079);
                         Rasterizer.method352();
                     }
                     if (anIntArray1108[j] == 5) {
@@ -8690,14 +8687,14 @@ public class Game extends GameShell {
                         } else if (i4 > 125) {
                             k4 = i4 - 125;
                         }
-                        Rasterizer.method353(512, anInt1079 + 5, anInt1079 - aFont_893.anInt1659 - 1, 0);
-                        aFont_893.method381(anInt1078, 0, 6, anInt1079 + 1 + k4, s);
-                        aFont_893.method381(anInt1078, l2, 6, anInt1079 + k4, s);
+                        Rasterizer.method353(512, anInt1079 + 5, anInt1079 - boldFont.anInt1659 - 1, 0);
+                        boldFont.method381(anInt1078, 0, 6, anInt1079 + 1 + k4, s);
+                        boldFont.method381(anInt1078, l2, 6, anInt1079 + k4, s);
                         Rasterizer.method352();
                     }
                 } else {
-                    aFont_893.method381(anInt1078, 0, 6, anInt1079 + 1, s);
-                    aFont_893.method381(anInt1078, 0xffff00, 6, anInt1079, s);
+                    boldFont.method381(anInt1078, 0, 6, anInt1079 + 1, s);
+                    boldFont.method381(anInt1078, 0xffff00, 6, anInt1079, s);
                 }
             }
             if (byte0 != 6) {
@@ -8996,7 +8993,7 @@ public class Game extends GameShell {
                     if ((l == 3 || l == 7) && (l == 7 || anInt1129 == 0 || anInt1129 == 1 && method71(s, 771))) {
                         int i1 = 329 - j * 13;
                         if (super.anInt23 > 4 && super.anInt24 - 4 > i1 - 10 && super.anInt24 - 4 <= i1 + 3) {
-                            int j1 = aFont_892.method383(3, "From:  " + s + chatMessages[k]) + 25;
+                            int j1 = plainFont.method383(3, "From:  " + s + chatMessages[k]) + 25;
                             if (j1 > 450) {
                                 j1 = 450;
                             }
@@ -9526,9 +9523,9 @@ public class Game extends GameShell {
     }
 
     public void method109() {
-        int i = aFont_893.method383(3, "Choose Option");
+        int i = boldFont.method383(3, "Choose Option");
         for (int j = 0; j < anInt1167; j++) {
-            int k = aFont_893.method383(3, aStringArray961[j]);
+            int k = boldFont.method383(3, aStringArray961[j]);
             if (k > i) {
                 i = k;
             }
@@ -10030,7 +10027,7 @@ public class Game extends GameShell {
             int l1 = j * j1 + i * k1 >> 16;
             int i2 = j * k1 - i * j1 >> 16;
             if (i1 > 2500) {
-                class13_sub1_sub4_sub4.method414(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4, aClass13_Sub1_Sub4_Sub3_1209, (byte) 6);
+                class13_sub1_sub4_sub4.method414(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4, minimapBackground, (byte) 6);
                 return;
             } else {
                 class13_sub1_sub4_sub4.method408(83 - i2 - class13_sub1_sub4_sub4.anInt1686 / 2 - 4, (byte) 83, ((94 + l1) - class13_sub1_sub4_sub4.anInt1685 / 2) + 4);
@@ -10255,91 +10252,82 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method122(int i) {
+    public void method122() {
+        aClass13_Sub1_Sub4_Sub3_1120 = new IndexedImage(titleArchive, "titlebox", 0);
+        aClass13_Sub1_Sub4_Sub3_1121 = new IndexedImage(titleArchive, "titlebutton", 0);
+        aClass13_Sub1_Sub4_Sub3Array1155 = new IndexedImage[12];
+        int j = 0;
         try {
-            aClass13_Sub1_Sub4_Sub3_1120 = new IndexedImage(aCacheArchive_991, "titlebox", 0);
-            aClass13_Sub1_Sub4_Sub3_1121 = new IndexedImage(aCacheArchive_991, "titlebutton", 0);
-            aClass13_Sub1_Sub4_Sub3Array1155 = new IndexedImage[12];
-            int j = 0;
-            if (i < 8 || i > 8) {
-                opcode = inBuffer.readUByte();
+            j = Integer.parseInt(getParameter("fl_icon"));
+        } catch (Exception _ex) {
+        }
+        if (j == 0) {
+            for (int k = 0; k < 12; k++) {
+                aClass13_Sub1_Sub4_Sub3Array1155[k] = new IndexedImage(titleArchive, "runes", k);
             }
-            try {
-                j = Integer.parseInt(getParameter("fl_icon"));
-            } catch (Exception _ex) {
+        } else {
+            for (int l = 0; l < 12; l++) {
+                aClass13_Sub1_Sub4_Sub3Array1155[l] = new IndexedImage(titleArchive, "runes", 12 + (l & 3));
             }
-            if (j == 0) {
-                for (int k = 0; k < 12; k++) {
-                    aClass13_Sub1_Sub4_Sub3Array1155[k] = new IndexedImage(aCacheArchive_991, "runes", k);
-                }
-            } else {
-                for (int l = 0; l < 12; l++) {
-                    aClass13_Sub1_Sub4_Sub3Array1155[l] = new IndexedImage(aCacheArchive_991, "runes", 12 + (l & 3));
-                }
-            }
-            aClass13_Sub1_Sub4_Sub4_925 = new Sprite(128, 265);
-            aClass13_Sub1_Sub4_Sub4_926 = new Sprite(128, 265);
-            for (int i1 = 0; i1 < 33920; i1++) {
-                aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1] = aProducingGraphicsBuffer_1248.pixels[i1];
-            }
-            for (int j1 = 0; j1 < 33920; j1++) {
-                aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j1] = aProducingGraphicsBuffer_1249.pixels[j1];
-            }
-            anIntArray844 = new int[256];
-            for (int k1 = 0; k1 < 64; k1++) {
-                anIntArray844[k1] = k1 * 0x40000;
-            }
-            for (int l1 = 0; l1 < 64; l1++) {
-                anIntArray844[l1 + 64] = 0xff0000 + 1024 * l1;
-            }
-            for (int i2 = 0; i2 < 64; i2++) {
-                anIntArray844[i2 + 128] = 0xffff00 + 4 * i2;
-            }
-            for (int j2 = 0; j2 < 64; j2++) {
-                anIntArray844[j2 + 192] = 0xffffff;
-            }
-            anIntArray845 = new int[256];
-            for (int k2 = 0; k2 < 64; k2++) {
-                anIntArray845[k2] = k2 * 1024;
-            }
-            for (int l2 = 0; l2 < 64; l2++) {
-                anIntArray845[l2 + 64] = 65280 + 4 * l2;
-            }
-            for (int i3 = 0; i3 < 64; i3++) {
-                anIntArray845[i3 + 128] = 65535 + 0x40000 * i3;
-            }
-            for (int j3 = 0; j3 < 64; j3++) {
-                anIntArray845[j3 + 192] = 0xffffff;
-            }
-            anIntArray846 = new int[256];
-            for (int k3 = 0; k3 < 64; k3++) {
-                anIntArray846[k3] = k3 * 4;
-            }
-            for (int l3 = 0; l3 < 64; l3++) {
-                anIntArray846[l3 + 64] = 255 + 0x40000 * l3;
-            }
-            for (int i4 = 0; i4 < 64; i4++) {
-                anIntArray846[i4 + 128] = 0xff00ff + 1024 * i4;
-            }
-            for (int j4 = 0; j4 < 64; j4++) {
-                anIntArray846[j4 + 192] = 0xffffff;
-            }
-            anIntArray843 = new int[256];
-            anIntArray1043 = new int[32768];
-            anIntArray1044 = new int[32768];
-            method103(null, (byte) 9);
-            anIntArray1130 = new int[32768];
-            anIntArray1131 = new int[32768];
-            updateLoadingBar(false, "Connecting to fileserver", 10);
-            if (!currentlyDrawingFlames) {
-                aBoolean1046 = true;
-                currentlyDrawingFlames = true;
-                method12(this, 2);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("85671, " + i + ", " + runtimeexception);
-            throw new RuntimeException();
+        }
+        aClass13_Sub1_Sub4_Sub4_925 = new Sprite(128, 265);
+        aClass13_Sub1_Sub4_Sub4_926 = new Sprite(128, 265);
+        for (int i1 = 0; i1 < 33920; i1++) {
+            aClass13_Sub1_Sub4_Sub4_925.anIntArray1680[i1] = aProducingGraphicsBuffer_1248.pixels[i1];
+        }
+        for (int j1 = 0; j1 < 33920; j1++) {
+            aClass13_Sub1_Sub4_Sub4_926.anIntArray1680[j1] = aProducingGraphicsBuffer_1249.pixels[j1];
+        }
+        anIntArray844 = new int[256];
+        for (int k1 = 0; k1 < 64; k1++) {
+            anIntArray844[k1] = k1 * 0x40000;
+        }
+        for (int l1 = 0; l1 < 64; l1++) {
+            anIntArray844[l1 + 64] = 0xff0000 + 1024 * l1;
+        }
+        for (int i2 = 0; i2 < 64; i2++) {
+            anIntArray844[i2 + 128] = 0xffff00 + 4 * i2;
+        }
+        for (int j2 = 0; j2 < 64; j2++) {
+            anIntArray844[j2 + 192] = 0xffffff;
+        }
+        anIntArray845 = new int[256];
+        for (int k2 = 0; k2 < 64; k2++) {
+            anIntArray845[k2] = k2 * 1024;
+        }
+        for (int l2 = 0; l2 < 64; l2++) {
+            anIntArray845[l2 + 64] = 65280 + 4 * l2;
+        }
+        for (int i3 = 0; i3 < 64; i3++) {
+            anIntArray845[i3 + 128] = 65535 + 0x40000 * i3;
+        }
+        for (int j3 = 0; j3 < 64; j3++) {
+            anIntArray845[j3 + 192] = 0xffffff;
+        }
+        anIntArray846 = new int[256];
+        for (int k3 = 0; k3 < 64; k3++) {
+            anIntArray846[k3] = k3 * 4;
+        }
+        for (int l3 = 0; l3 < 64; l3++) {
+            anIntArray846[l3 + 64] = 255 + 0x40000 * l3;
+        }
+        for (int i4 = 0; i4 < 64; i4++) {
+            anIntArray846[i4 + 128] = 0xff00ff + 1024 * i4;
+        }
+        for (int j4 = 0; j4 < 64; j4++) {
+            anIntArray846[j4 + 192] = 0xffffff;
+        }
+        anIntArray843 = new int[256];
+        anIntArray1043 = new int[32768];
+        anIntArray1044 = new int[32768];
+        method103(null, (byte) 9);
+        anIntArray1130 = new int[32768];
+        anIntArray1131 = new int[32768];
+        updateLoadingBar(false, "Connecting to fileserver", 10);
+        if (!currentlyDrawingFlames) {
+            aBoolean1046 = true;
+            currentlyDrawingFlames = true;
+            method12(this, 2);
         }
     }
 
@@ -10883,7 +10871,7 @@ public class Game extends GameShell {
                 }
                 aBoolean1286 = false;
                 aProducingGraphicsBuffer_1188.method490();
-                aClass13_Sub1_Sub4_Sub3_1114.method401(0, (byte) 83, 0);
+                tabTopBackground.method401(0, (byte) 83, 0);
                 if (anInt874 == -1) {
                     if (sidebarWidgets[activeTab] != -1) {
                         if (activeTab == 0) {
@@ -10909,30 +10897,30 @@ public class Game extends GameShell {
                         }
                     }
                     if (sidebarWidgets[0] != -1 && (tabId != 0 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[0].method401(13, (byte) 83, 29);
+                        sidebarIcons[0].method401(13, (byte) 83, 29);
                     }
                     if (sidebarWidgets[1] != -1 && (tabId != 1 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[1].method401(11, (byte) 83, 53);
+                        sidebarIcons[1].method401(11, (byte) 83, 53);
                     }
                     if (sidebarWidgets[2] != -1 && (tabId != 2 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[2].method401(11, (byte) 83, 82);
+                        sidebarIcons[2].method401(11, (byte) 83, 82);
                     }
                     if (sidebarWidgets[3] != -1 && (tabId != 3 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[3].method401(12, (byte) 83, 115);
+                        sidebarIcons[3].method401(12, (byte) 83, 115);
                     }
                     if (sidebarWidgets[4] != -1 && (tabId != 4 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[4].method401(13, (byte) 83, 153);
+                        sidebarIcons[4].method401(13, (byte) 83, 153);
                     }
                     if (sidebarWidgets[5] != -1 && (tabId != 5 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[5].method401(11, (byte) 83, 180);
+                        sidebarIcons[5].method401(11, (byte) 83, 180);
                     }
                     if (sidebarWidgets[6] != -1 && (tabId != 6 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[6].method401(13, (byte) 83, 208);
+                        sidebarIcons[6].method401(13, (byte) 83, 208);
                     }
                 }
                 aProducingGraphicsBuffer_1188.method491(super.aGraphics15, 516, 160);
                 aProducingGraphicsBuffer_1187.method490();
-                aClass13_Sub1_Sub4_Sub3_1113.method401(0, (byte) 83, 0);
+                tabBottomBackground.method401(0, (byte) 83, 0);
                 if (anInt874 == -1) {
                     if (sidebarWidgets[activeTab] != -1) {
                         if (activeTab == 7) {
@@ -10958,22 +10946,22 @@ public class Game extends GameShell {
                         }
                     }
                     if (sidebarWidgets[8] != -1 && (tabId != 8 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[7].method401(2, (byte) 83, 74);
+                        sidebarIcons[7].method401(2, (byte) 83, 74);
                     }
                     if (sidebarWidgets[9] != -1 && (tabId != 9 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[8].method401(3, (byte) 83, 102);
+                        sidebarIcons[8].method401(3, (byte) 83, 102);
                     }
                     if (sidebarWidgets[10] != -1 && (tabId != 10 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[9].method401(4, (byte) 83, 137);
+                        sidebarIcons[9].method401(4, (byte) 83, 137);
                     }
                     if (sidebarWidgets[11] != -1 && (tabId != 11 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[10].method401(2, (byte) 83, 174);
+                        sidebarIcons[10].method401(2, (byte) 83, 174);
                     }
                     if (sidebarWidgets[12] != -1 && (tabId != 12 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[11].method401(2, (byte) 83, 201);
+                        sidebarIcons[11].method401(2, (byte) 83, 201);
                     }
                     if (sidebarWidgets[13] != -1 && (tabId != 13 || pulseCycle % 20 < 10)) {
-                        aClass13_Sub1_Sub4_Sub3Array1181[12].method401(2, (byte) 83, 226);
+                        sidebarIcons[12].method401(2, (byte) 83, 226);
                     }
                 }
                 aProducingGraphicsBuffer_1187.method491(super.aGraphics15, 496, 466);
@@ -10982,41 +10970,41 @@ public class Game extends GameShell {
             if (aBoolean1137) {
                 aBoolean1137 = false;
                 aProducingGraphicsBuffer_1186.method490();
-                aClass13_Sub1_Sub4_Sub3_1112.method401(0, (byte) 83, 0);
-                aFont_892.method382(55, true, "Public chat", 28, 0xffffff, false);
+                chatSettingsBackground.method401(0, (byte) 83, 0);
+                plainFont.method382(55, true, "Public chat", 28, 0xffffff, false);
                 if (anInt1159 == 0) {
-                    aFont_892.method382(55, true, "On", 41, 65280, false);
+                    plainFont.method382(55, true, "On", 41, 65280, false);
                 }
                 if (anInt1159 == 1) {
-                    aFont_892.method382(55, true, "Friends", 41, 0xffff00, false);
+                    plainFont.method382(55, true, "Friends", 41, 0xffff00, false);
                 }
                 if (anInt1159 == 2) {
-                    aFont_892.method382(55, true, "Off", 41, 0xff0000, false);
+                    plainFont.method382(55, true, "Off", 41, 0xff0000, false);
                 }
                 if (anInt1159 == 3) {
-                    aFont_892.method382(55, true, "Hide", 41, 65535, false);
+                    plainFont.method382(55, true, "Hide", 41, 65535, false);
                 }
-                aFont_892.method382(184, true, "Private chat", 28, 0xffffff, false);
+                plainFont.method382(184, true, "Private chat", 28, 0xffffff, false);
                 if (anInt1129 == 0) {
-                    aFont_892.method382(184, true, "On", 41, 65280, false);
+                    plainFont.method382(184, true, "On", 41, 65280, false);
                 }
                 if (anInt1129 == 1) {
-                    aFont_892.method382(184, true, "Friends", 41, 0xffff00, false);
+                    plainFont.method382(184, true, "Friends", 41, 0xffff00, false);
                 }
                 if (anInt1129 == 2) {
-                    aFont_892.method382(184, true, "Off", 41, 0xff0000, false);
+                    plainFont.method382(184, true, "Off", 41, 0xff0000, false);
                 }
-                aFont_892.method382(324, true, "Trade/compete", 28, 0xffffff, false);
+                plainFont.method382(324, true, "Trade/compete", 28, 0xffffff, false);
                 if (anInt1290 == 0) {
-                    aFont_892.method382(324, true, "On", 41, 65280, false);
+                    plainFont.method382(324, true, "On", 41, 65280, false);
                 }
                 if (anInt1290 == 1) {
-                    aFont_892.method382(324, true, "Friends", 41, 0xffff00, false);
+                    plainFont.method382(324, true, "Friends", 41, 0xffff00, false);
                 }
                 if (anInt1290 == 2) {
-                    aFont_892.method382(324, true, "Off", 41, 0xff0000, false);
+                    plainFont.method382(324, true, "Off", 41, 0xff0000, false);
                 }
-                aFont_892.method382(458, true, "Report abuse", 33, 0xffffff, false);
+                plainFont.method382(458, true, "Report abuse", 33, 0xffffff, false);
                 aProducingGraphicsBuffer_1186.method491(super.aGraphics15, 0, 453);
                 aProducingGraphicsBuffer_1213.method490();
             }
@@ -11570,19 +11558,19 @@ public class Game extends GameShell {
         }
         try {
             requestArchiveChecksums();
-            aCacheArchive_991 = requestArchive(1, "title", archiveChecksums[1], "title screen", 25);
-            aFont_891 = new com.jagex.graphics.Font("p11_full", aCacheArchive_991, false, 6);
-            aFont_892 = new com.jagex.graphics.Font("p12_full", aCacheArchive_991, false, 6);
-            aFont_893 = new com.jagex.graphics.Font("b12_full", aCacheArchive_991, false, 6);
-            aFont_894 = new com.jagex.graphics.Font("q8_full", aCacheArchive_991, true, 6);
+            titleArchive = requestArchive(1, "title", archiveChecksums[1], "title screen", 25);
+            plainSmallFont = new com.jagex.graphics.Font("p11_full", titleArchive, false, 6);
+            plainFont = new com.jagex.graphics.Font("p12_full", titleArchive, false, 6);
+            boldFont = new com.jagex.graphics.Font("b12_full", titleArchive, false, 6);
+            quillFont = new com.jagex.graphics.Font("q8_full", titleArchive, true, 6);
             method32();
-            method122(8);
-            CacheArchive cacheArchive = requestArchive(2, "config", archiveChecksums[2], "config", 30);
-            CacheArchive cacheArchive_1 = requestArchive(3, "interface", archiveChecksums[3], "interface", 35);
-            CacheArchive cacheArchive_2 = requestArchive(4, "media", archiveChecksums[4], "2d graphics", 40);
-            CacheArchive cacheArchive_3 = requestArchive(6, "textures", archiveChecksums[6], "textures", 45);
-            CacheArchive cacheArchive_4 = requestArchive(7, "wordenc", archiveChecksums[7], "chat system", 50);
-            CacheArchive cacheArchive_5 = requestArchive(8, "sounds", archiveChecksums[8], "sound effects", 55);
+            method122();
+            CacheArchive configArchive = requestArchive(2, "config", archiveChecksums[2], "config", 30);
+            CacheArchive interfaceArchive = requestArchive(3, "interface", archiveChecksums[3], "interface", 35);
+            CacheArchive mediaArchive = requestArchive(4, "media", archiveChecksums[4], "2d graphics", 40);
+            CacheArchive textureArchive = requestArchive(6, "textures", archiveChecksums[6], "textures", 45);
+            CacheArchive chatArchive = requestArchive(7, "wordenc", archiveChecksums[7], "chat system", 50);
+            CacheArchive soundArchive = requestArchive(8, "sounds", archiveChecksums[8], "sound effects", 55);
             aByteArrayArrayArray1164 = new byte[4][104][104];
             anIntArrayArrayArray1267 = new int[4][105][105];
             aScene_1198 = new Scene(104, 4, 104, anIntArrayArrayArray1267, 0);
@@ -11717,101 +11705,101 @@ public class Game extends GameShell {
                 }
             }
             updateLoadingBar(false, "Unpacking media", 80);
-            aClass13_Sub1_Sub4_Sub3_1208 = new IndexedImage(cacheArchive_2, "invback", 0);
-            aClass13_Sub1_Sub4_Sub3_1210 = new IndexedImage(cacheArchive_2, "chatback", 0);
-            aClass13_Sub1_Sub4_Sub3_1209 = new IndexedImage(cacheArchive_2, "mapback", 0);
-            aClass13_Sub1_Sub4_Sub3_1112 = new IndexedImage(cacheArchive_2, "backbase1", 0);
-            aClass13_Sub1_Sub4_Sub3_1113 = new IndexedImage(cacheArchive_2, "backbase2", 0);
-            aClass13_Sub1_Sub4_Sub3_1114 = new IndexedImage(cacheArchive_2, "backhmid1", 0);
+            inventoryBackground = new IndexedImage(mediaArchive, "invback", 0);
+            chatboxBackground = new IndexedImage(mediaArchive, "chatback", 0);
+            minimapBackground = new IndexedImage(mediaArchive, "mapback", 0);
+            chatSettingsBackground = new IndexedImage(mediaArchive, "backbase1", 0);
+            tabBottomBackground = new IndexedImage(mediaArchive, "backbase2", 0);
+            tabTopBackground = new IndexedImage(mediaArchive, "backhmid1", 0);
             for (int j3 = 0; j3 < 13; j3++) {
-                aClass13_Sub1_Sub4_Sub3Array1181[j3] = new IndexedImage(cacheArchive_2, "sideicons", j3);
+                sidebarIcons[j3] = new IndexedImage(mediaArchive, "sideicons", j3);
             }
-            aClass13_Sub1_Sub4_Sub4_967 = new Sprite(cacheArchive_2, "compass", 0);
-            aClass13_Sub1_Sub4_Sub4_1049 = new Sprite(cacheArchive_2, "mapedge", 0);
+            minimapCompass = new Sprite(mediaArchive, "compass", 0);
+            aClass13_Sub1_Sub4_Sub4_1049 = new Sprite(mediaArchive, "mapedge", 0);
             aClass13_Sub1_Sub4_Sub4_1049.method405(834);
             try {
                 for (int k3 = 0; k3 < 100; k3++) {
-                    aClass13_Sub1_Sub4_Sub3Array1123[k3] = new IndexedImage(cacheArchive_2, "mapscene", k3);
+                    aClass13_Sub1_Sub4_Sub3Array1123[k3] = new IndexedImage(mediaArchive, "mapscene", k3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int l3 = 0; l3 < 100; l3++) {
-                    aClass13_Sub1_Sub4_Sub4Array1189[l3] = new Sprite(cacheArchive_2, "mapfunction", l3);
+                    aClass13_Sub1_Sub4_Sub4Array1189[l3] = new Sprite(mediaArchive, "mapfunction", l3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int i4 = 0; i4 < 20; i4++) {
-                    aClass13_Sub1_Sub4_Sub4Array1266[i4] = new Sprite(cacheArchive_2, "hitmarks", i4);
+                    aClass13_Sub1_Sub4_Sub4Array1266[i4] = new Sprite(mediaArchive, "hitmarks", i4);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int j4 = 0; j4 < 20; j4++) {
-                    aClass13_Sub1_Sub4_Sub4Array1236[j4] = new Sprite(cacheArchive_2, "headicons", j4);
+                    aClass13_Sub1_Sub4_Sub4Array1236[j4] = new Sprite(mediaArchive, "headicons", j4);
                 }
             } catch (Exception _ex) {
             }
-            aClass13_Sub1_Sub4_Sub4_945 = new Sprite(cacheArchive_2, "mapmarker", 0);
-            aClass13_Sub1_Sub4_Sub4_946 = new Sprite(cacheArchive_2, "mapmarker", 1);
+            aClass13_Sub1_Sub4_Sub4_945 = new Sprite(mediaArchive, "mapmarker", 0);
+            aClass13_Sub1_Sub4_Sub4_946 = new Sprite(mediaArchive, "mapmarker", 1);
             for (int k4 = 0; k4 < 8; k4++) {
-                aClass13_Sub1_Sub4_Sub4Array1201[k4] = new Sprite(cacheArchive_2, "cross", k4);
+                aClass13_Sub1_Sub4_Sub4Array1201[k4] = new Sprite(mediaArchive, "cross", k4);
             }
-            aClass13_Sub1_Sub4_Sub4_1124 = new Sprite(cacheArchive_2, "mapdots", 0);
-            aClass13_Sub1_Sub4_Sub4_1125 = new Sprite(cacheArchive_2, "mapdots", 1);
-            aClass13_Sub1_Sub4_Sub4_1126 = new Sprite(cacheArchive_2, "mapdots", 2);
-            aClass13_Sub1_Sub4_Sub4_1127 = new Sprite(cacheArchive_2, "mapdots", 3);
-            aClass13_Sub1_Sub4_Sub4_1128 = new Sprite(cacheArchive_2, "mapdots", 4);
-            aClass13_Sub1_Sub4_Sub3_1255 = new IndexedImage(cacheArchive_2, "scrollbar", 0);
-            aClass13_Sub1_Sub4_Sub3_1256 = new IndexedImage(cacheArchive_2, "scrollbar", 1);
-            aClass13_Sub1_Sub4_Sub3_867 = new IndexedImage(cacheArchive_2, "redstone1", 0);
-            aClass13_Sub1_Sub4_Sub3_868 = new IndexedImage(cacheArchive_2, "redstone2", 0);
-            aClass13_Sub1_Sub4_Sub3_869 = new IndexedImage(cacheArchive_2, "redstone3", 0);
-            aClass13_Sub1_Sub4_Sub3_870 = new IndexedImage(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub4_1124 = new Sprite(mediaArchive, "mapdots", 0);
+            aClass13_Sub1_Sub4_Sub4_1125 = new Sprite(mediaArchive, "mapdots", 1);
+            aClass13_Sub1_Sub4_Sub4_1126 = new Sprite(mediaArchive, "mapdots", 2);
+            aClass13_Sub1_Sub4_Sub4_1127 = new Sprite(mediaArchive, "mapdots", 3);
+            aClass13_Sub1_Sub4_Sub4_1128 = new Sprite(mediaArchive, "mapdots", 4);
+            aClass13_Sub1_Sub4_Sub3_1255 = new IndexedImage(mediaArchive, "scrollbar", 0);
+            aClass13_Sub1_Sub4_Sub3_1256 = new IndexedImage(mediaArchive, "scrollbar", 1);
+            aClass13_Sub1_Sub4_Sub3_867 = new IndexedImage(mediaArchive, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_868 = new IndexedImage(mediaArchive, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_869 = new IndexedImage(mediaArchive, "redstone3", 0);
+            aClass13_Sub1_Sub4_Sub3_870 = new IndexedImage(mediaArchive, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_870.method398(true);
-            aClass13_Sub1_Sub4_Sub3_871 = new IndexedImage(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_871 = new IndexedImage(mediaArchive, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_871.method398(true);
-            aClass13_Sub1_Sub4_Sub3_1088 = new IndexedImage(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_1088 = new IndexedImage(mediaArchive, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_1088.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1089 = new IndexedImage(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_1089 = new IndexedImage(mediaArchive, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_1089.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1090 = new IndexedImage(cacheArchive_2, "redstone3", 0);
+            aClass13_Sub1_Sub4_Sub3_1090 = new IndexedImage(mediaArchive, "redstone3", 0);
             aClass13_Sub1_Sub4_Sub3_1090.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1091 = new IndexedImage(cacheArchive_2, "redstone1", 0);
+            aClass13_Sub1_Sub4_Sub3_1091 = new IndexedImage(mediaArchive, "redstone1", 0);
             aClass13_Sub1_Sub4_Sub3_1091.method398(true);
             aClass13_Sub1_Sub4_Sub3_1091.method399(-275);
-            aClass13_Sub1_Sub4_Sub3_1092 = new IndexedImage(cacheArchive_2, "redstone2", 0);
+            aClass13_Sub1_Sub4_Sub3_1092 = new IndexedImage(mediaArchive, "redstone2", 0);
             aClass13_Sub1_Sub4_Sub3_1092.method398(true);
             aClass13_Sub1_Sub4_Sub3_1092.method399(-275);
             for (int l4 = 0; l4 < 2; l4++) {
-                aClass13_Sub1_Sub4_Sub3Array838[l4] = new IndexedImage(cacheArchive_2, "mod_icons", l4);
+                aClass13_Sub1_Sub4_Sub3Array838[l4] = new IndexedImage(mediaArchive, "mod_icons", l4);
             }
-            Sprite class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backleft1", 0);
+            Sprite class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backleft1", 0);
             aProducingGraphicsBuffer_875 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backleft2", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backleft2", 0);
             aProducingGraphicsBuffer_876 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backright1", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backright1", 0);
             aProducingGraphicsBuffer_877 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backright2", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backright2", 0);
             aProducingGraphicsBuffer_878 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backtop1", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backtop1", 0);
             aProducingGraphicsBuffer_879 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid1", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid1", 0);
             aProducingGraphicsBuffer_880 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid2", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid2", 0);
             aProducingGraphicsBuffer_881 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backvmid3", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backvmid3", 0);
             aProducingGraphicsBuffer_882 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
-            class13_sub1_sub4_sub4 = new Sprite(cacheArchive_2, "backhmid2", 0);
+            class13_sub1_sub4_sub4 = new Sprite(mediaArchive, "backhmid2", 0);
             aProducingGraphicsBuffer_883 = new ProducingGraphicsBuffer(method11(), class13_sub1_sub4_sub4.anInt1681, class13_sub1_sub4_sub4.anInt1682);
             class13_sub1_sub4_sub4.method406(0, 0, 902);
             int i5 = (int) (Math.random() * 21D) - 10;
@@ -11827,37 +11815,37 @@ public class Game extends GameShell {
                 }
             }
             updateLoadingBar(false, "Unpacking textures", 83);
-            Rasterizer3D.method368(aBoolean1240, cacheArchive_3);
+            Rasterizer3D.method368(aBoolean1240, textureArchive);
             Rasterizer3D.method372(0.80000000000000004D, (byte) 7);
             Rasterizer3D.method367((byte) 71, 20);
             updateLoadingBar(false, "Unpacking config", 86);
-            SequenceConfig.method591(cacheArchive, (byte) 72);
-            LocationConfig.method426(cacheArchive);
-            FloorConfig.method493(cacheArchive, (byte) 72);
-            ObjectConfig.method515(cacheArchive);
-            NpcConfig.method587(cacheArchive);
-            IdentikitConfig.method175(cacheArchive, (byte) 72);
-            SpotAnimationConfig.method528(cacheArchive, (byte) 72);
-            VariablePlayerConfig.method444(cacheArchive, (byte) 72);
-            VariableBitConfig.method473(cacheArchive, (byte) 72);
+            SequenceConfig.method591(configArchive, (byte) 72);
+            LocationConfig.method426(configArchive);
+            FloorConfig.method493(configArchive, (byte) 72);
+            ObjectConfig.method515(configArchive);
+            NpcConfig.method587(configArchive);
+            IdentikitConfig.method175(configArchive, (byte) 72);
+            SpotAnimationConfig.method528(configArchive, (byte) 72);
+            VariablePlayerConfig.method444(configArchive, (byte) 72);
+            VariableBitConfig.method473(configArchive, (byte) 72);
             ObjectConfig.aBoolean667 = aBoolean953;
             if (!isLowMemory) {
                 updateLoadingBar(false, "Unpacking sounds", 90);
-                byte[] abyte0 = cacheArchive_5.readFile("sounds.dat", null);
+                byte[] abyte0 = soundArchive.readFile("sounds.dat", null);
                 Buffer buffer = new Buffer(abyte0);
                 Track.method475(buffer, (byte) 72);
             }
             updateLoadingBar(false, "Unpacking interfaces", 95);
             com.jagex.graphics.Font[] aclass13_sub1_sub4_sub2 = {
-                    aFont_891, aFont_892, aFont_893, aFont_894
+                    plainSmallFont, plainFont, boldFont, quillFont
             };
-            Widget.load(cacheArchive_1, cacheArchive_2, aclass13_sub1_sub4_sub2);
+            Widget.load(interfaceArchive, mediaArchive, aclass13_sub1_sub4_sub2);
             updateLoadingBar(false, "Preparing game engine", 100);
             for (int j6 = 0; j6 < 33; j6++) {
                 int k6 = 999;
                 int i7 = 0;
                 for (int k7 = 0; k7 < 34; k7++) {
-                    if (aClass13_Sub1_Sub4_Sub3_1209.aByteArray1667[k7 + j6 * aClass13_Sub1_Sub4_Sub3_1209.anInt1669] == 0) {
+                    if (minimapBackground.aByteArray1667[k7 + j6 * minimapBackground.anInt1669] == 0) {
                         if (k6 == 999) {
                             k6 = k7;
                         }
@@ -11876,7 +11864,7 @@ public class Game extends GameShell {
                 int j7 = 999;
                 int l7 = 0;
                 for (int j8 = 25; j8 < 172; j8++) {
-                    if (aClass13_Sub1_Sub4_Sub3_1209.aByteArray1667[j8 + l6 * aClass13_Sub1_Sub4_Sub3_1209.anInt1669] == 0 && (j8 > 34 || l6 > 34)) {
+                    if (minimapBackground.aByteArray1667[j8 + l6 * minimapBackground.anInt1669] == 0 && (j8 > 34 || l6 > 34)) {
                         if (j7 == 999) {
                             j7 = j8;
                         }
@@ -11905,7 +11893,7 @@ public class Game extends GameShell {
                 ai[i8] = l8 * i9 >> 16;
             }
             Scene.method230(800, (byte) 1, ai, 334, 512, 500);
-            MessageCensor.method531(cacheArchive_4);
+            MessageCensor.method531(chatArchive);
             aMouseCapturer_865 = new MouseCapturer((byte) -123, this);
             method12(aMouseCapturer_865, 10);
             Location.aGame1469 = this;
@@ -12033,7 +12021,7 @@ public class Game extends GameShell {
             if (anInt920 == 0) {
                 return;
             }
-            com.jagex.graphics.Font font = aFont_892;
+            com.jagex.graphics.Font font = plainFont;
             if (i != 0) {
                 anInt1185 = 359;
             }
