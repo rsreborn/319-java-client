@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.jagex.map.InteractiveObject;
 import com.jagex.net.*;
 import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.cache.CacheArchive;
@@ -3967,12 +3968,12 @@ public class Game extends GameShell {
                         }
                     }
                     if (k17 == 2) {
-                        Class20 class20 = aScene_1198.method218(anInt1166, -47543, l3, k6);
+                        InteractiveObject interactiveObject = aScene_1198.method218(anInt1166, -47543, l3, k6);
                         if (i14 == 11) {
                             i14 = 10;
                         }
-                        if (class20 != null) {
-                            class20.aClass13_Sub1_Sub1_351 = new Location(k20, j18, l19, i16, j9, i19, false, i14, 29895, class20.anInt359 >> 14 & 0x7fff);
+                        if (interactiveObject != null) {
+                            interactiveObject.aClass13_Sub1_Sub1_351 = new Location(k20, j18, l19, i16, j9, i19, false, i14, 29895, interactiveObject.anInt359 >> 14 & 0x7fff);
                         }
                     }
                     if (k17 == 3) {

@@ -1,6 +1,7 @@
 package com.jagex.graphics;
 
 import com.jagex.*;
+import com.jagex.renderable.VertexNormal;
 import com.jagex.renderable.animation.AnimationFrame;
 import com.jagex.renderable.animation.AnimationFrameBase;
 import com.jagex.renderable.Renderable;
@@ -95,7 +96,7 @@ public class Model extends Renderable {
     public int[][] anIntArrayArray1527;
     public int[][] anIntArrayArray1528;
     public boolean aBoolean1529;
-    public Class7[] aClass7Array1530;
+    public VertexNormal[] aVertexNormalArray1530;
 
     public Model(int i) {
         aBoolean1485 = false;
@@ -621,16 +622,16 @@ public class Model extends Renderable {
                         anIntArray1507[i1] = class13_sub1_sub1_sub4.anIntArray1507[i1];
                     }
                 }
-                super.aClass7Array1376 = new Class7[anInt1496];
+                super.aVertexNormalArray1376 = new VertexNormal[anInt1496];
                 for (int j1 = 0; j1 < anInt1496; j1++) {
-                    Class7 class7 = super.aClass7Array1376[j1] = new Class7();
-                    Class7 class7_1 = class13_sub1_sub1_sub4.aClass7Array1376[j1];
-                    class7.anInt132 = class7_1.anInt132;
-                    class7.anInt133 = class7_1.anInt133;
-                    class7.anInt134 = class7_1.anInt134;
-                    class7.anInt135 = class7_1.anInt135;
+                    VertexNormal vertexNormal = super.aVertexNormalArray1376[j1] = new VertexNormal();
+                    VertexNormal vertexNormal_1 = class13_sub1_sub1_sub4.aVertexNormalArray1376[j1];
+                    vertexNormal.anInt132 = vertexNormal_1.anInt132;
+                    vertexNormal.anInt133 = vertexNormal_1.anInt133;
+                    vertexNormal.anInt134 = vertexNormal_1.anInt134;
+                    vertexNormal.anInt135 = vertexNormal_1.anInt135;
                 }
-                aClass7Array1530 = class13_sub1_sub1_sub4.aClass7Array1530;
+                aVertexNormalArray1530 = class13_sub1_sub1_sub4.aVertexNormalArray1530;
             } else {
                 anIntArray1504 = class13_sub1_sub1_sub4.anIntArray1504;
                 anIntArray1505 = class13_sub1_sub1_sub4.anIntArray1505;
@@ -1394,10 +1395,10 @@ public class Model extends Renderable {
             anIntArray1505 = new int[anInt1500];
             anIntArray1506 = new int[anInt1500];
         }
-        if (super.aClass7Array1376 == null) {
-            super.aClass7Array1376 = new Class7[anInt1496];
+        if (super.aVertexNormalArray1376 == null) {
+            super.aVertexNormalArray1376 = new VertexNormal[anInt1496];
             for (int l1 = 0; l1 < anInt1496; l1++) {
-                super.aClass7Array1376[l1] = new Class7();
+                super.aVertexNormalArray1376[l1] = new VertexNormal();
             }
         }
         for (int i2 = 0; i2 < anInt1500; i2++) {
@@ -1425,21 +1426,21 @@ public class Model extends Renderable {
             i5 = (i5 * 256) / k5;
             j5 = (j5 * 256) / k5;
             if (anIntArray1507 == null || (anIntArray1507[i2] & 1) == 0) {
-                Class7 class7_2 = super.aClass7Array1376[j2];
-                class7_2.anInt132 += l4;
-                class7_2.anInt133 += i5;
-                class7_2.anInt134 += j5;
-                class7_2.anInt135++;
-                class7_2 = super.aClass7Array1376[l2];
-                class7_2.anInt132 += l4;
-                class7_2.anInt133 += i5;
-                class7_2.anInt134 += j5;
-                class7_2.anInt135++;
-                class7_2 = super.aClass7Array1376[i3];
-                class7_2.anInt132 += l4;
-                class7_2.anInt133 += i5;
-                class7_2.anInt134 += j5;
-                class7_2.anInt135++;
+                VertexNormal vertexNormal_2 = super.aVertexNormalArray1376[j2];
+                vertexNormal_2.anInt132 += l4;
+                vertexNormal_2.anInt133 += i5;
+                vertexNormal_2.anInt134 += j5;
+                vertexNormal_2.anInt135++;
+                vertexNormal_2 = super.aVertexNormalArray1376[l2];
+                vertexNormal_2.anInt132 += l4;
+                vertexNormal_2.anInt133 += i5;
+                vertexNormal_2.anInt134 += j5;
+                vertexNormal_2.anInt135++;
+                vertexNormal_2 = super.aVertexNormalArray1376[i3];
+                vertexNormal_2.anInt132 += l4;
+                vertexNormal_2.anInt133 += i5;
+                vertexNormal_2.anInt134 += j5;
+                vertexNormal_2.anInt135++;
             } else {
                 int l5 = i + (k * l4 + l * i5 + i1 * j5) / (k1 + k1 / 2);
                 anIntArray1504[i2] = method284(anIntArray1510[i2], l5, anIntArray1507[i2]);
@@ -1448,14 +1449,14 @@ public class Model extends Renderable {
         if (flag) {
             method283(i, k1, k, l, i1);
         } else {
-            aClass7Array1530 = new Class7[anInt1496];
+            aVertexNormalArray1530 = new VertexNormal[anInt1496];
             for (int k2 = 0; k2 < anInt1496; k2++) {
-                Class7 class7 = super.aClass7Array1376[k2];
-                Class7 class7_1 = aClass7Array1530[k2] = new Class7();
-                class7_1.anInt132 = class7.anInt132;
-                class7_1.anInt133 = class7.anInt133;
-                class7_1.anInt134 = class7.anInt134;
-                class7_1.anInt135 = class7.anInt135;
+                VertexNormal vertexNormal = super.aVertexNormalArray1376[k2];
+                VertexNormal vertexNormal_1 = aVertexNormalArray1530[k2] = new VertexNormal();
+                vertexNormal_1.anInt132 = vertexNormal.anInt132;
+                vertexNormal_1.anInt133 = vertexNormal.anInt133;
+                vertexNormal_1.anInt134 = vertexNormal.anInt134;
+                vertexNormal_1.anInt135 = vertexNormal.anInt135;
             }
         }
         if (flag) {
@@ -1474,31 +1475,31 @@ public class Model extends Renderable {
             int j2 = anIntArray1503[j1];
             if (anIntArray1507 == null) {
                 int i3 = anIntArray1510[j1];
-                Class7 class7 = super.aClass7Array1376[k1];
-                int k2 = i + (k * class7.anInt132 + l * class7.anInt133 + i1 * class7.anInt134) / (j * class7.anInt135);
+                VertexNormal vertexNormal = super.aVertexNormalArray1376[k1];
+                int k2 = i + (k * vertexNormal.anInt132 + l * vertexNormal.anInt133 + i1 * vertexNormal.anInt134) / (j * vertexNormal.anInt135);
                 anIntArray1504[j1] = method284(i3, k2, 0);
-                class7 = super.aClass7Array1376[i2];
-                k2 = i + (k * class7.anInt132 + l * class7.anInt133 + i1 * class7.anInt134) / (j * class7.anInt135);
+                vertexNormal = super.aVertexNormalArray1376[i2];
+                k2 = i + (k * vertexNormal.anInt132 + l * vertexNormal.anInt133 + i1 * vertexNormal.anInt134) / (j * vertexNormal.anInt135);
                 anIntArray1505[j1] = method284(i3, k2, 0);
-                class7 = super.aClass7Array1376[j2];
-                k2 = i + (k * class7.anInt132 + l * class7.anInt133 + i1 * class7.anInt134) / (j * class7.anInt135);
+                vertexNormal = super.aVertexNormalArray1376[j2];
+                k2 = i + (k * vertexNormal.anInt132 + l * vertexNormal.anInt133 + i1 * vertexNormal.anInt134) / (j * vertexNormal.anInt135);
                 anIntArray1506[j1] = method284(i3, k2, 0);
             } else if ((anIntArray1507[j1] & 1) == 0) {
                 int j3 = anIntArray1510[j1];
                 int k3 = anIntArray1507[j1];
-                Class7 class7_1 = super.aClass7Array1376[k1];
-                int l2 = i + (k * class7_1.anInt132 + l * class7_1.anInt133 + i1 * class7_1.anInt134) / (j * class7_1.anInt135);
+                VertexNormal vertexNormal_1 = super.aVertexNormalArray1376[k1];
+                int l2 = i + (k * vertexNormal_1.anInt132 + l * vertexNormal_1.anInt133 + i1 * vertexNormal_1.anInt134) / (j * vertexNormal_1.anInt135);
                 anIntArray1504[j1] = method284(j3, l2, k3);
-                class7_1 = super.aClass7Array1376[i2];
-                l2 = i + (k * class7_1.anInt132 + l * class7_1.anInt133 + i1 * class7_1.anInt134) / (j * class7_1.anInt135);
+                vertexNormal_1 = super.aVertexNormalArray1376[i2];
+                l2 = i + (k * vertexNormal_1.anInt132 + l * vertexNormal_1.anInt133 + i1 * vertexNormal_1.anInt134) / (j * vertexNormal_1.anInt135);
                 anIntArray1505[j1] = method284(j3, l2, k3);
-                class7_1 = super.aClass7Array1376[j2];
-                l2 = i + (k * class7_1.anInt132 + l * class7_1.anInt133 + i1 * class7_1.anInt134) / (j * class7_1.anInt135);
+                vertexNormal_1 = super.aVertexNormalArray1376[j2];
+                l2 = i + (k * vertexNormal_1.anInt132 + l * vertexNormal_1.anInt133 + i1 * vertexNormal_1.anInt134) / (j * vertexNormal_1.anInt135);
                 anIntArray1506[j1] = method284(j3, l2, k3);
             }
         }
-        super.aClass7Array1376 = null;
-        aClass7Array1530 = null;
+        super.aVertexNormalArray1376 = null;
+        aVertexNormalArray1530 = null;
         anIntArray1525 = null;
         anIntArray1526 = null;
         if (anIntArray1507 != null) {
