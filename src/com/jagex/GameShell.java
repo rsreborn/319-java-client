@@ -29,7 +29,7 @@ public class GameShell extends Applet
     public Graphics aGraphics15;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_16;
     public Sprite[] aClass13_Sub1_Sub4_Sub4Array17;
-    public Frame_Sub1 aFrame_Sub1_18;
+    public GameFrame aFrame_Sub1_18;
     public boolean aBoolean19;
     public boolean aBoolean20;
     public int anInt21;
@@ -70,7 +70,7 @@ public class GameShell extends Applet
         initialWidth = width;
         initialHeight = height;
         System.out.println("Height " + height + " Width " + width + " Initial Height " + initialHeight + " Initial Width " + initialWidth);
-        aFrame_Sub1_18 = new Frame_Sub1(this, initialHeight, initialWidth);
+        aFrame_Sub1_18 = new GameFrame(this, initialHeight, initialWidth);
         aGraphics15 = method11().getGraphics();
         aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
         method12(this, 1);
