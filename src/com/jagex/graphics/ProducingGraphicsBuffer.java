@@ -12,31 +12,31 @@ public class ProducingGraphicsBuffer implements ImageProducer, ImageObserver {
     public ImageConsumer imageConsumer;
     public Image image;
 
-    public ProducingGraphicsBuffer(Component component, int i, int j) {
-        width = i;
-        height = j;
-        pixels = new int[i * j];
+    public ProducingGraphicsBuffer(Component component, int width, int height) {
+        this.width = width;
+        this.height = height;
+        pixels = new int[width * height];
         colorModel = new DirectColorModel(32, 0xff0000, 65280, 255);
         image = component.createImage(this);
-        method492();
+        drawPixels();
         component.prepareImage(image, this);
-        method492();
+        drawPixels();
         component.prepareImage(image, this);
-        method492();
+        drawPixels();
         component.prepareImage(image, this);
-        method490();
+        createRasterizer();
     }
 
-    public void method490() {
-        Rasterizer.method351(pixels, height, width);
+    public void createRasterizer() {
+        Rasterizer.createRasterizer(pixels, height, width);
     }
 
-    public void method491(Graphics graphics, int x, int y) {
-        method492();
+    public void drawGraphics(Graphics graphics, int x, int y) {
+        drawPixels();
         graphics.drawImage(image, x, y, this);
     }
 
-    public synchronized void method492() {
+    public synchronized void drawPixels() {
         if (imageConsumer != null) {
             imageConsumer.setPixels(0, 0, width, height, colorModel, pixels, 0, width);
             imageConsumer.imageComplete(2);

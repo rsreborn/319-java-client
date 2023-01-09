@@ -143,7 +143,7 @@ public class NpcConfig {
                 }
                 Model[] aclass13_sub1_sub1_sub4 = new Model[anIntArray769.length];
                 for (int l = 0; l < anIntArray769.length; l++) {
-                    aclass13_sub1_sub1_sub4[l] = Model.method265((byte) 4, anIntArray769[l]);
+                    aclass13_sub1_sub1_sub4[l] = Model.getModel(anIntArray769[l]);
                 }
                 if (aclass13_sub1_sub1_sub4.length == 1) {
                     class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
@@ -155,7 +155,7 @@ public class NpcConfig {
                         class13_sub1_sub1_sub4.method279(anIntArray750[i1], anIntArray783[i1]);
                     }
                 }
-                class13_sub1_sub1_sub4.method272(true);
+                class13_sub1_sub1_sub4.method272();
                 class13_sub1_sub1_sub4.method282(64 + anInt776, 850 + anInt755, -30, -50, -30, true);
                 aCache_759.put(class13_sub1_sub1_sub4, aLong770);
             }
@@ -164,7 +164,7 @@ public class NpcConfig {
             if (j != -1 && i != -1) {
                 class13_sub1_sub1_sub4_1.method274(aByte774, ai, i, j);
             } else if (j != -1) {
-                class13_sub1_sub1_sub4_1.method273(j, false);
+                class13_sub1_sub1_sub4_1.method273(j);
             }
             if (anInt771 != 128 || anInt745 != 128) {
                 class13_sub1_sub1_sub4_1.method281(anInt771, anInt771, anInt745, (byte) 0);
@@ -182,49 +182,43 @@ public class NpcConfig {
         throw new RuntimeException();
     }
 
-    public Model getHeadModel(int i) {
-        try {
-            i = 78 / i;
-            if (anIntArray751 != null) {
-                NpcConfig npcConfig = method584((byte) 0);
-                if (npcConfig == null) {
-                    return null;
-                } else {
-                    return npcConfig.getHeadModel(524);
-                }
-            }
-            if (anIntArray766 == null) {
+    public Model getHeadModel() {
+        if (anIntArray751 != null) {
+            NpcConfig npcConfig = method584((byte) 0);
+            if (npcConfig == null) {
                 return null;
-            }
-            boolean flag = false;
-            for (int j = 0; j < anIntArray766.length; j++) {
-                if (!Model.method266(anIntArray766[j])) {
-                    flag = true;
-                }
-            }
-            if (flag) {
-                return null;
-            }
-            Model[] aclass13_sub1_sub1_sub4 = new Model[anIntArray766.length];
-            for (int k = 0; k < anIntArray766.length; k++) {
-                aclass13_sub1_sub1_sub4[k] = Model.method265((byte) 4, anIntArray766[k]);
-            }
-            Model class13_sub1_sub1_sub4;
-            if (aclass13_sub1_sub1_sub4.length == 1) {
-                class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
             } else {
-                class13_sub1_sub1_sub4 = new Model(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
+                return npcConfig.getHeadModel();
             }
-            if (anIntArray750 != null) {
-                for (int l = 0; l < anIntArray750.length; l++) {
-                    class13_sub1_sub1_sub4.method279(anIntArray750[l], anIntArray783[l]);
-                }
-            }
-            return class13_sub1_sub1_sub4;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("50384, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        if (anIntArray766 == null) {
+            return null;
+        }
+        boolean flag = false;
+        for (int j = 0; j < anIntArray766.length; j++) {
+            if (!Model.method266(anIntArray766[j])) {
+                flag = true;
+            }
+        }
+        if (flag) {
+            return null;
+        }
+        Model[] aclass13_sub1_sub1_sub4 = new Model[anIntArray766.length];
+        for (int k = 0; k < anIntArray766.length; k++) {
+            aclass13_sub1_sub1_sub4[k] = Model.getModel(anIntArray766[k]);
+        }
+        Model class13_sub1_sub1_sub4;
+        if (aclass13_sub1_sub1_sub4.length == 1) {
+            class13_sub1_sub1_sub4 = aclass13_sub1_sub1_sub4[0];
+        } else {
+            class13_sub1_sub1_sub4 = new Model(aclass13_sub1_sub1_sub4.length, (byte) 61, aclass13_sub1_sub1_sub4);
+        }
+        if (anIntArray750 != null) {
+            for (int l = 0; l < anIntArray750.length; l++) {
+                class13_sub1_sub1_sub4.method279(anIntArray750[l], anIntArray783[l]);
+            }
+        }
+        return class13_sub1_sub1_sub4;
     }
 
     public NpcConfig method584(byte byte0) {

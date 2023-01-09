@@ -1,14 +1,12 @@
 package com.jagex;
 
-import com.jagex.sign.Signlink;
-
 import java.awt.*;
 
-public class Frame_Sub1 extends Frame {
+public class GameFrame extends Frame {
 
     public GameShell gameShell;
 
-    public Frame_Sub1(GameShell gameShell, int startingHeight, int startingWidth) {
+    public GameFrame(GameShell gameShell, int startingHeight, int startingWidth) {
         this.gameShell = gameShell;
         setTitle("Jagex");
         setResizable(false);

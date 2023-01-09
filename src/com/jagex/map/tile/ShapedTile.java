@@ -1,4 +1,4 @@
-package com.jagex.map;
+package com.jagex.map.tile;
 
 import com.jagex.sign.Signlink;
 

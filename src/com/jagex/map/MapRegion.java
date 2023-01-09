@@ -24,7 +24,7 @@ public class MapRegion {
     public static int anInt426 = 99;
     public static int[] anIntArray430 = {0, -1, 0, 1};
     public static int[] anIntArray432 = {1, 0, -1, 0};
-    public static boolean aBoolean433 = true;
+    public static boolean isLowMemory = true;
     public int[] anIntArray402;
     public int[] anIntArray403;
     public int[] anIntArray404;
@@ -455,7 +455,7 @@ public class MapRegion {
                         if (i_247_ > 0 && i_248_ > 0 && i_247_ < 103
                                 && i_248_ < 103) {
                             LocationConfig locationConfig = LocationConfig.readDefinition(i_238_);
-                            if (i_246_ != 22 || !aBoolean433
+                            if (i_246_ != 22 || !isLowMemory
                                     || locationConfig.aBoolean260
                                     || locationConfig.aBoolean264) {
                                 bool &= locationConfig.method421(-36669);
@@ -835,7 +835,7 @@ public class MapRegion {
                                 i_116_ -= anIntArray406[i_119_];
                             }
                             if (i_117_ >= 1 && i_117_ < anInt428 - 1
-                                    && (!aBoolean433
+                                    && (!isLowMemory
                                     || ((aByteArrayArrayArray418[0][i_106_]
                                     [i_117_])
                                     & 0x2) != 0
@@ -1328,7 +1328,7 @@ public class MapRegion {
                           int i_213_, int i_214_, CollisionMap collisionMap,
                           Scene scene, int i_215_) {
         try {
-            if (!aBoolean433
+            if (!isLowMemory
                     || (aByteArrayArrayArray418[0][i_212_][i_215_] & 0x2) != 0
                     || (((aByteArrayArrayArray418[i_214_][i_212_][i_215_] & 0x10)
                     == 0)
@@ -1352,7 +1352,7 @@ public class MapRegion {
                 if (i_213_ != 0)
                     aBoolean419 = !aBoolean419;
                 if (i_210_ == 22) {
-                    if (!aBoolean433 || locationConfig.aBoolean260
+                    if (!isLowMemory || locationConfig.aBoolean260
                             || locationConfig.aBoolean264) {
                         Renderable class13_sub1_sub1;
                         if (locationConfig.anInt282 == -1

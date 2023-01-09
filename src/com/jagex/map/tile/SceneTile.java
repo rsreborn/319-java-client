@@ -1,9 +1,10 @@
-package com.jagex;
+package com.jagex.map.tile;
 
-import com.jagex.map.ShapedTile;
+import com.jagex.*;
+import com.jagex.map.InteractiveObject;
 import com.jagex.util.Node;
 
-public class Node_Sub2 extends Node {
+public class SceneTile extends Node {
 
     public boolean aBoolean1339;
     public int anInt1340;
@@ -17,7 +18,7 @@ public class Node_Sub2 extends Node {
     public Class11 aClass11_1348;
     public Class43 aClass43_1349;
     public int anInt1350;
-    public Class20[] aClass20Array1351;
+    public InteractiveObject[] aInteractiveObjectArray1351;
     public int[] anIntArray1352;
     public int anInt1353;
     public int anInt1354;
@@ -28,11 +29,11 @@ public class Node_Sub2 extends Node {
     public int anInt1359;
     public int anInt1360;
     public int anInt1361;
-    public Node_Sub2 aClass13_Sub2_1362;
+    public SceneTile aClass13_Sub2_1362;
 
-    public Node_Sub2(int i, int j, int k) {
+    public SceneTile(int i, int j, int k) {
         aBoolean1339 = false;
-        aClass20Array1351 = new Class20[5];
+        aInteractiveObjectArray1351 = new InteractiveObject[5];
         anIntArray1352 = new int[5];
         anInt1343 = anInt1340 = i;
         anInt1341 = j;

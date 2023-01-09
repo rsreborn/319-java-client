@@ -1,6 +1,6 @@
 package com.jagex.io;
 
-import com.jagex.ISAACCipher;
+import com.jagex.net.ISAACCipher;
 import com.jagex.util.CacheableNode;
 
 import java.math.BigInteger;

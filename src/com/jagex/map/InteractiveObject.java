@@ -1,8 +1,8 @@
-package com.jagex;
+package com.jagex.map;
 
 import com.jagex.renderable.Renderable;
 
-public class Class20 {
+public class InteractiveObject {
 
     public int anInt347;
     public int anInt348;
@@ -19,6 +19,6 @@ public class Class20 {
     public int anInt359;
     public byte aByte360;
 
-    public Class20() {
+    public InteractiveObject() {
     }
 }
