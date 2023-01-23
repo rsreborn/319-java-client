@@ -102,7 +102,7 @@ public class SpotAnimationConfig {
         if (class13_sub1_sub1_sub4 != null) {
             return class13_sub1_sub1_sub4;
         }
-        class13_sub1_sub1_sub4 = Model.method265((byte) 4, anInt687);
+        class13_sub1_sub1_sub4 = Model.getModel(anInt687);
         if (class13_sub1_sub1_sub4 == null) {
             return null;
         }

@@ -18,7 +18,7 @@ public class Rasterizer extends CacheableNode {
     public Rasterizer() {
     }
 
-    public static void method351(int[] pixels, int height, int width) {
+    public static void createRasterizer(int[] pixels, int height, int width) {
         Rasterizer.pixels = pixels;
         Rasterizer.width = width;
         Rasterizer.height = height;

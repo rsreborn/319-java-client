@@ -3,8 +3,11 @@ package com.jagex.map;
 import com.jagex.*;
 import com.jagex.graphics.Rasterizer;
 import com.jagex.graphics.Rasterizer3D;
+import com.jagex.map.tile.SceneTile;
+import com.jagex.map.tile.ShapedTile;
 import com.jagex.renderable.Renderable;
 import com.jagex.graphics.Model;
+import com.jagex.renderable.VertexNormal;
 import com.jagex.util.LinkedList;
 import com.jagex.sign.Signlink;
 
@@ -13,7 +16,7 @@ public class Scene {
     public static int anInt153 = -40024;
     public static int anInt157 = 44619;
     public static boolean aBoolean160;
-    public static boolean aBoolean162 = true;
+    public static boolean isLowMemory = true;
     public static int anInt172;
     public static int anInt173;
     public static int anInt174;
@@ -30,7 +33,7 @@ public class Scene {
     public static int anInt185;
     public static int anInt186;
     public static int anInt187;
-    public static Class20[] aClass20Array188 = new Class20[100];
+    public static InteractiveObject[] aInteractiveObjectArray188 = new InteractiveObject[100];
     public static int[] anIntArray189 = {
             53, -53, -53, 53
     };
@@ -109,10 +112,10 @@ public class Scene {
     public int anInt164;
     public int anInt165;
     public int[][][] anIntArrayArrayArray166;
-    public Node_Sub2[][][] aClass13_Sub2ArrayArrayArray167;
+    public SceneTile[][][] aClass13_Sub2ArrayArrayArray167;
     public int anInt168;
     public int anInt169;
-    public Class20[] aClass20Array170;
+    public InteractiveObject[] aInteractiveObjectArray170;
     public int[][][] anIntArrayArrayArray171;
     public int[] anIntArray212;
     public int[] anIntArray213;
@@ -182,7 +185,7 @@ public class Scene {
         aBoolean158 = true;
         anInt159 = -42505;
         aBoolean161 = true;
-        aClass20Array170 = new Class20[5000];
+        aInteractiveObjectArray170 = new InteractiveObject[5000];
         anIntArray212 = new int[10000];
         anIntArray213 = new int[10000];
         try {
@@ -192,7 +195,7 @@ public class Scene {
                 throw new NullPointerException();
             }
             anInt165 = i;
-            aClass13_Sub2ArrayArrayArray167 = new Node_Sub2[j][k][i];
+            aClass13_Sub2ArrayArrayArray167 = new SceneTile[j][k][i];
             anIntArrayArrayArray171 = new int[j][k + 1][i + 1];
             anIntArrayArrayArray166 = ai;
             method194(false);
@@ -208,7 +211,7 @@ public class Scene {
                 for (int j = 1; j > 0; j++) {
                 }
             }
-            aClass20Array188 = null;
+            aInteractiveObjectArray188 = null;
             anIntArray199 = null;
             aClass37ArrayArray200 = null;
             aLinkedList_203 = null;
@@ -358,15 +361,15 @@ public class Scene {
                 anIntArray199[k] = 0;
             }
             for (int j1 = 0; j1 < anInt169; j1++) {
-                aClass20Array170[j1] = null;
+                aInteractiveObjectArray170[j1] = null;
             }
             anInt169 = 0;
             if (flag) {
                 for (int k1 = 1; k1 > 0; k1++) {
                 }
             }
-            for (int l1 = 0; l1 < aClass20Array188.length; l1++) {
-                aClass20Array188[l1] = null;
+            for (int l1 = 0; l1 < aInteractiveObjectArray188.length; l1++) {
+                aInteractiveObjectArray188[l1] = null;
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -384,7 +387,7 @@ public class Scene {
             for (int j = 0; j < anInt164; j++) {
                 for (int k = 0; k < anInt165; k++) {
                     if (aClass13_Sub2ArrayArrayArray167[i][j][k] == null) {
-                        aClass13_Sub2ArrayArrayArray167[i][j][k] = new Node_Sub2(i, j, k);
+                        aClass13_Sub2ArrayArrayArray167[i][j][k] = new SceneTile(i, j, k);
                     }
                 }
             }
@@ -397,21 +400,21 @@ public class Scene {
 
     public void method196(int i, boolean flag, int j) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[0][j][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[0][j][i];
             for (int k = 0; k < 3; k++) {
-                Node_Sub2 class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[k][j][i] = aClass13_Sub2ArrayArrayArray167[k + 1][j][i];
+                SceneTile class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[k][j][i] = aClass13_Sub2ArrayArrayArray167[k + 1][j][i];
                 if (class13_sub2_1 != null) {
                     class13_sub2_1.anInt1340--;
                     for (int l = 0; l < class13_sub2_1.anInt1350; l++) {
-                        Class20 class20 = class13_sub2_1.aClass20Array1351[l];
-                        if ((class20.anInt359 >> 29 & 3) == 2 && class20.anInt353 == j && class20.anInt355 == i) {
-                            class20.anInt347--;
+                        InteractiveObject interactiveObject = class13_sub2_1.aInteractiveObjectArray1351[l];
+                        if ((interactiveObject.anInt359 >> 29 & 3) == 2 && interactiveObject.anInt353 == j && interactiveObject.anInt355 == i) {
+                            interactiveObject.anInt347--;
                         }
                     }
                 }
             }
             if (aClass13_Sub2ArrayArrayArray167[0][j][i] == null) {
-                aClass13_Sub2ArrayArrayArray167[0][j][i] = new Node_Sub2(0, j, i);
+                aClass13_Sub2ArrayArrayArray167[0][j][i] = new SceneTile(0, j, i);
             }
             aClass13_Sub2ArrayArrayArray167[0][j][i].aClass13_Sub2_1362 = class13_sub2;
             aClass13_Sub2ArrayArrayArray167[3][j][i] = null;
@@ -426,7 +429,7 @@ public class Scene {
     }
 
     public void method198(int i, int j, int k, int l) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null) {
             return;
         } else {
@@ -442,7 +445,7 @@ public class Scene {
             Class30 class30 = new Class30(k2, l2, i3, j3, -1, k4, false);
             for (int i5 = i; i5 >= 0; i5--) {
                 if (aClass13_Sub2ArrayArrayArray167[i5][j][k] == null) {
-                    aClass13_Sub2ArrayArrayArray167[i5][j][k] = new Node_Sub2(i5, j, k);
+                    aClass13_Sub2ArrayArrayArray167[i5][j][k] = new SceneTile(i5, j, k);
                 }
             }
             aClass13_Sub2ArrayArrayArray167[i][j][k].aClass30_1344 = class30;
@@ -452,7 +455,7 @@ public class Scene {
             Class30 class30_1 = new Class30(k3, l3, i4, j4, j1, l4, k1 == l1 && k1 == i2 && k1 == j2);
             for (int j5 = i; j5 >= 0; j5--) {
                 if (aClass13_Sub2ArrayArrayArray167[j5][j][k] == null) {
-                    aClass13_Sub2ArrayArrayArray167[j5][j][k] = new Node_Sub2(j5, j, k);
+                    aClass13_Sub2ArrayArrayArray167[j5][j][k] = new SceneTile(j5, j, k);
                 }
             }
             aClass13_Sub2ArrayArrayArray167[i][j][k].aClass30_1344 = class30_1;
@@ -461,7 +464,7 @@ public class Scene {
         ShapedTile shapedTile = new ShapedTile(l4, i2, k2, k3, l1, i1, j1, l, l3, k, l2, j3, k4, j, i4, j2, i3, k1, true, j4);
         for (int k5 = i; k5 >= 0; k5--) {
             if (aClass13_Sub2ArrayArrayArray167[k5][j][k] == null) {
-                aClass13_Sub2ArrayArrayArray167[k5][j][k] = new Node_Sub2(k5, j, k);
+                aClass13_Sub2ArrayArrayArray167[k5][j][k] = new SceneTile(k5, j, k);
             }
         }
         aClass13_Sub2ArrayArrayArray167[i][j][k].aShapedTile_1345 = shapedTile;
@@ -485,7 +488,7 @@ public class Scene {
                 }
             }
             if (aClass13_Sub2ArrayArrayArray167[i][l][k] == null) {
-                aClass13_Sub2ArrayArrayArray167[i][l][k] = new Node_Sub2(i, l, k);
+                aClass13_Sub2ArrayArrayArray167[i][l][k] = new SceneTile(i, l, k);
             }
             aClass13_Sub2ArrayArrayArray167[i][l][k].aClass11_1348 = class11;
             return;
@@ -507,11 +510,11 @@ public class Scene {
             class43.aClass13_Sub1_Sub1_721 = class13_sub1_sub1_1;
             class43.aClass13_Sub1_Sub1_722 = class13_sub1_sub1;
             int j1 = 0;
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
             if (class13_sub2 != null) {
                 for (int k1 = 0; k1 < class13_sub2.anInt1350; k1++) {
-                    if (class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351 instanceof Model) {
-                        int l1 = ((Model) class13_sub2.aClass20Array1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
+                    if (class13_sub2.aInteractiveObjectArray1351[k1].aClass13_Sub1_Sub1_351 instanceof Model) {
+                        int l1 = ((Model) class13_sub2.aInteractiveObjectArray1351[k1].aClass13_Sub1_Sub1_351).anInt1524;
                         if (l1 > j1) {
                             j1 = l1;
                         }
@@ -520,7 +523,7 @@ public class Scene {
             }
             class43.anInt724 = j1;
             if (aClass13_Sub2ArrayArrayArray167[l][j][i] == null) {
-                aClass13_Sub2ArrayArrayArray167[l][j][i] = new Node_Sub2(l, j, i);
+                aClass13_Sub2ArrayArrayArray167[l][j][i] = new SceneTile(l, j, i);
             }
             aClass13_Sub2ArrayArrayArray167[l][j][i].aClass43_1349 = class43;
             if (flag) {
@@ -553,7 +556,7 @@ public class Scene {
             class15.anInt294 = j1;
             for (int l1 = i; l1 >= 0; l1--) {
                 if (aClass13_Sub2ArrayArrayArray167[l1][j][k1] == null) {
-                    aClass13_Sub2ArrayArrayArray167[l1][j][k1] = new Node_Sub2(l1, j, k1);
+                    aClass13_Sub2ArrayArrayArray167[l1][j][k1] = new SceneTile(l1, j, k1);
                 }
             }
             aClass13_Sub2ArrayArrayArray167[i][j][k1].aClass15_1346 = class15;
@@ -584,7 +587,7 @@ public class Scene {
             class18.anInt331 = k;
             for (int j2 = l1; j2 >= 0; j2--) {
                 if (aClass13_Sub2ArrayArrayArray167[j2][i][k1] == null) {
-                    aClass13_Sub2ArrayArrayArray167[j2][i][k1] = new Node_Sub2(j2, i, k1);
+                    aClass13_Sub2ArrayArrayArray167[j2][i][k1] = new SceneTile(j2, i, k1);
                 }
             }
             aClass13_Sub2ArrayArrayArray167[l1][i][k1].aClass18_1347 = class18;
@@ -677,25 +680,25 @@ public class Scene {
                 if (k2 < 0 || l2 < 0 || k2 >= anInt164 || l2 >= anInt165) {
                     return false;
                 }
-                Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][k2][l2];
+                SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][k2][l2];
                 if (class13_sub2 != null && class13_sub2.anInt1350 >= 5) {
                     return false;
                 }
             }
         }
-        Class20 class20 = new Class20();
-        class20.anInt359 = j2;
-        class20.aByte360 = byte0;
-        class20.anInt347 = i;
-        class20.anInt349 = j1;
-        class20.anInt350 = k1;
-        class20.anInt348 = l1;
-        class20.aClass13_Sub1_Sub1_351 = class13_sub1_sub1;
-        class20.anInt352 = i2;
-        class20.anInt353 = j;
-        class20.anInt355 = k;
-        class20.anInt354 = (j + l) - 1;
-        class20.anInt356 = (k + i1) - 1;
+        InteractiveObject interactiveObject = new InteractiveObject();
+        interactiveObject.anInt359 = j2;
+        interactiveObject.aByte360 = byte0;
+        interactiveObject.anInt347 = i;
+        interactiveObject.anInt349 = j1;
+        interactiveObject.anInt350 = k1;
+        interactiveObject.anInt348 = l1;
+        interactiveObject.aClass13_Sub1_Sub1_351 = class13_sub1_sub1;
+        interactiveObject.anInt352 = i2;
+        interactiveObject.anInt353 = j;
+        interactiveObject.anInt355 = k;
+        interactiveObject.anInt354 = (j + l) - 1;
+        interactiveObject.anInt356 = (k + i1) - 1;
         for (int i3 = j; i3 < j + l; i3++) {
             for (int j3 = k; j3 < k + i1; j3++) {
                 int k3 = 0;
@@ -713,18 +716,18 @@ public class Scene {
                 }
                 for (int l3 = i; l3 >= 0; l3--) {
                     if (aClass13_Sub2ArrayArrayArray167[l3][i3][j3] == null) {
-                        aClass13_Sub2ArrayArrayArray167[l3][i3][j3] = new Node_Sub2(l3, i3, j3);
+                        aClass13_Sub2ArrayArrayArray167[l3][i3][j3] = new SceneTile(l3, i3, j3);
                     }
                 }
-                Node_Sub2 class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[i][i3][j3];
-                class13_sub2_1.aClass20Array1351[class13_sub2_1.anInt1350] = class20;
+                SceneTile class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[i][i3][j3];
+                class13_sub2_1.aInteractiveObjectArray1351[class13_sub2_1.anInt1350] = interactiveObject;
                 class13_sub2_1.anIntArray1352[class13_sub2_1.anInt1350] = k3;
                 class13_sub2_1.anInt1353 |= k3;
                 class13_sub2_1.anInt1350++;
             }
         }
         if (flag) {
-            aClass20Array170[anInt169++] = class20;
+            aInteractiveObjectArray170[anInt169++] = interactiveObject;
         }
         return true;
     }
@@ -732,9 +735,9 @@ public class Scene {
     public void method208(boolean flag) {
         try {
             for (int i = 0; i < anInt169; i++) {
-                Class20 class20 = aClass20Array170[i];
-                method209(class20, 0);
-                aClass20Array170[i] = null;
+                InteractiveObject interactiveObject = aInteractiveObjectArray170[i];
+                method209(interactiveObject, 0);
+                aInteractiveObjectArray170[i] = null;
             }
             anInt169 = 0;
             if (!flag) {
@@ -747,22 +750,22 @@ public class Scene {
         }
     }
 
-    public void method209(Class20 class20, int i) {
+    public void method209(InteractiveObject interactiveObject, int i) {
         try {
-            for (int j = class20.anInt353; j <= class20.anInt354; j++) {
-                for (int k = class20.anInt355; k <= class20.anInt356; k++) {
-                    Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[class20.anInt347][j][k];
+            for (int j = interactiveObject.anInt353; j <= interactiveObject.anInt354; j++) {
+                for (int k = interactiveObject.anInt355; k <= interactiveObject.anInt356; k++) {
+                    SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[interactiveObject.anInt347][j][k];
                     if (class13_sub2 != null) {
                         for (int l = 0; l < class13_sub2.anInt1350; l++) {
-                            if (class13_sub2.aClass20Array1351[l] != class20) {
+                            if (class13_sub2.aInteractiveObjectArray1351[l] != interactiveObject) {
                                 continue;
                             }
                             class13_sub2.anInt1350--;
                             for (int i1 = l; i1 < class13_sub2.anInt1350; i1++) {
-                                class13_sub2.aClass20Array1351[i1] = class13_sub2.aClass20Array1351[i1 + 1];
+                                class13_sub2.aInteractiveObjectArray1351[i1] = class13_sub2.aInteractiveObjectArray1351[i1 + 1];
                                 class13_sub2.anIntArray1352[i1] = class13_sub2.anIntArray1352[i1 + 1];
                             }
-                            class13_sub2.aClass20Array1351[class13_sub2.anInt1350] = null;
+                            class13_sub2.aInteractiveObjectArray1351[class13_sub2.anInt1350] = null;
                             break;
                         }
                         class13_sub2.anInt1353 = 0;
@@ -777,14 +780,14 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("45174, " + class20 + ", " + i + ", " + runtimeexception);
+            Signlink.reportError("45174, " + interactiveObject + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
     public void method210(int i, int j, int k, int l, int i1) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i1][l][k];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i1][l][k];
             if (class13_sub2 == null) {
                 return;
             }
@@ -808,7 +811,7 @@ public class Scene {
     public void method211(int i, int j, int k, int l) {
         try {
             j = 44 / j;
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][k][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][k][i];
             if (class13_sub2 == null) {
                 return;
             } else {
@@ -823,7 +826,7 @@ public class Scene {
 
     public void method212(int i, int j, int k, int l) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][i][j];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][i][j];
             if (class13_sub2 == null) {
                 return;
             }
@@ -845,14 +848,14 @@ public class Scene {
                 for (int l = 1; l > 0; l++) {
                 }
             }
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k][i];
             if (class13_sub2 == null) {
                 return;
             }
             for (int i1 = 0; i1 < class13_sub2.anInt1350; i1++) {
-                Class20 class20 = class13_sub2.aClass20Array1351[i1];
-                if ((class20.anInt359 >> 29 & 3) == 2 && class20.anInt353 == k && class20.anInt355 == i) {
-                    method209(class20, 0);
+                InteractiveObject interactiveObject = class13_sub2.aInteractiveObjectArray1351[i1];
+                if ((interactiveObject.anInt359 >> 29 & 3) == 2 && interactiveObject.anInt353 == k && interactiveObject.anInt355 == i) {
+                    method209(interactiveObject, 0);
                     return;
                 }
             }
@@ -866,7 +869,7 @@ public class Scene {
     public void method214(int i, int j, int k, int l) {
         try {
             l = 1 / l;
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k][i];
             if (class13_sub2 == null) {
                 return;
             } else {
@@ -880,7 +883,7 @@ public class Scene {
     }
 
     public void method215(int i, int j, int k) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null) {
             return;
         } else {
@@ -894,7 +897,7 @@ public class Scene {
             while (k >= 0) {
                 anInt157 = -104;
             }
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[l][j][i];
             if (class13_sub2 == null) {
                 return null;
             } else {
@@ -908,7 +911,7 @@ public class Scene {
 
     public Class18 method217(int i, byte byte0, int j, int k) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
             if (byte0 != -27) {
                 for (int l = 1; l > 0; l++) {
                 }
@@ -924,16 +927,16 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public Class20 method218(int i, int j, int k, int l) {
+    public InteractiveObject method218(int i, int j, int k, int l) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][k][l];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][k][l];
             if (class13_sub2 == null) {
                 return null;
             }
             for (int i1 = 0; i1 < class13_sub2.anInt1350; i1++) {
-                Class20 class20 = class13_sub2.aClass20Array1351[i1];
-                if ((class20.anInt359 >> 29 & 3) == 2 && class20.anInt353 == k && class20.anInt355 == l) {
-                    return class20;
+                InteractiveObject interactiveObject = class13_sub2.aInteractiveObjectArray1351[i1];
+                if ((interactiveObject.anInt359 >> 29 & 3) == 2 && interactiveObject.anInt353 == k && interactiveObject.anInt355 == l) {
+                    return interactiveObject;
                 }
             }
             if (j != -47543) {
@@ -949,7 +952,7 @@ public class Scene {
 
     public Class11 method219(int i, int j, boolean flag, int k) {
         try {
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[k][i][j];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[k][i][j];
             if (flag) {
                 throw new NullPointerException();
             }
@@ -965,7 +968,7 @@ public class Scene {
     }
 
     public int method220(int i, int j, int k) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null || class13_sub2.aClass15_1346 == null) {
             return 0;
         } else {
@@ -978,7 +981,7 @@ public class Scene {
             if (byte0 != aByte155) {
                 return 4;
             }
-            Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+            SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
             if (class13_sub2 == null || class13_sub2.aClass18_1347 == null) {
                 return 0;
             } else {
@@ -991,21 +994,21 @@ public class Scene {
     }
 
     public int method222(int i, int j, int k) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null) {
             return 0;
         }
         for (int l = 0; l < class13_sub2.anInt1350; l++) {
-            Class20 class20 = class13_sub2.aClass20Array1351[l];
-            if ((class20.anInt359 >> 29 & 3) == 2 && class20.anInt353 == j && class20.anInt355 == k) {
-                return class20.anInt359;
+            InteractiveObject interactiveObject = class13_sub2.aInteractiveObjectArray1351[l];
+            if ((interactiveObject.anInt359 >> 29 & 3) == 2 && interactiveObject.anInt353 == j && interactiveObject.anInt355 == k) {
+                return interactiveObject.anInt359;
             }
         }
         return 0;
     }
 
     public int method223(int i, int j, int k) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null || class13_sub2.aClass11_1348 == null) {
             return 0;
         } else {
@@ -1014,7 +1017,7 @@ public class Scene {
     }
 
     public int method224(int i, int j, int k, int l) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i][j][k];
         if (class13_sub2 == null) {
             return -1;
         }
@@ -1028,8 +1031,8 @@ public class Scene {
             return class13_sub2.aClass11_1348.aByte230 & 0xff;
         }
         for (int i1 = 0; i1 < class13_sub2.anInt1350; i1++) {
-            if (class13_sub2.aClass20Array1351[i1].anInt359 == l) {
-                return class13_sub2.aClass20Array1351[i1].aByte360 & 0xff;
+            if (class13_sub2.aInteractiveObjectArray1351[i1].anInt359 == l) {
+                return class13_sub2.aInteractiveObjectArray1351[i1].aByte360 & 0xff;
             }
         }
         return -1;
@@ -1045,12 +1048,12 @@ public class Scene {
             for (int i2 = 0; i2 < anInt163; i2++) {
                 for (int j2 = 0; j2 < anInt164; j2++) {
                     for (int k2 = 0; k2 < anInt165; k2++) {
-                        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[i2][j2][k2];
+                        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[i2][j2][k2];
                         if (class13_sub2 != null) {
                             Class15 class15 = class13_sub2.aClass15_1346;
-                            if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
+                            if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aVertexNormalArray1376 != null) {
                                 method227(j2, k2, 1, i2, 1, (Model) class15.aClass13_Sub1_Sub1_295, 0);
-                                if (class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
+                                if (class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aVertexNormalArray1376 != null) {
                                     method227(j2, k2, 1, i2, 1, (Model) class15.aClass13_Sub1_Sub1_296, 0);
                                     method228((Model) class15.aClass13_Sub1_Sub1_295, (Model) class15.aClass13_Sub1_Sub1_296, 0, 0, 0, false);
                                     ((Model) class15.aClass13_Sub1_Sub1_296).method283(j, l1, i1, j1, i);
@@ -1058,14 +1061,14 @@ public class Scene {
                                 ((Model) class15.aClass13_Sub1_Sub1_295).method283(j, l1, i1, j1, i);
                             }
                             for (int l2 = 0; l2 < class13_sub2.anInt1350; l2++) {
-                                Class20 class20 = class13_sub2.aClass20Array1351[l2];
-                                if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
-                                    method227(j2, k2, (class20.anInt356 - class20.anInt355) + 1, i2, (class20.anInt354 - class20.anInt353) + 1, (Model) class20.aClass13_Sub1_Sub1_351, 0);
-                                    ((Model) class20.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
+                                InteractiveObject interactiveObject = class13_sub2.aInteractiveObjectArray1351[l2];
+                                if (interactiveObject != null && interactiveObject.aClass13_Sub1_Sub1_351 != null && interactiveObject.aClass13_Sub1_Sub1_351.aVertexNormalArray1376 != null) {
+                                    method227(j2, k2, (interactiveObject.anInt356 - interactiveObject.anInt355) + 1, i2, (interactiveObject.anInt354 - interactiveObject.anInt353) + 1, (Model) interactiveObject.aClass13_Sub1_Sub1_351, 0);
+                                    ((Model) interactiveObject.aClass13_Sub1_Sub1_351).method283(j, l1, i1, j1, i);
                                 }
                             }
                             Class11 class11 = class13_sub2.aClass11_1348;
-                            if (class11 != null && class11.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
+                            if (class11 != null && class11.aClass13_Sub1_Sub1_228.aVertexNormalArray1376 != null) {
                                 method226((byte) 4, (Model) class11.aClass13_Sub1_Sub1_228, k2, i2, j2);
                                 ((Model) class11.aClass13_Sub1_Sub1_228).method283(j, l1, i1, j1, i);
                             }
@@ -1086,26 +1089,26 @@ public class Scene {
                 return;
             }
             if (k < anInt164) {
-                Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i];
-                if (class13_sub2 != null && class13_sub2.aClass11_1348 != null && class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
+                SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i];
+                if (class13_sub2 != null && class13_sub2.aClass11_1348 != null && class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228.aVertexNormalArray1376 != null) {
                     method228(class13_sub1_sub1_sub4, (Model) class13_sub2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 0, true);
                 }
             }
             if (i < anInt164) {
-                Node_Sub2 class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[j][k][i + 1];
-                if (class13_sub2_1 != null && class13_sub2_1.aClass11_1348 != null && class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
+                SceneTile class13_sub2_1 = aClass13_Sub2ArrayArrayArray167[j][k][i + 1];
+                if (class13_sub2_1 != null && class13_sub2_1.aClass11_1348 != null && class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228.aVertexNormalArray1376 != null) {
                     method228(class13_sub1_sub1_sub4, (Model) class13_sub2_1.aClass11_1348.aClass13_Sub1_Sub1_228, 0, 0, 128, true);
                 }
             }
             if (k < anInt164 && i < anInt165) {
-                Node_Sub2 class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i + 1];
-                if (class13_sub2_2 != null && class13_sub2_2.aClass11_1348 != null && class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
+                SceneTile class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i + 1];
+                if (class13_sub2_2 != null && class13_sub2_2.aClass11_1348 != null && class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228.aVertexNormalArray1376 != null) {
                     method228(class13_sub1_sub1_sub4, (Model) class13_sub2_2.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, 128, true);
                 }
             }
             if (k < anInt164 && i > 0) {
-                Node_Sub2 class13_sub2_3 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i - 1];
-                if (class13_sub2_3 != null && class13_sub2_3.aClass11_1348 != null && class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228.aClass7Array1376 != null) {
+                SceneTile class13_sub2_3 = aClass13_Sub2ArrayArrayArray167[j][k + 1][i - 1];
+                if (class13_sub2_3 != null && class13_sub2_3.aClass11_1348 != null && class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228.aVertexNormalArray1376 != null) {
                     method228(class13_sub1_sub1_sub4, (Model) class13_sub2_3.aClass11_1348.aClass13_Sub1_Sub1_228, 128, 0, -128, true);
                     return;
                 }
@@ -1133,22 +1136,22 @@ public class Scene {
                         if (i3 >= 0 && i3 < anInt164) {
                             for (int j3 = j2; j3 <= k2; j3++) {
                                 if (j3 >= 0 && j3 < anInt165 && (!flag || i3 >= i2 || j3 >= k2 || j3 < j && i3 != i)) {
-                                    Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[l2][i3][j3];
+                                    SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[l2][i3][j3];
                                     if (class13_sub2 != null) {
                                         int k3 = (anIntArrayArrayArray166[l2][i3][j3] + anIntArrayArrayArray166[l2][i3 + 1][j3] + anIntArrayArrayArray166[l2][i3][j3 + 1] + anIntArrayArrayArray166[l2][i3 + 1][j3 + 1]) / 4 - (anIntArrayArrayArray166[l][i][j] + anIntArrayArrayArray166[l][i + 1][j] + anIntArrayArrayArray166[l][i][j + 1] + anIntArrayArrayArray166[l][i + 1][j + 1]) / 4;
                                         Class15 class15 = class13_sub2.aClass15_1346;
-                                        if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aClass7Array1376 != null) {
+                                        if (class15 != null && class15.aClass13_Sub1_Sub1_295 != null && class15.aClass13_Sub1_Sub1_295.aVertexNormalArray1376 != null) {
                                             method228(class13_sub1_sub1_sub4, (Model) class15.aClass13_Sub1_Sub1_295, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
-                                        if (class15 != null && class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aClass7Array1376 != null) {
+                                        if (class15 != null && class15.aClass13_Sub1_Sub1_296 != null && class15.aClass13_Sub1_Sub1_296.aVertexNormalArray1376 != null) {
                                             method228(class13_sub1_sub1_sub4, (Model) class15.aClass13_Sub1_Sub1_296, (i3 - i) * 128 + (1 - i1) * 64, k3, (j3 - j) * 128 + (1 - k) * 64, flag);
                                         }
                                         for (int l3 = 0; l3 < class13_sub2.anInt1350; l3++) {
-                                            Class20 class20 = class13_sub2.aClass20Array1351[l3];
-                                            if (class20 != null && class20.aClass13_Sub1_Sub1_351 != null && class20.aClass13_Sub1_Sub1_351.aClass7Array1376 != null) {
-                                                int i4 = (class20.anInt354 - class20.anInt353) + 1;
-                                                int j4 = (class20.anInt356 - class20.anInt355) + 1;
-                                                method228(class13_sub1_sub1_sub4, (Model) class20.aClass13_Sub1_Sub1_351, (class20.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (class20.anInt355 - j) * 128 + (j4 - k) * 64, flag);
+                                            InteractiveObject interactiveObject = class13_sub2.aInteractiveObjectArray1351[l3];
+                                            if (interactiveObject != null && interactiveObject.aClass13_Sub1_Sub1_351 != null && interactiveObject.aClass13_Sub1_Sub1_351.aVertexNormalArray1376 != null) {
+                                                int i4 = (interactiveObject.anInt354 - interactiveObject.anInt353) + 1;
+                                                int j4 = (interactiveObject.anInt356 - interactiveObject.anInt355) + 1;
+                                                method228(class13_sub1_sub1_sub4, (Model) interactiveObject.aClass13_Sub1_Sub1_351, (interactiveObject.anInt353 - i) * 128 + (i4 - i1) * 64, k3, (interactiveObject.anInt355 - j) * 128 + (j4 - k) * 64, flag);
                                             }
                                         }
                                     }
@@ -1173,9 +1176,9 @@ public class Scene {
         int[] ai = class13_sub1_sub1_sub4_1.anIntArray1497;
         int i1 = class13_sub1_sub1_sub4_1.anInt1496;
         for (int j1 = 0; j1 < class13_sub1_sub1_sub4.anInt1496; j1++) {
-            Class7 class7 = class13_sub1_sub1_sub4.aClass7Array1376[j1];
-            Class7 class7_1 = class13_sub1_sub1_sub4.aClass7Array1530[j1];
-            if (class7_1.anInt135 != 0) {
+            VertexNormal vertexNormal = class13_sub1_sub1_sub4.aVertexNormalArray1376[j1];
+            VertexNormal vertexNormal_1 = class13_sub1_sub1_sub4.aVertexNormalArray1530[j1];
+            if (vertexNormal_1.anInt135 != 0) {
                 int i2 = class13_sub1_sub1_sub4.anIntArray1498[j1] - j;
                 if (i2 <= class13_sub1_sub1_sub4_1.anInt1521) {
                     int j2 = class13_sub1_sub1_sub4.anIntArray1497[j1] - i;
@@ -1183,17 +1186,17 @@ public class Scene {
                         int k2 = class13_sub1_sub1_sub4.anIntArray1499[j1] - k;
                         if (k2 >= class13_sub1_sub1_sub4_1.anInt1519 && k2 <= class13_sub1_sub1_sub4_1.anInt1518) {
                             for (int l2 = 0; l2 < i1; l2++) {
-                                Class7 class7_2 = class13_sub1_sub1_sub4_1.aClass7Array1376[l2];
-                                Class7 class7_3 = class13_sub1_sub1_sub4_1.aClass7Array1530[l2];
-                                if (j2 == ai[l2] && k2 == class13_sub1_sub1_sub4_1.anIntArray1499[l2] && i2 == class13_sub1_sub1_sub4_1.anIntArray1498[l2] && class7_3.anInt135 != 0) {
-                                    class7.anInt132 += class7_3.anInt132;
-                                    class7.anInt133 += class7_3.anInt133;
-                                    class7.anInt134 += class7_3.anInt134;
-                                    class7.anInt135 += class7_3.anInt135;
-                                    class7_2.anInt132 += class7_1.anInt132;
-                                    class7_2.anInt133 += class7_1.anInt133;
-                                    class7_2.anInt134 += class7_1.anInt134;
-                                    class7_2.anInt135 += class7_1.anInt135;
+                                VertexNormal vertexNormal_2 = class13_sub1_sub1_sub4_1.aVertexNormalArray1376[l2];
+                                VertexNormal vertexNormal_3 = class13_sub1_sub1_sub4_1.aVertexNormalArray1530[l2];
+                                if (j2 == ai[l2] && k2 == class13_sub1_sub1_sub4_1.anIntArray1499[l2] && i2 == class13_sub1_sub1_sub4_1.anIntArray1498[l2] && vertexNormal_3.anInt135 != 0) {
+                                    vertexNormal.anInt132 += vertexNormal_3.anInt132;
+                                    vertexNormal.anInt133 += vertexNormal_3.anInt133;
+                                    vertexNormal.anInt134 += vertexNormal_3.anInt134;
+                                    vertexNormal.anInt135 += vertexNormal_3.anInt135;
+                                    vertexNormal_2.anInt132 += vertexNormal_1.anInt132;
+                                    vertexNormal_2.anInt133 += vertexNormal_1.anInt133;
+                                    vertexNormal_2.anInt134 += vertexNormal_1.anInt134;
+                                    vertexNormal_2.anInt135 += vertexNormal_1.anInt135;
                                     l++;
                                     anIntArray212[j1] = anInt214;
                                     anIntArray213[l2] = anInt214;
@@ -1220,7 +1223,7 @@ public class Scene {
     }
 
     public void method229(int[] ai, int i, int j, int k, int l, int i1) {
-        Node_Sub2 class13_sub2 = aClass13_Sub2ArrayArrayArray167[k][l][i1];
+        SceneTile class13_sub2 = aClass13_Sub2ArrayArrayArray167[k][l][i1];
         if (class13_sub2 == null) {
             return;
         }
@@ -1340,10 +1343,10 @@ public class Scene {
             method239(-386);
             anInt172 = 0;
             for (int l1 = anInt168; l1 < anInt163; l1++) {
-                Node_Sub2[][] aclass13_sub2 = aClass13_Sub2ArrayArrayArray167[l1];
+                SceneTile[][] aclass13_sub2 = aClass13_Sub2ArrayArrayArray167[l1];
                 for (int j2 = anInt175; j2 < anInt176; j2++) {
                     for (int l2 = anInt177; l2 < anInt178; l2++) {
-                        Node_Sub2 class13_sub2 = aclass13_sub2[j2][l2];
+                        SceneTile class13_sub2 = aclass13_sub2[j2][l2];
                         if (class13_sub2 != null) {
                             if (class13_sub2.anInt1354 > i || !aBooleanArrayArray218[(j2 - anInt179) + 25][(l2 - anInt180) + 25] && anIntArrayArrayArray166[l1][j2][l2] - k1 < 2000) {
                                 class13_sub2.aBoolean1355 = false;
@@ -1360,7 +1363,7 @@ public class Scene {
                 }
             }
             for (int i2 = anInt168; i2 < anInt163; i2++) {
-                Node_Sub2[][] aclass13_sub2_1 = aClass13_Sub2ArrayArrayArray167[i2];
+                SceneTile[][] aclass13_sub2_1 = aClass13_Sub2ArrayArrayArray167[i2];
                 for (int i3 = -25; i3 <= 0; i3++) {
                     int j3 = anInt179 + i3;
                     int l3 = anInt179 - i3;
@@ -1370,13 +1373,13 @@ public class Scene {
                             int j5 = anInt180 - j4;
                             if (j3 >= anInt175) {
                                 if (l4 >= anInt177) {
-                                    Node_Sub2 class13_sub2_1 = aclass13_sub2_1[j3][l4];
+                                    SceneTile class13_sub2_1 = aclass13_sub2_1[j3][l4];
                                     if (class13_sub2_1 != null && class13_sub2_1.aBoolean1355) {
                                         method234(class13_sub2_1, true);
                                     }
                                 }
                                 if (j5 < anInt178) {
-                                    Node_Sub2 class13_sub2_2 = aclass13_sub2_1[j3][j5];
+                                    SceneTile class13_sub2_2 = aclass13_sub2_1[j3][j5];
                                     if (class13_sub2_2 != null && class13_sub2_2.aBoolean1355) {
                                         method234(class13_sub2_2, true);
                                     }
@@ -1384,13 +1387,13 @@ public class Scene {
                             }
                             if (l3 < anInt176) {
                                 if (l4 >= anInt177) {
-                                    Node_Sub2 class13_sub2_3 = aclass13_sub2_1[l3][l4];
+                                    SceneTile class13_sub2_3 = aclass13_sub2_1[l3][l4];
                                     if (class13_sub2_3 != null && class13_sub2_3.aBoolean1355) {
                                         method234(class13_sub2_3, true);
                                     }
                                 }
                                 if (j5 < anInt178) {
-                                    Node_Sub2 class13_sub2_4 = aclass13_sub2_1[l3][j5];
+                                    SceneTile class13_sub2_4 = aclass13_sub2_1[l3][j5];
                                     if (class13_sub2_4 != null && class13_sub2_4.aBoolean1355) {
                                         method234(class13_sub2_4, true);
                                     }
@@ -1405,7 +1408,7 @@ public class Scene {
                 }
             }
             for (int k2 = anInt168; k2 < anInt163; k2++) {
-                Node_Sub2[][] aclass13_sub2_2 = aClass13_Sub2ArrayArrayArray167[k2];
+                SceneTile[][] aclass13_sub2_2 = aClass13_Sub2ArrayArrayArray167[k2];
                 for (int k3 = -25; k3 <= 0; k3++) {
                     int i4 = anInt179 + k3;
                     int k4 = anInt179 - k3;
@@ -1415,13 +1418,13 @@ public class Scene {
                             int l5 = anInt180 - i5;
                             if (i4 >= anInt175) {
                                 if (k5 >= anInt177) {
-                                    Node_Sub2 class13_sub2_5 = aclass13_sub2_2[i4][k5];
+                                    SceneTile class13_sub2_5 = aclass13_sub2_2[i4][k5];
                                     if (class13_sub2_5 != null && class13_sub2_5.aBoolean1355) {
                                         method234(class13_sub2_5, false);
                                     }
                                 }
                                 if (l5 < anInt178) {
-                                    Node_Sub2 class13_sub2_6 = aclass13_sub2_2[i4][l5];
+                                    SceneTile class13_sub2_6 = aclass13_sub2_2[i4][l5];
                                     if (class13_sub2_6 != null && class13_sub2_6.aBoolean1355) {
                                         method234(class13_sub2_6, false);
                                     }
@@ -1429,13 +1432,13 @@ public class Scene {
                             }
                             if (k4 < anInt176) {
                                 if (k5 >= anInt177) {
-                                    Node_Sub2 class13_sub2_7 = aclass13_sub2_2[k4][k5];
+                                    SceneTile class13_sub2_7 = aclass13_sub2_2[k4][k5];
                                     if (class13_sub2_7 != null && class13_sub2_7.aBoolean1355) {
                                         method234(class13_sub2_7, false);
                                     }
                                 }
                                 if (l5 < anInt178) {
-                                    Node_Sub2 class13_sub2_8 = aclass13_sub2_2[k4][l5];
+                                    SceneTile class13_sub2_8 = aclass13_sub2_2[k4][l5];
                                     if (class13_sub2_8 != null && class13_sub2_8.aBoolean1355) {
                                         method234(class13_sub2_8, false);
                                     }
@@ -1457,12 +1460,12 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public void method234(Node_Sub2 class13_sub2, boolean flag) {
+    public void method234(SceneTile class13_sub2, boolean flag) {
         aLinkedList_203.pushBack(class13_sub2);
         do {
-            Node_Sub2 class13_sub2_1;
+            SceneTile class13_sub2_1;
             do {
-                class13_sub2_1 = (Node_Sub2) aLinkedList_203.pop();
+                class13_sub2_1 = (SceneTile) aLinkedList_203.pop();
                 if (class13_sub2_1 == null) {
                     return;
                 }
@@ -1471,35 +1474,35 @@ public class Scene {
             int j = class13_sub2_1.anInt1342;
             int k = class13_sub2_1.anInt1340;
             int l = class13_sub2_1.anInt1343;
-            Node_Sub2[][] aclass13_sub2 = aClass13_Sub2ArrayArrayArray167[k];
+            SceneTile[][] aclass13_sub2 = aClass13_Sub2ArrayArrayArray167[k];
             if (class13_sub2_1.aBoolean1355) {
                 if (flag) {
                     if (k > 0) {
-                        Node_Sub2 class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[k - 1][i][j];
+                        SceneTile class13_sub2_2 = aClass13_Sub2ArrayArrayArray167[k - 1][i][j];
                         if (class13_sub2_2 != null && class13_sub2_2.aBoolean1356) {
                             continue;
                         }
                     }
                     if (i <= anInt179 && i > anInt175) {
-                        Node_Sub2 class13_sub2_3 = aclass13_sub2[i - 1][j];
+                        SceneTile class13_sub2_3 = aclass13_sub2[i - 1][j];
                         if (class13_sub2_3 != null && class13_sub2_3.aBoolean1356 && (class13_sub2_3.aBoolean1355 || (class13_sub2_1.anInt1353 & 1) == 0)) {
                             continue;
                         }
                     }
                     if (i >= anInt179 && i < anInt176 - 1) {
-                        Node_Sub2 class13_sub2_4 = aclass13_sub2[i + 1][j];
+                        SceneTile class13_sub2_4 = aclass13_sub2[i + 1][j];
                         if (class13_sub2_4 != null && class13_sub2_4.aBoolean1356 && (class13_sub2_4.aBoolean1355 || (class13_sub2_1.anInt1353 & 4) == 0)) {
                             continue;
                         }
                     }
                     if (j <= anInt180 && j > anInt177) {
-                        Node_Sub2 class13_sub2_5 = aclass13_sub2[i][j - 1];
+                        SceneTile class13_sub2_5 = aclass13_sub2[i][j - 1];
                         if (class13_sub2_5 != null && class13_sub2_5.aBoolean1356 && (class13_sub2_5.aBoolean1355 || (class13_sub2_1.anInt1353 & 8) == 0)) {
                             continue;
                         }
                     }
                     if (j >= anInt180 && j < anInt178 - 1) {
-                        Node_Sub2 class13_sub2_6 = aclass13_sub2[i][j + 1];
+                        SceneTile class13_sub2_6 = aclass13_sub2[i][j + 1];
                         if (class13_sub2_6 != null && class13_sub2_6.aBoolean1356 && (class13_sub2_6.aBoolean1355 || (class13_sub2_1.anInt1353 & 2) == 0)) {
                             continue;
                         }
@@ -1509,7 +1512,7 @@ public class Scene {
                 }
                 class13_sub2_1.aBoolean1355 = false;
                 if (class13_sub2_1.aClass13_Sub2_1362 != null) {
-                    Node_Sub2 class13_sub2_7 = class13_sub2_1.aClass13_Sub2_1362;
+                    SceneTile class13_sub2_7 = class13_sub2_1.aClass13_Sub2_1362;
                     if (class13_sub2_7.aClass30_1344 != null) {
                         if (!method240(0, i, j)) {
                             method235(class13_sub2_7.aClass30_1344, 0, anInt184, anInt185, anInt186, anInt187, i, j);
@@ -1522,9 +1525,9 @@ public class Scene {
                         class15.aClass13_Sub1_Sub1_295.method255(0, anInt184, anInt185, anInt186, anInt187, class15.anInt291 - anInt181, class15.anInt290 - anInt182, class15.anInt292 - anInt183, class15.anInt297);
                     }
                     for (int i2 = 0; i2 < class13_sub2_7.anInt1350; i2++) {
-                        Class20 class20 = class13_sub2_7.aClass20Array1351[i2];
-                        if (class20 != null) {
-                            class20.aClass13_Sub1_Sub1_351.method255(class20.anInt352, anInt184, anInt185, anInt186, anInt187, class20.anInt349 - anInt181, class20.anInt348 - anInt182, class20.anInt350 - anInt183, class20.anInt359);
+                        InteractiveObject interactiveObject = class13_sub2_7.aInteractiveObjectArray1351[i2];
+                        if (interactiveObject != null) {
+                            interactiveObject.aClass13_Sub1_Sub1_351.method255(interactiveObject.anInt352, anInt184, anInt185, anInt186, anInt187, interactiveObject.anInt349 - anInt181, interactiveObject.anInt348 - anInt182, interactiveObject.anInt350 - anInt183, interactiveObject.anInt359);
                         }
                     }
                 }
@@ -1638,25 +1641,25 @@ public class Scene {
                 int k4 = class13_sub2_1.anInt1353;
                 if (k4 != 0) {
                     if (i < anInt179 && (k4 & 4) != 0) {
-                        Node_Sub2 class13_sub2_17 = aclass13_sub2[i + 1][j];
+                        SceneTile class13_sub2_17 = aclass13_sub2[i + 1][j];
                         if (class13_sub2_17 != null && class13_sub2_17.aBoolean1356) {
                             aLinkedList_203.pushBack(class13_sub2_17);
                         }
                     }
                     if (j < anInt180 && (k4 & 2) != 0) {
-                        Node_Sub2 class13_sub2_18 = aclass13_sub2[i][j + 1];
+                        SceneTile class13_sub2_18 = aclass13_sub2[i][j + 1];
                         if (class13_sub2_18 != null && class13_sub2_18.aBoolean1356) {
                             aLinkedList_203.pushBack(class13_sub2_18);
                         }
                     }
                     if (i > anInt179 && (k4 & 1) != 0) {
-                        Node_Sub2 class13_sub2_19 = aclass13_sub2[i - 1][j];
+                        SceneTile class13_sub2_19 = aclass13_sub2[i - 1][j];
                         if (class13_sub2_19 != null && class13_sub2_19.aBoolean1356) {
                             aLinkedList_203.pushBack(class13_sub2_19);
                         }
                     }
                     if (j > anInt180 && (k4 & 8) != 0) {
-                        Node_Sub2 class13_sub2_20 = aclass13_sub2[i][j - 1];
+                        SceneTile class13_sub2_20 = aclass13_sub2[i][j - 1];
                         if (class13_sub2_20 != null && class13_sub2_20.aBoolean1356) {
                             aLinkedList_203.pushBack(class13_sub2_20);
                         }
@@ -1666,7 +1669,7 @@ public class Scene {
             if (class13_sub2_1.anInt1358 != 0) {
                 boolean flag2 = true;
                 for (int k1 = 0; k1 < class13_sub2_1.anInt1350; k1++) {
-                    if (class13_sub2_1.aClass20Array1351[k1].anInt358 == anInt174 || (class13_sub2_1.anIntArray1352[k1] & class13_sub2_1.anInt1358) != class13_sub2_1.anInt1359) {
+                    if (class13_sub2_1.aInteractiveObjectArray1351[k1].anInt358 == anInt174 || (class13_sub2_1.anIntArray1352[k1] & class13_sub2_1.anInt1358) != class13_sub2_1.anInt1359) {
                         continue;
                     }
                     flag2 = false;
@@ -1687,13 +1690,13 @@ public class Scene {
                     int l1 = 0;
                     label0:
                     for (int k2 = 0; k2 < i1; k2++) {
-                        Class20 class20_1 = class13_sub2_1.aClass20Array1351[k2];
-                        if (class20_1.anInt358 == anInt174) {
+                        InteractiveObject interactiveObject_1 = class13_sub2_1.aInteractiveObjectArray1351[k2];
+                        if (interactiveObject_1.anInt358 == anInt174) {
                             continue;
                         }
-                        for (int k3 = class20_1.anInt353; k3 <= class20_1.anInt354; k3++) {
-                            for (int l4 = class20_1.anInt355; l4 <= class20_1.anInt356; l4++) {
-                                Node_Sub2 class13_sub2_21 = aclass13_sub2[k3][l4];
+                        for (int k3 = interactiveObject_1.anInt353; k3 <= interactiveObject_1.anInt354; k3++) {
+                            for (int l4 = interactiveObject_1.anInt355; l4 <= interactiveObject_1.anInt356; l4++) {
+                                SceneTile class13_sub2_21 = aclass13_sub2[k3][l4];
                                 if (class13_sub2_21.aBoolean1355) {
                                     class13_sub2_1.aBoolean1357 = true;
                                 } else {
@@ -1701,16 +1704,16 @@ public class Scene {
                                         continue;
                                     }
                                     int l6 = 0;
-                                    if (k3 > class20_1.anInt353) {
+                                    if (k3 > interactiveObject_1.anInt353) {
                                         l6++;
                                     }
-                                    if (k3 < class20_1.anInt354) {
+                                    if (k3 < interactiveObject_1.anInt354) {
                                         l6 += 4;
                                     }
-                                    if (l4 > class20_1.anInt355) {
+                                    if (l4 > interactiveObject_1.anInt355) {
                                         l6 += 8;
                                     }
-                                    if (l4 < class20_1.anInt356) {
+                                    if (l4 < interactiveObject_1.anInt356) {
                                         l6 += 2;
                                     }
                                     if ((l6 & class13_sub2_21.anInt1358) != class13_sub2_1.anInt1360) {
@@ -1721,34 +1724,34 @@ public class Scene {
                                 continue label0;
                             }
                         }
-                        aClass20Array188[l1++] = class20_1;
-                        int i5 = anInt179 - class20_1.anInt353;
-                        int i6 = class20_1.anInt354 - anInt179;
+                        aInteractiveObjectArray188[l1++] = interactiveObject_1;
+                        int i5 = anInt179 - interactiveObject_1.anInt353;
+                        int i6 = interactiveObject_1.anInt354 - anInt179;
                         if (i6 > i5) {
                             i5 = i6;
                         }
-                        int i7 = anInt180 - class20_1.anInt355;
-                        int j8 = class20_1.anInt356 - anInt180;
+                        int i7 = anInt180 - interactiveObject_1.anInt355;
+                        int j8 = interactiveObject_1.anInt356 - anInt180;
                         if (j8 > i7) {
-                            class20_1.anInt357 = i5 + j8;
+                            interactiveObject_1.anInt357 = i5 + j8;
                         } else {
-                            class20_1.anInt357 = i5 + i7;
+                            interactiveObject_1.anInt357 = i5 + i7;
                         }
                     }
                     while (l1 > 0) {
                         int i3 = -50;
                         int l3 = -1;
                         for (int j5 = 0; j5 < l1; j5++) {
-                            Class20 class20_2 = aClass20Array188[j5];
-                            if (class20_2.anInt358 != anInt174) {
-                                if (class20_2.anInt357 > i3) {
-                                    i3 = class20_2.anInt357;
+                            InteractiveObject interactiveObject_2 = aInteractiveObjectArray188[j5];
+                            if (interactiveObject_2.anInt358 != anInt174) {
+                                if (interactiveObject_2.anInt357 > i3) {
+                                    i3 = interactiveObject_2.anInt357;
                                     l3 = j5;
-                                } else if (class20_2.anInt357 == i3) {
-                                    int j7 = class20_2.anInt349 - anInt181;
-                                    int k8 = class20_2.anInt350 - anInt183;
-                                    int l9 = aClass20Array188[l3].anInt349 - anInt181;
-                                    int l10 = aClass20Array188[l3].anInt350 - anInt183;
+                                } else if (interactiveObject_2.anInt357 == i3) {
+                                    int j7 = interactiveObject_2.anInt349 - anInt181;
+                                    int k8 = interactiveObject_2.anInt350 - anInt183;
+                                    int l9 = aInteractiveObjectArray188[l3].anInt349 - anInt181;
+                                    int l10 = aInteractiveObjectArray188[l3].anInt350 - anInt183;
                                     if (j7 * j7 + k8 * k8 > l9 * l9 + l10 * l10) {
                                         l3 = j5;
                                     }
@@ -1758,14 +1761,14 @@ public class Scene {
                         if (l3 == -1) {
                             break;
                         }
-                        Class20 class20_3 = aClass20Array188[l3];
-                        class20_3.anInt358 = anInt174;
-                        if (!method243(l, class20_3.anInt353, class20_3.anInt354, class20_3.anInt355, class20_3.anInt356, class20_3.aClass13_Sub1_Sub1_351.anInt1377)) {
-                            class20_3.aClass13_Sub1_Sub1_351.method255(class20_3.anInt352, anInt184, anInt185, anInt186, anInt187, class20_3.anInt349 - anInt181, class20_3.anInt348 - anInt182, class20_3.anInt350 - anInt183, class20_3.anInt359);
+                        InteractiveObject interactiveObject_3 = aInteractiveObjectArray188[l3];
+                        interactiveObject_3.anInt358 = anInt174;
+                        if (!method243(l, interactiveObject_3.anInt353, interactiveObject_3.anInt354, interactiveObject_3.anInt355, interactiveObject_3.anInt356, interactiveObject_3.aClass13_Sub1_Sub1_351.anInt1377)) {
+                            interactiveObject_3.aClass13_Sub1_Sub1_351.method255(interactiveObject_3.anInt352, anInt184, anInt185, anInt186, anInt187, interactiveObject_3.anInt349 - anInt181, interactiveObject_3.anInt348 - anInt182, interactiveObject_3.anInt350 - anInt183, interactiveObject_3.anInt359);
                         }
-                        for (int k7 = class20_3.anInt353; k7 <= class20_3.anInt354; k7++) {
-                            for (int l8 = class20_3.anInt355; l8 <= class20_3.anInt356; l8++) {
-                                Node_Sub2 class13_sub2_22 = aclass13_sub2[k7][l8];
+                        for (int k7 = interactiveObject_3.anInt353; k7 <= interactiveObject_3.anInt354; k7++) {
+                            for (int l8 = interactiveObject_3.anInt355; l8 <= interactiveObject_3.anInt356; l8++) {
+                                SceneTile class13_sub2_22 = aclass13_sub2[k7][l8];
                                 if (class13_sub2_22.anInt1358 != 0) {
                                     aLinkedList_203.pushBack(class13_sub2_22);
                                 } else if ((k7 != i || l8 != j) && class13_sub2_22.aBoolean1356) {
@@ -1785,25 +1788,25 @@ public class Scene {
                 continue;
             }
             if (i <= anInt179 && i > anInt175) {
-                Node_Sub2 class13_sub2_8 = aclass13_sub2[i - 1][j];
+                SceneTile class13_sub2_8 = aclass13_sub2[i - 1][j];
                 if (class13_sub2_8 != null && class13_sub2_8.aBoolean1356) {
                     continue;
                 }
             }
             if (i >= anInt179 && i < anInt176 - 1) {
-                Node_Sub2 class13_sub2_9 = aclass13_sub2[i + 1][j];
+                SceneTile class13_sub2_9 = aclass13_sub2[i + 1][j];
                 if (class13_sub2_9 != null && class13_sub2_9.aBoolean1356) {
                     continue;
                 }
             }
             if (j <= anInt180 && j > anInt177) {
-                Node_Sub2 class13_sub2_10 = aclass13_sub2[i][j - 1];
+                SceneTile class13_sub2_10 = aclass13_sub2[i][j - 1];
                 if (class13_sub2_10 != null && class13_sub2_10.aBoolean1356) {
                     continue;
                 }
             }
             if (j >= anInt180 && j < anInt178 - 1) {
-                Node_Sub2 class13_sub2_11 = aclass13_sub2[i][j + 1];
+                SceneTile class13_sub2_11 = aclass13_sub2[i][j + 1];
                 if (class13_sub2_11 != null && class13_sub2_11.aBoolean1356) {
                     continue;
                 }
@@ -1867,31 +1870,31 @@ public class Scene {
                 }
             }
             if (k < anInt163 - 1) {
-                Node_Sub2 class13_sub2_12 = aClass13_Sub2ArrayArrayArray167[k + 1][i][j];
+                SceneTile class13_sub2_12 = aClass13_Sub2ArrayArrayArray167[k + 1][i][j];
                 if (class13_sub2_12 != null && class13_sub2_12.aBoolean1356) {
                     aLinkedList_203.pushBack(class13_sub2_12);
                 }
             }
             if (i < anInt179) {
-                Node_Sub2 class13_sub2_13 = aclass13_sub2[i + 1][j];
+                SceneTile class13_sub2_13 = aclass13_sub2[i + 1][j];
                 if (class13_sub2_13 != null && class13_sub2_13.aBoolean1356) {
                     aLinkedList_203.pushBack(class13_sub2_13);
                 }
             }
             if (j < anInt180) {
-                Node_Sub2 class13_sub2_14 = aclass13_sub2[i][j + 1];
+                SceneTile class13_sub2_14 = aclass13_sub2[i][j + 1];
                 if (class13_sub2_14 != null && class13_sub2_14.aBoolean1356) {
                     aLinkedList_203.pushBack(class13_sub2_14);
                 }
             }
             if (i > anInt179) {
-                Node_Sub2 class13_sub2_15 = aclass13_sub2[i - 1][j];
+                SceneTile class13_sub2_15 = aclass13_sub2[i - 1][j];
                 if (class13_sub2_15 != null && class13_sub2_15.aBoolean1356) {
                     aLinkedList_203.pushBack(class13_sub2_15);
                 }
             }
             if (j > anInt180) {
-                Node_Sub2 class13_sub2_16 = aclass13_sub2[i][j - 1];
+                SceneTile class13_sub2_16 = aclass13_sub2[i][j - 1];
                 if (class13_sub2_16 != null && class13_sub2_16.aBoolean1356) {
                     aLinkedList_203.pushBack(class13_sub2_16);
                 }
@@ -1968,7 +1971,7 @@ public class Scene {
                 if (class30.anInt475 != 0xbc614e) {
                     Rasterizer3D.method374(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474);
                 }
-            } else if (!aBoolean162) {
+            } else if (!isLowMemory) {
                 if (class30.aBoolean478) {
                     Rasterizer3D.method378(j6, l6, l5, i6, k6, k5, class30.anInt475, class30.anInt476, class30.anInt474, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                 } else {
@@ -1991,7 +1994,7 @@ public class Scene {
                     return;
                 }
             } else {
-                if (!aBoolean162) {
+                if (!isLowMemory) {
                     Rasterizer3D.method378(j5, l5, l6, i5, k5, k6, class30.anInt473, class30.anInt474, class30.anInt476, i2, i3, l1, l3, i4, k4, k2, j2, j3, class30.anInt477);
                     return;
                 }
@@ -2052,7 +2055,7 @@ public class Scene {
                         if (shapedTile.anIntArray507[k2] != 0xbc614e) {
                             Rasterizer3D.method374(i5, j5, k5, j4, k4, l4, shapedTile.anIntArray507[k2], shapedTile.anIntArray508[k2], shapedTile.anIntArray509[k2]);
                         }
-                    } else if (!aBoolean162) {
+                    } else if (!isLowMemory) {
                         if (shapedTile.aBoolean514) {
                             Rasterizer3D.method378(i5, j5, k5, j4, k4, l4, shapedTile.anIntArray507[k2], shapedTile.anIntArray508[k2], shapedTile.anIntArray509[k2], ShapedTile.anIntArray521[0], ShapedTile.anIntArray521[1], ShapedTile.anIntArray521[3], ShapedTile.anIntArray522[0], ShapedTile.anIntArray522[1], ShapedTile.anIntArray522[3], ShapedTile.anIntArray523[0], ShapedTile.anIntArray523[1], ShapedTile.anIntArray523[3], shapedTile.anIntArray513[k2]);
                         } else {

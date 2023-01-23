@@ -152,7 +152,7 @@ public class Player extends Entity {
                     }
                 }
             }
-            class13_sub1_sub1_sub4_1.method272(true);
+            class13_sub1_sub1_sub4_1.method272();
             class13_sub1_sub1_sub4_1.method282(64, 850, -30, -50, -30, true);
             modelCache.put(class13_sub1_sub1_sub4_1, l);
             aLong1710 = l;
@@ -165,7 +165,7 @@ public class Player extends Entity {
         if (k != -1 && i1 != -1) {
             class13_sub1_sub1_sub4_2.method274(aByte1708, SequenceConfig.sequences[super.emoteAnimation].anIntArray806, i1, k);
         } else if (k != -1) {
-            class13_sub1_sub1_sub4_2.method273(k, false);
+            class13_sub1_sub1_sub4_2.method273(k);
         }
         class13_sub1_sub1_sub4_2.method269(0);
         class13_sub1_sub1_sub4_2.anIntArrayArray1528 = null;
@@ -178,7 +178,7 @@ public class Player extends Entity {
             return null;
         }
         if (npcTransformation != null) {
-            return npcTransformation.getHeadModel(524);
+            return npcTransformation.getHeadModel();
         }
         boolean flag = false;
         for (int j = 0; j < 12; j++) {
@@ -241,8 +241,8 @@ public class Player extends Entity {
             if (class13_sub1_sub1_sub4_2 != null) {
                 Model class13_sub1_sub1_sub4_3 = new Model(false, AnimationFrame.method189(super.anInt1593, 19953), 629, class13_sub1_sub1_sub4_2, true);
                 class13_sub1_sub1_sub4_3.method278(0, -991, -super.graphicHeight, 0);
-                class13_sub1_sub1_sub4_3.method272(true);
-                class13_sub1_sub1_sub4_3.method273(spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593], false);
+                class13_sub1_sub1_sub4_3.method272();
+                class13_sub1_sub1_sub4_3.method273(spotAnimationConfig.aSequenceConfig_689.anIntArray802[super.anInt1593]);
                 class13_sub1_sub1_sub4_3.anIntArrayArray1528 = null;
                 class13_sub1_sub1_sub4_3.anIntArrayArray1527 = null;
                 if (spotAnimationConfig.anInt692 != 128 || spotAnimationConfig.anInt693 != 128) {

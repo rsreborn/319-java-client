@@ -29,20 +29,20 @@ public class GameShell extends Applet
     public Graphics aGraphics15;
     public ProducingGraphicsBuffer aProducingGraphicsBuffer_16;
     public Sprite[] aClass13_Sub1_Sub4_Sub4Array17;
-    public Frame_Sub1 aFrame_Sub1_18;
+    public GameFrame gameFrame;
     public boolean aBoolean19;
     public boolean aBoolean20;
-    public int anInt21;
+    public int idleTime;
     public int anInt22;
-    public int anInt23;
-    public int anInt24;
+    public int mouseX;
+    public int mouseY;
     public int anInt25;
     public int anInt26;
     public int anInt27;
     public long aLong28;
     public int clickType;
-    public int mouseX;
-    public int mouseY;
+    public int clickX;
+    public int clickY;
     public long aLong32;
     public int[] anIntArray33;
     public int[] anIntArray34;
@@ -70,29 +70,29 @@ public class GameShell extends Applet
         initialWidth = width;
         initialHeight = height;
         System.out.println("Height " + height + " Width " + width + " Initial Height " + initialHeight + " Initial Width " + initialWidth);
-        aFrame_Sub1_18 = new Frame_Sub1(this, initialHeight, initialWidth);
-        aGraphics15 = method11().getGraphics();
-        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
+        gameFrame = new GameFrame(this, initialHeight, initialWidth);
+        aGraphics15 = getGameFrame().getGraphics();
+        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(getGameFrame(), initialWidth, initialHeight);
         method12(this, 1);
     }
 
     public void method2(int height, int width) {
         initialWidth = width;
         initialHeight = height;
-        aGraphics15 = method11().getGraphics();
-        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(method11(), initialWidth, initialHeight);
+        aGraphics15 = getGameFrame().getGraphics();
+        aProducingGraphicsBuffer_16 = new ProducingGraphicsBuffer(getGameFrame(), initialWidth, initialHeight);
         method12(this, 1);
     }
 
     public void run() {
-        method11().addMouseListener(this);
-        method11().addMouseMotionListener(this);
-        method11().addKeyListener(this);
-        method11().addFocusListener(this);
-        if (aFrame_Sub1_18 != null) {
-            aFrame_Sub1_18.addWindowListener(this);
+        getGameFrame().addMouseListener(this);
+        getGameFrame().addMouseMotionListener(this);
+        getGameFrame().addKeyListener(this);
+        getGameFrame().addFocusListener(this);
+        if (gameFrame != null) {
+            gameFrame.addWindowListener(this);
         }
-        updateLoadingBar(false, "Loading...", 0);
+        updateLoadingBar("Loading...", 0);
         method6();
         int i = 0;
         int j = 256;
@@ -151,8 +151,8 @@ public class GameShell extends Applet
             }
             for (; i1 < 256; i1 += j) {
                 clickType = anInt25;
-                mouseX = anInt26;
-                mouseY = anInt27;
+                clickX = anInt26;
+                clickY = anInt27;
                 aLong32 = aLong28;
                 anInt25 = 0;
                 method7(aByte2);
@@ -185,7 +185,7 @@ public class GameShell extends Applet
         try {
             anInt7 = -2;
             method8(427);
-            if (aFrame_Sub1_18 != null) {
+            if (gameFrame != null) {
                 try {
                     Thread.sleep(1000L);
                 } catch (Exception _ex) {
@@ -247,11 +247,11 @@ public class GameShell extends Applet
     public void mousePressed(MouseEvent mouseEvent) {
         int i = mouseEvent.getX();
         int j = mouseEvent.getY();
-        if (aFrame_Sub1_18 != null) {
+        if (gameFrame != null) {
             i -= 4;
             j -= 22;
         }
-        anInt21 = 0;
+        idleTime = 0;
         anInt26 = i;
         anInt27 = j;
         aLong28 = System.currentTimeMillis();
@@ -265,7 +265,7 @@ public class GameShell extends Applet
     }
 
     public void mouseReleased(MouseEvent mouseevent) {
-        anInt21 = 0;
+        idleTime = 0;
         anInt22 = 0;
     }
 
@@ -276,37 +276,37 @@ public class GameShell extends Applet
     }
 
     public void mouseExited(MouseEvent mouseevent) {
-        anInt21 = 0;
-        anInt23 = -1;
-        anInt24 = -1;
+        idleTime = 0;
+        mouseX = -1;
+        mouseY = -1;
     }
 
     public void mouseDragged(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
-        if (aFrame_Sub1_18 != null) {
-            i -= 4;
-            j -= 22;
+        int mouseX = mouseevent.getX();
+        int mouseY = mouseevent.getY();
+        if (gameFrame != null) {
+            mouseX -= 4;
+            mouseY -= 22;
         }
-        anInt21 = 0;
-        anInt23 = i;
-        anInt24 = j;
+        idleTime = 0;
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
     }
 
     public void mouseMoved(MouseEvent mouseevent) {
         int i = mouseevent.getX();
         int j = mouseevent.getY();
-        if (aFrame_Sub1_18 != null) {
+        if (gameFrame != null) {
             i -= 4;
             j -= 22;
         }
-        anInt21 = 0;
-        anInt23 = i;
-        anInt24 = j;
+        idleTime = 0;
+        mouseX = i;
+        mouseY = j;
     }
 
     public void keyPressed(KeyEvent keyevent) {
-        anInt21 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         int j = keyevent.getKeyChar();
         if (j < 30) {
@@ -364,7 +364,7 @@ public class GameShell extends Applet
     }
 
     public void keyReleased(KeyEvent keyevent) {
-        anInt21 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         char c = keyevent.getKeyChar();
         if (c < '\036') {
@@ -476,9 +476,9 @@ public class GameShell extends Applet
 
     }
 
-    public Component method11() {
-        if (aFrame_Sub1_18 != null) {
-            return aFrame_Sub1_18;
+    public Component getGameFrame() {
+        if (gameFrame != null) {
+            return gameFrame;
         } else {
             return this;
         }
@@ -490,46 +490,36 @@ public class GameShell extends Applet
         thread.setPriority(i);
     }
 
-    public void updateLoadingBar(boolean flag, String text, int percentage) {
-        try {
-            while (aGraphics15 == null) {
-                aGraphics15 = method11().getGraphics();
-                try {
-                    method11().repaint();
-                } catch (Exception _ex) {
-                }
-                try {
-                    Thread.sleep(1000L);
-                } catch (Exception _ex) {
-                }
+    public void updateLoadingBar(String text, int percentage) {
+        while (aGraphics15 == null) {
+            aGraphics15 = getGameFrame().getGraphics();
+            try {
+                getGameFrame().repaint();
+            } catch (Exception _ex) {
             }
-            java.awt.Font font = new java.awt.Font("Helvetica", 1, 13);
-            FontMetrics fontmetrics = method11().getFontMetrics(font);
-            java.awt.Font font1 = new java.awt.Font("Helvetica", 0, 13);
-            method11().getFontMetrics(font1);
-            if (flag) {
-                for (int j = 1; j > 0; j++) {
-                }
+            try {
+                Thread.sleep(1000L);
+            } catch (Exception _ex) {
             }
-            if (aBoolean19) {
-                aGraphics15.setColor(Color.black);
-                aGraphics15.fillRect(0, 0, initialWidth, initialHeight);
-                aBoolean19 = false;
-            }
-            Color color = new Color(140, 17, 17);
-            int k = initialHeight / 2 - 18;
-            aGraphics15.setColor(color);
-            aGraphics15.drawRect(initialWidth / 2 - 152, k, 304, 34);
-            aGraphics15.fillRect(initialWidth / 2 - 150, k + 2, percentage * 3, 30);
-            aGraphics15.setColor(Color.black);
-            aGraphics15.fillRect((initialWidth / 2 - 150) + percentage * 3, k + 2, 300 - percentage * 3, 30);
-            aGraphics15.setFont(font);
-            aGraphics15.setColor(Color.white);
-            aGraphics15.drawString(text, (initialWidth - fontmetrics.stringWidth(text)) / 2, k + 22);
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("GameShell.updateLoadingBar, " + flag + ", " + text + ", " + percentage + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        java.awt.Font font = new java.awt.Font("Helvetica", 1, 13);
+        FontMetrics fontmetrics = getGameFrame().getFontMetrics(font);
+        java.awt.Font font1 = new java.awt.Font("Helvetica", 0, 13);
+        getGameFrame().getFontMetrics(font1);
+        if (aBoolean19) {
+            aGraphics15.setColor(Color.black);
+            aGraphics15.fillRect(0, 0, initialWidth, initialHeight);
+            aBoolean19 = false;
+        }
+        Color color = new Color(140, 17, 17);
+        int k = initialHeight / 2 - 18;
+        aGraphics15.setColor(color);
+        aGraphics15.drawRect(initialWidth / 2 - 152, k, 304, 34);
+        aGraphics15.fillRect(initialWidth / 2 - 150, k + 2, percentage * 3, 30);
+        aGraphics15.setColor(Color.black);
+        aGraphics15.fillRect((initialWidth / 2 - 150) + percentage * 3, k + 2, 300 - percentage * 3, 30);
+        aGraphics15.setFont(font);
+        aGraphics15.setColor(Color.white);
+        aGraphics15.drawString(text, (initialWidth - fontmetrics.stringWidth(text)) / 2, k + 22);
     }
 }

@@ -15,8 +15,8 @@ public class Sprite extends Rasterizer {
     public int anInt1678;
     public boolean aBoolean1679;
     public int[] anIntArray1680;
-    public int anInt1681;
-    public int anInt1682;
+    public int spriteWidth;
+    public int spriteHeight;
     public int anInt1683;
     public int anInt1684;
     public int anInt1685;
@@ -29,8 +29,8 @@ public class Sprite extends Rasterizer {
         anInt1678 = 834;
         aBoolean1679 = false;
         anIntArray1680 = new int[i * j];
-        anInt1681 = anInt1685 = i;
-        anInt1682 = anInt1686 = j;
+        spriteWidth = anInt1685 = i;
+        spriteHeight = anInt1686 = j;
         anInt1683 = anInt1684 = 0;
     }
 
@@ -45,14 +45,14 @@ public class Sprite extends Rasterizer {
             MediaTracker mediatracker = new MediaTracker(component);
             mediatracker.addImage(image, 0);
             mediatracker.waitForAll();
-            anInt1681 = image.getWidth(component);
-            anInt1682 = image.getHeight(component);
-            anInt1685 = anInt1681;
-            anInt1686 = anInt1682;
+            spriteWidth = image.getWidth(component);
+            spriteHeight = image.getHeight(component);
+            anInt1685 = spriteWidth;
+            anInt1686 = spriteHeight;
             anInt1683 = 0;
             anInt1684 = 0;
-            anIntArray1680 = new int[anInt1681 * anInt1682];
-            PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, anInt1681, anInt1682, anIntArray1680, 0, anInt1681);
+            anIntArray1680 = new int[spriteWidth * spriteHeight];
+            PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, spriteWidth, spriteHeight, anIntArray1680, 0, spriteWidth);
             pixelgrabber.grabPixels();
             return;
         } catch (Exception _ex) {
@@ -86,10 +86,10 @@ public class Sprite extends Rasterizer {
         }
         anInt1683 = class13_sub1_sub2_1.readUByte();
         anInt1684 = class13_sub1_sub2_1.readUByte();
-        anInt1681 = class13_sub1_sub2_1.readUShortBE();
-        anInt1682 = class13_sub1_sub2_1.readUShortBE();
+        spriteWidth = class13_sub1_sub2_1.readUShortBE();
+        spriteHeight = class13_sub1_sub2_1.readUShortBE();
         int i1 = class13_sub1_sub2_1.readUByte();
-        int j1 = anInt1681 * anInt1682;
+        int j1 = spriteWidth * spriteHeight;
         anIntArray1680 = new int[j1];
         if (i1 == 0) {
             for (int k1 = 0; k1 < j1; k1++) {
@@ -98,9 +98,9 @@ public class Sprite extends Rasterizer {
             return;
         }
         if (i1 == 1) {
-            for (int l1 = 0; l1 < anInt1681; l1++) {
-                for (int i2 = 0; i2 < anInt1682; i2++) {
-                    anIntArray1680[l1 + i2 * anInt1681] = ai[buffer.readUByte()];
+            for (int l1 = 0; l1 < spriteWidth; l1++) {
+                for (int i2 = 0; i2 < spriteHeight; i2++) {
+                    anIntArray1680[l1 + i2 * spriteWidth] = ai[buffer.readUByte()];
                 }
             }
         }
@@ -111,7 +111,7 @@ public class Sprite extends Rasterizer {
             if (flag) {
                 aBoolean1679 = !aBoolean1679;
             }
-            Rasterizer.method351(anIntArray1680, anInt1682, anInt1681);
+            Rasterizer.createRasterizer(anIntArray1680, spriteHeight, spriteWidth);
             return;
         } catch (RuntimeException runtimeexception) {
             Signlink.reportError("37582, " + flag + ", " + runtimeexception);
@@ -119,114 +119,88 @@ public class Sprite extends Rasterizer {
         throw new RuntimeException();
     }
 
-    public void method404(int i, int j, byte byte0, int k) {
-        try {
-            for (int l = 0; l < anIntArray1680.length; l++) {
-                int i1 = anIntArray1680[l];
-                if (i1 != 0) {
-                    int j1 = i1 >> 16 & 0xff;
-                    j1 += j;
-                    if (j1 < 1) {
-                        j1 = 1;
-                    } else if (j1 > 255) {
-                        j1 = 255;
-                    }
-                    int k1 = i1 >> 8 & 0xff;
-                    k1 += i;
-                    if (k1 < 1) {
-                        k1 = 1;
-                    } else if (k1 > 255) {
-                        k1 = 255;
-                    }
-                    int l1 = i1 & 0xff;
-                    l1 += k;
-                    if (l1 < 1) {
-                        l1 = 1;
-                    } else if (l1 > 255) {
-                        l1 = 255;
-                    }
-                    anIntArray1680[l] = (j1 << 16) + (k1 << 8) + l1;
+    public void method404(int i, int j, int k) {
+        for (int l = 0; l < anIntArray1680.length; l++) {
+            int i1 = anIntArray1680[l];
+            if (i1 != 0) {
+                int j1 = i1 >> 16 & 0xff;
+                j1 += j;
+                if (j1 < 1) {
+                    j1 = 1;
+                } else if (j1 > 255) {
+                    j1 = 255;
                 }
+                int k1 = i1 >> 8 & 0xff;
+                k1 += i;
+                if (k1 < 1) {
+                    k1 = 1;
+                } else if (k1 > 255) {
+                    k1 = 255;
+                }
+                int l1 = i1 & 0xff;
+                l1 += k;
+                if (l1 < 1) {
+                    l1 = 1;
+                } else if (l1 > 255) {
+                    l1 = 255;
+                }
+                anIntArray1680[l] = (j1 << 16) + (k1 << 8) + l1;
             }
-            if (byte0 != aByte1677) {
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("30401, " + i + ", " + j + ", " + byte0 + ", " + k + ", " + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
-    public void method405(int i) {
-        try {
-            if (i <= 0) {
-                aBoolean1679 = !aBoolean1679;
+    public void method405() {
+        int[] ai = new int[anInt1685 * anInt1686];
+        for (int j = 0; j < spriteHeight; j++) {
+            for (int k = 0; k < spriteWidth; k++) {
+                ai[(j + anInt1684) * anInt1685 + (k + anInt1683)] = anIntArray1680[j * spriteWidth + k];
             }
-            int[] ai = new int[anInt1685 * anInt1686];
-            for (int j = 0; j < anInt1682; j++) {
-                for (int k = 0; k < anInt1681; k++) {
-                    ai[(j + anInt1684) * anInt1685 + (k + anInt1683)] = anIntArray1680[j * anInt1681 + k];
-                }
-            }
-            anIntArray1680 = ai;
-            anInt1681 = anInt1685;
-            anInt1682 = anInt1686;
-            anInt1683 = 0;
-            anInt1684 = 0;
+        }
+        anIntArray1680 = ai;
+        spriteWidth = anInt1685;
+        spriteHeight = anInt1686;
+        anInt1683 = 0;
+        anInt1684 = 0;
+    }
+
+    public void method406(int i, int j) {
+        i += anInt1683;
+        j += anInt1684;
+        int l = i + j * Rasterizer.width;
+        int i1 = 0;
+        int spriteHeight = this.spriteHeight;
+        int spriteWidth = this.spriteWidth;
+        int l1 = Rasterizer.width - spriteWidth;
+        int i2 = 0;
+        if (j < Rasterizer.anInt1426) {
+            int j2 = Rasterizer.anInt1426 - j;
+            spriteHeight -= j2;
+            j = Rasterizer.anInt1426;
+            i1 += j2 * spriteWidth;
+            l += j2 * Rasterizer.width;
+        }
+        if (j + spriteHeight > Rasterizer.anInt1427) {
+            spriteHeight -= (j + spriteHeight) - Rasterizer.anInt1427;
+        }
+        if (i < Rasterizer.anInt1428) {
+            int k2 = Rasterizer.anInt1428 - i;
+            spriteWidth -= k2;
+            i = Rasterizer.anInt1428;
+            i1 += k2;
+            l += k2;
+            i2 += k2;
+            l1 += k2;
+        }
+        if (i + spriteWidth > Rasterizer.anInt1429) {
+            int l2 = (i + spriteWidth) - Rasterizer.anInt1429;
+            spriteWidth -= l2;
+            i2 += l2;
+            l1 += l2;
+        }
+        if (spriteWidth <= 0 || spriteHeight <= 0) {
             return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("26341, " + i + ", " + runtimeexception);
         }
-        throw new RuntimeException();
-    }
-
-    public void method406(int i, int j, int k) {
-        try {
-            i += anInt1683;
-            j += anInt1684;
-            int l = i + j * Rasterizer.width;
-            int i1 = 0;
-            int j1 = anInt1682;
-            int k1 = anInt1681;
-            int l1 = Rasterizer.width - k1;
-            int i2 = 0;
-            if (j < Rasterizer.anInt1426) {
-                int j2 = Rasterizer.anInt1426 - j;
-                j1 -= j2;
-                j = Rasterizer.anInt1426;
-                i1 += j2 * k1;
-                l += j2 * Rasterizer.width;
-            }
-            if (j + j1 > Rasterizer.anInt1427) {
-                j1 -= (j + j1) - Rasterizer.anInt1427;
-            }
-            if (i < Rasterizer.anInt1428) {
-                int k2 = Rasterizer.anInt1428 - i;
-                k1 -= k2;
-                i = Rasterizer.anInt1428;
-                i1 += k2;
-                l += k2;
-                i2 += k2;
-                l1 += k2;
-            }
-            if (i + k1 > Rasterizer.anInt1429) {
-                int l2 = (i + k1) - Rasterizer.anInt1429;
-                k1 -= l2;
-                i2 += l2;
-                l1 += l2;
-            }
-            if (k1 <= 0 || j1 <= 0) {
-                return;
-            }
-            method407(l, i2, l1, j1, k1, i1, anIntArray1680, 5, Rasterizer.pixels);
-            if (k <= 0) {
-                anInt1678 = 287;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("27980, " + i + ", " + j + ", " + k + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
+        method407(l, i2, l1, spriteHeight, spriteWidth, i1, anIntArray1680, 5, Rasterizer.pixels);
     }
 
     public void method407(int i, int j, int k, int l, int i1, int j1, int[] ai,
@@ -267,8 +241,8 @@ public class Sprite extends Rasterizer {
             i += anInt1684;
             int l = j + i * Rasterizer.width;
             int i1 = 0;
-            int j1 = anInt1682;
-            int k1 = anInt1681;
+            int j1 = spriteHeight;
+            int k1 = spriteWidth;
             int l1 = Rasterizer.width - k1;
             int i2 = 0;
             if (i < Rasterizer.anInt1426) {
@@ -362,8 +336,8 @@ public class Sprite extends Rasterizer {
                 for (int k1 = 1; k1 > 0; k1++) {
                 }
             }
-            int l1 = anInt1682;
-            int i2 = anInt1681;
+            int l1 = spriteHeight;
+            int i2 = spriteWidth;
             int j2 = Rasterizer.width - i2;
             int k2 = 0;
             if (l < Rasterizer.anInt1426) {
@@ -452,7 +426,7 @@ public class Sprite extends Rasterizer {
                     int k4 = j3 + i3 * i4;
                     int l4 = k3 - l2 * i4;
                     for (k = -ai1[l1]; k < 0; k++) {
-                        Rasterizer.pixels[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * anInt1681];
+                        Rasterizer.pixels[j4++] = anIntArray1680[(k4 >> 16) + (l4 >> 16) * spriteWidth];
                         k4 += i3;
                         l4 -= l2;
                     }
@@ -491,7 +465,7 @@ public class Sprite extends Rasterizer {
                     int l3 = l2;
                     int i4 = i3;
                     for (k1 = -j; k1 < 0; k1++) {
-                        int j4 = anIntArray1680[(l3 >> 16) + (i4 >> 16) * anInt1681];
+                        int j4 = anIntArray1680[(l3 >> 16) + (i4 >> 16) * spriteWidth];
                         if (j4 != 0) {
                             Rasterizer.pixels[k3++] = j4;
                         } else {
@@ -520,8 +494,8 @@ public class Sprite extends Rasterizer {
             i += anInt1684;
             int k = j + i * Rasterizer.width;
             int l = 0;
-            int i1 = anInt1682;
-            int j1 = anInt1681;
+            int i1 = spriteHeight;
+            int j1 = spriteWidth;
             int k1 = Rasterizer.width - j1;
             int l1 = 0;
             if (byte0 == 6) {

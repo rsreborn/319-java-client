@@ -1,8 +1,8 @@
-package com.jagex;
+package com.jagex.util;
 
 import com.jagex.util.Node;
 
-public class Node_Sub3 extends Node {
+public class SpawnObjectNode extends Node {
 
     public int anInt1363;
     public int anInt1364;
@@ -17,7 +17,7 @@ public class Node_Sub3 extends Node {
     public int anInt1373;
     public int anInt1374;
 
-    public Node_Sub3() {
+    public SpawnObjectNode() {
         anInt1371 = -1;
     }
 }

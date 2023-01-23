@@ -1,13 +1,12 @@
 package com.jagex.renderable;
 
-import com.jagex.Class7;
 import com.jagex.graphics.Model;
 import com.jagex.util.CacheableNode;
 
 public class Renderable extends CacheableNode {
 
     public boolean aBoolean1375;
-    public Class7[] aClass7Array1376;
+    public VertexNormal[] aVertexNormalArray1376;
     public int anInt1377;
 
     public Renderable() {

@@ -7,7 +7,7 @@ public class Rasterizer3D extends Rasterizer {
 
     public static boolean aBoolean1623 = true;
     public static int anInt1624 = 809;
-    public static boolean aBoolean1625 = true;
+    public static boolean isLowMemory = true;
     public static boolean aBoolean1626;
     public static boolean aBoolean1627;
     public static boolean aBoolean1628 = true;
@@ -124,7 +124,7 @@ public class Rasterizer3D extends Rasterizer {
             }
             if (anIntArrayArray1642 == null) {
                 anInt1641 = i;
-                if (aBoolean1625) {
+                if (isLowMemory) {
                     anIntArrayArray1642 = new int[anInt1641][16384];
                 } else {
                     anIntArrayArray1642 = new int[anInt1641][0x10000];
@@ -146,7 +146,7 @@ public class Rasterizer3D extends Rasterizer {
             for (int i = 0; i < 50; i++) {
                 try {
                     aClass13_Sub1_Sub4_Sub3Array1638[i] = new IndexedImage(cacheArchive, String.valueOf(i), 0);
-                    if (aBoolean1625 && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
+                    if (isLowMemory && aClass13_Sub1_Sub4_Sub3Array1638[i].anInt1673 == 128) {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method396(true);
                     } else {
                         aClass13_Sub1_Sub4_Sub3Array1638[i].method397(anInt1624);
@@ -236,7 +236,7 @@ public class Rasterizer3D extends Rasterizer {
         anIntArrayArray1643[i] = ai;
         IndexedImage class13_sub1_sub4_sub3 = aClass13_Sub1_Sub4_Sub3Array1638[i];
         int[] ai1 = anIntArrayArray1647[i];
-        if (aBoolean1625) {
+        if (isLowMemory) {
             aBooleanArray1639[i] = false;
             for (int i1 = 0; i1 < 4096; i1++) {
                 int i2 = ai[i1] = ai1[class13_sub1_sub4_sub3.aByteArray1667[i1]] & 0xf8f8ff;
@@ -274,97 +274,89 @@ public class Rasterizer3D extends Rasterizer {
         return ai;
     }
 
-    public static void method372(double d, byte byte0) {
-        try {
-            d += Math.random() * 0.029999999999999999D - 0.014999999999999999D;
-            if (byte0 != 7) {
-                return;
-            }
-            int i = 0;
-            for (int j = 0; j < 512; j++) {
-                double d1 = (double) (j / 8) / 64D + 0.0078125D;
-                double d2 = (double) (j & 7) / 8D + 0.0625D;
-                for (int j1 = 0; j1 < 128; j1++) {
-                    double d3 = (double) j1 / 128D;
-                    double d4 = d3;
-                    double d5 = d3;
-                    double d6 = d3;
-                    if (d2 != 0.0D) {
-                        double d7;
-                        if (d3 < 0.5D) {
-                            d7 = d3 * (1.0D + d2);
-                        } else {
-                            d7 = (d3 + d2) - d3 * d2;
-                        }
-                        double d8 = 2D * d3 - d7;
-                        double d9 = d1 + 0.33333333333333331D;
-                        if (d9 > 1.0D) {
-                            d9--;
-                        }
-                        double d10 = d1;
-                        double d11 = d1 - 0.33333333333333331D;
-                        if (d11 < 0.0D) {
-                            d11++;
-                        }
-                        if (6D * d9 < 1.0D) {
-                            d4 = d8 + (d7 - d8) * 6D * d9;
-                        } else if (2D * d9 < 1.0D) {
-                            d4 = d7;
-                        } else if (3D * d9 < 2D) {
-                            d4 = d8 + (d7 - d8) * (0.66666666666666663D - d9) * 6D;
-                        } else {
-                            d4 = d8;
-                        }
-                        if (6D * d10 < 1.0D) {
-                            d5 = d8 + (d7 - d8) * 6D * d10;
-                        } else if (2D * d10 < 1.0D) {
-                            d5 = d7;
-                        } else if (3D * d10 < 2D) {
-                            d5 = d8 + (d7 - d8) * (0.66666666666666663D - d10) * 6D;
-                        } else {
-                            d5 = d8;
-                        }
-                        if (6D * d11 < 1.0D) {
-                            d6 = d8 + (d7 - d8) * 6D * d11;
-                        } else if (2D * d11 < 1.0D) {
-                            d6 = d7;
-                        } else if (3D * d11 < 2D) {
-                            d6 = d8 + (d7 - d8) * (0.66666666666666663D - d11) * 6D;
-                        } else {
-                            d6 = d8;
-                        }
+    public static void method372(double d) {
+        d += Math.random() * 0.029999999999999999D - 0.014999999999999999D;
+
+        int i = 0;
+        for (int j = 0; j < 512; j++) {
+            double d1 = (double) (j / 8) / 64D + 0.0078125D;
+            double d2 = (double) (j & 7) / 8D + 0.0625D;
+            for (int j1 = 0; j1 < 128; j1++) {
+                double d3 = (double) j1 / 128D;
+                double d4 = d3;
+                double d5 = d3;
+                double d6 = d3;
+                if (d2 != 0.0D) {
+                    double d7;
+                    if (d3 < 0.5D) {
+                        d7 = d3 * (1.0D + d2);
+                    } else {
+                        d7 = (d3 + d2) - d3 * d2;
                     }
-                    int k1 = (int) (d4 * 256D);
-                    int l1 = (int) (d5 * 256D);
-                    int i2 = (int) (d6 * 256D);
-                    int j2 = (k1 << 16) + (l1 << 8) + i2;
-                    j2 = method373(j2, d);
-                    if (j2 == 0) {
-                        j2 = 1;
+                    double d8 = 2D * d3 - d7;
+                    double d9 = d1 + 0.33333333333333331D;
+                    if (d9 > 1.0D) {
+                        d9--;
                     }
-                    anIntArray1646[i++] = j2;
-                }
-            }
-            for (int k = 0; k < 50; k++) {
-                if (aClass13_Sub1_Sub4_Sub3Array1638[k] != null) {
-                    int[] ai = aClass13_Sub1_Sub4_Sub3Array1638[k].anIntArray1668;
-                    anIntArrayArray1647[k] = new int[ai.length];
-                    for (int i1 = 0; i1 < ai.length; i1++) {
-                        anIntArrayArray1647[k][i1] = method373(ai[i1], d);
-                        if ((anIntArrayArray1647[k][i1] & 0xf8f8ff) == 0 && i1 != 0) {
-                            anIntArrayArray1647[k][i1] = 1;
-                        }
+                    double d10 = d1;
+                    double d11 = d1 - 0.33333333333333331D;
+                    if (d11 < 0.0D) {
+                        d11++;
+                    }
+                    if (6D * d9 < 1.0D) {
+                        d4 = d8 + (d7 - d8) * 6D * d9;
+                    } else if (2D * d9 < 1.0D) {
+                        d4 = d7;
+                    } else if (3D * d9 < 2D) {
+                        d4 = d8 + (d7 - d8) * (0.66666666666666663D - d9) * 6D;
+                    } else {
+                        d4 = d8;
+                    }
+                    if (6D * d10 < 1.0D) {
+                        d5 = d8 + (d7 - d8) * 6D * d10;
+                    } else if (2D * d10 < 1.0D) {
+                        d5 = d7;
+                    } else if (3D * d10 < 2D) {
+                        d5 = d8 + (d7 - d8) * (0.66666666666666663D - d10) * 6D;
+                    } else {
+                        d5 = d8;
+                    }
+                    if (6D * d11 < 1.0D) {
+                        d6 = d8 + (d7 - d8) * 6D * d11;
+                    } else if (2D * d11 < 1.0D) {
+                        d6 = d7;
+                    } else if (3D * d11 < 2D) {
+                        d6 = d8 + (d7 - d8) * (0.66666666666666663D - d11) * 6D;
+                    } else {
+                        d6 = d8;
                     }
                 }
+                int k1 = (int) (d4 * 256D);
+                int l1 = (int) (d5 * 256D);
+                int i2 = (int) (d6 * 256D);
+                int j2 = (k1 << 16) + (l1 << 8) + i2;
+                j2 = method373(j2, d);
+                if (j2 == 0) {
+                    j2 = 1;
+                }
+                anIntArray1646[i++] = j2;
             }
-            for (int l = 0; l < 50; l++) {
-                method370(false, l);
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            Signlink.reportError("32346, " + d + ", " + byte0 + ", " + runtimeexception);
         }
-        throw new RuntimeException();
+        for (int k = 0; k < 50; k++) {
+            if (aClass13_Sub1_Sub4_Sub3Array1638[k] != null) {
+                int[] ai = aClass13_Sub1_Sub4_Sub3Array1638[k].anIntArray1668;
+                anIntArrayArray1647[k] = new int[ai.length];
+                for (int i1 = 0; i1 < ai.length; i1++) {
+                    anIntArrayArray1647[k][i1] = method373(ai[i1], d);
+                    if ((anIntArrayArray1647[k][i1] & 0xf8f8ff) == 0 && i1 != 0) {
+                        anIntArrayArray1647[k][i1] = 1;
+                    }
+                }
+            }
+        }
+        for (int l = 0; l < 50; l++) {
+            method370(false, l);
+        }
     }
 
     public static int method373(int i, double d) {
@@ -1761,7 +1753,7 @@ public class Rasterizer3D extends Rasterizer {
             j1 <<= 9;
         }
         k += l;
-        if (aBoolean1625) {
+        if (isLowMemory) {
             int i4 = 0;
             int k4 = 0;
             int k6 = l - anInt1630;
